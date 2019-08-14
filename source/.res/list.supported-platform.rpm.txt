@@ -1,0 +1,5 @@
+
+- |rhel| 6 (Current Stable)
+- |centos| 7 and |rhel| 7
+- |rhel| 8
+
