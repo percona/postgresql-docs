@@ -20,8 +20,8 @@ from sphinx.directives import ObjectDescription
 from sphinx.util.nodes import make_refnode
 
 # Uncomment for sphinx <1.8
-#from docutils.parsers.rst import directives
-#from sphinx.util.compat import Directive
+from docutils.parsers.rst import directives
+from sphinx.util.compat import Directive
 # Comment for sphinx <1.8 and uncomment for sphinx 1.8+
 #from docutils.parsers.rst import Directive, directives
 
