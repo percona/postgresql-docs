@@ -10,7 +10,7 @@ import re
 import string
 
 from docutils import nodes
-#from docutils.parsers.rst import directives
+
 
 from sphinx import addnodes
 from sphinx.roles import XRefRole
@@ -18,10 +18,16 @@ from sphinx.locale import l_, _
 from sphinx.domains import Domain, ObjType, Index
 from sphinx.directives import ObjectDescription
 from sphinx.util.nodes import make_refnode
+
+# Uncomment for sphinx <1.8
+#from docutils.parsers.rst import directives
 #from sphinx.util.compat import Directive
+# Comment for sphinx <1.8 and uncomment for sphinx 1.8+
+#from docutils.parsers.rst import Directive, directives
+
+
 from sphinx.util.docfields import Field, GroupedField, TypedField
 
-from docutils.parsers.rst import Directive, directives
 
 # RE to split at word boundaries
 wsplit_re = re.compile(r'\W+')
@@ -353,7 +359,8 @@ class PerconaServerDomain(Domain):
     }
 
     def clear_doc(self, docname):
-        for fullname, (fn, _) in self.data['objects'].items():
+        # use iteritems() if Python 2.7; items() for Python 3
+        for fullname, (fn, _) in self.data['objects'].iteritems():
             if fn == docname:
                 del self.data['objects'][fullname]
 
