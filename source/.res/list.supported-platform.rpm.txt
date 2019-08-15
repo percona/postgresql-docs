@@ -1,5 +1,9 @@
 
-- |rhel| 6 (Current Stable)
 - |centos| 7 and |rhel| 7
 - |rhel| 8
 
+
+Also it is needed to mention that on centos7 it is needed to install epel-release package and enable epel repo
+On debian9 it is needed to enable llvm repo as for now we haven't rebuilt llvm
+Here are there instructions how to enable llvm repo:
+https://apt.llvm.org/
