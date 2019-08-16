@@ -30,7 +30,7 @@ commands that require elevated priviges start with |sudo| in the following proce
 
 .. code-block:: bash
 
-   $ sudo percona-release enable experimental ppg-11
+   $ sudo percona-release enable ppg-11 experimental 
 
 The next steps depend on the installation package format that your operating
 system supports.
