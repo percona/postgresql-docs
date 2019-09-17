@@ -3,5 +3,7 @@
 - Debian 10.0 (buster)
 - Ubuntu 18.04 LTS (bionic)
 
+.. important::
 
- 
+   When using Debian 9 (stretch), enable the ``llvm`` repository. For more
+   information, see https://apt.llvm.org/
