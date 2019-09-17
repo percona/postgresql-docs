@@ -6,3 +6,4 @@ Release Notes
 .. toctree::
 
    release-notes-v11
+   release-notes-v11-beta

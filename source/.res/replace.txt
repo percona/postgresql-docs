@@ -17,8 +17,8 @@
 .. |debian| replace:: Debian
 .. |ubuntu| replace:: Ubuntu
 .. |sudo| replace:: :program:`sudo`
-.. |apt-install| replace:: :program:`apt-install`
-.. |yum-install| replace:: :program:`yum-install`
+.. |apt-install| replace:: :program:`apt install`
+.. |yum-install| replace:: :program:`yum install`
 .. |percona-release| replace:: :program:`percona-release`
 .. |rhel| replace:: Red Hat Enterprise Linux
 .. |amazon-linux| replace:: Amazon Linux

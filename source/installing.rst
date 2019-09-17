@@ -30,7 +30,7 @@ commands that require elevated priviges start with |sudo| in the following proce
 
 .. code-block:: bash
 
-   $ sudo percona-release enable ppg-11 experimental 
+   $ sudo percona-release setup ppg-11
 
 The next steps depend on the installation package format that your operating
 system supports.
@@ -38,39 +38,33 @@ system supports.
 Using the |deb| Format
 ================================================================================
 
-Start by updating the list of available packages. After this command completes,
-the |percona-postgresql| package is ready to be installed.
+Install the |percona-platform-postgresql-11| package using |apt-install|.
 
 .. code-block:: bash
 
-   $ sudo apt update
+   $ sudo apt install percona-postgresql-11
+
+The following platforms are supported:
+
+.. include:: .res/list.supported-platform.deb.txt
 
 .. admonition:: Platform Specific Notes
 
    On Debian 9 (stretch), you need to `enable the llvm repository
    <https://apt.llvm.org/>`_
 
-Install the |percona-platform-postgresql-11| using |apt-install|.
-
-.. code-block:: bash
-
-   $ sudo apt install percona-postgresql-11
-
-.. admonition:: Supported platforms
-
-   The following platforms are supported
-
-   .. include:: .res/list.supported-platform.deb.txt
-
 Using the |rpm| Format
 ================================================================================
 
-Start by updating the list of available packages. After this command completes,
-the |percona-postgresql| package is ready to be installed.
+Install the |percona-platform-postgresql-11| package using |yum-install|.
 
 .. code-block:: bash
 
-   $ sudo yum update
+   $ sudo yum install percona-postgresql11-server
+
+The following platforms are supported:
+
+.. include:: .res/list.supported-platform.rpm.txt
 
 .. admonition:: Platform Specific Notes
 
@@ -87,16 +81,5 @@ the |percona-postgresql| package is ready to be installed.
       $ sudo yum -y install epel-release
       $ sudo yum repolist
 
-Next, install the |percona-platform-postgresql-11| using |yum-install|.
-
-.. code-block:: bash
-
-   $ sudo yum install percona-postgresql-11
-
-.. admonition:: Supported platforms
-
-   The following platforms are supported
-
-   .. include:: .res/list.supported-platform.rpm.txt
 
 .. include:: .res/replace.txt
