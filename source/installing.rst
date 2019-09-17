@@ -62,8 +62,6 @@ Install the |percona-platform-postgresql-11| using |apt-install|.
 
    .. include:: .res/list.supported-platform.deb.txt
 
-.. include:: .res/list.supported-platform.deb.txt
-
 Using the |rpm| Format
 ================================================================================
 
