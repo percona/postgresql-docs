@@ -44,6 +44,22 @@ Install the |percona-platform-postgresql-11| package using |apt-install|.
 
    $ sudo apt install percona-postgresql-11
 
+Note that this package will not install the components. To install these
+components use the appropriate packages:
+
+.. code-block:: bash
+
+   $ # To install pg_repack
+   $ sudo apt-get install percona-postgresql-11-repack
+   $ # To Install pgaudit
+   $ sudo apt-get install percona-postgresql-11-pgaudit
+   $ # To install pgBackRest
+   $ sudo apt-get install percona-pgbackrest
+   $ # To install Patroni
+   $ sudo apt-get install percona-patroni
+   $ # To install PostgreSQL contrib extensions
+   $ sudo apt-get install percona-postgresql-contrib
+
 The following platforms are supported:
 
 .. include:: .res/list.supported-platform.deb.txt
@@ -61,6 +77,22 @@ Install the |percona-platform-postgresql-11| package using |yum-install|.
 .. code-block:: bash
 
    $ sudo yum install percona-postgresql11-server
+
+Note that this package will not install the components. To install these
+components use the appropriate packages:
+
+.. code-block:: bash
+
+   $ # To install pg_repack
+   $ sudo yum install percona-pg_repack11
+   $ # To Install pgaudit
+   $ sudo yum install percona-pgaudit
+   $ # To install pgBackRest
+   $ sudo yum install percona-pgbackrest
+   $ # To install Patroni
+   $ sudo yum install percona-patroni
+   $ # To install PostgreSQL contrib extensions
+   $ sudo yum install percona-postgresql11-contrib
 
 The following platforms are supported:
 
