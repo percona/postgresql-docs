@@ -38,6 +38,8 @@ system supports.
 Using the |deb| Format
 ================================================================================
 
+.. include:: .res/important.postgresql.uninstall.txt
+
 Install the |percona-platform-postgresql-11| package using |apt-install|.
 
 .. code-block:: bash
