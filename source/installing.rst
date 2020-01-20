@@ -10,30 +10,39 @@ CentOS, and Amazon Linux AMI as well as in the |deb| format for |ubuntu| and
 known as amd64).
 
 Like many other |percona| products, |pdp| is installed by using the
-|percona-release| utility. As soon as it is ready, enable |pdp| and then install
-using the commands of your package manager.
+|percona-release| utility.
 
 .. important::
 
-   Before you attempt to install |pdp|, update |percona-release| to its latest
-   version. For the steps described in this section to succeed,
-   |percona-release| must be version 1.0.12 or later.
+   Before you attempt to install |pdp|, reinstall |percona-release| to get its latest
+   version. 
 
    .. seealso::
 
-      Documentation of |percona-release|
+      Documentation of |percona-release|: Installation 
          https://www.percona.com/doc/percona-repo-config/percona-release.html
 
-
-Make sure to run |percona-release| as root or via |sudo|. For the sake of convenience, all
-commands that require elevated priviges start with |sudo| in the following procedures.
+As soon as |percona-release| is ready, *set up* the |pdp| product (``ppg-11``).
 
 .. code-block:: bash
 
-   $ sudo percona-release setup ppg-11
+   $ sudo percona-release setup ppg11
 
-The next steps depend on the installation package format that your operating
-system supports.
+Make sure to run |percona-release| as root or via |sudo|. For the
+sake of convenience, all commands that require elevated priviges start with
+|sudo| in the following procedures.
+
+.. hint::
+
+   You can also make the packages related to |pdp| available by enabling the
+   dedicated repository:
+
+   .. code-block:: bash
+
+      $ sudo percona-release enable ppg-11 release
+
+Install |ppd| using the commands of your package manager (the precedure differs
+depending on the package manager of your operating system).
 
 Using the |deb| Format
 ================================================================================
