@@ -47,6 +47,8 @@ depending on the package manager of your operating system).
 Using the |deb| Format
 ================================================================================
 
+.. include:: .res/important.postgresql.uninstall.txt
+
 Install the |percona-platform-postgresql-11| package using |apt-install|.
 
 .. code-block:: bash
