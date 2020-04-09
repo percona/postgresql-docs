@@ -16,7 +16,7 @@ Like many other |percona| products, |pdp| is installed by using the
 
    Before you attempt to install |pdp|, update |percona-release| to
    its latest version. `See the documentation
-   https://www.percona.com/doc/percona-repo-config/percona-release.html#percona-release-update-latest-version`_
+   <https://www.percona.com/doc/percona-repo-config/percona-release.html#percona-release-update-latest-version>`_
    of |percona-release| for details.
 
 As soon as |percona-release| is up-to-date, *set up* the |pdp| product (``ppg-11``).
