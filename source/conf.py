@@ -118,10 +118,11 @@ html_theme_path = ['.', './percona-theme']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Percona Distribution for PostgreSQL 11 Documentation'
+#html_title = 'Percona Distribution for PostgreSQL 12 Documentation'
+html_title = '' .join ([project, version, 'Documentation'])
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'Percona Distribution for PostgreSQL'
+html_short_title = '' .join (['Percona Distribution for PostgreSQL', version])
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -182,7 +183,7 @@ html_sidebars = {
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PerconaDistributionForPostgreSQL11doc'
+htmlhelp_basename = 'PerconaDistributionForPostgreSQL12doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -196,8 +197,8 @@ htmlhelp_basename = 'PerconaDistributionForPostgreSQL11doc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'PerconaDistributionForPostgreSQL-11.tex', u'Percona Distribution for PostgreSQL Documentation',
-   u'Percona LLC and/or its affiliates 2009-2019', 'manual'),
+  ('index', 'PerconaDistributionForPostgreSQL-12.tex', u'Percona Distribution for PostgreSQL Documentation',
+   u'Percona LLC and/or its affiliates 2009-2020', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -234,8 +235,8 @@ latex_elements = {
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'perconadistributionforpostgresql11', u'Percona Distribution for PostgreSQL 11 Documentation',
-     [u'Percona LLC and/or its affiliates 2009-2019'], 1)
+    ('index', 'perconadistributionforpostgresql12', u'Percona Distribution for PostgreSQL 12 Documentation',
+     [u'Percona LLC and/or its affiliates 2009-2020'], 1)
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.

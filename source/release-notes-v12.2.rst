@@ -5,8 +5,8 @@
 ================================================================================
 
 :Date: May 15, 2020
-:Installation: `Installing Percona Distribution for PostgreSQL <https://www.percona.com/doc/postgresql/12/installing.html>`_
-
+:Installation: :ref:`pdp.installing`
+	       
 |pdp| is a collection of tools to assist you in managing |postgresql|. |pdp|
 installs |postgresql| and complements it by a selection of extensions that
 enable solving essential practical tasks efficiently:
@@ -20,10 +20,10 @@ enable solving essential practical tasks efficiently:
 - `Patroni <https://patroni.readthedocs.io/en/latest/>`_ - an HA solution for
   |postgresql|
 - A collection of `additional PostgreSQL contrib extensions
-  <https://www.postgresql.org/docs/11/contrib.html>`_
+  <https://www.postgresql.org/docs/12/contrib.html>`_
 
 |pdp| is also shipped with the `libpq
-<https://www.postgresql.org/docs/11/libpq.html>`_ library. It contains "a set of
+<https://www.postgresql.org/docs/12/libpq.html>`_ library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
 backend server and to receive the results of these queries." [#]_
 
