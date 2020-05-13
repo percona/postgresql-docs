@@ -19,17 +19,18 @@ Like many other |percona| products, |pdp| is installed by using the
    <https://www.percona.com/doc/percona-repo-config/percona-release.html#percona-release-update-latest-version>`_
    of |percona-release| for details.
 
-As soon as |percona-release| is up-to-date, *set up* the |pdp| product (``ppg-11``).
+As soon as |percona-release| is up-to-date, *set up* the required version of the
+|pdp| product (``ppg-<version>``). For example, to set up |pdp| 11.7, use the following command:
 
 .. code-block:: bash
 
-   $ sudo percona-release setup ppg11
+   $ sudo percona-release setup ppg-11.7
 
 Make sure to run |percona-release| as root or via |sudo|. For the
 sake of convenience, all commands that require elevated priviges start with
 |sudo| in the following procedures.
 
-Install |pdp| using the commands of your package manager (the precedure differs
+Install |pdp| using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
 Using the |deb| Format
