@@ -1,9 +1,12 @@
-.. _pdp.release-notes.v11:
+.. _DISTPG-12.2:
 
-|pdp| |version|
-********************************************************************************
+================================================================================
+*Percona Distribution for PostgreSQL* 12.2
+================================================================================
 
-|percona| is excited to announce the GA release of |pdp| |version| on |date|.
+:Date: May 15, 2020
+:Installation: :ref:`pdp.installing`
+	       
 |pdp| is a collection of tools to assist you in managing |postgresql|. |pdp|
 installs |postgresql| and complements it by a selection of extensions that
 enable solving essential practical tasks efficiently:
@@ -17,18 +20,17 @@ enable solving essential practical tasks efficiently:
 - `Patroni <https://patroni.readthedocs.io/en/latest/>`_ - an HA solution for
   |postgresql|
 - A collection of `additional PostgreSQL contrib extensions
-  <https://www.postgresql.org/docs/11/contrib.html>`_
+  <https://www.postgresql.org/docs/12/contrib.html>`_
 
 |pdp| is also shipped with the `libpq
-<https://www.postgresql.org/docs/11/libpq.html>`_ library. It contains "a set of
+<https://www.postgresql.org/docs/12/libpq.html>`_ library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
 backend server and to receive the results of these queries." [#]_
 
-This release of |pdp| is based on |postgresql| 11.
+This release of |pdp| is based on |postgresql| |version|.
 
-.. |version| replace:: 11
-.. |date| replace:: September 17, 2019
+.. |version| replace:: 12.2
 
-.. [#] https://www.postgresql.org/docs/11/libpq.html
+.. [#] https://www.postgresql.org/docs/12/libpq.html
 
 .. include:: .res/replace.txt

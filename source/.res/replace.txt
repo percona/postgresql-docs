@@ -3,6 +3,7 @@
 .. |percona-postgresql| replace:: :program:`percona-postgresql`
 .. |percona-platform-postgresql| replace:: :program:`percona-postgresql`
 .. |percona-platform-postgresql-11| replace:: :program:`percona-postgresql-11`
+.. |percona-platform-postgresql-12| replace:: :program:`percona-postgresql-12`
 .. |postgresql| replace:: PostgreSQL
 .. |postgres| replace:: PostgreSQL
 .. |pg| replace:: PostgreSQL

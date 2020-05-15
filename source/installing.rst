@@ -19,17 +19,18 @@ Like many other |percona| products, |pdp| is installed by using the
    <https://www.percona.com/doc/percona-repo-config/percona-release.html#percona-release-update-latest-version>`_
    of |percona-release| for details.
 
-As soon as |percona-release| is up-to-date, *set up* the |pdp| product (``ppg-11``).
+As soon as |percona-release| is up-to-date, *set up* the required version of the
+|pdp| product (``ppg-<version>``). For example, to set up |pdp| 12.2, use the following command:
 
 .. code-block:: bash
 
-   $ sudo percona-release setup ppg11
+   $ sudo percona-release setup ppg-12.2
 
 Make sure to run |percona-release| as root or via |sudo|. For the
 sake of convenience, all commands that require elevated priviges start with
 |sudo| in the following procedures.
 
-Install |pdp| using the commands of your package manager (the precedure differs
+Install |pdp| using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
 Using the |deb| Format
@@ -37,11 +38,11 @@ Using the |deb| Format
 
 .. include:: .res/important.postgresql.uninstall.txt
 
-Install the |percona-platform-postgresql-11| package using |apt-install|.
+Install the |percona-platform-postgresql-12| package using |apt-install|.
 
 .. code-block:: bash
 
-   $ sudo apt install percona-postgresql-11
+   $ sudo apt install percona-postgresql-12
 
 Note that this package will not install the components. To install these
 components use the appropriate packages:
@@ -49,9 +50,9 @@ components use the appropriate packages:
 .. code-block:: bash
 
    $ # To install pg_repack
-   $ sudo apt-get install percona-postgresql-11-repack
+   $ sudo apt-get install percona-postgresql-12-repack
    $ # To Install pgaudit
-   $ sudo apt-get install percona-postgresql-11-pgaudit
+   $ sudo apt-get install percona-postgresql-12-pgaudit
    $ # To install pgBackRest
    $ sudo apt-get install percona-pgbackrest
    $ # To install Patroni
@@ -71,11 +72,11 @@ The following platforms are supported:
 Using the |rpm| Format
 ================================================================================
 
-Install the |percona-platform-postgresql-11| package using |yum-install|.
+Install the |percona-platform-postgresql-12| package using |yum-install|.
 
 .. code-block:: bash
 
-   $ sudo yum install percona-postgresql11-server
+   $ sudo yum install percona-postgresql12-server
 
 Note that this package will not install the components. To install these
 components use the appropriate packages:
@@ -83,7 +84,7 @@ components use the appropriate packages:
 .. code-block:: bash
 
    $ # To install pg_repack
-   $ sudo yum install percona-pg_repack11
+   $ sudo yum install percona-pg_repack12
    $ # To Install pgaudit
    $ sudo yum install percona-pgaudit
    $ # To install pgBackRest
@@ -91,7 +92,7 @@ components use the appropriate packages:
    $ # To install Patroni
    $ sudo yum install percona-patroni
    $ # To install PostgreSQL contrib extensions
-   $ sudo yum install percona-postgresql11-contrib
+   $ sudo yum install percona-postgresql12-contrib
 
 The following platforms are supported:
 
