@@ -1,7 +1,7 @@
 .. _pdp.index:
 
 
-|pdp| Documentation
+|pdp| |version| Documentation
 ********************************************************************************
 
 |pdp| is a collection of tools to assist you in managing your |postgresql|
@@ -39,5 +39,7 @@ backend server and to receive the results of these queries." [#]_
    release-notes
 
 .. [#] https://www.postgresql.org/docs/11/libpq.html
-  
+
+
+       
 .. include:: .res/replace.txt
