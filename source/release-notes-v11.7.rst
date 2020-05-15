@@ -28,6 +28,9 @@ backend server and to receive the results of these queries." [#]_
 
 This release of |pdp| is based on |postgresql| |version|.
 
+Starting from May 15, 2020, this release of |pdp| includes
+improvements to simplify the upgrade to the major version of |pdp|.
+
 .. |version| replace:: 11.7
 .. |date| replace:: April 9, 2020
 
