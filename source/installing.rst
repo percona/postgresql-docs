@@ -27,7 +27,7 @@ As soon as |percona-release| is up-to-date, *set up* the required version of the
    $ sudo percona-release setup ppg-11.7
 
 Make sure to run |percona-release| as root or via |sudo|. For the
-sake of convenience, all commands that require elevated priviges start with
+sake of convenience, all commands that require elevated privileges start with
 |sudo| in the following procedures.
 
 Install |pdp| using the commands of your package manager (the procedure differs
@@ -37,6 +37,15 @@ Using the |deb| Format
 ================================================================================
 
 .. include:: .res/important.postgresql.uninstall.txt
+
+The following platforms are supported:
+
+.. include:: .res/list.supported-platform.deb.txt
+
+.. admonition:: Platform Specific Notes
+
+   On Debian 9 (stretch), you need to `enable the llvm repository
+   <https://apt.llvm.org/>`_
 
 Install the |percona-platform-postgresql-11| package using |apt-install|.
 
@@ -48,7 +57,7 @@ Note that this package will not install the components. To install these
 components use the appropriate packages:
 
 .. code-block:: bash
-
+   
    $ # To install pg_repack
    $ sudo apt-get install percona-postgresql-11-repack
    $ # To Install pgaudit
@@ -60,17 +69,27 @@ components use the appropriate packages:
    $ # To install PostgreSQL contrib extensions
    $ sudo apt-get install percona-postgresql-contrib
 
-The following platforms are supported:
-
-.. include:: .res/list.supported-platform.deb.txt
-
-.. admonition:: Platform Specific Notes
-
-   On Debian 9 (stretch), you need to `enable the llvm repository
-   <https://apt.llvm.org/>`_
 
 Using the |rpm| Format
 ================================================================================
+The following platforms are supported:
+
+.. include:: .res/list.supported-platform.rpm.txt
+
+.. admonition:: Platform Specific Notes
+
+   If you intend to install |pdp| on |rhel| v8, disable the `postgresql` module:
+
+   .. code-block:: bash
+
+      $ sudo dnf module disable postgresql
+
+   On |centos| 7, you should install the `epel-release` package:
+
+   .. code-block:: bash
+
+      $ sudo yum -y install epel-release
+      $ sudo yum repolist
 
 Install the |percona-platform-postgresql-11| package using |yum-install|.
 
@@ -94,24 +113,18 @@ components use the appropriate packages:
    $ # To install PostgreSQL contrib extensions
    $ sudo yum install percona-postgresql11-contrib
 
-The following platforms are supported:
+.. admonition:: Starting the service
 
-.. include:: .res/list.supported-platform.rpm.txt
-
-.. admonition:: Platform Specific Notes
-
-   If you intend to install |pdp| on |rhel| v8, disable the `postgresql` module:
+   |pdp| is not automatically started after the installation. To start |pdp|, initialize the cluster using the following command:
 
    .. code-block:: bash
 
-      $ sudo dnf module disable postgresql
+      /usr/pgsql-12/bin/postgresql-12-setup initdb
 
-   On |centos| 7, you should install the `epel-release` package:
+   Start the |postgresql| service:
 
    .. code-block:: bash
 
-      $ sudo yum -y install epel-release
-      $ sudo yum repolist
-
+      $ sudo systemctl start postgresql-12 
 
 .. include:: .res/replace.txt
