@@ -36,6 +36,7 @@ backend server and to receive the results of these queries." [#]_
    :maxdepth: 1
 
    installing
+   major-upgrade
    release-notes
 
 .. [#] https://www.postgresql.org/docs/12/libpq.html
