@@ -34,7 +34,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ rm -rf /etc/postgresql/12/main/
+      $ rm -rf /etc/postgresql/12/main
 
 Using the |rpm| format
 ================================================================================
@@ -60,7 +60,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ rm -rf /var/lib/pgsql/12/data/    
+      $ rm -rf /var/lib/pgsql/12/data    
 
 
 
