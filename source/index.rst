@@ -38,6 +38,7 @@ backend server and to receive the results of these queries." [#]_
    installing
    major-upgrade
    release-notes
+   uninstalling
 
 .. [#] https://www.postgresql.org/docs/12/libpq.html
 
