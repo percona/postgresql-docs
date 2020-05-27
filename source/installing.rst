@@ -119,12 +119,12 @@ components use the appropriate packages:
 
    .. code-block:: bash
 
-      /usr/pgsql-12/bin/postgresql-12-setup initdb
+      /usr/pgsql-11/bin/postgresql-11-setup initdb
 
    Start the |postgresql| service:
 
    .. code-block:: bash
 
-      $ sudo systemctl start postgresql-12 
+      $ sudo systemctl start postgresql-11 
 
 .. include:: .res/replace.txt
