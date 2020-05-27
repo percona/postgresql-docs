@@ -37,6 +37,7 @@ backend server and to receive the results of these queries." [#]_
 
    installing
    release-notes
+   uninstalling
 
 .. [#] https://www.postgresql.org/docs/11/libpq.html
 
