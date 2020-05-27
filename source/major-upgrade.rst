@@ -1,7 +1,7 @@
 .. _major-upgrade:
 
 ====================================================
-Upgrade |pdp| from |previous-version| to |version|
+Upgrading |pdp| from |previous-version| to |version|
 ====================================================
 
 This document describes the in-place upgrade of |pdp| using the ``pg_upgrade``
@@ -44,7 +44,7 @@ Run **all** commands as root or via |sudo|.
 
 1. Install |pdp| |version| packages.
 
-   * Enable |percona| repository: 
+   * Enable |percona| repository using the |percona-release| utility: 
 
      .. code-block:: bash
 
@@ -68,14 +68,13 @@ Run **all** commands as root or via |sudo|.
 
    .. seealso::
 
-      Percona documentation:
-   
-      - `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_
-      - :ref:`pdp.installing`
+      |percona| Documentation:
+         - `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_
+         - :ref:`pdp.installing`
 
-#. Stop the |postgresql| service.
+#. Stop the ``postgresql`` service.
 
-   .. code-block: bash
+   .. code-block:: bash
 
       $ sudo systemctl stop postgresql.service
    
@@ -95,7 +94,7 @@ Run **all** commands as root or via |sudo|.
 
      .. include:: .res/pdp-major-upgrade-check.txt
 
-     .. rubric:: Sample output
+     .. admonition:: Sample output
 
      .. code-block:: text 
 
@@ -127,13 +126,13 @@ Run **all** commands as root or via |sudo|.
 
      .. include:: .res/pdp-major-ugrade-swap-ports.txt
 
-#. Start the `postgreqsl` service.
+#. Start the ``postgreqsl`` service.
 
    .. code-block:: bash
 
       $ sudo systemctl start postgresql.service
 
-#. Check the `postgresql` version.
+#. Check the ``postgresql`` version.
 
    .. code-block:: bash
 
@@ -157,7 +156,7 @@ Run **all** commands as root or via |sudo|.
       $ #Remove packages
       $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni
       $ #Remove old files
-      $ rm -rf /etc/postgresql/11/
+      $ rm -rf /etc/postgresql/11/main
 
 
 Upgrade using |rpm| format
@@ -167,7 +166,7 @@ Run **all** commands as root or via |sudo|.
 
 1. Install |pdp| |version| packages
 
-   * Enable |percona| repository: 
+   * Enable |percona| repository using the |percona-release| utility: 
 
      .. code-block:: bash
 
@@ -187,10 +186,9 @@ Run **all** commands as root or via |sudo|.
 
      .. seealso::
 
-      Percona documentation:
-   
-      - `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_
-      - :ref:`pdp.installing`
+      |percona| Documentation:
+         - `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_
+         - :ref:`pdp.installing`
  
 #. Set up |pdp| |version| cluster
 
@@ -204,7 +202,7 @@ Run **all** commands as root or via |sudo|.
       $ #Initialize cluster with the new data directory
       $ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data 
 
-#. Stop the |postgresql| |previous-version| service
+#. Stop the ``postgresql`` |previous-version| service
 
    .. code-block:: bash
 
@@ -225,7 +223,7 @@ Run **all** commands as root or via |sudo|.
 
      .. include:: .res/pdp-major-upgrade-check.txt
 
-     .. rubric:: Sample output
+     .. admonition:: Sample output
 
      .. code-block:: text 
 
@@ -249,13 +247,13 @@ Run **all** commands as root or via |sudo|.
 
      .. include:: .res/pdp-major-upgrade.txt
 
-#. Start the |postgresql| |version| service.
+#. Start the ``postgresql`` |version| service.
    
    .. code-block:: bash
 
-      #Start postgresql service
+      $ #Start postgresql service
       $ systemctl start postgresql-12
-      #Check postgresql status
+      $ #Check postgresql status
       $ systemctl status postgresql-12
 
 #. Run the :command:`analyze_new_cluster.sh` script      
@@ -274,7 +272,7 @@ Run **all** commands as root or via |sudo|.
       $ #Remove packages
       $ sudo yum -y remove percona-postgresql-11*
       $ #Remove old files
-      $ rm -rf /var/lib/pgsql/11/data/
+      $ rm -rf /var/lib/pgsql/11/data
 
 .. |previous-version| replace:: 11.7
 .. |version| replace:: 12.2
