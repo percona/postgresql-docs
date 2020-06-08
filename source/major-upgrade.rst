@@ -48,7 +48,7 @@ Run **all** commands as root or via |sudo|.
 
      .. code-block:: bash
 
-        $ sudo percona-release setup ppg-12.2
+        $ sudo percona-release setup ppg-12
 
    * Install |pdp| |version| package:
 
@@ -170,7 +170,7 @@ Run **all** commands as root or via |sudo|.
 
      .. code-block:: bash
 
-        $ sudo percona-release setup ppg-12.2
+        $ sudo percona-release setup ppg-12
 
    * Install |pdp| |version|:
 
@@ -274,7 +274,7 @@ Run **all** commands as root or via |sudo|.
       $ #Remove old files
       $ rm -rf /var/lib/pgsql/11/data
 
-.. |previous-version| replace:: 11.7
-.. |version| replace:: 12.2
+.. |previous-version| replace:: 11
+.. |version| replace:: 12
 
 .. include:: .res/replace.txt
