@@ -22,7 +22,7 @@ extensions that enable solving essential practical tasks efficiently:
 .. seealso::
 
    |percona| Blog Posts
-      - `pgBackRest – A Great Backup Solution and a Wonderful Year of Growth
+      - `pgBackRest - A Great Backup Solution and a Wonderful Year of Growth
         <https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/>`_
       - `Securing PostgreSQL as an Enterprise-Grade Environment
         <https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/>`_
