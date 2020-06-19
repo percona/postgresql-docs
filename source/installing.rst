@@ -4,13 +4,17 @@ Installing |pdp|
 ********************************************************************************
 
 Using repositories provided by |percona| is the recommended way of installing
-|pdp|. Installation packages are available in the |rpm| format for Red Hat,
-CentOS, and Amazon Linux AMI as well as in the |deb| format for |ubuntu| and
-|debian| distributions). |pdp| is only available for the x86_64 platform (also
-known as amd64).
+|pdp|. 
 
-Like many other |percona| products, |pdp| is installed by using the
-|percona-release| utility.
+There are two repositories available for |pdp|. We recommend to install |pdp|  from the *Major Release repository* (e.g. ``ppg-12``) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you're using have been tested and verified by |percona|. 
+
+The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. ``ppg-12.3``). You may choose to install |pdp| from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you'll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
+
+The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.
+
+-------
+
+Like many other |percona| products, |pdp| is installed from |Percona| repositories by using the |percona-release| utility.
 
 .. important::
 
@@ -26,19 +30,13 @@ As soon as |percona-release| is up-to-date, *set up* the
 
    $ sudo percona-release setup ppg-12
 
-This repository includes the latest version of |pdp|.
-
-Make sure to run |percona-release| as root or via |sudo|. For the
-sake of convenience, all commands that require elevated privileges start with
-|sudo| in the following procedures.
-
 .. hint::
 
-   To install a specific version of |pdp|, set up the ``ppg-<version>`` product. For example, to set up |pdp| 12.3, use the following command:
+   The command to set up a minor version product is the following:
 
    .. code-block:: bash
    
-       $ sudo percona-release setup ppg-12.3
+      $ sudo percona-release setup ppg-12.3
  
 Install |pdp| using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
