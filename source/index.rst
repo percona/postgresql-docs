@@ -37,6 +37,7 @@ backend server and to receive the results of these queries." [#]_
 
    installing
    major-upgrade
+   minor-upgrade
    release-notes
    uninstalling
 
