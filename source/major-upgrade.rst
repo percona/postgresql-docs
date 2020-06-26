@@ -96,23 +96,23 @@ Run **all** commands as root or via |sudo|.
 
      .. admonition:: Sample output
 
-     .. code-block:: text 
+        .. code-block:: text 
 
-        Performing Consistency Checks
-        -----------------------------
-        Checking cluster versions                                   ok
-        Checking database user is the install user                  ok
-        Checking database connection settings                       ok
-        Checking for prepared transactions                          ok
-        Checking for reg* data types in user tables                 ok
-        Checking for contrib/isn with bigint-passing mismatch       ok
-        Checking for tables WITH OIDS                               ok
-        Checking for invalid "sql_identifier" user columns          ok
-        Checking for presence of required libraries                 ok
-        Checking database user is the install user                  ok
-        Checking for prepared transactions                          ok
+           Performing Consistency Checks
+           -----------------------------
+           Checking cluster versions                                   ok
+           Checking database user is the install user                  ok
+           Checking database connection settings                       ok
+           Checking for prepared transactions                          ok
+           Checking for reg* data types in user tables                 ok
+           Checking for contrib/isn with bigint-passing mismatch       ok
+           Checking for tables WITH OIDS                               ok
+           Checking for invalid "sql_identifier" user columns          ok
+           Checking for presence of required libraries                 ok
+           Checking database user is the install user                  ok
+           Checking for prepared transactions                          ok
 
-        *Clusters are compatible*
+           *Clusters are compatible*
 
    * Upgrade the |pdp| 
 
@@ -225,23 +225,23 @@ Run **all** commands as root or via |sudo|.
 
      .. admonition:: Sample output
 
-     .. code-block:: text 
+        .. code-block:: text 
 
-        Performing Consistency Checks
-        -----------------------------
-        Checking cluster versions                                   ok
-        Checking database user is the install user                  ok
-        Checking database connection settings                       ok
-        Checking for prepared transactions                          ok
-        Checking for reg* data types in user tables                 ok
-        Checking for contrib/isn with bigint-passing mismatch       ok
-        Checking for tables WITH OIDS                               ok
-        Checking for invalid "sql_identifier" user columns          ok
-        Checking for presence of required libraries                 ok
-        Checking database user is the install user                  ok
-        Checking for prepared transactions                          ok
+           Performing Consistency Checks
+           -----------------------------
+           Checking cluster versions                                   ok
+           Checking database user is the install user                  ok
+           Checking database connection settings                       ok
+           Checking for prepared transactions                          ok
+           Checking for reg* data types in user tables                 ok
+           Checking for contrib/isn with bigint-passing mismatch       ok
+           Checking for tables WITH OIDS                               ok
+           Checking for invalid "sql_identifier" user columns          ok
+           Checking for presence of required libraries                 ok
+           Checking database user is the install user                  ok
+           Checking for prepared transactions                          ok
 
-        *Clusters are compatible*
+           *Clusters are compatible*
 
    * Upgrade the |pdp| 
 
