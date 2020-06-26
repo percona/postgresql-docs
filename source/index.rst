@@ -36,6 +36,7 @@ backend server and to receive the results of these queries." [#]_
    :maxdepth: 1
 
    installing
+   minor-upgrade
    release-notes
    uninstalling
 
