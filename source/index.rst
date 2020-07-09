@@ -5,7 +5,7 @@
 ********************************************************************************
 
 |pdp| is a collection of tools to assist you in managing your |postgresql|
-database system: it installs |postgres| and complements it by a selectipon of
+database system: it installs |postgres| and complements it by a selection of
 extensions that enable solving essential practical tasks efficiently:
 
 - `pg_repack <https://github.com/reorg/pg_repack>`_ rebuilds
