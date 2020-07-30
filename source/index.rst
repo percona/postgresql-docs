@@ -32,14 +32,34 @@ extensions that enable solving essential practical tasks efficiently:
 library functions that allow client programs to pass queries to the PostgreSQL
 backend server and to receive the results of these queries." [#]_
 
+Installation and Upgrade
+*****************************************
+
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :glob:
 
    installing
    major-upgrade
    minor-upgrade
-   release-notes
+   
+Uninstall |pdp|
+******************************************
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
    uninstalling
+
+Release Notes
+******************************************
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   release-notes
 
 .. [#] https://www.postgresql.org/docs/12/libpq.html
 
