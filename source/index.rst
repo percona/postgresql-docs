@@ -14,7 +14,7 @@ extensions that enable solving essential practical tasks efficiently:
   audit logging via the standard |postgresql| logging facility
 - `pgBackRest <https://pgbackrest.org/>`_ is a backup and restore solution for
   |postgresql|
-- `Patroni <https://patroni.readthedocs.io/en/latest/>`_ is an :abbr:`HA (High
+- `Patroni <https://patroni.readthedocs.io/en/latest/>`_ is a :abbr:`HA (High
   Availability)` solution for |postgresql|.
 - A collection of `additional PostgreSQL contrib extensions
   <https://www.postgresql.org/docs/11/contrib.html>`_
