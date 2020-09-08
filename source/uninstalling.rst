@@ -13,12 +13,16 @@ To uninstall |pdp|, remove all the installed packages and data / configuration f
 Using the |deb| format
 ================================================================================
   
+.. warning::
+
+   On Debian 10, deletion of only main |percona-postgresql| packages is not supported. To avoid an error, delete both the main packages and the components.  
+
 To uninstall |pdp| on platforms that use |apt| package manager such as Debian
-or Ubuntu, complete the following steps.
+or Ubuntu, follow these steps.
 
 Run all commands as root or via |sudo|.
 
-1. Stop the |pdp| service.
+1. Stop the |postgresql| service.
 
    .. code-block:: bash
 
@@ -40,7 +44,7 @@ Using the |rpm| format
 ================================================================================
 
 To uninstall |pdp| on platforms that use |yum| package manager such as 
-|rhel| or |centos|, complete the following steps.
+|rhel| or |centos|, follow these steps.
 
 Run all commands as root or via |sudo|.
 
