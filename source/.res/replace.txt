@@ -1,7 +1,6 @@
 
 .. |percona| replace:: Percona
 .. |percona-postgresql| replace:: :program:`percona-postgresql`
-.. |percona-platform-postgresql| replace:: :program:`percona-postgresql`
 .. |percona-platform-postgresql-11| replace:: :program:`percona-postgresql-11`
 .. |percona-platform-postgresql-12| replace:: :program:`percona-postgresql-12`
 .. |postgresql| replace:: PostgreSQL
@@ -22,4 +21,3 @@
 .. |yum-install| replace:: :program:`yum install`
 .. |percona-release| replace:: :program:`percona-release`
 .. |rhel| replace:: Red Hat Enterprise Linux
-.. |amazon-linux| replace:: Amazon Linux
