@@ -76,6 +76,8 @@ exclude_patterns = []
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
 
+#primary_domain = 'psdom'
+
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #add_function_parentheses = True
 
@@ -125,6 +127,13 @@ html_short_title = 'Percona Distribution for PostgreSQL 11'
 # of the sidebar.
 #html_logo = 'percona-server-logo.jpg'
 
+# Redirect info for Edit on Github link
+html_context = {
+    'repo_name': '/percona/postresql-docs',
+    'repo_url': 'https://github.com/percona/postgresql-docs',
+    'edit_uri': 'edit/11/source'
+}
+
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
@@ -145,7 +154,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-        '**': ['localtoc.html', 'relations.html', 'sourcelink.html'],
+        '**': ['localtoc.html', 'relations.html', 'sourcelink.html', 'edit.html'],
         'using/windows': ['windowssidebar.html'],
 }
 
