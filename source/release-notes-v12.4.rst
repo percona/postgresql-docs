@@ -10,7 +10,8 @@
 |pdp| is a collection of tools to assist you in managing |postgresql|. |pdp|
 installs |postgresql| and complements it by a selection of extensions that
 enable solving essential practical tasks efficiently:
- .. list-table::
+
+.. list-table::
    :widths: 35 15 50
    :header-rows: 1
 
