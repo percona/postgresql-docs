@@ -1,7 +1,7 @@
 
 .. |percona| replace:: Percona
 .. |percona-postgresql| replace:: :program:`percona-postgresql`
-.. |percona-platform-postgresql-11| replace:: :program:`percona-postgresql-11`
+.. |percona-platform-postgresql-13| replace:: :program:`percona-postgresql-13`
 .. |percona-platform-postgresql-12| replace:: :program:`percona-postgresql-12`
 .. |postgresql| replace:: PostgreSQL
 .. |postgres| replace:: PostgreSQL
@@ -17,7 +17,9 @@
 .. |debian| replace:: Debian
 .. |ubuntu| replace:: Ubuntu
 .. |sudo| replace:: :program:`sudo`
-.. |apt-install| replace:: :program:`apt install`
+.. |apt-get-install| replace:: :program:`apt-get install`
 .. |yum-install| replace:: :program:`yum install`
 .. |percona-release| replace:: :program:`percona-release`
 .. |rhel| replace:: Red Hat Enterprise Linux
+.. |SLA| replace:: `SLA (Service License Agreement)`
+.. |GA| replace:: `GA (General Availability)`

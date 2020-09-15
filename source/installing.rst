@@ -6,9 +6,9 @@ Installing |pdp|
 Using repositories provided by |percona| is the recommended way of installing
 |pdp|. 
 
-There are two repositories available for |pdp|. We recommend to install |pdp|  from the *Major Release repository* (e.g. ``ppg-12``) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you're using have been tested and verified by |percona|. 
+There are two repositories available for |pdp|. We recommend to install |pdp|  from the *Major Release repository* (e.g. ``ppg-13``) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you're using have been tested and verified by |percona|. 
 
-The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. ``ppg-12.4``). You may choose to install |pdp| from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you'll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
+The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. ``ppg-13.0``). You may choose to install |pdp| from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you'll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
 
 The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.
 
@@ -24,11 +24,11 @@ Like many other |percona| products, |pdp| is installed from |Percona| repositori
    of |percona-release| for details.
 
 As soon as |percona-release| is up-to-date, *set up* the
-|pdp| product (``ppg-12``). 
+|pdp| product (``ppg-13``). 
 
 .. code-block:: bash
 
-   $ sudo percona-release setup ppg-12
+   $ sudo percona-release setup ppg-13
 
 .. hint::
 
@@ -36,7 +36,7 @@ As soon as |percona-release| is up-to-date, *set up* the
 
    .. code-block:: bash
    
-      $ sudo percona-release setup ppg-12.4
+      $ sudo percona-release setup ppg-13.0
  
 Install |pdp| using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
@@ -55,11 +55,11 @@ The following platforms are supported:
    On Debian 9 (stretch), you need to `enable the llvm repository
    <https://apt.llvm.org/>`_
 
-Install the |percona-platform-postgresql-12| package using |apt-install|.
+Install the |percona-platform-postgresql-13| package using |apt-get-install|.
 
 .. code-block:: bash
 
-   $ sudo apt install percona-postgresql-12
+   $ sudo apt-get install percona-postgresql-13
 
 Note that this package will not install the components. To install these
 components use the appropriate packages:
@@ -67,13 +67,15 @@ components use the appropriate packages:
 .. code-block:: bash
    
    $ # To install pg_repack
-   $ sudo apt-get install percona-postgresql-12-repack
+   $ sudo apt-get install percona-postgresql-13-repack
    $ # To Install pgaudit
-   $ sudo apt-get install percona-postgresql-12-pgaudit
+   $ sudo apt-get install percona-postgresql-13-pgaudit
    $ # To install pgBackRest
    $ sudo apt-get install percona-pgbackrest
    $ # To install Patroni
    $ sudo apt-get install percona-patroni
+   $ # To install pg_stat_monitor
+   $ sudo apt-get install percona-pg-stat-monitor13
    $ # To install PostgreSQL contrib extensions
    $ sudo apt-get install percona-postgresql-contrib
 
@@ -99,11 +101,11 @@ The following platforms are supported:
       $ sudo yum -y install epel-release
       $ sudo yum repolist
 
-Install the |percona-platform-postgresql-12| package using |yum-install|.
+Install the |percona-platform-postgresql-13| package using |yum-install|.
 
 .. code-block:: bash
 
-   $ sudo yum install percona-postgresql12-server
+   $ sudo yum install percona-postgresql13-server
 
 Note that this package will not install the components. To install these
 components use the appropriate packages:
@@ -111,15 +113,17 @@ components use the appropriate packages:
 .. code-block:: bash
 
    $ # To install pg_repack
-   $ sudo yum install percona-pg_repack12
+   $ sudo yum install percona-pg_repack13
    $ # To Install pgaudit
    $ sudo yum install percona-pgaudit
    $ # To install pgBackRest
    $ sudo yum install percona-pgbackrest
    $ # To install Patroni
    $ sudo yum install percona-patroni
+   $ # To install pg_stat_monitor
+   $ yum install percona-pg-stat-monitor13
    $ # To install PostgreSQL contrib extensions
-   $ sudo yum install percona-postgresql12-contrib
+   $ sudo yum install percona-postgresql13-contrib
 
 .. admonition:: Starting the service
 
@@ -127,12 +131,12 @@ components use the appropriate packages:
 
    .. code-block:: bash
 
-      /usr/pgsql-12/bin/postgresql-12-setup initdb
+      /usr/pgsql-13/bin/postgresql-13-setup initdb
 
    Start the |postgresql| service:
 
    .. code-block:: bash
 
-      $ sudo systemctl start postgresql-12 
+      $ sudo systemctl start postgresql-13 
 
 .. include:: .res/replace.txt

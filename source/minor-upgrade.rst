@@ -40,7 +40,7 @@ Before the upgrade, update the |percona-release| utility to the latest version. 
 	   
 	 .. code-block:: bash
 	         
-	    $ sudo systemctl stop postgresql-12      
+	    $ sudo systemctl stop postgresql-13      
 
 #. Install new version packages. See :ref:`pdp.installing`.
 
@@ -56,7 +56,7 @@ Before the upgrade, update the |percona-release| utility to the latest version. 
 	   
 	 .. code-block:: bash
 	         
-	    $ sudo systemctl start postgresql-12  
+	    $ sudo systemctl start postgresql-13  
 
 If you wish to upgrade |pdp| to the major version, refer to :ref:`major-upgrade`. 
 

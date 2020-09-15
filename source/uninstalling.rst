@@ -28,13 +28,13 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni
+      $ sudo apt-get remove percona-postgresql-13* percona-pgbackrest percona-patroni percona-pg-stat-monitor13
  
 #. Remove configuration and data files.         
 
    .. code-block:: bash
 
-      $ rm -rf /etc/postgresql/12/main
+      $ rm -rf /etc/postgresql/13/main
 
 Using the |rpm| format
 ================================================================================
@@ -48,19 +48,19 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ sudo systemctl stop postgresql-12
+      $ sudo systemctl stop postgresql-13
 
 #. Remove the |percona-postgresql| packages
 
    .. code-block:: bash
  
-      $ sudo yum remove percona-postgresql12*
+      $ sudo yum remove percona-postgresql13*
 
 #. Remove configuration and data files
 
    .. code-block:: bash
 
-      $ rm -rf /var/lib/pgsql/12/data    
+      $ rm -rf /var/lib/pgsql/13/data    
 
 
 

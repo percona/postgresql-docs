@@ -11,7 +11,7 @@ The in-place upgrade means installing a new version without removing the old ver
 .. seealso:: 
 
    ``pg_upgrade`` Documentation:
-       https://www.postgresql.org/docs/12/pgupgrade.html
+       https://www.postgresql.org/docs/13/pgupgrade.html
 
 
 Similar to installing, we recommend you to upgrade |pdp| from |percona| repositories. 
@@ -40,7 +40,9 @@ The exact steps may differ depending on the package manager of your operating sy
 Upgrade using |deb| format
 =======================================================
 
-Run **all** commands as root or via |sudo|. 
+.. important::
+
+   Run **all** commands as root or via |sudo|. 
 
 1. Install |pdp| |version| packages.
 
@@ -48,22 +50,23 @@ Run **all** commands as root or via |sudo|.
 
      .. code-block:: bash
 
-        $ sudo percona-release setup ppg-12
+        $ sudo percona-release setup ppg-13
 
    * Install |pdp| |version| package:
 
      .. code-block:: bash
 
-        $ sudo apt-get install percona-postgresql-12 
+        $ sudo apt-get install percona-postgresql-13 
 
    * Install the components: 
 
      .. code-block:: bash
 
-        $ sudo apt-get install percona-postgresql-12-repack 
-        $ sudo apt-get install percona-postgresql-12-pgaudit 
+        $ sudo apt-get install percona-postgresql-13-repack 
+        $ sudo apt-get install percona-postgresql-13-pgaudit 
         $ sudo apt-get install percona-pgbackrest
         $ sudo apt-get install percona-patroni
+        $ sudo apt-get install percona-pg-stat-monitor13
         $ sudo apt-get install percona-postgresql-contrib
 
    .. seealso::
@@ -120,9 +123,7 @@ Run **all** commands as root or via |sudo|.
 
    * Go back to the regular user: :command:`exit`
 
-   * The |pdp| |previous-version| uses the 5432 port while the |pdp| |version|
-     is set up to use the 5433 port by default. To start the |pdp| |version|, 
-     swap ports in the configuration files of both versions.
+   * The |pdp| |previous-version| uses the ``5432`` port while the |pdp| |version| is set up to use the ``5433`` port by default. To start the |pdp| |version|, swap ports in the configuration files of both versions.
 
      .. include:: .res/pdp-major-ugrade-swap-ports.txt
 
@@ -154,15 +155,17 @@ Run **all** commands as root or via |sudo|.
    .. code-block:: bash
 
       $ #Remove packages
-      $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni
+      $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12
       $ #Remove old files
-      $ rm -rf /etc/postgresql/11/main
+      $ rm -rf /etc/postgresql/12/main
 
 
 Upgrade using |rpm| format
 =======================================================
 
-Run **all** commands as root or via |sudo|. 
+.. important::
+
+   Run **all** commands as root or via |sudo|. 
 
 1. Install |pdp| |version| packages
 
@@ -170,19 +173,20 @@ Run **all** commands as root or via |sudo|.
 
      .. code-block:: bash
 
-        $ sudo percona-release setup ppg-12
+        $ sudo percona-release setup ppg-13
 
    * Install |pdp| |version|:
 
      .. code-block:: bash
 
-        $ sudo yum install percona-postgresql12-server  
+        $ sudo yum install percona-postgresql13-server  
         $ #Install components
         $ sudo yum install percona-pgaudit
         $ sudo yum install percona-pgbackrest 
-        $ sudo yum install percona-pg_repack12
+        $ sudo yum install percona-pg_repack13
         $ sudo yum install percona-patroni
-        $ sudo yum install percona-postgresql12-contrib
+        $ sudo yum install percona-pg-stat-monitor13
+        $ sudo yum install percona-postgresql13-contrib
 
      .. seealso::
 
@@ -200,13 +204,13 @@ Run **all** commands as root or via |sudo|.
       $ export LC_ALL="en_US.UTF-8"
       $ export LC_CTYPE="en_US.UTF-8"
       $ #Initialize cluster with the new data directory
-      $ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data 
+      $ /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data 
 
 #. Stop the ``postgresql`` |previous-version| service
 
    .. code-block:: bash
 
-      $ systemctl stop postgresql-11
+      $ systemctl stop postgresql-12
 
 #. Run the database upgrade.
 
@@ -216,12 +220,9 @@ Run **all** commands as root or via |sudo|.
 
         $ sudo su postgres
 
-   * Change the current directory to the :file:`tmp` directory where logs 
-     and some scripts will be recorded: :command:`cd tmp/`
-
    * Check the ability to upgrade |pdp| from |previous-version| to |version|:
 
-     .. include:: .res/pdp-major-upgrade-check.txt
+     .. include:: .res/pdp-major-upgrade-check-rpm.txt
 
      .. admonition:: Sample output
 
@@ -245,16 +246,16 @@ Run **all** commands as root or via |sudo|.
 
    * Upgrade the |pdp| 
 
-     .. include:: .res/pdp-major-upgrade.txt
+     .. include:: .res/pdp-major-upgrade-rpm.txt
 
 #. Start the ``postgresql`` |version| service.
    
    .. code-block:: bash
 
       $ #Start postgresql service
-      $ systemctl start postgresql-12
+      $ systemctl start postgresql-13
       $ #Check postgresql status
-      $ systemctl status postgresql-12
+      $ systemctl status postgresql-13
 
 #. Run the :command:`analyze_new_cluster.sh` script      
 
@@ -263,18 +264,24 @@ Run **all** commands as root or via |sudo|.
       $ #Log in as the postgres user
       $ sudo su postgres
       $ #Run the script
-      $ tmp/analyze_new_cluster.sh
+      $ ./analyze_new_cluster.sh
 
-#. Delete |pdp| |previous-version| packages and configuration files
+#. Delete |pdp| |previous-version| configuration files
+   
+   .. code-block:: bash
+   
+      $ ./delete_old_cluster.sh
+
+#. Delete |pdp| |previous-version| packages 
         
    .. code-block:: bash
 
       $ #Remove packages
-      $ sudo yum -y remove percona-postgresql-11*
+      $ sudo yum -y remove percona-postgresql12*
       $ #Remove old files
-      $ rm -rf /var/lib/pgsql/11/data
+      $ rm -rf /var/lib/pgsql/12/data
 
-.. |previous-version| replace:: 11
-.. |version| replace:: 12
+.. |previous-version| replace:: 12
+.. |version| replace:: 13
 
 .. include:: .res/replace.txt
