@@ -64,6 +64,7 @@ Run **all** commands as root or via |sudo|.
         $ sudo apt-get install percona-postgresql-12-pgaudit 
         $ sudo apt-get install percona-pgbackrest
         $ sudo apt-get install percona-patroni
+        $ sudo apt-get install percona-pg-stat-monitor12
         $ sudo apt-get install percona-postgresql-contrib
 
    .. seealso::
@@ -182,6 +183,7 @@ Run **all** commands as root or via |sudo|.
         $ sudo yum install percona-pgbackrest 
         $ sudo yum install percona-pg_repack12
         $ sudo yum install percona-patroni
+        $ sudo yum install percona-pg-stat-monitor12
         $ sudo yum install percona-postgresql12-contrib
 
      .. seealso::

@@ -16,8 +16,10 @@ extensions that enable solving essential practical tasks efficiently:
   |postgresql|
 - `Patroni <https://patroni.readthedocs.io/en/latest/>`_ is an :abbr:`HA (High
   Availability)` solution for |postgresql|.
+- `pg_stat_monitor <https://github.com/percona/pg_stat_monitor>`_ (a technical preview) collects and aggregates statistics for |postgresql| and provides histogram information.
 - A collection of `additional PostgreSQL contrib extensions
   <https://www.postgresql.org/docs/12/contrib.html>`_
+
 
 .. seealso::
 
