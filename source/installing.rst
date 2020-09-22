@@ -74,6 +74,8 @@ components use the appropriate packages:
    $ sudo apt-get install percona-pgbackrest
    $ # To install Patroni
    $ sudo apt-get install percona-patroni
+   $ # To install pg_stat_monitor
+   $ sudo apt-get install percona-pg-stat-monitor12
    $ # To install PostgreSQL contrib extensions
    $ sudo apt-get install percona-postgresql-contrib
 
@@ -118,6 +120,8 @@ components use the appropriate packages:
    $ sudo yum install percona-pgbackrest
    $ # To install Patroni
    $ sudo yum install percona-patroni
+   $ #To install pg_stat_monitor
+   $ sudo yum install percona-pg-stat-monitor12
    $ # To install PostgreSQL contrib extensions
    $ sudo yum install percona-postgresql12-contrib
 
