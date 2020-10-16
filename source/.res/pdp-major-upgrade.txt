@@ -1,12 +1,12 @@
 .. code-block:: bash
 
-      $ /usr/lib/postgresql/12/bin/pg_upgrade   
-      --old-datadir=/var/lib/postgresql/11/main \  
-      --new-datadir=/var/lib/postgresql/12/main  \ 
-      --old-bindir=/usr/lib/postgresql/11/bin \  
-      --new-bindir=/usr/lib/postgresql/12/bin \  
-      --old-options '-c config_file=/etc/postgresql/11/main/postgresql.conf' \
-      --new-options '-c config_file=/etc/postgresql/12/main/postgresql.conf' \
+      $ /usr/lib/postgresql/13/bin/pg_upgrade   
+      --old-datadir=/var/lib/postgresql/12/main \  
+      --new-datadir=/var/lib/postgresql/13/main  \ 
+      --old-bindir=/usr/lib/postgresql/12/bin \  
+      --new-bindir=/usr/lib/postgresql/13/bin \  
+      --old-options '-c config_file=/etc/postgresql/12/main/postgresql.conf' \
+      --new-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
       --link
 
 The  ``--link`` flag creates hard links to the files on the old version cluster so you don't need to copy data. 

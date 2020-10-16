@@ -1,6 +1,6 @@
 .. code-block:: bash
 
-   $ sudo vim /etc/postgresql/12/main/postgresql.conf 
+   $ sudo vim /etc/postgresql/13/main/postgresql.conf 
    $ port = 5433 # Change to 5432 here
-   $ sudo vim /etc/postgresql/11/main/postgresql.conf 
+   $ sudo vim /etc/postgresql/12/main/postgresql.conf 
    $ port = 5432 # Change to 5433 here        
