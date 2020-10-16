@@ -218,12 +218,9 @@ Run **all** commands as root or via |sudo|.
 
         $ sudo su postgres
 
-   * Change the current directory to the :file:`tmp` directory where logs 
-     and some scripts will be recorded: :command:`cd tmp/`
-
    * Check the ability to upgrade |pdp| from |previous-version| to |version|:
 
-     .. include:: .res/pdp-major-upgrade-check.txt
+     .. include:: .res/pdp-major-upgrade-check-rpm.txt
 
      .. admonition:: Sample output
 
@@ -247,7 +244,7 @@ Run **all** commands as root or via |sudo|.
 
    * Upgrade the |pdp| 
 
-     .. include:: .res/pdp-major-upgrade.txt
+     .. include:: .res/pdp-major-upgrade-rpm.txt
 
 #. Start the ``postgresql`` |version| service.
    
@@ -265,9 +262,15 @@ Run **all** commands as root or via |sudo|.
       $ #Log in as the postgres user
       $ sudo su postgres
       $ #Run the script
-      $ tmp/analyze_new_cluster.sh
+      $ ./analyze_new_cluster.sh
 
-#. Delete |pdp| |previous-version| packages and configuration files
+#. Delete |pdp| |previous-version| configuration files
+   
+   .. code-block:: bash
+   
+      $ ./delete_old_cluster.sh
+
+#. Delete |pdp| |previous-version| packages 
         
    .. code-block:: bash
 
