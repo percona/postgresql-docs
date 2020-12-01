@@ -21,3 +21,5 @@
 .. |yum-install| replace:: :program:`yum install`
 .. |percona-release| replace:: :program:`percona-release`
 .. |rhel| replace:: Red Hat Enterprise Linux
+.. |GA| replace:: :abbr:`GA (General Availability)`
+.. |SLA| replace:: :abbr:`SLA (Service-Level Agreement)`
