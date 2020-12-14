@@ -16,6 +16,7 @@ extensions that enable solving essential practical tasks efficiently:
   |postgresql|
 - `Patroni <https://patroni.readthedocs.io/en/latest/>`_ is a :abbr:`HA (High
   Availability)` solution for |postgresql|.
+- `pg_stat_monitor <https://github.com/percona/pg_stat_monitor>`_ (Tech Preview Feature [#]_) collects and aggregates statistics for |postgresql| and provides histogram information.
 - A collection of `additional PostgreSQL contrib extensions
   <https://www.postgresql.org/docs/11/contrib.html>`_
 
@@ -60,8 +61,8 @@ Release Notes
 
    release-notes
 
+.. [#] Tech Preview Features are not yet ready for enterprise use and are not included in support via |SLA|. They are included in this release so that users can provide feedback prior to the full release of the feature in a future |GA| release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.
 .. [#] https://www.postgresql.org/docs/11/libpq.html
-
 
        
 .. include:: .res/replace.txt

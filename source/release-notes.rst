@@ -6,6 +6,7 @@ Release Notes
 .. toctree::
    :maxdepth: 1
 
+   release-notes-v11.10
    release-notes-v11.9
    release-notes-v11.8
    release-notes-v11.7
