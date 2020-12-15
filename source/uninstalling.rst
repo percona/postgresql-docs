@@ -28,7 +28,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni
+      $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-pg-stat-monitor11 percona-patroni
  
 #. Remove configuration and data files.         
 
