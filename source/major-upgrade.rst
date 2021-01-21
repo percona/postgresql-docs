@@ -37,7 +37,7 @@ The exact steps may differ depending on the package manager of your operating sy
    :local:
    :depth: 1
 
-Upgrade using |deb| format
+On Debian and Ubuntu using ``apt``
 =======================================================
 
 .. important::
@@ -160,7 +160,7 @@ Upgrade using |deb| format
       $ rm -rf /etc/postgresql/12/main
 
 
-Upgrade using |rpm| format
+On |rhel| and |centos| using ``yum``
 =======================================================
 
 .. important::

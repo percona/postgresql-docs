@@ -10,7 +10,7 @@ To uninstall |pdp|, remove all the installed packages and data / configuration f
    Should you need the data files later, back up your data before uninstalling |pdp|.
 
 
-Using the |deb| format
+On Debian and Ubuntu using ``apt``
 ================================================================================
   
 To uninstall |pdp| on platforms that use |apt| package manager such as Debian
@@ -36,7 +36,7 @@ Run all commands as root or via |sudo|.
 
       $ rm -rf /etc/postgresql/13/main
 
-Using the |rpm| format
+On |rhel| and |centos| using ``yum``
 ================================================================================
 
 To uninstall |pdp| on platforms that use |yum| package manager such as 
