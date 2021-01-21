@@ -37,7 +37,7 @@ The exact steps may differ depending on the package manager of your operating sy
    :local:
    :depth: 1
 
-Upgrade using |deb| format
+On Debian and Ubuntu using ``apt``
 =======================================================
 
 Run **all** commands as root or via |sudo|. 
@@ -160,7 +160,7 @@ Run **all** commands as root or via |sudo|.
       $ rm -rf /etc/postgresql/11/main
 
 
-Upgrade using |rpm| format
+On |rhel| and |centos| using ``yum``
 =======================================================
 
 Run **all** commands as root or via |sudo|. 

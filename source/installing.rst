@@ -60,8 +60,8 @@ Install |pdp| packages
 After you've :ref:`installed percona-release <install-percona-release>` and :ref:`enabled the desired repository <enable-repo>`, install |pdp| using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
-On Debian and Ubuntu
------------------------------
+On Debian and Ubuntu using ``apt``
+------------------------------------
 
 .. important::
 
@@ -111,8 +111,8 @@ components use the appropriate packages:
 
 Next steps: :ref:`connect to PostgreSQL <server-connect>`.
 
-On |rhel| and CentOS
-------------------------
+On |rhel| and CentOS using ``yum``
+----------------------------------------
 
 .. admonition:: Platform Specific Notes
 
