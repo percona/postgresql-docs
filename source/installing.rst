@@ -70,8 +70,8 @@ depending on the package manager of your operating system).
 
    Run all the commands in the following sections as root or using the :command:`sudo` command.
 
-On Debian and Ubuntu
---------------------
+On Debian and Ubuntu using ``apt``
+------------------------------------
 
 .. important::
 
@@ -121,8 +121,8 @@ components use the appropriate packages:
 
 Next steps: :ref:`connect to PostgreSQL <server-connect>`.
 
-On |rhel| and CentOS
---------------------
+On |rhel| and CentOS using ``yum``
+----------------------------------------
 
 .. admonition:: Platform Specific Notes
 
