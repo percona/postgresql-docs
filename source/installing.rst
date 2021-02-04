@@ -83,22 +83,44 @@ Install the |percona-platform-postgresql-12| package using ``apt-get``.
 
    $ sudo apt-get install percona-postgresql-12
 
-Note that this package will not install the components. To install these
-components use the appropriate packages:
+Note that this package will not install the components. Use the following commands to install components' packages:
+
+Install ``pg_repack``:
+
+.. code-block:: bash  
+
+    $ sudo apt-get install percona-postgresql-12-repack
+
+Install ``pgaudit``:
 
 .. code-block:: bash
-   
-   $ # To install pg_repack
-   $ sudo apt-get install percona-postgresql-12-repack
-   $ # To Install pgaudit
+
    $ sudo apt-get install percona-postgresql-12-pgaudit
-   $ # To install pgBackRest
+
+Install ``pgBackRest``:
+
+.. code-block:: bash
+
    $ sudo apt-get install percona-pgbackrest
-   $ # To install Patroni
+
+Install ``Patroni``:
+ 
+.. code-block:: bash
+   
    $ sudo apt-get install percona-patroni
-   $ # To install pg_stat_monitor
+   
+Install ``pg_stat_monitor``:
+
+.. code-block:: bash
+
    $ sudo apt-get install percona-pg-stat-monitor12
-   $ # To install PostgreSQL contrib extensions
+
+.. include:: .res/note-pg_stat_config-required.txt
+
+Install PostgreSQL contrib extensions:
+
+.. code-block:: bash
+
    $ sudo apt-get install percona-postgresql-contrib
 
 .. admonition:: Starting the service
@@ -135,22 +157,44 @@ Install the |percona-platform-postgresql-12| package using |yum-install|.
 
    $ sudo yum install percona-postgresql12-server
 
-Note that this package will not install the components. To install these
-components use the appropriate packages:
+Note that this package will not install the components. Use the following commands to install components' packages:
+
+Install ``pg_repack``:
 
 .. code-block:: bash
 
-   $ # To install pg_repack
    $ sudo yum install percona-pg_repack12
-   $ # To Install pgaudit
+
+Install ``pgaudit``:
+   
+.. code-block:: bash
+
    $ sudo yum install percona-pgaudit
-   $ # To install pgBackRest
+
+Install ``pgBackRest``:
+   
+.. code-block:: bash
+
    $ sudo yum install percona-pgbackrest
-   $ # To install Patroni
+
+Install ``Patroni``:
+   
+.. code-block:: bash
+
    $ sudo yum install percona-patroni
-   $ #To install pg_stat_monitor
+
+Install ``pg_stat_monitor``:
+
+.. code-block:: bash
+
    $ sudo yum install percona-pg-stat-monitor12
-   $ # To install PostgreSQL contrib extensions
+
+.. include:: .res/note-pg_stat_config-required.txt
+
+Install PostgreSQL contrib extensions:
+
+.. code-block:: bash
+
    $ sudo yum install percona-postgresql12-contrib
 
 .. admonition:: Starting the service
