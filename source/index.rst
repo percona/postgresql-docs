@@ -43,12 +43,19 @@ Installation and Upgrade
    installing
    minor-upgrade
    
+Extensions
+******************************************
+
+.. toctree::
+   :maxdepth: 1
+   
+   pg-stat-monitor
+
 Uninstall |pdp|
 ******************************************
 
 .. toctree::
    :maxdepth: 2
-   :glob:
 
    uninstalling
 
