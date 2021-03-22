@@ -126,7 +126,7 @@ The PDF document is in the ``build/latex`` folder.
 ```sh
 make clean html
 ```
-4. Go to the ``build/html`` directory and open the ``index.html`` file to see the documentation.
+4. Go to the ``build/html`` directory and open the ``index.html`` file in your web browser to see the documentation.
 5. Your static site will look different from the one on the web site. This is because we use a Percona theme that is rendered when the documentation is published on the web. To view the documentation with Alabaster theme, run the following command:
 
 ```sh
