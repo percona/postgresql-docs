@@ -26,8 +26,6 @@ To contribute to the documentation, you should be familiar with the following te
 
 There are several active versions of the documentation. Each version derives from the major version of PostgreSQL, included in the distribution. 
 
-Each version has a branch in the repository named accordingly:
-
 - 11
 - 12
 - 13
@@ -53,7 +51,7 @@ The .rst files are in the ``source`` directory.
 
 ### Edit documentation locally
 
-This option is for users who prefer to work from their computer and / or have the full control over the documentation process.
+This option is for users who prefer to work on a local copy of the documentation files and / or have the full control over the documentation process.
 
 The steps are the following:
 
@@ -149,3 +147,4 @@ make clean latexpdf
 ```
 
 The PDF document is in the ``build/latex`` folder.
+
