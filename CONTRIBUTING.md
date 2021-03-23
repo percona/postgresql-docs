@@ -51,7 +51,7 @@ The .rst files are in the ``source`` directory.
 
 ### Edit documentation locally
 
-This option is for users who prefer to work from their computer and / or have the full control over the documentation process.
+This option is for users who prefer to work on a local copy of the documentation files and / or have the full control over the documentation process.
 
 The steps are the following:
 
