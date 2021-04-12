@@ -71,6 +71,14 @@ Release Notes
 
    release-notes
 
+Reference
+******************************************
+
+.. toctree::
+   :maxdepth: 1
+
+   licensing
+
 .. [#] Tech Preview Features are not yet ready for enterprise use and are not included in support via |SLA|. They are included in this release so that users can provide feedback prior to the full release of the feature in a future |GA| release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.
 .. [#] https://www.postgresql.org/docs/12/libpq.html
 
