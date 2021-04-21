@@ -11,7 +11,7 @@
 installs |postgresql| and complements it by a selection of extensions that
 enable solving essential practical tasks efficiently.
 
-This release of |pdp| is based on the latest major version of `PostgreSQL 13.0 <https://www.postgresql.org/docs/release/13.0/>`_. It also includes `pg_stat_monitor <https://github.com/percona/pg_stat_monitor>`_ (Tech Preview Feature [#]_) - a new statistics collection extension for |postgresql|. 
+This release of |pdp| is based on the latest major version of `PostgreSQL 13.0 <https://www.postgresql.org/docs/release/13.0/>`_. It also includes `pg_stat_monitor <https://github.com/percona/pg_stat_monitor>`_ (Tech Preview Feature [#]_) - a new statistics collection extension for |postgresql|.
 
 .. list-table::
   :widths: 35 15 50
@@ -20,19 +20,19 @@ This release of |pdp| is based on the latest major version of `PostgreSQL 13.0 <
   * - Extension
     - Version
     - Description
-  * - `pg_repack <https://github.com/reorg/pg_repack>`_ 
+  * - `pg_repack <https://github.com/reorg/pg_repack>`_
     - 1.4.6
     - rebuilds |postgresql| database objects
-  * - `Pgaudit <https://www.pgaudit.org/>`_ 
+  * - `Pgaudit <https://www.pgaudit.org/>`_
     - 1.4.1
-    - provides detailed session or object audit logging via the standard 
+    - provides detailed session or object audit logging via the standard
       logging facility provided by |postgresql|
-  * - `pgBackRest <https://pgbackrest.org/>`_ 
+  * - `pgBackRest <https://pgbackrest.org/>`_
     - 2.30
     - a backup and restore solution for |postgresql|
   * - `Patroni <https://patroni.readthedocs.io/en/latest/>`_
     - 2.0.1
-    - a :abbr:`HA (High Availability)` solution for |postgresql|
+    - a HA (High Availability) solution for |postgresql|
   * - `pg_stat_monitor <https://github.com/percona/pg_stat_monitor>`_ (Tech Preview Feature)
     - 0.6.0
     - collects and aggregates statistics for |postgresql| and provides histogram information.

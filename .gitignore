@@ -3,3 +3,5 @@ build/
 source/ext/psdom.pyc
 source/ext/__pycache__/
 source/percona-theme/
+site/
+.netlify/
