@@ -67,6 +67,10 @@ On Debian and Ubuntu using ``apt``
         $ sudo apt-get install percona-pgbackrest
         $ sudo apt-get install percona-patroni
         $ sudo apt-get install percona-pg-stat-monitor13
+        $ sudo apt-get install percona-pgbadger
+        $ sudo apt-get install percona-pgaudit13-set-user
+        $ sudo apt-get install percona-pgbadger
+        $ sudo apt-get install percona-postgresql-13-wal2json
         $ sudo apt-get install percona-postgresql-contrib
 
    .. seealso::
@@ -155,7 +159,7 @@ On Debian and Ubuntu using ``apt``
    .. code-block:: bash
 
       $ #Remove packages
-      $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12
+      $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12 percona-pgaudit12-set-user percona-pgbadger percona-pgbouncer percona-postgresql-12-wal2json
       $ #Remove old files
       $ rm -rf /etc/postgresql/12/main
 
@@ -180,12 +184,20 @@ On |rhel| and |centos| using ``yum``
      .. code-block:: bash
 
         $ sudo yum install percona-postgresql13-server  
-        $ #Install components
+   
+   * Install components:
+    
+     .. code-block:: bash
+     
         $ sudo yum install percona-pgaudit
         $ sudo yum install percona-pgbackrest 
         $ sudo yum install percona-pg_repack13
         $ sudo yum install percona-patroni
         $ sudo yum install percona-pg-stat-monitor13
+        $ sudo yum install percona-pgbadger
+        $ sudo yum install percona-pgaudit13_set_user
+        $ sudo yum install percona-pgbadger
+        $ sudo yum install percona-wal2json13
         $ sudo yum install percona-postgresql13-contrib
 
      .. seealso::
