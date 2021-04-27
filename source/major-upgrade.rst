@@ -65,6 +65,10 @@ Run **all** commands as root or via |sudo|.
         $ sudo apt-get install percona-pgbackrest
         $ sudo apt-get install percona-patroni
         $ sudo apt-get install percona-pg-stat-monitor12
+        $ sudo apt-get install percona-pgbadger
+        $ sudo apt-get install percona-pgaudit12-set-user
+        $ sudo apt-get install percona-pgbadger
+        $ sudo apt-get install percona-postgresql-12-wal2json
         $ sudo apt-get install percona-postgresql-contrib
 
    .. seealso::
@@ -155,7 +159,7 @@ Run **all** commands as root or via |sudo|.
    .. code-block:: bash
 
       $ #Remove packages
-      $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni
+      $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni percona-pg-stat-monitor11 percona-pgaudit11-set-user percona-pgbadger percona-pgbouncer percona-postgresql-11-wal2json
       $ #Remove old files
       $ rm -rf /etc/postgresql/11/main
 
@@ -178,12 +182,20 @@ Run **all** commands as root or via |sudo|.
      .. code-block:: bash
 
         $ sudo yum install percona-postgresql12-server  
-        $ #Install components
+
+   * Install components:
+    
+     .. code-block:: bash
+     
         $ sudo yum install percona-pgaudit
         $ sudo yum install percona-pgbackrest 
         $ sudo yum install percona-pg_repack12
         $ sudo yum install percona-patroni
         $ sudo yum install percona-pg-stat-monitor12
+        $ sudo yum install percona-pgbadger
+        $ sudo yum install percona-pgaudit12_set_user
+        $ sudo yum install percona-pgbadger
+        $ sudo yum install percona-wal2json12
         $ sudo yum install percona-postgresql12-contrib
 
      .. seealso::
