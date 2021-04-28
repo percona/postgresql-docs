@@ -12,7 +12,7 @@ The in-place upgrade means installing a new version without removing the old ver
 
 Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
 
-!!! note
+!!! important
 
     A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.
 
@@ -45,7 +45,7 @@ The exact steps may differ depending on the package manager of your operating sy
 ## On Debian and Ubuntu using `apt`
 
 !!! important
-   
+
     Run **all** commands as root or via **sudo**.
 
 
@@ -53,7 +53,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
     * Enable Percona repository using the **percona-release** utility:
-  
+
       ```
       $ sudo percona-release setup ppg-13
       ```
@@ -69,22 +69,26 @@ The exact steps may differ depending on the package manager of your operating sy
     * Install the components:
 
       ```
-      $ sudo apt-get install percona-postgresql-13-repack
-      $ sudo apt-get install percona-postgresql-13-pgaudit
-      $ sudo apt-get install percona-pgbackrest
-      $ sudo apt-get install percona-patroni
-      $ sudo apt-get install percona-pg-stat-monitor13
-      $ sudo apt-get install percona-postgresql-contrib
+      $ sudo apt-get install percona-postgresql-13-repack \
+       percona-postgresql-13-pgaudit \
+       percona-pgbackrest \
+       percona-patroni \
+       percona-pgbadger \
+       percona-pgaudit13-set-user \
+       percona-pgbadger \
+       percona-postgresql-13-wal2json \
+       percona-pg-stat-monitor13 \
+       percona-postgresql-contrib
       ```
 
     !!! seealso
-   
+
         Percona Documentation:
 
-    
+
         - [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-        
-        - [Installing Percona Distribution for PostgreSQL](installing.html)
+
+        - [Installing Percona Distribution for PostgreSQL](installing.md)
 
 
 2. Stop the `postgresql` service.
@@ -106,7 +110,7 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
 
-    * Change the current directory to the `tmp` directory where logs and some scripts will be recorded: 
+    * Change the current directory to the `tmp` directory where logs and some scripts will be recorded:
 
       ```
       cd tmp/
@@ -163,11 +167,12 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
       The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
-      
+
       If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
 
 
-    * Go back to the regular user: 
+    * Go back to the regular user:
+
 
       ```
       exit
@@ -175,7 +180,6 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
     * The Percona Distribution for PostgreSQL 12 uses the `5432` port while the Percona Distribution for PostgreSQL 13 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 13, swap ports in the configuration files of both versions.
- 
 
       ```
       $ sudo vim /etc/postgresql/13/main/postgresql.conf
@@ -194,16 +198,21 @@ The exact steps may differ depending on the package manager of your operating sy
 
 5. Check the `postgresql` version.
 
-    ```
-    $ #Log in as a postgres user
-    $ sudo su postgres
-    $ #Check the database version
-    $ psql -c "SELECT version();"
-    ```
+    * Log in as a postgres user
+ 
+       ```
+       $ sudo su postgres
+       ```
+
+    * Check the database version
+    
+       ```
+       $ psql -c "SELECT version();"
+       ```
 
 
 6. Run the `analyze_new_cluster.sh` script
-    
+
     ```
     $ tmp/analyze_new_cluster.sh
     $ #Logout
@@ -212,13 +221,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
 7. Delete Percona Distribution for PostgreSQL 12 packages and configuration files
-  
+
     * Remove packages
 
        ```
-       $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12
+       $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12 percona-pgaudit12-set-user percona-pgbadger percona-pgbouncer percona-postgresql-12-wal2json
        ```
-    
+
     * Remove old files
 
        ```
@@ -229,7 +238,7 @@ The exact steps may differ depending on the package manager of your operating sy
 ## On Red Hat Enterprise Linux and CentOS using `yum`
 
 !!! important
-    
+
     Run **all** commands as root or via **sudo**.
 
 
@@ -245,39 +254,56 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Install Percona Distribution for PostgreSQL 13:
 
-      ```
-      $ sudo yum install percona-postgresql13-server
-      $ #Install components
-      $ sudo yum install percona-pgaudit
-      $ sudo yum install percona-pgbackrest
-      $ sudo yum install percona-pg_repack13
-      $ sudo yum install percona-patroni
-      $ sudo yum install percona-pg-stat-monitor13
-      $ sudo yum install percona-postgresql13-contrib
-      ```
+       ```
+       $ sudo yum install percona-postgresql13-server
+       ```
+
+    * Install components:
+
+       ```
+       $ sudo yum install percona-pgaudit \
+       percona-pgbackrest \
+       percona-pg_repack13 \
+       percona-patroni \
+       percona-pg-stat-monitor13 \
+       percona-pgbadger \
+       percona-pgaudit13_set_user \
+       percona-pgbadger \
+       percona-wal2json13 \
+       percona-postgresql13-contrib
+       ```
 
 !!! seealso
- 
+
     Percona Documentation:
 
-    
+
     * [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
 
 
-    * [Installing Percona Distribution for PostgreSQL](#installing.html)
+    * [Installing Percona Distribution for PostgreSQL](#installing.md)
 
 
 2. Set up Percona Distribution for PostgreSQL 13 cluster
 
-    ```
-    $ #Log is as the postgres user
-    $ sudo su postgres
-    $ #Set up locale settings
-    $ export LC_ALL="en_US.UTF-8"
-    $ export LC_CTYPE="en_US.UTF-8"
-    $ #Initialize cluster with the new data directory
-    $ /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data
-    ```
+   * Log is as the postgres user
+
+      ```
+      sudo su postgres
+      ```
+
+   * Set up locale settings
+
+      ```
+      export LC_ALL="en_US.UTF-8"
+      export LC_CTYPE="en_US.UTF-8"
+      ```
+
+   * Initialize cluster with the new data directory
+
+      ```
+      /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data
+      ```
 
 
 3. Stop the `postgresql` 12 service
@@ -291,7 +317,6 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
     * Log in as the `postgres` user
- 
 
        ```
        $ sudo su postgres
@@ -370,7 +395,7 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
     * Run the script
-   
+
        ```
        $ ./analyze_new_cluster.sh
        ```

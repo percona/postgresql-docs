@@ -11,34 +11,6 @@ edit_uri: edit/13/docs/
 
 use_directory_urls: false
 
-# Theme for netlify testing
-theme:
-  name: material
-  custom_dir: _resource/theme
-  logo: _images/percona-logo.png
-  favicon: _images/percona-favicon.ico
-  palette:
-
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: percona-light
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-  
-# Theme features
-
-  features:
-    - search.highlight
-    - navigation.top
-
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -69,27 +41,17 @@ markdown_extensions:
 
 plugins:
   - search
-  - git-revision-date
-  - bootstrap-tables
-  - section-index # Adds links to nodes - comment out when creating PDF
-#  - htmlproofer # Uncomment to check links - but extends build time significantly
   - macros:
         include_yaml:
-#          - 'variables.yml' # Use in markdown as '{{ VAR }}'
-#  - exclude: # Don't process these files
-#        glob:
-#         - file.md
-#  - mkdocs-versioning:
-#      version: "13"
+  - with-pdf: # https://github.com/orzih/mkdocs-with-pdf
+          output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
+          cover_title: 'Documentation'
+          cover_subtitle: 13.2 (May 10, 2021)
+          author: 'Percona Technical Documentation Team'
+          cover_logo: docs/_images/postgre-logo.jpg
+          debug_html: false
+          custom_template_path: _resource/templates
 
-extra: # Used in main.html template and can't be externalised
-#    open_issue_text: '<i class="uil uil-exclamation-triangle"></i> Report a problem
-#        with this page'
-#    open_issue_subject: 'PMM2: doc issue on page '
-#    open_issue_body: 'Please describe the issue here'
-#    open_issue_tooltip: 'Report an issue with this page on GitHub'
-    edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
-    updated_text: '<i class="uil uil-refresh"></i> Page updated'
 
 nav:
   - index.md

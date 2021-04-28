@@ -5,3 +5,4 @@ source/ext/__pycache__/
 source/percona-theme/
 site/
 .netlify/
+source/__pycache__/

@@ -31,7 +31,7 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-  
+
 # Theme features
 
   features:
@@ -42,10 +42,12 @@ theme:
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
-#  - css/version-select.css
+  - css/version-select.css
   - css/toctree.css
   - css/percona.css
 
+extra_javascript:
+  - js/version-select.js
 
 markdown_extensions:
   - attr_list
@@ -69,7 +71,6 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date
-  - bootstrap-tables
   - section-index # Adds links to nodes - comment out when creating PDF
 #  - htmlproofer # Uncomment to check links - but extends build time significantly
   - macros:
@@ -80,6 +81,10 @@ plugins:
 #         - file.md
 #  - mkdocs-versioning:
 #      version: "13"
+
+extra:
+  version:
+    provider: mike
 
 nav:
   - index.md
@@ -97,6 +102,8 @@ nav:
       - release-notes-v13.1.md
       - release-notes-v13.2.md
       - release-notes-v13.2.upd.md
+      - release-notes-v13.2.upd2.md
+      - release-notes-v13.2.upd3.md
   - Reference:
       - licensing.md
 # - Version Selector: "../"

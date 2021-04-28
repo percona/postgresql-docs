@@ -28,18 +28,18 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 ## Setup
 
-After the [installation](installing.html#install-percona-distribution-for-postgresql-packages), `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
+After the [installation](installing.md#install-percona-distribution-for-postgresql-packages), `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
 
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. Connect to psql and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
 
-```
-$ ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
-```
+    ```
+    $ ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
+    ```
 
-The parameter value is written to the `postgresql.auto.conf` file which is read in addition with `postgresql.conf` file.
+    The parameter value is written to the `postgresql.auto.conf` file which is read in addition with `postgresql.conf` file.
 
 
 2. Start or restart the PostgreSQL instance to enable `pg_stat_monitor`. Use the following command for restart:
@@ -53,7 +53,7 @@ The parameter value is written to the `postgresql.auto.conf` file which is read 
 
 
     * On Red Hat Enterprise Linux and CentOS:
- 
+
       ```
       $ sudo systemctl restart postgresql-13
       ```
@@ -73,7 +73,7 @@ $ CREATE EXTENSION pg_stat_monitor;
 * `pg_stat_monitor` is the view where statistics data is presented.
 
 
-* `pg_stat_monitor_settings` shows available configuration options which you can change. To learn more, see Changing the configuration.
+* `pg_stat_monitor_settings` shows available configuration options which you can change. To learn more, see [Changing the configuration](#changing-the-configuration).
 
 Use the following query to view what metrics `pg_stat_monitor` can collect:
 
@@ -144,7 +144,7 @@ $ SELECT userid::regrole, datname, substr(query,0, 50) AS query, calls, client_i
  postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 ```
 
-Find more usage examples  in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/docs/USER_GUIDE.md).
+Find more usage examples  in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md).
 
 ## Changing the configuration
 
@@ -172,7 +172,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
@@ -183,7 +183,7 @@ $ ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 100;
 Restart the server to apply the change:
 
 
-* On Debia and Ubuntu
+* On Debian and Ubuntu
 
 ```
 $ sudo systemctl restart restart postgresql.service
@@ -210,8 +210,9 @@ $ SELECT name, value
 
 !!! seealso
 
-    [`pg_stat_monitor` Documentation](https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/README.md)
+    [`pg_stat_monitor` Documentation](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/README.md)
 
-    Percona Blog: 
+
+    Percona Blog:
 
     [pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics](https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/)
