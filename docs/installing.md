@@ -56,7 +56,9 @@ depending on the package manager of your operating system).
 
 ### On Debian and Ubuntu using `apt`
 
-!!! note 
+
+!!! note
+
     On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.
 
 #### Platform Specific Notes
@@ -102,13 +104,41 @@ $ sudo apt-get install percona-pg-stat-monitor13
 ```
 
 !!! note
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.html#setup) for configuration guidelines.
+
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+
+Install `pgBouncer`:
+
+```
+$ sudo apt-get install percona-pgbouncer
+```
+
+Install `pgAudit-set_user`:
+
+```
+$ sudo apt-get install percona-pgaudit13-set-user
+```
+
+Install `pgBadger`:
+
+```
+$ sudo apt-get install percona-pgbadger
+```
+
+Install `wal2json`:
+
+```
+$ sudo apt-get install percona-postgresql-13-wal2json
+```
 
 Install PostgreSQL contrib extensions:
 
 ```
 $ sudo apt-get install percona-postgresql-contrib
 ```
+
+Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to enabling.
+
 
 #### Starting the service
 
@@ -176,13 +206,41 @@ $ sudo yum install percona-pg-stat-monitor13
 ```
 
 !!! note
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.html#setup) for configuration guidelines.
+
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+
+Install `pgBouncer`:
+
+```
+$ sudo yum install percona-pgbouncer
+```
+
+Install `pgAudit-set_user`:
+
+```
+$ sudo yum install percona-pgaudit13_set_user
+```
+
+Install `pgBadger`:
+
+```
+$ sudo yum install percona-pgbadger
+```
+
+Install `wal2json`:
+
+```
+$ sudo yum install percona-wal2json13
+```
 
 Install PostgreSQL contrib extensions:
 
 ```
 $ sudo yum install percona-postgresql13-contrib
 ```
+
+Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
+
 
 #### Starting the service
 
@@ -196,6 +254,48 @@ Start the PostgreSQL service:
 
 ```
 $ sudo systemctl start postgresql-13
+```
+
+### Enabling extensions
+
+Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.
+
+**pgBadger**
+
+Enable the following options in `postgresql.conf` configuration file before starting the service:
+
+```
+log_min_duration_statement = 0
+log_line_prefix = '%t [%p]: '
+log_checkpoints = on
+log_connections = on
+log_disconnections = on
+log_lock_waits = on
+log_temp_files = 0
+log_autovacuum_min_duration = 0
+log_error_verbosity = default
+```
+
+For details about each option, see [pdBadger documentation](https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION).
+
+**pgAudit set-user**
+
+Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
+
+```
+$ ALTER SYSTEM SET shared_preload_libraries = 'set-user';
+```
+
+Start / restart the server to apply the configuration.
+
+You can fine-tune user behavior with the [custom parameters](https://github.com/pgaudit/set_user#configuration-options) supplied with the extension.
+
+**wal2json**
+
+After the installation, enable the following option in `postgresql.conf` configuration file before starting the service:
+
+```
+wal_level = logical
 ```
 
 ## Connect to the PostgreSQL server

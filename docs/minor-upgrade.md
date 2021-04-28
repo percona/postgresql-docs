@@ -25,8 +25,8 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     Before the upgrade, update the **percona-release** utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. Refer to [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) for update instructions.
 
-!!! important 
-   
+!!! important
+
     Run all commands as root or via **sudo**.
 
 
@@ -47,7 +47,8 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
       ```
 
 
-2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.html).
+
+2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
 
 
 3. Restart the `postgresql` service.
@@ -66,4 +67,5 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
       $ sudo systemctl start postgresql-13
       ```
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 12 to 13](major-upgrade.html).
+
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 12 to 13](major-upgrade.md).

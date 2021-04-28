@@ -28,7 +28,7 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 ## Setup
 
-After the [installation](installing.html#install-percona-distribution-for-postgresql-packages), `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
+After the [installation](installing.md#install-percona-distribution-for-postgresql-packages), `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
 
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
@@ -53,7 +53,7 @@ The parameter value is written to the `postgresql.auto.conf` file which is read 
 
 
     * On Red Hat Enterprise Linux and CentOS:
- 
+
       ```
       $ sudo systemctl restart postgresql-13
       ```
@@ -212,6 +212,7 @@ $ SELECT name, value
 
     [`pg_stat_monitor` Documentation](https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/README.md)
 
-    Percona Blog: 
+
+    Percona Blog:
 
     [pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics](https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/)
