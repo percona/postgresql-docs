@@ -56,7 +56,7 @@ depending on the package manager of your operating system).
 
 ### On Debian and Ubuntu using `apt`
 
-!!! note 
+!!! note
     On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.
 
 #### Platform Specific Notes
@@ -102,7 +102,7 @@ $ sudo apt-get install percona-pg-stat-monitor13
 ```
 
 !!! note
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.html#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install PostgreSQL contrib extensions:
 
@@ -176,7 +176,7 @@ $ sudo yum install percona-pg-stat-monitor13
 ```
 
 !!! note
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.html#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install PostgreSQL contrib extensions:
 

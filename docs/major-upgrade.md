@@ -45,7 +45,7 @@ The exact steps may differ depending on the package manager of your operating sy
 ## On Debian and Ubuntu using `apt`
 
 !!! important
-   
+
     Run **all** commands as root or via **sudo**.
 
 
@@ -53,7 +53,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
     * Enable Percona repository using the **percona-release** utility:
-  
+
       ```
       $ sudo percona-release setup ppg-13
       ```
@@ -78,13 +78,13 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
     !!! seealso
-   
+
         Percona Documentation:
 
-    
+
         - [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-        
-        - [Installing Percona Distribution for PostgreSQL](installing.html)
+
+        - [Installing Percona Distribution for PostgreSQL](installing.md)
 
 
 2. Stop the `postgresql` service.
@@ -106,7 +106,7 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
 
-    * Change the current directory to the `tmp` directory where logs and some scripts will be recorded: 
+    * Change the current directory to the `tmp` directory where logs and some scripts will be recorded:
 
       ```
       cd tmp/
@@ -163,11 +163,11 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
       The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
-      
+
       If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
 
 
-    * Go back to the regular user: 
+    * Go back to the regular user:
 
       ```
       exit
@@ -175,7 +175,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
     * The Percona Distribution for PostgreSQL 12 uses the `5432` port while the Percona Distribution for PostgreSQL 13 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 13, swap ports in the configuration files of both versions.
- 
+
 
       ```
       $ sudo vim /etc/postgresql/13/main/postgresql.conf
@@ -203,7 +203,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
 6. Run the `analyze_new_cluster.sh` script
-    
+
     ```
     $ tmp/analyze_new_cluster.sh
     $ #Logout
@@ -212,13 +212,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
 7. Delete Percona Distribution for PostgreSQL 12 packages and configuration files
-  
+
     * Remove packages
 
        ```
        $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12
        ```
-    
+
     * Remove old files
 
        ```
@@ -229,7 +229,7 @@ The exact steps may differ depending on the package manager of your operating sy
 ## On Red Hat Enterprise Linux and CentOS using `yum`
 
 !!! important
-    
+
     Run **all** commands as root or via **sudo**.
 
 
@@ -257,10 +257,10 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
 !!! seealso
- 
+
     Percona Documentation:
 
-    
+
     * [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
 
 
@@ -291,7 +291,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
     * Log in as the `postgres` user
- 
+
 
        ```
        $ sudo su postgres
@@ -370,7 +370,7 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
     * Run the script
-   
+
        ```
        $ ./analyze_new_cluster.sh
        ```
