@@ -1,0 +1,49 @@
+{# Import the theme's layout. #}
+{% extends '!layout.html' %}
+
+{ # Customize font # }
+ {% block font %}
+ <style>
+      body,
+      input {
+        font-family: "Chivo", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+    </style>
+    {{ super() }}
+ 	{% endblock %}
+
+{ # Add Fontawesome # }
+   {%- block fonticon %}
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  {{ super() }}
+  {%- endblock %}
+
+{ # Adds the "Last updated label" at the bottom of the page # }
+	{%- block relbar2 %}
+		{%- if gitstamp %} 
+		<div class="md_container">
+			<p><i class="fas fa-sync-alt"></i>
+			Last updated on {{ gitstamp }}. </p>
+		</div>
+		{%- endif %}
+		{{ super() }}
+	{%- endblock%}
+
+{# 'Edit this page' links #}
+{% block rootrellink %}
+{{ super() }}
+{% if repo_url|e %}
+<div class="small">
+    <ul class="list-inline">
+        <li class="pull-right">
+            <a href="{{ repo_url }}/{{ edit_uri }}/{{ pagename }}.rst" target="_blank">
+                <i class="fa fa-github"></i>
+                    Edit this page
+            </a>
+        </li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
