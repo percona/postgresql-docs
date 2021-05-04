@@ -3,3 +3,6 @@ build/
 source/ext/psdom.pyc
 source/ext/__pycache__/
 source/percona-theme/
+source/__pycache__/
+# Local Netlify folder
+.netlify
