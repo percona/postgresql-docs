@@ -11,14 +11,11 @@ edit_uri: edit/13/docs/
 
 use_directory_urls: false
 
-# Theme for netlify testing
 theme:
   name: material
-  custom_dir: _resource/theme
   logo: _images/percona-logo.png
   favicon: _images/percona-favicon.ico
   palette:
-
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: percona-light
@@ -32,7 +29,6 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-  
 # Theme features
 
   features:
@@ -71,16 +67,14 @@ plugins:
   - search
   - git-revision-date
   - bootstrap-tables
-  - section-index # Adds links to nodes - comment out when creating PDF
-#  - htmlproofer # Uncomment to check links - but extends build time significantly
-  - macros:
-        include_yaml:
-#          - 'variables.yml' # Use in markdown as '{{ VAR }}'
-#  - exclude: # Don't process these files
-#        glob:
-#         - file.md
-#  - mkdocs-versioning:
-#      version: "13"
+  - section-index
+  - mike:
+      version_selector: true
+
+extra:
+  version:
+    provider: mike
+
 
 extra: # Used in main.html template and can't be externalised
 #    open_issue_text: '<i class="uil uil-exclamation-triangle"></i> Report a problem
