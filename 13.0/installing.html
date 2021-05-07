@@ -1,0 +1,449 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Percona Distribution for PostgreSQL &mdash; Installation and Upgrade</title>
+
+<head>
+    
+
+
+    
+
+    <link rel="top" title="" href="" />
+    
+    <link rel="next" title="Upgrading Percona Distribution for PostgreSQL from 12 to 13" href="major-upgrade.html" />
+    
+    
+</head>
+
+<body>
+    
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/toctree.css" type="text/css">
+<link rel="stylesheet" href="css/percona.css" type="text/css">
+
+    
+
+    <div class="container">
+        <div class="document row">
+            <div class="documentwrapper col-md-9 col-md-push-3">
+                
+<div class="related row">
+    <ul class="nav nav-pills">
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="major-upgrade.html" title="Upgrading Percona Distribution for PostgreSQL from 12 to 13">Next</a>
+        </li>
+        
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="index.html" title="Percona Distribution for PostgreSQL 13 Documentation">Previous</a>
+        </li>
+        
+        <li>
+            <a href="">Home</a>
+        </li>
+    </ul>
+</div>
+
+                
+
+<div class="small">
+    <ul class="list-inline">
+        <li class="left">
+            <a href="https://github.com/percona/postgresql-docs/issues/new?title= 'Installation and Upgrade' (installing.html)&body="
+                target="_blank" title=""></a>
+        </li>
+        <li class="pull-right">
+            <a href="https://github.com/percona/postgresql-docs/edit/13/docs/installing.md" target="_blank" title="Edit this page on GitHub in Markdown format"><i class="uil uil-pen"></i> <b>Edit this page</b></a>
+        </li>
+    </ul>
+</div>
+
+
+                <div class="bodywrapper">
+                    <div class="body">
+                        <h1 id="installing-percona-distribution-for-postgresql">Installing Percona Distribution for PostgreSQL<a class="headerlink" href="#installing-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>Percona provides installation packages in <code>DEB</code> and <code>RPM</code> format for 64-bit Linux distributions. Find the full list of supported platforms on the <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql">Percona Software and Platform Lifecycle page</a>.</p>
+<p>Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the <strong>percona-release</strong> utility. The <strong>percona-release</strong> utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.</p>
+<p>The installation process includes the following steps:</p>
+<ol>
+<li>
+<p>Install <strong>percona-release</strong></p>
+</li>
+<li>
+<p>Enable the repository</p>
+</li>
+<li>
+<p>Install the packages</p>
+</li>
+<li>
+<p>Start the <code>postgresql</code> service</p>
+</li>
+<li>
+<p>Connect to the server</p>
+</li>
+</ol>
+<h2 id="repositories-overview">Repositories overview<a class="headerlink" href="#repositories-overview" title="Permanent link">&para;</a></h2>
+<p>There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the <em>Major Release repository</em> (e.g. <code>ppg-13</code>) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.</p>
+<p>The <em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-13.1</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.</p>
+<p>The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</p>
+<h2 id="install-percona-release">Install <strong>percona-release</strong><a class="headerlink" href="#install-percona-release" title="Permanent link">&para;</a></h2>
+<p>Install <strong>percona-release</strong> utility. If you have installed it before, update it to the latest version. Refer to <a href="https://www.percona.com/doc/percona-repo-config/percona-release.html">Percona repositories documentation</a> for installation / update instructions.</p>
+<h2 id="enable-the-repository">Enable the repository<a class="headerlink" href="#enable-the-repository" title="Permanent link">&para;</a></h2>
+<p>As soon as <strong>percona-release</strong> is installed or up-to-date, enable the repository for Percona Distribution for PostgreSQL (<code>ppg-13</code>). We recommend using the <em>set up</em> command as it enables the specified repository and updates the platform’s package manager database.</p>
+<p>To install the <em>latest</em> version of Percona Distribution for PostgreSQL, enable the Major Release repository using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-13
+</code></pre></div>
+<p>To install a <em>specific minor version</em> of Percona Distribution for PostgreSQL, enable the Minor release repository. For example, to install Percona Distribution for PostgreSQL 13.1, enable the <code>ppg-13.1</code>  repository using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-13.1
+</code></pre></div>
+<h2 id="install-percona-distribution-for-postgresql-packages">Install Percona Distribution for PostgreSQL packages<a class="headerlink" href="#install-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h2>
+<p>After you’ve installed percona-release and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
+depending on the package manager of your operating system).</p>
+<h3 id="on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a class="headerlink" href="#on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Debian and other systems that use the <code>apt</code> package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
+</div>
+<h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
+<p>On Debian 9 (stretch), you need to <a href="https://apt.llvm.org/">enable the llvm repository</a></p>
+<p>Install the <strong>percona-postgresql-13</strong> package using <strong>apt-get install</strong>.</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13
+</code></pre></div>
+<p>Note that this package will not install the components. Use the following commands to install components’ packages:</p>
+<p>Install <code>pg_repack</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13-repack
+</code></pre></div>
+<p>Install <code>pgaudit</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13-pgaudit
+</code></pre></div>
+<p>Install <code>pgBackRest</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbackrest
+</code></pre></div>
+<p>Install <code>Patroni</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-patroni
+</code></pre></div>
+<p>Install <code>pg_stat_monitor</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pg-stat-monitor13
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to set up <code>pg_stat_monitor</code> in order to use it with Percona Distribution for PostgreSQL. Refer to <a href="pg-stat-monitor.html#setup">Setup</a> for configuration guidelines.</p>
+</div>
+<p>Install <code>pgBouncer</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbouncer
+</code></pre></div>
+<p>Install <code>pgAudit-set_user</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgaudit13-set-user
+</code></pre></div>
+<p>Install <code>pgBadger</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbadger
+</code></pre></div>
+<p>Install <code>wal2json</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13-wal2json
+</code></pre></div>
+<p>Install PostgreSQL contrib extensions:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-contrib
+</code></pre></div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to enabling.</p>
+<h4 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h4>
+<p>The installation process automatically initializes the default database. Thus, to start Percona Distribution for PostgreSQL, use the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo pg_ctlcluster 13 main start
+</code></pre></div>
+<p>Next steps: <a href="#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
+<h3 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h3>
+<h4 id="platform-specific-notes_1">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes_1" title="Permanent link">&para;</a></h4>
+<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the postgresql module:</p>
+<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql
+</code></pre></div>
+<p>On CentOS 7, you should install the epel-release package:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum -y install epel-release
+$ sudo yum repolist
+</code></pre></div>
+<p>Install the <strong>percona-postgresql-13</strong> package using <strong>yum install</strong>.</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql13-server
+</code></pre></div>
+<p>Note that this package will not install the components. Use the following commands to install components’ packages:</p>
+<p>Install <code>pg_repack</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pg_repack13
+</code></pre></div>
+<p>Install <code>pgaudit</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit
+</code></pre></div>
+<p>Install <code>pgBackRest</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbackrest
+</code></pre></div>
+<p>Install <code>Patroni</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-patroni
+</code></pre></div>
+<p>Install <code>pg_stat_monitor</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pg-stat-monitor13
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to set up <code>pg_stat_monitor</code> in order to use it with Percona Distribution for PostgreSQL. Refer to <a href="pg-stat-monitor.html#setup">Setup</a> for configuration guidelines.</p>
+</div>
+<p>Install <code>pgBouncer</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbouncer
+</code></pre></div>
+<p>Install <code>pgAudit-set_user</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit13_set_user
+</code></pre></div>
+<p>Install <code>pgBadger</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbadger
+</code></pre></div>
+<p>Install <code>wal2json</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-wal2json13
+</code></pre></div>
+<p>Install PostgreSQL contrib extensions:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql13-contrib
+</code></pre></div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
+<h4 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h4>
+<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
+<div class="highlight"><pre><span></span><code>/usr/pgsql-13/bin/postgresql-13-setup initdb
+</code></pre></div>
+<p>Start the PostgreSQL service:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-13
+</code></pre></div>
+<h3 id="enabling-extensions">Enabling extensions<a class="headerlink" href="#enabling-extensions" title="Permanent link">&para;</a></h3>
+<p>Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
+<p><strong>pgBadger</strong></p>
+<p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
+<div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
+log_line_prefix = &#39;%t [%p]: &#39;
+log_checkpoints = on
+log_connections = on
+log_disconnections = on
+log_lock_waits = on
+log_temp_files = 0
+log_autovacuum_min_duration = 0
+log_error_verbosity = default
+</code></pre></div>
+<p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation</a>.</p>
+<p><strong>pgAudit set-user</strong></p>
+<p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/13/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
+<div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;set-user&#39;;
+</code></pre></div>
+<p>Start / restart the server to apply the configuration.</p>
+<p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters</a> supplied with the extension.</p>
+<p><strong>wal2json</strong></p>
+<p>After the installation, enable the following option in <code>postgresql.conf</code> configuration file before starting the service:</p>
+<div class="highlight"><pre><span></span><code>wal_level = logical
+</code></pre></div>
+<h2 id="connect-to-the-postgresql-server">Connect to the PostgreSQL server<a class="headerlink" href="#connect-to-the-postgresql-server" title="Permanent link">&para;</a></h2>
+<p>By default, <code>postgres</code> user and <code>postgres</code> database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the <code>postgres</code> user.</p>
+<div class="highlight"><pre><span></span><code>$ sudo su postgres
+</code></pre></div>
+<p>Open the PostgreSQL interactive terminal:</p>
+<div class="highlight"><pre><span></span><code>$ psql
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can connect to <code>psql</code> as the <code>postgres</code> user in one go:</p>
+</div>
+<div class="highlight"><pre><span></span><code>$ sudo su postgres psql
+</code></pre></div>
+<p>To exit the <code>psql</code> terminal, use the following command:</p>
+<div class="highlight"><pre><span></span><code>$ \q
+</code></pre></div>
+                    </div>
+                </div>
+                
+<div class="small">
+    <ul class="list-inline">
+        
+        <li class="left">
+            <i class="uil uil-refresh"></i> Page updated 2021-04-28
+        </li>
+        
+    </ul>
+</div>
+
+                
+<div class="related row">
+    <ul class="nav nav-pills">
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="major-upgrade.html" title="Upgrading Percona Distribution for PostgreSQL from 12 to 13">Next</a>
+        </li>
+        
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="index.html" title="Percona Distribution for PostgreSQL 13 Documentation">Previous</a>
+        </li>
+        
+        <li>
+            <a href="">Home</a>
+        </li>
+    </ul>
+</div>
+
+            </div>
+            
+<div class="sphinxsidebar col-md-3 col-md-pull-9">
+    <div class="sphinxsidebarwrapper">
+        {@ product_logo @}
+        {@ product_pdf_download @}
+        
+<section class="select-wrapper" id="version-select-wrapper">
+    <!-- Empty locator section for version selector -->
+</section>
+
+        <h3 id="toctree-heading"><a href="">Contents</a></h3>
+        
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="index.html">Percona Distribution for PostgreSQL 13 Documentation</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="installing.html">Installation and Upgrade</a>
+
+
+
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 12 to 13</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="minor-upgrade.html">Minor Upgrade of Percona Distribution for PostgreSQL</a>
+
+
+
+</ul>
+
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="pg-stat-monitor.html">Extensions</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="uninstalling.html">Uninstall</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="release-notes.html">Release Notes</a>
+
+
+
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.0.html">Percona Distribution for PostgreSQL 13.0</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.1.html">Percona Distribution for PostgreSQL 13.1</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.html">Percona Distribution for PostgreSQL 13.2</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.upd.html">Percona Distribution for PostgreSQL 13.2 Update</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.upd2.html">Percona Distribution for PostgreSQL 13.2 Second Update</a>
+
+
+
+</ul>
+
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="licensing.html">Reference</a>
+
+
+
+</ul>
+
+
+        
+
+<h4>Previous page</h4>
+<p class="topless">
+    <a href="index.html" title="previous chapter">Percona Distribution for PostgreSQL 13 Documentation</a>
+</p>
+
+
+<h4>Next page</h4>
+<p class="topless">
+    <a href="major-upgrade.html" title="next chapter">Upgrading Percona Distribution for PostgreSQL from 12 to 13</a>
+</p>
+
+
+        {@ product_series @}
+    </div>
+</div>
+
+            <div class="clearer"></div>
+        </div>
+    </div>
+</body>

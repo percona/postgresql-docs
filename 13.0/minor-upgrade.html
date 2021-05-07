@@ -1,0 +1,322 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Percona Distribution for PostgreSQL &mdash; Minor Upgrade of Percona Distribution for PostgreSQL</title>
+
+<head>
+    
+
+
+    
+
+    <link rel="top" title="" href="" />
+    
+    <link rel="next" title="Extensions" href="pg-stat-monitor.html" />
+    
+    
+</head>
+
+<body>
+    
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/toctree.css" type="text/css">
+<link rel="stylesheet" href="css/percona.css" type="text/css">
+
+    
+
+    <div class="container">
+        <div class="document row">
+            <div class="documentwrapper col-md-9 col-md-push-3">
+                
+<div class="related row">
+    <ul class="nav nav-pills">
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="pg-stat-monitor.html" title="Extensions">Next</a>
+        </li>
+        
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="major-upgrade.html" title="Upgrading Percona Distribution for PostgreSQL from 12 to 13">Previous</a>
+        </li>
+        
+        <li>
+            <a href="">Home</a>
+        </li>
+    </ul>
+</div>
+
+                
+
+<div class="small">
+    <ul class="list-inline">
+        <li class="left">
+            <a href="https://github.com/percona/postgresql-docs/issues/new?title= 'Minor Upgrade of Percona Distribution for PostgreSQL' (minor-upgrade.html)&body="
+                target="_blank" title=""></a>
+        </li>
+        <li class="pull-right">
+            <a href="https://github.com/percona/postgresql-docs/edit/13/docs/minor-upgrade.md" target="_blank" title="Edit this page on GitHub in Markdown format"><i class="uil uil-pen"></i> <b>Edit this page</b></a>
+        </li>
+    </ul>
+</div>
+
+
+                <div class="bodywrapper">
+                    <div class="body">
+                        <h1 id="minor-upgrade-of-percona-distribution-for-postgresql">Minor Upgrade of Percona Distribution for PostgreSQL<a class="headerlink" href="#minor-upgrade-of-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.</p>
+<p>Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.</p>
+<p>Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:</p>
+<ol>
+<li>
+<p>Stopping the <code>postgresql</code> cluster;</p>
+</li>
+<li>
+<p>Installing new version packages;</p>
+</li>
+<li>
+<p>Restarting the <code>postgresql</code> cluster.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These steps apply if you installed Percona Distribution for PostgreSQL from the Major Release repository. In this case, you are always upgraded to the latest available release.</p>
+<p>If you installed Percona Distribution for PostgreSQL from the Minor Release repository, you will need to enable a new version repository to upgrade.</p>
+<p>For more information about Percona repositories, refer to Installing Percona Distribution for PostgreSQL.</p>
+<p>Before the upgrade, update the <strong>percona-release</strong> utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. Refer to <a href="https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version">Percona Software Repositories Documentation</a> for update instructions.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Run all commands as root or via <strong>sudo</strong>.</p>
+</div>
+<ol>
+<li>
+<p>Stop the <code>postgresql</code> service.</p>
+<ul>
+<li>On Debian / Ubuntu:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+</code></pre></div>
+<ul>
+<li>On Red Hat Enterprise Linux / CentOS:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-13
+</code></pre></div>
+</li>
+<li>
+<p>Install new version packages. See <a href="installing.html">Installing Percona Distribution for PostgreSQL</a>.</p>
+</li>
+<li>
+<p>Restart the <code>postgresql</code> service.</p>
+<ul>
+<li>On Debian / Ubuntu:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+</code></pre></div>
+<ul>
+<li>On Red Hat Enterprise Linux / CentOS:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-13
+</code></pre></div>
+</li>
+</ol>
+<p>If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to <a href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 12 to 13</a>.</p>
+                    </div>
+                </div>
+                
+<div class="small">
+    <ul class="list-inline">
+        
+        <li class="left">
+            <i class="uil uil-refresh"></i> Page updated 2021-04-28
+        </li>
+        
+    </ul>
+</div>
+
+                
+<div class="related row">
+    <ul class="nav nav-pills">
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="pg-stat-monitor.html" title="Extensions">Next</a>
+        </li>
+        
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="major-upgrade.html" title="Upgrading Percona Distribution for PostgreSQL from 12 to 13">Previous</a>
+        </li>
+        
+        <li>
+            <a href="">Home</a>
+        </li>
+    </ul>
+</div>
+
+            </div>
+            
+<div class="sphinxsidebar col-md-3 col-md-pull-9">
+    <div class="sphinxsidebarwrapper">
+        {@ product_logo @}
+        {@ product_pdf_download @}
+        
+<section class="select-wrapper" id="version-select-wrapper">
+    <!-- Empty locator section for version selector -->
+</section>
+
+        <h3 id="toctree-heading"><a href="">Contents</a></h3>
+        
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="index.html">Percona Distribution for PostgreSQL 13 Documentation</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="installing.html">Installation and Upgrade</a>
+
+
+
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 12 to 13</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="minor-upgrade.html">Minor Upgrade of Percona Distribution for PostgreSQL</a>
+
+
+
+</ul>
+
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="pg-stat-monitor.html">Extensions</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="uninstalling.html">Uninstall</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="release-notes.html">Release Notes</a>
+
+
+
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.0.html">Percona Distribution for PostgreSQL 13.0</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.1.html">Percona Distribution for PostgreSQL 13.1</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.html">Percona Distribution for PostgreSQL 13.2</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.upd.html">Percona Distribution for PostgreSQL 13.2 Update</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.upd2.html">Percona Distribution for PostgreSQL 13.2 Second Update</a>
+
+
+
+</ul>
+
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="licensing.html">Reference</a>
+
+
+
+</ul>
+
+
+        
+
+<h4>Previous page</h4>
+<p class="topless">
+    <a href="major-upgrade.html" title="previous chapter">Upgrading Percona Distribution for PostgreSQL from 12 to 13</a>
+</p>
+
+
+<h4>Next page</h4>
+<p class="topless">
+    <a href="pg-stat-monitor.html" title="next chapter">Extensions</a>
+</p>
+
+
+        {@ product_series @}
+    </div>
+</div>
+
+            <div class="clearer"></div>
+        </div>
+    </div>
+</body>

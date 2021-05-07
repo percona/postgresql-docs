@@ -1,0 +1,322 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Percona Distribution for PostgreSQL &mdash; Percona Distribution for PostgreSQL 13 Documentation</title>
+
+<head>
+    
+
+
+    
+
+    <link rel="top" title="" href="" />
+    
+    <link rel="next" title="Installation and Upgrade" href="installing.html" />
+    
+    
+</head>
+
+<body>
+    
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/toctree.css" type="text/css">
+<link rel="stylesheet" href="css/percona.css" type="text/css">
+
+    
+
+    <div class="container">
+        <div class="document row">
+            <div class="documentwrapper col-md-9 col-md-push-3">
+                
+<div class="related row">
+    <ul class="nav nav-pills">
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="installing.html" title="Installation and Upgrade">Next</a>
+        </li>
+        
+        
+        <li>
+            <a href="">Home</a>
+        </li>
+    </ul>
+</div>
+
+                
+
+<div class="small">
+    <ul class="list-inline">
+        <li class="left">
+            <a href="https://github.com/percona/postgresql-docs/issues/new?title= 'Percona Distribution for PostgreSQL 13 Documentation' (index.html)&body="
+                target="_blank" title=""></a>
+        </li>
+        <li class="pull-right">
+            <a href="https://github.com/percona/postgresql-docs/edit/13/docs/index.md" target="_blank" title="Edit this page on GitHub in Markdown format"><i class="uil uil-pen"></i> <b>Edit this page</b></a>
+        </li>
+    </ul>
+</div>
+
+
+                <div class="bodywrapper">
+                    <div class="body">
+                        <h1 id="percona-distribution-for-postgresql-13-documentation">Percona Distribution for PostgreSQL 13 Documentation<a class="headerlink" href="#percona-distribution-for-postgresql-13-documentation" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
+database system: it installs PostgreSQL and complements it by a selection of
+extensions that enable solving essential practical tasks efficiently:</p>
+<ul>
+<li>
+<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
+PostgreSQL database objects</p>
+</li>
+<li>
+<p><a href="https://www.pgaudit.org/">pgaudit</a> provides detailed session or object
+audit logging via the standard PostgreSQL logging facility</p>
+</li>
+<li>
+<p><a href="https://pgbackrest.org/">pgBackRest</a> is a backup and restore solution for
+PostgreSQL</p>
+</li>
+<li>
+<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
+</li>
+<li>
+<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>) collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
+</li>
+<li>
+<p>A collection of <a href="https://www.postgresql.org/docs/13/contrib.html">additional PostgreSQL contrib extensions</a></p>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
+<p>Blog Posts</p>
+<ul>
+<li><a href="https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/">pgBackRest - A Great Backup Solution and a Wonderful Year of
+  Growth</a></li>
+<li><a href="https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/">Securing PostgreSQL as an Enterprise-Grade
+  Environment</a></li>
+</ul>
+</div>
+<p>Percona Distribution for PostgreSQL is also shipped with the
+<a href="https://www.postgresql.org/docs/11/libpq.html">libpq</a> library. It
+contains &ldquo;a set of library functions that allow client programs to pass
+queries to the PostgreSQL backend server and to receive the results of
+these queries.&rdquo; <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<h1 id="installation-and-upgrade">Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="installing">Installing Percona Distribution for PostgreSQL</a></li>
+<li><a href="minor-upgrade">Minor Upgrade of Percona Distribution for PostgreSQL</a></li>
+</ul>
+<h1 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<p><a href="pg-stat-monitor">pg_stat_monitor</a></p>
+<h1 id="uninstall">Uninstall<a class="headerlink" href="#uninstall" title="Permanent link">&para;</a></h1>
+<p><a href="uninstalling">Uninstalling Percona Distribution for PostgreSQL</a></p>
+<h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<p><a href="release-notes">Release notes</a></p>
+<h1 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h1>
+<p><a href="licensing">Licening</a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Tech Preview Features are not yet ready for enterprise use and are
+not included in support via . They are included in this release so
+that users can provide feedback prior to the full release of the
+feature in a future release (or removal of the feature if it is
+deemed not useful). This functionality can change (APIs, CLIs, etc.)
+from tech preview to GA.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.postgresql.org/docs/11/libpq.html">https://www.postgresql.org/docs/11/libpq.html</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                    </div>
+                </div>
+                
+<div class="small">
+    <ul class="list-inline">
+        
+        <li class="left">
+            <i class="uil uil-refresh"></i> Page updated 2021-04-21
+        </li>
+        
+    </ul>
+</div>
+
+                
+<div class="related row">
+    <ul class="nav nav-pills">
+        
+        <li class="right" style="margin-right: 10px">
+            <a href="installing.html" title="Installation and Upgrade">Next</a>
+        </li>
+        
+        
+        <li>
+            <a href="">Home</a>
+        </li>
+    </ul>
+</div>
+
+            </div>
+            
+<div class="sphinxsidebar col-md-3 col-md-pull-9">
+    <div class="sphinxsidebarwrapper">
+        {@ product_logo @}
+        {@ product_pdf_download @}
+        
+<section class="select-wrapper" id="version-select-wrapper">
+    <!-- Empty locator section for version selector -->
+</section>
+
+        <h3 id="toctree-heading"><a href="">Contents</a></h3>
+        
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="index.html">Percona Distribution for PostgreSQL 13 Documentation</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="installing.html">Installation and Upgrade</a>
+
+
+
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 12 to 13</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="minor-upgrade.html">Minor Upgrade of Percona Distribution for PostgreSQL</a>
+
+
+
+</ul>
+
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="pg-stat-monitor.html">Extensions</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="uninstalling.html">Uninstall</a>
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="release-notes.html">Release Notes</a>
+
+
+
+
+<ul class="toctree" id="toctree">
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.0.html">Percona Distribution for PostgreSQL 13.0</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.1.html">Percona Distribution for PostgreSQL 13.1</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.html">Percona Distribution for PostgreSQL 13.2</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.upd.html">Percona Distribution for PostgreSQL 13.2 Update</a>
+
+
+
+
+<li class="toctree-l2">
+    <a class="reference internal" href="release-notes-v13.2.upd2.html">Percona Distribution for PostgreSQL 13.2 Second Update</a>
+
+
+
+</ul>
+
+
+
+
+
+<li class="toctree-l1">
+    <a class="reference internal" href="licensing.html">Reference</a>
+
+
+
+</ul>
+
+
+        
+
+
+<h4>Next page</h4>
+<p class="topless">
+    <a href="installing.html" title="next chapter">Installation and Upgrade</a>
+</p>
+
+
+        {@ product_series @}
+    </div>
+</div>
+
+            <div class="clearer"></div>
+        </div>
+    </div>
+</body>
