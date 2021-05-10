@@ -5,3 +5,4 @@ source/ext/__pycache__/
 source/percona-theme/
 # Local Netlify folder
 .netlify
+source/__pycache__/
