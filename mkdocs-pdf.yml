@@ -1,0 +1,79 @@
+# MkDocs configuration for Netlify builds
+
+site_name: Percona Distribution for PostgreSQL
+site_description: Documentation
+site_author: Percona LLC
+copyright: Percona LLC, &#169; 2021
+
+repo_name: percona/postgresql-docs
+repo_url: https://github.com/percona/postgresql-docs
+edit_uri: edit/11/docs/
+
+use_directory_urls: false
+
+
+extra_css:
+  - https://unicons.iconscout.com/release/v3.0.3/css/line.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
+#  - css/version-select.css
+  - css/toctree.css
+  - css/percona.css
+
+
+markdown_extensions:
+  - attr_list
+  - toc:
+      permalink: True
+  - admonition
+  - footnotes
+  - def_list   # https://michelf.ca/projects/php-markdown/extra/#def-list
+  - meta
+  - smarty:
+        smart_angled_quotes: true
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - pymdownx.superfences
+  - pymdownx.highlight:
+        linenums: false
+  - plantuml_markdown
+
+plugins:
+  - search
+  - macros:
+        include_yaml:
+  - with-pdf: # https://github.com/orzih/mkdocs-with-pdf
+          output_path: '_pdf/PerconaDistributionPostgreSQL-11.pdf'
+          cover_title: 'Documentation'
+          cover_subtitle: 11.11 (May 10, 2021)
+          author: 'Percona Technical Documentation Team'
+          cover_logo: docs/_images/postgre-logo.jpg
+          debug_html: false
+          custom_template_path: _resource/templates
+
+
+nav:
+  - index.md
+  - Installation and Upgrade:
+      - installing.md
+      - minor-upgrade.md
+  - Extensions:
+      - pg-stat-monitor.md
+  - Uninstall:
+      - uninstalling.md
+  - Release Notes:
+      - release-notes.md
+      - release-notes-v11.11.upd2.md
+      - release-notes-v11.11.upd.md
+      - release-notes-v11.11.md
+      - release-notes-v11.10.md
+      - release-notes-v11.9.md
+      - release-notes-v11.8.md
+      - release-notes-v11.7.md
+      - release-notes-v11.6.md
+      - release-notes-v11.md
+      - release-notes-v11-beta.md
+  - Reference:
+      - licensing.md
+# - Version Selector: "../"
