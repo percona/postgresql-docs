@@ -91,7 +91,7 @@ Install ``pg_repack``:
 
     $ sudo apt-get install percona-postgresql-12-repack
 
-Install ``pgaudit``:
+Install ``pgAudit``:
 
 .. code-block:: bash
 
@@ -191,7 +191,7 @@ Install ``pg_repack``:
 
    $ sudo yum install percona-pg_repack12
 
-Install ``pgaudit``:
+Install ``pgAudit``:
    
 .. code-block:: bash
 
