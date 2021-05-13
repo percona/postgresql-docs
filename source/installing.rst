@@ -91,7 +91,7 @@ Install ``pg_repack``:
 
     $ sudo apt-get install percona-postgresql-13-repack
 
-Install ``pgaudit``:
+Install ``pgAudit``:
 
 .. code-block:: bash
 

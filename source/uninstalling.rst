@@ -28,7 +28,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ sudo apt-get remove percona-postgresql-13* percona-pgbackrest percona-patroni percona-pg-stat-monitor13
+      $ sudo apt-get remove percona-postgresql-13* percona-patroni percona-pgbackrest percona-pgbadger percona-pgbouncer
  
 #. Remove configuration and data files.         
 
@@ -54,7 +54,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
  
-      $ sudo yum remove percona-postgresql13*
+      $ sudo yum remove percona-postgresql13* percona-pgbadger
 
 #. Remove configuration and data files
 
