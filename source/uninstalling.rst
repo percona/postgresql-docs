@@ -28,7 +28,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12
+      $ sudo apt-get remove percona-postgresql-12* percona-patroni percona-pgbackrest percona-pgbadger percona-pgbouncer
  
 #. Remove configuration and data files.         
 
@@ -48,7 +48,7 @@ Run all commands as root or via |sudo|.
 
    .. code-block:: bash
 
-      $ sudo systemctl stop postgresql-12
+      $ sudo systemctl stop postgresql-12 percona-pgbadger
 
 #. Remove the |percona-postgresql| packages
 
