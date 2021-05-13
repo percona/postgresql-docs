@@ -31,19 +31,4 @@
 		{{ super() }}
 	{%- endblock%}
 
-{# 'Edit this page' links #}
-{% block rootrellink %}
-{{ super() }}
-{% if repo_url|e %}
-<div class="small">
-    <ul class="list-inline">
-        <li class="pull-right">
-            <a href="{{ repo_url }}/{{ edit_uri }}/{{ pagename }}.rst" target="_blank">
-                <i class="fa fa-github"></i>
-                    Edit this page
-            </a>
-        </li>
-    </ul>
-</div>
-{% endif %}
-{% endblock %}
+
