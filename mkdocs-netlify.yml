@@ -98,12 +98,13 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
-      - release-notes-v13.0.md
-      - release-notes-v13.1.md
-      - release-notes-v13.2.md
-      - release-notes-v13.2.upd.md
-      - release-notes-v13.2.upd2.md
+      - release-notes-v13.3.md
       - release-notes-v13.2.upd3.md
+      - release-notes-v13.2.upd2.md
+      - release-notes-v13.2.upd.md
+      - release-notes-v13.2.md
+      - release-notes-v13.1.md
+      - release-notes-v13.0.md
   - Reference:
       - licensing.md
-# - Version Selector: "../"
+

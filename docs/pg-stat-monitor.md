@@ -144,7 +144,7 @@ $ SELECT userid::regrole, datname, substr(query,0, 50) AS query, calls, client_i
  postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 ```
 
-Find more usage examples  in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md).
+Find more usage examples  in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_1_STABLE/docs/USER_GUIDE.md).
 
 ## Changing the configuration
 
@@ -172,7 +172,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_1_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 

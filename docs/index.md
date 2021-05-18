@@ -52,34 +52,34 @@ these queries." [^2]
 
 ## Installation and Upgrade
 
-- [Installing Percona Distribution for PostgreSQL](installing)
-- [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade)
+- [Installing Percona Distribution for PostgreSQL](installing.md)
+- [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md)
 
 
 ## Extensions
 
-[pg_stat_monitor](pg-stat-monitor)
+[pg_stat_monitor](pg-stat-monitor.md)
 
 
 ## Uninstall
 
-[Uninstalling Percona Distribution for PostgreSQL](uninstalling)
+[Uninstalling Percona Distribution for PostgreSQL](uninstalling.md)
 
 ## Release Notes
 
-[Release notes](release-notes)
+[Release notes](release-notes.md)
 
 
 ## Reference
 
-[Licensing](licensing)
+[Licensing](licensing.md)
 
 
 [^1]: Tech Preview Features are not yet ready for enterprise use and are
-    not included in support via . They are included in this release so
+    not included in support via SLA (Service License Agreement). They are included in this release so
     that users can provide feedback prior to the full release of the
     feature in a future release (or removal of the feature if it is
     deemed not useful). This functionality can change (APIs, CLIs, etc.)
     from tech preview to GA.
 
-[^2]: <https://www.postgresql.org/docs/11/libpq.html>
+[^2]: <https://www.postgresql.org/docs/13/libpq.html>

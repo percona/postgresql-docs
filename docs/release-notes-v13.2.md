@@ -29,12 +29,18 @@ enable solving essential practical tasks efficiently.
 | [Pgaudit](https://www.pgaudit.org/)             | 1.5.0   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgBackRest](https://pgbackrest.org/)           | 2.32    | a backup and restore solution for PostgreSQL       |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 2.0.1 | a HA (High Availability) solution for PostgreSQL |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) (Tech Preview Feature)                                          | 0.6.0   | collects and aggregates statistics for PostgreSQL and provides histogram information.       |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) (Tech Preview Feature [^1])                                          | 0.6.0   | collects and aggregates statistics for PostgreSQL and provides histogram information.       |
 | [PostgreSQL contrib extensions](https://www.postgresql.org/docs/13/contrib.html)                             | 13.2   | a collection of additional extensions for PostgreSQL |
 
                                                       
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/13/libpq.html) library. It contains “a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” 
+backend server and to receive the results of these queries.” [^2]
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.2](https://www.postgresql.org/docs/release/13.2/).
+
+
+
+[^1]: Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.
+
+[^2]: https://www.postgresql.org/docs/13/libpq.html

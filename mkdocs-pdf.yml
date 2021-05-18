@@ -46,7 +46,7 @@ plugins:
   - with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
           cover_title: 'Documentation'
-          cover_subtitle: 13.2 (May 10, 2021)
+          cover_subtitle: 13.3 (May 20, 2021)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -65,6 +65,7 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v13.3.md
       - release-notes-v13.0.md
       - release-notes-v13.1.md
       - release-notes-v13.2.md
