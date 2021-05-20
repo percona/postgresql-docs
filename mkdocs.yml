@@ -94,10 +94,12 @@ extra: # Used in main.html template and can't be externalised
 nav:
   - index.md
   - Installation and Upgrade:
-      - installing.md
-      - minor-upgrade.md
+      - installation/index.md
+      - installation/installing.md
+      - installation/minor-upgrade.md
   - Extensions:
-      - pg-stat-monitor.md
+      - extensions/extenstions.md
+      - extensions/pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:
@@ -112,6 +114,5 @@ nav:
       - release-notes-v11.6.md
       - release-notes-v11.md
       - release-notes-v11-beta.md
-  - Reference:
+  - Licensing:
       - licensing.md
-# - Version Selector: "../"

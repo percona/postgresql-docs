@@ -1,11 +1,5 @@
 # Installing Percona Distribution for PostgreSQL
 
-This document provides installation instructions for Percona Distribution for PostgreSQL 11. For how to install one of the latest major versions of Percona Distribution for PostgreSQL, see the following guidelines:
-
-
-* [Installing Percona Distribution for PostgreSQL 12](https://www.percona.com/doc/postgresql/12/installing.html) or
-* [Installing Percona Distribution for PostgreSQL 13](https://www.percona.com/doc/postgresql/13/installing.html).
-
 Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
 
 Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the **percona-release** utility. The **percona-release** utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.
@@ -113,7 +107,9 @@ Install `pg_stat_monitor`:
 $ sudo apt-get install percona-pg-stat-monitor11
 ```
 
-**NOTE**: You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+!!! note
+   
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install PostgreSQL contrib extensions:
 
@@ -186,7 +182,9 @@ Install `pg_stat_monitor`:
 $ sudo yum install percona-pg-stat-monitor11
 ```
 
-**NOTE**: You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+!!! note
+
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install PostgreSQL contrib extensions:
 
