@@ -5,6 +5,7 @@ site_description: Documentation
 site_author: Percona LLC
 copyright: Percona LLC, &#169; 2021
 
+site_url: 'https://percona.com/docs/postgresql/11.x/index.html'
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
 edit_uri: edit/11/docs/
@@ -45,8 +46,8 @@ plugins:
         include_yaml:
   - with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-11.pdf'
-          cover_title: 'Documentation'
-          cover_subtitle: 11.11 (May 10, 2021)
+          cover_title: ' Percona Distribution for PostgreSQL Documentation'
+          cover_subtitle: 11.12 (May 24, 2021)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -56,16 +57,17 @@ plugins:
 nav:
   - index.md
   - Installation and Upgrade:
-      - installation/index.md
-      - installation/installing.md
-      - installation/minor-upgrade.md
+      - installation-and-update.md
+      - installing.md
+      - minor-upgrade.md
   - Extensions:
-      - extensions/extenstions.md
-      - extensions/pg-stat-monitor.md
+      - extenstions.md
+      - pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v11.12.md
       - release-notes-v11.11.upd2.md
       - release-notes-v11.11.upd.md
       - release-notes-v11.11.md

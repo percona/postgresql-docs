@@ -25,7 +25,7 @@ PostgreSQL
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/11/contrib.html)
 
-!!! seealso
+!!! see "See also"
 
     Blog Posts
 
@@ -41,32 +41,32 @@ backend server and to receive the results of these queries.” [^2]
 ## Installation and Upgrade
 
 
-* [Installing Percona Distribution for PostgreSQL](installation/installing.md)
-* [Minor Upgrade of Percona Distribution for PostgreSQL](installation/minor-upgrade.md)
+* [Installing Percona Distribution for PostgreSQL](installing.md)
+* [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md)
 
 
 ## Extensions
 
 
- [pg_stat_monitor](extensions/pg-stat-monitor.md)
+* [pg_stat_monitor](pg-stat-monitor.md)
 
 
 ## Uninstall Percona Distribution for PostgreSQL
 
 
- [Uninstalling Percona Distribution for PostgreSQL](uninstalling.md)
+* [Uninstalling Percona Distribution for PostgreSQL](uninstalling.md)
 
 
 ## Release Notes
 
 
- [Release Notes](release-notes.md)
+* [Release Notes](release-notes.md)
 
 
 ## Reference
 
 
- [Licensing](licensing.md)
+* [Licensing](licensing.md)
 
 
 [^1]: Tech Preview Features are not yet ready for enterprise use and are not included in support via . They are included in this release so that users can provide feedback prior to the full release of the feature in a future release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.
