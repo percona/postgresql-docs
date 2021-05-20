@@ -54,9 +54,9 @@ $ sudo percona-release setup ppg-11.10
 After you’ve [installed percona-release](#install-percona-release) and [enabled the desired repository](#enable-the-repository), install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
-> <b> Important </b>:
-
-> Run all the commands in the following sections as root or using the **sudo** command.
+!!! important
+   
+    Run all the commands in the following sections as root or using the **sudo** command.
 
 ### On Debian and Ubuntu using `apt`
 
@@ -109,7 +109,7 @@ $ sudo apt-get install percona-pg-stat-monitor11
 
 !!! note
    
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install PostgreSQL contrib extensions:
 
@@ -184,7 +184,7 @@ $ sudo yum install percona-pg-stat-monitor11
 
 !!! note
 
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install PostgreSQL contrib extensions:
 

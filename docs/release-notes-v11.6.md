@@ -30,9 +30,9 @@ backend server and to receive the results of these queries.” [^1]
 
 This release of Percona Distribution for PostgreSQL is based on PostgreSQL 11.6.
 
-> <b>Important</b>: 
+!!! important 
 
-> On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 11 can only be installed together with the server shipped by Percona (`percona-postgresql-11`). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-11) and then install the chosen components from Percona Distribution for PostgreSQL.
+    On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 11 can only be installed together with the server shipped by Percona (`percona-postgresql-11`). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-11) and then install the chosen components from Percona Distribution for PostgreSQL.
 
 ## Bugs Fixed
 
