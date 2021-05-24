@@ -127,11 +127,37 @@ Install ``pg_stat_monitor``:
 
 .. include:: .res/note-pg_stat_config-required.txt
 
+Install ``PgBouncer``:
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-pgbouncer
+
+Install ``pgAudit-set_user``:
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-pgaudit11-set-user
+
+Install ``pgBadger``:
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-pgbadger
+
+Install ``wal2json``:
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-postgresql-11-wal2json
+
 Install PostgreSQL contrib extensions:
 
 .. code-block:: bash
 
    $ sudo apt-get install percona-postgresql-contrib
+
+Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to :ref:`Enabling extensions <enabling>`.
 
 .. admonition:: Starting the service
 
@@ -201,11 +227,37 @@ Install ``pg_stat_monitor``:
 
 .. include:: .res/note-pg_stat_config-required.txt
 
+Install ``PgBouncer``:
+
+.. code-block:: bash
+
+   $ sudo yum install percona-pgbouncer
+
+Install ``pgAudit-set_user``:
+
+.. code-block:: bash
+
+   $ sudo yum install percona-pgaudit11_set_user
+
+Install ``pgBadger``:
+
+.. code-block:: bash 
+
+   $ sudo yum install percona-pgbadger
+
+Install ``wal2json``:
+
+.. code-block:: bash
+
+   $ sudo yum install percona-wal2json11 
+
 Install PostgreSQL contrib extensions:
 
 .. code-block:: bash
 
    $ sudo yum install percona-postgresql11-contrib
+
+Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to :ref:`Enabling extensions <enabling>`.   
 
 .. admonition:: Starting the service
 
@@ -220,6 +272,51 @@ Install PostgreSQL contrib extensions:
    .. code-block:: bash
 
       $ sudo systemctl start postgresql-11 
+
+.. _enabling:
+
+Enabling extensions
+-------------------
+
+Some extensions require additional configuration before using them with |pdp|. This sections provides configuration instructions per extension.
+
+**pgBadger**
+
+Enable the following options in `postgresql.conf` configuration file before starting the service:
+
+.. code-block:: guess
+
+   log_min_duration_statement = 0
+   log_line_prefix = '%t [%p]: '
+   log_checkpoints = on
+   log_connections = on
+   log_disconnections = on
+   log_lock_waits = on
+   log_temp_files = 0
+   log_autovacuum_min_duration = 0
+   log_error_verbosity = default
+
+For details about each option, see `pdBadger documentation <https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION>`_.
+
+**pgAudit set-user**
+
+Add the ``set-user`` to ``shared_preload_libraries`` in postgresql.conf. The recommended way is to  use the `ALTER SYSTEM <https://www.postgresql.org/docs/11/sql-altersystem.html>`_ command. :ref:`Connect to psql <server-connect>` and use the following command:
+
+.. code-block:: bash
+
+      $ ALTER SYSTEM SET shared_preload_libraries = 'set-user';
+
+Start/restart the server to apply the configuration.
+
+You can fine-tune user behavior with the `custom parameters <https://github.com/pgaudit/set_user#configuration-options>`_ supplied with the extension.
+
+**wal2json**
+
+After the installation, enable the following option in :file:`postgresql.conf` configuration file before starting the service:
+
+.. code-block:: guess
+
+   wal_level = logical
 
 .. _server-connect:
 
