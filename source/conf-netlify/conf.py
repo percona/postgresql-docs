@@ -6,6 +6,7 @@ sys.path.append(os.path.abspath("../"))
 from conf import *
 extensions.append('sphinx_gitstamp')
 extensions.append('sphinx_copybutton')
+html_sidebars['**']=['globaltoc.html', 'searchbox.html', 'localtoc.html', 'logo-text.html']
 html_theme = 'sphinx_material'
 html_theme_options = {
     'base_url': 'http://bashtage.github.io/sphinx-material/',
