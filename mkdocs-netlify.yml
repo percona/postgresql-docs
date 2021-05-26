@@ -88,13 +88,13 @@ extra:
 nav:
   - index.md
   - Installation and Upgrade:
-      - installation/index.md
-      - installation/installing.md
-      - installation/major-upgrade.md
-      - installation/minor-upgrade.md
+      - installation-and-update.md
+      - installing.md
+      - major-upgrade.md
+      - minor-upgrade.md
   - Extensions:
-      - extensions/extenstions.md
-      - extensions/pg-stat-monitor.md
+      - extenstions.md
+      - pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:

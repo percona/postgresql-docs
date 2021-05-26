@@ -102,7 +102,7 @@ $ sudo apt-get install percona-pg-stat-monitor12
 
 !!! note
 
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install `PgBouncer`:
 
@@ -195,7 +195,7 @@ $ sudo yum install percona-pg-stat-monitor12
 
 !!! note
 
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 
 Install `PgBouncer`:

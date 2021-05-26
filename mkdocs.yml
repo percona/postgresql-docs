@@ -5,6 +5,7 @@ site_description: Documentation
 site_author: Percona LLC
 copyright: Percona LLC, &#169; 2021
 
+site_url: 'https://www.percona.com/doc/postgresql/12/index.html'
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
 edit_uri: edit/12/docs/
@@ -42,7 +43,7 @@ extra_css:
   - css/percona.css
 
 extra_javascript:
-  - js/version_dropdown.js
+  - js/version-select.js
 
 
 markdown_extensions:
@@ -87,13 +88,13 @@ extra:
 nav:
   - index.md
   - Installation and Upgrade:
-      - installation/index.md
-      - installation/installing.md
-      - installation/major-upgrade.md
-      - installation/minor-upgrade.md
+      - installation-and-update.md
+      - installing.md
+      - major-upgrade.md
+      - minor-upgrade.md
   - Extensions:
-      - extensions/extenstions.md
-      - extensions/pg-stat-monitor.md
+      - extenstions.md
+      - pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:

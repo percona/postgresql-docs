@@ -53,14 +53,14 @@ backend server and to receive the results of these queries.” [^2]
 ## Installation and Upgrade
 
 
-- [Installing Percona Distribution for PostgreSQL](installation/installing.md)
-- [Upgrading Percona Distribution for PostgreSQL from 11 to 12](installation/major-upgrade.md)
-- [Minor Upgrade of Percona Distribution for PostgreSQL](installation/minor-upgrade.md)
+- [Installing Percona Distribution for PostgreSQL](installing.md)
+- [Upgrading Percona Distribution for PostgreSQL from 11 to 12](major-upgrade.md)
+- [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md)
  
 ## Extensions
 
 
-[pg_stat_monitor](extensions/pg-stat-monitor.md)
+[pg_stat_monitor](pg-stat-monitor.md)
 
 
 ## Uninstall Percona Distribution for PostgreSQL

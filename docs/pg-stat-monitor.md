@@ -29,12 +29,12 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 ## Setup
 
-After the [installation](../installation/installing.md#install-percona-distribution-for-postgresql-packages), `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
+After the [installation](installing.md#install-percona-distribution-for-postgresql-packages), `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
 
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to `psql`](../installation/installing.md#connect-to-the-postgresql-server) and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to `psql`](installing.md#connect-to-the-postgresql-server) and use the following command:
 
     ```
     $ ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
