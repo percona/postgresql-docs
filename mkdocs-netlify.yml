@@ -89,10 +89,12 @@ extra:
 nav:
   - index.md
   - Installation and Upgrade:
+      - installation-and-update.md
       - installing.md
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
+      - extensions.md
       - pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
@@ -105,6 +107,6 @@ nav:
       - release-notes-v13.2.md
       - release-notes-v13.1.md
       - release-notes-v13.0.md
-  - Reference:
+  - Licensing:
       - licensing.md
 

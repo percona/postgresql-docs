@@ -5,6 +5,7 @@ site_description: Documentation
 site_author: Percona LLC
 copyright: Percona LLC, &#169; 2021
 
+site_url: 'https://percona.com/doc/postgresql/13/'
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
 edit_uri: edit/13/docs/
@@ -47,6 +48,8 @@ extra_css:
   - css/toctree.css
   - css/percona.css
 
+extra_javascript:
+  - js/version-select.js
 
 markdown_extensions:
   - attr_list
@@ -94,10 +97,12 @@ extra: # Used in main.html template and can't be externalised
 nav:
   - index.md
   - Installation and Upgrade:
+      - index.md
       - installing.md
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
+      - extensions.md
       - pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
@@ -109,7 +114,7 @@ nav:
       - release-notes-v13.2.upd.md
       - release-notes-v13.2.md
       - release-notes-v13.1.md
-      - release-notes-v13.0.md     
-  - Reference:
+      - release-notes-v13.0.md
+  - Licensing:
       - licensing.md
 # - Version Selector: "../"
