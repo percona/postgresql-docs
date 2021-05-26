@@ -41,6 +41,9 @@ extra_css:
   - css/toctree.css
   - css/percona.css
 
+extra_javascript:
+  - js/version_dropdown.js
+
 
 markdown_extensions:
   - attr_list
@@ -84,11 +87,13 @@ extra:
 nav:
   - index.md
   - Installation and Upgrade:
-      - installing.md
-      - major-upgrade.md
-      - minor-upgrade.md
+      - installation/index.md
+      - installation/installing.md
+      - installation/major-upgrade.md
+      - installation/minor-upgrade.md
   - Extensions:
-      - pg-stat-monitor.md
+      - extensions/extenstions.md
+      - extensions/pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:
@@ -103,6 +108,6 @@ nav:
       - release-notes-v12.4.md
       - release-notes-v12.3.md
       - release-notes-v12.2.md
-  - Reference:
+  - Licensing:
       - licensing.md
 # - Version Selector: "../"

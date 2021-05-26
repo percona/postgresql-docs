@@ -1,7 +1,5 @@
 # Installing Percona Distribution for PostgreSQL
 
-This document provides installation instructions for Percona Distribution for PostgreSQL 12. For how to install the latest major version of Percona Distribution for PostgreSQL, see [Installing Percona Distribution for PostgreSQL 13](https://www.percona.com/doc/postgresql/13/installing.html).
-
 Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
 
 Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the **percona-release** utility. The **percona-release** utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.
@@ -51,7 +49,7 @@ $ sudo percona-release setup ppg-12.5
 
 ## Install Percona Distribution for PostgreSQL packages
 
-After you’ve installed percona-release and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
+After you’ve [installed percona-release](#install-percona-release) and [enabled the desired repository](#enable-the-repository), install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
 ### On Debian and Ubuntu using `apt`
@@ -104,7 +102,7 @@ $ sudo apt-get install percona-pg-stat-monitor12
 
 !!! note
 
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install `PgBouncer`:
 
@@ -197,7 +195,7 @@ $ sudo yum install percona-pg-stat-monitor12
 
 !!! note
 
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](../extensions/pg-stat-monitor.md#setup) for configuration guidelines.
 
 
 Install `PgBouncer`:
@@ -256,7 +254,7 @@ For details about each option, see [pdBadger documentation](https://github.com/d
 
 **pgAudit set-user**
 
-Add the `set-user` to `shared_preload_libraries` in postgresql.conf. The recommended way is to  use the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. Connect to psql and use the following command:
+Add the `set-user` to `shared_preload_libraries` in postgresql.conf. The recommended way is to  use the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
 
 ```
 $ ALTER SYSTEM SET shared_preload_libraries = 'set-user';
@@ -287,6 +285,14 @@ Open the PostgreSQL interactive terminal:
 ```
 $ psql
 ```
+
+!!! hint
+
+    You can connect to `psql` as the `postgres` user in one go:
+
+    ```
+    $ sudo su postgres psql 
+    ```
 
 To exit the `psql` terminal, use the following command:
 

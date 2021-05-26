@@ -87,7 +87,6 @@ The exact steps may differ depending on the package manager of your operating sy
 
         Percona Documentation:
 
-
         - [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
 
         - [Installing Percona Distribution for PostgreSQL](installing.md)
