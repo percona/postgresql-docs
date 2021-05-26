@@ -97,7 +97,7 @@ extra: # Used in main.html template and can't be externalised
 nav:
   - index.md
   - Installation and Upgrade:
-      - index.md
+      - installation-and-update.md
       - installing.md
       - major-upgrade.md
       - minor-upgrade.md
