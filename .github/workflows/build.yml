@@ -1,0 +1,37 @@
+name: Build Percona Distribution PostgreSQL 11 docs
+on:
+  push:
+    branches: 
+      - 11
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+
+    steps: 
+      #Pull the latest changes
+      - name: Chekout main
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      #Prepare the env
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      #Set up MkDos
+      - name: Install MkDocs
+        run: | 
+          python3 -m pip install --upgrade pip     # install pip
+          python3 -m pip install mkdocs            # install mkdocs 
+          python3 -m pip install mkdocs-material   # install material theme
+          python3 -m pip install mike              # install mike
+          python3 -m pip install mkdocs-with-pdf   # install plugin for pdfs
+          python3 -m pip install mkdocs-git-revision-date-plugin
+          python3 -m pip install mkdocs-section-index
+     # Deploy docs
+      - name: Deploy docs
+        run: |
+          PATH=$PATH:_resources/bin mike deploy 11 -F mkdocs-netlify.yml -p
+          
