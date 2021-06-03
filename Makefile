@@ -51,6 +51,11 @@ html:
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
+netlify:
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) -c source/conf-netlify $(BUILDDIR)/html
+	@echo
+	@echo "Netlify build finished. The HTML pages are in $(BUILDDIR)/html."
+
 thtml:
 	@echo "Building themed html doc"
 	$(SPHINXBUILD) -D html_theme=alabaster -D html_theme_path='' -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html

@@ -1,3 +1,4 @@
+
 Jinja2==2.11.2
 Markdown==3.3.4
 mkdocs>=1.1.2
@@ -14,3 +15,16 @@ mkdocs-bootstrap-tables-plugin
 mkdocs-section-index
 mkdocs-htmlproofer-plugin
 mike
+Sphinx==3.2.1
+sphinx-autobuild==2020.9.1
+sphinx-copybutton==0.3.1
+sphinx-gitstamp==0.3.1
+sphinx-material==0.0.32
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-contentui==0.2.5
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-fulltoc==1.2.0
+sphinxcontrib-htmlhelp==1.0.3
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.4

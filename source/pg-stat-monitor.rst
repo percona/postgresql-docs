@@ -139,7 +139,7 @@ For example, to view the IP address of the client application that made the quer
     postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 | 127.0.0.1
     postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 
-Find more usage examples  in `pg_stat_monitor User Guide <https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/docs/USER_GUIDE.md>`_.
+Find more usage examples  in `pg_stat_monitor User Guide <https://github.com/percona/pg_stat_monitor/tree/REL0_9_1/docs/USER_GUIDE.md>`_.
 
 .. _change-config:
 
@@ -170,7 +170,7 @@ Run the following query to list available configuration parameters.
     pg_stat_monitor.pgsm_respose_time_step        | Sets the response time steps in millisecond.
     pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the `configuration section <https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/docs/USER_GUIDE.md#configuration>`_ of the ``pg_stat_monitor`` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the `configuration section <https://github.com/percona/pg_stat_monitor/tree/REL0_9_1/docs/USER_GUIDE.md#configuration>`_ of the ``pg_stat_monitor`` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let's set the bucket lifetime from default 60 seconds to 100 seconds. Use the :command:`ALTER SYSTEM` command:
 
@@ -206,8 +206,9 @@ Verify the updated parameter:
 
 .. note::
 
-   ``pg_stat_monitor`` Documentation
-       https://github.com/percona/pg_stat_monitor/blob/REL0_7_0_STABLE/README.md
+   ``pg_stat_monitor`` Documentation 
+       https://github.com/percona/pg_stat_monitor/tree/REL0_9_1/README.md
+
 
    Percona Blog: pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics
        https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/

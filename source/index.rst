@@ -9,13 +9,18 @@ database system: it installs |postgres| and complements it by a selection of
 extensions that enable solving essential practical tasks efficiently:
 
 - `pg_repack <https://github.com/reorg/pg_repack>`_ rebuilds
-  |postgresql| database objects
-- `pgaudit <https://www.pgaudit.org/>`_ provides detailed session or object
-  audit logging via the standard |postgresql| logging facility
+  |postgresql| database objects.
+- `pgAudit <https://www.pgaudit.org/>`_ provides detailed session or object
+  audit logging via the standard |postgresql| logging facility.
+- `pgAudit set_user <https://github.com/pgaudit/set_user>`_ - The ``set_user`` part of ``pgAudit`` extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.
 - `pgBackRest <https://pgbackrest.org/>`_ is a backup and restore solution for
-  |postgresql|
-- `Patroni <https://patroni.readthedocs.io/en/latest/>`_ is an HA (High Availability) solution for |postgresql|.
+  |postgresql|.
+- `Patroni <https://patroni.readthedocs.io/en/latest/>`_ is an :abbr:`HA (High
+  Availability)` solution for |postgresql|.
 - `pg_stat_monitor <https://github.com/percona/pg_stat_monitor>`_ (Tech Preview Feature [#]_) collects and aggregates statistics for |postgresql| and provides histogram information.
+- `PgBouncer <https://www.pgbouncer.org/>`_ - a lightweight connection pooler for PostgreSQL
+- `pgBadger <https://github.com/darold/pgbadger>`_ - a fast PostgreSQL Log Analyzer.
+- `wal2json <https://github.com/eulerto/wal2json>`_ - a PostgreSQL logical decoding JSON output plugin.
 - A collection of `additional PostgreSQL contrib extensions
   <https://www.postgresql.org/docs/13/contrib.html>`_
 
