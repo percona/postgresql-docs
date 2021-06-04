@@ -30,6 +30,7 @@ jobs:
           python3 -m pip install mkdocs-with-pdf   # install plugin for pdfs
           python3 -m pip install mkdocs-git-revision-date-plugin
           python3 -m pip install mkdocs-section-index
+          python3 -m pip install mkdocs-macros-plugin
      
      #Set up PlantUML
       - name: Setup PlantUML dependencies
