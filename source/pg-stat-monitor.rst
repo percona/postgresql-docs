@@ -1,6 +1,6 @@
 .. _pg_stat-monitor:
 
-pg_stat_monitor 
+pg_stat_monitor
 ****************************
 
 .. note::
@@ -10,8 +10,8 @@ pg_stat_monitor
 Overview
 ============================
 
-``pg_stat_monitor`` is a |postgres| Query Performance Monitoring 
-tool. It collects statistics data and writes it in a storage unit called *bucket*. The data is added and stored in a bucket for the defined period – the bucket lifetime. 
+``pg_stat_monitor`` is a |postgres| Query Performance Monitoring
+tool. It collects statistics data and writes it in a storage unit called *bucket*. The data is added and stored in a bucket for the defined period – the bucket lifetime.
 
 You can specify the following:
 
@@ -21,9 +21,9 @@ You can specify the following:
 
 When a bucket lifetime expires, ``pg_stat_monitor`` resets all statistics and writes the data in the next bucket in the chain. When the last bucket's lifetime expires, ``pg_stat_monitor`` returns to the first bucket.
 
-.. important::
+.. note::
 
-   The contents of the bucket will be overwritten. In order not to lose the data, make sure to read the bucket before ``pg_stat_monitor`` starts writing new data to it. 
+   The contents of the bucket will be overwritten. In order not to lose the data, make sure to read the bucket before ``pg_stat_monitor`` starts writing new data to it.
 
 .. _pg_stat-setup:
 
@@ -42,7 +42,7 @@ After the :ref:`installation <pdp.installing>`, ``pg_stat_monitor`` requires add
 
    The parameter value is written to the :file:`postgresql.auto.conf` file which is read in addition with :file:`postgresql.conf` file.
 
-#. Start or restart the PostgreSQL instance to enable ``pg_stat_monitor``. Use the following command for restart:  
+#. Start or restart the PostgreSQL instance to enable ``pg_stat_monitor``. Use the following command for restart:
 
    - On Debian and Ubuntu:
 
@@ -51,16 +51,16 @@ After the :ref:`installation <pdp.installing>`, ``pg_stat_monitor`` requires add
         $ sudo systemctl restart postgresql.service
 
    - On |rhel| and CentOS:
-  
+
      .. code-block:: bash
-  
+
         $ sudo systemctl restart postgresql-13
 
 #. Create the extension. Connect to ``psql`` and use the following command:
-    
+
    .. code-block:: bash
-    
-      $ CREATE EXTENSION pg_stat_monitor; 
+
+      $ CREATE EXTENSION pg_stat_monitor;
 
 Usage
 ===================
@@ -78,7 +78,7 @@ Use the following query to view what metrics ``pg_stat_monitor`` can collect:
 
 **Output**
 
-.. code-block:: text 
+.. code-block:: text
 
                         View "public.pg_stat_monitor"
           Column        |           Type           | Collation | Nullable | Default
@@ -137,7 +137,7 @@ For example, to view the IP address of the client application that made the quer
    ----------+----------+---------------------------------------------------+-------+-----------
     postgres | postgres | select bucket, bucket_start_time, query,calls fro |     1 | 127.0.0.1
     postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 | 127.0.0.1
-    postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1         
+    postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 
 Find more usage examples  in `pg_stat_monitor User Guide <https://github.com/percona/pg_stat_monitor/tree/REL0_9_1/docs/USER_GUIDE.md>`_.
 
@@ -168,7 +168,7 @@ Run the following query to list available configuration parameters.
     pg_stat_monitor.pgsm_object_cache             | Sets the maximum number of object cache
     pg_stat_monitor.pgsm_respose_time_lower_bound | Sets the time in millisecond.
     pg_stat_monitor.pgsm_respose_time_step        | Sets the response time steps in millisecond.
-    pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.   
+    pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
 
 You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the `configuration section <https://github.com/percona/pg_stat_monitor/tree/REL0_9_1/docs/USER_GUIDE.md#configuration>`_ of the ``pg_stat_monitor`` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
@@ -187,16 +187,16 @@ Restart the server to apply the change:
      $ sudo systemctl restart restart postgresql.service
 
 - On |rhel| and CentOS:
-  
+
   .. code-block:: bash
-  
+
      $ sudo systemctl restart postgresql-13
 
 Verify the updated parameter:
 
-.. code-block:: bash 
+.. code-block:: bash
 
-   $ SELECT name, value 
+   $ SELECT name, value
      FROM pg_stat_monitor_settings
      WHERE name = 'pg_stat_monitor.pgsm_bucket_time';
 
@@ -204,10 +204,11 @@ Verify the updated parameter:
      ----------------------------------+-------
       pg_stat_monitor.pgsm_bucket_time |   100
 
-.. seealso::
+.. note::
 
    ``pg_stat_monitor`` Documentation 
        https://github.com/percona/pg_stat_monitor/tree/REL0_9_1/README.md
+
 
    Percona Blog: pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics
        https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/

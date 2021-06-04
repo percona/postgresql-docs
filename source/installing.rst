@@ -23,7 +23,7 @@ The installation process includes the following steps:
 Repositories overview
 ======================
 
-There are two repositories available for |pdp|. We recommend installing |pdp|  from the *Major Release repository* (e.g. ``ppg-13``) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you're using have been tested and verified by |percona|. 
+There are two repositories available for |pdp|. We recommend installing |pdp|  from the *Major Release repository* (e.g. ``ppg-13``) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you're using have been tested and verified by |percona|.
 
 The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. ``ppg-13.1``). You may choose to install |pdp| from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you'll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
 
@@ -40,7 +40,7 @@ Install |percona-release| utility. If you have installed it before, update it to
 Enable the repository
 =====================
 
-As soon as |percona-release| is installed or up-to-date, enable the repository for |pdp| (``ppg-13``). We recommend using the *set up* command as it enables the specified repository and updates the platform's package manager database. 
+As soon as |percona-release| is installed or up-to-date, enable the repository for |pdp| (``ppg-13``). We recommend using the *set up* command as it enables the specified repository and updates the platform's package manager database.
 
 To install the *latest* version of |pdp|, enable the Major Release repository using the following command:
 
@@ -55,7 +55,7 @@ To install a *specific minor version* of |pdp|, enable the Minor release reposit
    $ sudo percona-release setup ppg-13.1
 
 Install |pdp| packages
-====================== 
+======================
 
 After you've :ref:`installed percona-release <install-percona-release>` and :ref:`enabled the desired repository <enable-repo>`, install |pdp| using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
@@ -63,7 +63,7 @@ depending on the package manager of your operating system).
 On Debian and Ubuntu using ``apt``
 ------------------------------------
 
-.. important::
+.. note::
 
    On Debian and other systems that use the ``apt`` package manager, such as Ubuntu,
    components of Percona Distribution for PostgreSQL 13 can only be installed
@@ -72,7 +72,7 @@ On Debian and Ubuntu using ``apt``
    package provided by your distribution (postgresql-13) and then install the
    chosen components from Percona Distribution for PostgreSQL.
 
-.. admonition:: Platform Specific Notes
+.. note:: Platform Specific Notes
 
    On Debian 9 (stretch), you need to `enable the llvm repository
    <https://apt.llvm.org/>`_
@@ -87,7 +87,7 @@ Note that this package will not install the components. Use the following comman
 
 Install ``pg_repack``:
 
-.. code-block:: bash  
+.. code-block:: bash
 
     $ sudo apt-get install percona-postgresql-13-repack
 
@@ -104,11 +104,11 @@ Install ``pgBackRest``:
    $ sudo apt-get install percona-pgbackrest
 
 Install ``Patroni``:
- 
+
 .. code-block:: bash
-   
+
    $ sudo apt-get install percona-patroni
-   
+
 Install ``pg_stat_monitor``:
 
 .. code-block:: bash
@@ -147,14 +147,13 @@ Install PostgreSQL contrib extensions:
 
    $ sudo apt-get install percona-postgresql-contrib
 
-Some extensions require additional setup in order to use them with |pdp|. For more information, refer to :ref:`enabling`.
 
 .. admonition:: Starting the service
 
    The installation process automatically initializes the default database. Thus, to start |pdp|, use the following command:
 
    .. code-block:: bash
-   
+
       $ sudo pg_ctlcluster 13 main start
 
 Next steps: :ref:`connect to PostgreSQL <server-connect>`.
@@ -162,7 +161,7 @@ Next steps: :ref:`connect to PostgreSQL <server-connect>`.
 On |rhel| and CentOS using ``yum``
 ----------------------------------------
 
-.. admonition:: Platform Specific Notes
+.. note:: Platform Specific Notes
 
    If you intend to install |pdp| on |rhel| v8, disable the `postgresql` module:
 
@@ -192,19 +191,19 @@ Install ``pg_repack``:
    $ sudo yum install percona-pg_repack13
 
 Install ``pgaudit``:
-   
+
 .. code-block:: bash
 
    $ sudo yum install percona-pgaudit
 
 Install ``pgBackRest``:
-   
+
 .. code-block:: bash
 
    $ sudo yum install percona-pgbackrest
 
 Install ``Patroni``:
-   
+
 .. code-block:: bash
 
    $ sudo yum install percona-patroni
@@ -247,9 +246,11 @@ Install PostgreSQL contrib extensions:
 
    $ sudo yum install percona-postgresql13-contrib
 
+
 Some extensions require additional setup in order to use them with |pdp|. For more information, refer to :ref:`enabling`.
 
 .. admonition:: Starting the service
+
 
    After the installation, the default database storage is not automatically initialized. To complete the installation and start |pdp|, initialize the database using the following command:
 
@@ -261,7 +262,7 @@ Some extensions require additional setup in order to use them with |pdp|. For mo
 
    .. code-block:: bash
 
-      $ sudo systemctl start postgresql-13 
+      $ sudo systemctl start postgresql-13
 
 .. _enabling:
 
@@ -313,10 +314,10 @@ After the installation, enable the following option in :file:`postgresql.conf` c
 Connect to the PostgreSQL server
 =================================
 
-By default, ``postgres`` user and ``postgres`` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the ``postgres`` user. 
+By default, ``postgres`` user and ``postgres`` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the ``postgres`` user.
 
 .. code-block:: bash
-   
+
    $ sudo su postgres
 
 Open the PostgreSQL interactive terminal:
@@ -325,17 +326,17 @@ Open the PostgreSQL interactive terminal:
 
    $ psql
 
-.. hint:: 
+.. note::
 
    You can connect to ``psql`` as the ``postgres`` user in one go:
 
    .. code-block:: bash
-   
+
       $ sudo su postgres psql
 
 To exit the ``psql`` terminal, use the following command:
 
-.. code-block:: bash 
+.. code-block:: bash
 
    $ \q
 

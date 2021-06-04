@@ -8,15 +8,15 @@ This document describes the in-place upgrade of |pdp| using the ``pg_upgrade``
 tool.
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
-.. seealso:: 
+.. note::
 
    ``pg_upgrade`` Documentation:
        https://www.postgresql.org/docs/13/pgupgrade.html
 
 
-Similar to installing, we recommend you to upgrade |pdp| from |percona| repositories. 
+Similar to installing, we recommend you to upgrade |pdp| from |percona| repositories.
 
-.. important::
+.. note::
 
    A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.
 
@@ -31,7 +31,7 @@ The general in-place upgrade flow for |pdp| is the following:
    so the system is usable.
 #. Delete old packages and configuration files.
 
-The exact steps may differ depending on the package manager of your operating system.  
+The exact steps may differ depending on the package manager of your operating system.
 
 .. contents::
    :local:
@@ -40,13 +40,13 @@ The exact steps may differ depending on the package manager of your operating sy
 On Debian and Ubuntu using ``apt``
 =======================================================
 
-.. important::
+.. note::
 
-   Run **all** commands as root or via |sudo|. 
+   Run **all** commands as root or via |sudo|.
 
 1. Install |pdp| |version| packages.
 
-   * Enable |percona| repository using the |percona-release| utility: 
+   * Enable |percona| repository using the |percona-release| utility:
 
      .. code-block:: bash
 
@@ -56,14 +56,14 @@ On Debian and Ubuntu using ``apt``
 
      .. code-block:: bash
 
-        $ sudo apt-get install percona-postgresql-13 
+        $ sudo apt-get install percona-postgresql-13
 
-   * Install the components: 
+   * Install the components:
 
      .. code-block:: bash
 
-        $ sudo apt-get install percona-postgresql-13-repack 
-        $ sudo apt-get install percona-postgresql-13-pgaudit 
+        $ sudo apt-get install percona-postgresql-13-repack
+        $ sudo apt-get install percona-postgresql-13-pgaudit
         $ sudo apt-get install percona-pgbackrest
         $ sudo apt-get install percona-patroni
         $ sudo apt-get install percona-pg-stat-monitor13
@@ -73,7 +73,7 @@ On Debian and Ubuntu using ``apt``
         $ sudo apt-get install percona-postgresql-13-wal2json
         $ sudo apt-get install percona-postgresql-contrib
 
-   .. seealso::
+   .. note::
 
       |percona| Documentation:
          - `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_
@@ -84,26 +84,26 @@ On Debian and Ubuntu using ``apt``
    .. code-block:: bash
 
       $ sudo systemctl stop postgresql.service
-   
-   This stops both |pdp| |previous-version| and |version|. 
 
-#. Run the database upgrade. 
+   This stops both |pdp| |previous-version| and |version|.
+
+#. Run the database upgrade.
 
    * Log in as the ``postgres`` user.
 
      .. code-block:: bash
 
         $ sudo su postgres
-   
+
    * Change the current directory to the :file:`tmp` directory where logs and some scripts will be recorded: :command:`cd tmp/`.
 
    * Check the ability to upgrade |pdp| from |previous-version| to |version|:
 
      .. include:: .res/pdp-major-upgrade-check.txt
 
-     .. admonition:: Sample output
+     .. note:: Sample output
 
-        .. code-block:: text 
+        .. code-block:: text
 
            Performing Consistency Checks
            -----------------------------
@@ -121,7 +121,7 @@ On Debian and Ubuntu using ``apt``
 
            *Clusters are compatible*
 
-   * Upgrade the |pdp| 
+   * Upgrade the |pdp|
 
      .. include:: .res/pdp-major-upgrade.txt
 
@@ -155,7 +155,7 @@ On Debian and Ubuntu using ``apt``
       $ exit
 
 #. Delete |pdp| |previous-version| packages and configuration files
-        
+
    .. code-block:: bash
 
       $ #Remove packages
@@ -167,13 +167,13 @@ On Debian and Ubuntu using ``apt``
 On |rhel| and |centos| using ``yum``
 =======================================================
 
-.. important::
+.. note::
 
-   Run **all** commands as root or via |sudo|. 
+   Run **all** commands as root or via |sudo|.
 
 1. Install |pdp| |version| packages
 
-   * Enable |percona| repository using the |percona-release| utility: 
+   * Enable |percona| repository using the |percona-release| utility:
 
      .. code-block:: bash
 
@@ -183,6 +183,7 @@ On |rhel| and |centos| using ``yum``
 
      .. code-block:: bash
 
+
         $ sudo yum install percona-postgresql13-server  
    
    * Install components:
@@ -190,7 +191,7 @@ On |rhel| and |centos| using ``yum``
      .. code-block:: bash
      
         $ sudo yum install percona-pgaudit
-        $ sudo yum install percona-pgbackrest 
+        $ sudo yum install percona-pgbackrest
         $ sudo yum install percona-pg_repack13
         $ sudo yum install percona-patroni
         $ sudo yum install percona-pg-stat-monitor13
@@ -200,23 +201,23 @@ On |rhel| and |centos| using ``yum``
         $ sudo yum install percona-wal2json13
         $ sudo yum install percona-postgresql13-contrib
 
-     .. seealso::
+     .. note::
 
       |percona| Documentation:
          - `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_
          - :ref:`pdp.installing`
- 
+
 #. Set up |pdp| |version| cluster
 
    .. code-block:: bash
 
       $ #Log is as the postgres user
       $ sudo su postgres
-      $ #Set up locale settings 
+      $ #Set up locale settings
       $ export LC_ALL="en_US.UTF-8"
       $ export LC_CTYPE="en_US.UTF-8"
       $ #Initialize cluster with the new data directory
-      $ /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data 
+      $ /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data
 
 #. Stop the ``postgresql`` |previous-version| service
 
@@ -236,9 +237,9 @@ On |rhel| and |centos| using ``yum``
 
      .. include:: .res/pdp-major-upgrade-check-rpm.txt
 
-     .. admonition:: Sample output
+     .. note:: Sample output
 
-        .. code-block:: text 
+        .. code-block:: text
 
            Performing Consistency Checks
            -----------------------------
@@ -256,12 +257,12 @@ On |rhel| and |centos| using ``yum``
 
            *Clusters are compatible*
 
-   * Upgrade the |pdp| 
+   * Upgrade the |pdp|
 
      .. include:: .res/pdp-major-upgrade-rpm.txt
 
 #. Start the ``postgresql`` |version| service.
-   
+
    .. code-block:: bash
 
       $ #Start postgresql service
@@ -269,7 +270,7 @@ On |rhel| and |centos| using ``yum``
       $ #Check postgresql status
       $ systemctl status postgresql-13
 
-#. Run the :command:`analyze_new_cluster.sh` script      
+#. Run the :command:`analyze_new_cluster.sh` script
 
    .. code-block:: bash
 
@@ -279,13 +280,13 @@ On |rhel| and |centos| using ``yum``
       $ ./analyze_new_cluster.sh
 
 #. Delete |pdp| |previous-version| configuration files
-   
+
    .. code-block:: bash
-   
+
       $ ./delete_old_cluster.sh
 
-#. Delete |pdp| |previous-version| packages 
-        
+#. Delete |pdp| |previous-version| packages
+
    .. code-block:: bash
 
       $ #Remove packages
