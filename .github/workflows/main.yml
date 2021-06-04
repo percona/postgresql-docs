@@ -1,0 +1,44 @@
+name: Build Percona Distribution PostgreSQL 13 docs
+on:
+  push:
+    branches: 
+      - 13
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+
+    steps: 
+      #Pull the latest changes
+      - name: Chekout main
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      #Prepare the env
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          
+      #Set up MkDocs
+      - name: Install MkDocs
+        run: | 
+          python3 -m pip install --upgrade pip     # install pip
+          python3 -m pip install mkdocs            # install mkdocs 
+          python3 -m pip install mkdocs-material   # install material theme
+          python3 -m pip install mike              # install mike
+          python3 -m pip install mkdocs-with-pdf   # install plugin for pdfs
+          python3 -m pip install mkdocs-git-revision-date-plugin
+          python3 -m pip install mkdocs-section-index
+     
+     #Set up PlantUML
+      - name: Setup PlantUML dependencies
+        run: |
+          sudo apt install -y graphviz 
+     
+     # Deploy docs
+      - name: Deploy docs
+        run: |
+          mike deploy 13 -F mkdocs-netlify.yml -p
+          mike set-default 13 -p
+          mike retitle 13 "13 (LATEST)" -p
