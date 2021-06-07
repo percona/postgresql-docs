@@ -65,7 +65,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
         linenums: false
-  - plantuml_markdown
+ # - plantuml_markdown
 
 plugins:
   - search
