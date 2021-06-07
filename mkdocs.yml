@@ -101,7 +101,7 @@ nav:
       - installing.md
       - minor-upgrade.md
   - Extensions:
-      - extenstions.md
+      - extensions.md
       - pg-stat-monitor.md
   - Uninstall:
       - uninstalling.md
