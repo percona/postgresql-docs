@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
       #Prepare the env
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: percona-platform/setup-python@v2
         with:
           python-version: '3.x'
       
@@ -51,6 +51,7 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 13 -F mkdocs-netlify.yml -p
-          mike set-default 13 -p
-          mike retitle 13 "13 (LATEST)" -p
+          mike deploy 13 -F mkdocs-netlify.yml -b netlify -p
+          mike set-default 13 -b netlify -p
+          mike retitle 13 "13 (LATEST)" -b netlify -p
+          
