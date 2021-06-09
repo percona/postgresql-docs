@@ -11,3 +11,15 @@ sphinxcontrib-htmlhelp==1.0.3
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
+mkdocs>=1.2
+mkdocs-macros-plugin
+mkdocs-exclude
+markdown-include
+mkdocs-material
+mkdocs-with-pdf>=0.8.0
+mkdocs-git-revision-date-plugin
+mkdocs-material-extensions
+mkdocs-bootstrap-tables-plugin
+mkdocs-section-index
+mkdocs-htmlproofer-plugin
+mike>=1.0.1
