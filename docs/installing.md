@@ -61,9 +61,7 @@ depending on the package manager of your operating system).
 
     On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.
 
-#### Platform Specific Notes
 
-On Debian 9 (stretch), you need to [enable the llvm repository](https://apt.llvm.org/)
 
 Install the **percona-postgresql-13** package using **apt-get install**.
 
@@ -140,7 +138,8 @@ $ sudo apt-get install percona-postgresql-contrib
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
 
 
-#### Starting the service
+####Starting the service
+
 
 The installation process automatically initializes the default database. Thus, to start Percona Distribution for PostgreSQL, use the following command:
 
@@ -154,18 +153,23 @@ Next steps: [connect to PostgreSQL](#connect-to-the-postgresql-server).
 
 #### Platform Specific Notes
 
-If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the postgresql module:
 
-```
-$ sudo dnf module disable postgresql
-```
 
-On CentOS 7, you should install the epel-release package:
+>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 / CentOS 8, disable the ``postgresql``  and ``llvm-toolset``modules:
 
-```
-$ sudo yum -y install epel-release
-$ sudo yum repolist
-```
+
+>```
+>$ sudo dnf module disable postgresql llvm-toolset
+>```
+
+
+>On CentOS 7, you should install the ``epel-release`` package:
+
+
+>```
+>$ sudo yum -y install epel-release
+>$ sudo yum repolist
+>```
 
 Install the **percona-postgresql-13** package using **yum install**.
 
@@ -242,7 +246,7 @@ $ sudo yum install percona-postgresql13-contrib
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
 
 
-#### Starting the service
+####Starting the service
 
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
