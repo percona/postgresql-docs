@@ -4,6 +4,8 @@
 
 * [Percona Distribution for PostgreSQL 12.7](release-notes-v12.7.md)
 
+* [Percona Distribution for PostgreSQL 12.6 Fourth Update](release-notes-v12.6.upd4.md)
+
 * [Percona Distribution for PostgreSQL 12.6 Third Update](release-notes-v12.6.upd3.md)
 
 
