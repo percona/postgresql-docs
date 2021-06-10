@@ -4,14 +4,18 @@
 
 * [Percona Distribution for PostgreSQL 11.12](release-notes-v11.12.md)
 
+* [Percona Distribution for PostgreSQL 11.11 Third Update](release-notes-v11.11.upd3.md)
+
+
 * [Percona Distribution for PostgreSQL 11.11 Second Update](release-notes-v11.11.upd2.md)
 
 
 * [Percona Distribution for PostgreSQL 11.11 Update](release-notes-v11.11.upd.md)
 
-
 * [Percona Distribution for PostgreSQL 11.11](release-notes-v11.11.md)
 
+
+* [Percona Distribution for PostgreSQL 11.10 Update](release-notes-v11.10.upd.md)
 
 * [Percona Distribution for PostgreSQL 11.10](release-notes-v11.10.md)
 
