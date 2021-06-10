@@ -47,7 +47,7 @@ plugins:
   - with-pdf: # https://github.com/orzih/mkdocs-with-pdf
             output_path: '_pdf/PerconaDistributionPostgreSQL-12.pdf'
             cover_title: 'Percona Distribution for PostgreSQL Documentation'
-            cover_subtitle: 12.7 (May 24, 2021)
+            cover_subtitle: 12.7 (June 10, 2021)
             author: 'Percona Technical Documentation Team'
             cover_logo: docs/_images/postgre-logo.jpg
             debug_html: false
@@ -69,6 +69,7 @@ nav:
   - Release Notes:
       - release-notes.md
       - release-notes-v12.7.md
+      - release-notes-v12.6.upd4.md
       - release-notes-v12.6.upd3.md
       - release-notes-v12.6.upd2.md
       - release-notes-v12.6.upd.md
