@@ -24,7 +24,7 @@ Run all commands as root or via **sudo**.
 2. Remove the **percona-postgresql** packages.
 
     ```
-    $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-pg-stat-monitor11 percona-patroni
+    $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni percona-pgbadger percona-pgbouncer
     ```
 
 
@@ -52,7 +52,7 @@ Run all commands as root or via **sudo**.
 2. Remove the **percona-postgresql** packages
 
     ```
-    $ sudo yum remove percona-postgresql11*
+    $ sudo yum remove percona-postgresql11* percona-pgbadger
     ```
 
 
