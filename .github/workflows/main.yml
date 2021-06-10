@@ -54,4 +54,3 @@ jobs:
           mike deploy 12 -F mkdocs-netlify.yml -b netlify -p
           mike retitle 12 "12.7" -b netlify -p
           
-

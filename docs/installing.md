@@ -58,9 +58,6 @@ depending on the package manager of your operating system).
 
     On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 12 can only be installed together with the server shipped by Percona (percona-postgresql-12). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-12) and then install the chosen components from Percona Distribution for PostgreSQL.
 
-#### Platform Specific Notes
-
-On Debian 9 (stretch), you need to [enable the llvm repository](https://apt.llvm.org/)
 
 Install the **percona-postgresql-12** package using `apt-get`.
 
@@ -142,18 +139,18 @@ Next steps: [connect to PostgreSQL](installing.md#connect-to-the-postgresql-serv
 
 #### Platform Specific Notes
 
-If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the postgresql module:
+>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 / CentOS 8, disable the ``postgresql``  and ``llvm-toolset``modules:
 
-```
-$ sudo dnf module disable postgresql
-```
+>```
+>$ sudo dnf module disable postgresql llvm-toolset
+>```
 
-On CentOS 7, you should install the epel-release package:
+>On CentOS 7, you should install the ``epel-release`` package:
 
-```
-$ sudo yum -y install epel-release
-$ sudo yum repolist
-```
+>```
+>$ sudo yum -y install epel-release
+>$ sudo yum repolist
+>```
 
 Install the **percona-postgresql-12** package using **yum install**.
 
