@@ -231,6 +231,40 @@ Some extensions require additional setup in order to use them with Percona Distr
 
 Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.
 
+**Patroni**
+
+While setting up a high availability PostgreSQL cluster with Patroni, you will need the following:
+
+- Configure Patroni on every ``postresql`` instance. The configuration file is supplied with `percona-patroni` package and is available at the following path:
+
+    - `/etc/postgresql.yml` for Debian and Ubuntu
+    - `/usr/share/doc/percona-patroni/postgres0.yml` for Red Hat Enterprise Linux and CentOS
+
+- Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
+
+     For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
+
+     ```
+     $ apt-get install etcd
+     ```
+
+     For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
+
+     ```
+     $ yum install etcd python3-python-etcd
+     
+     ```
+  
+- Install and configure [HAProxy](http://www.haproxy.org/).
+
+!!! seealso
+
+    - [Patroni documentation](https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings)
+
+    - Percona Blog: 
+
+        - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
+        
 **pgBadger**
 
 Enable the following options in `postgresql.conf` configuration file before starting the service:
