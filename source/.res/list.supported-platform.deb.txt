@@ -1,4 +1,0 @@
-
-- Debian 9.0 (stretch)
-- Debian 10.0 (buster)
-- Ubuntu 18.04 LTS (bionic)
