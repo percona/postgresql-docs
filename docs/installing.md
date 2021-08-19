@@ -31,7 +31,7 @@ The disadvantage of using a Minor Release repository is that you are locked in t
 
 ## Install **percona-release**
 
-Install **percona-release** utility. If you have installed it before, update it to the latest version. Refer to [Percona repositories documentation](https://www.percona.com/doc/percona-repo-config/percona-release.html) for installation / update instructions.
+[Install **percona-release**](https://www.percona.com/doc/percona-repo-config/installing.html) utility. If you have installed it before, [update](https://www.percona.com/doc/percona-repo-config/updating.html) it to the latest version.
 
 ## Enable the repository
 
