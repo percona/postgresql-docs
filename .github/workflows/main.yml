@@ -52,5 +52,5 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 11 -F mkdocs-netlify.yml -b netlify -p
-          mike retitle 11 "11.12" -b netlify -p
+          mike retitle 11 "11.13" -b netlify -p
           
