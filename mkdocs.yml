@@ -5,9 +5,10 @@ site_description: Documentation
 site_author: Percona LLC
 copyright: Percona LLC, &#169; 2021
 
+site_url: 'https://percona.com/doc/postgresql/13/'
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
-edit_uri: edit/11/docs/
+edit_uri: edit/13/docs/
 
 use_directory_urls: false
 
@@ -47,7 +48,6 @@ extra_css:
   - css/toctree.css
   - css/percona.css
 
-
 extra_javascript:
   - js/version-select.js
 
@@ -68,7 +68,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
         linenums: false
-  - plantuml_markdown
+  #- plantuml_markdown
 
 plugins:
   - search
@@ -99,6 +99,7 @@ nav:
   - Installation and Upgrade:
       - installation-and-update.md
       - installing.md
+      - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
       - extensions.md
@@ -107,22 +108,18 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
-      - release-notes-v11.13.md
-      - release-notes-v11.12.upd3.md
-      - release-notes-v11.12.upd2.md
-      - release-notes-v11.12.upd.md
-      - release-notes-v11.12.md
-      - release-notes-v11.11.upd3.md
-      - release-notes-v11.11.upd2.md
-      - release-notes-v11.11.upd.md
-      - release-notes-v11.11.md
-      - release-notes-v11.10.md
-      - release-notes-v11.10.upd.md
-      - release-notes-v11.9.md
-      - release-notes-v11.8.md
-      - release-notes-v11.7.md
-      - release-notes-v11.6.md
-      - release-notes-v11.md
-      - release-notes-v11-beta.md
+      - release-notes-v13.4.md
+      - release-notes-v13.3.upd3.md
+      - release-notes-v13.3.upd2.md
+      - release-notes-v13.3.upd.md
+      - release-notes-v13.3.md
+      - release-notes-v13.2.upd4.md
+      - release-notes-v13.2.upd3.md
+      - release-notes-v13.2.upd2.md
+      - release-notes-v13.2.upd.md
+      - release-notes-v13.2.md
+      - release-notes-v13.1.md
+      - release-notes-v13.0.md
   - Licensing:
       - licensing.md
+# - Version Selector: "../"
