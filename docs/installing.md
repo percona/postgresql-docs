@@ -95,15 +95,7 @@ Install `Patroni`:
 $ sudo apt-get install percona-patroni
 ```
 
-Install `pg_stat_monitor`:
-
-```
-$ sudo apt-get install percona-pg-stat-monitor13
-```
-
-!!! note
-
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
+[Install `pg_stat_monitor`](pg-stat-monitor.md)
 
 Install `pgBouncer`:
 
@@ -203,15 +195,8 @@ Install `Patroni`:
 $ sudo yum install percona-patroni
 ```
 
-Install `pg_stat_monitor`:
+[Install `pg_stat_monitor`](pg-stat-monitor.md):
 
-```
-$ sudo yum install percona-pg-stat-monitor13
-```
-
-!!! note
-
-    You need to set up `pg_stat_monitor` in order to use it with Percona Distribution for PostgreSQL. Refer to [Setup](pg-stat-monitor.md#setup) for configuration guidelines.
 
 Install `pgBouncer`:
 
