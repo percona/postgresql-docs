@@ -47,7 +47,7 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 12 -f mkdocs-netlify.yml -b netlify -p
+          mike deploy 12 -F mkdocs-netlify.yml -b netlify -p
           mike retitle 12 "12.8" -b netlify -p
           
 # - name: Install Node.js 14.x
