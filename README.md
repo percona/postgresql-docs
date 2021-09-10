@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL documentation.
 
-Welcome to Percona Distribution for PostgreSQL documentation!
+Welcome to Percona Distribution for PostgreSQL documentation.
 
 ## Overview
 

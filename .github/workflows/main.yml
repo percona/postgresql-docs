@@ -32,25 +32,34 @@ jobs:
           echo "GIT_USER=percona-platform-robot:${ROBOT_TOKEN}" >> $GITHUB_ENV
 
       #Set up MkDocs
-      - name: Install MkDocs
-        run: | 
-          python3 -m pip install --upgrade pip     # install pip
-          python3 -m pip install mkdocs            # install mkdocs 
-          python3 -m pip install mkdocs-material   # install material theme
-          python3 -m pip install mike              # install mike
-          python3 -m pip install mkdocs-with-pdf   # install plugin for pdfs
-          python3 -m pip install mkdocs-git-revision-date-plugin
-          python3 -m pip install mkdocs-section-index
-          python3 -m pip install mkdocs-macros-plugin
+      - name: Setup MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
      
      #Set up PlantUML
-      - name: Setup PlantUML dependencies
-        run: |
-          sudo apt install -y graphviz 
+#      - name: Setup PlantUML dependencies
+#        run: |
+#          sudo apt install -y graphviz 
      
      # Deploy docs
       - name: Deploy docs
         run: |
           mike deploy 12 -F mkdocs-netlify.yml -b netlify -p
-          mike retitle 12 "12.8" -b netlify -p
+          mike retitle 12 -F mkdocs-netlify.yml "12.8" -b netlify -p
           
+# - name: Install Node.js 14.x
+#        uses: percona-platform/setup-node@v2
+#        with:
+#          node-version: "14"
+#
+#      - name: Spelling
+#        run: |
+#          npx markdown-spellcheck --report --en-us --ignore-acronyms --ignore-numbers "docs/**/*.md" || true
+          # Ignore errors, just inspect results
+#      - name: Grammar
+#        run: |
+#          npx write-good --no-passive docs/**/*.md || true
+#          # Ignore errors, just inspect results
+
