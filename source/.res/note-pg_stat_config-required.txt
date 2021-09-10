@@ -1,4 +1,0 @@
-
-.. note::
-
-   You need to set up ``pg_stat_monitor`` in order to use it with |pdp|. Refer to :ref:`pg_stat-setup` for configuration guidelines.
