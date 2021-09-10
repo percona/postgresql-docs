@@ -33,16 +33,12 @@ jobs:
 
       #Set up MkDocs
       - name: Install MkDocs
-        run: | 
-          python3 -m pip install --upgrade pip     # install pip
-          python3 -m pip install mkdocs            # install mkdocs 
-          python3 -m pip install mkdocs-material   # install material theme
-          python3 -m pip install mike              # install mike
-          python3 -m pip install mkdocs-with-pdf   # install plugin for pdfs
-          python3 -m pip install mkdocs-git-revision-date-plugin
-          python3 -m pip install mkdocs-section-index
-          python3 -m pip install mkdocs-macros-plugin
-     
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+
      #Set up PlantUML
       - name: Setup PlantUML dependencies
         run: |
@@ -53,5 +49,20 @@ jobs:
         run: |
           mike deploy 13 -F mkdocs-netlify.yml -b netlify -p
           mike set-default 13 -b netlify -p
-          mike retitle 13 "13 (LATEST)" -b netlify -p
+          mike retitle 13 -F mkdocs-netlify.yml "13 (LATEST)" -b netlify -p
+
+# - name: Install Node.js 14.x
+#        uses: percona-platform/setup-node@v2
+#        with:
+#          node-version: "14"
+#
+#      - name: Spelling
+#        run: |
+#          npx markdown-spellcheck --report --en-us --ignore-acronyms --ignore-numbers "docs/**/*.md" || true
+          # Ignore errors, just inspect results
+#      - name: Grammar
+#        run: |
+#          npx write-good --no-passive docs/**/*.md || true
+#          # Ignore errors, just inspect results
+
           
