@@ -75,12 +75,8 @@ plugins:
 #  - htmlproofer # Uncomment to check links - but extends build time significantly
   - macros:
         include_yaml:
-#          - 'variables.yml' # Use in markdown as '{{ VAR }}'
-#  - exclude: # Don't process these files
-#        glob:
-#         - file.md
-#  - mkdocs-versioning:
-#      version: "13"
+
+
 
 extra:
   version:
