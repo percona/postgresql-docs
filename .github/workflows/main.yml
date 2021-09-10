@@ -3,7 +3,6 @@ on:
   push:
     branches: 
       - 12
-      - 'Fix-GitHub-action-doc-build-12'
 jobs:
   build:
     name: Deploy docs
@@ -48,7 +47,7 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 12 -F mkdocs-netlify.yml -b netlify -p
-          mike retitle 12 "12.8" -b netlify -p
+          mike retitle 12 -F mkdocs-netlify.yml "12.8" -b netlify -p
           
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2
