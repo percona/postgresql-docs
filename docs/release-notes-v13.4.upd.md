@@ -23,7 +23,7 @@ Percona Distribution for PostgreSQL is a collection of tools to assist you in ma
 installs PostgreSQL and complements it by a selection of extensions that
 enable solving essential practical tasks efficiently.
 
-This update of Percona Distribution for PostgreSQL fixes the inability of a user to upgrade from previous version of PostgreSQL from PGDG (PosthgreSQL Global Development Group) to Percona Distribution for PostgreSQL on Ubuntu 
+This update of Percona Distribution for PostgreSQL fixes the inability of a user to upgrade from previous version of PostgreSQL from PGDG (PostgreSQL Global Development Group) to Percona Distribution for PostgreSQL on Ubuntu 
 
 ## Bugs Fixed
 
