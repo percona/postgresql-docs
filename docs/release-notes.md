@@ -1,6 +1,8 @@
 # Release Notes
 
 
+* [Percona Distribution for PostgreSQL 13.4 Update](release-notes-v13.4.upd.md)
+
 * [Percona Distribution for PostgreSQL 13.4](release-notes-v13.4.md)
 
 * [Percona Distribution for PostgreSQL 13.3 Third Update](release-notes-v13.3.upd3.md)
