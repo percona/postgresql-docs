@@ -133,9 +133,10 @@ $ \d pg_stat_monitor;
 For example, to view the IP address of the client application that made the query, run the following command:
 
 ```
-$ SELECT userid::regrole, datname, substr(query,0, 50) AS query, calls, client_ip
+$ SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
+  AS query, calls, client_ip
   FROM pg_stat_monitor, pg_database
-  WHERE dbid = oid;
+  WHERE pg_database.oid = oid;
 
   userid  | datname  |                       query                       | calls | client_ip
 ----------+----------+---------------------------------------------------+-------+-----------
@@ -144,7 +145,7 @@ $ SELECT userid::regrole, datname, substr(query,0, 50) AS query, calls, client_i
  postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 ```
 
-Find more usage examples  in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0/docs/USER_GUIDE.md).
+Find more usage examples  in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md).
 
 ## Changing the configuration
 
@@ -172,7 +173,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
@@ -211,7 +212,7 @@ $ SELECT name, value
 
 !!! see "see also"
 
-    [pg_stat_monitor Documentation](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0/README.md)
+    [pg_stat_monitor Documentation](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/README.md)
 
     Percona Blog: 
     [pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics](https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/)
