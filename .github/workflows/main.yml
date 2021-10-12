@@ -2,7 +2,8 @@ name: Build Percona Distribution PostgreSQL 13 docs
 on:
   push:
     branches: 
-      - 13
+      - 14
+      - DISTPG-315-Docs-PPG-14
 jobs:
   build:
     name: Deploy docs
@@ -47,9 +48,9 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 13 -F mkdocs-netlify.yml -b netlify -p
-          mike set-default 13 -b netlify -p
-          mike retitle 13 -F mkdocs-netlify.yml "13 (LATEST)" -b netlify -p
+          mike deploy 14 -F mkdocs-netlify.yml -b netlify -p
+          mike set-default 14 -b netlify -p
+          mike retitle 14 -F mkdocs-netlify.yml "14 (LATEST)" -b netlify -p
 
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2
