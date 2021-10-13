@@ -43,7 +43,7 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
     * On Red Hat Enterprise Linux / CentOS:
 
       ```
-      $ sudo systemctl stop postgresql-13
+      $ sudo systemctl stop postgresql-14
       ```
 
 
@@ -64,8 +64,8 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
     * On Red Hat Enterprise Linux / CentOS:
 
       ```
-      $ sudo systemctl start postgresql-13
+      $ sudo systemctl start postgresql-14
       ```
 
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 12 to 13](major-upgrade.md).
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.md).

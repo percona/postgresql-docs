@@ -33,7 +33,7 @@ After the [installation](installing.md#install-percona-distribution-for-postgres
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
 
     ```
     $ ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
@@ -55,7 +55,7 @@ After the [installation](installing.md#install-percona-distribution-for-postgres
     * On Red Hat Enterprise Linux and CentOS:
 
       ```
-      $ sudo systemctl restart postgresql-13
+      $ sudo systemctl restart postgresql-14
       ```
 
 
@@ -172,7 +172,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_1_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
@@ -193,7 +193,7 @@ $ sudo systemctl restart restart postgresql.service
 * On Red Hat Enterprise Linux and CentOS:
 
 ```
-$ sudo systemctl restart postgresql-13
+$ sudo systemctl restart postgresql-14
 ```
 
 Verify the updated parameter:

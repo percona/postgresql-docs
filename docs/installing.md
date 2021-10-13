@@ -23,9 +23,9 @@ The installation process includes the following steps:
 
 ## Repositories overview
 
-There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the *Major Release repository* (e.g. `ppg-13`) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.
+There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the *Major Release repository* (e.g. `ppg-14`) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.
 
-The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. `ppg-13.1`). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
+The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. `ppg-14.0`). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
 
 The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.
 
@@ -35,23 +35,23 @@ The disadvantage of using a Minor Release repository is that you are locked in t
 
 ## Enable the repository
 
-As soon as **percona-release** is installed or up-to-date, enable the repository for Percona Distribution for PostgreSQL (`ppg-13`). We recommend using the *set up* command as it enables the specified repository and updates the platform’s package manager database.
+As soon as **percona-release** is installed or up-to-date, enable the repository for Percona Distribution for PostgreSQL (`ppg-14`). We recommend using the *set up* command as it enables the specified repository and updates the platform’s package manager database.
 
 To install the *latest* version of Percona Distribution for PostgreSQL, enable the Major Release repository using the following command:
 
 ```
-$ sudo percona-release setup ppg-13
+$ sudo percona-release setup ppg-14
 ```
 
-To install a *specific minor version* of Percona Distribution for PostgreSQL, enable the Minor release repository. For example, to install Percona Distribution for PostgreSQL 13.1, enable the `ppg-13.1`  repository using the following command:
+To install a *specific minor version* of Percona Distribution for PostgreSQL, enable the Minor release repository. For example, to install Percona Distribution for PostgreSQL 14.0, enable the `ppg-14.0`  repository using the following command:
 
 ```
-$ sudo percona-release setup ppg-13.1
+$ sudo percona-release setup ppg-14.0
 ```
 
 ## Install Percona Distribution for PostgreSQL packages
 
-After you’ve installed percona-release and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
+After you’ve installed ``percona-release`` and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
 ### On Debian and Ubuntu using `apt`
@@ -59,14 +59,14 @@ depending on the package manager of your operating system).
 
 !!! note
 
-    On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.
+    On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 14 can only be installed together with the server shipped by Percona (percona-postgresql-14). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-14) and then install the chosen components from Percona Distribution for PostgreSQL.
 
 
 
-Install the **percona-postgresql-13** package using **apt-get install**.
+Install the **percona-postgresql-14** package using **apt-get install**.
 
 ```
-$ sudo apt-get install percona-postgresql-13
+$ sudo apt-get install percona-postgresql-14
 ```
 
 Note that this package will not install the components. Use the following commands to install components’ packages:
@@ -74,13 +74,13 @@ Note that this package will not install the components. Use the following comman
 Install `pg_repack`:
 
 ```
-$ sudo apt-get install percona-postgresql-13-repack
+$ sudo apt-get install percona-postgresql-14-repack
 ```
 
 Install `pgAudit`:
 
 ```
-$ sudo apt-get install percona-postgresql-13-pgaudit
+$ sudo apt-get install percona-postgresql-14-pgaudit
 ```
 
 Install `pgBackRest`:
@@ -98,7 +98,7 @@ $ sudo apt-get install percona-patroni
 Install `pg_stat_monitor`:
 
 ```
-$ sudo apt-get install percona-pg-stat-monitor13
+$ sudo apt-get install percona-pg-stat-monitor14
 ```
 
 !!! note
@@ -114,7 +114,7 @@ $ sudo apt-get install percona-pgbouncer
 Install `pgAudit-set_user`:
 
 ```
-$ sudo apt-get install percona-pgaudit13-set-user
+$ sudo apt-get install percona-pgaudit14-set-user
 ```
 
 Install `pgBadger`:
@@ -126,7 +126,7 @@ $ sudo apt-get install percona-pgbadger
 Install `wal2json`:
 
 ```
-$ sudo apt-get install percona-postgresql-13-wal2json
+$ sudo apt-get install percona-postgresql-14-wal2json
 ```
 
 Install PostgreSQL contrib extensions:
@@ -144,7 +144,7 @@ Some extensions require additional setup in order to use them with Percona Distr
 The installation process automatically initializes the default database. Thus, to start Percona Distribution for PostgreSQL, use the following command:
 
 ```
-$ sudo pg_ctlcluster 13 main start
+$ sudo pg_ctlcluster 14 main start
 ```
 
 Next steps: [connect to PostgreSQL](#connect-to-the-postgresql-server).
@@ -171,10 +171,10 @@ Next steps: [connect to PostgreSQL](#connect-to-the-postgresql-server).
 >$ sudo yum repolist
 >```
 
-Install the **percona-postgresql-13** package using **yum install**.
+Install the **percona-postgresql-14** package using **yum install**.
 
 ```
-$ sudo yum install percona-postgresql13-server
+$ sudo yum install percona-postgresql14-server
 ```
 
 Note that this package will not install the components. Use the following commands to install components’ packages:
@@ -182,7 +182,7 @@ Note that this package will not install the components. Use the following comman
 Install `pg_repack`:
 
 ```
-$ sudo yum install percona-pg_repack13
+$ sudo yum install percona-pg_repack14
 ```
 
 Install `pgaudit`:
@@ -206,7 +206,7 @@ $ sudo yum install percona-patroni
 Install `pg_stat_monitor`:
 
 ```
-$ sudo yum install percona-pg-stat-monitor13
+$ sudo yum install percona-pg-stat-monitor14
 ```
 
 !!! note
@@ -222,7 +222,7 @@ $ sudo yum install percona-pgbouncer
 Install `pgAudit-set_user`:
 
 ```
-$ sudo yum install percona-pgaudit13_set_user
+$ sudo yum install percona-pgaudit14_set_user
 ```
 
 Install `pgBadger`:
@@ -234,13 +234,13 @@ $ sudo yum install percona-pgbadger
 Install `wal2json`:
 
 ```
-$ sudo yum install percona-wal2json13
+$ sudo yum install percona-wal2json14
 ```
 
 Install PostgreSQL contrib extensions:
 
 ```
-$ sudo yum install percona-postgresql13-contrib
+$ sudo yum install percona-postgresql14-contrib
 ```
 
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
@@ -251,13 +251,13 @@ Some extensions require additional setup in order to use them with Percona Distr
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```
-/usr/pgsql-13/bin/postgresql-13-setup initdb
+/usr/pgsql-13/bin/postgresql-14-setup initdb
 ```
 
 Start the PostgreSQL service:
 
 ```
-$ sudo systemctl start postgresql-13
+$ sudo systemctl start postgresql-14
 ```
 
 ### Enabling extensions
