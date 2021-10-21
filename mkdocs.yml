@@ -1,130 +1,21 @@
-# MkDocs configuration for Netlify builds
+# MkDocs configuration for Percona website builds
 
-site_name: Percona Distribution for PostgreSQL
-site_description: Documentation
-site_author: Percona LLC
-copyright: Percona LLC, &#169; 2021
+INHERIT: mkdocs-base.yml
 
-site_url: 'https://percona.com/doc/postgresql/11/'
-repo_name: percona/postgresql-docs
-repo_url: https://github.com/percona/postgresql-docs
-edit_uri: edit/11/docs/
+site_url: "https://www.percona.com/doc/postgresql/11/index.html"
 
-use_directory_urls: false
+plugins:
+  section-index: {}
+  bootstrap-tables: {}
 
-# Theme for netlify testing
 theme:
   name: material
   custom_dir: _resource/theme
-  logo: _images/percona-logo.png
-  favicon: _images/percona-favicon.ico
-  palette:
-
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: percona-light
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-  
-# Theme features
-
-  features:
-    - search.highlight
-    - navigation.top
-
 
 extra_css:
-  - https://unicons.iconscout.com/release/v3.0.3/css/line.css
-  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
-#  - css/version-select.css
+  - css/version-select.css
   - css/toctree.css
-  - css/percona.css
 
-extra_javascript:
-  - js/version-select.js
-
-markdown_extensions:
-  - attr_list
-  - toc:
-      permalink: True
-  - admonition
-  - footnotes
-  - def_list   # https://michelf.ca/projects/php-markdown/extra/#def-list
-  - meta
-  - smarty:
-        smart_angled_quotes: true
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.tabbed
-  - pymdownx.tilde
-  - pymdownx.superfences
-  - pymdownx.highlight:
-        linenums: false
-  #- plantuml_markdown
-
-plugins:
-  - search
-  - git-revision-date
-  - bootstrap-tables
-  - section-index # Adds links to nodes - comment out when creating PDF
-#  - htmlproofer # Uncomment to check links - but extends build time significantly
-  - macros:
-        include_yaml:
-#          - 'variables.yml' # Use in markdown as '{{ VAR }}'
-#  - exclude: # Don't process these files
-#        glob:
-#         - file.md
-#  - mkdocs-versioning:
-#      version: "13"
-
-extra: # Used in main.html template and can't be externalised
-#    open_issue_text: '<i class="uil uil-exclamation-triangle"></i> Report a problem
-#        with this page'
-#    open_issue_subject: 'PMM2: doc issue on page '
-#    open_issue_body: 'Please describe the issue here'
-#    open_issue_tooltip: 'Report an issue with this page on GitHub'
+extra: # Used in main.html template and can't be externalized
     edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
     updated_text: '<i class="uil uil-refresh"></i> Page updated'
-
-nav:
-  - index.md
-  - Installation and Upgrade:
-      - installation-and-update.md
-      - installing.md
-      - major-upgrade.md
-      - minor-upgrade.md
-  - Extensions:
-      - extensions.md
-      - pg-stat-monitor.md
-  - Uninstall:
-      - uninstalling.md
-  - Release Notes:
-      - release-notes.md
-      - release-notes-v11.13.md
-      - release-notes-v11.12.upd3.md
-      - release-notes-v11.12.upd2.md
-      - release-notes-v11.12.upd.md
-      - release-notes-v11.12.md
-      - release-notes-v11.11.upd3.md
-      - release-notes-v11.11.upd2.md
-      - release-notes-v11.11.upd.md
-      - release-notes-v11.11.md
-      - release-notes-v11.10.upd.md
-      - release-notes-v11.10.md
-      - release-notes-v11.9.md
-      - release-notes-v11.8.md
-      - release-notes-v11.7.md
-      - release-notes-v11.6.md
-      - release-notes-v11.md
-      - release-notes-v11-beta.md
-  - Licensing:
-      - licensing.md
-# - Version Selector: "../"
