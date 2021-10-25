@@ -69,7 +69,7 @@ depending on the package manager of your operating system).
 Install the **percona-postgresql-11** package using the following command.
 
 ```
-$ sudo apt-get install percona-postgresql-11
+$ sudo apt install percona-postgresql-11
 ```
 
 Note that this package will not install the components. Use the following commands to install components’ packages:
@@ -77,31 +77,31 @@ Note that this package will not install the components. Use the following comman
 Install `pg_repack`:
 
 ```
-$ sudo apt-get install percona-postgresql-11-repack
+$ sudo apt install percona-postgresql-11-repack
 ```
 
 Install `pgAudit`:
 
 ```
-$ sudo apt-get install percona-postgresql-11-pgaudit
+$ sudo apt install percona-postgresql-11-pgaudit
 ```
 
 Install `pgBackRest`:
 
 ```
-$ sudo apt-get install percona-pgbackrest
+$ sudo apt install percona-pgbackrest
 ```
 
 Install `Patroni`:
 
 ```
-$ sudo apt-get install percona-patroni
+$ sudo apt install percona-patroni
 ```
 
 Install `pg_stat_monitor`:
 
 ```
-$ sudo apt-get install percona-pg-stat-monitor11
+$ sudo apt install percona-pg-stat-monitor11
 ```
 
 !!! note
@@ -111,31 +111,31 @@ $ sudo apt-get install percona-pg-stat-monitor11
 Install `PgBouncer`:
 
 ```
-$ sudo apt-get install percona-pgbouncer
+$ sudo apt install percona-pgbouncer
 ```
 
 Install `pgAudit-set_user`:
 
 ```
-$ sudo apt-get install percona-pgaudit11-set-user
+$ sudo apt install percona-pgaudit11-set-user
 ```
 
 Install `pgBadger`:
 
 ```
-$ sudo apt-get install percona-pgbadger
+$ sudo apt install percona-pgbadger
 ```
    
 Install `wal2json`:
 
 ```
-$ sudo apt-get install percona-postgresql-11-wal2json
+$ sudo apt install percona-postgresql-11-wal2json
 ```
 
 Install PostgreSQL contrib extensions:
 
 ```
-$ sudo apt-get install percona-postgresql-contrib
+$ sudo apt install percona-postgresql-contrib
 ```
 
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
@@ -277,7 +277,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
      For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
      ```
-     $ apt-get install etcd
+     $ apt install etcd
      ```
 
      For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
