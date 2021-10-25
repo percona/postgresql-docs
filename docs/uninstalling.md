@@ -22,7 +22,7 @@ Run all commands as root or via **sudo**.
 2. Remove the **percona-postgresql** packages.
 
     ```
-    $ sudo apt-get remove percona-postgresql-13* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
+    $ sudo apt remove percona-postgresql-13* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
     ```
 
 

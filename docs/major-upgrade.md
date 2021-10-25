@@ -62,14 +62,14 @@ The exact steps may differ depending on the package manager of your operating sy
     * Install Percona Distribution for PostgreSQL 13 package:
 
       ```
-      $ sudo apt-get install percona-postgresql-13
+      $ sudo apt install percona-postgresql-13
       ```
 
 
     * Install the components:
 
       ```
-      $ sudo apt-get install percona-postgresql-13-repack \
+      $ sudo apt install percona-postgresql-13-repack \
        percona-postgresql-13-pgaudit \
        percona-pgbackrest \
        percona-patroni \
@@ -225,7 +225,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Remove packages
 
        ```
-       $ sudo apt-get remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12 percona-pgaudit12-set-user percona-pgbadger percona-pgbouncer percona-postgresql-12-wal2json
+       $ sudo apt remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12 percona-pgaudit12-set-user percona-pgbadger percona-pgbouncer percona-postgresql-12-wal2json
        ```
 
     * Remove old files
