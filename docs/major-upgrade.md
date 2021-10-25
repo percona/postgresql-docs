@@ -64,23 +64,23 @@ The exact steps may differ depending on the package manager of your operating sy
     * Install Percona Distribution for PostgreSQL 12 package:
       
       ```
-      $ sudo apt-get install percona-postgresql-12
+      $ sudo apt install percona-postgresql-12
       ```
 
 
     * Install the components:
 
       ```
-      $ sudo apt-get install percona-postgresql-12-repack
-      $ sudo apt-get install percona-postgresql-12-pgaudit
-      $ sudo apt-get install percona-pgbackrest
-      $ sudo apt-get install percona-patroni
-      $ sudo apt-get install percona-pg-stat-monitor12
-      $ sudo apt-get install percona-pgbadger
-      $ sudo apt-get install percona-pgaudit12-set-user
-      $ sudo apt-get install percona-pgbadger
-      $ sudo apt-get install percona-postgresql-12-wal2json
-      $ sudo apt-get install percona-postgresql-contrib
+      $ sudo apt install percona-postgresql-12-repack
+      $ sudo apt install percona-postgresql-12-pgaudit
+      $ sudo apt install percona-pgbackrest
+      $ sudo apt install percona-patroni
+      $ sudo apt install percona-pg-stat-monitor12
+      $ sudo apt install percona-pgbadger
+      $ sudo apt install percona-pgaudit12-set-user
+      $ sudo apt install percona-pgbadger
+      $ sudo apt install percona-postgresql-12-wal2json
+      $ sudo apt install percona-postgresql-contrib
       ```
       
     !!! seealso
@@ -200,13 +200,13 @@ The exact steps may differ depending on the package manager of your operating sy
     - Remove packages
 
       ```
-      $ sudo apt-get remove percona-postgresql-11* percona-pgbackrest percona-patroni percona-pg-stat-monitor11 percona-pgaudit11-set-user percona-pgbadger percona-pgbouncer percona-postgresql-11-wal2json
+      $ sudo apt remove percona-postgresql-11* percona-pgbackrest percona-patroni percona-pg-stat-monitor11 percona-pgaudit11-set-user percona-pgbadger percona-pgbouncer percona-postgresql-11-wal2json
       ```
 
      - Remove old files
 
        ```
-       $ rm -rf /etc/postgresql/11/main
+       $ sudo rm -rf /etc/postgresql/11/main
        ```
 
 ## On Red Hat Enterprise Linux and CentOS using `yum`
@@ -266,7 +266,7 @@ The exact steps may differ depending on the package manager of your operating sy
 3. Stop the `postgresql` 11 service
 
     ```
-    $ systemctl stop postgresql-11
+    $ sudo systemctl stop postgresql-11
     ```
 
 
@@ -314,9 +314,9 @@ The exact steps may differ depending on the package manager of your operating sy
 
     ```
     $ #Start postgresql service
-    $ systemctl start postgresql-12
+    $ sudo systemctl start postgresql-12
     $ #Check postgresql status
-    $ systemctl status postgresql-12
+    $ sudo systemctl status postgresql-12
     ```
 
 
@@ -348,5 +348,5 @@ The exact steps may differ depending on the package manager of your operating sy
     * Remove old files
 
        ```
-       $ rm -rf /var/lib/pgsql/11/data
+       $ sudo rm -rf /var/lib/pgsql/11/data
        ```
