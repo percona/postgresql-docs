@@ -59,10 +59,10 @@ depending on the package manager of your operating system).
     On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 12 can only be installed together with the server shipped by Percona (percona-postgresql-12). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-12) and then install the chosen components from Percona Distribution for PostgreSQL.
 
 
-Install the **percona-postgresql-12** package using `apt-get`.
+Install the **percona-postgresql-12** package using `apt`.
 
 ```
-$ sudo apt-get install percona-postgresql-12
+$ sudo apt install percona-postgresql-12
 ```
 
 Note that this package will not install the components. Use the following commands to install components' packages:
@@ -70,31 +70,31 @@ Note that this package will not install the components. Use the following comman
 Install `pg_repack`:
 
 ```
-$ sudo apt-get install percona-postgresql-12-repack
+$ sudo apt install percona-postgresql-12-repack
 ```
 
 Install `pgAudit`:
 
 ```
-$ sudo apt-get install percona-postgresql-12-pgaudit
+$ sudo apt install percona-postgresql-12-pgaudit
 ```
 
 Install `pgBackRest`:
 
 ```
-$ sudo apt-get install percona-pgbackrest
+$ sudo apt install percona-pgbackrest
 ```
 
 Install `Patroni`:
 
 ```
-$ sudo apt-get install percona-patroni
+$ sudo apt install percona-patroni
 ```
 
 Install `pg_stat_monitor`:
 
 ```
-$ sudo apt-get install percona-pg-stat-monitor12
+$ sudo apt install percona-pg-stat-monitor12
 ```
 
 !!! note
@@ -104,31 +104,31 @@ $ sudo apt-get install percona-pg-stat-monitor12
 Install `PgBouncer`:
 
 ```
-$ sudo apt-get install percona-pgbouncer
+$ sudo apt install percona-pgbouncer
 ```
 
 Install `pgAudit-set_user`:
 
 ```
-$ sudo apt-get install percona-pgaudit12-set-user
+$ sudo apt install percona-pgaudit12-set-user
 ```
 
 Install `pgBadger`:
 
 ```
-$ sudo apt-get install percona-pgbadger
+$ sudo apt install percona-pgbadger
 ```
 
 Install `wal2json`:
 
 ```
-$ sudo apt-get install percona-postgresql-12-wal2json
+$ sudo apt install percona-postgresql-12-wal2json
 ```
 
 Install PostgreSQL contrib extensions:
 
 ```
-$ sudo apt-get install percona-postgresql-contrib
+$ sudo apt install percona-postgresql-contrib
 ```
 
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
@@ -245,7 +245,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
      For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
      ```
-     $ apt-get install etcd
+     $ apt install etcd
      ```
 
      For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
