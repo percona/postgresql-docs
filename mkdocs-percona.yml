@@ -1,0 +1,29 @@
+# MkDocs configuration for Percona builds
+INHERIT: mkdocs-base.yml
+
+site_url: 'https://percona.com/doc/postgresql/13/'
+
+# Theme adaptation for Percona website
+theme:
+  name: material
+  custom_dir: _resource/theme
+
+
+extra_css:
+  - css/version-select.css
+  - css/toctree.css
+  - css/percona.css
+  - css/details.css
+
+plugins:
+  - bootstrap-tables
+  - section-index # Adds links to nodes - comment out when creating PDF
+
+extra: # Used in main.html template and can't be externalised
+#    open_issue_text: '<i class="uil uil-exclamation-triangle"></i> Report a problem
+#        with this page'
+#    open_issue_subject: 'PMM2: doc issue on page '
+#    open_issue_body: 'Please describe the issue here'
+#    open_issue_tooltip: 'Report an issue with this page on GitHub'
+    edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
+    updated_text: '<i class="uil uil-refresh"></i> Page updated'
