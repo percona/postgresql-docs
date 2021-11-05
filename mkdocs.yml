@@ -1,28 +1,26 @@
-# MkDocs configuration for Percona builds
+# MkDocs configuration for Netlify builds
+
 INHERIT: mkdocs-base.yml
+site_url: https://docs.percona.com/postgresql/13/index.html
 
-site_url: 'https://percona.com/doc/postgresql/13/'
-
-# Theme adaptation for Percona website
 theme:
   name: material
-  custom_dir: _resource/theme
+  custom_dir: _resource/overrides
 
+# Theme features
 
-extra_css:
-  - css/version-select.css
-  - css/toctree.css
-  - css/percona.css
-
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking  
+  
 plugins:
-  - bootstrap-tables
   - section-index # Adds links to nodes - comment out when creating PDF
+  - search
+  - git-revision-date
 
-extra: # Used in main.html template and can't be externalised
-#    open_issue_text: '<i class="uil uil-exclamation-triangle"></i> Report a problem
-#        with this page'
-#    open_issue_subject: 'PMM2: doc issue on page '
-#    open_issue_body: 'Please describe the issue here'
-#    open_issue_tooltip: 'Report an issue with this page on GitHub'
-    edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
-    updated_text: '<i class="uil uil-refresh"></i> Page updated'
+#Google Analytics configuration 
+extra:
+  analytics:
+    provider: google
+    property: UA-343802-3
