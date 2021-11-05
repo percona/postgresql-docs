@@ -13,7 +13,10 @@ extra_css:
   - css/version-select.css
   - css/toctree.css
   - css/percona.css
+<<<<<<< HEAD
   - css/details.css
+=======
+>>>>>>> DISTPG-334 Layout customization to align material theme builds with Percona one
 
 plugins:
   - bootstrap-tables

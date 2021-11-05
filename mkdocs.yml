@@ -1,17 +1,23 @@
 # MkDocs configuration for Netlify builds
 
 INHERIT: mkdocs-base.yml
-site_url: https://postgresql-docs.netlify.app/
+site_url: https://docs.percona.com/postgresql/13/index.html
 
 theme:
   name: material
-  custom_dir: _resource/overrides_netlify
-  features:
-    - navigation.tabs
+  custom_dir: _resource/overrides
 
+# Theme features
+
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking  
+  
 plugins:
   - section-index # Adds links to nodes - comment out when creating PDF
   - search
+  - git-revision-date
 
 #Google Analytics configuration 
 extra:
