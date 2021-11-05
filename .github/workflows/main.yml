@@ -48,7 +48,6 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 13 -F mkdocs-netlify.yml -b netlify -p
-          mike set-default 13 -b netlify -p
           mike retitle 13 -F mkdocs-netlify.yml "13.4" -b netlify -p
 
 # - name: Install Node.js 14.x
