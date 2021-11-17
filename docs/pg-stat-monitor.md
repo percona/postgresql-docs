@@ -120,7 +120,7 @@ $ CREATE EXTENSION pg_stat_monitor;
 
 !!! note
 
-    We recommend to create the extension against the `postgres` database. In this case, the extension collects the statistics data for all active databases and newly added ones. 
+    By default, the extension is created against the `postgres` database. You need to create the extension on every database where you want to collect statistics.
 
 !!! tip
   
