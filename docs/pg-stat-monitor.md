@@ -135,9 +135,9 @@ $ CREATE EXTENSION pg_stat_monitor;
 For example, to view the IP address of the client application that made the query, run the following command:
 
 ```
-$ SELECT userid::regrole, datname, substr(query,0, 50) AS query, calls, client_ip
-  FROM pg_stat_monitor, pg_database
-  WHERE dbid = oid;
+SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50) AS query, calls, bucket, bucket_start_time, queryid, client_ip
+FROM pg_stat_monitor, pg_database
+WHERE pg_database.oid = oid;
 
   userid  | datname  |                       query                       | calls | client_ip
 ----------+----------+---------------------------------------------------+-------+-----------
@@ -146,7 +146,9 @@ $ SELECT userid::regrole, datname, substr(query,0, 50) AS query, calls, client_i
  postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 ```
 
+
 Find more usage examples in [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md).
+
 
 
 ## Changing the configuration
