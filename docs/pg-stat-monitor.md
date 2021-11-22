@@ -67,7 +67,7 @@ To install `pg_stat_monitor`, run the following command:
 * On Debian and Ubuntu:
 
    ```sh
-   $ sudo apt-get install percona-pg-stat-monitor14
+   $ sudo apt install percona-pg-stat-monitor14
    ```
 
 * On Red Hat Enterprise Linux and CentOS:

@@ -60,14 +60,14 @@ The exact steps may differ depending on the package manager of your operating sy
     * Install Percona Distribution for PostgreSQL 14 package:
 
       ```
-      $ sudo apt-get install percona-postgresql-14
+      $ sudo apt install percona-postgresql-14
       ```
 
 
     * Install the components:
 
       ```
-      $ sudo apt-get install percona-postgresql-14-repack \
+      $ sudo apt install percona-postgresql-14-repack \
        percona-postgresql-14-pgaudit \
        percona-pgbackrest \
        percona-patroni \
@@ -223,7 +223,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Remove packages
 
        ```
-       $ sudo apt-get remove percona-postgresql-13* percona-pgbackrest percona-patroni percona-pg-stat-monitor13 percona-pgaudit13-set-user percona-pgbadger percona-pgbouncer percona-postgresql-13-wal2json
+       $ sudo apt remove percona-postgresql-13* percona-pgbackrest percona-patroni percona-pg-stat-monitor13 percona-pgaudit13-set-user percona-pgbadger percona-pgbouncer percona-postgresql-13-wal2json
        ```
 
     * Remove old files
