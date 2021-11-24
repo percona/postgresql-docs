@@ -91,9 +91,15 @@ To install `pg_stat_monitor`, run the following command:
 
     The parameter value is written to the `postgresql.auto.conf` file which is read in addition with `postgresql.conf` file.
 
-    !!! note
+    !!! info
 
-        If you’ve added other values to the `shared_preload_libraries` parameter, list all of them separated by commas for the `ALTER SYSTEM` command. For example, `ALTER SYSTEM SET shared_preload_libraries = ‘foo, bar, pg_stat_monitor’`.
+        To use `pg_stat_monitor` together with `pg_stat_statements`, specify both modules separated by commas for the ALTER SYSTEM SET command. 
+
+        The order of modules is important: `pg_stat_monitor` must be specified **after** `pg_stat_statements`: 
+       
+        ```sql
+        ALTER SYSTEM SET shared_preload_libraries = ‘pg_stat_statements, pg_stat_monitor’
+        ```
 
 2. Start or restart the `postgresql` instance to enable `pg_stat_monitor`. Use the following command for restart:
 
