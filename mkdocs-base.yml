@@ -52,6 +52,7 @@ markdown_extensions:
   attr_list: {}
   toc:
     permalink: True
+    title: On this page
   admonition: {}
   footnotes: {}
   def_list: {} # https://michelf.ca/projects/php-markdown/extra/#def-list
@@ -109,8 +110,12 @@ nav:
       - extensions.md
       - pg-stat-monitor.md
   - Solutions:
-      - solutions.md
-      - high-availability.md
+      #- solutions.md
+      - High availability:
+          - solutions/high-availability.md
+          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
+          - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
+          - solutions/ha-test.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:

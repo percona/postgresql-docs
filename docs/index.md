@@ -62,7 +62,7 @@ these queries." [^2]
 
 ## Solutions
 
-[High Availability in PostgreSQL with Patroni](high-availability.md)
+[High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
 
 ## Uninstall
 
