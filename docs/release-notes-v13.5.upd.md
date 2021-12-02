@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 13.5
+# Percona Distribution for PostgreSQL 13.5 Update
 
 <table class="docutils field-list" frame="void" rules="none">
   <colgroup>
