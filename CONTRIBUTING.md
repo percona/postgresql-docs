@@ -31,6 +31,7 @@ Each version has a branch in the repository named accordingly:
 - 11
 - 12
 - 13
+- 14
 
 The source .md files are in the ``docs`` directory. 
 
@@ -65,7 +66,7 @@ git clone git@github.com:percona/postgresql-docs.git
 3. Change the directory to ``postgresql-docs`` and add your local repository:
 
 ```sh
-git remote add <yourrepo-name> git@github.com:<your_name>/postgresql-docs.git
+git remote add <your-repo-name> git@github.com:<your_name>/postgresql-docs.git
 ```
 
 4. Pull the latest changes 
@@ -135,6 +136,7 @@ mkdocs build -f mkdocs-netlify.yml
 ```sh
 mkdocs serve -f mkdocs-netlify.yml
 ```
+
 6. To build the PDF documentation, do the following:
    - Install [mkdocs-with-pdf plugin](https://pypi.org/project/mkdocs-with-pdf/)
    - Run the following command
@@ -143,22 +145,14 @@ mkdocs serve -f mkdocs-netlify.yml
    mkdocs build -f mkdocs-pdf.yml
    ```
 
-<<<<<<< HEAD
-7. To create a PDF version of the documentation, run the following command:
-
-```sh
-make clean latexpdf
-```
-
-The PDF document is in the ``build/latex`` folder.
-=======
 The PDF document is in the ``site/pdf`` folder.
 
 ## Repository structure
 
 The repository includes the following directories and files:
 
-- `mkdocs.yml` (default) - configuration file. Contains the settings for building the docs on Percona website
+- `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
+- `mkdocs.yml` - configuration file. Contains the settings for building the docs on Percona website
 - `mkdocs-netlify.yml` - configuration file. Contains the settings for building the docs with Material theme.
 - `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF docs.
 - `docs`:
@@ -171,9 +165,8 @@ The repository includes the following directories and files:
      - ``styles.scss`` - Styling for PDF documents
    - `theme`:
       - `main.html` - The layout template for hosting the documentation on Percona website
+   - overrides_netlify - The folder with the template customization for Netlify builds
 - `.github`:
    - `workflows`:
       - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `netlify` branch)
 - `site` - This is where the output HTML files are put after the build
-
->>>>>>> aa3748d... DISTPG-261 Update Contributing guide
