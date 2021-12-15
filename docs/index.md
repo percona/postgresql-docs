@@ -61,6 +61,11 @@ these queries." [^2]
 [pg_stat_monitor](pg-stat-monitor.md)
 
 
+## Solutions
+
+[High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
+
+
 ## Uninstall
 
 [Uninstalling Percona Distribution for PostgreSQL](uninstalling.md)
@@ -82,4 +87,4 @@ these queries." [^2]
     deemed not useful). This functionality can change (APIs, CLIs, etc.)
     from tech preview to GA.
 
-[^2]: <https://www.postgresql.org/docs/13/libpq.html>
+[^2]: <https://www.postgresql.org/docs/14/libpq.html>
