@@ -51,6 +51,11 @@ backend server and to receive the results of these queries.” [^2]
 * [pg_stat_monitor](pg-stat-monitor.md)
 
 
+## Solutions
+
+[High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
+
+
 ## Uninstall Percona Distribution for PostgreSQL
 
 
