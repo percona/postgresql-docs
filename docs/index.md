@@ -60,9 +60,6 @@ these queries." [^2]
 
 [pg_stat_monitor](pg-stat-monitor.md)
 
-## Solutions
-
-[High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
 
 ## Uninstall
 
