@@ -237,7 +237,7 @@ Some extensions require additional setup in order to use them with Percona Distr
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```
-/usr/pgsql-13/bin/postgresql-14-setup initdb
+/usr/pgsql-14/bin/postgresql-14-setup initdb
 ```
 
 Start the PostgreSQL service:
@@ -304,7 +304,7 @@ For details about each option, see [pdBadger documentation](https://github.com/d
 
 **pgAudit set-user**
 
-Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
+Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
 
 ```
 $ ALTER SYSTEM SET shared_preload_libraries = 'set-user';
