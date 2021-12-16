@@ -22,14 +22,14 @@ Run all commands as root or via **sudo**.
 2. Remove the **percona-postgresql** packages.
 
     ```
-    $ sudo apt remove percona-postgresql-13* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
+    $ sudo apt remove percona-postgresql-14* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
     ```
 
 
 3. Remove configuration and data files.
 
     ```
-    $ rm -rf /etc/postgresql/13/main
+    $ rm -rf /etc/postgresql/14/main
     ```
 
 ## On Red Hat Enterprise Linux and CentOS using `yum`
@@ -43,19 +43,19 @@ Run all commands as root or via **sudo**.
 1. Stop the Percona Distribution for PostgreSQL service.
    
     ```
-    $ sudo systemctl stop postgresql-13
+    $ sudo systemctl stop postgresql-14
     ```
 
 
 2. Remove the **percona-postgresql** packages
 
     ```
-    $ sudo yum remove percona-postgresql13* percona-pgbadger
+    $ sudo yum remove percona-postgresql14* percona-pgbadger
     ```
 
 
 3. Remove configuration and data files
 
     ```
-    $ rm -rf /var/lib/pgsql/13/data
+    $ rm -rf /var/lib/pgsql/14/data
     ```
