@@ -141,7 +141,7 @@ Install Percona Distribution for PostgreSQL in the primary and the secondary nod
 2. Enable the repository:
 
     ```sh
-    sudo percona-release setup ppg11
+    sudo percona-release setup ppg12
     ```
 
 3. Install Percona Distribution for PostgreSQL packages
@@ -149,13 +149,13 @@ Install Percona Distribution for PostgreSQL in the primary and the secondary nod
     - On Debian and Ubuntu:
 
        ```sh
-       sudo apt install percona-postgresql-11 -y
+       sudo apt install percona-postgresql-12 -y
        ```
    
     - On RedHat Enterprise Linux and derivatives: 
 
        ```sh
-       sudo yum install percona-postgresql11-server
+       sudo yum install percona-postgresql12-server
        ```
 
 ### Configure PostgreSQL on the primary node for continuous backup
@@ -164,9 +164,9 @@ At this step, configure the PostgreSQL instance on the `pg-primary` node for con
 
 !!! note
 
-       On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql/11/main/postgresql.conf`.
+       On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql/12/main/postgresql.conf`.
 
-       On RHEL and CentOS, the path to the configuration file is `/var/lib/pgsql/11/data/`.
+       On RHEL and CentOS, the path to the configuration file is `/var/lib/pgsql/12/data/`.
 
 
 1. Edit the `postgresql.conf` configuration file to include the following changes:
@@ -239,7 +239,7 @@ log-level-console=info
 log-level-file=debug
 
 [prod_backup]
-pg1-path=/var/lib/postgresql/11/main
+pg1-path=/var/lib/postgresql/12/main
 ```
 
 
@@ -261,7 +261,7 @@ start-fast=y
 stop-auto=y
  
 [prod_backup]
-pg1-path=/var/lib/postgresql/11/main
+pg1-path=/var/lib/postgresql/12/main
 pg1-host=pg-primary
 pg1-host-user=postgres
 pg1-port = 5432
@@ -274,7 +274,7 @@ After the configuration files are set up, it’s now time to initialize the `pgB
 
 ```sh
 sudo -u postgres pgbackrest --stanza=prod_backup stanza-create
-2021-11-07 11:08:18.157 P00   INFO: stanza-create command begin 2.36: --exec-id=155883-2277a3e7 --log-level-console=info --log-level-file=off --pg1-host=pg-primary --pg1-host-user=postgres --pg1-path=/var/lib/postgresql/11/main --pg1-port=5432 --repo1-path=/home/pgbackrest/pg_backup --stanza=prod_backup
+2021-11-07 11:08:18.157 P00   INFO: stanza-create command begin 2.36: --exec-id=155883-2277a3e7 --log-level-console=info --log-level-file=off --pg1-host=pg-primary --pg1-host-user=postgres --pg1-path=/var/lib/postgresql/12/main --pg1-port=5432 --repo1-path=/home/pgbackrest/pg_backup --stanza=prod_backup
 2021-11-07 11:08:19.453 P00   INFO: stanza-create for stanza 'prod_backup' on repo1
 2021-11-07 11:08:19.566 P00   INFO: stanza-create command end: completed successfully (1412ms)
 ```
@@ -325,7 +325,7 @@ For testing purposes, let's "damage" the PostgreSQL instance.
 
     
     ```sh
-    rm -rf /var/lib/postgresql/11/main/*
+    rm -rf /var/lib/postgresql/12/main/*
     ```
 
 2. To restore the backup, run the following commands. 
@@ -435,7 +435,7 @@ log-level-console=info
 log-level-file=debug
  
 [prod_backup]
-pg1-path=/var/lib/postgresql/11/main
+pg1-path=/var/lib/postgresql/12/main
 ```
 
 There should be bidirectional passwordless SSH communication between `pg-repo` and `pg-secondary`. Refer to the [Set up passwordless SSH](#set-up-passwordless-ssh) section for the steps, if you haven’t configured it. 
@@ -452,10 +452,10 @@ Restore the database backup from `pg-repo` to `pg-secondary`.
 ```sql
 pgbackrest -u postgres --stanza=prod_backup --delta restore
 
-2021-11-07 13:34:08.897 P00   INFO: restore command begin 2.36: --delta --exec-id=109728-d81c7b0b --log-level-console=info --log-level-file=debug --pg1-path=/var/lib/postgresql/11/main --process-max=2 --repo1-host=pg-repo --repo1-host-user=postgres --stanza=prod_backup
+2021-11-07 13:34:08.897 P00   INFO: restore command begin 2.36: --delta --exec-id=109728-d81c7b0b --log-level-console=info --log-level-file=debug --pg1-path=/var/lib/postgresql/12/main --process-max=2 --repo1-host=pg-repo --repo1-host-user=postgres --stanza=prod_backup
 2021-11-07 13:34:09.784 P00   INFO: repo1: restore backup set 20211107-111534F_20211107-131807I, recovery will start at 2021-11-07 13:18:07
-2021-11-07 13:34:09.786 P00   INFO: remove invalid files/links/paths from '/var/lib/postgresql/11/main'
-2021-11-07 13:34:11.803 P00   INFO: write updated /var/lib/postgresql/11/main/postgresql.auto.conf
+2021-11-07 13:34:09.786 P00   INFO: remove invalid files/links/paths from '/var/lib/postgresql/12/main'
+2021-11-07 13:34:11.803 P00   INFO: write updated /var/lib/postgresql/12/main/postgresql.auto.conf
 2021-11-07 13:34:11.819 P00   INFO: restore global/pg_control (performed last to ensure aborted restores cannot be started)
 2021-11-07 13:34:11.819 P00   INFO: restore size = 23.2MB, file total = 937
 2021-11-07 13:34:11.820 P00   INFO: restore command end: completed successfully (2924ms)

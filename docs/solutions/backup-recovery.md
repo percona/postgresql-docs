@@ -14,9 +14,9 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     <br>
     PostgreSQL offers multiple options for setting up database disaster recovery. 
 
-    - **[pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html) or the [pg_dumpall](https://www.postgresql.org/docs/11/app-pg-dumpall.html) utilities**
+    - **[pg_dump](https://www.postgresql.org/docs/12/app-pgdump.html) or the [pg_dumpall](https://www.postgresql.org/docs/12/app-pg-dumpall.html) utilities**
 
-    This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) command. 
+    This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the [pg_restore](https://www.postgresql.org/docs/12/app-pgrestore.html) command. 
 
     | Advantages   | Disadvantages   |
     | ------------ | --------------- |
@@ -30,7 +30,7 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     | ------------ | --------------- |
     | Consistent snapshot of the data directory or the whole data disk volume | 1. Requires stopping PostgreSQL in order to copy the files. This is not practical for most production setups.<br> 2. No backup of individual databases or tables.|
 
-    - **PostgreSQL [pg_basebackup](https://www.postgresql.org/docs/11/app-pgbasebackup.html)**
+    - **PostgreSQL [pg_basebackup](https://www.postgresql.org/docs/12/app-pgbasebackup.html)**
 
     This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. `pgasebackup` makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. 
 
@@ -67,7 +67,7 @@ This section describes the architecture of the backup and disaster recovery solu
 
 As the configuration example, we will use a three server architecture where `pgBackRest` resides on a dedicated remote host. The servers communicate with each other via passwordless SSH.
 
-!!! warning
+!!! important
 
     Passwordless SSH may not be an ideal solution for your environment. In this case, consider using other methods, for example, [TLS with client certificates](https://pgbackrest.org/user-guide-rhel.html#repo-host/config).
 
