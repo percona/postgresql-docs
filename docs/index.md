@@ -64,7 +64,15 @@ backend server and to receive the results of these queries.” [^2]
 
 ## Solutions
 
-[High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
+* [High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
+
+    * [Deploying high-availability on Debian and Ubuntu](solutions/ha-setup-apt.md)
+    * [Deploying high-availability on RHEL and CentOS](solutions/ha-setup-yum.md)
+    * [Testing the Patroni PostgreSQL Cluster](solutions/ha-test.md)
+
+* [Backup and disaster recovery with pgBackRest](solutions/backup-recovery.md)
+
+    * [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](solutions/dr-pgbackrest-setup.md)
 
 ## Uninstall Percona Distribution for PostgreSQL
 
