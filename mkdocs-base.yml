@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2021
+copyright: Percona LLC, &#169; 2022
 site_url: ""
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -83,7 +83,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 13.5 (December 7, 2021)
+          cover_subtitle: 13.6 (March 22, 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -123,6 +123,7 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v13.6.md
       - release-notes-v13.5.upd2.md
       - release-notes-v13.5.upd.md
       - release-notes-v13.5.md
