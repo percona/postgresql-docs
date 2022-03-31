@@ -1,17 +1,27 @@
-# MkDocs configuration for Percona builds
-
+# MkDocs configuration for default Material-themed build
 INHERIT: mkdocs-base.yml
-
+site_url: https://postgresql-docs.netlify.app/
 plugins:
-  section-index: {}
-  bootstrap-tables: {}
+  section-index: {}  # Adds links to nodes - comment out when creating PDF
 
 theme:
   name: material
-  custom_dir: _resource/theme
+  custom_dir: _resource/overrides_netlify
 
-extra_css:
-  - css/version-select.css
-  - css/toctree.css
-  - css/percona.css
-  - css/details.css
+# Theme features
+
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking  
+  
+plugins:
+  - section-index # Adds links to nodes - comment out when creating PDF
+  - search
+  - git-revision-date
+
+#Google Analytics configuration 
+extra:
+  analytics:
+    provider: google
+    property: UA-343802-3
