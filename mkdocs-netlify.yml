@@ -1,8 +1,0 @@
-# MkDocs configuration for Netlify builds
-
-INHERIT: mkdocs-base.yml
-site_url: https://postgresql-docs.netlify.app/
-
-plugins:
-  - section-index # Adds links to nodes - comment out when creating PDF
-  - search

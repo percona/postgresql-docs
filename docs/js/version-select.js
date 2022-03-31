@@ -1,120 +1,62 @@
-setTimeout(() => {
-    const asideMenu = document.getElementsByClassName('sphinxsidebarwrapper')[0];
-    hideSubMenus();
-    asideMenu.style.display = 'block';
-}, 500);
+/*
+ * Custom version of same taken from mike code for injecting version switcher into percona.com
+*/
 
-function hideSubMenus() {
-    const asideMenu = document.getElementsByClassName('sphinxsidebarwrapper')[0];
-    const activeCheckboxClass = 'custom-button--active';
-    const activeBackgroundClass = 'custom-button--main-active';
-    const links = Array.from(asideMenu.getElementsByTagName('a'));
-    const accordionLinks = links.filter(links => links.nextElementSibling && links.nextElementSibling.localName === 'ul');
-    const simpleLinks = links.filter(links => !links.nextElementSibling && links.parentElement.localName === 'li');
+window.addEventListener("DOMContentLoaded", function() {
+  // This is a bit hacky. Figure out the base URL from a known CSS file the
+  // template refers to...
+  var ex = new RegExp("/?css/version-select.css$");
+  var sheet = document.querySelector('link[href$="version-select.css"]');
 
-    simpleLinks.forEach(simpleLink => {
-        simpleLink.parentElement.style.listStyleType = 'disc';
-        simpleLink.parentElement.style.marginLeft = '20px';
+  var ABS_BASE_URL = sheet.href.replace(ex, "");
+  var CURRENT_VERSION = ABS_BASE_URL.split("/").pop();
+
+  function makeSelect(options, selected) {
+    var select = document.createElement("select");
+//    select.classList.add("form-control");
+    select.classList.add("btn");
+    select.classList.add("btn-primary");
+
+    options.forEach(function(i) {
+      var option = new Option(i.text, i.value, undefined,
+                              i.value === selected);
+      select.add(option);
     });
 
-    accordionLinks.forEach((link, index) => {
-        insertButton(link, index);
+    return select;
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", ABS_BASE_URL + "/../versions.json");
+  xhr.onload = function() {
+    var versions = JSON.parse(this.responseText);
+
+    var realVersion = versions.find(function(i) {
+      return i.version === CURRENT_VERSION ||
+             i.aliases.includes(CURRENT_VERSION);
+    }).version;
+
+    var select = makeSelect(versions.map(function(i) {
+      return {text: i.title, value: i.version};
+    }), realVersion);
+    select.addEventListener("change", function(event) {
+      window.location.href = ABS_BASE_URL + "/../" + this.value;
     });
 
-    const buttons = Array.from(document.getElementsByClassName('custom-button'));
+    var container = document.createElement("div");
+    container.id = "custom_select";
+    container.classList.add("side-column-block");
 
-    buttons.forEach(button => button.addEventListener('click', event => {
-        event.preventDefault();
-        const current = event.currentTarget;
-        const parent = current.parentElement;
-        const isMain = Array.from(parent.classList).includes('toctree-l1');
-        const isMainActive = Array.from(parent.classList).includes(activeBackgroundClass);
-        const targetClassList = Array.from(current.classList);
+    // Label
+//    var label = document.createElement("span");
+//    label.textContent = "PMM version: ";
+//    container.appendChild(label);
 
-        toggleElement(targetClassList.includes(activeCheckboxClass), current, activeCheckboxClass);
-        if (isMain) {
-            toggleElement(isMainActive, parent, activeBackgroundClass);
-        }
-    }));
+    // Add menu
+    container.appendChild(select);
 
-// WIP    var toctree_heading = document.getElementById("toctree-heading");
-// NOT NEEDED?    asideMenu.parentNode.insertBefore(styleDomEl, asideMenu);
-}
-
-function toggleElement(condition, item, className) {
-    const isButton = item.localName === 'button';
-
-    if (!condition) {
-        const previousActive = Array.from(item.parentElement.parentElement.getElementsByClassName('list-item--active'));
-        if (isButton) {
-            localStorage.setItem(item.id, 'true');
-
-            if (previousActive.length) {
-                previousActive.forEach(previous => {
-
-                    const previousActiveButtons = Array.from(previous.getElementsByClassName('custom-button--active'));
-                    removeClass(previous, ['list-item--active', 'custom-button--main-active']);
-
-                    if (previousActiveButtons.length) {
-                        previousActiveButtons.forEach(previousButton => {
-
-                            removeClass(previousButton, 'custom-button--active');
-                            localStorage.removeItem(previousButton.id);
-                        });
-                    }
-                })
-            }
-        }
-        addClass(item, className);
-        addClass(item.parentElement, 'list-item--active');
-    } else {
-        removeClass(item, className);
-        removeClass(item.parentElement, 'list-item--active');
-
-        if (isButton) {
-            localStorage.removeItem(item.id);
-        }
-    }
-}
-function addClass(item, classes) {
-    item.classList.add(...Array.isArray(classes) ? classes : [classes]);
-}
-function removeClass(item, classes) {
-    item.classList.remove(...Array.isArray(classes) ? classes : [classes]);
-}
-function insertButton(element, id) {
-    const button = document.createElement('button');
-    const isMain = Array.from(element.parentElement.classList).includes('toctree-l1');
-    button.id = id;
-    addClass(button, 'custom-button');
-    if (localStorage.getItem(id)) {
-        addClass(button, 'custom-button--active');
-        addClass(element.parentElement, 'list-item--active');
-        if (isMain) {
-            addClass(element.parentElement, 'custom-button--main-active');
-        }
-    }
-    element.insertAdjacentElement('beforebegin', button);
-}
-function makeSelect() {
-    const custom_select = document.getElementById('custom_select');
-    const select_active_option = custom_select.getElementsByClassName('select-active-text')[0];
-    const custom_select_list = document.getElementById('custom_select_list');
-
-    select_active_option.innerHTML = window.location.href.includes('') ?
-        custom_select_list.getElementsByClassName('custom-select__option')[1].innerHTML :
-        custom_select_list.getElementsByClassName('custom-select__option')[0].innerHTML;
-
-    document.addEventListener('click', event => {
-        if (event.target.parentElement.id === 'custom_select' || event.target.id === 'custom_select') {
-            custom_select_list.classList.toggle('select-hidden')
-        }
-        if (Array.from(event.target.classList).includes('custom-select__option')) {
-            select_active_option.innerHTML = event.target.innerHTML;
-        }
-        if (event.target.id !== 'custom_select' && event.target.parentElement.id !== 'custom_select') {
-            custom_select_list.classList.add('select-hidden')
-        }
-
-    });
-}
+    var sidebar = document.querySelector("#version-select-wrapper"); // Inject menu into element with this ID
+    sidebar.appendChild(container);
+  };
+  xhr.send();
+});
