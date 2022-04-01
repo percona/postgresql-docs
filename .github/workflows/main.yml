@@ -3,7 +3,7 @@ on:
   push:
     branches: 
       - 14
-      - DISTPG-315-Docs-PPG-14
+      
 jobs:
   build:
     name: Deploy docs
