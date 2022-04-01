@@ -7,4 +7,19 @@ site_url: "https://docs.percona.com/postgresql/14/index.html"
 plugins:
     section-index: {} # Adds links to nodes - comment out when creating PDF
 
+theme:
+  name: material
+  custom_dir: _resource/overrides
 
+# Theme features
+
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking  
+  
+#Google Analytics configuration 
+extra:
+  analytics:
+    provider: google
+    property: UA-343802-3
