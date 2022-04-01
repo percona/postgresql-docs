@@ -23,7 +23,7 @@ PostgreSQL
 * [Patroni](https://patroni.readthedocs.io/en/latest/) is an HA (High Availability) solution for PostgreSQL.
 
 
-* [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) (Tech Preview Feature [^1]) collects and aggregates statistics for PostgreSQL and provides histogram information.
+* [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) collects and aggregates statistics for PostgreSQL and provides histogram information.
 
 
 * [PgBouncer](https://www.pgbouncer.org/) - a lightweight connection pooler for PostgreSQL
@@ -48,7 +48,8 @@ PostgreSQL
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/12/libpq.html) library. It contains “a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” [^2]
+backend server and to receive the results of these queries.” [^1]
+
 
 ## Installation and Upgrade
 
@@ -89,10 +90,5 @@ backend server and to receive the results of these queries.” [^2]
 [Licensing](licensing.md)
 
 
-[^1]: Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA. They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.
+[^1]: https://www.postgresql.org/docs/12/libpq.html
 
-[^2]: https://www.postgresql.org/docs/12/libpq.html
-
-
-
- 
