@@ -15,12 +15,19 @@ theme:
   features:
     - search.highlight
     - navigation.top
-    - navigation.tracking  
-  
+    - navigation.tracking
+    - content.tabs.link  
+ 
+
 plugins:
   - section-index # Adds links to nodes - comment out when creating PDF
   - search
   - git-revision-date
+
+#markdown_extensions:
+#  - pymdownx.tabbed:
+#      alternate_style: true 
+
 
 #Google Analytics configuration 
 extra:

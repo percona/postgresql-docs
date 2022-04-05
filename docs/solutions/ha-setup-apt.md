@@ -391,7 +391,11 @@ If Patroni has started properly, you should be able to locally connect to a Post
 
 ```sh
 $ sudo psql -U postgres
+```
 
+The command output is the following
+
+```
 psql (11.13)
 Type "help" for help.
 
