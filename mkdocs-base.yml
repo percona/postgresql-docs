@@ -10,8 +10,10 @@ repo_url: https://github.com/percona/postgresql-docs
 edit_uri: edit/12/docs/
 
 use_directory_urls: false
+features:
+  - content.tabs.link
 
-# Theme for netlify testing
+# Theme settings
 theme:
   name: material
   logo: _images/percona-logo.svg
@@ -56,7 +58,8 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: {}
+  pymdownx.tabbed: 
+      {alternate_style: true}
   pymdownx.tilde: {}
   pymdownx.superfences: {}
   pymdownx.highlight:

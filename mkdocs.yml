@@ -1,6 +1,7 @@
-# MkDocs configuration for default Material-themed build
+# MkDocs configuration for Material-themed build for any hosting platform
+
 INHERIT: mkdocs-base.yml
-site_url: https://postgresql-docs.netlify.app/
+site_url: https://docs.percona.com/postgresql/12/index.html
 plugins:
   section-index: {}  # Adds links to nodes - comment out when creating PDF
 
@@ -13,7 +14,8 @@ theme:
   features:
     - search.highlight
     - navigation.top
-    - navigation.tracking  
+    - navigation.tracking
+  
   
 plugins:
   - section-index # Adds links to nodes - comment out when creating PDF
