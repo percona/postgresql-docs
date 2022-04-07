@@ -10,7 +10,7 @@ PostgreSQL has been widely adopted as a modern, high-performance transactional d
 
 This document provides instructions on how to set up and test a highly-available, single-primary, three-node cluster with Percona PostgreSQL and [Patroni](#patroni). 
 
-??? admonition "High availability overview"
+!!! admonition "High availability overview"
 
     There are a few methods for achieving high availability with PostgreSQL:
 
