@@ -39,214 +39,210 @@ As soon as **percona-release** is installed or up-to-date, enable the repository
 
 To install the *latest* version of Percona Distribution for PostgreSQL, enable the Major Release repository using the following command:
 
-```
+```sh
 $ sudo percona-release setup ppg-13
 ```
 
 To install a *specific minor version* of Percona Distribution for PostgreSQL, enable the Minor release repository. For example, to install Percona Distribution for PostgreSQL 13.1, enable the `ppg-13.1`  repository using the following command:
 
-```
+```sh
 $ sudo percona-release setup ppg-13.1
 ```
 
 ## Install Percona Distribution for PostgreSQL packages
 
-After you’ve installed percona-release and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
+After you’ve installed `percona-release` and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
-### On Debian and Ubuntu using `apt`
+=== "On Debian and Ubuntu using `apt`"
+
+     **NOTE**: Debian and other systems that use the `apt` package manager include the upstream PostgreSQL server package (postgresql-13) by default. The components of Percona Distribution for PostgreSQL 13 can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.
+
+     Install the **percona-postgresql-13** package using **apt install**.
+
+     ```
+     $ sudo apt install percona-postgresql-13
+     ```     
+
+=== "On Red Hat Enterprise Linux and derivatives using `yum`"
+
+     **Platform specific notes**
+
+     If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 , disable the ``postgresql``  and ``llvm-toolset``modules:
+
+     ```
+     $ sudo dnf module disable postgresql llvm-toolset
+     ```
 
 
-!!! note
-
-    On Debian and other systems that use the `apt` package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.
+     On CentOS 7, you should install the ``epel-release`` package:
 
 
+     ```
+     $ sudo yum -y install epel-release
+     $ sudo yum repolist
+     ```
 
-Install the **percona-postgresql-13** package using **apt install**.
+     Install the **percona-postgresql-13** package using **yum install**.
 
-```
-$ sudo apt install percona-postgresql-13
-```
+     ```
+     $ sudo yum install percona-postgresql13-server
+     ```
 
-Note that this package will not install the components. Use the following commands to install components’ packages:
+### Install the Percona Distribution for PostgreSQL components
 
-Install `pg_repack`:
+Use the following commands to install components’ packages:
 
-```
-$ sudo apt install percona-postgresql-13-repack
-```
+=== "On Debian and Ubuntu"
 
-Install `pgAudit`:
+     Install `pg_repack`:
 
-```
-$ sudo apt install percona-postgresql-13-pgaudit
-```
+     ```sh
+     $ sudo apt install percona-postgresql-13-repack
+     ```
 
-Install `pgBackRest`:
+     Install `pgAudit`:
 
-```
-$ sudo apt install percona-pgbackrest
-```
+     ```sh
+     $ sudo apt install percona-postgresql-13-pgaudit
+     ```
 
-Install `Patroni`:
+     Install `pgBackRest`:
 
-```
-$ sudo apt install percona-patroni
-```
+     ```
+     $ sudo apt install percona-pgbackrest
+     ```
 
-[Install `pg_stat_monitor`](pg-stat-monitor.md)
+     Install `Patroni`:
+
+     ```
+     $ sudo apt install percona-patroni
+     ```
+
+     [Install `pg_stat_monitor`](pg-stat-monitor.md)
 
 
-Install `pgBouncer`:
+     Install `pgBouncer`:
 
-```
-$ sudo apt install percona-pgbouncer
-```
+     ```
+     $ sudo apt install percona-pgbouncer
+     ```
 
-Install `pgAudit-set_user`:
+     Install `pgAudit-set_user`:
 
-```
-$ sudo apt install percona-pgaudit13-set-user
-```
+     ```
+     $ sudo apt install percona-pgaudit13-set-user
+     ```
 
-Install `pgBadger`:
+     Install `pgBadger`:
 
-```
-$ sudo apt install percona-pgbadger
-```
+     ```
+     $ sudo apt install percona-pgbadger
+     ```
 
-Install `wal2json`:
+     Install `wal2json`:
 
-```
-$ sudo apt install percona-postgresql-13-wal2json
-```
+     ```
+     $ sudo apt install percona-postgresql-13-wal2json
+     ```
 
-Install PostgreSQL contrib extensions:
+     Install PostgreSQL contrib extensions:
 
-```
-$ sudo apt install percona-postgresql-contrib
-```
+     ```
+     $ sudo apt install percona-postgresql-contrib
+     ```
+
+=== "On Red Hat Enterprise Linux and derivatives"
+
+     
+     Install `pg_repack`:
+
+     ```
+     $ sudo yum install percona-pg_repack13
+     ```
+
+     Install `pgaudit`:
+
+     ```
+     $ sudo yum install percona-pgaudit
+     ```
+
+     Install `pgBackRest`:
+
+     ```
+     $ sudo yum install percona-pgbackrest
+     ```
+
+     Install `Patroni`:
+
+     ```
+     $ sudo yum install percona-patroni
+     ```
+
+     [Install `pg_stat_monitor`](pg-stat-monitor.md):
+
+
+     Install `pgBouncer`:
+
+     ```
+     $ sudo yum install percona-pgbouncer
+     ```
+
+     Install `pgAudit-set_user`:
+
+     ```
+     $ sudo yum install percona-pgaudit13_set_user
+     ```
+
+     Install `pgBadger`:
+
+     ```
+     $ sudo yum install percona-pgbadger
+     ```
+
+     Install `wal2json`:
+
+     ```
+     $ sudo yum install percona-wal2json13
+     ```
+
+     Install PostgreSQL contrib extensions:
+
+     ```
+     $ sudo yum install percona-postgresql13-contrib
+     ```
 
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
 
 
-####Starting the service
+## Starting the service
 
+=== "Debian and Ubunutu"
 
-The installation process automatically initializes and starts the default database. You can check the database status using the following command:
+     The installation process automatically initializes and starts the default database. You can check the database status using the following command:
 
-```
-$ sudo systemctl status postgresql
-```
+     ```
+     $ sudo systemctl status postgresql.service
+     ```
+
+=== "Red Hat Enterprise Linux and derivatives"
+
+     After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
+
+     ```
+     S /usr/pgsql-13/bin/postgresql-13-setup initdb
+     ```
+
+     Start the PostgreSQL service:
+
+     ```
+     $ sudo systemctl start postgresql-13
+     ```
 
 Next steps: [connect to PostgreSQL](#connect-to-the-postgresql-server).
 
-### On Red Hat Enterprise Linux and CentOS using `yum`
 
-#### Platform Specific Notes
-
-
-
->If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 / CentOS 8, disable the ``postgresql``  and ``llvm-toolset``modules:
-
-
->```
->$ sudo dnf module disable postgresql llvm-toolset
->```
-
-
->On CentOS 7, you should install the ``epel-release`` package:
-
-
->```
->$ sudo yum -y install epel-release
->$ sudo yum repolist
->```
-
-Install the **percona-postgresql-13** package using **yum install**.
-
-```
-$ sudo yum install percona-postgresql13-server
-```
-
-Note that this package will not install the components. Use the following commands to install components’ packages:
-
-Install `pg_repack`:
-
-```
-$ sudo yum install percona-pg_repack13
-```
-
-Install `pgaudit`:
-
-```
-$ sudo yum install percona-pgaudit
-```
-
-Install `pgBackRest`:
-
-```
-$ sudo yum install percona-pgbackrest
-```
-
-Install `Patroni`:
-
-```
-$ sudo yum install percona-patroni
-```
-
-[Install `pg_stat_monitor`](pg-stat-monitor.md):
-
-
-Install `pgBouncer`:
-
-```
-$ sudo yum install percona-pgbouncer
-```
-
-Install `pgAudit-set_user`:
-
-```
-$ sudo yum install percona-pgaudit13_set_user
-```
-
-Install `pgBadger`:
-
-```
-$ sudo yum install percona-pgbadger
-```
-
-Install `wal2json`:
-
-```
-$ sudo yum install percona-wal2json13
-```
-
-Install PostgreSQL contrib extensions:
-
-```
-$ sudo yum install percona-postgresql13-contrib
-```
-
-Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
-
-
-####Starting the service
-
-After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
-
-```
-/usr/pgsql-13/bin/postgresql-13-setup initdb
-```
-
-Start the PostgreSQL service:
-
-```
-$ sudo systemctl start postgresql-13
-```
-
-### Enabling extensions
+## Enabling extensions
 
 Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.
 

@@ -54,21 +54,21 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Enable Percona repository using the **percona-release** utility:
 
-      ```
+      ```sh
       $ sudo percona-release setup ppg-13
       ```
 
 
     * Install Percona Distribution for PostgreSQL 13 package:
 
-      ```
+      ```sh
       $ sudo apt install percona-postgresql-13
       ```
 
 
     * Install the components:
 
-      ```
+      ```sh
       $ sudo apt install percona-postgresql-13-repack \
        percona-postgresql-13-pgaudit \
        percona-pgbackrest \
@@ -93,7 +93,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 2. Stop the `postgresql` service.
 
-    ```
+    ```sh
     $ sudo systemctl stop postgresql.service
     ```
 
@@ -113,7 +113,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Change the current directory to the `tmp` directory where logs and some scripts will be recorded:
 
       ```
-      cd tmp/
+      $ cd tmp/
       ```
 
 
@@ -175,7 +175,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 
       ```
-      exit
+      $ exit
       ```
 
 
@@ -289,27 +289,27 @@ The exact steps may differ depending on the package manager of your operating sy
    * Log is as the postgres user
 
       ```
-      sudo su postgres
+      $ sudo su postgres
       ```
 
    * Set up locale settings
 
       ```
-      export LC_ALL="en_US.UTF-8"
-      export LC_CTYPE="en_US.UTF-8"
+      $ export LC_ALL="en_US.UTF-8"
+      $ export LC_CTYPE="en_US.UTF-8"
       ```
 
    * Initialize cluster with the new data directory
 
       ```
-      /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data
+      $ /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data
       ```
 
 
 3. Stop the `postgresql` 12 service
 
     ```
-    $ systemctl stop postgresql-12
+    $ sudo systemctl stop postgresql-12
     ```
 
 

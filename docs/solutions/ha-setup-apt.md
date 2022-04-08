@@ -192,7 +192,7 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 4. Check that the Softdog files under the `/dev/ `folder are owned by the `postgres `user: 
 
 
-```
+```sh
 $ ls -l /dev/watchdog*
 
 crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
@@ -311,7 +311,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
         nosync: false
     ```
 
-    ??? admonition "Patroni configuration file"
+    !!! admonition "Patroni configuration file"
 
         Let’s take a moment to understand the contents of the `patroni.yml` file. 
 
@@ -330,7 +330,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
    
 When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
-??? admonition "Troubleshooting Patroni"
+!!! admonition "Troubleshooting Patroni"
 
     To ensure that Patroni has started properly, check the logs using the following command:
 
@@ -391,7 +391,11 @@ If Patroni has started properly, you should be able to locally connect to a Post
 
 ```sh
 $ sudo psql -U postgres
+```
 
+The command output should be similar to the following: 
+
+```sh
 psql (13.3 (Ubuntu 2:13-3.2.focal))
 Type "help" for help.
 
