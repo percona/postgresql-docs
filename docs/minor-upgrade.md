@@ -33,18 +33,18 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 1. Stop the `postgresql` service.
 
 
-    * On Debian / Ubuntu:
+    === "On Debian / Ubuntu"
 
-      ```
-      $ sudo systemctl stop postgresql.service
-      ```
+         ```
+         $ sudo systemctl stop postgresql.service
+         ```
 
 
-    * On Red Hat Enterprise Linux / CentOS:
+    === "On Red Hat Enterprise Linux / derivatives"
 
-      ```
-      $ sudo systemctl stop postgresql-14
-      ```
+         ```
+         $ sudo systemctl stop postgresql-14
+         ```
 
 
 
@@ -54,18 +54,18 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 3. Restart the `postgresql` service.
 
 
-    * On Debian / Ubuntu:
+    === "On Debian / Ubuntu"
 
-      ```
-      $ sudo systemctl start postgresql.service
-      ```
+         ```
+         $ sudo systemctl start postgresql.service
+         ```
 
 
-    * On Red Hat Enterprise Linux / CentOS:
+    === "On Red Hat Enterprise Linux / derivatives"
 
-      ```
-      $ sudo systemctl start postgresql-14
-      ```
+         ```
+         $ sudo systemctl start postgresql-14
+         ```
 
 
 If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.md).

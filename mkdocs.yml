@@ -16,7 +16,8 @@ theme:
   features:
     - search.highlight
     - navigation.top
-    - navigation.tracking  
+    - navigation.tracking 
+    - content.tabs.link   
   
 #Google Analytics configuration 
 extra:

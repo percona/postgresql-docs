@@ -71,7 +71,7 @@ In a proper setup, client applications won't have issues connecting to the clust
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
-    ??? admonition "Output"
+    !!! admonition "Output"
         
         ```
         Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
@@ -147,7 +147,7 @@ To emulate the power outage, let's kill the service in `node3` and see what happ
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
-    ??? admonition "Output"
+    !!! admonition "Output"
 
         ```
         Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)
