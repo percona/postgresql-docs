@@ -154,12 +154,8 @@ $ SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
 ```
 
 
-<<<<<<< HEAD
-Find more usage examples in the [pg_stat_monitor User Guide](https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md).
+Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.md).
 
-=======
-Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/main/USER_GUIDE.html#usage-examples).
->>>>>>> 193c9a5... DISTPG-388 Updated PGSM page
 
 ## Changing the configuration
 
@@ -190,11 +186,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
 ```
 
-<<<<<<< HEAD
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://github.com/percona/pg_stat_monitor/tree/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
-=======
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://percona.github.io/pg_stat_monitor/main/USER_GUIDE.html#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
->>>>>>> 193c9a5... DISTPG-388 Updated PGSM page
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.html#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
@@ -231,14 +223,9 @@ $ SELECT name, value
 ```
 
 !!! seealso
-<<<<<<< HEAD
-    
-    [pg_stat_monitor Documentation](https://github.com/percona/pg_stat_monitor/tree/REL0_9_0_STABLE/README.md)
-=======
 
-    [`pg_stat_monitor` Documentation](https://percona.github.io/pg_stat_monitor/main/index.html)
+    [`pg_stat_monitor` Documentation](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/index.html)
 
->>>>>>> 193c9a5... DISTPG-388 Updated PGSM page
 
     Percona Blog:
 
