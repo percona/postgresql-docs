@@ -1,4 +1,4 @@
-name: Build Percona Distribution PostgreSQL 13 docs
+name: Build Percona Distribution PostgreSQL 14 docs
 on:
   push:
     branches: 
