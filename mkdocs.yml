@@ -6,7 +6,7 @@ plugins:
 
 theme:
   name: material
-  custom_dir: _resource/overrides_netlify
+  custom_dir: _resource/overrides
 
 # Theme features
 
