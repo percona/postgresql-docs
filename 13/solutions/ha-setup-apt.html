@@ -1,0 +1,1677 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation">
+      
+      
+        <meta name="author" content="Percona LLC">
+      
+      
+        <link rel="canonical" href="https://docs.percona.com/postgresql/13/index.html/13/solutions/ha-setup-apt.html">
+      
+      <link rel="icon" href="../_images/percona-favicon.ico">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Deploying on Debian or Ubuntu - Percona Distribution for PostgreSQL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../css/percona.css">
+    
+      <link rel="stylesheet" href="../css/version-select.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-343802-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deploying-postgresql-for-high-availability-with-patroni-on-debian-or-ubuntu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+      
+  <img src="../_images/percona-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis"><a href="https://www.percona.com/software/documentation">
+            Percona Product Documentation
+          </a></span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deploying on Debian or Ubuntu
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="" data-md-color-accent="" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    percona/postgresql-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+      
+  <img src="../_images/percona-logo.svg" alt="logo">
+
+    </a>
+    Percona Distribution for PostgreSQL
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    percona/postgresql-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13 Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../installation-and-update.html">Installation and Upgrade</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Installation and Upgrade" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Installation and Upgrade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installing.html" class="md-nav__link">
+        Installing Percona Distribution for PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../major-upgrade.html" class="md-nav__link">
+        Upgrading Percona Distribution for PostgreSQL from 12 to 13
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minor-upgrade.html" class="md-nav__link">
+        Minor Upgrade of Percona Distribution for PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../extensions.html">Extensions</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Extensions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Extensions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pg-stat-monitor.html" class="md-nav__link">
+        pg_stat_monitor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Solutions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Solutions" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Solutions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="high-availability.html">High availability</a>
+          
+            <label for="__nav_4_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="High availability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          High availability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deploying on Debian or Ubuntu
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ha-setup-apt.html" class="md-nav__link md-nav__link--active">
+        Deploying on Debian or Ubuntu
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preconditions" class="md-nav__link">
+    Preconditions
+  </a>
+  
+    <nav class="md-nav" aria-label="Preconditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-hostnames-in-the-etchosts-file" class="md-nav__link">
+    Setting up hostnames in the /etc/hosts file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-percona-distribution-for-postgresql" class="md-nav__link">
+    Install Percona Distribution for PostgreSQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-etcd-distributed-store" class="md-nav__link">
+    Configure ETCD distributed store
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-watchdog-service" class="md-nav__link">
+    Set up the watchdog service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-patroni" class="md-nav__link">
+    Configure Patroni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-haproxy" class="md-nav__link">
+    Configure HAProxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-setup-yum.html" class="md-nav__link">
+        Deploying on RHEL or CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-test.html" class="md-nav__link">
+        Testing the Patroni PostgreSQL Cluster
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="backup-recovery.html">Backup and disaster recovery</a>
+          
+            <label for="__nav_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Backup and disaster recovery" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Backup and disaster recovery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+        Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uninstalling.html" class="md-nav__link">
+        Uninstall
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../release-notes.html">Release Notes</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Release Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.6.upd.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.6 Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.6.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.5.upd2.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.5 Second Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.5.upd.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.5 Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.5.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.5
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.4.upd.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.4 Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.4.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.4
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.3.upd3.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.3 Third Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.3.upd2.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.3 Second Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.3.upd.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.3 Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.3.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.2.upd4.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.2 Fourth Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.2.upd3.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.2 Third Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.2.upd2.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.2 Second Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.2.upd.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.2 Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.2.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.1.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes-v13.0.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.0
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licensing.html" class="md-nav__link">
+        Licensing
+      </a>
+    </li>
+  
+
+    
+   <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-13" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
+      Download PDF
+    </a>
+  </label> 
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preconditions" class="md-nav__link">
+    Preconditions
+  </a>
+  
+    <nav class="md-nav" aria-label="Preconditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-hostnames-in-the-etchosts-file" class="md-nav__link">
+    Setting up hostnames in the /etc/hosts file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-percona-distribution-for-postgresql" class="md-nav__link">
+    Install Percona Distribution for PostgreSQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-etcd-distributed-store" class="md-nav__link">
+    Configure ETCD distributed store
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-the-watchdog-service" class="md-nav__link">
+    Set up the watchdog service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-patroni" class="md-nav__link">
+    Configure Patroni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-haproxy" class="md-nav__link">
+    Configure HAProxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+                <!-- Edit button -->
+                
+                  <a
+                    href="https://github.com/percona/postgresql-docs/edit/13/docs/solutions/ha-setup-apt.md"
+                    title="Edit this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+                  </a>
+                
+
+                <!--
+                  Hack: check whether the content contains a h1 headline. If it
+                  doesn't, the page title (or respectively site name) is used
+                  as the main headline.
+                -->
+                
+
+                <!-- Markdown content -->
+                <h1 id="deploying-postgresql-for-high-availability-with-patroni-on-debian-or-ubuntu">Deploying PostgreSQL for high availability with Patroni on Debian or Ubuntu<a class="headerlink" href="#deploying-postgresql-for-high-availability-with-patroni-on-debian-or-ubuntu" title="Permanent link">&para;</a></h1>
+<p>This guide provides instructions on how to set up a highly available PostgreSQL cluster with Patroni on Debian or Ubuntu. </p>
+<h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
+<p>For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system and having the following IP addresses:</p>
+<table>
+<thead>
+<tr>
+<th>Node name</th>
+<th>Public IP address</th>
+<th>Internal IP address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node1</td>
+<td>157.230.42.174</td>
+<td>10.104.0.7</td>
+</tr>
+<tr>
+<td>node2</td>
+<td>68.183.177.183</td>
+<td>10.104.0.2</td>
+</tr>
+<tr>
+<td>node3</td>
+<td>165.22.62.167</td>
+<td>10.104.0.8</td>
+</tr>
+<tr>
+<td>HAProxy-demo</td>
+<td>134.209.111.138</td>
+<td>10.104.0.6</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. </p>
+</div>
+<h3 id="setting-up-hostnames-in-the-etchosts-file">Setting up hostnames in the <code>/etc/hosts</code> file<a class="headerlink" href="#setting-up-hostnames-in-the-etchosts-file" title="Permanent link">&para;</a></h3>
+<p>To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the <code>/etc/hosts</code> file of each node as follows:</p>
+<table>
+<thead>
+<tr>
+<th>node 1</th>
+<th>node 2</th>
+<th>node 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code> 127.0.0.1 localhost node1 <br> 10.104.0.7 node1 <br> <strong>10.104.0.2 node2</strong> <br> <strong>10.104.0.8 node3</strong> </code></td>
+<td><code>127.0.0.1 localhost node2  <br> <strong>10.104.0.7 node1</strong> <br> 10.104.0.2 node2  <br> <strong>10.104.0.8 node3</strong> </code></td>
+<td><code> 127.0.0.1 localhost node3 <br> <strong>10.104.0.7 node1</strong> <br> <strong>10.104.0.2 node2</strong> <br> 10.104.0.8 node3 </code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>/etc/hosts</code> file of the HAProxy-demo node looks like the following:</p>
+<div class="highlight"><pre><span></span><code>127.0.1.1 HAProxy-demo HAProxy-demo
+127.0.0.1 localhost
+10.104.0.6 HAProxy-demo
+10.104.0.7 node1
+10.104.0.2 node2
+10.104.0.8 node3
+</code></pre></div>
+<h3 id="install-percona-distribution-for-postgresql">Install Percona Distribution for PostgreSQL<a class="headerlink" href="#install-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Follow the <a href="../installing.html#on-debian-and-ubuntu-using-apt">installation instructions</a> to install Percona Distribution for PostgreSQL on <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+</li>
+<li>
+<p>Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql
+$ sudo rm -rf /var/lib/postgresql/13/main
+</code></pre></div>
+<h2 id="configure-etcd-distributed-store">Configure ETCD distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
+<p>The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is <code>etcd</code>. </p>
+<p>The <code>etcd</code> cluster is first started in one node and then the subsequent nodes are added to the first node using the <code>add</code>command. The configuration is stored in the <code>/etc/default/etcd</code> file.</p>
+<ol>
+<li>
+<p>Install <code>etcd</code> on every PostgreSQL node using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install etcd
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/default/etcd</code> configuration file on each node.</p>
+<ul>
+<li>On <code>node1</code>, add the IP address of <code>node1</code> to the <code>ETCD_INITIAL_CLUSTER</code> parameter. The configuration file looks as follows:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ETCD_NAME=node1
+ETCD_INITIAL_CLUSTER=&quot;node1=http://10.104.0.7:2380&quot;
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;devops_token&quot;
+ETCD_INITIAL_CLUSTER_STATE=&quot;new&quot;
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.104.0.7:2380&quot;
+ETCD_DATA_DIR=&quot;/var/lib/etcd/postgresql&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://10.104.0.7:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://10.104.0.7:2379,http://localhost:2379&quot;
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.7:2379&quot;
+…
+</code></pre></div>
+<ul>
+<li>On <code>node2</code>, add the IP addresses of both <code>node1</code> and <code>node2</code> to the <code>ETCD_INITIAL_CLUSTER</code> parameter:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ETCD_NAME=node2
+ETCD_INITIAL_CLUSTER=&quot;node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380&quot;
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;devops_token&quot;
+ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.104.0.2:2380&quot;
+ETCD_DATA_DIR=&quot;/var/lib/etcd/postgresql&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://10.104.0.2:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://10.104.0.2:2379,http://localhost:2379&quot;
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.2:2379&quot;
+…
+</code></pre></div>
+<ul>
+<li>On <code>node3</code>, the <code>ETCD_INITIAL_CLUSTER</code> parameter includes the IP addresses of all three nodes:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ETCD_NAME=node3
+ETCD_INITIAL_CLUSTER=&quot;node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.8:2380&quot;
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;devops_token&quot;
+ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.104.0.8:2380&quot;
+ETCD_DATA_DIR=&quot;/var/lib/etcd/postgresql&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://10.104.0.8:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://10.104.0.8:2379,http://localhost:2379&quot;
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.8:2379&quot;
+…
+</code></pre></div>
+</li>
+<li>
+<p>On <code>node1</code>, add <code>node2</code> and <code>node3</code> to the cluster using the <code>add</code> command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo etcdctl member add node2 http://10.104.0.2:2380
+$ sudo etcdctl member add node3 http://10.104.0.8:2380
+</code></pre></div>
+</li>
+<li>
+<p>Restart the <code>etcd</code> service on <code>node2</code> and <code>node3</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl restart etcd
+</code></pre></div>
+</li>
+<li>
+<p>Check the etcd cluster members.</p>
+<div class="highlight"><pre><span></span><code>$ sudo etcdctl member list
+</code></pre></div>
+<p>The output resembles the following:</p>
+<div class="highlight"><pre><span></span><code>21d50d7f768f153a: name=node1 peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
+af4661d829a39112: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
+e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://10.104.0.8:2379 isLeader=false
+</code></pre></div>
+</li>
+</ol>
+<h2 id="set-up-the-watchdog-service">Set up the watchdog service<a class="headerlink" href="#set-up-the-watchdog-service" title="Permanent link">&para;</a></h2>
+<p>The Linux kernel uses the utility called a <em>watchdog</em> to protect against an unresponsive system. The watchdog monitors a system for unrecoverable application errors, depleted system resources, etc., and initiates a reboot to safely return the system to a working state. The watchdog functionality is  useful for servers that are intended to run without human intervention for a long time. Instead of users finding a hung server, the watchdog functionality can help maintain the service.</p>
+<p>In this example, we will configure <em>Softdog</em> - a standard software implementation for watchdog that is shipped with Ubuntu 20.04. </p>
+<p>Complete the following steps on all three PostgreSQL nodes to load and configure Softdog.  </p>
+<ol>
+<li>
+<p>Load Softdog:</p>
+<div class="highlight"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;softdog&quot; &gt;&gt; /etc/modules&#39;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Patroni will be interacting with the watchdog service. Since Patroni is run by the <code>postgres</code> user, this user must have access to Softdog. To make this happen, change the ownership  of the <code>watchdog.rules</code> file to the <code>postgres</code> user: </p>
+<div class="highlight"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;KERNEL==\&quot;watchdog\&quot;, OWNER=\&quot;postgres\&quot;, GROUP=\&quot;postgres\&quot;&quot; &gt;&gt; /etc/udev/rules.d/61-watchdog.rules&#39;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Remove Softdog from the blacklist. </p>
+<ul>
+<li>Find out the files where Softdog is blacklisted:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* <span class="p">|</span>grep softdog
+</code></pre></div>
+<p>In our case, <code>modprobe</code>is blacklisting the Softdog:</p>
+<div class="highlight"><pre><span></span><code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf:blacklist softdog
+</code></pre></div>
+<ul>
+<li>Remove the <code>blacklist softdog</code> line from the <code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf</code> file. </li>
+<li>Restart the service </li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo modprobe softdog
+</code></pre></div>
+<ul>
+<li>Verify the <code>modprobe</code> is working correctly by running the <code>lsmod</code>command:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ sudo lsmod <span class="p">|</span> grep softdog
+</code></pre></div>
+<p>The output will show a process identifier if it’s running.</p>
+<div class="highlight"><pre><span></span><code>softdog                16384  0
+</code></pre></div>
+</li>
+<li>
+<p>Check that the Softdog files under the <code>/dev/</code>folder are owned by the <code>postgres</code>user: </p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ ls -l /dev/watchdog*
+
+crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
+crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If the ownership has not been changed for any reason, run the following command to manually change it:</p>
+<div class="highlight"><pre><span></span><code>$ sudo chown postgres:postgres /dev/watchdog*
+</code></pre></div>
+</div>
+<h2 id="configure-patroni">Configure Patroni<a class="headerlink" href="#configure-patroni" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Install Patroni on every PostgreSQL node:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-patroni
+</code></pre></div>
+</li>
+<li>
+<p>Create the <code>patroni.yml</code> configuration file under the <code>/etc/patroni</code> directory.  The file holds the default configuration values for a PostgreSQL cluster and will reflect the current cluster setup.</p>
+</li>
+<li>
+<p>Add the following configuration for <code>node1</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stampede1</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span><span class="w"></span>
+
+<span class="nt">restapi</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:8008</span><span class="w"></span>
+<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:8008</span><span class="w"></span>
+
+<span class="nt">etcd</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:2379</span><span class="w"></span>
+
+<span class="nt">bootstrap</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dcs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
+<span class="w">    </span><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="w">    </span><span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="w">    </span><span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span><span class="w"></span>
+<span class="c1">#    primary_start_timeout: 300</span><span class="w"></span>
+<span class="c1">#    synchronous_mode: false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">      </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">      </span><span class="nt">parameters</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span><span class="w"></span>
+<span class="w">        </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<span class="w">        </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<span class="w">        </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">#archive_mode: &quot;on&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">#archive_timeout: 600</span><span class="w"></span>
+<span class="w">        </span><span class="c1">#archive_command: &quot;cp -f %p /home/postgres/archived/%f&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="c1">#recovery_conf:</span><span class="w"></span>
+<span class="w">        </span><span class="c1">#restore_command: cp /home/postgres/archived/%f %p</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1"># some desired options for &#39;initdb&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">initdb</span><span class="p">:</span><span class="w">  </span><span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-checksums</span><span class="w"></span>
+
+<span class="w">  </span><span class="nt">pg_hba</span><span class="p">:</span><span class="w">  </span><span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.7/32 md5</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 trust</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.2/32 md5</span><span class="w">  </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.8/32 md5</span><span class="w"> </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.6/32 trust</span><span class="w"></span>
+<span class="c1">#  - hostssl all all 0.0.0.0/0 md5</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1"># Additional script to be launched after initial cluster creation (will be passed the connection URL as parameter)</span><span class="w"></span>
+<span class="c1"># post_init: /usr/local/bin/setup_cluster.sh</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># Some additional users users which needs to be created after initializing new cluster</span><span class="w"></span>
+<span class="w">  </span><span class="nt">users</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">admin</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span><span class="w"></span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createrole</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createdb</span><span class="w"></span>
+<span class="w">    </span><span class="nt">replicator</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w">    </span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replication</span><span class="w"> </span>
+<span class="nt">postgresql</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:5432</span><span class="w"></span>
+<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:5432</span><span class="w"></span>
+<span class="w">  </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/13/main&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lib/postgresql/13/bin&quot;</span><span class="w"></span>
+<span class="c1">#  config_dir:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pgpass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass0</span><span class="w"></span>
+<span class="w">  </span><span class="nt">authentication</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">replication</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replicator</span><span class="w"></span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+<span class="w">    </span><span class="nt">superuser</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">unix_socket_directories</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/run/postgresql&#39;</span><span class="w"></span>
+
+<span class="nt">watchdog</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">required</span><span class="w"> </span><span class="c1"># Allowed values: off, automatic, required</span><span class="w"></span>
+<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/watchdog</span><span class="w"></span>
+<span class="w">  </span><span class="nt">safety_margin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+
+<span class="nt">tags</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">nofailover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">noloadbalance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</code></pre></div>
+<details class="admonition">
+<summary>Patroni configuration file</summary>
+<p>Let’s take a moment to understand the contents of the <code>patroni.yml</code> file. </p>
+<p>The first section provides the details of the first node (<code>node1</code>) and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
+<p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The <code>pg_hba.conf</code> entries specify all the other nodes that can connect to this node and their authentication mechanism. </p>
+</details>
+</li>
+<li>
+<p>Create the configuration files for <code>node2</code> and <code>node3</code>. Replace the reference to <code>node1</code> with <code>node2</code> and <code>node3</code>, respectively.</p>
+</li>
+<li>
+<p>Enable and restart the patroni service on every node. Use the following commands:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl <span class="nb">enable</span> patroni
+$ sudo systemctl restart patroni
+</code></pre></div>
+</li>
+</ol>
+<p>When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. </p>
+<details class="admonition">
+<summary>Troubleshooting Patroni</summary>
+<p>To ensure that Patroni has started properly, check the logs using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo journalctl -u patroni.service -n <span class="m">100</span> -f
+</code></pre></div>
+<p>The output shouldn&rsquo;t show any errors:</p>
+<div class="highlight"><pre><span></span><code>…
+
+Sep 23 12:50:21 node01 systemd[1]: Started PostgreSQL high-availability manager.
+Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,022 INFO: Selected new etcd server http://10.104.0.2:2379
+Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,029 INFO: No PostgreSQL configuration items changed, nothing to reload.
+Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,168 INFO: Lock owner: None; I am node1
+Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,177 INFO: trying to bootstrap a new cluster
+Sep 23 12:50:22 node01 patroni[10140]: The files belonging to this database system will be owned by user &quot;postgres&quot;.
+Sep 23 12:50:22 node01 patroni[10140]: This user must also own the server process.
+Sep 23 12:50:22 node01 patroni[10140]: The database cluster will be initialized with locale &quot;C.UTF-8&quot;.
+Sep 23 12:50:22 node01 patroni[10140]: The default text search configuration will be set to &quot;english&quot;.
+Sep 23 12:50:22 node01 patroni[10140]: Data page checksums are enabled.
+Sep 23 12:50:22 node01 patroni[10140]: creating directory /var/lib/postgresql/13/main ... ok
+Sep 23 12:50:22 node01 patroni[10140]: creating subdirectories ... ok
+Sep 23 12:50:22 node01 patroni[10140]: selecting dynamic shared memory implementation ... posix
+Sep 23 12:50:22 node01 patroni[10140]: selecting default max_connections ... 100
+Sep 23 12:50:22 node01 patroni[10140]: selecting default shared_buffers ... 128MB
+Sep 23 12:50:22 node01 patroni[10140]: selecting default time zone ... Etc/UTC
+Sep 23 12:50:22 node01 patroni[10140]: creating configuration files ... ok
+Sep 23 12:50:22 node01 patroni[10140]: running bootstrap script ... ok
+Sep 23 12:50:23 node01 patroni[10140]: performing post-bootstrap initialization ... ok
+Sep 23 12:50:23 node01 patroni[10140]: syncing data to disk ... ok
+Sep 23 12:50:23 node01 patroni[10140]: initdb: warning: enabling &quot;trust&quot; authentication for local connections
+Sep 23 12:50:23 node01 patroni[10140]: You can change this by editing pg_hba.conf or using the option -A, or
+Sep 23 12:50:23 node01 patroni[10140]: --auth-local and --auth-host, the next time you run initdb.
+Sep 23 12:50:23 node01 patroni[10140]: Success. You can now start the database server using:
+Sep 23 12:50:23 node01 patroni[10140]:     /usr/lib/postgresql/13/bin/pg_ctl -D /var/lib/postgresql/13/main -l logfile start
+Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] LOG:  redirecting log output to logging collector process
+Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] HINT:  Future log output will appear in directory &quot;log&quot;.
+Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,694 INFO: postprimary pid=10156
+Sep 23 12:50:23 node01 patroni[10165]: localhost:5432 - accepting connections
+Sep 23 12:50:23 node01 patroni[10167]: localhost:5432 - accepting connections
+Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,743 INFO: establishing a new patroni connection to the postgres cluster
+Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,757 INFO: running post_bootstrap
+Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,767 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
+Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,793 INFO: initialized a new cluster
+Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,810 INFO: no action. I am (node1) the leader with the lock
+Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,899 INFO: no action. I am (node1) the leader with the lock
+Sep 23 12:50:43 node01 patroni[10119]: 2021-09-23 12:50:43,898 INFO: no action. I am (node1) the leader with the lock
+Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. I am (node1) the leader with the 
+</code></pre></div>
+<p>A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.</p>
+<p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
+</details>
+<p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo psql -U postgres
+
+psql <span class="o">(</span><span class="m">13</span>.3 <span class="o">(</span>Ubuntu <span class="m">2</span>:13-3.2.focal<span class="o">))</span>
+Type <span class="s2">&quot;help&quot;</span> <span class="k">for</span> help.
+
+<span class="nv">postgres</span><span class="o">=</span><span class="c1">#</span>
+</code></pre></div>
+<h2 id="configure-haproxy">Configure HAProxy<a class="headerlink" href="#configure-haproxy" title="Permanent link">&para;</a></h2>
+<p>HAProxy node will accept client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. </p>
+<p>HAProxy is capable of routing write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001.</p>
+<ol>
+<li>
+<p>Install HAProxy on the <code>HAProxy-demo</code> node:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install haproxy
+</code></pre></div>
+</li>
+<li>
+<p>The HAProxy configuration file path is: <code>/etc/haproxy/haproxy.cfg</code>. Specify the following configuration in this file.</p>
+<div class="highlight"><pre><span></span><code>global
+    maxconn 100
+
+defaults
+    log global
+    mode tcp
+    retries 2
+    timeout client 30m
+    timeout connect 4s
+    timeout server 30m
+    timeout check 5s
+
+listen stats
+    mode http
+    bind *:7000
+    stats enable
+    stats uri /
+
+listen primary
+    bind *:5000
+    option httpchk /primary 
+    http-check expect status 200
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    server node1 node1:5432 maxconn 100 check port 8008
+    server node2 node2:5432 maxconn 100 check port 8008
+    server node3 node3:5432 maxconn 100 check port 8008
+
+listen standbys
+    balance roundrobin
+    bind *:5001
+    option httpchk /replica 
+    http-check expect status 200
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    server node1 node1:5432 maxconn 100 check port 8008
+    server node2 node2:5432 maxconn 100 check port 8008
+    server node3 node3:5432 maxconn 100 check port 8008
+</code></pre></div>
+<p>HAProxy will use the REST APIs hosted by Patroni to check the health status of each PostgreSQL node and route the requests appropriately. </p>
+</li>
+<li>
+<p>Restart HAProxy:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl restart haproxy
+</code></pre></div>
+</li>
+<li>
+<p>Check the HAProxy logs to see if there are any errors:</p>
+<div class="highlight"><pre><span></span><code>$ sudo journalctl -u haproxy.service -n <span class="m">100</span> -f
+</code></pre></div>
+</li>
+</ol>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>See the <a href="ha-test.html">Testing PostgreSQL cluster</a> for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.</p>
+
+                
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+    <h4>Contact Us </h4>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/postgresql/25?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/DISTPG/issues/" target="_blank">JIRA</a> ticket.<br>
+         <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+ </article>
+</div>
+</div>
+
+                <!-- Last update of source file -->
+                
+                  
+                    <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      2021-12-01
+    
+  </small>
+</div>
+                  
+                
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="high-availability.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: High availability" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              High availability
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="ha-setup-yum.html" class="md-footer__link md-footer__link--next" aria-label="Next: Deploying on RHEL or CentOS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Deploying on RHEL or CentOS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Percona LLC, &#169; 2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="../js/version-select.js"></script>
+      
+    
+  </body>
+</html>
