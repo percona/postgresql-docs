@@ -126,6 +126,15 @@ $ sudo apt install percona-postgresql-contrib
 
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
 
+####Starting the service
+
+The installation process automatically initializes and starts the default database. You can check the database status using the following command:
+
+```
+$ sudo systemctl status postgresql
+```
+
+
 Next steps: [connect to PostgreSQL](installing.md#connect-to-the-postgresql-server).
 
 ### On Red Hat Enterprise Linux and CentOS using `yum`
@@ -212,20 +221,30 @@ $ sudo yum install percona-postgresql12-contrib
 
 Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](#enabling-extensions).
 
+#### Starting the service
+
+After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
+```
+/usr/pgsql-12/bin/postgresql-12-setup initdb
+```
+Start the PostgreSQL service:
+```
+$ sudo systemctl start postgresql-12
+```
+
 ### Enabling extensions
 
 Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.
 
 **Patroni**
 
-While setting up a high availability PostgreSQL cluster with Patroni, you will need the following:
+Patroni is the third-party high availability solution for PostgreSQL. The [High Availability in PostgreSQL with Patroni](solutions/high-availability.md) chapter provides details about the solution overview and architecture deployment. 
 
-- Configure Patroni on every ``postresql`` instance. The configuration file is supplied with `percona-patroni` package and is available at the following path:
+While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:
 
-    - `/etc/postgresql.yml` for Debian and Ubuntu
-    - `/usr/share/doc/percona-patroni/postgres0.yml` for Red Hat Enterprise Linux and CentOS
+- Patroni on every ``postresql`` node. 
 
-- Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
 
      For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
@@ -236,11 +255,13 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
      For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
      ```
-     $ yum install etcd python3-python-etcd
-     
+     $ yum install etcd python3-python-etcd   
      ```
   
-- Install and configure [HAProxy](http://www.haproxy.org/).
+- [HAProxy](http://www.haproxy.org/).
+
+See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](ha-setup-yum.md). 
+
 
 !!! seealso
 
