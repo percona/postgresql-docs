@@ -11,8 +11,8 @@ This document covers the following scenarios to test the PostgreSQL cluster:
 
 1. Connect to the cluster and establish the `psql` session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node's public IP address:
 
-    ```
-    psql -U postgres -h 134.209.111.138 -p 5000
+    ```sh
+    $ psql -U postgres -h 134.209.111.138 -p 5000
     ```
 
 2. Run the following commands to create a table and insert a few rows:
@@ -71,7 +71,7 @@ In a proper setup, client applications won't have issues connecting to the clust
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
-    ??? admonition "Output"
+    !!! admonition "Output"
         
         ```
         Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
@@ -92,8 +92,8 @@ In a proper setup, client applications won't have issues connecting to the clust
   
 4. Verify that you can still access the cluster through the HAProxy instance and read data:
 
-    ```
-    psql -U postgres -h 10.104.0.6 -p 5000 -c "SELECT * FROM CUSTOMER;"
+    ```sh
+    $ psql -U postgres -h 10.104.0.6 -p 5000 -c "SELECT * FROM CUSTOMER;"
 
       name  | age
     --------+-----
@@ -147,7 +147,7 @@ To emulate the power outage, let's kill the service in `node3` and see what happ
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
-    ??? admonition "Output"
+    !!! admonition "Output"
 
         ```
         Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)

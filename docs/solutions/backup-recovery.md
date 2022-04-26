@@ -1,5 +1,12 @@
 # Backup and disaster recovery in Percona Distribution for PostgreSQL
 
+!!! summary
+
+    - Overview
+    - Architecture
+    - [Deployment](dr-pgbackrest-setup.md) 
+    - [Testing](dr-pgbackrest-setup.md#testing-backup-and-restore-with-pgbackrest)
+    
 ## Overview
 
 A Disaster Recovery (DR) solution ensures that a system can be quickly restored to a normal operational state if something unexpected happens. When operating a database, you would back up the data as frequently as possible and have a mechanism to restore that data when needed. Disaster Recovery is often mistaken for high availability (HA), but they are two different concepts altogether:

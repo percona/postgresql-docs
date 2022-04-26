@@ -7,17 +7,6 @@ theme:
   name: material
   custom_dir: _resource/overrides
 
-# Theme features
-
-  features:
-    - search.highlight
-    - navigation.top
-    - navigation.tracking  
-  
-plugins:
-  - section-index # Adds links to nodes - comment out when creating PDF
-  - search
-  - git-revision-date
 
 #Google Analytics configuration 
 extra:
