@@ -134,10 +134,10 @@ Some extensions require additional setup in order to use them with Percona Distr
 ####Starting the service
 
 
-The installation process automatically initializes the default database. Thus, to start Percona Distribution for PostgreSQL, use the following command:
+The installation process automatically initializes and starts the default database. You can check the database status using the following command:
 
 ```
-$ sudo pg_ctlcluster 13 main start
+$ sudo systemctl status postgresql
 ```
 
 Next steps: [connect to PostgreSQL](#connect-to-the-postgresql-server).
@@ -252,14 +252,13 @@ Some extensions require additional configuration before using them with Percona 
 
 **Patroni**
 
-While setting up a high availability PostgreSQL cluster with Patroni, you will need the following:
+Patroni is the third-party high availability solution for PostgreSQL. The [High Availability in PostgreSQL with Patroni](solutions/high-availability.md) chapter provides details about the solution overview and architecture deployment.
 
-- Configure Patroni on every ``postresql`` instance. The configuration file is supplied with `percona-patroni` package and is available at the following path:
+While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:
 
-    - `/etc/postgresql.yml` for Debian and Ubuntu
-    - `/usr/share/doc/percona-patroni/postgres0.yml` for Red Hat Enterprise Linux and CentOS
+- Patroni on every ``postresql`` node. 
 
-- Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
 
      For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
@@ -274,7 +273,9 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
      
      ```
   
-- Install and configure [HAProxy](http://www.haproxy.org/).
+- [HAProxy](http://www.haproxy.org/).
+
+See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](ha-setup-yum.md). 
 
 !!! seealso
 
