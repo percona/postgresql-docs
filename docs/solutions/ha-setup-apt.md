@@ -311,7 +311,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
         nosync: false
     ```
 
-    ??? admonition "Patroni configuration file"
+    !!! admonition "Patroni configuration file"
 
         Let’s take a moment to understand the contents of the `patroni.yml` file. 
 
@@ -330,7 +330,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
    
 When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
-??? admonition "Troubleshooting Patroni"
+!!! admonition "Troubleshooting Patroni"
 
     To ensure that Patroni has started properly, check the logs using the following command:
 
@@ -391,7 +391,11 @@ If Patroni has started properly, you should be able to locally connect to a Post
 
 ```sh
 $ sudo psql -U postgres
+```
 
+The command output looks like the following:
+
+```
 psql (14.1)
 Type "help" for help.
 
