@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://postgresql-docs.netlify.app/12/solutions/ha-setup-apt.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/solutions/ha-setup-apt.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
@@ -1328,8 +1328,8 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 </ol>
 <div class="highlight"><pre><span></span><code>$ ls -l /dev/watchdog*
 
-crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
-crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
+crw-rw---- <span class="m">1</span> postgres postgres  <span class="m">10</span>, <span class="m">130</span> Sep <span class="m">11</span> <span class="m">12</span>:53 /dev/watchdog
+crw------- <span class="m">1</span> root     root     <span class="m">245</span>,   <span class="m">0</span> Sep <span class="m">11</span> <span class="m">12</span>:53 /dev/watchdog0
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1438,12 +1438,12 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 <span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 <span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </code></pre></div>
-<details class="admonition">
-<summary>Patroni configuration file</summary>
+<div class="admonition admonition">
+<p class="admonition-title">Patroni configuration file</p>
 <p>Let’s take a moment to understand the contents of the <code>patroni.yml</code> file. </p>
 <p>The first section provides the details of the first node (<code>node1</code>) and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
 <p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The <code>pg_hba.conf</code> entries specify all the other nodes that can connect to this node and their authentication mechanism. </p>
-</details>
+</div>
 </li>
 <li>
 <p>Create the configuration files for <code>node2</code> and <code>node3</code>. Replace the reference to <code>node1</code> with <code>node2</code> and <code>node3</code>, respectively.</p>
@@ -1456,8 +1456,8 @@ $ sudo systemctl restart patroni
 </li>
 </ol>
 <p>When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. </p>
-<details class="admonition">
-<summary>Troubleshooting Patroni</summary>
+<div class="admonition admonition">
+<p class="admonition-title">Troubleshooting Patroni</p>
 <p>To ensure that Patroni has started properly, check the logs using the following command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo journalctl -u patroni.service -n <span class="m">100</span> -f
 </code></pre></div>
@@ -1505,11 +1505,12 @@ Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. 
 </code></pre></div>
 <p>A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.</p>
 <p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
-</details>
+</div>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo psql -U postgres
-
-psql <span class="o">(</span><span class="m">12</span>.8<span class="o">)</span>
+</code></pre></div>
+<p>The command output should be similar to the following </p>
+<div class="highlight"><pre><span></span><code>psql <span class="o">(</span><span class="m">12</span>.8<span class="o">)</span>
 Type <span class="s2">&quot;help&quot;</span> <span class="k">for</span> help.
 
 <span class="nv">postgres</span><span class="o">=</span><span class="c1">#</span>
@@ -1598,7 +1599,7 @@ listen standbys
   <small>
     
       Last update:
-      2021-12-15
+      2022-04-26
     
   </small>
 </div>

@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://postgresql-docs.netlify.app/12/solutions/backup-recovery.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/solutions/backup-recovery.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
@@ -1030,6 +1030,15 @@
 
                 <!-- Markdown content -->
                 <h1 id="backup-and-disaster-recovery-in-percona-distribution-for-postgresql">Backup and disaster recovery in Percona Distribution for PostgreSQL<a class="headerlink" href="#backup-and-disaster-recovery-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<div class="admonition summary">
+<p class="admonition-title">Summary</p>
+<ul>
+<li>Overview</li>
+<li>Architecture</li>
+<li><a href="dr-pgbackrest-setup.html">Deployment</a> </li>
+<li><a href="dr-pgbackrest-setup.html#testing-backup-and-restore-with-pgbackrest">Testing</a></li>
+</ul>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>A Disaster Recovery (DR) solution ensures that a system can be quickly restored to a normal operational state if something unexpected happens. When operating a database, you would back up the data as frequently as possible and have a mechanism to restore that data when needed. Disaster Recovery is often mistaken for high availability (HA), but they are two different concepts altogether:</p>
 <ul>
@@ -1154,7 +1163,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
   <small>
     
       Last update:
-      2022-01-21
+      2022-04-26
     
   </small>
 </div>

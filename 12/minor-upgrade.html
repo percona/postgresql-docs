@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://postgresql-docs.netlify.app/12/minor-upgrade.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/minor-upgrade.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
@@ -998,32 +998,36 @@
 <ol>
 <li>
 <p>Stop the <code>postgresql</code> service.</p>
-<ul>
-<li>On Debian / Ubuntu:</li>
-</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian / Ubuntu</label><label for="__tabbed_1_2">On Red Hat Enterprise Linux / derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
 </code></pre></div>
-<ul>
-<li>On Red Hat Enterprise Linux / CentOS:</li>
-</ul>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-12
 </code></pre></div>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>Install new version packages. See <a href="installing.html">Installing Percona Distribution for PostgreSQL</a>.</p>
 </li>
 <li>
 <p>Restart the <code>postgresql</code> service.</p>
-<ul>
-<li>On Debian / Ubuntu:</li>
-</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux / derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
 </code></pre></div>
-<ul>
-<li>On Red Hat Enterprise Linux / CentOS:</li>
-</ul>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-12
 </code></pre></div>
+</div>
+</div>
+</div>
 </li>
 </ol>
 <p>If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to <a href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 11 to 12</a>.</p>
@@ -1048,7 +1052,7 @@
   <small>
     
       Last update:
-      2021-06-04
+      2022-04-26
     
   </small>
 </div>

@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://postgresql-docs.netlify.app/12/solutions/high-availability.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/solutions/high-availability.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
@@ -1041,8 +1041,8 @@
 </div>
 <p>PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes, or unexpected reboots.  Such cluster is often a critical component of the enterprise application landscape, where <a href="https://en.wikipedia.org/wiki/High_availability#Percentage_calculation">four nines of availability</a> is a minimum requirement. </p>
 <p>This document provides instructions on how to set up and test a highly-available, single-primary, three-node cluster with Percona PostgreSQL and <a href="#patroni">Patroni</a>. </p>
-<details class="admonition">
-<summary>High availability overview</summary>
+<div class="admonition admonition">
+<p class="admonition-title">High availability overview</p>
 <p>There are a few methods for achieving high availability with PostgreSQL:</p>
 <ul>
 <li>shared disk failover, </li>
@@ -1065,7 +1065,7 @@
 </ul>
 <p>To address these shortcomings, there are a multitude of third-party, open-source extensions for PostgreSQL. The challenge for a database administrator here is to select the right utility for the current scenario. </p>
 <p>Percona Distribution for PostgreSQL solves this challenge by providing the <a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> extension for achieving PostgreSQL high availability.</p>
-</details>
+</div>
 <h2 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
 <p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> provides a template-based approach to create highly available PostgreSQL clusters. Running atop the PostgreSQL streaming replication process, it integrates with watchdog functionality to detect failed primary nodes and take corrective actions to prevent outages. Patroni also provides a pluggable configuration store to manage distributed, multi-node cluster configuration and comes with REST APIs to monitor and manage the cluster. There is also a command-line utility called <em>patronictl</em> that helps manage switchovers and failure scenarios.</p>
 <h2 id="architecture-layout">Architecture layout<a class="headerlink" href="#architecture-layout" title="Permanent link">&para;</a></h2>
@@ -1108,7 +1108,7 @@
   <small>
     
       Last update:
-      2021-12-15
+      2022-04-26
     
   </small>
 </div>
