@@ -372,6 +372,19 @@
     On Debian and Ubuntu using apt
   </a>
   
+    <nav class="md-nav" aria-label="On Debian and Ubuntu using apt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-service" class="md-nav__link">
+    Starting the service
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -385,6 +398,13 @@
           <li class="md-nav__item">
   <a href="#platform-specific-notes" class="md-nav__link">
     Platform Specific Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-service_1" class="md-nav__link">
+    Starting the service
   </a>
   
 </li>
@@ -1081,6 +1101,19 @@
     On Debian and Ubuntu using apt
   </a>
   
+    <nav class="md-nav" aria-label="On Debian and Ubuntu using apt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-service" class="md-nav__link">
+    Starting the service
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1094,6 +1127,13 @@
           <li class="md-nav__item">
   <a href="#platform-specific-notes" class="md-nav__link">
     Platform Specific Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-service_1" class="md-nav__link">
+    Starting the service
   </a>
   
 </li>
@@ -1228,6 +1268,10 @@ depending on the package manager of your operating system).</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-contrib
 </code></pre></div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
+<h4 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h4>
+<p>The installation process automatically initializes and starts the default database. You can check the database status using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl status postgresql
+</code></pre></div>
 <p>Next steps: <a href="installing.html#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
 <h3 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h3>
 <h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
@@ -1273,31 +1317,36 @@ $ sudo yum repolist
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql12-contrib
 </code></pre></div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
+<h4 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h4>
+<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
+<div class="highlight"><pre><span></span><code>/usr/pgsql-12/bin/postgresql-12-setup initdb
+</code></pre></div>
+Start the PostgreSQL service:
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-12
+</code></pre></div></p>
 <h3 id="enabling-extensions">Enabling extensions<a class="headerlink" href="#enabling-extensions" title="Permanent link">&para;</a></h3>
 <p>Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
 <p><strong>Patroni</strong></p>
-<p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following:</p>
+<p>Patroni is the third-party high availability solution for PostgreSQL. The <a href="solutions/high-availability.html">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
+<p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:</p>
 <ul>
 <li>
-<p>Configure Patroni on every <code>postresql</code> instance. The configuration file is supplied with <code>percona-patroni</code> package and is available at the following path:</p>
-<ul>
-<li><code>/etc/postgresql.yml</code> for Debian and Ubuntu</li>
-<li><code>/usr/share/doc/percona-patroni/postgres0.yml</code> for Red Hat Enterprise Linux and CentOS</li>
-</ul>
+<p>Patroni on every <code>postresql</code> node. </p>
 </li>
 <li>
-<p>Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  </p>
+<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  </p>
 <p>For Debian 9 (&ldquo;stretch&rdquo;), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
 <div class="highlight"><pre><span></span><code>$ apt install etcd
 </code></pre></div>
 <p>For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
-<div class="highlight"><pre><span></span><code>$ yum install etcd python3-python-etcd
+<div class="highlight"><pre><span></span><code>$ yum install etcd python3-python-etcd   
 </code></pre></div>
 </li>
 <li>
-<p>Install and configure <a href="http://www.haproxy.org/">HAProxy</a>.</p>
+<p><a href="http://www.haproxy.org/">HAProxy</a>.</p>
 </li>
 </ul>
+<p>See the configuration guidelines for <a href="solutions/ha-setup-apt.html">Debian and Ubuntu</a> and <a href="ha-setup-yum.md">RHEL and CentOS</a>. </p>
 <div class="admonition seealso">
 <p class="admonition-title">Seealso</p>
 <ul>
@@ -1372,7 +1421,7 @@ log_error_verbosity = default
   <small>
     
       Last update:
-      2021-11-17
+      2022-04-26
     
   </small>
 </div>
