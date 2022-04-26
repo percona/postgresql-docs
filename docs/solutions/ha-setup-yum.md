@@ -55,7 +55,7 @@ In this setup we will configure ETCD on a dedicated  node.
    - Enable the repository:
 
       ```sh
-      sudo percona-release setup ppg11
+      $ sudo percona-release setup ppg11
       ```
    
    - Install the etcd packages using the following command:
@@ -109,7 +109,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 2. Enable the repository:
 
     ```sh
-    sudo percona-release setup ppg11
+    $ sudo percona-release setup ppg11
     ```
 
 3. [Install Percona Distribution for PostgreSQL packages](../installing.md#on-red-hat-enterprise-linux-and-centos-using-yum).
@@ -129,7 +129,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 2. Install the Python module that enables Patroni to communicate with ETCD.
 
     ```sh
-    sudo python3 -m pip install patroni[etcd]
+    $ sudo python3 -m pip install patroni[etcd]
     ```
 
 3. Create the directories required by Patroni
@@ -137,23 +137,23 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
     * Create the directory to store the configuration file and make it owned by the `postgres` user.
 
       ```sh
-      sudo mkdir -p /etc/patroni/
-      sudo chown -R  postgres:postgres /etc/patroni/
+      $ sudo mkdir -p /etc/patroni/
+      $ sudo chown -R  postgres:postgres /etc/patroni/
       ``` 
 
     * Create the data directory for Patroni. Change its ownership to the `postgres` user and restrict the access to it 
 
      ```sh
-     sudo mkdir /data/patroni -p
-     sudo chown -R postgres:postgres /data/patroni
-     sudo chmod 700 /data/patroni
+     $ sudo mkdir /data/patroni -p
+     $ sudo chown -R postgres:postgres /data/patroni
+     $ sudo chmod 700 /data/patroni
      ```
 
 4. Create the `patroni.yml` configuration file. 
 
     ```sh
-    su postgres
-    vim /etc/patroni/patroni.yml
+    $ su postgres
+    $ vim /etc/patroni/patroni.yml
     ```
 
 5. Specify the following configuration:
@@ -237,7 +237,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 7. Create the systemd unit file `patroni.service` in `/etc/systemd/system`. 
 
     ```sh
-    sudo vim /etc/systemd/system/patroni.service
+    $ sudo vim /etc/systemd/system/patroni.service
     ```
 
     Add the following contents in the file:
@@ -280,7 +280,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
     $ sudo systemctl start patroni
     ```
 
-    ??? admonition "Troubleshooting Patroni"
+    !!! admonition "Troubleshooting Patroni"
 
             To ensure that Patroni has started properly, check the logs using the following command:
 
@@ -423,7 +423,7 @@ HAProxy is capable of routing write requests to the primary node and read reques
 3. Enable a SELinux boolean to allow HAProxy to bind to non standard ports:
 
     ```sh
-    sudo setsebool -P haproxy_connect_any on
+    $ sudo setsebool -P haproxy_connect_any on
     ```
 
 4. Restart HAProxy:
