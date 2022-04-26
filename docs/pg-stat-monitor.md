@@ -199,7 +199,7 @@ Restart the server to apply the change:
 === "On Debian and Ubuntu"
    
      ```sh
-     $ sudo systemctl restart restart postgresql.service
+     $ sudo systemctl restart postgresql.service
      ```
 
 

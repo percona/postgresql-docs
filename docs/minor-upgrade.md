@@ -68,5 +68,6 @@ Before the upgrade, update the **percona-release** utility to the latest version
 
          ```
          $ sudo systemctl start postgresql-11
+         ```
 
 If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 11 to 12](https://www.percona.com/doc/postgresql/12/major-upgrade.html).

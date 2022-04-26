@@ -280,7 +280,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
     $ sudo systemctl start patroni
     ```
 
-    ??? admonition "Troubleshooting Patroni"
+    !!! admonition "Troubleshooting Patroni"
 
             To ensure that Patroni has started properly, check the logs using the following command:
 
