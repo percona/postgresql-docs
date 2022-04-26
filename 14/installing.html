@@ -368,49 +368,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#on-debian-and-ubuntu-using-apt" class="md-nav__link">
-    On Debian and Ubuntu using apt
+  <a href="#install-the-percona-distribution-for-postgresql-components" class="md-nav__link">
+    Install the Percona Distribution for PostgreSQL components
   </a>
   
-    <nav class="md-nav" aria-label="On Debian and Ubuntu using apt">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#starting-the-service" class="md-nav__link">
     Starting the service
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#on-red-hat-enterprise-linux-and-centos-using-yum" class="md-nav__link">
-    On Red Hat Enterprise Linux and CentOS using yum
-  </a>
-  
-    <nav class="md-nav" aria-label="On Red Hat Enterprise Linux and CentOS using yum">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-service_1" class="md-nav__link">
-    Starting the service
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -901,49 +868,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#on-debian-and-ubuntu-using-apt" class="md-nav__link">
-    On Debian and Ubuntu using apt
+  <a href="#install-the-percona-distribution-for-postgresql-components" class="md-nav__link">
+    Install the Percona Distribution for PostgreSQL components
   </a>
   
-    <nav class="md-nav" aria-label="On Debian and Ubuntu using apt">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#starting-the-service" class="md-nav__link">
     Starting the service
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#on-red-hat-enterprise-linux-and-centos-using-yum" class="md-nav__link">
-    On Red Hat Enterprise Linux and CentOS using yum
-  </a>
-  
-    <nav class="md-nav" aria-label="On Red Hat Enterprise Linux and CentOS using yum">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-service_1" class="md-nav__link">
-    Starting the service
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1035,15 +969,34 @@
 <h2 id="install-percona-distribution-for-postgresql-packages">Install Percona Distribution for PostgreSQL packages<a class="headerlink" href="#install-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h2>
 <p>After you’ve installed <code>percona-release</code> and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).</p>
-<h3 id="on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a class="headerlink" href="#on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>On Debian and other systems that use the <code>apt</code> package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 14 can only be installed together with the server shipped by Percona (percona-postgresql-14). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-14) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
-</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu using <code>apt</code></label><label for="__tabbed_1_2">On Red Hat Enterprise Linux and derivatives using <code>yum</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>NOTE</strong>: Debian and other systems that use the <code>apt</code> package manager include the upstream PostgreSQL server package (postgresql-14) by default. The components of Percona Distribution for PostgreSQL 14 can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-14). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-14) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
 <p>Install the <strong>percona-postgresql-14</strong> package using <strong>apt install</strong>.</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-14
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><strong>Platform Specific Notes</strong></p>
+<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
+<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql llvm-toolset
+</code></pre></div>
+<p>On CentOS 7, you should install the <code>epel-release</code> package:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum -y install epel-release
+$ sudo yum repolist
+</code></pre></div>
+<p>Install the <strong>percona-postgresql-14</strong> package using <strong>yum install</strong>.</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql14-server
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="install-the-percona-distribution-for-postgresql-components">Install the Percona Distribution for PostgreSQL components<a class="headerlink" href="#install-the-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h3>
 <p>Note that this package will not install the components. Use the following commands to install components’ packages:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Install <code>pg_repack</code>:</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-14-repack
 </code></pre></div>
@@ -1072,27 +1025,8 @@ depending on the package manager of your operating system).</p>
 <p>Install PostgreSQL contrib extensions:</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-contrib
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
-<h4 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h4>
-<p>The installation process automatically initializes and starts the default database. You can check the database status using the following command:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl status postgresql
-</code></pre></div>
-<p>Next steps: <a href="#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
-<h3 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h3>
-<h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 / CentOS 8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
-<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql llvm-toolset
-</code></pre></div>
-<p>On CentOS 7, you should install the <code>epel-release</code> package:</p>
-<div class="highlight"><pre><span></span><code>$ sudo yum -y install epel-release
-$ sudo yum repolist
-</code></pre></div>
-</blockquote>
-<p>Install the <strong>percona-postgresql-14</strong> package using <strong>yum install</strong>.</p>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql14-server
-</code></pre></div>
-<p>Note that this package will not install the components. Use the following commands to install components’ packages:</p>
+</div>
+<div class="tabbed-block">
 <p>Install <code>pg_repack</code>:</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-pg_repack14
 </code></pre></div>
@@ -1121,14 +1055,29 @@ $ sudo yum repolist
 <p>Install PostgreSQL contrib extensions:</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql14-contrib
 </code></pre></div>
+</div>
+</div>
+</div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
-<h4 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h4>
+<h3 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On Red Hat Enterprise Linux and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The installation process automatically initializes and starts the default database. You can check the database status using the following command:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl status postgresql.service
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
 <div class="highlight"><pre><span></span><code>/usr/pgsql-14/bin/postgresql-14-setup initdb
 </code></pre></div>
 <p>Start the PostgreSQL service:</p>
 <div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-14
 </code></pre></div>
+</div>
+</div>
+</div>
+<p>Next steps: <a href="#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
 <h3 id="enabling-extensions">Enabling extensions<a class="headerlink" href="#enabling-extensions" title="Permanent link">&para;</a></h3>
 <p>Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
 <p><strong>Patroni</strong></p>
@@ -1141,10 +1090,10 @@ $ sudo yum repolist
 <li>
 <p>Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  </p>
 <p>For Debian 9 (&ldquo;stretch&rdquo;), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
-<div class="highlight"><pre><span></span><code>$ apt install etcd
+<div class="highlight"><pre><span></span><code>$ sudo apt install etcd
 </code></pre></div>
 <p>For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
-<div class="highlight"><pre><span></span><code>$ yum install etcd python3-python-etcd
+<div class="highlight"><pre><span></span><code>$ sudo yum install etcd python3-python-etcd
 </code></pre></div>
 </li>
 <li>
@@ -1181,7 +1130,7 @@ log_error_verbosity = default
 <p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation</a>.</p>
 <p><strong>pgAudit set-user</strong></p>
 <p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/14/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;set-user&#39;;
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set-user&#39;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
 <p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters</a> supplied with the extension.</p>
@@ -1305,7 +1254,7 @@ log_error_verbosity = default
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="assets/javascripts/bundle.748e2769.min.js"></script>

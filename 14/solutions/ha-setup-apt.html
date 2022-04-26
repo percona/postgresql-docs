@@ -1242,12 +1242,12 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 <span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 <span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </code></pre></div>
-<details class="admonition">
-<summary>Patroni configuration file</summary>
+<div class="admonition admonition">
+<p class="admonition-title">Patroni configuration file</p>
 <p>Let’s take a moment to understand the contents of the <code>patroni.yml</code> file. </p>
 <p>The first section provides the details of the first node (<code>node1</code>) and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
 <p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The <code>pg_hba.conf</code> entries specify all the other nodes that can connect to this node and their authentication mechanism. </p>
-</details>
+</div>
 </li>
 <li>
 <p>Create the configuration files for <code>node2</code> and <code>node3</code>. Replace the reference to <code>node1</code> with <code>node2</code> and <code>node3</code>, respectively.</p>
@@ -1260,8 +1260,8 @@ $ sudo systemctl restart patroni
 </li>
 </ol>
 <p>When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. </p>
-<details class="admonition">
-<summary>Troubleshooting Patroni</summary>
+<div class="admonition admonition">
+<p class="admonition-title">Troubleshooting Patroni</p>
 <p>To ensure that Patroni has started properly, check the logs using the following command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo journalctl -u patroni.service -n <span class="m">100</span> -f
 </code></pre></div>
@@ -1309,14 +1309,15 @@ Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. 
 </code></pre></div>
 <p>A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.</p>
 <p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
-</details>
+</div>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo psql -U postgres
+</code></pre></div>
+<p>The command output looks like the following:</p>
+<div class="highlight"><pre><span></span><code>psql (14.1)
+Type &quot;help&quot; for help.
 
-psql <span class="o">(</span><span class="m">14</span>.1<span class="o">)</span>
-Type <span class="s2">&quot;help&quot;</span> <span class="k">for</span> help.
-
-<span class="nv">postgres</span><span class="o">=</span><span class="c1">#</span>
+postgres=#
 </code></pre></div>
 <h2 id="configure-haproxy">Configure HAProxy<a class="headerlink" href="#configure-haproxy" title="Permanent link">&para;</a></h2>
 <p>HAProxy node will accept client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. </p>
@@ -1402,7 +1403,7 @@ listen standbys
   <small>
     
       Last update:
-      2021-12-15
+      2022-04-26
     
   </small>
 </div>
@@ -1481,7 +1482,7 @@ listen standbys
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
