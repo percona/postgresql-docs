@@ -64,18 +64,18 @@ We assume that you have [installed percona-release](https://www.percona.com/doc/
 
 To install `pg_stat_monitor`, run the following command:
 
-* On Debian and Ubuntu:
+=== "On Debian and Ubuntu"
 
-   ```sh
-   $ sudo apt-get install percona-pg-stat-monitor12
-   ```
+     ```sh
+     $ sudo apt-get install percona-pg-stat-monitor12
+     ```
 
-* On Red Hat Enterprise Linux and CentOS:
+=== "On Red Hat Enterprise Linux and derivatives"
 
-   ```sh
-   $ sudo yum install percona-pg-stat-monitor12
-   
-   ```
+     ```sh
+     $ sudo yum install percona-pg-stat-monitor12
+     
+     ```
 
 ## Setup
 
@@ -86,8 +86,8 @@ To install `pg_stat_monitor`, run the following command:
 
     The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to `psql`](installing.md#connect-to-the-postgresql-server) and use the following command:
 
-    ```
-    $ ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
+    ```sql
+    ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
     ```
 
     The parameter value is written to the `postgresql.auto.conf` file which is read in addition with `postgresql.conf` file.
@@ -105,23 +105,23 @@ To install `pg_stat_monitor`, run the following command:
 2. Start or restart the `postgresql` instance to enable `pg_stat_monitor`. Use the following command for restart:
 
 
-    * On Debian and Ubuntu:
+    === "On Debian and Ubuntu"
 
-       ```
-       $ sudo systemctl restart postgresql.service
-       ```
+         ```sh
+         $ sudo systemctl restart postgresql.service
+         ```
 
 
-    * On Red Hat Enterprise Linux and CentOS:
+    === "On Red Hat Enterprise Linux and derivatives"
 
-      ```
-      $ sudo systemctl restart postgresql-12
-      ```
+         ```
+         $ sudo systemctl restart postgresql-12
+         ```
 
 3. Create the extension. Connect to `psql` and use the following command:
 
-```
-$ CREATE EXTENSION pg_stat_monitor;
+```sql
+CREATE EXTENSION pg_stat_monitor;
 ```
 
 !!! note
@@ -140,8 +140,8 @@ $ CREATE EXTENSION pg_stat_monitor;
 
 For example, to view the IP address of the client application that made the query, run the following command:
 
-```
-$ SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
+```sql
+SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
   AS query, calls, client_ip
   FROM pg_stat_monitor, pg_database
   WHERE pg_database.oid = oid;
@@ -154,15 +154,14 @@ $ SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
 ```
 
 
-Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.md).
-
+Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.html#usage-examples).
 
 ## Changing the configuration
 
 Run the following query to list available configuration parameters.
 
-```
-$ SELECT name,description FROM pg_stat_monitor_settings;
+```sql
+SELECT name,description FROM pg_stat_monitor_settings;
 ```
 
 **Output**
@@ -190,25 +189,25 @@ You can change a parameter by setting a new value in the configuration file. Som
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
-```
-$ ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 100;
+```sql
+ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 100;
 ```
 
 Restart the server to apply the change:
 
 
-* On Debian and Ubuntu
+=== "On Debian and Ubuntu"
 
-```
-$ sudo systemctl restart restart postgresql.service
-```
+     ```sh
+     $ sudo systemctl restart restart postgresql.service
+     ```
 
 
-* On Red Hat Enterprise Linux and CentOS:
+=== "On Red Hat Enterprise Linux and derivatives"
 
-```
-$ sudo systemctl restart postgresql-12
-```
+     ```sh
+     $ sudo systemctl restart postgresql-12
+     ```
 
 Verify the updated parameter:
 
