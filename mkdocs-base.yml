@@ -77,7 +77,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-11.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 11.14 (December 20, 2021)
+          cover_subtitle: 11.15 (April 14, 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -115,6 +115,8 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v11.15.upd.md
+      - release-notes-v11.15.md
       - release-notes-v11.14.md
       - release-notes-v11.13.upd.md
       - release-notes-v11.13.md

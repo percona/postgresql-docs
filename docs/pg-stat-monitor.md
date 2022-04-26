@@ -33,7 +33,7 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 #### pg_stat_monitor view
 
-The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference](https://percona.github.io/pg_stat_monitor/main/REFERENCE.html).
+The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/REFERENCE.html).
 
 The following are the primary keys for pg_stat_monitor:
 
@@ -55,7 +55,7 @@ To learn more, see the [Changing the configuration](#changing-the-configuration)
 
 ## Installation
 
-This section describes how to install `pg_stat_monitor` from Percona repositories. To learn about other installation methods, see the [Installation](https://percona.github.io/pg_stat_monitor/main/setup.html#installation-guidelines) section in the `pg_stat_monitor` documentation.
+This section describes how to install `pg_stat_monitor` from Percona repositories. To learn about other installation methods, see the [Installation](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/setup.html#installation-guidelines) section in the `pg_stat_monitor` documentation.
 
 **Assumptions**:
 
@@ -153,7 +153,7 @@ SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
 ```
 
 
-Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/main/USER_GUIDE.html#usage-examples).
+Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.html#usage-examples).
 
 
 ## Changing the configuration
@@ -185,7 +185,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://percona.github.io/pg_stat_monitor/main/USER_GUIDE.html#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.html#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
@@ -224,7 +224,7 @@ SELECT name, value
 
 !!! seealso
 
-    [`pg_stat_monitor` Documentation](https://percona.github.io/pg_stat_monitor/main/index.html)
+    [`pg_stat_monitor` Documentation](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/index.html)
 
     Percona Blog:
 

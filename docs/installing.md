@@ -74,7 +74,7 @@ depending on the package manager of your operating system).
 
 === "On Red Hat Enterprise Linux and derivatives using `yum`" 
 
-    ####Platform Specific Notes
+    #### Platform specific notes
 
 
     If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
@@ -127,6 +127,7 @@ Use the following commands to install components’ packages:
     ```
     $ sudo apt install percona-patroni
     ```
+
 
     [Install `pg_stat_monitor`](pg-stat-monitor.md)
 
@@ -238,7 +239,7 @@ Some extensions require additional setup in order to use them with Percona Distr
     After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
     ```
-    /usr/pgsql-11/bin/postgresql-11-setup initdb
+    $ /usr/pgsql-11/bin/postgresql-11-setup initdb
     ```
 
     Start the PostgreSQL service:
@@ -253,14 +254,13 @@ Some extensions require additional configuration before using them with Percona 
 
 **Patroni**
 
-While setting up a high availability PostgreSQL cluster with Patroni, you will need the following:
+Patroni is the third-party high availability solution for PostgreSQL. The [High Availability in PostgreSQL with Patroni](solutions/high-availability.md) chapter provides details about the solution overview and architecture deployment. 
 
-- Configure Patroni on every ``postresql`` instance. The configuration file is supplied with `percona-patroni` package and is available at the following path:
+While setting up a high-availability PostgreSQL cluster with Patroni, you will need the following components:
 
-    - `/etc/postgresql.yml` for Debian and Ubuntu
-    - `/usr/share/doc/percona-patroni/postgres0.yml` for Red Hat Enterprise Linux and CentOS
+- Patroni, installed on every ``postresql`` node. 
 
-- Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes, though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
 
      For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
@@ -275,7 +275,9 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
      
      ```
   
-- Install and configure [HAProxy](http://www.haproxy.org/).
+- [HAProxy](http://www.haproxy.org/).
+
+See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](ha-setup-yum.md). 
 
 !!! seealso
 
