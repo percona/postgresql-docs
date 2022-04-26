@@ -22,7 +22,7 @@
     
     
       
-        <title>High availability - Percona Distribution for PostgreSQL</title>
+        <title>High Availability in PostgreSQL with Patroni - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              High availability
+              High Availability in PostgreSQL with Patroni
             
           </span>
         </div>
@@ -279,16 +279,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../installation-and-update.html">Installation and Upgrade</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Installation and Upgrade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Installation and Upgrade" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -296,6 +290,20 @@
           Installation and Upgrade
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-and-update.html" class="md-nav__link">
+        Installation and update
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -361,16 +369,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../extensions.html">Extensions</a>
-          
-            <label for="__nav_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_3">
+          Extensions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Extensions" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
@@ -378,6 +380,20 @@
           Extensions
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions.html" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -445,16 +461,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="high-availability.html">High availability</a>
-          
-            <label for="__nav_4_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4_1">
+          High availability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="High availability" data-md-level="2">
         <label class="md-nav__title" for="__nav_4_1">
@@ -462,6 +472,117 @@
           High availability
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          High Availability in PostgreSQL with Patroni
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="high-availability.html" class="md-nav__link md-nav__link--active">
+        High Availability in PostgreSQL with Patroni
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#streaming-replication" class="md-nav__link">
+    Streaming replication
+  </a>
+  
+    <nav class="md-nav" aria-label="Streaming replication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-native-streaming-replication-is-not-enough" class="md-nav__link">
+    Why native streaming replication is not enough
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patroni" class="md-nav__link">
+    Patroni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-layout" class="md-nav__link">
+    Architecture layout
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
           
             
               
@@ -526,16 +647,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="backup-recovery.html">Backup and disaster recovery</a>
-          
-            <label for="__nav_4_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_4_2">
+          Backup and disaster recovery
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Backup and disaster recovery" data-md-level="2">
         <label class="md-nav__title" for="__nav_4_2">
@@ -543,6 +658,20 @@
           Backup and disaster recovery
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backup-recovery.html" class="md-nav__link">
+        Backup and disaster recovery in Percona Distribution for PostgreSQL
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -578,10 +707,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Uninstall
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uninstall" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Uninstall
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../uninstalling.html" class="md-nav__link">
-        Uninstall
+        Uninstalling Percona Distribution for PostgreSQL
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -602,16 +764,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../release-notes.html">Release Notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6">
+          Release Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -619,6 +775,20 @@
           Release Notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes.html" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -885,10 +1055,43 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Licensing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Licensing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Licensing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../licensing.html" class="md-nav__link">
         Licensing
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1029,8 +1232,8 @@
 </div>
 <p>PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes, or unexpected reboots.  Such cluster is often a critical component of the enterprise application landscape, where <a href="https://en.wikipedia.org/wiki/High_availability#Percentage_calculation">four nines of availability</a> is a minimum requirement. </p>
 <p>This document provides instructions on how to set up and test a highly-available, single-primary, three-node cluster with Percona PostgreSQL and <a href="#patroni">Patroni</a>. </p>
-<details class="admonition">
-<summary>High availability overview</summary>
+<div class="admonition admonition">
+<p class="admonition-title">High availability overview</p>
 <p>There are a few methods for achieving high availability with PostgreSQL:</p>
 <ul>
 <li>shared disk failover, </li>
@@ -1053,7 +1256,7 @@
 </ul>
 <p>To address these shortcomings, there are a multitude of third-party, open-source extensions for PostgreSQL. The challenge for a database administrator here is to select the right utility for the current scenario. </p>
 <p>Percona Distribution for PostgreSQL solves this challenge by providing the <a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> extension for achieving PostgreSQL high availability.</p>
-</details>
+</div>
 <h2 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
 <p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> provides a template-based approach to create highly available PostgreSQL clusters. Running atop the PostgreSQL streaming replication process, it integrates with watchdog functionality to detect failed primary nodes and take corrective actions to prevent outages. Patroni also provides a pluggable configuration store to manage distributed, multi-node cluster configuration and comes with REST APIs to monitor and manage the cluster. There is also a command-line utility called <em>patronictl</em> that helps manage switchovers and failure scenarios.</p>
 <h2 id="architecture-layout">Architecture layout<a class="headerlink" href="#architecture-layout" title="Permanent link">&para;</a></h2>
@@ -1096,7 +1299,7 @@
   <small>
     
       Last update:
-      2021-12-01
+      2022-04-26
     
   </small>
 </div>
@@ -1106,11 +1309,6 @@
             </article>
           </div>
         </div>
-        
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            Back to top
-          </a>
         
       </main>
       
@@ -1175,7 +1373,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
