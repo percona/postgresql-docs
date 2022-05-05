@@ -8,7 +8,7 @@ plugins:
 
 theme:
   name: material
-  custom_dir: _resource/overrides
+  custom_dir: _resource/overrides/
 
 # Theme features
 
