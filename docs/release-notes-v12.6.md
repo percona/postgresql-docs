@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 12.6
+# Percona Distribution for PostgreSQL 12.6 (2021-03-09)
 
 
 <table class="docutils field-list" frame="void" rules="none">
