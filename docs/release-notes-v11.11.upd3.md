@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 11.11 Third Update
+# Percona Distribution for PostgreSQL 11.11 Third Update (2021-06-10)
 
 
 
