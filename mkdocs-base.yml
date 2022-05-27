@@ -118,6 +118,8 @@ nav:
       - Backup and disaster recovery:
           - solutions/backup-recovery.md
           - solutions/dr-pgbackrest-setup.md
+      - LDAP authentication:
+          - ldap.md
   - Uninstall:
       - uninstalling.md
   - Release Notes:
