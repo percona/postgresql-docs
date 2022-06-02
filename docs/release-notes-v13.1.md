@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 13.1
+# Percona Distribution for PostgreSQL 13.1 (2020-12-02)
 
 <table class="docutils field-list" frame="void" rules="none">
   <colgroup>

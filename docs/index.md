@@ -31,6 +31,7 @@ PostgreSQL
 
 * [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
 
+* [HAProxy](http://www.haproxy.org/)-  a high-availability and load-balancing solution 
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/13/contrib.html)
 

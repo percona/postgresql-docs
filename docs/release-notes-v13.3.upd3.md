@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 13.3 Third Update
+# Percona Distribution for PostgreSQL 13.3 Third Update (2021-07-15)
 
 
 <table class="docutils field-list" frame="void" rules="none">
