@@ -61,6 +61,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/postgresql/12/index.html/12/release-notes-v12.11.html</loc>
+         <lastmod>2022-06-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/postgresql/12/index.html/12/release-notes-v12.2.html</loc>
          <lastmod>2022-06-06</lastmod>
          <changefreq>daily</changefreq>
