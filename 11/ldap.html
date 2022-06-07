@@ -15,14 +15,14 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/release-notes-v11.11.upd.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/ldap.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.3">
     
     
       
-        <title>Percona Distribution for PostgreSQL 11.11 Update - Percona Distribution for PostgreSQL</title>
+        <title>LDAP authentication - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-1111-update" class="md-skip">
+        <a href="#ldap-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 11.11 Update
+              LDAP authentication
             
           </span>
         </div>
@@ -390,12 +390,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -550,11 +552,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="ldap.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="ldap.html" class="md-nav__link md-nav__link--active">
         LDAP authentication
       </a>
+      
     </li>
   
 
@@ -587,14 +599,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -789,21 +799,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="release-notes-v11.11.upd.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v11.11.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.11 Update
       </a>
-      
     </li>
   
 
@@ -996,7 +996,7 @@
                 <!-- Edit button -->
                 
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/11/docs/release-notes-v11.11.upd.md"
+                    href="https://github.com/percona/postgresql-docs/edit/11/docs/ldap.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
@@ -1012,35 +1012,10 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-1111-update">Percona Distribution for PostgreSQL 11.11 Update<a class="headerlink" href="#percona-distribution-for-postgresql-1111-update" title="Permanent link">&para;</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-  <colgroup>
-    <col class="field-name">
-    <col class="field-body">
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field-odd field">
-      <th class="field-name">Date:</th>
-      <td class="field-body">April 12, 2021</td>
-    </tr>
-    <tr class="field-even field">
-      <th class="field-name">Installation:</th>
-      <td class="field-body">
-        <a class="reference external" href="https://www.percona.com/doc/postgresql/11/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>This update of Percona Distribution for PostgreSQL includes the latest version of <a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> 0.8.1 - the statistics collection tool for PostgreSQL. <code>pg_stat_monitor</code> is available as the Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> and is supplied in the set of extensions within Percona Distribution for PostgreSQL.</p>
-<p>We welcome your feedback on your experience with <code>pg_stat_monitor</code> in the <a href="https://jira.percona.com/projects/DISTPG">public JIRA project</a>.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA. They are included in this release, so that users can provide feedback prior to the full release of the feature in a future GA release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+                <h1 id="ldap-authentication">LDAP Authentication<a class="headerlink" href="#ldap-authentication" title="Permanent link">&para;</a></h1>
+<p>When a client application or a user that runs the client application connects to the database, it must identify themselves. The process of validating the client&rsquo;s identity and determining whether this client is permitted to access the database it has requested is called <strong>authentication</strong>. </p>
+<p>Percona Distribution for PortgreSQL supports several <a href="https://www.postgresql.org/docs/11/auth-methods.html">authentication methods</a>, including the <a href="https://www.postgresql.org/docs/11/auth-ldap.html">LDAP authentication</a>. The use of LDAP is to provide a central place for authentication - meaning the LDAP server stores usernames and passwords and their resource permissions. </p>
+<p>The LDAP authentication in Percona Distribution for PortgreSQL is implemented the same way as in upstream PostgreSQL.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1062,7 +1037,7 @@
   <small>
     
       Last update:
-      2021-05-28
+      2022-06-07
     
   </small>
 </div>
@@ -1089,7 +1064,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="release-notes-v11.11.upd2.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 11.11 Second Update" rel="prev">
+        <a href="solutions/dr-pgbackrest-setup.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1098,20 +1073,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 11.11 Second Update
+              Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes-v11.11.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 11.11" rel="next">
+        <a href="uninstalling.html" class="md-footer__link md-footer__link--next" aria-label="Next: Uninstall" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Percona Distribution for PostgreSQL 11.11
+              Uninstall
             </div>
           </div>
           <div class="md-footer__button md-icon">
