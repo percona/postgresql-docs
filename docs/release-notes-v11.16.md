@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 11.14 (2021-12-20)
+# Percona Distribution for PostgreSQL 11.16 (2022-06-07)
 
 
 <table class="docutils field-list" frame="void" rules="none">
@@ -9,7 +9,7 @@
   <tbody valign="top">
     <tr class="field-odd field">
       <th class="field-name">Date:</th>
-      <td class="field-body">December 20, 2021</td>
+      <td class="field-body">June 7, 2022</td>
     </tr>
     <tr class="field-even field">
       <th class="field-name">Installation:</th>
@@ -25,30 +25,31 @@ enable solving essential practical tasks efficiently.
 
 
 This release is based on [PostgreSQL
-11.14](https://www.postgresql.org/docs/release/11.14/) and includes the
-extended set of extensions supplied with Percona Distribution for PostgreSQL.
+11.16](https://www.postgresql.org/docs/release/11.16/). The set of extensions supplied with Percona Distribution for PostgreSQL now includes the [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution.
 
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
-| [Patroni](https://patroni.readthedocs.io/en/latest/) | 2.1.1 | a HA (High Availability) solution for PostgreSQL |
-| [PgAudit](https://www.pgaudit.org/)             | 1.3.2   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
+| [Patroni](https://patroni.readthedocs.io/en/latest/) | 2.1.3 | a HA (High Availability) solution for PostgreSQL |
+| [PgAudit](https://www.pgaudit.org/)             | 1.3.4   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 3.0.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
-| [pgBackRest](https://pgbackrest.org/)           | 2.36    | a backup and restore solution for PostgreSQL       |
-|[pgBadger](https://github.com/darold/pgbadger)   | 11.6     | a fast PostgreSQL Log Analyzer.|
-|[PgBouncer](https://www.pgbouncer.org/)          |1.16.1    | a lightweight connection pooler for PostgreSQL|
+| [pgBackRest](https://pgbackrest.org/)           | 2.38    | a backup and restore solution for PostgreSQL       |
+|[pgBadger](https://github.com/darold/pgbadger)   | 11.8     | a fast PostgreSQL Log Analyzer.|
+|[PgBouncer](https://www.pgbouncer.org/)          |1.17.0    | a lightweight connection pooler for PostgreSQL|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.7   | rebuilds PostgreSQL database objects           |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                                         |1.0.0-rc.1 |collects and aggregates statistics for PostgreSQL and provides histogram information.|
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                                         |1.0.1 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
+| [PostgreSQL Common](https://packages.debian.org/sid/percona-postgresql-common)| 241 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json](https://github.com/eulerto/wal2json)  |2.4       | a PostgreSQL logical decoding JSON output plugin|
+|[HAProxy](http://www.haproxy.org/) | 2.5.6 | a high-availability and load-balancing solution |
 
 Percona Distribution for PostgreSQL also includes the following packages:
 
-- `llvm` 12.0.1 packages for Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream.
+- `llvm` 12.0.1 packages for Red Hat Enterprise Linux 8  and derivatives. This fixes compatibility issues with LLVM from upstream.
 - supplemental ETCD packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:
 
 |  Operating System   |Package               | Version | Description   |
 | ------------------- | ---------------------| --------|---------------|
-| CentOS 7            |`python3-python-etcd` | 0.4.3   | A Python client for ETCD     |
-| CentOS 8            | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
+| RHEL 7             |`python3-python-etcd` | 0.4.3   | A Python client for ETCD     |
+| RHEL 8             | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
 |                     | `python3-python-etcd`| 0.4.3   | A Python client for ETCD     |
 | Debian 9 ('stretch')| `etcd`               | 3.3.11  | A consistent, distributed key-value store|
 |                     | `python3-etcd`       | 0.4.3   | A Python client for ETCD     |

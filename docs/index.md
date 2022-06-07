@@ -22,6 +22,9 @@ PostgreSQL
 
 * [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) collects and aggregates statistics for PostgreSQL and provides histogram information.
 
+* [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin
+
+* [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution 
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/11/contrib.html)
 

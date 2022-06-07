@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 11 (Beta)
+# Percona Distribution for PostgreSQL 11 (Beta) (2019-05-15)
 
 Percona is excited to announce a beta release of Percona Distribution for PostgreSQL 11 (Beta) on August 15, 2019.
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
