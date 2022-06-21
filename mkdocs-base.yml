@@ -78,7 +78,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-14.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 14.3 (June 1, 2022)
+          cover_subtitle: 14.4 (June 23, 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -119,6 +119,7 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v14.4.md
       - release-notes-v14.3.md
       - release-notes-v14.2.upd2.md
       - release-notes-v14.2.upd.md
