@@ -103,6 +103,7 @@ nav:
   - Installation and Upgrade:
       - installation-and-update.md
       - installing.md
+      - migration.md
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
