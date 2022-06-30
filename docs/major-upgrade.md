@@ -300,7 +300,7 @@ The exact steps may differ depending on the package manager of your operating sy
    * Initialize cluster with the new data directory
 
       ```
-      /usr/pgsql-14/bin/initdb -D /var/lib/pgsql/13/data
+      /usr/pgsql-14/bin/initdb -D /var/lib/pgsql/14/data
       ```
 
 
