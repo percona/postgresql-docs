@@ -15,14 +15,14 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/release-notes-v12.9.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/migration.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
-        <title>Percona Distribution for PostgreSQL 12.9 (2021-12-13) - Percona Distribution for PostgreSQL</title>
+        <title>Migrate from PostgreSQL to Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-129-2021-12-13" class="md-skip">
+        <a href="#migrate-from-postgresql-to-percona-distribution-for-postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 12.9 (2021-12-13)
+              Migrate from PostgreSQL to Percona Distribution for PostgreSQL
             
           </span>
         </div>
@@ -268,12 +268,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -314,11 +316,61 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="migration.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="migration.html" class="md-nav__link md-nav__link--active">
         Migrate from PostgreSQL to Percona Distribution for PostgreSQL
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrate-on-the-same-server" class="md-nav__link">
+    Migrate on the same server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrate-on-a-different-server" class="md-nav__link">
+    Migrate on a different server
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -615,14 +667,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -705,21 +755,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="release-notes-v12.9.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v12.9.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 12.9 (2021-12-13)
       </a>
-      
     </li>
   
 
@@ -997,6 +1037,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrate-on-the-same-server" class="md-nav__link">
+    Migrate on the same server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrate-on-a-different-server" class="md-nav__link">
+    Migrate on a different server
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1010,7 +1072,7 @@
                 <!-- Edit button -->
                 
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/12/docs/release-notes-v12.9.md"
+                    href="https://github.com/percona/postgresql-docs/edit/12/docs/migration.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
@@ -1026,141 +1088,139 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-129-2021-12-13">Percona Distribution for PostgreSQL 12.9 (2021-12-13)<a class="headerlink" href="#percona-distribution-for-postgresql-129-2021-12-13" title="Permanent link">&para;</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-  <colgroup>
-    <col class="field-name">
-    <col class="field-body">
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field-odd field">
-      <th class="field-name">Date:</th>
-      <td class="field-body">December 13, 2021</td>
-    </tr>
-    <tr class="field-even field">
-      <th class="field-name">Installation:</th>
-      <td class="field-body">
-        <a class="reference external" href="https://www.percona.com/doc/postgresql/12/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/release/12.9/">PostgreSQL 12.9</a>.</p>
-<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
-<table>
-<thead>
-<tr>
-<th>Extension</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
-<td>2.1.1</td>
-<td>a HA (High Availability) solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://www.pgaudit.org/">pgAudit</a></td>
-<td>1.4.1</td>
-<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
-<td>3.0.0</td>
-<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</td>
-</tr>
-<tr>
-<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
-<td>2.36</td>
-<td>a backup and restore solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
-<td>11.6</td>
-<td>a fast PostgreSQL Log Analyzer</td>
-</tr>
-<tr>
-<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
-<td>1.16.1</td>
-<td>a lightweight connection pooler for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
-<td>1.4.7</td>
-<td>rebuilds PostgreSQL database objects</td>
-</tr>
-<tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>1.0.0 - rc.1</td>
-<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
-</tr>
-<tr>
-<td><a href="https://packages.debian.org/sid/percona-postgresql-common">PostgreSQL Common</a></td>
-<td>230</td>
-<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
-<td>2.4</td>
-<td>a PostgreSQL logical decoding JSON output plugin.</td>
-</tr>
-</tbody>
-</table>
-<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
-<ul>
-<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream.</li>
-<li>supplemental <code>ETCD</code> packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Operating System</th>
-<th>Package</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CentOS 7</td>
-<td><code>python3-python-etcd</code></td>
-<td>0.4.3</td>
-<td>A Python client for ETCD</td>
-</tr>
-<tr>
-<td>CentOS 8</td>
-<td><code>etcd</code></td>
-<td>3.3.11</td>
-<td>A consistent, distributed key-value store</td>
-</tr>
-<tr>
-<td></td>
-<td><code>python3-python-etcd</code></td>
-<td>0.4.3</td>
-<td>A Python client for ETCD</td>
-</tr>
-<tr>
-<td>Debian 9 (&lsquo;stretch&rsquo;)</td>
-<td><code>etcd</code></td>
-<td>3.3.11</td>
-<td>A consistent, distributed key-value store</td>
-</tr>
-<tr>
-<td></td>
-<td><code>python3-etcd</code></td>
-<td>0.4.3</td>
-<td>A Python client for ETCD</td>
-</tr>
-</tbody>
-</table>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/12/libpq.html">libpq</a> library. It contains &ldquo;a set of
-library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.&rdquo; </p>
+                <h1 id="migrate-from-postgresql-to-percona-distribution-for-postgresql">Migrate from PostgreSQL to Percona Distribution for PostgreSQL<a class="headerlink" href="#migrate-from-postgresql-to-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. Percona Distribution for PostgreSQL is available as a software collection that is easy to deploy.</p>
+<p>We encourage users to migrate from their PostgreSQL deployments based on community binaries to Percona Distribution for PostgreSQL. This document provides the migration instructions. </p>
+<p>Depending on your business requirements, you may migrate to Percona Distribution for PostgreSQL either <a href="#migrate-on-the-same-server">on the same server</a> or <a href="#migrate-on-a-different-server">onto a different server</a>. </p>
+<h2 id="migrate-on-the-same-server">Migrate on the same server<a class="headerlink" href="#migrate-on-the-same-server" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu Linux</label><label for="__tabbed_1_2">On RHEL and compatible derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<blockquote>
+<p>To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice. The backup process is out of scope of this document. You can use <code>pg_dumpall</code> or other tools of your choice. </p>
+</blockquote>
+<ol>
+<li>
+<p>Stop the <code>postgresql</code> server   </p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+</code></pre></div>
+</li>
+<li>
+<p>Remove community packages</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get --purge remove postgresql
+</code></pre></div>
+</li>
+<li>
+<p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release</a></p>
+</li>
+<li>
+<p>Enable the repository</p>
+<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg12
+</code></pre></div>
+</li>
+<li>
+<p><a href="installing.html#install-percona-distribution-for-postgresql-packages">Install Percona Distribution for PostgreSQL packages</a></p>
+</li>
+<li>(Optional) Restore the data from the backup.</li>
+<li>
+<p>Start the <code>postgresql</code> service. The installation process starts and initializes the default cluster automatically. You can check its status with: </p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl status postgresql
+</code></pre></div>
+<p>If <code>postresql</code> service is not started, start it manually:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<blockquote>
+<p>To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice. The backup process is out of scope of this document. You can use <code>pg_dumpall</code> or other tools of your choice. </p>
+</blockquote>
+<ol>
+<li>
+<p>Stop the <code>postgresql</code> server   </p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-12
+</code></pre></div>
+</li>
+<li>
+<p>Remove community packages</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum remove postgresql
+</code></pre></div>
+</li>
+<li>
+<p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release</a></p>
+</li>
+<li>
+<p>Enable the repository</p>
+<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg12
+</code></pre></div>
+</li>
+<li>
+<p><a href="installing.html#install-percona-distribution-for-postgresql-packages">Install Percona Distribution for PostgreSQL packages</a></p>
+</li>
+<li>(Optional) Restore the data from the backup.</li>
+<li>
+<p>Start the <code>postgresql</code> service</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-12
+</code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<h2 id="migrate-on-a-different-server">Migrate on a different server<a class="headerlink" href="#migrate-on-a-different-server" title="Permanent link">&para;</a></h2>
+<p>In this scenario, we will refer to the server with PostgreSQL Community as the &ldquo;source&rdquo; and to the server with Percona Distribution for PostgreSQL as the &ldquo;target&rdquo;.</p>
+<p>To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a different server, do the following:</p>
+<p><strong>On the source server</strong>:</p>
+<ol>
+<li>Back up your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice.</li>
+<li>
+<p>Stop the <code>postgresql</code> service</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-12
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Optionally, remove PostgreSQL Community packages </p>
+</li>
+</ol>
+<p><strong>On the target server</strong>:</p>
+<ol>
+<li><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release</a> </li>
+<li>
+<p>Enable the repository</p>
+<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg12
+</code></pre></div>
+</li>
+<li>
+<p><a href="installing.html#install-percona-distribution-for-postgresql-packages">Install Percona Distribution for PostgreSQL packages</a> on the target server.</p>
+</li>
+<li>Restore the data from the backup</li>
+<li>
+<p>Start <code>postgresql</code> service</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On RHEL and compatible derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-12
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+</ol>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1182,7 +1242,7 @@ backend server and to receive the results of these queries.&rdquo; </p>
   <small>
     
       Last update:
-      2022-06-06
+      2022-07-22
     
   </small>
 </div>
@@ -1207,7 +1267,7 @@ backend server and to receive the results of these queries.&rdquo; </p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="release-notes-v12.10.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 12.10 (2022-03-30)" rel="prev">
+        <a href="installing.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installing Percona Distribution for PostgreSQL" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1216,20 +1276,20 @@ backend server and to receive the results of these queries.&rdquo; </p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 12.10 (2022-03-30)
+              Installing Percona Distribution for PostgreSQL
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes-v12.8.upd.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 12.8 Update (2021-12-07)" rel="next">
+        <a href="major-upgrade.html" class="md-footer__link md-footer__link--next" aria-label="Next: Upgrading Percona Distribution for PostgreSQL from 11 to 12" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Percona Distribution for PostgreSQL 12.8 Update (2021-12-07)
+              Upgrading Percona Distribution for PostgreSQL from 11 to 12
             </div>
           </div>
           <div class="md-footer__button md-icon">
