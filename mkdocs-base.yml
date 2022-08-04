@@ -107,8 +107,8 @@ nav:
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
-      - extensions.md
-      - pg-stat-monitor.md
+      - pg_stat_monitor:
+          - pg-stat-monitor.md
   - Solutions:
       #- solutions.md
       - High availability:
