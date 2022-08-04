@@ -107,8 +107,13 @@ nav:
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
+<<<<<<< HEAD
       - extenstions.md
       - pg-stat-monitor.md
+=======
+      - pg_stat_monitor:
+          - pg-stat-monitor.md
+>>>>>>> 48cf4e0... DISTPG-450 Updated links to PGSM docs
   - Solutions:
       - High availability:
           - solutions/high-availability.md
