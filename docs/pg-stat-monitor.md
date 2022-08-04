@@ -34,7 +34,7 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 #### pg_stat_monitor view
 
-The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/REFERENCE.html).
+The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference](https://docs.percona.com/pg-stat-monitor/reference.html).
 
 The following are the primary keys for pg_stat_monitor:
 
@@ -56,26 +56,47 @@ To learn more, see the [Changing the configuration](#changing-the-configuration)
 
 ## Installation
 
-This section describes how to install `pg_stat_monitor` from Percona repositories. To learn about other installation methods, see the [Installation](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/setup.html#installation-guidelines) section in the `pg_stat_monitor` documentation.
+This section describes how to install `pg_stat_monitor` from Percona repositories. To learn about other installation methods, see the [Installation](https://docs.percona.com/pg-stat-monitor/install.html) section in the `pg_stat_monitor` documentation.
 
-**Assumptions**:
+**Preconditions**:
 
-We assume that you have [installed percona-release](https://www.percona.com/doc/percona-repo-config/installing.html) utility and [enabled the Percona Distribution for PostgreSQL repository](installing.md#enable-the-repository)
+To install `pg_stat_monitor` from Percona repositories, you need to subscribe to them. To do this, you must have the [`percona-release` repository management tool](https://www.percona.com/doc/percona-repo-config/installing.html) up and running. 
 
-To install `pg_stat_monitor`, run the following command:
+To install `pg_stat_monitor`, run the following commands:
 
 === "On Debian and Ubuntu"
 
-    ```sh
-    $ sudo apt install percona-pg-stat-monitor14
-    ```
+    1. Enable the repository
+
+        ```sh
+        $ sudo percona-release setup ppg14
+        ```
+
+    2. Update the local cache
+ 
+        ```sh
+        $ sudo apt update
+        ```
+
+    3. Install the package:
+
+        ```sh
+        $ sudo apt-get install percona-pg-stat-monitor14
+        ```
 
 === "On Red Hat Enterprise Linux and derivatives"
 
-     ```sh
-     $ sudo yum install percona-pg-stat-monitor14
-     
-     ```
+    1. Enable the repository
+
+        ```sh
+        $ sudo percona-release setup ppg14
+        ```
+    
+    2. Install the package:
+
+        ```sh
+        $ sudo yum install percona-pg-stat-monitor11
+        ```
 
 ## Setup
 
@@ -94,7 +115,13 @@ To install `pg_stat_monitor`, run the following command:
 
     !!! note
 
-        If you’ve added other values to the `shared_preload_libraries` parameter, list all of them separated by commas for the `ALTER SYSTEM` command. For example, `ALTER SYSTEM SET shared_preload_libraries = ‘foo, bar, pg_stat_monitor’`.
+        To use `pg_stat_monitor` together with `pg_stat_statements`, specify both modules separated by commas for the `ALTER SYSTEM SET` command. 
+
+        The order of modules is important: `pg_stat_monitor` must be specified **after** `pg_stat_statements`: 
+       
+        ```sql
+        ALTER SYSTEM SET shared_preload_libraries = ‘pg_stat_statements, pg_stat_monitor’
+        ```
 
 2. Start or restart the `postgresql` instance to enable `pg_stat_monitor`. Use the following command for restart:
 
@@ -118,8 +145,6 @@ To install `pg_stat_monitor`, run the following command:
     ```sql
     CREATE EXTENSION pg_stat_monitor;
     ```
-
-!!! note
 
     By default, the extension is created against the `postgres` database. You need to create the extension on every database where you want to collect statistics.
 
@@ -148,7 +173,7 @@ WHERE pg_database.oid = oid;
 ```
 
 
-Find more usage examples in the [pg_stat_monitor User Guide](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.html#usage-examples).
+Find more usage examples in the [`pg_stat_monitor` user guide](https://docs.percona.com/pg-stat-monitor/user_guide.html).
 
 ## Changing the configuration
 
@@ -179,7 +204,7 @@ name                      |                            description
  pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration section](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/USER_GUIDE.html#configuration) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration parameters](https://docs.percona.com/pg-stat-monitor/configuration.html) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
 
@@ -216,7 +241,7 @@ SELECT name, value
 
 !!! seealso
 
-    [`pg_stat_monitor` Documentation](https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/index.html)
+    [`pg_stat_monitor` Documentation](https://docs.percona.com/pg-stat-monitor/index.html)
 
 
     Percona Blog:
