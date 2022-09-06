@@ -7,13 +7,13 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:
 
 
-1. Stopping the `postgresql` cluster;
+1. Stop the `postgresql` cluster;
 
 
-2. Installing new version packages;
+2. Install new version packages;
 
 
-3. Restarting the `postgresql` cluster.
+3. Restart the `postgresql` cluster.
 
 !!! note
 
@@ -21,7 +21,7 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     If you installed Percona Distribution for PostgreSQL from the Minor Release repository, you will need to enable a new version repository to upgrade.
 
-    For more information about Percona repositories, refer to Installing Percona Distribution for PostgreSQL.
+    For more information about Percona repositories, refer to [Installing Percona Distribution for PostgreSQL](installing.md).
 
     Before the upgrade, update the **percona-release** utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. Refer to [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) for update instructions.
 
@@ -43,7 +43,7 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
     === "On Red Hat Enterprise Linux / derivatives"
 
          ```
-         $ sudo systemctl stop postgresql-14
+         $ sudo systemctl stop postgresql-15
          ```
 
 
@@ -64,8 +64,8 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
     === "On Red Hat Enterprise Linux / derivatives"
 
          ```
-         $ sudo systemctl start postgresql-14
+         $ sudo systemctl start postgresql-15
          ```
 
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.md).
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 14 to 15](major-upgrade.md).
