@@ -80,7 +80,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-12.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 12.11 (June 6, 2022)
+          cover_subtitle: 12.12 (September 7, 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -101,19 +101,14 @@ extra:
 nav:
   - index.md
   - Installation and Upgrade:
-      - installation-and-update.md
-      - installing.md
+      - Install Percona Distribution for PostgreSQL:
+        - installing.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
-<<<<<<< HEAD
-      - extenstions.md
-      - pg-stat-monitor.md
-=======
       - pg_stat_monitor:
           - pg-stat-monitor.md
->>>>>>> 48cf4e0... DISTPG-450 Updated links to PGSM docs
   - Solutions:
       - High availability:
           - solutions/high-availability.md
@@ -129,6 +124,7 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v12.12.md
       - release-notes-v12.11.md
       - release-notes-v12.10.upd2.md
       - release-notes-v12.10.upd.md
