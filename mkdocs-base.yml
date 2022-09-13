@@ -103,6 +103,7 @@ nav:
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - installing.md
+      - repo-overview.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
