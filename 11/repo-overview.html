@@ -15,14 +15,14 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/release-notes-v11.15.upd2.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/repo-overview.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
     
     
       
-        <title>Percona Distribution for PostgreSQL 11.15 Second Update (2022-05-05) - Percona Distribution for PostgreSQL</title>
+        <title>Repositories overview - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-1115-second-update-2022-05-05" class="md-skip">
+        <a href="#repositories-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 11.15 Second Update (2022-05-05)
+              Repositories overview
             
           </span>
         </div>
@@ -270,12 +270,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -310,11 +312,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="repo-overview.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="repo-overview.html" class="md-nav__link md-nav__link--active">
         Repositories overview
       </a>
+      
     </li>
   
 
@@ -605,14 +617,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -667,21 +677,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="release-notes-v11.15.upd2.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v11.15.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.15 Second Update (2022-05-05)
       </a>
-      
     </li>
   
 
@@ -1043,7 +1043,7 @@
                 <!-- Edit button -->
                 
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/11/docs/release-notes-v11.15.upd2.md"
+                    href="https://github.com/percona/postgresql-docs/edit/11/docs/repo-overview.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
@@ -1059,30 +1059,10 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-1115-second-update-2022-05-05">Percona Distribution for PostgreSQL 11.15 Second Update (2022-05-05)<a class="headerlink" href="#percona-distribution-for-postgresql-1115-second-update-2022-05-05" title="Permanent link">&para;</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-  <colgroup>
-    <col class="field-name">
-    <col class="field-body">
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field-odd field">
-      <th class="field-name">Date:</th>
-      <td class="field-body">May 5, 2022</td>
-    </tr>
-    <tr class="field-even field">
-      <th class="field-name">Installation:</th>
-      <td class="field-body">
-        <a class="reference external" href="https://www.percona.com/doc/postgresql/11/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently.</p>
-<p>This update of Percona Distribution for PostgreSQL includes the general availability release of <a href="https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/RELEASE_NOTES.html#100">pg_stat_monitor 1.0.0</a> - the statistics collection tool for PostgreSQL.</p>
-<p>We welcome your feedback on your experience with <code>pg_stat_monitor</code> on our <a href="https://forums.percona.com/c/postgresql/pg-stat-monitor/69">Forum</a> and in the <a href="https://jira.percona.com/projects/DISTPG">public JIRA project</a>.</p>
+                <h1 id="repositories-overview">Repositories overview<a class="headerlink" href="#repositories-overview" title="Permanent link">&para;</a></h1>
+<p>There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the <em>Major Release repository</em> (e.g. <code>ppg-11</code>) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.</p>
+<p>The <em>Minor Release repository</em> includes a particular minor release of the database and all the packages that were tested and verified to work with that minor release (e.g. <code>ppg-11.8</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.</p>
+<p>The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1104,7 +1084,7 @@ enable solving essential practical tasks efficiently.</p>
   <small>
     
       Last update:
-      2022-06-07
+      2022-09-14
     
   </small>
 </div>
@@ -1132,7 +1112,7 @@ enable solving essential practical tasks efficiently.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="release-notes-v11.16.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 11.16 (2022-06-07)" rel="prev">
+        <a href="installing.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install Percona Distribution for PostgreSQL" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1141,20 +1121,20 @@ enable solving essential practical tasks efficiently.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 11.16 (2022-06-07)
+              Install Percona Distribution for PostgreSQL
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes-v11.15.upd.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 11.15 Update (2022-04-14)" rel="next">
+        <a href="migration.html" class="md-footer__link md-footer__link--next" aria-label="Next: Migrate from PostgreSQL to Percona Distribution for PostgreSQL" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Percona Distribution for PostgreSQL 11.15 Update (2022-04-14)
+              Migrate from PostgreSQL to Percona Distribution for PostgreSQL
             </div>
           </div>
           <div class="md-footer__button md-icon">
