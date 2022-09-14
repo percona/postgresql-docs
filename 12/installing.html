@@ -18,7 +18,7 @@
         <link rel="canonical" href="https://docs.percona.com/postgresql/12/index.html/12/installing.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
     
     
       
@@ -26,13 +26,14 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.2e8b5541.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -67,6 +68,7 @@
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
+    
     
     
   </head>
@@ -170,7 +172,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -194,7 +196,7 @@
         <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     percona/postgresql-docs
@@ -237,7 +239,7 @@
       <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     percona/postgresql-docs
@@ -334,32 +336,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#repositories-overview" class="md-nav__link">
-    Repositories overview
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-percona-release" class="md-nav__link">
+    1. Install percona-release
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#install-percona-release" class="md-nav__link">
-    Install percona-release
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-the-repository" class="md-nav__link">
+    2. Enable the repository
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-the-repository" class="md-nav__link">
-    Enable the repository
+        
+          <li class="md-nav__item">
+  <a href="#3-install-percona-distribution-for-postgresql-packages" class="md-nav__link">
+    3. Install Percona Distribution for PostgreSQL packages
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-percona-distribution-for-postgresql-packages" class="md-nav__link">
-    Install Percona Distribution for PostgreSQL packages
-  </a>
-  
-    <nav class="md-nav" aria-label="Install Percona Distribution for PostgreSQL packages">
+    <nav class="md-nav" aria-label="3. Install Percona Distribution for PostgreSQL packages">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -369,16 +372,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#install-the-percona-distribution-for-postgresql-components" class="md-nav__link">
-    Install the Percona Distribution for PostgreSQL components
+  <a href="#4-install-the-percona-distribution-for-postgresql-components" class="md-nav__link">
+    4. Install the Percona Distribution for PostgreSQL components
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#starting-the-service" class="md-nav__link">
-    Starting the service
+  <a href="#5-starting-the-service" class="md-nav__link">
+    5. Starting the service
   </a>
   
 </li>
@@ -393,6 +401,40 @@
     Enabling extensions
   </a>
   
+    <nav class="md-nav" aria-label="Enabling extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patroni" class="md-nav__link">
+    Patroni
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgbadger" class="md-nav__link">
+    pgBadger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgaudit-set-user" class="md-nav__link">
+    pgAudit set-user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wal2json" class="md-nav__link">
+    wal2json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -406,6 +448,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="repo-overview.html" class="md-nav__link">
+        Repositories overview
+      </a>
     </li>
   
 
@@ -1101,32 +1157,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#repositories-overview" class="md-nav__link">
-    Repositories overview
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-percona-release" class="md-nav__link">
+    1. Install percona-release
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#install-percona-release" class="md-nav__link">
-    Install percona-release
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-the-repository" class="md-nav__link">
+    2. Enable the repository
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-the-repository" class="md-nav__link">
-    Enable the repository
+        
+          <li class="md-nav__item">
+  <a href="#3-install-percona-distribution-for-postgresql-packages" class="md-nav__link">
+    3. Install Percona Distribution for PostgreSQL packages
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-percona-distribution-for-postgresql-packages" class="md-nav__link">
-    Install Percona Distribution for PostgreSQL packages
-  </a>
-  
-    <nav class="md-nav" aria-label="Install Percona Distribution for PostgreSQL packages">
+    <nav class="md-nav" aria-label="3. Install Percona Distribution for PostgreSQL packages">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1136,16 +1193,21 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#install-the-percona-distribution-for-postgresql-components" class="md-nav__link">
-    Install the Percona Distribution for PostgreSQL components
+  <a href="#4-install-the-percona-distribution-for-postgresql-components" class="md-nav__link">
+    4. Install the Percona Distribution for PostgreSQL components
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#starting-the-service" class="md-nav__link">
-    Starting the service
+  <a href="#5-starting-the-service" class="md-nav__link">
+    5. Starting the service
   </a>
   
 </li>
@@ -1159,6 +1221,40 @@
   <a href="#enabling-extensions" class="md-nav__link">
     Enabling extensions
   </a>
+  
+    <nav class="md-nav" aria-label="Enabling extensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patroni" class="md-nav__link">
+    Patroni
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgbadger" class="md-nav__link">
+    pgBadger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgaudit-set-user" class="md-nav__link">
+    pgAudit set-user
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wal2json" class="md-nav__link">
+    wal2json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1177,9 +1273,10 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
 
                 <!-- Edit button -->
                 
@@ -1201,42 +1298,16 @@
 
                 <!-- Markdown content -->
                 <h1 id="install-percona-distribution-for-postgresql">Install Percona Distribution for PostgreSQL<a class="headerlink" href="#install-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>Percona provides installation packages in <code>DEB</code> and <code>RPM</code> format for 64-bit Linux distributions. Find the full list of supported platforms on the <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql">Percona Software and Platform Lifecycle page</a>.</p>
-<p>Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the <strong>percona-release</strong> utility. The <strong>percona-release</strong> utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.</p>
-<p>The installation process includes the following steps:</p>
-<ol>
-<li>
-<p>Install <strong>percona-release</strong></p>
-</li>
-<li>
-<p>Enable the repository</p>
-</li>
-<li>
-<p>Install the packages</p>
-</li>
-<li>
-<p>Start the <code>postgresql</code> service</p>
-</li>
-<li>
-<p>Connect to the server</p>
-</li>
-</ol>
-<h2 id="repositories-overview">Repositories overview<a class="headerlink" href="#repositories-overview" title="Permanent link">&para;</a></h2>
-<p>There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the <em>Major Release repository</em> (e.g. <code>ppg-12</code>) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.</p>
-<p>The <em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-12.5</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.</p>
-<p>The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</p>
-<h2 id="install-percona-release">Install <strong>percona-release</strong><a class="headerlink" href="#install-percona-release" title="Permanent link">&para;</a></h2>
+<p>We recommend that you install Percona Distribution for MongoDB from Percona repositories using the package manager of your operating system. Find the list of supported Linux distributions on the <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql">Percona Software and Platform Lifecycle page</a> page.</p>
+<p>Installing Percona Distribution for PostgreSQL from Percona repositories means to subscribe to these repositories. Percona provides the <a href="https://www.percona.com/doc/percona-repo-config/index.html">percona-release</a> repository management tool for this purpose. It simplifies operating repositories and enables to install and update both Percona Distribution for PostgreSQL packages and required dependencies smoothly.</p>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<h3 id="1-install-percona-release">1. Install <strong>percona-release</strong><a class="headerlink" href="#1-install-percona-release" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <strong>percona-release</strong></a> utility. If you have installed it before, <a href="https://www.percona.com/doc/percona-repo-config/updating.html">update</a> it to the latest version.</p>
-<h2 id="enable-the-repository">Enable the repository<a class="headerlink" href="#enable-the-repository" title="Permanent link">&para;</a></h2>
-<p>As soon as <strong>percona-release</strong> is installed or up-to-date, enable the repository for Percona Distribution for PostgreSQL (<code>ppg-12</code>). We recommend using the <em>set up</em> command as it enables the specified repository and updates the platform’s package manager database.</p>
+<h3 id="2-enable-the-repository">2. Enable the repository<a class="headerlink" href="#2-enable-the-repository" title="Permanent link">&para;</a></h3>
+<p>Percona provides <a href="repo-overview.html">two repositories</a> for Percona Distribution for PostgreSQL. To enable a repository, we recommend using the <code>setup</code> command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-12
 </code></pre></div>
-<p>To install a <em>specific minor version</em> of Percona Distribution for PostgreSQL, enable the Minor release repository. For example, to install Percona Distribution for PostgreSQL 12.5, enable the <code>ppg-12.5</code>  repository using the following command:</p>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-12.5
-</code></pre></div>
-<h2 id="install-percona-distribution-for-postgresql-packages">Install Percona Distribution for PostgreSQL packages<a class="headerlink" href="#install-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h2>
-<p>After you’ve <a href="#install-percona-release">installed percona-release</a> and <a href="#enable-the-repository">enabled the desired repository</a>, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
-depending on the package manager of your operating system).</p>
+<h3 id="3-install-percona-distribution-for-postgresql-packages">3. Install Percona Distribution for PostgreSQL packages<a class="headerlink" href="#3-install-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu using <code>apt</code></label><label for="__tabbed_1_2">On Red Hat Enterprise Linux and derivatives using <code>yum</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1263,7 +1334,7 @@ $ sudo yum repolist
 </div>
 </div>
 </div>
-<h3 id="install-the-percona-distribution-for-postgresql-components">Install the Percona Distribution for PostgreSQL components<a class="headerlink" href="#install-the-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h3>
+<h3 id="4-install-the-percona-distribution-for-postgresql-components">4. Install the Percona Distribution for PostgreSQL components<a class="headerlink" href="#4-install-the-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h3>
 <p>Use the following commands to install components&rsquo; packages:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
@@ -1330,14 +1401,12 @@ $ sudo yum repolist
 </div>
 </div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
-<h3 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h3>
+<h3 id="5-starting-the-service">5. Starting the service<a class="headerlink" href="#5-starting-the-service" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Debian and Ubuntu</label><label for="__tabbed_3_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The installation process automatically initializes the and starts the default database. Thus, to check the status of Percona Distribution for PostgreSQL, use the following command:</p>
-<div class="highlight"><pre><span></span><code> ```sh
- $ sudo systemctl status postgresql.service
- ```
+<div class="highlight"><pre><span></span><code>$ sudo systemctl status postgresql.service
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1350,7 +1419,7 @@ $ sudo yum repolist
 <p>Next steps: <a href="installing.html#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
 <h2 id="enabling-extensions">Enabling extensions<a class="headerlink" href="#enabling-extensions" title="Permanent link">&para;</a></h2>
 <p>Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
-<p><strong>Patroni</strong></p>
+<h3 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h3>
 <p>Patroni is the third-party high availability solution for PostgreSQL. The <a href="solutions/high-availability.html">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
 <p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:</p>
 <ul>
@@ -1358,17 +1427,14 @@ $ sudo yum repolist
 <p>Patroni on every <code>postresql</code> node. </p>
 </li>
 <li>
-<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  </p>
-<p>For Debian 9 (&ldquo;stretch&rdquo;), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
-<div class="highlight"><pre><span></span><code>$ apt install etcd
-</code></pre></div>
+<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes, though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.</p>
+</li>
+</ul>
 <p>For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
 <div class="highlight"><pre><span></span><code>$ yum install etcd python3-python-etcd 
 </code></pre></div>
-</li>
-<li>
-<p><a href="http://www.haproxy.org/">HAProxy</a>.</p>
-</li>
+<ul>
+<li><a href="http://www.haproxy.org/">HAProxy</a>.</li>
 </ul>
 <p>See the configuration guidelines for <a href="solutions/ha-setup-apt.html">Debian and Ubuntu</a> and <a href="ha-setup-yum.md">RHEL and CentOS</a>. </p>
 <div class="admonition seealso">
@@ -1385,7 +1451,7 @@ $ sudo yum repolist
 </li>
 </ul>
 </div>
-<p><strong>pgBadger</strong></p>
+<h3 id="pgbadger">pgBadger<a class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h3>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
 log_line_prefix = &#39;%t [%p]: &#39;
@@ -1398,13 +1464,13 @@ log_autovacuum_min_duration = 0
 log_error_verbosity = default
 </code></pre></div>
 <p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation</a>.</p>
-<p><strong>pgAudit set-user</strong></p>
+<h3 id="pgaudit-set-user">pgAudit set-user<a class="headerlink" href="#pgaudit-set-user" title="Permanent link">&para;</a></h3>
 <p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in postgresql.conf. The recommended way is to  use the <a href="https://www.postgresql.org/docs/12/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
 <div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;set-user&#39;;
 </code></pre></div>
 <p>Start/restart the server to apply the configuration.</p>
 <p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters</a> supplied with the extension.</p>
-<p><strong>wal2json</strong></p>
+<h3 id="wal2json">wal2json<a class="headerlink" href="#wal2json" title="Permanent link">&para;</a></h3>
 <p>After the installation, enable the following option in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>wal_level = logical
 </code></pre></div>
@@ -1445,16 +1511,17 @@ log_error_verbosity = default
   <small>
     
       Last update:
-      2022-09-07
+      2022-09-14
     
   </small>
 </div>
                   
                 
               
-            </article>
-            
-          </div>
+              </article>
+            </div>
+          
+          
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -1486,13 +1553,13 @@ log_error_verbosity = default
       
       
         
-        <a href="migration.html" class="md-footer__link md-footer__link--next" aria-label="Next: Migrate from PostgreSQL to Percona Distribution for PostgreSQL" rel="next">
+        <a href="repo-overview.html" class="md-footer__link md-footer__link--next" aria-label="Next: Repositories overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+              Repositories overview
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1530,7 +1597,7 @@ log_error_verbosity = default
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking"], "search": "assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="assets/javascripts/bundle.48f2be22.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
