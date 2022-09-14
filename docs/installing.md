@@ -1,39 +1,16 @@
 # Install Percona Distribution for PostgreSQL
 
-Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
+We recommend that you install Percona Distribution for MongoDB from Percona repositories using the package manager of your operating system. Find the list of supported Linux distributions on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql) page.
 
-Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the **percona-release** utility. The **percona-release** utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.
+Installing Percona Distribution for PostgreSQL from Percona repositories means to subscribe to these repositories. Percona provides the [percona-release](https://www.percona.com/doc/percona-repo-config/index.html) repository management tool for this purpose. It simplifies operating repositories and enables to install and update both Percona Distribution for PostgreSQL packages and required dependencies smoothly.
 
-The installation process includes the following steps:
+## Procedure
 
-
-1. Install **percona-release**
-
-
-2. Enable the repository
-
-
-3. Install the packages
-
-
-4. Start the `postgresql` service
-
-
-5. Connect to the server
-
-## Repositories overview
-
-There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the *Major Release repository* (e.g. `ppg-11`) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.
-
-The *Minor Release repository* includes a particular minor release of the database and all the packages that were tested and verified to work with that minor release (e.g. `ppg-11.8`). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
-
-The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.
-
-## Install **percona-release**
+### 1. Install **percona-release**
 
 [Install **percona-release**](https://www.percona.com/doc/percona-repo-config/installing.html) utility. If you have installed it before, [update](https://www.percona.com/doc/percona-repo-config/updating.html) it to the latest version.
 
-## Enable the repository
+### 2. Enable the repository
 
 As soon as **percona-release** is installed or up-to-date, enable the repository for Percona Distribution for PostgreSQL (`ppg-11`). We recommend using the *setup* command as it enables the specified repository and updates the platform’s package manager database.
 
@@ -49,10 +26,7 @@ To install a *specific minor version* of Percona Distribution for PostgreSQL, en
 $ sudo percona-release setup ppg-11.10
 ```
 
-## Install Percona Distribution for PostgreSQL packages
-
-After you’ve [installed percona-release](#install-percona-release) and [enabled the desired repository](#enable-the-repository), install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
-depending on the package manager of your operating system).
+### 3. Install Percona Distribution for PostgreSQL packages
 
 !!! important
    
@@ -63,7 +37,6 @@ depending on the package manager of your operating system).
     !!! note
 
         Debian and other systems that use the `apt` package manager include the upstream PostgreSQL server package (postgresql-11) by default. The components of Percona Distribution for PostgreSQL 11 can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-11). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-11) and then install the chosen components from Percona Distribution for PostgreSQL.
-
 
 
     Install the **percona-postgresql-11** package using the following command.
@@ -98,7 +71,7 @@ depending on the package manager of your operating system).
     $ sudo yum install percona-postgresql11-server
     ```
 
-### Install the Percona Distribution for PostgreSQL components
+### 4. Install the Percona Distribution for PostgreSQL components
 
 Use the following commands to install components’ packages:
 
@@ -248,11 +221,12 @@ Some extensions require additional setup in order to use them with Percona Distr
     $ sudo systemctl start postgresql-11
     ```
 
+
 ## Enabling extensions
 
 Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This section provides configuration instructions per extension.
 
-**Patroni**
+### Patroni
 
 Patroni is the third-party high availability solution for PostgreSQL. The [High Availability in PostgreSQL with Patroni](solutions/high-availability.md) chapter provides details about the solution overview and architecture deployment. 
 
@@ -260,20 +234,14 @@ While setting up a high-availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni, installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes, though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes, though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.
 
-     For Debian 9 ("stretch"), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
+  For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
-     ```sh
-     $ apt install etcd
-     ```
-
-     For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
-
-      ```sh
-      $ yum install etcd python3-python-etcd
+  ```sh
+  $ yum install etcd python3-python-etcd
      
-      ```
+  ```
   
 - [HAProxy](http://www.haproxy.org/).
 
@@ -287,7 +255,7 @@ See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.
 
         - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
 
-**pgBadger**
+### pgBadger
 
 Enable the following options in `postgresql.conf` configuration file before starting the service:
 
@@ -305,7 +273,7 @@ log_error_verbosity = default
 
 For details about each option, see [pdBadger documentation](https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION>).
 
-**pgAudit set-user**
+### pgAudit set-user
 
 Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to  use the [ALTER SYSTEM](https://www.postgresql.org/docs/11/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
 
@@ -317,7 +285,7 @@ Start/restart the server to apply the configuration.
 
 You can fine-tune user behavior with the [custom parameters](https://github.com/pgaudit/set_user#configuration-options) supplied with the extension.
 
-**wal2json**
+### wal2json
 
 After the installation, enable the following option in `postgresql.conf` configuration file before starting the service:
 
