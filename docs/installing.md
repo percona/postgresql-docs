@@ -1,6 +1,6 @@
 # Install Percona Distribution for PostgreSQL
 
-We recommend that you install Percona Distribution for MongoDB from Percona repositories using the package manager of your operating system. Find the list of supported Linux distributions on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql) page.
+We recommend that you install Percona Distribution for PostgreSQL from Percona repositories using the package manager of your operating system. Find the list of supported Linux distributions on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql) page.
 
 Installing Percona Distribution for PostgreSQL from Percona repositories means to subscribe to these repositories. Percona provides the [percona-release](https://www.percona.com/doc/percona-repo-config/index.html) repository management tool for this purpose. It simplifies operating repositories and enables to install and update both Percona Distribution for PostgreSQL packages and required dependencies smoothly.
 
