@@ -411,7 +411,7 @@ HAProxy is capable of routing write requests to the primary node and read reques
 1. Install HAProxy on the `HAProxy-demo` node:
 
     ``` sh
-    $ sudo apt install haproxy
+    $ sudo apt install percona-haproxy
     ```
 
 2. The HAProxy configuration file path is: `/etc/haproxy/haproxy.cfg`. Specify the following configuration in this file.

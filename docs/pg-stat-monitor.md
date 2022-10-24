@@ -2,7 +2,7 @@
 
 !!! note
 
-    This document describes the functionality of pg_stat_monitor 1.0.0.
+    This document describes the functionality of pg_stat_monitor 1.1.1.
 
 ## Overview
 
@@ -69,19 +69,13 @@ To install `pg_stat_monitor`, run the following commands:
     1. Enable the repository
 
         ```sh
-        $ sudo percona-release setup ppg14
+        $ sudo percona-release setup ppg15
         ```
 
-    2. Update the local cache
- 
-        ```sh
-        $ sudo apt update
-        ```
-
-    3. Install the package:
+    2. Install the package:
 
         ```sh
-        $ sudo apt-get install percona-pg-stat-monitor14
+        $ sudo apt-get install percona-pg-stat-monitor15
         ```
 
 === "On Red Hat Enterprise Linux and derivatives"
@@ -89,13 +83,13 @@ To install `pg_stat_monitor`, run the following commands:
     1. Enable the repository
 
         ```sh
-        $ sudo percona-release setup ppg14
+        $ sudo percona-release setup ppg15
         ```
     
     2. Install the package:
 
         ```sh
-        $ sudo yum install percona-pg-stat-monitor11
+        $ sudo yum install percona-pg-stat-monitor15
         ```
 
 ## Setup
@@ -105,7 +99,7 @@ To install `pg_stat_monitor`, run the following commands:
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/15/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
 
     ```sql
     ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
@@ -136,7 +130,7 @@ To install `pg_stat_monitor`, run the following commands:
     === "On Red Hat Enterprise Linux and derivatives"
 
          ```
-         $ sudo systemctl restart postgresql-14
+         $ sudo systemctl restart postgresql-15
          ```
 
 
@@ -152,7 +146,7 @@ To install `pg_stat_monitor`, run the following commands:
   
     To check the version of the extension, run the following command in the `psql` session:
 
-    ```sh
+    ```sql
     SELECT pg_stat_monitor_version();
     ``` 
 
@@ -164,12 +158,25 @@ For example, to view the IP address of the client application that made the quer
 SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50) AS query, calls, bucket, bucket_start_time, queryid, client_ip
 FROM pg_stat_monitor, pg_database
 WHERE pg_database.oid = oid;
+```
 
-  userid  | datname  |                       query                       | calls | client_ip
-----------+----------+---------------------------------------------------+-------+-----------
- postgres | postgres | select bucket, bucket_start_time, query,calls fro |     1 | 127.0.0.1
- postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 | 127.0.0.1
- postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
+Output:
+
+```
+  userid  | datname  |                       query                       | calls | bucket |  bucket_start_time  |     queryid      | client_ip
+----------+----------+---------------------------------------------------+-------+--------+---------------------+------------------+-----------
+ postgres | postgres | SELECT name,description FROM pg_stat_monitor_sett |     1 |      9 | 2022-10-24 07:29:00 | AD536A8DEA7F0C73 | 127.0.0.1
+ postgres | postgres | SELECT c.oid,                                    +|     1 |      9 | 2022-10-24 07:29:00 | 34B888E5C844519C | 127.0.0.1
+          |          |   n.nspname,                                     +|       |        |                     |                  |
+          |          |   c.relname                                      +|       |        |                     |                  |
+          |          | FROM pg_ca                                        |       |        |                     |                  |
+ postgres | postgres | SELECT DISTINCT userid::regrole, pg_stat_monitor. |     1 |      1 | 2022-10-24 07:31:00 | 6230793895381F1D | 127.0.0.1
+ postgres | postgres | SELECT pg_stat_monitor_version()                  |     1 |      9 | 2022-10-24 07:29:00 | B617F5F12931F388 | 127.0.0.1
+ postgres | postgres | CREATE EXTENSION pg_stat_monitor                  |     1 |      8 | 2022-10-24 07:28:00 | 14B98AF0776BAF7B | 127.0.0.1
+ postgres | postgres | SELECT a.attname,                                +|     1 |      9 | 2022-10-24 07:29:00 | 96F8E4B589EF148F | 127.0.0.1
+          |          |   pg_catalog.format_type(a.attt                   |       |        |                     |                  |
+ postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 |      9 | 2022-10-24 07:29:00 | CCC51D018AC96A25 | 127.0.0.1
+
 ```
 
 
@@ -206,10 +213,10 @@ name                      |                            description
 
 You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration parameters](https://docs.percona.com/pg-stat-monitor/configuration.html) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
-As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
+As an example, let’s set the bucket lifetime from default 60 seconds to 40 seconds. Use the **ALTER SYSTEM** command:
 
 ```sql
-ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 100;
+ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 40;
 ```
 
 Restart the server to apply the change:
@@ -218,13 +225,13 @@ Restart the server to apply the change:
 === "On Debian and Ubuntu"
 
      ```
-     $ sudo systemctl restart restart postgresql.service
+     $ sudo systemctl restart postgresql.service
      ```
 
 === "On Red Hat Enterprise Linux and derivatives"
 
      ```
-     $ sudo systemctl restart postgresql-14
+     $ sudo systemctl restart postgresql-15
      ```
 
 Verify the updated parameter:
@@ -233,13 +240,17 @@ Verify the updated parameter:
 SELECT name, value
   FROM pg_stat_monitor_settings
   WHERE name = 'pg_stat_monitor.pgsm_bucket_time';
+```
 
+Output:
+
+```
                  name               | value
   ----------------------------------+-------
    pg_stat_monitor.pgsm_bucket_time |   100
 ```
 
-!!! seealso
+!!! admonition "See also"
 
     [`pg_stat_monitor` Documentation](https://docs.percona.com/pg-stat-monitor/index.html)
 
