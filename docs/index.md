@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 14 Documentation
+# Percona Distribution for PostgreSQL 15 Documentation
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
 database system: it installs PostgreSQL and complements it by a selection of
@@ -45,11 +45,11 @@ PostgreSQL
       Environment](https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/)
 
 Percona Distribution for PostgreSQL is also shipped with the
-[libpq](https://www.postgresql.org/docs/14/libpq.html) library. It
+[libpq](https://www.postgresql.org/docs/15/libpq.html) library. It
 contains "a set of library functions that allow client programs to pass
 queries to the PostgreSQL backend server and to receive the results of
 these queries." [^1]
 
 
 
-[^1]: <https://www.postgresql.org/docs/14/libpq.html>
+[^1]: <https://www.postgresql.org/docs/15/libpq.html>

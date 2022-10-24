@@ -1,4 +1,4 @@
-# MkDocs configuration for Netlify builds
+# MkDocs configuration for  builds with Material theme
 
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
@@ -78,6 +78,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
+
           cover_subtitle: 15 (October 24, 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
@@ -95,7 +96,7 @@ extra:
     provider: mike
 
 nav:
-  - index.md
+  - 'Home': 'index.md'
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - installing.md
@@ -106,12 +107,12 @@ nav:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
-          - solutions/high-availability.md
+          - 'Overview': 'solutions/high-availability.md'
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
           - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
           - solutions/ha-test.md
       - Backup and disaster recovery:
-          - solutions/backup-recovery.md
+          - 'Overview': 'solutions/backup-recovery.md'
           - solutions/dr-pgbackrest-setup.md
       - LDAP authentication:
           - ldap.md
