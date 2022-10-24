@@ -2,11 +2,7 @@
 
 INHERIT: mkdocs-base.yml
 
-<<<<<<< HEAD
-site_url: "https://www.percona.com/doc/postgresql/14/index.html"
-=======
-site_url: "https://www.percona.com/doc/postgresql/11/index.html"
->>>>>>> b5e8c23... DISTPG-334 Align material theme layout with Percona (#199)
+site_url: "https://www.percona.com/doc/postgresql/15/index.html"
 
 plugins:
   section-index: {}
@@ -21,10 +17,7 @@ extra_css:
   - css/toctree.css
   - css/percona.css
   - css/details.css
-<<<<<<< HEAD
-=======
 
 extra: # Used in main.html template and can't be externalized
     edit_page_text: '<i class="uil uil-pen"></i> <b>Edit this page</b>'
     updated_text: '<i class="uil uil-refresh"></i> Page updated'
->>>>>>> b5e8c23... DISTPG-334 Align material theme layout with Percona (#199)

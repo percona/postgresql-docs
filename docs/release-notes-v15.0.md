@@ -7,7 +7,7 @@
  
 
 
-We are pleased to announce the launch of Percona Distribution for PostgreSQL 15.0 - a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL installs PostgreSQL and complements it by a selection of extensions that are tested to work together and aim to simplify deployment and management of your PostgreSQL environment.
+We are pleased to announce the launch of Percona Distribution for PostgreSQL 15.0 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15](https://www.postgresql.org/docs/15/release-15.html). 
 
@@ -43,6 +43,7 @@ Percona Distribution for PostgreSQL 15 features a lot of new functionalities and
         * [A Quick Peek at the PostgreSQL 15 Beta 1](https://www.percona.com/blog/a-quick-peek-at-the-postgresql-15-beta-1/)
         * [PostgreSQL 15 – New Features to Be Excited About](https://www.percona.com/blog/postgresql-15-new-features-to-be-excited-about/)
         * [PostgreSQL 15: Stats Collector Gone? What’s New?](https://www.percona.com/blog/postgresql-15-stats-collector-gone-whats-new/)
+    * [Highly Available PostgreSQL From Percona](https://www.percona.com/ha-for-postgresql)
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
