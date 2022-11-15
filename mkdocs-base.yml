@@ -79,7 +79,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 15 (October 24, 2022)
+          cover_subtitle: 15 (November , 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -120,6 +120,7 @@ nav:
       - uninstalling.md
   - Release Notes:
       - release-notes.md
+      - release-notes-v15.1.md
       - release-notes-v15.0.md
   - Licensing:
       - licensing.md
