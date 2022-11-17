@@ -99,11 +99,14 @@ nav:
   - 'Home': 'index.md'
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
-        - installing.md
+        - "Overview": "installing.md"
+        - "Install on Debian and Ubuntu": "apt.md"
+        - "Install on RHEL and derivatives": "yum.md"
+        - enable-extensions.md
+        - repo-overview.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
-      - repo-overview.md
   - Extensions:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
   - Solutions:
