@@ -102,8 +102,11 @@ nav:
   - index.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
-        - installing.md
-      - repo-overview.md
+        - "Overview": "installing.md"
+        - "Install on Debian and Ubuntu": "apt.md"
+        - "Install on RHEL and derivatives": "yum.md"
+        - enable-extensions.md
+        - repo-overview.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
@@ -149,4 +152,3 @@ nav:
       - release-notes-v12.2.md
   - Licensing:
       - licensing.md
-# - Version Selector: "../"
