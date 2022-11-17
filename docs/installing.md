@@ -4,54 +4,59 @@ Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linu
 
 Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the **percona-release** utility. The **percona-release** utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.
 
-The installation process includes the following steps:
+## Package contents
 
+In addition to individual packages for Percona Distribution for PostgreSQL components, it also includes two meta-packages: `percona-ppg-server` and `percona-ppg-server-ha`.
 
-1. Install **percona-release**
+Using the meta-package, you can install all components it contains in one go.
 
+### `percona-ppg-server`
 
-2. Enable the repository
+The `percona-ppg-server` meta-package installs the PostgreSQL server with the following packages
 
+| Package contents | Description                             |  
+| ---------------- | --------------------------------------- | 
+| `percona-postgresql%{pgmajorversion}-server` | The PostgreSQL server package. |
+| `percona-postgresql-common` > 14.0 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+| `percona-postgresql%{pgmajorversion}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
+| `percona-pg-stat-monitor%{pgmajorversion}` | A Query Performance Monitoring tool for PostgreSQL. | 
+| `percona-pgaudit` > 14.0 | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
+| `percona-pg_repack%{pgmajorversion}`| rebuilds PostgreSQL database objects.| 
+| `percona-wal2json%{pgmajorversion}` | a PostgreSQL logical decoding JSON output plugin.|
 
-3. Install the packages
+The `%{pgmajorversion}` variable stands for the major version of PostgreSQL.
 
+### `percona-ppg-server-ha`
 
-4. Start the `postgresql` service
+The `percona-ppg-server-ha` meta-package installs high-availability components that are recommended by Percona.
 
+| Package contents | Description                             |  
+| ---------------- | --------------------------------------- | 
+| `percona-patroni`| A high-availability solution for PostgreSQL. | 
+| `percona-haproxy`| A high-availability and load-balancing solution |
+| `etcd`           | A consistent, distributed key-value store | 
+| `python3-python-etcd` | A Python client for ETCD.[^1]
 
-5. Connect to the server
+## Procedure
 
-??? admonition "Repositories overview"
-
-    There are two repositories available for Percona Distribution for PostgreSQL. We recommend installing Percona Distribution for PostgreSQL  from the *Major Release repository* (e.g. `ppg-15`) as it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona.
-
-    The *Minor Release repository* includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. `ppg-15.0`). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories.
-
-    The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.
-
-## Install **percona-release**
+### Install **percona-release**
 
 [Install **percona-release**](https://www.percona.com/doc/percona-repo-config/installing.html) utility. If you have installed it before, [update](https://www.percona.com/doc/percona-repo-config/updating.html) it to the latest version.
 
-## Enable the repository
+### Enable the repository
 
-As soon as **percona-release** is installed or up-to-date, enable the repository for Percona Distribution for PostgreSQL (`ppg-15`). We recommend using the `setup` command as it enables the specified repository and updates the platform’s package manager database.
+Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
-To install the *latest* version of Percona Distribution for PostgreSQL, enable the Major Release repository using the following command:
+To enable a repository, we recommend using the `setup` command: 
 
 ```
 $ sudo percona-release setup ppg-15
 ```
 
-To install a *specific minor version* of Percona Distribution for PostgreSQL, enable the Minor release repository. For example, to install Percona Distribution for PostgreSQL 15.0, enable the `ppg-15.0`  repository using the following command:
 
-```
-$ sudo percona-release setup ppg-15.0
-```
+### Install Percona Distribution for PostgreSQL packages
 
-## Install Percona Distribution for PostgreSQL packages
-
-After you’ve installed ``percona-release`` and enabled the desired repository, install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
+Install Percona Distribution for PostgreSQL using the commands of your package manager (the procedure differs
 depending on the package manager of your operating system).
 
 === "On Debian and Ubuntu using `apt`"
@@ -90,7 +95,7 @@ depending on the package manager of your operating system).
      $ sudo yum install percona-postgresql15-server
      ```
 
-### Install the Percona Distribution for PostgreSQL components
+#### Install the Percona Distribution for PostgreSQL components
 
 Note that this package will not install the components. Use the following commands to install components’ packages:
 
@@ -327,7 +332,7 @@ After the installation, enable the following option in `postgresql.conf` configu
 wal_level = logical
 ```
 
-## Connect to the PostgreSQL server
+### Connect to the PostgreSQL server
 
 By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
 
@@ -354,3 +359,6 @@ To exit the `psql` terminal, use the following command:
 ```
 $ \q
 ```
+
+
+[^1]: Is included in repositories for RHEL 8 / CentOS 8 operating systems

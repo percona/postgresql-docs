@@ -103,6 +103,7 @@ nav:
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
+      - repo-overview.md
   - Extensions:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
   - Solutions:
