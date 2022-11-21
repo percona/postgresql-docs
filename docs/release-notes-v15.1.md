@@ -10,7 +10,7 @@ Percona Distribution for PostgreSQL is a solution with the collection of tools f
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.1](https://www.postgresql.org/docs/current/release-15-1.html). 
 
-Percona Distribution for PostgreSQL now includes the [meta-packages](installing.md/#package-contents) that simplify its installation. The `percona-ppg-server` meta-package installs PostgreSQL and the extensions, while `percona-ppg-server-ha` package installs high-availability components that are recommended by Percona.
+Percona Distribution for PostgreSQL now includes the [meta-packages](installing.md#package-contents) that simplify its installation. The `percona-ppg-server` meta-package installs PostgreSQL and the extensions, while `percona-ppg-server-ha` package installs high-availability components that are recommended by Percona.
 
 -----------------------------------------------------------------------------
 
