@@ -96,6 +96,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/postgresql/14/release-notes-v14.6.html</loc>
+         <lastmod>2022-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/postgresql/14/release-notes.html</loc>
          <lastmod>2022-11-23</lastmod>
          <changefreq>daily</changefreq>
