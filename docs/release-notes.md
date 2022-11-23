@@ -1,5 +1,6 @@
 # Release Notes
 
+* [Percona Distribution for PostgreSQL 14.6](release-notes-v14.6.md)
 
 * [Percona Distribution for PostgreSQL 14.5](release-notes-v14.5.md)
 
