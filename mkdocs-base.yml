@@ -101,8 +101,12 @@ extra:
 nav:
   - index.md
   - Installation and Upgrade:
-      - installing.md
-      - repo-overview.md
+      - Install Percona Distribution for PostgreSQL:
+        - "Overview": "installing.md"
+        - "Install on Debian and Ubuntu": "apt.md"
+        - "Install on RHEL and derivatives": "yum.md"
+        - enable-extensions.md
+        - repo-overview.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
