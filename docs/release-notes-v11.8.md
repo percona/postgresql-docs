@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 11.8
+# Percona Distribution for PostgreSQL 11.8 (2020-06-11)
 
 
 <table class="docutils field-list" frame="void" rules="none">

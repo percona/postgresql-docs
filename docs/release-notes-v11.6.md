@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 11.6
+# Percona Distribution for PostgreSQL 11.6 (2020-01-23)
 
 Percona is happy to announce the release of Percona Distribution for PostgreSQL 11.6 on January 23, 2020.
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
