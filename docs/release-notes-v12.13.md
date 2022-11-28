@@ -1,7 +1,7 @@
-# Percona Distribution for PostgreSQL 12.13 (2022-11-)
+# Percona Distribution for PostgreSQL 12.13 (2022-12-01)
 
 
-| Release date:     | November, 2022      |
+| Release date:     | December 1, 2022      |
 |:------------------|:----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
