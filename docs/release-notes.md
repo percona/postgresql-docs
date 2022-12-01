@@ -1,4 +1,4 @@
-# Release Notes
+# Release notes index
 
 
 * [Percona Distribution for PostgreSQL 12.13](release-notes-v12.13.md) (2022-12-01)
