@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 11
+# Percona Distribution for PostgreSQL 11 (2019-09-17)
 
 Percona is excited to announce the GA release of Percona Distribution for PostgreSQL 11 on September 17, 2019.
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
