@@ -54,13 +54,13 @@ In this setup we will configure ETCD on a dedicated  node.
    - [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
    - Enable the repository:
 
-      ```sh
+      ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg11
       ```
    
    - Install the etcd packages using the following command:
 
-      ```sh
+      ```{.bash data-prompt="$"}
       $ sudo yum install etcd python3-python-etcd
       ```
 
@@ -83,7 +83,7 @@ In this setup we will configure ETCD on a dedicated  node.
 
 3.  Start the `etcd` to apply the changes:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo systemctl enable etcd
     $ sudo systemctl start etcd
     $ sudo systemctl status etcd
@@ -91,7 +91,7 @@ In this setup we will configure ETCD on a dedicated  node.
 
 5. Check the etcd cluster members.
     
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo etcdctl member list
     ```
 
@@ -108,7 +108,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 1. [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
 2. Enable the repository:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo percona-release setup ppg11
     ```
 
@@ -122,13 +122,13 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 1. Install Patroni on every PostgreSQL node:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo yum install percona-patroni
     ```
 
 2. Install the Python module that enables Patroni to communicate with ETCD.
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo python3 -m pip install patroni[etcd]
     ```
 
@@ -136,14 +136,14 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
     * Create the directory to store the configuration file and make it owned by the `postgres` user.
 
-      ```sh
+      ```{.bash data-prompt="$"}
       $ sudo mkdir -p /etc/patroni/
       $ sudo chown -R  postgres:postgres /etc/patroni/
       ``` 
 
     * Create the data directory for Patroni. Change its ownership to the `postgres` user and restrict the access to it 
 
-     ```sh
+     ```{.bash data-prompt="$"}
      $ sudo mkdir /data/patroni -p
      $ sudo chown -R postgres:postgres /data/patroni
      $ sudo chmod 700 /data/patroni
@@ -151,7 +151,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 4. Create the `patroni.yml` configuration file. 
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ su postgres
     $ vim /etc/patroni/patroni.yml
     ```
@@ -236,7 +236,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 7. Create the systemd unit file `patroni.service` in `/etc/systemd/system`. 
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo vim /etc/systemd/system/patroni.service
     ```
 
@@ -274,7 +274,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 8. Make systemd aware of the new service:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
     $ sudo systemctl enable patroni
     $ sudo systemctl start patroni
@@ -284,7 +284,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
             To ensure that Patroni has started properly, check the logs using the following command:
 
-            ```sh
+            ```{.bash data-prompt="$"}
             $ sudo journalctl -u patroni.service -n 100 -f
             ```
 
@@ -339,7 +339,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
             If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-            ```sh
+            ```{.bash data-prompt="$"}
             $ sudo psql -U postgres
 
             psql (11.13)
@@ -351,7 +351,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 9. Configure, enable and start Patroni on the remaining nodes.
 10. When all nodes are up and running, you can check the cluster status using the following command:
 
-   ```sh
+   ```{.bash data-prompt="$"}
    $ sudo patronictl -c /etc/patroni/patroni.yml list
    
 
@@ -372,7 +372,7 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
-    ``` sh
+    ```{.bash data-prompt="$"}
     $ sudo yum install haproxy
     ```
 
@@ -422,18 +422,18 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 3. Enable a SELinux boolean to allow HAProxy to bind to non standard ports:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo setsebool -P haproxy_connect_any on
     ```
 
 4. Restart HAProxy:
     
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo systemctl restart haproxy
     ```
 
 5. Check the HAProxy logs to see if there are any errors:
    
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```

@@ -38,14 +38,14 @@ Before the upgrade, update the **percona-release** utility to the latest version
     === "On Debian / Ubuntu"
 
       
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
 
     === "On Red Hat Enterprise Linux and derivatives"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-11
          ```
 
@@ -59,14 +59,14 @@ Before the upgrade, update the **percona-release** utility to the latest version
     === "On Debian / Ubuntu"
 
       
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
 
     === "On Red Hat Enterprise Linux and derivatives"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-11
          ```
 
