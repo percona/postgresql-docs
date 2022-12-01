@@ -109,7 +109,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 1. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html) 
 2. Enable the repository
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo percona-release setup ppg13
     ```
 
@@ -119,12 +119,12 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 
     === "On Debian and Ubuntu"
 
-         ```sh
+         ```{.bash data-promp="$"}
          $ sudo systemctl start postgresql.service
          ```
 
     === "On RHEL and compatible derivatives"
 
-         ```sh
+         ```{.bash data-promp="$"}
          $ sudo systemctl start postgresql-13
          ```

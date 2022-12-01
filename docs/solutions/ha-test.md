@@ -11,7 +11,7 @@ This document covers the following scenarios to test the PostgreSQL cluster:
 
 1. Connect to the cluster and establish the `psql` session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node's public IP address:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ psql -U postgres -h 134.209.111.138 -p 5000
     ```
 
@@ -25,7 +25,7 @@ This document covers the following scenarios to test the PostgreSQL cluster:
 
 3. To ensure that the replication is working, we can log in to each PostgreSQL node and run a simple SQL statement against the locally running instance:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo psql -U postgres -c "SELECT * FROM CUSTOMER;"
     ```
     
@@ -47,7 +47,7 @@ In a proper setup, client applications won't have issues connecting to the clust
 
 1. Run the following command on any node to check the current cluster status:
 
-    ``` sh
+    ```{.bash data-promp="$"}
     $ sudo patronictl -c /etc/patroni/patroni.yml list
 
     + Cluster: stampede1 (7011110722654005156) -----------+
@@ -61,17 +61,17 @@ In a proper setup, client applications won't have issues connecting to the clust
 
 2. `node1` is the current leader. Stop Patroni in `node1` to see how it changes the cluster:
     
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo systemctl stop patroni
     ```
 
 3. Once the service stops in `node1`, check the logs in `node2` and `node3` using the following command: 
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
-    !!! admonition "Output"
+    ??? admonition "Output"
         
         ```
         Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
@@ -92,7 +92,7 @@ In a proper setup, client applications won't have issues connecting to the clust
   
 4. Verify that you can still access the cluster through the HAProxy instance and read data:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ psql -U postgres -h 10.104.0.6 -p 5000 -c "SELECT * FROM CUSTOMER;"
 
       name  | age
@@ -105,14 +105,14 @@ In a proper setup, client applications won't have issues connecting to the clust
 
 5. Restart the Patroni service in `node1`
     
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo systemctl start patroni
     ```
 
 6. Check the current cluster status:  
 
     
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo patronictl -c /etc/patroni/patroni.yml list
 
     + Cluster: stampede1 (7011110722654005156) -----------+
@@ -133,7 +133,7 @@ To emulate the power outage, let's kill the service in `node3` and see what happ
 
 1. Identify the process ID of Patroni and then kill it with a `-9` switch. 
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ ps aux | grep -i patroni
 
     postgres   10042  0.1  2.1 647132 43948 ?        Ssl  12:50   0:09 /usr/bin/python3 /usr/bin/patroni /etc/patroni/patroni.yml
@@ -143,11 +143,11 @@ To emulate the power outage, let's kill the service in `node3` and see what happ
 
 2. Check the logs on `node2`: 
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
-    !!! admonition "Output"
+    ??? admonition "Output"
 
         ```
         Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)
@@ -175,7 +175,7 @@ Typically, a manual switchover is needed for planned downtime to perform mainten
 
 Run the following command on `node2` (the current leader node):
 
-```sh
+```{.bash data-promp="$"}
 $ sudo patronictl -c /etc/patroni/patroni.yml switchover
 ```
 
