@@ -2,7 +2,7 @@
 
 INHERIT: mkdocs-base.yml
 
-site_url: "https://docs.percona.com/postgresql/"
+site_url: "https://docs.percona.com/postgresql/15/index.html"
 
 plugins:
     section-index: {} # Adds links to nodes - comment out when creating PDF

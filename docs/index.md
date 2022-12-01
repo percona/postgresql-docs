@@ -35,7 +35,8 @@ PostgreSQL
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/14/contrib.html)
 
-!!! seealso
+
+!!! admonition "See also"
 
     Blog Posts
 
@@ -44,11 +45,18 @@ PostgreSQL
     - [Securing PostgreSQL as an Enterprise-Grade
       Environment](https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/)
 
+
 Percona Distribution for PostgreSQL is also shipped with the
 [libpq](https://www.postgresql.org/docs/15/libpq.html) library. It
 contains "a set of library functions that allow client programs to pass
 queries to the PostgreSQL backend server and to receive the results of
 these queries." [^1]
+
+
+## Get started
+
+* [Install Percona Distribution for PostgreSQL](installing.md)
+* [Enable extensions](enable-extensions.md)
 
 
 

@@ -68,13 +68,13 @@ To install `pg_stat_monitor`, run the following commands:
 
     1. Enable the repository
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg15
         ```
 
     2. Install the package:
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo apt-get install percona-pg-stat-monitor15
         ```
 
@@ -82,13 +82,13 @@ To install `pg_stat_monitor`, run the following commands:
 
     1. Enable the repository
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg15
         ```
     
     2. Install the package:
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pg-stat-monitor15
         ```
 
@@ -122,14 +122,14 @@ To install `pg_stat_monitor`, run the following commands:
 
     === "On Debian and Ubuntu"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl restart postgresql.service
          ```
 
 
     === "On Red Hat Enterprise Linux and derivatives"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl restart postgresql-15
          ```
 
@@ -224,13 +224,13 @@ Restart the server to apply the change:
 
 === "On Debian and Ubuntu"
 
-     ```
+     ```{.bash data-prompt="$"}
      $ sudo systemctl restart postgresql.service
      ```
 
 === "On Red Hat Enterprise Linux and derivatives"
 
-     ```
+     ```{.bash data-prompt="$"}
      $ sudo systemctl restart postgresql-15
      ```
 
