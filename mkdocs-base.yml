@@ -41,6 +41,7 @@ extra_css:
 
 extra_javascript:
   - js/version-select.js
+  - js/promptremover.js
 
 markdown_extensions:
   attr_list: {}
@@ -110,19 +111,19 @@ nav:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
-          - solutions/high-availability.md
+          - "High availability": "solutions/high-availability.md"
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
           - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
           - solutions/ha-test.md
       - Backup and disaster recovery:
-          - solutions/backup-recovery.md
+          - "Backup and disaster recovery": "solutions/backup-recovery.md"
           - solutions/dr-pgbackrest-setup.md
       - LDAP authentication:
           - ldap.md
   - Uninstall:
       - uninstalling.md
-  - Release Notes:
-      - release-notes.md
+  - Release notes:
+      - "Release notes index": "release-notes.md"
       - release-notes-v14.6.md
       - release-notes-v14.5.md
       - release-notes-v14.4.md
