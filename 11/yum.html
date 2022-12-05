@@ -15,14 +15,14 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/release-notes-v11.11.upd2.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/yum.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Percona Distribution for PostgreSQL 11.11 Second Update (2021-05-10) - Percona Distribution for PostgreSQL</title>
+        <title>Install on RHEL and derivatives - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-1111-second-update-2021-05-10" class="md-skip">
+        <a href="#install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 11.11 Second Update (2021-05-10)
+              Install on RHEL and derivatives
             
           </span>
         </div>
@@ -270,12 +270,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -296,12 +298,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
       
       
       
@@ -350,11 +354,95 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Install on RHEL and derivatives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="yum.html" class="md-nav__link md-nav__link--active">
         Install on RHEL and derivatives
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#platform-specific-notes" class="md-nav__link">
+    Platform Specific Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-repository" class="md-nav__link">
+    Configure the repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages" class="md-nav__link">
+    Install packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-service" class="md-nav__link">
+    Start the service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-postgresql-server" class="md-nav__link">
+    Connect to the PostgreSQL server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -680,14 +768,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
@@ -896,21 +982,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="release-notes-v11.11.upd2.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v11.11.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.11 Second Update (2021-05-10)
       </a>
-      
     </li>
   
 
@@ -1104,6 +1180,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#platform-specific-notes" class="md-nav__link">
+    Platform Specific Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-repository" class="md-nav__link">
+    Configure the repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-packages" class="md-nav__link">
+    Install packages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-service" class="md-nav__link">
+    Start the service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-postgresql-server" class="md-nav__link">
+    Connect to the PostgreSQL server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1118,7 +1250,7 @@
                 <!-- Edit button -->
                 
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/11/docs/release-notes-v11.11.upd2.md"
+                    href="https://github.com/percona/postgresql-docs/edit/11/docs/yum.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
@@ -1134,35 +1266,109 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-1111-second-update-2021-05-10">Percona Distribution for PostgreSQL 11.11 Second Update (2021-05-10)<a class="headerlink" href="#percona-distribution-for-postgresql-1111-second-update-2021-05-10" title="Permanent link">&para;</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-  <colgroup>
-    <col class="field-name">
-    <col class="field-body">
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field-odd field">
-      <th class="field-name">Date:</th>
-      <td class="field-body">May 10, 2021</td>
-    </tr>
-    <tr class="field-even field">
-      <th class="field-name">Installation:</th>
-      <td class="field-body">
-        <a class="reference external" href="https://www.percona.com/doc/postgresql/11/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>This update of Percona Distribution for PostgreSQL includes the latest version of <a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> 0.9.0 - the statistics collection tool for PostgreSQL. <code>pg_stat_monitor</code> is available as the Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> and is supplied in the set of extensions within Percona Distribution for PostgreSQL.</p>
-<p>We welcome your feedback on your experience with <code>pg_stat_monitor</code> in the <a href="https://jira.percona.com/projects/DISTPG">public JIRA project</a>.</p>
-<div class="footnote">
-<hr />
+                <h1 id="install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
+<p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives..</p>
+<h2 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h2>
+<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
+<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql llvm-toolset
+</code></pre></div>
+<p>On CentOS 7, you should install the <code>epel-release</code> package:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum -y install epel-release
+$ sudo yum repolist
+</code></pre></div>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
+<h3 id="configure-the-repository">Configure the repository<a class="headerlink" href="#configure-the-repository" title="Permanent link">&para;</a></h3>
 <ol>
-<li id="fn:1">
-<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA. They are included in this release, so that users can provide feedback prior to the full release of the feature in a future GA release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li>
+<p>Install the <code>percona-release</code> repository management tool to subscribe to Percona repositories:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+</code></pre></div>
+</li>
+<li>
+<p>Enable the repository</p>
+</li>
+</ol>
+<p>Percona provides <a href="repo-overview.html">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
+<p>To enable a repository, we recommend using the <code>setup</code> command: </p>
+<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-11
+</code></pre></div>
+<h3 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install using meta-package</label><label for="__tabbed_1_2">Install packages individually</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-ppg-server
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Install the PostgreSQL server package:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql11-server
+</code></pre></div>
+</li>
+<li>
+<p>Install the components:</p>
+<p>Install <code>pg_repack</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pg_repack11
+</code></pre></div>
+<p>Install <code>pgaudit</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit
+</code></pre></div>
+<p>Install <code>pgBackRest</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbackrest
+</code></pre></div>
+<p>Install <code>Patroni</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-patroni
+</code></pre></div>
+<p><a href="pg-stat-monitor.html">Install <code>pg_stat_monitor</code></a>:</p>
+<p>Install <code>pgBouncer</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbouncer
+</code></pre></div>
+<p>Install <code>pgAudit-set_user</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit11_set_user
+</code></pre></div>
+<p>Install <code>pgBadger</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbadger
+</code></pre></div>
+<p>Install <code>wal2json</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-wal2json11
+</code></pre></div>
+<p>Install PostgreSQL contrib extensions:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql11-contrib
+</code></pre></div>
+<p>Install HAProxy</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-haproxy
+</code></pre></div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
 </li>
 </ol>
 </div>
+</div>
+</div>
+<h3 id="start-the-service">Start the service<a class="headerlink" href="#start-the-service" title="Permanent link">&para;</a></h3>
+<p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
+<div class="highlight"><pre><span></span><code>/usr/pgsql-11/bin/postgresql-11-setup initdb
+</code></pre></div>
+<p>Start the PostgreSQL service:</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-11
+</code></pre></div>
+<h3 id="connect-to-the-postgresql-server">Connect to the PostgreSQL server<a class="headerlink" href="#connect-to-the-postgresql-server" title="Permanent link">&para;</a></h3>
+<p>By default, <code>postgres</code> user and <code>postgres</code> database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the <code>postgres</code> user.</p>
+<div class="highlight"><pre><span></span><code>$ sudo su postgres
+</code></pre></div>
+<p>Open the PostgreSQL interactive terminal:</p>
+<div class="highlight"><pre><span></span><code>$ psql
+</code></pre></div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can connect to <code>psql</code> as the <code>postgres</code> user in one go:</p>
+<div class="highlight"><pre><span></span><code>$ sudo su postgres psql
+</code></pre></div>
+</div>
+<p>To exit the <code>psql</code> terminal, use the following command:</p>
+<div class="highlight"><pre><span></span><code>$ \q
+</code></pre></div>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1184,7 +1390,7 @@
   <small>
     
       Last update:
-      2022-06-07
+      2022-12-05
     
   </small>
 </div>
@@ -1212,7 +1418,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="release-notes-v11.11.upd3.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 11.11 Third Update (2021-06-10)" rel="prev">
+        <a href="apt.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install on Debian and Ubuntu" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1221,20 +1427,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 11.11 Third Update (2021-06-10)
+              Install on Debian and Ubuntu
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes-v11.11.upd.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 11.11 Update (2021-04-12)" rel="next">
+        <a href="enable-extensions.html" class="md-footer__link md-footer__link--next" aria-label="Next: Enable Percona Distribution for PostgreSQL extensions" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Percona Distribution for PostgreSQL 11.11 Update (2021-04-12)
+              Enable Percona Distribution for PostgreSQL extensions
             </div>
           </div>
           <div class="md-footer__button md-icon">
