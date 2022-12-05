@@ -742,23 +742,31 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="release-notes.html">Release Notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6">
+          Release notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <nav class="md-nav" aria-label="Release notes" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Release Notes
+          Release notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes.html" class="md-nav__link">
+        Release notes index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1177,14 +1185,23 @@
               <article class="md-content__inner md-typeset">
                 
 
-                <!-- Edit button -->
+                <!-- Edit and view button -->
                 
+                  
+                  
                   <a
                     href="https://github.com/percona/postgresql-docs/edit/11/docs/migration.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/11/docs/migration.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
                   </a>
                 
 
@@ -1204,18 +1221,16 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu Linux</label><label for="__tabbed_1_2">On RHEL and compatible derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<blockquote>
 <p>To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice. The backup process is out of scope of this document. You can use <code>pg_dumpall</code> or other tools of your choice. </p>
-</blockquote>
 <ol>
 <li>
 <p>Stop the <code>postgresql</code> server   </p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql.service
 </code></pre></div>
 </li>
 <li>
 <p>Remove community packages</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get --purge remove postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt-get --purge remove postgresql
 </code></pre></div>
 </li>
 <li>
@@ -1223,7 +1238,7 @@
 </li>
 <li>
 <p>Enable the repository</p>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg11
 </code></pre></div>
 </li>
 <li>
@@ -1232,27 +1247,25 @@
 <li>(Optional) Restore the data from the backup.</li>
 <li>
 <p>Start the <code>postgresql</code> service. The installation process starts and initializes the default cluster automatically. You can check its status with: </p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl status postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl status postgresql
 </code></pre></div>
 <p>If <code>postresql</code> service is not started, start it manually:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql.service
 </code></pre></div>
 </li>
 </ol>
 </div>
 <div class="tabbed-block">
-<blockquote>
 <p>To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice. The backup process is out of scope of this document. You can use <code>pg_dumpall</code> or other tools of your choice. </p>
-</blockquote>
 <ol>
 <li>
 <p>Stop the <code>postgresql</code> server   </p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql-11
 </code></pre></div>
 </li>
 <li>
 <p>Remove community packages</p>
-<div class="highlight"><pre><span></span><code>$ sudo yum remove postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum remove postgresql
 </code></pre></div>
 </li>
 <li>
@@ -1260,7 +1273,7 @@
 </li>
 <li>
 <p>Enable the repository</p>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg11
 </code></pre></div>
 </li>
 <li>
@@ -1269,7 +1282,7 @@
 <li>(Optional) Restore the data from the backup.</li>
 <li>
 <p>Start the <code>postgresql</code> service</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql-11
 </code></pre></div>
 </li>
 </ol>
@@ -1287,11 +1300,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql.service
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql-11
 </code></pre></div>
 </div>
 </div>
@@ -1306,7 +1319,7 @@
 <li><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release</a> </li>
 <li>
 <p>Enable the repository</p>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg11
 </code></pre></div>
 </li>
 <li>
@@ -1318,11 +1331,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On RHEL and compatible derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql.service
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql-11
 </code></pre></div>
 </div>
 </div>
@@ -1350,7 +1363,7 @@
   <small>
     
       Last update:
-      2022-07-22
+      2022-12-05
     
   </small>
 </div>
@@ -1441,6 +1454,8 @@
       <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="js/version-select.js"></script>
+      
+        <script src="js/promptremover.js"></script>
       
     
     

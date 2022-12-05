@@ -792,23 +792,31 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../release-notes.html">Release Notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6">
+          Release notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <nav class="md-nav" aria-label="Release notes" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Release Notes
+          Release notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes.html" class="md-nav__link">
+        Release notes index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1275,14 +1283,23 @@
               <article class="md-content__inner md-typeset">
                 
 
-                <!-- Edit button -->
+                <!-- Edit and view button -->
                 
+                  
+                  
                   <a
                     href="https://github.com/percona/postgresql-docs/edit/11/docs/solutions/ha-setup-apt.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/11/docs/solutions/ha-setup-apt.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
                   </a>
                 
 
@@ -1368,7 +1385,7 @@
 <p>Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
 $ sudo rm -rf /var/lib/postgresql/11/main
 </code></pre></div>
 <h2 id="configure-etcd-distributed-store">Configure ETCD distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
@@ -1377,7 +1394,7 @@ $ sudo rm -rf /var/lib/postgresql/11/main
 <ol>
 <li>
 <p>Install <code>etcd</code> on every PostgreSQL node using the following command:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt install etcd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install etcd
 </code></pre></div>
 </li>
 <li>
@@ -1427,18 +1444,18 @@ ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.8:2379&quot;
 </li>
 <li>
 <p>On <code>node1</code>, add <code>node2</code> and <code>node3</code> to the cluster using the <code>add</code> command:</p>
-<div class="highlight"><pre><span></span><code>$ sudo etcdctl member add node2 http://10.104.0.2:2380
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo etcdctl member add node2 http://10.104.0.2:2380
 $ sudo etcdctl member add node3 http://10.104.0.8:2380
 </code></pre></div>
 </li>
 <li>
 <p>Restart the <code>etcd</code> service on <code>node2</code> and <code>node3</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl restart etcd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl restart etcd
 </code></pre></div>
 </li>
 <li>
 <p>Check the etcd cluster members.</p>
-<div class="highlight"><pre><span></span><code>$ sudo etcdctl member list
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo etcdctl member list
 </code></pre></div>
 <p>The output resembles the following:</p>
 <div class="highlight"><pre><span></span><code>21d50d7f768f153a: name=node1 peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
@@ -1454,12 +1471,12 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <ol>
 <li>
 <p>Load Softdog:</p>
-<div class="highlight"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;softdog&quot; &gt;&gt; /etc/modules&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;softdog&quot; &gt;&gt; /etc/modules&#39;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Patroni will be interacting with the watchdog service. Since Patroni is run by the <code>postgres</code> user, this user must have access to Softdog. To make this happen, change the ownership  of the <code>watchdog.rules</code> file to the <code>postgres</code> user: </p>
-<div class="highlight"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;KERNEL==\&quot;watchdog\&quot;, OWNER=\&quot;postgres\&quot;, GROUP=\&quot;postgres\&quot;&quot; &gt;&gt; /etc/udev/rules.d/61-watchdog.rules&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;KERNEL==\&quot;watchdog\&quot;, OWNER=\&quot;postgres\&quot;, GROUP=\&quot;postgres\&quot;&quot; &gt;&gt; /etc/udev/rules.d/61-watchdog.rules&#39;</span>
 </code></pre></div>
 </li>
 <li>
@@ -1467,7 +1484,7 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <ul>
 <li>Find out the files where Softdog is blacklisted:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* <span class="p">|</span>grep softdog
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* <span class="p">|</span>grep softdog
 </code></pre></div>
 <p>In our case, <code>modprobe</code>is blacklisting the Softdog:</p>
 <div class="highlight"><pre><span></span><code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf:blacklist softdog
@@ -1476,12 +1493,12 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <li>Remove the <code>blacklist softdog</code> line from the <code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf</code> file. </li>
 <li>Restart the service </li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo modprobe softdog
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo modprobe softdog
 </code></pre></div>
 <ul>
 <li>Verify the <code>modprobe</code> is working correctly by running the <code>lsmod</code>command:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo lsmod <span class="p">|</span> grep softdog
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo lsmod <span class="p">|</span> grep softdog
 </code></pre></div>
 <p>The output will show a process identifier if it’s running.</p>
 <div class="highlight"><pre><span></span><code>softdog                16384  0
@@ -1491,22 +1508,22 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <p>Check that the Softdog files under the <code>/dev/</code>folder are owned by the <code>postgres</code>user: </p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>$ ls -l /dev/watchdog*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ ls -l /dev/watchdog*
 
-crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
-crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
+crw-rw---- <span class="m">1</span> postgres postgres  <span class="m">10</span>, <span class="m">130</span> Sep <span class="m">11</span> <span class="m">12</span>:53 /dev/watchdog
+crw------- <span class="m">1</span> root     root     <span class="m">245</span>,   <span class="m">0</span> Sep <span class="m">11</span> <span class="m">12</span>:53 /dev/watchdog0
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If the ownership has not been changed for any reason, run the following command to manually change it:</p>
-<div class="highlight"><pre><span></span><code>$ sudo chown postgres:postgres /dev/watchdog*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo chown postgres:postgres /dev/watchdog*
 </code></pre></div>
 </div>
 <h2 id="configure-patroni">Configure Patroni<a class="headerlink" href="#configure-patroni" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Install Patroni on every PostgreSQL node:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-patroni
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install percona-patroni
 </code></pre></div>
 </li>
 <li>
@@ -1615,7 +1632,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 </li>
 <li>
 <p>Enable and restart the patroni service on every node. Use the following commands:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl <span class="nb">enable</span> patroni
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl <span class="nb">enable</span> patroni
 $ sudo systemctl restart patroni
 </code></pre></div>
 </li>
@@ -1624,7 +1641,7 @@ $ sudo systemctl restart patroni
 <div class="admonition admonition">
 <p class="admonition-title">Troubleshooting Patroni</p>
 <p>To ensure that Patroni has started properly, check the logs using the following command:</p>
-<div class="highlight"><pre><span></span><code>$ sudo journalctl -u patroni.service -n <span class="m">100</span> -f
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo journalctl -u patroni.service -n <span class="m">100</span> -f
 </code></pre></div>
 <p>The output shouldn&rsquo;t show any errors:</p>
 <div class="highlight"><pre><span></span><code>…
@@ -1672,7 +1689,7 @@ Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. 
 <p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
 </div>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
-<div class="highlight"><pre><span></span><code>$ sudo psql -U postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo psql -U postgres
 </code></pre></div>
 <p>The command output is the following</p>
 <div class="highlight"><pre><span></span><code>psql (11.13)
@@ -1686,7 +1703,7 @@ postgres=#
 <ol>
 <li>
 <p>Install HAProxy on the <code>HAProxy-demo</code> node:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt install haproxy
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install haproxy
 </code></pre></div>
 </li>
 <li>
@@ -1732,12 +1749,12 @@ listen standbys
 </li>
 <li>
 <p>Restart HAProxy:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl restart haproxy
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl restart haproxy
 </code></pre></div>
 </li>
 <li>
 <p>Check the HAProxy logs to see if there are any errors:</p>
-<div class="highlight"><pre><span></span><code>$ sudo journalctl -u haproxy.service -n <span class="m">100</span> -f
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo journalctl -u haproxy.service -n <span class="m">100</span> -f
 </code></pre></div>
 </li>
 </ol>
@@ -1764,7 +1781,7 @@ listen standbys
   <small>
     
       Last update:
-      2022-04-26
+      2022-12-05
     
   </small>
 </div>
@@ -1855,6 +1872,8 @@ listen standbys
       <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="../js/version-select.js"></script>
+      
+        <script src="../js/promptremover.js"></script>
       
     
     

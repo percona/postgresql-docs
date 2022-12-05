@@ -847,23 +847,31 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../release-notes.html">Release Notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6">
+          Release notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <nav class="md-nav" aria-label="Release notes" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
-          Release Notes
+          Release notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes.html" class="md-nav__link">
+        Release notes index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1385,14 +1393,23 @@
               <article class="md-content__inner md-typeset">
                 
 
-                <!-- Edit button -->
+                <!-- Edit and view button -->
                 
+                  
+                  
                   <a
                     href="https://github.com/percona/postgresql-docs/edit/11/docs/solutions/dr-pgbackrest-setup.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/11/docs/solutions/dr-pgbackrest-setup.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
                   </a>
                 
 
@@ -1477,7 +1494,7 @@ pg-secondary
 <ol>
 <li>
 <p>To set or change the password, run the following command <strong>as a root user</strong>:</p>
-<div class="highlight"><pre><span></span><code>$ passwd postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ passwd postgres
 </code></pre></div>
 </li>
 <li>
@@ -1490,7 +1507,7 @@ pg-secondary
 </li>
 <li>
 <p>In the <code>pg-repo</code> node, restart the <code>sshd</code> service. Without the restart, the SSH server will not allow you to connect to it using a password while adding the keys.</p>
-<div class="highlight"><pre><span></span><code>$ sudo service sshd restart
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo service sshd restart
 </code></pre></div>
 </li>
 <li>
@@ -1502,7 +1519,7 @@ pg-secondary
 <ul>
 <li>
 <p>Generate SSH keys:   </p>
-<div class="highlight"><pre><span></span><code>$ ssh-keygen -t rsa
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ ssh-keygen -t rsa
 Generating public/private rsa key pair.
 Enter file <span class="k">in</span> which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>: 
 Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: 
@@ -1515,7 +1532,7 @@ The key fingerprint is:
 </li>
 <li>
 <p>Copy the public key to the <code>pg-repo</code> node:</p>
-<div class="highlight"><pre><span></span><code>$ ssh-copy-id -i ~/.ssh/id_rsa.pub postgres@pg-repo
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ ssh-copy-id -i ~/.ssh/id_rsa.pub postgres@pg-repo
 /usr/bin/ssh-copy-id: INFO: Source of key<span class="o">(</span>s<span class="o">)</span> to be installed: <span class="s2">&quot;/root/.ssh/id_rsa.pub&quot;</span>
 /usr/bin/ssh-copy-id: INFO: attempting to log <span class="k">in</span> with the new key<span class="o">(</span>s<span class="o">)</span>, to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: <span class="m">1</span> key<span class="o">(</span>s<span class="o">)</span> remain to be installed -- <span class="k">if</span> you are prompted now it is to install the new keys
@@ -1532,7 +1549,7 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 </li>
 <li>
 <p>To verify everything has worked as expected, run the following command from the <code>pg-primary</code> node. </p>
-<div class="highlight"><pre><span></span><code>$ ssh postgres@pg-repo
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ ssh postgres@pg-repo
 </code></pre></div>
 <p>You should be able to connect to the <code>pg-repo</code> terminal without a password.</p>
 </li>
@@ -1547,7 +1564,7 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <li><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <code>percona-release</code></a>.</li>
 <li>
 <p>Enable the repository:</p>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg11
 </code></pre></div>
 </li>
 <li>
@@ -1555,11 +1572,11 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RedHat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-11 -y
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install percona-postgresql-11 -y
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql11-server
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum install percona-postgresql11-server
 </code></pre></div>
 </div>
 </div>
@@ -1586,7 +1603,7 @@ wal_level = replica
 </li>
 <li>
 <p>Once the changes are saved, restart PostgreSQL.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl restart postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl restart postgresql
 </code></pre></div>
 </li>
 </ol>
@@ -1595,11 +1612,11 @@ wal_level = replica
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt-get install percona-pgbackrest
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum install percona-pgbackrest
 </code></pre></div>
 </div>
 </div>
@@ -1609,13 +1626,13 @@ wal_level = replica
 <ol>
 <li>
 <p>Configure a location and permissions for the <code>pgBackRest</code> log rotation:</p>
-<div class="highlight"><pre><span></span><code>$ sudo mkdir -p -m <span class="m">770</span> /var/log/pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo mkdir -p -m <span class="m">770</span> /var/log/pgbackrest
 $ sudo chown postgres:postgres /var/log/pgbackrest
 </code></pre></div>
 </li>
 <li>
 <p>Configure the location and permissions for the <code>pgBackRest</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code>$ sudo mkdir -p /etc/pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo mkdir -p /etc/pgbackrest
 $ sudo mkdir -p /etc/pgbackrest/conf.d
 $ sudo touch /etc/pgbackrest/pgbackrest.conf
 $ sudo chmod <span class="m">640</span> /etc/pgbackrest/pgbackrest.conf
@@ -1657,7 +1674,7 @@ pg1-port = 5432
 </code></pre></div>
 <h3 id="initialize-pgbackrest-stanza-in-the-remote-backup-repository-node">Initialize <code>pgBackRest</code> stanza in the remote backup repository node<a class="headerlink" href="#initialize-pgbackrest-stanza-in-the-remote-backup-repository-node" title="Permanent link">&para;</a></h3>
 <p>After the configuration files are set up, it’s now time to initialize the <code>pgBackRest</code> stanza. Run the following command in the remote backup repository node (<code>pg-repo</code>).</p>
-<div class="highlight"><pre><span></span><code>$ sudo -u postgres pgbackrest --stanza<span class="o">=</span>prod_backup stanza-create
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo -u postgres pgbackrest --stanza<span class="o">=</span>prod_backup stanza-create
 <span class="m">2021</span>-11-07 <span class="m">11</span>:08:18.157 P00   INFO: stanza-create <span class="nb">command</span> begin <span class="m">2</span>.36: --exec-id<span class="o">=</span><span class="m">155883</span>-2277a3e7 --log-level-console<span class="o">=</span>info --log-level-file<span class="o">=</span>off --pg1-host<span class="o">=</span>pg-primary --pg1-host-user<span class="o">=</span>postgres --pg1-path<span class="o">=</span>/var/lib/postgresql/11/main --pg1-port<span class="o">=</span><span class="m">5432</span> --repo1-path<span class="o">=</span>/home/pgbackrest/pg_backup --stanza<span class="o">=</span>prod_backup
 <span class="m">2021</span>-11-07 <span class="m">11</span>:08:19.453 P00   INFO: stanza-create <span class="k">for</span> stanza <span class="s1">&#39;prod_backup&#39;</span> on repo1
 <span class="m">2021</span>-11-07 <span class="m">11</span>:08:19.566 P00   INFO: stanza-create <span class="nb">command</span> end: completed successfully <span class="o">(</span>1412ms<span class="o">)</span>
@@ -1679,18 +1696,18 @@ pg1-port = 5432
 <p>Take a full backup of the database instance. Run the following commands from the <code>pg-repo</code> node:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>$ pgbackrest -u postgres  --stanza<span class="o">=</span>prod_backup backup --type<span class="o">=</span>full
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres  --stanza<span class="o">=</span>prod_backup backup --type<span class="o">=</span>full
 </code></pre></div>
 <p>If you want an incremental backup, you can omit the <code>type</code> attribute. By default, <code>pgBackRest</code> always takes an incremental backup except the first backup of the cluster which is always a full backup. </p>
 <p>If you need a differential backup,  use <em>diff</em> for the <code>type</code> field:</p>
-<div class="highlight"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup backup --type<span class="o">=</span>diff
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup backup --type<span class="o">=</span>diff
 </code></pre></div>
 <h3 id="use-case-2-restore-a-postgresql-instance-from-a-full-backup">Use Case 2: Restore a PostgreSQL Instance from a full backup<a class="headerlink" href="#use-case-2-restore-a-postgresql-instance-from-a-full-backup" title="Permanent link">&para;</a></h3>
 <p>For testing purposes, let&rsquo;s &ldquo;damage&rdquo; the PostgreSQL instance. </p>
 <ol>
 <li>
 <p>Run the following command in the <code>pg-primary</code> node to delete the main data directory.</p>
-<div class="highlight"><pre><span></span><code>$ rm -rf /var/lib/postgresql/11/main/*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ rm -rf /var/lib/postgresql/11/main/*
 </code></pre></div>
 </li>
 <li>
@@ -1698,17 +1715,17 @@ pg1-port = 5432
 <ul>
 <li>Stop the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
 </code></pre></div>
 <ul>
 <li>Restore the backup:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup restore
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup restore
 </code></pre></div>
 <ul>
 <li>Start the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql
 </code></pre></div>
 </li>
 <li>
@@ -1740,19 +1757,19 @@ pg1-port = 5432
 <ul>
 <li>Stop the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
 </code></pre></div>
 <ul>
 <li>Restore the backup</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup --delta <span class="se">\</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup --delta <span class="se">\</span>
 --type<span class="o">=</span><span class="nb">time</span> <span class="s2">&quot;--target= 2021-11-07 11:55:47.952405+00&quot;</span> <span class="se">\</span>
 --target-action<span class="o">=</span>promote restore
 </code></pre></div>
 <ul>
 <li>Start the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql
 </code></pre></div>
 </li>
 <li>
@@ -1782,10 +1799,10 @@ pg1-path=/var/lib/postgresql/11/main
 </code></pre></div>
 <p>There should be bidirectional passwordless SSH communication between <code>pg-repo</code> and <code>pg-secondary</code>. Refer to the <a href="#set-up-passwordless-ssh">Set up passwordless SSH</a> section for the steps, if you haven’t configured it. </p>
 <p>Stop the PostgreSQL instance</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
 </code></pre></div>
 <p>Restore the database backup from <code>pg-repo</code> to <code>pg-secondary</code>.</p>
-<div class="highlight"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup --delta restore
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup --delta restore
 
 <span class="m">2021</span>-11-07 <span class="m">13</span>:34:08.897 P00   INFO: restore <span class="nb">command</span> begin <span class="m">2</span>.36: --delta --exec-id<span class="o">=</span><span class="m">109728</span>-d81c7b0b --log-level-console<span class="o">=</span>info --log-level-file<span class="o">=</span>debug --pg1-path<span class="o">=</span>/var/lib/postgresql/11/main --process-max<span class="o">=</span><span class="m">2</span> --repo1-host<span class="o">=</span>pg-repo --repo1-host-user<span class="o">=</span>postgres --stanza<span class="o">=</span>prod_backup
 <span class="m">2021</span>-11-07 <span class="m">13</span>:34:09.784 P00   INFO: repo1: restore backup <span class="nb">set</span> <span class="m">20211107</span>-111534F_20211107-131807I, recovery will start at <span class="m">2021</span>-11-07 <span class="m">13</span>:18:07
@@ -1796,7 +1813,7 @@ pg1-path=/var/lib/postgresql/11/main
 <span class="m">2021</span>-11-07 <span class="m">13</span>:34:11.820 P00   INFO: restore <span class="nb">command</span> end: completed successfully <span class="o">(</span>2924ms<span class="o">)</span>
 </code></pre></div>
 <p>After the restore completes successfully, restart PostgreSQL:</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql
 </code></pre></div>
 <p>Check the database contents from the local <code>psql</code> shell. </p>
 <div class="highlight"><pre><span></span><code><span class="n">postgres</span><span class="o">=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span><span class="w"></span>
@@ -1828,7 +1845,7 @@ pg1-path=/var/lib/postgresql/11/main
   <small>
     
       Last update:
-      2022-04-26
+      2022-12-05
     
   </small>
 </div>
@@ -1919,6 +1936,8 @@ pg1-path=/var/lib/postgresql/11/main
       <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="../js/version-select.js"></script>
+      
+        <script src="../js/promptremover.js"></script>
       
     
     
