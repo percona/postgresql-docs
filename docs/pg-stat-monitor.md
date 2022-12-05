@@ -67,19 +67,19 @@ To install `pg_stat_monitor`, run the following commands:
 
     1. Enable the repository
 
-        ```sh
+        ```{.bash data-promp="$"}
         $ sudo percona-release setup ppg13
         ```
 
     2. Update the local cache
     
-        ```sh
+        ```{.bash data-promp="$"}
         $ sudo apt update
         ```
 
     3. Install the package:
 
-        ```sh
+        ```{.bash data-promp="$"}
         $ sudo apt-get install percona-pg-stat-monitor13
         ```
 
@@ -87,13 +87,13 @@ To install `pg_stat_monitor`, run the following commands:
 
     1. Enable the repository
 
-        ```sh
+        ```{.bash data-promp="$"}
         $ sudo percona-release setup ppg13
         ```
     
     2. Install the package:
 
-        ```sh
+        ```{.bash data-promp="$"}
         $ sudo yum install percona-pg-stat-monitor13
         ```
 
@@ -127,14 +127,14 @@ To install `pg_stat_monitor`, run the following commands:
 
     === "On Debian and Ubuntu"
 
-         ```sh
+         ```{.bash data-promp="$"}
          $ sudo systemctl restart postgresql.service
          ```
 
 
     === "On Red Hat Enterprise Linux and derivatives"
 
-         ```sh
+         ```{.bash data-promp="$"}
          $ sudo systemctl restart postgresql-13
          ```
 
@@ -216,14 +216,14 @@ Restart the server to apply the change:
 
 === "On Debian and Ubuntu"
 
-     ```sh
+     ```{.bash data-promp="$"}
      $ sudo systemctl restart restart postgresql.service
      ```
 
 
 === "On Red Hat Enterprise Linux and derivatives"
 
-     ```sh
+     ```{.bash data-promp="$"}
      $ sudo systemctl restart postgresql-13
      ```
 
@@ -239,7 +239,7 @@ WHERE name = 'pg_stat_monitor.pgsm_bucket_time';
    pg_stat_monitor.pgsm_bucket_time |   100
 ```
 
-!!! seealso
+!!! admonition "See also"
 
     [`pg_stat_monitor` Documentation](https://docs.percona.com/pg-stat-monitor/index.html)
 

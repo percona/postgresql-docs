@@ -28,14 +28,14 @@ PostgreSQL
 
 * [pgBadger](https://github.com/darold/pgbadger) - a fast PostgreSQL Log Analyzer.
 
-
 * [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
 
 * [HAProxy](http://www.haproxy.org/)-  a high-availability and load-balancing solution 
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/13/contrib.html)
 
-!!! seealso
+
+!!! admonition "See also"
 
     Blog Posts
 
@@ -51,40 +51,11 @@ queries to the PostgreSQL backend server and to receive the results of
 these queries." [^1]
 
 
-## Installation and Upgrade
 
-- [Installing Percona Distribution for PostgreSQL](installing.md)
-- [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md)
+## Get started
 
-
-## Extensions
-
-[pg_stat_monitor](pg-stat-monitor.md)
-
-## Solutions
-
-* [High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
-
-    * [Deploying high-availability on Debian and Ubuntu](solutions/ha-setup-apt.md)
-    * [Deploying high-availability on RHEL and CentOS](solutions/ha-setup-yum.md)
-    * [Testing the Patroni PostgreSQL Cluster](solutions/ha-test.md)
-
-* [Backup and disaster recovery with pgBackRest](solutions/backup-recovery.md)
-
-    * [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](solutions/dr-pgbackrest-setup.md)
-
-## Uninstall
-
-[Uninstalling Percona Distribution for PostgreSQL](uninstalling.md)
-
-## Release Notes
-
-[Release notes](release-notes.md)
-
-
-## Reference
-
-[Licensing](licensing.md)
+* [Install Percona Distribution for PostgreSQL](installing.md)
+* [Enable extensions](enable-extensions.md)
 
 
 
