@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/major-upgrade.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/index.html/15/major-upgrade.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -788,16 +788,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="release-notes.html">Release Notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6">
+          Release Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
         <label class="md-nav__title" for="__nav_6">
@@ -805,6 +799,20 @@
           Release Notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes.html" class="md-nav__link">
+        Release notes index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -915,14 +923,23 @@
               <article class="md-content__inner md-typeset">
                 
 
-                <!-- Edit button -->
+                <!-- Edit and view button -->
                 
+                  
+                  
                   <a
                     href="https://github.com/percona/postgresql-docs/edit/15/docs/major-upgrade.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/major-upgrade.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
                   </a>
                 
 
@@ -988,32 +1005,32 @@ so the system is usable.</p>
 <p>Enable Percona repository:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-15
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg-15
 </code></pre></div>
 <ul>
 <li>Install Percona Distribution for PostgreSQL 15 package:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-15
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install percona-postgresql-15
 </code></pre></div>
 <ul>
 <li>Install the components:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-15-repack \
- percona-postgresql-15-pgaudit \
- percona-pgbackrest \
- percona-patroni \
- percona-pgbadger \
- percona-pgaudit15-set-user \
- percona-pgbadger \
- percona-postgresql-15-wal2json \
- percona-pg-stat-monitor15 \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install percona-postgresql-15-repack <span class="se">\</span>
+ percona-postgresql-15-pgaudit <span class="se">\</span>
+ percona-pgbackrest <span class="se">\</span>
+ percona-patroni <span class="se">\</span>
+ percona-pgbadger <span class="se">\</span>
+ percona-pgaudit15-set-user <span class="se">\</span>
+ percona-pgbadger <span class="se">\</span>
+ percona-postgresql-15-wal2json <span class="se">\</span>
+ percona-pg-stat-monitor15 <span class="se">\</span>
  percona-postgresql-contrib
  percona-haproxy
 </code></pre></div>
 </li>
 <li>
 <p>Stop the <code>postgresql</code> service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql.service
 </code></pre></div>
 <p>This stops both Percona Distribution for PostgreSQL 14 and 15.</p>
 </li>
@@ -1022,23 +1039,23 @@ so the system is usable.</p>
 <ul>
 <li>Log in as the <code>postgres</code> user.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo su postgres
 </code></pre></div>
 <ul>
 <li>Change the current directory to the <code>tmp</code> directory where logs and some scripts will be recorded:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>cd tmp/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ <span class="nb">cd</span> tmp/
 </code></pre></div>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 14 to 15:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/lib/postgresql/15/bin/pg_upgrade
---old-datadir=/var/lib/postgresql/14/main \
---new-datadir=/var/lib/postgresql/15/main  \
---old-bindir=/usr/lib/postgresql/14/bin  \
---new-bindir=/usr/lib/postgresql/15/bin  \
---old-options &#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39; \
---new-options &#39;-c config_file=/etc/postgresql/15/main/postgresql.conf&#39; \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ /usr/lib/postgresql/15/bin/pg_upgrade
+--old-datadir<span class="o">=</span>/var/lib/postgresql/14/main <span class="se">\</span>
+--new-datadir<span class="o">=</span>/var/lib/postgresql/15/main  <span class="se">\</span>
+--old-bindir<span class="o">=</span>/usr/lib/postgresql/14/bin  <span class="se">\</span>
+--new-bindir<span class="o">=</span>/usr/lib/postgresql/15/bin  <span class="se">\</span>
+--old-options <span class="s1">&#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39;</span> <span class="se">\</span>
+--new-options <span class="s1">&#39;-c config_file=/etc/postgresql/15/main/postgresql.conf&#39;</span> <span class="se">\</span>
 --check
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
@@ -1062,13 +1079,13 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/lib/postgresql/15/bin/pg_upgrade
---old-datadir=/var/lib/postgresql/14/main \
---new-datadir=/var/lib/postgresql/15/main  \
---old-bindir=/usr/lib/postgresql/14/bin  \
---new-bindir=/usr/lib/postgresql/15/bin  \
---old-options &#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39; \
---new-options &#39;-c config_file=/etc/postgresql/15/main/postgresql.conf&#39; \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ /usr/lib/postgresql/15/bin/pg_upgrade
+--old-datadir<span class="o">=</span>/var/lib/postgresql/14/main <span class="se">\</span>
+--new-datadir<span class="o">=</span>/var/lib/postgresql/15/main  <span class="se">\</span>
+--old-bindir<span class="o">=</span>/usr/lib/postgresql/14/bin  <span class="se">\</span>
+--new-bindir<span class="o">=</span>/usr/lib/postgresql/15/bin  <span class="se">\</span>
+--old-options <span class="s1">&#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39;</span> <span class="se">\</span>
+--new-options <span class="s1">&#39;-c config_file=/etc/postgresql/15/main/postgresql.conf&#39;</span> <span class="se">\</span>
 --link
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.</p>
@@ -1076,20 +1093,20 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Go back to the regular user:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>exit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ <span class="nb">exit</span>
 </code></pre></div>
 <ul>
 <li>The Percona Distribution for PostgreSQL 14 uses the <code>5432</code> port while the Percona Distribution for PostgreSQL 15 is set up to use the <code>5433</code> port by default. To start the Percona Distribution for PostgreSQL 15, swap ports in the configuration files of both versions.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo vim /etc/postgresql/15/main/postgresql.conf
-$ port = 5433 # Change to 5432 here
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo vim /etc/postgresql/15/main/postgresql.conf
+$ <span class="nv">port</span> <span class="o">=</span> <span class="m">5433</span> <span class="c1"># Change to 5432 here</span>
 $ sudo vim /etc/postgresql/14/main/postgresql.conf
-$ port = 5432 # Change to 5433 here
+$ <span class="nv">port</span> <span class="o">=</span> <span class="m">5432</span> <span class="c1"># Change to 5433 here</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>postgreqsl</code> service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql.service
 </code></pre></div>
 </li>
 <li>
@@ -1097,19 +1114,19 @@ $ port = 5432 # Change to 5433 here
 <ul>
 <li>Log in as a postgres user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo su postgres
 </code></pre></div>
 <ul>
 <li>Check the database version</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ psql -c &quot;SELECT version();&quot;
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ psql -c <span class="s2">&quot;SELECT version();&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Run the <code>analyze_new_cluster.sh</code> script</p>
-<div class="highlight"><pre><span></span><code>$ tmp/analyze_new_cluster.sh
-$ #Logout
-$ exit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ tmp/analyze_new_cluster.sh
+$ <span class="c1">#Logout</span>
+$ <span class="nb">exit</span>
 </code></pre></div>
 </li>
 <li>
@@ -1117,12 +1134,12 @@ $ exit
 <ul>
 <li>Remove packages</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt remove percona-postgresql-14* percona-pgbackrest percona-patroni percona-pg-stat-monitor14 percona-pgaudit14-set-user percona-pgbadger percona-pgbouncer percona-postgresql-14-wal2json
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt remove percona-postgresql-14* percona-pgbackrest percona-patroni percona-pg-stat-monitor14 percona-pgaudit14-set-user percona-pgbadger percona-pgbouncer percona-postgresql-14-wal2json
 </code></pre></div>
 <ul>
 <li>Remove old files</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ rm -rf /etc/postgresql/14/main
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ rm -rf /etc/postgresql/14/main
 </code></pre></div>
 </li>
 </ol>
@@ -1142,25 +1159,25 @@ $ exit
 <p>Enable Percona repository:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-15
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg-15
 </code></pre></div>
 <ul>
 <li>Install Percona Distribution for PostgreSQL 15:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql15-server
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum install percona-postgresql15-server
 </code></pre></div>
 <ul>
 <li>Install components:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit \
-percona-pgbackrest \
-percona-pg_repack15 \
-percona-patroni \
-percona-pg-stat-monitor15 \
-percona-pgbadger \
-percona-pgaudit15_set_user \
-percona-pgbadger \
-percona-wal2json15 \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum install percona-pgaudit <span class="se">\</span>
+percona-pgbackrest <span class="se">\</span>
+percona-pg_repack15 <span class="se">\</span>
+percona-patroni <span class="se">\</span>
+percona-pg-stat-monitor15 <span class="se">\</span>
+percona-pgbadger <span class="se">\</span>
+percona-pgaudit15_set_user <span class="se">\</span>
+percona-pgbadger <span class="se">\</span>
+percona-wal2json15 <span class="se">\</span>
 percona-postgresql15-contrib
 percona-haproxy
 </code></pre></div>
@@ -1170,7 +1187,7 @@ percona-haproxy
 </li>
 <li>
 <p>Log is as the postgres user</p>
-<div class="highlight"><pre><span></span><code>sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo su postgres
 </code></pre></div>
 </li>
 <li>
@@ -1181,12 +1198,12 @@ export LC_CTYPE=&quot;en_US.UTF-8&quot;
 </li>
 <li>
 <p>Initialize cluster with the new data directory</p>
-<div class="highlight"><pre><span></span><code>/usr/pgsql-15/bin/initdb -D /var/lib/pgsql/15/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ /usr/pgsql-15/bin/initdb -D /var/lib/pgsql/15/data
 </code></pre></div>
 </li>
 <li>
 <p>Stop the <code>postgresql</code> 14 service</p>
-<div class="highlight"><pre><span></span><code>$ systemctl stop postgresql-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ systemctl stop postgresql-14
 </code></pre></div>
 </li>
 <li>
@@ -1194,16 +1211,16 @@ export LC_CTYPE=&quot;en_US.UTF-8&quot;
 <ul>
 <li>Log in as the <code>postgres</code> user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo su postgres
 </code></pre></div>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 14 to 15:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/pgsql-15/bin/pg_upgrade \
---old-bindir /usr/pgsql-14/bin \
---new-bindir /usr/pgsql-15/bin  \
---old-datadir /var/lib/pgsql/14/data \
---new-datadir /var/lib/pgsql/15/data \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ /usr/pgsql-15/bin/pg_upgrade <span class="se">\</span>
+--old-bindir /usr/pgsql-14/bin <span class="se">\</span>
+--new-bindir /usr/pgsql-15/bin  <span class="se">\</span>
+--old-datadir /var/lib/pgsql/14/data <span class="se">\</span>
+--new-datadir /var/lib/pgsql/15/data <span class="se">\</span>
 --check
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
@@ -1227,11 +1244,11 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/pgsql-15/bin/pg_upgrade \
---old-bindir /usr/pgsql-14/bin \
---new-bindir /usr/pgsql-15/bin  \
---old-datadir /var/lib/pgsql/14/data \
---new-datadir /var/lib/pgsql/15/data \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ /usr/pgsql-15/bin/pg_upgrade <span class="se">\</span>
+--old-bindir /usr/pgsql-14/bin <span class="se">\</span>
+--new-bindir /usr/pgsql-15/bin  <span class="se">\</span>
+--old-datadir /var/lib/pgsql/14/data <span class="se">\</span>
+--new-datadir /var/lib/pgsql/15/data <span class="se">\</span>
 --link
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
@@ -1239,12 +1256,12 @@ Checking for prepared transactions                          ok
 </li>
 <li>
 <p>Start the <code>postgresql</code> 15 service.</p>
-<div class="highlight"><pre><span></span><code>$ systemctl start postgresql-15
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ systemctl start postgresql-15
 </code></pre></div>
 </li>
 <li>
 <p>Check postgresql status</p>
-<div class="highlight"><pre><span></span><code>$ systemctl status postgresql-15
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ systemctl status postgresql-15
 </code></pre></div>
 </li>
 <li>
@@ -1252,17 +1269,17 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Log in as the postgres user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo su postgres
 </code></pre></div>
 <ul>
 <li>Run the script</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ ./analyze_new_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ ./analyze_new_cluster.sh
 </code></pre></div>
 </li>
 <li>
 <p>Delete Percona Distribution for PostgreSQL 14 configuration files</p>
-<div class="highlight"><pre><span></span><code>$ ./delete_old_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ ./delete_old_cluster.sh
 </code></pre></div>
 </li>
 <li>
@@ -1270,12 +1287,12 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Remove packages</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum -y remove percona-postgresql14*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum -y remove percona-postgresql14*
 </code></pre></div>
 <ul>
 <li>Remove old files</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ rm -rf /var/lib/pgsql/14/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$ rm -rf /var/lib/pgsql/14/data
 </code></pre></div>
 </li>
 </ol>
@@ -1300,7 +1317,7 @@ Checking for prepared transactions                          ok
   <small>
     
       Last update:
-      2022-10-24
+      2022-12-05
     
   </small>
 </div>
@@ -1392,6 +1409,8 @@ Checking for prepared transactions                          ok
       <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="js/version-select.js"></script>
+      
+        <script src="js/promptremover.js"></script>
       
     
 
