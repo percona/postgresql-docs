@@ -11,24 +11,24 @@ Depending on your business requirements, you may migrate to Percona Distribution
 
 === "On Debian and Ubuntu Linux"
 
-     >To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. 
+     To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. 
 
      1. Stop the `postgresql` server   
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
      2. Remove community packages
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo apt-get --purge remove postgresql
          ```
 
       3. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
       4. Enable the repository
 
-           ```sh
+           ```{.bash data-prompt="$"}
            $ sudo percona-release setup ppg12
            ```
 
@@ -36,37 +36,37 @@ Depending on your business requirements, you may migrate to Percona Distribution
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service. The installation process starts and initializes the default cluster automatically. You can check its status with: 
 
-          ```sh
+          ```{.bash data-prompt="$"}
           $ sudo systemctl status postgresql
           ```         
 
          If `postresql` service is not started, start it manually:
 
-           ```sh
+           ```{.bash data-prompt="$"}
            $ sudo systemctl start postgresql.service
            ```
 
 
 === "On RHEL and compatible derivatives"
 
-       > To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. 
+    To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. 
 
       1. Stop the `postgresql` server   
 
-          ```sh
+          ```{.bash data-prompt="$"}
           $ sudo systemctl stop postgresql-12
           ```
 
       2. Remove community packages
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo yum remove postgresql
          ```
 
       3. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
       4. Enable the repository
 
-           ```sh
+           ```{.bash data-prompt="$"}
            $ sudo percona-release setup ppg12
            ```
 
@@ -74,7 +74,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service
 
-          ```sh
+          ```{.bash data-prompt="$"}
           $ sudo systemctl start postgresql-12
           ```
 
@@ -92,13 +92,13 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 
     === "On Debian and Ubuntu"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
     === "On RHEL and derivatives"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-12
          ```
 
@@ -109,7 +109,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 1. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html) 
 2. Enable the repository
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo percona-release setup ppg12
     ```
 
@@ -119,12 +119,12 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 
     === "On Debian and Ubuntu"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
     === "On RHEL and compatible derivatives"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-12
          ```
