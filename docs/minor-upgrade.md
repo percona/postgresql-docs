@@ -35,14 +35,14 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     === "On Debian / Ubuntu"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
 
     === "On Red Hat Enterprise Linux / derivatives"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-14
          ```
 
@@ -56,14 +56,14 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     === "On Debian / Ubuntu"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
 
     === "On Red Hat Enterprise Linux / derivatives"
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-14
          ```
 

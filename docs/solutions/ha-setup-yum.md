@@ -54,13 +54,13 @@ In this setup we will configure ETCD on a dedicated  node.
    - [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
    - Enable the repository:
 
-      ```sh
+      ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg14
       ```
    
    - Install the etcd packages using the following command:
 
-      ```sh
+      ```{.bash data-prompt="$"}
       $ sudo yum install etcd python3-python-etcd
       ```
 
@@ -83,7 +83,7 @@ In this setup we will configure ETCD on a dedicated  node.
 
 3.  Start the `etcd` to apply the changes:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo systemctl enable etcd
     $ sudo systemctl start etcd
     $ sudo systemctl status etcd
@@ -91,7 +91,7 @@ In this setup we will configure ETCD on a dedicated  node.
 
 5. Check the etcd cluster members.
     
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo etcdctl member list
     ```
 
@@ -108,7 +108,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 1. [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
 2. Enable the repository:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo percona-release setup ppg14
     ```
 
@@ -122,13 +122,13 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 1. Install Patroni on every PostgreSQL node:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo yum install percona-patroni
     ```
 
 2. Install the Python module that enables Patroni to communicate with ETCD.
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo python3 -m pip install patroni[etcd]
     ```
 
@@ -136,14 +136,14 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
     * Create the directory to store the configuration file and make it owned by the `postgres` user.
 
-      ```sh
+      ```{.bash data-prompt="$"}
       $ sudo mkdir -p /etc/patroni/
       $ sudo chown -R  postgres:postgres /etc/patroni/
       ``` 
 
     * Create the data directory for Patroni. Change its ownership to the `postgres` user and restrict the access to it 
 
-     ```sh
+     ```{.bash data-prompt="$"}
      $ sudo mkdir /data/patroni -p
      $ sudo chown -R postgres:postgres /data/patroni
      $ sudo chmod 700 /data/patroni
@@ -151,7 +151,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 4. Create the `patroni.yml` configuration file. 
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ su postgres
     $ vim /etc/patroni/patroni.yml
     ```
@@ -236,7 +236,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 7. Create the systemd unit file `patroni.service` in `/etc/systemd/system`. 
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo vim /etc/systemd/system/patroni.service
     ```
 
@@ -274,7 +274,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
 8. Make systemd aware of the new service:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
     $ sudo systemctl enable patroni
     $ sudo systemctl start patroni
@@ -282,76 +282,80 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 
     !!! admonition "Troubleshooting Patroni"
 
-            To ensure that Patroni has started properly, check the logs using the following command:
+        To ensure that Patroni has started properly, check the logs using the following command:
 
-            ```sh
-            $ sudo journalctl -u patroni.service -n 100 -f
-            ```
+        ```{.bash data-prompt="$"}
+        $ sudo journalctl -u patroni.service -n 100 -f
+        ```
 
-            The output shouldn't show any errors:
+        The output shouldn't show any errors:
 
-            ```
-            …
+        ```
+        …
 
-            Sep 23 12:50:21 node01 systemd[1]: Started PostgreSQL high-availability manager.
-            Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,022 INFO: Selected new etcd server http://10.104.0.2:2379
-            Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,029 INFO: No PostgreSQL configuration items changed, nothing to reload.
-            Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,168 INFO: Lock owner: None; I am node1
-            Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,177 INFO: trying to bootstrap a new cluster
-            Sep 23 12:50:22 node01 patroni[10140]: The files belonging to this database system will be owned by user "postgres".
-            Sep 23 12:50:22 node01 patroni[10140]: This user must also own the server process.
-            Sep 23 12:50:22 node01 patroni[10140]: The database cluster will be initialized with locale "C.UTF-8".
-            Sep 23 12:50:22 node01 patroni[10140]: The default text search configuration will be set to "english".
-            Sep 23 12:50:22 node01 patroni[10140]: Data page checksums are enabled.
-            Sep 23 12:50:22 node01 patroni[10140]: creating directory /var/lib/postgresql/12/main ... ok
-            Sep 23 12:50:22 node01 patroni[10140]: creating subdirectories ... ok
-            Sep 23 12:50:22 node01 patroni[10140]: selecting dynamic shared memory implementation ... posix
-            Sep 23 12:50:22 node01 patroni[10140]: selecting default max_connections ... 100
-            Sep 23 12:50:22 node01 patroni[10140]: selecting default shared_buffers ... 128MB
-            Sep 23 12:50:22 node01 patroni[10140]: selecting default time zone ... Etc/UTC
-            Sep 23 12:50:22 node01 patroni[10140]: creating configuration files ... ok
-            Sep 23 12:50:22 node01 patroni[10140]: running bootstrap script ... ok
-            Sep 23 12:50:23 node01 patroni[10140]: performing post-bootstrap initialization ... ok
-            Sep 23 12:50:23 node01 patroni[10140]: syncing data to disk ... ok
-            Sep 23 12:50:23 node01 patroni[10140]: initdb: warning: enabling "trust" authentication for local connections
-            Sep 23 12:50:23 node01 patroni[10140]: You can change this by editing pg_hba.conf or using the option -A, or
-            Sep 23 12:50:23 node01 patroni[10140]: --auth-local and --auth-host, the next time you run initdb.
-            Sep 23 12:50:23 node01 patroni[10140]: Success. You can now start the database server using:
-            Sep 23 12:50:23 node01 patroni[10140]:     /usr/lib/postgresql/14/bin/pg_ctl -D /var/lib/postgresql/14/main -l logfile start
-            Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] LOG:  redirecting log output to logging collector process
-            Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] HINT:  Future log output will appear in directory "log".
-            Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,694 INFO: postprimary pid=10156
-            Sep 23 12:50:23 node01 patroni[10165]: localhost:5432 - accepting connections
-            Sep 23 12:50:23 node01 patroni[10167]: localhost:5432 - accepting connections
-            Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,743 INFO: establishing a new patroni connection to the postgres cluster
-            Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,757 INFO: running post_bootstrap
-            Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,767 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-            Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,793 INFO: initialized a new cluster
-            Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,810 INFO: no action. I am (node1) the leader with the lock
-            Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,899 INFO: no action. I am (node1) the leader with the lock
-            Sep 23 12:50:43 node01 patroni[10119]: 2021-09-23 12:50:43,898 INFO: no action. I am (node1) the leader with the lock
-            Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. I am (node1) the leader with the 
-            ```
+        Sep 23 12:50:21 node01 systemd[1]: Started PostgreSQL high-availability manager.
+        Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,022 INFO: Selected new etcd server http://10.104.0.2:2379
+        Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,029 INFO: No PostgreSQL configuration items changed, nothing to reload.
+        Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,168 INFO: Lock owner: None; I am node1
+        Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,177 INFO: trying to bootstrap a new cluster
+        Sep 23 12:50:22 node01 patroni[10140]: The files belonging to this database system will be owned by user "postgres".
+        Sep 23 12:50:22 node01 patroni[10140]: This user must also own the server process.
+        Sep 23 12:50:22 node01 patroni[10140]: The database cluster will be initialized with locale "C.UTF-8".
+        Sep 23 12:50:22 node01 patroni[10140]: The default text search configuration will be set to "english".
+        Sep 23 12:50:22 node01 patroni[10140]: Data page checksums are enabled.
+        Sep 23 12:50:22 node01 patroni[10140]: creating directory /var/lib/postgresql/12/main ... ok
+        Sep 23 12:50:22 node01 patroni[10140]: creating subdirectories ... ok
+        Sep 23 12:50:22 node01 patroni[10140]: selecting dynamic shared memory implementation ... posix
+        Sep 23 12:50:22 node01 patroni[10140]: selecting default max_connections ... 100
+        Sep 23 12:50:22 node01 patroni[10140]: selecting default shared_buffers ... 128MB
+        Sep 23 12:50:22 node01 patroni[10140]: selecting default time zone ... Etc/UTC
+        Sep 23 12:50:22 node01 patroni[10140]: creating configuration files ... ok
+        Sep 23 12:50:22 node01 patroni[10140]: running bootstrap script ... ok
+        Sep 23 12:50:23 node01 patroni[10140]: performing post-bootstrap initialization ... ok
+        Sep 23 12:50:23 node01 patroni[10140]: syncing data to disk ... ok
+        Sep 23 12:50:23 node01 patroni[10140]: initdb: warning: enabling "trust" authentication for local connections
+        Sep 23 12:50:23 node01 patroni[10140]: You can change this by editing pg_hba.conf or using the option -A, or
+        Sep 23 12:50:23 node01 patroni[10140]: --auth-local and --auth-host, the next time you run initdb.
+        Sep 23 12:50:23 node01 patroni[10140]: Success. You can now start the database server using:
+        Sep 23 12:50:23 node01 patroni[10140]:     /usr/lib/postgresql/14/bin/pg_ctl -D /var/lib/postgresql/14/main -l logfile start
+        Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] LOG:  redirecting log output to logging collector process
+        Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] HINT:  Future log output will appear in directory "log".
+        Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,694 INFO: postprimary pid=10156
+        Sep 23 12:50:23 node01 patroni[10165]: localhost:5432 - accepting connections
+        Sep 23 12:50:23 node01 patroni[10167]: localhost:5432 - accepting connections
+        Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,743 INFO: establishing a new patroni connection to the postgres cluster
+        Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,757 INFO: running post_bootstrap
+        Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,767 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
+        Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,793 INFO: initialized a new cluster
+        Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,810 INFO: no action. I am (node1) the leader with the lock
+        Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,899 INFO: no action. I am (node1) the leader with the lock
+        Sep 23 12:50:43 node01 patroni[10119]: 2021-09-23 12:50:43,898 INFO: no action. I am (node1) the leader with the lock
+        Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. I am (node1) the leader with the 
+        ```
 
-            A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.
+        A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.
 
-            Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. 
+        Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. 
 
-            If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
+        If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-            ```sh
-            $ sudo psql -U postgres
+        ``{.bash data-prompt="$"}
+        $ sudo psql -U postgres
+        ```
 
-            psql (14.1)
-            Type "help" for help.
+        The command output should look like the following:
 
-            postgres=#
-            ```
+        ```
+        psql (14.1)
+        Type "help" for help.
+
+        postgres=#
+        ```
 
 9. Configure, enable and start Patroni on the remaining nodes.
 10. When all nodes are up and running, you can check the cluster status using the following command:
 
-   ```sh
+   ```{.bash data-prompt="$"}
    $ sudo patronictl -c /etc/patroni/patroni.yml list
    
 
@@ -372,7 +376,7 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
-    ``` sh
+    ```{.bash data-prompt="$"}
     $ sudo yum install haproxy
     ```
 
@@ -422,18 +426,18 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 3. Enable a SELinux boolean to allow HAProxy to bind to non standard ports:
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo setsebool -P haproxy_connect_any on
     ```
 
 4. Restart HAProxy:
     
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo systemctl restart haproxy
     ```
 
 5. Check the HAProxy logs to see if there are any errors:
    
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```
