@@ -67,19 +67,19 @@ To install `pg_stat_monitor`, run the following commands:
 
     1. Enable the repository
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg11
         ```
 
     2. Update the local cache
  
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo apt update
         ```
 
     3. Install the package:
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo apt-get install percona-pg-stat-monitor11
         ```
 
@@ -87,13 +87,13 @@ To install `pg_stat_monitor`, run the following commands:
 
     1. Enable the repository
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg11
         ```
     
     2. Install the package:
 
-        ```sh
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pg-stat-monitor11
         ```
 
@@ -127,14 +127,14 @@ To install `pg_stat_monitor`, run the following commands:
 
     === "On Debian and Ubuntu"
 
-          ```
+          ```{.bash data-prompt="$"}
           $ sudo systemctl restart postgresql.service
           ```
 
 
     === "On Red Hat Enterprise Linux and derivatives"
 
-          ```
+          ```{.bash data-prompt="$"}
           $ sudo systemctl restart postgresql-11
           ```
 
@@ -218,14 +218,14 @@ Restart the server to apply the change:
 
 === "On Debian and Ubuntu"
    
-     ```sh
+     ```{.bash data-prompt="$"}
      $ sudo systemctl restart postgresql.service
      ```
 
 
 === "On Red Hat Enterprise Linux and derivatives"
 
-     ```sh
+     ```{.bash data-prompt="$"}
      $ sudo systemctl restart postgresql-11
      ```
 
@@ -242,7 +242,7 @@ SELECT name, value
 ```
 
 
-!!! seealso
+!!! admonition "See also"
 
     [`pg_stat_monitor` Documentation](https://docs.percona.com/pg-stat-monitor/index.html)
 
