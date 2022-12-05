@@ -15,20 +15,20 @@ Depending on your business requirements, you may migrate to Percona Distribution
 
      1. Stop the `postgresql` server   
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
      2. Remove community packages
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo apt-get --purge remove postgresql
          ```
 
       3. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
       4. Enable the repository
 
-           ```sh
+           ```{.bash data-prompt="$"}
            $ sudo percona-release setup ppg15
            ```
 
@@ -36,13 +36,13 @@ Depending on your business requirements, you may migrate to Percona Distribution
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service. The installation process starts and initializes the default cluster automatically. You can check its status with: 
 
-          ```sh
+          ```{.bash data-prompt="$"}
           $ sudo systemctl status postgresql
           ```         
 
          If `postresql` service is not started, start it manually:
 
-           ```sh
+           ```{.bash data-prompt="$"}
            $ sudo systemctl start postgresql.service
            ```
 
@@ -53,20 +53,20 @@ Depending on your business requirements, you may migrate to Percona Distribution
 
       1. Stop the `postgresql` server   
 
-          ```sh
+          ```{.bash data-prompt="$"}
           $ sudo systemctl stop postgresql-15
           ```
 
       2. Remove community packages
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo yum remove postgresql
          ```
 
       3. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
       4. Enable the repository
 
-           ```sh
+           ```{.bash data-prompt="$"}
            $ sudo percona-release setup ppg15
            ```
 
@@ -74,7 +74,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service
 
-          ```sh
+          ```{.bash data-prompt="$"}
           $ sudo systemctl start postgresql-15
           ```
 
@@ -92,13 +92,13 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 
     === "On Debian and Ubuntu"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
     === "On RHEL and derivatives"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-15
          ```
 
@@ -109,7 +109,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 1. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html) 
 2. Enable the repository
 
-    ```sh
+    ```{.bash data-prompt="$"}
     $ sudo percona-release setup ppg15
     ```
 
@@ -119,12 +119,12 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 
     === "On Debian and Ubuntu"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
     === "On RHEL and derivatives"
 
-         ```sh
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-15
          ```

@@ -6,13 +6,13 @@ This document describes how to install Percona Server for PostgreSQL from Percon
 
 If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
 
-```
+```{.bash data-prompt="$"}
 $ sudo dnf module disable postgresql llvm-toolset
 ```
 
 On CentOS 7, you should install the ``epel-release`` package:
 
-```
+```{.bash data-prompt="$"}
 $ sudo yum -y install epel-release
 $ sudo yum repolist
 ```
@@ -25,7 +25,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 1. Install the `percona-release` repository management tool to subscribe to Percona repositories:
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     ```
 
@@ -35,7 +35,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    To enable a repository, we recommend using the `setup` command: 
 
-   ```
+   ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg-15
    ```
 
@@ -43,7 +43,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 === "Install using meta-package"
      
-     ```
+     ```{.bash data-prompt="$"}
      $ sudo yum install percona-ppg-server
      ```
 
@@ -51,7 +51,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
      1. Install the PostgreSQL server package:
 
-         ```
+         ```{.bash data-prompt="$"}
          $ sudo yum install percona-postgresql15-server
          ```
 
@@ -59,25 +59,25 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
         Install `pg_repack`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pg_repack15
         ```
 
         Install `pgaudit`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgaudit
         ```
 
         Install `pgBackRest`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbackrest
         ```
 
         Install `Patroni`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-patroni
         ```
 
@@ -86,37 +86,37 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
         Install `pgBouncer`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbouncer
         ```
 
         Install `pgAudit-set_user`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgaudit15_set_user
         ```
 
         Install `pgBadger`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbadger
         ```
 
         Install `wal2json`:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-wal2json15
         ```
 
         Install PostgreSQL contrib extensions:
 
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-postgresql15-contrib
         ```
 
         Install HAProxy
         
-        ```
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
         ```
 
@@ -132,7 +132,7 @@ After the installation, the default database storage is not automatically initia
 
 Start the PostgreSQL service:
 
-```
+```{.bash data-prompt="$"}
 $ sudo systemctl start postgresql-15
 ```
 
@@ -140,13 +140,13 @@ $ sudo systemctl start postgresql-15
 
 By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
 
-```
+```{.bash data-prompt="$"}
 $ sudo su postgres
 ```
 
 Open the PostgreSQL interactive terminal:
 
-```
+```{.bash data-prompt="$"}
 $ psql
 ```
 
@@ -154,12 +154,12 @@ $ psql
 
     You can connect to `psql` as the `postgres` user in one go:
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo su postgres psql
     ```
 
 To exit the `psql` terminal, use the following command:
 
-```
+```{.bash data-prompt="$"}
 $ \q
 ```

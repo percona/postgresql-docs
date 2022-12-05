@@ -45,7 +45,7 @@ The `/etc/hosts` file of the HAProxy-demo node looks like the following:
 
 2. Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:
 
-   ```sh
+   ```{.bash data-promp="$"}
    $ sudo systemctl stop postgresql
    $ sudo rm -rf /var/lib/postgresql/14/main
    ```
@@ -58,7 +58,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 1. Install `etcd` on every PostgreSQL node using the following command:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo apt install etcd
     ```
 
@@ -111,20 +111,20 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 3. On `node1`, add `node2` and `node3` to the cluster using the `add` command:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
     $ sudo etcdctl member add node3 http://10.104.0.8:2380
     ```
 
 4. Restart the `etcd` service on `node2` and `node3`:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo systemctl restart etcd
     ```
 
 5. Check the etcd cluster members.
     
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo etcdctl member list
     ```
 
@@ -146,13 +146,13 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 
 1. Load Softdog:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo sh -c 'echo "softdog" >> /etc/modules'
     ```
 
 2. Patroni will be interacting with the watchdog service. Since Patroni is run by the `postgres` user, this user must have access to Softdog. To make this happen, change the ownership  of the `watchdog.rules` file to the `postgres` user: 
 
-    ``` sh
+    ``` {.bash data-promp="$"}
     $ sudo sh -c 'echo "KERNEL==\"watchdog\", OWNER=\"postgres\", GROUP=\"postgres\"" >> /etc/udev/rules.d/61-watchdog.rules'
     ```
 
@@ -160,7 +160,7 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 
     * Find out the files where Softdog is blacklisted:
 
-       ```sh
+       ```{.bash data-promp="$"}
        $ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* |grep softdog
        ```
      
@@ -173,13 +173,13 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
     * Remove the `blacklist softdog` line from the `/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf` file. 
     * Restart the service 
 
-      ```sh
+      ```{.bash data-promp="$"}
       $ sudo modprobe softdog
       ```
     
     * Verify the `modprobe` is working correctly by running the `lsmod `command:
       
-      ```sh
+      ```{.bash data-promp="$"}
       $ sudo lsmod | grep softdog
       ```
       
@@ -192,7 +192,7 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 4. Check that the Softdog files under the `/dev/ `folder are owned by the `postgres `user: 
 
 
-```
+```{.bash data-promp="$"}
 $ ls -l /dev/watchdog*
 
 crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
@@ -204,7 +204,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 
     If the ownership has not been changed for any reason, run the following command to manually change it:
     
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo chown postgres:postgres /dev/watchdog*
     ```
 
@@ -212,7 +212,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 
 1. Install Patroni on every PostgreSQL node:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo apt install percona-patroni
     ```
 
@@ -323,7 +323,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 4. Create the configuration files for `node2` and `node3`. Replace the reference to `node1` with `node2` and `node3`, respectively.
 5. Enable and restart the patroni service on every node. Use the following commands:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo systemctl enable patroni
     $ sudo systemctl restart patroni
     ```
@@ -334,7 +334,7 @@ When Patroni starts, it initializes PostgreSQL (because the service is not curre
 
     To ensure that Patroni has started properly, check the logs using the following command:
 
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
@@ -389,7 +389,7 @@ When Patroni starts, it initializes PostgreSQL (because the service is not curre
 
 If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-```sh
+```{.bash data-promp="$"}
 $ sudo psql -U postgres
 ```
 
@@ -410,7 +410,7 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
-    ``` sh
+    ```{.bash data-promp="$"}
     $ sudo apt install percona-haproxy
     ```
 
@@ -460,14 +460,14 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 3. Restart HAProxy:
     
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo systemctl restart haproxy
     ```
 
 
 4. Check the HAProxy logs to see if there are any errors:
    
-    ```sh
+    ```{.bash data-promp="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```
 

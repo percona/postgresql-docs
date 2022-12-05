@@ -54,21 +54,21 @@ The exact steps may differ depending on the package manager of your operating sy
     
     * Enable Percona repository:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg-15
       ```
 
 
     * Install Percona Distribution for PostgreSQL 15 package:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-15
       ```
 
 
     * Install the components:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-15-repack \
        percona-postgresql-15-pgaudit \
        percona-pgbackrest \
@@ -84,7 +84,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 2. Stop the `postgresql` service.
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo systemctl stop postgresql.service
     ```
 
@@ -96,21 +96,21 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as the `postgres` user.
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo su postgres
       ```
 
 
     * Change the current directory to the `tmp` directory where logs and some scripts will be recorded:
 
-      ```
-      cd tmp/
+      ```{.bash data-prompt="$"}
+      $ cd tmp/
       ```
 
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 14 to 15:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ /usr/lib/postgresql/15/bin/pg_upgrade
       --old-datadir=/var/lib/postgresql/14/main \
       --new-datadir=/var/lib/postgresql/15/main  \
@@ -146,7 +146,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Upgrade the Percona Distribution for PostgreSQL
 
-      ```
+      ```{.bash data-prompt="$"}
       $ /usr/lib/postgresql/15/bin/pg_upgrade
       --old-datadir=/var/lib/postgresql/14/main \
       --new-datadir=/var/lib/postgresql/15/main  \
@@ -165,14 +165,14 @@ The exact steps may differ depending on the package manager of your operating sy
     * Go back to the regular user:
 
 
-      ```
-      exit
+      ```{.bash data-prompt="$"}
+      $ exit
       ```
 
 
     * The Percona Distribution for PostgreSQL 14 uses the `5432` port while the Percona Distribution for PostgreSQL 15 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 15, swap ports in the configuration files of both versions.
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo vim /etc/postgresql/15/main/postgresql.conf
       $ port = 5433 # Change to 5432 here
       $ sudo vim /etc/postgresql/14/main/postgresql.conf
@@ -182,7 +182,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 4. Start the `postgreqsl` service.
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo systemctl start postgresql.service
     ```
 
@@ -191,20 +191,20 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as a postgres user
  
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
     * Check the database version
     
-       ```
+       ```{.bash data-prompt="$"}
        $ psql -c "SELECT version();"
        ```
 
 
 6. Run the `analyze_new_cluster.sh` script
 
-    ```
+    ```{.bash data-prompt="$"}
     $ tmp/analyze_new_cluster.sh
     $ #Logout
     $ exit
@@ -215,13 +215,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Remove packages
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo apt remove percona-postgresql-14* percona-pgbackrest percona-patroni percona-pg-stat-monitor14 percona-pgaudit14-set-user percona-pgbadger percona-pgbouncer percona-postgresql-14-wal2json
        ```
 
     * Remove old files
 
-       ```
+       ```{.bash data-prompt="$"}
        $ rm -rf /etc/postgresql/14/main
        ```
 
@@ -240,20 +240,20 @@ The exact steps may differ depending on the package manager of your operating sy
     
     * Enable Percona repository:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-15
        ```
 
 
     * Install Percona Distribution for PostgreSQL 15:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo yum install percona-postgresql15-server
        ```
 
     * Install components:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo yum install percona-pgaudit \
        percona-pgbackrest \
        percona-pg_repack15 \
@@ -272,8 +272,8 @@ The exact steps may differ depending on the package manager of your operating sy
 
    * Log is as the postgres user
 
-      ```
-      sudo su postgres
+      ```{.bash data-prompt="$"}
+      $ sudo su postgres
       ```
 
    * Set up locale settings
@@ -285,14 +285,14 @@ The exact steps may differ depending on the package manager of your operating sy
 
    * Initialize cluster with the new data directory
 
-      ```
-      /usr/pgsql-15/bin/initdb -D /var/lib/pgsql/15/data
+      ```{.bash data-prompt="$"}
+      $ /usr/pgsql-15/bin/initdb -D /var/lib/pgsql/15/data
       ```
 
 
 3. Stop the `postgresql` 14 service
 
-    ```
+    ```{.bash data-prompt="$"}
     $ systemctl stop postgresql-14
     ```
 
@@ -302,14 +302,14 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as the `postgres` user
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 14 to 15:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ /usr/pgsql-15/bin/pg_upgrade \
        --old-bindir /usr/pgsql-14/bin \
        --new-bindir /usr/pgsql-15/bin  \
@@ -343,7 +343,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Upgrade the Percona Distribution for PostgreSQL
 
-       ```
+       ```{.bash data-prompt="$"}
        $ /usr/pgsql-15/bin/pg_upgrade \
        --old-bindir /usr/pgsql-14/bin \
        --new-bindir /usr/pgsql-15/bin  \
@@ -358,13 +358,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
 5. Start the `postgresql` 15 service.
 
-    ```
+    ```{.bash data-prompt="$"}
     $ systemctl start postgresql-15
     ```
 
 6. Check postgresql status
 
-    ```
+    ```{.bash data-prompt="$"}
     $ systemctl status postgresql-15
     ```
 
@@ -374,20 +374,20 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as the postgres user
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
     * Run the script
 
-       ```
+       ```{.bash data-prompt="$"}
        $ ./analyze_new_cluster.sh
        ```
 
 
 8. Delete Percona Distribution for PostgreSQL 14 configuration files
 
-    ```
+    ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
     ```
 
@@ -396,12 +396,12 @@ The exact steps may differ depending on the package manager of your operating sy
 
     *  Remove packages
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo yum -y remove percona-postgresql14*
        ```
 
     * Remove old files
 
-       ```
+       ```{.bash data-prompt="$"}
        $ rm -rf /var/lib/pgsql/14/data
        ```
