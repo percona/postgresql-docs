@@ -100,7 +100,7 @@ extra:
     provider: mike
 
 nav:
-  - index.md
+  - "Home": "index.md"
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
