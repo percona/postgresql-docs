@@ -27,7 +27,7 @@ The following is the list of extensions available in Percona Distribution for Po
 |[`pgBouncer`](https://www.pgbouncer.org/) | 1.17.0 | lightweight connection pooler for PostgreSQL|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)| 1.1.1 | collects and aggregates statistics for PostgreSQL and provides histogram information.       |
-| [PostgreSQL Common](https://packages.debian.org/sid/percona-postgresql-common)| 241 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 241 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[`wal2json`](https://github.com/eulerto/wal2json) |2.5        | a PostgreSQL logical decoding JSON output plugin.|
 |[HAProxy](http://www.haproxy.org/) | 2.5.9 | The high-availability and load balancing solution for PostgreSQL|
 
