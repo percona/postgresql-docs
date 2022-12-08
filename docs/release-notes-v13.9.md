@@ -11,7 +11,7 @@ enable solving essential practical tasks efficiently.
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.9](https://www.postgresql.org/docs/13/release-13-9.html).
 
-Percona Distribution for PostgreSQL now includes the [meta-packages](installing.md/package-contents) that simplify its installation. The `percona-ppg-server` meta-package installs PostgreSQL and the extensions, while `percona-ppg-server-ha` package installs high-availability components that are recommended by Percona.
+Percona Distribution for PostgreSQL now includes the [meta-packages](installing.md#package-contents) that simplify its installation. The `percona-ppg-server` meta-package installs PostgreSQL and the extensions, while `percona-ppg-server-ha` package installs high-availability components that are recommended by Percona.
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
@@ -26,7 +26,7 @@ The following is the list of extensions available in Percona Distribution for Po
 |[`pgBouncer`](https://www.pgbouncer.org/) | 1.17.0 | lightweight connection pooler for PostgreSQL|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)| 1.1.1 | collects and aggregates statistics for PostgreSQL and provides histogram information.       |
-| [PostgreSQL Common](https://packages.debian.org/sid/percona-postgresql-common)| 241 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 241 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[`wal2json`](https://github.com/eulerto/wal2json) |2.5        | a PostgreSQL logical decoding JSON output plugin.|
 |[HAProxy](http://www.haproxy.org/) | 2.5.9 | a high-availability and load-balancing solution |
 
