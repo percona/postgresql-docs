@@ -1,4 +1,4 @@
-# Release Notes
+# Percona Distribution for PostgreSQL release notes 
 
 * [Percona Distribution for PostgreSQL 11.18](release-notes-v11.18.md) (2022-12-08)
 

@@ -40,6 +40,7 @@ extra_css:
 
 extra_javascript:
   - js/version-select.js
+  - js/promptremover.js
 
 markdown_extensions:
   attr_list: {}
@@ -123,8 +124,8 @@ nav:
           - ldap.md
   - Uninstall:
       - uninstalling.md
-  - Release Notes:
-      - release-notes.md
+  - Release notes:
+      - "Release notes index": "release-notes.md"
       - release-notes-v11.18.md
       - release-notes-v11.17.md
       - release-notes-v11.16.md

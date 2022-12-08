@@ -28,7 +28,8 @@ PostgreSQL
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/11/contrib.html)
 
-!!! see "See also"
+
+!!! admonition "See also"
 
     Blog Posts
 
@@ -42,48 +43,10 @@ library functions that allow client programs to pass queries to the PostgreSQL
 backend server and to receive the results of these queries.” [^1]
 
 
-## Installation and Upgrade
+## Get started
 
-
-* [Installing Percona Distribution for PostgreSQL](installing.md)
-* [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md)
-
-
-## Extensions
-
-
-* [pg_stat_monitor](pg-stat-monitor.md)
-
-
-## Solutions
-
-* [High Availability in PostgreSQL with Patroni](solutions/high-availability.md)
-
-    * [Deploying high-availability on Debian and Ubuntu](solutions/ha-setup-apt.md)
-    * [Deploying high-availability on RHEL and CentOS](solutions/ha-setup-yum.md)
-    * [Testing the Patroni PostgreSQL Cluster](solutions/ha-test.md)
-
-* [Backup and disaster recovery with pgBackRest](solutions/backup-recovery.md)
-
-    * [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](solutions/dr-pgbackrest-setup.md)
-
-
-## Uninstall Percona Distribution for PostgreSQL
-
-
-* [Uninstalling Percona Distribution for PostgreSQL](uninstalling.md)
-
-
-## Release Notes
-
-
-* [Release Notes](release-notes.md)
-
-
-## Reference
-
-
-* [Licensing](licensing.md)
+* [Install Percona Distribution for PostgreSQL](installing.md)
+* [Enable extensions](enable-extensions.md)
 
 
 [^1]: https://www.postgresql.org/docs/11/libpq.html
