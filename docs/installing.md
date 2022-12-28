@@ -10,7 +10,7 @@ In addition to individual packages for its components, Percona Distribution for 
 
 Using a meta-package, you can install all components it contains in one go.
 
-### `percona-ppg-server`
+### `percona-ppg-server15`
 
 The `percona-ppg-server` meta-package installs the PostgreSQL server with the following packages:
 
@@ -26,7 +26,7 @@ The `percona-ppg-server` meta-package installs the PostgreSQL server with the fo
 
 The `%{pgmajorversion}` variable stands for the major version of PostgreSQL.
 
-### `percona-ppg-server-ha`
+### `percona-ppg-server-ha15`
 
 The `percona-ppg-server-ha` meta-package installs high-availability components that are recommended by Percona:
 
