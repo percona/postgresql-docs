@@ -17,8 +17,14 @@
       
         <link rel="canonical" href="https://docs.percona.com/postgresql/15/index.html/15/solutions/ha-setup-apt.html">
       
+      
+        <link rel="prev" href="high-availability.html">
+      
+      
+        <link rel="next" href="ha-setup-yum.html">
+      
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -26,11 +32,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.9c788c91.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -124,7 +129,7 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
   <img src="../_images/percona-logo.png" alt="logo">
@@ -174,39 +179,6 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
     
       <div class="md-header__source">
         <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
@@ -241,7 +213,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
@@ -291,12 +263,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
           Installation and Upgrade
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -317,12 +290,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_1">
+        <label class="md-nav__link" for="__nav_2_1" tabindex="0" aria-expanded="false">
           Install Percona Distribution for PostgreSQL
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -470,12 +444,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
           Extensions
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -520,12 +495,13 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="true">
           Solutions
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -548,12 +524,13 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_1">
+        <label class="md-nav__link" for="__nav_4_1" tabindex="0" aria-expanded="true">
           High availability
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -735,12 +712,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2">
+        <label class="md-nav__link" for="__nav_4_2" tabindex="0" aria-expanded="false">
           Backup and disaster recovery
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -833,12 +811,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
           Release Notes
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1027,7 +1006,7 @@
                   
                   <a
                     href="https://github.com/percona/postgresql-docs/edit/15/docs/solutions/ha-setup-apt.md"
-                    title="Edit this page"
+                    title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
@@ -1123,8 +1102,8 @@
 <p>Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:</p>
 </li>
 </ol>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo systemctl stop postgresql
-$ sudo rm -rf /var/lib/postgresql/14/main
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
+$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/postgresql/14/main
 </code></pre></div>
 <h2 id="configure-etcd-distributed-store">Configure ETCD distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
 <p>The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is <code>etcd</code>. </p>
@@ -1132,7 +1111,7 @@ $ sudo rm -rf /var/lib/postgresql/14/main
 <ol>
 <li>
 <p>Install <code>etcd</code> on every PostgreSQL node using the following command:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo apt install etcd
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>etcd
 </code></pre></div>
 </li>
 <li>
@@ -1182,18 +1161,18 @@ ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.8:2379&quot;
 </li>
 <li>
 <p>On <code>node1</code>, add <code>node2</code> and <code>node3</code> to the cluster using the <code>add</code> command:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo etcdctl member add node2 http://10.104.0.2:2380
-$ sudo etcdctl member add node3 http://10.104.0.8:2380
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>add<span class="w"> </span>node2<span class="w"> </span>http://10.104.0.2:2380
+$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>add<span class="w"> </span>node3<span class="w"> </span>http://10.104.0.8:2380
 </code></pre></div>
 </li>
 <li>
 <p>Restart the <code>etcd</code> service on <code>node2</code> and <code>node3</code>:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo systemctl restart etcd
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>etcd
 </code></pre></div>
 </li>
 <li>
 <p>Check the etcd cluster members.</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo etcdctl member list
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>list
 </code></pre></div>
 <p>The output resembles the following:</p>
 <div class="highlight"><pre><span></span><code>21d50d7f768f153a: name=node1 peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
@@ -1209,12 +1188,12 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <ol>
 <li>
 <p>Load Softdog:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;softdog&quot; &gt;&gt; /etc/modules&#39;</span>
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;softdog&quot; &gt;&gt; /etc/modules&#39;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Patroni will be interacting with the watchdog service. Since Patroni is run by the <code>postgres</code> user, this user must have access to Softdog. To make this happen, change the ownership  of the <code>watchdog.rules</code> file to the <code>postgres</code> user: </p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo sh -c <span class="s1">&#39;echo &quot;KERNEL==\&quot;watchdog\&quot;, OWNER=\&quot;postgres\&quot;, GROUP=\&quot;postgres\&quot;&quot; &gt;&gt; /etc/udev/rules.d/61-watchdog.rules&#39;</span>
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;KERNEL==\&quot;watchdog\&quot;, OWNER=\&quot;postgres\&quot;, GROUP=\&quot;postgres\&quot;&quot; &gt;&gt; /etc/udev/rules.d/61-watchdog.rules&#39;</span>
 </code></pre></div>
 </li>
 <li>
@@ -1222,7 +1201,7 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <ul>
 <li>Find out the files where Softdog is blacklisted:</li>
 </ul>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* <span class="p">|</span>grep softdog
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>grep<span class="w"> </span>blacklist<span class="w"> </span>/lib/modprobe.d/*<span class="w"> </span>/etc/modprobe.d/*<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>softdog
 </code></pre></div>
 <p>In our case, <code>modprobe</code>is blacklisting the Softdog:</p>
 <div class="highlight"><pre><span></span><code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf:blacklist softdog
@@ -1231,12 +1210,12 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <li>Remove the <code>blacklist softdog</code> line from the <code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf</code> file. </li>
 <li>Restart the service </li>
 </ul>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo modprobe softdog
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>modprobe<span class="w"> </span>softdog
 </code></pre></div>
 <ul>
 <li>Verify the <code>modprobe</code> is working correctly by running the <code>lsmod</code>command:</li>
 </ul>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo lsmod <span class="p">|</span> grep softdog
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>softdog
 </code></pre></div>
 <p>The output will show a process identifier if it’s running.</p>
 <div class="highlight"><pre><span></span><code>softdog                16384  0
@@ -1246,22 +1225,22 @@ e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://1
 <p>Check that the Softdog files under the <code>/dev/</code>folder are owned by the <code>postgres</code>user: </p>
 </li>
 </ol>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ ls -l /dev/watchdog*
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/dev/watchdog*
 
-crw-rw---- <span class="m">1</span> postgres postgres  <span class="m">10</span>, <span class="m">130</span> Sep <span class="m">11</span> <span class="m">12</span>:53 /dev/watchdog
-crw------- <span class="m">1</span> root     root     <span class="m">245</span>,   <span class="m">0</span> Sep <span class="m">11</span> <span class="m">12</span>:53 /dev/watchdog0
+crw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>postgres<span class="w"> </span>postgres<span class="w">  </span><span class="m">10</span>,<span class="w"> </span><span class="m">130</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>/dev/watchdog
+crw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">     </span><span class="m">245</span>,<span class="w">   </span><span class="m">0</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>/dev/watchdog0
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If the ownership has not been changed for any reason, run the following command to manually change it:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo chown postgres:postgres /dev/watchdog*
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/dev/watchdog*
 </code></pre></div>
 </div>
 <h2 id="configure-patroni">Configure Patroni<a class="headerlink" href="#configure-patroni" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Install Patroni on every PostgreSQL node:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo apt install percona-patroni
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-patroni
 </code></pre></div>
 </li>
 <li>
@@ -1269,94 +1248,94 @@ crw------- <span class="m">1</span> root     root     <span class="m">245</span>
 </li>
 <li>
 <p>Add the following configuration for <code>node1</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stampede1</span><span class="w"></span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stampede1</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span>
 
-<span class="nt">restapi</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:8008</span><span class="w"></span>
-<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:8008</span><span class="w"></span>
+<span class="nt">restapi</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:8008</span>
+<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:8008</span>
 
-<span class="nt">etcd</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:2379</span><span class="w"></span>
+<span class="nt">etcd</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:2379</span>
 
-<span class="nt">bootstrap</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dcs</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
-<span class="w">    </span><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="w">    </span><span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="w">    </span><span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span><span class="w"></span>
-<span class="c1">#    primary_start_timeout: 300</span><span class="w"></span>
-<span class="c1">#    synchronous_mode: false</span><span class="w"></span>
-<span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">      </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">      </span><span class="nt">parameters</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span><span class="w"></span>
-<span class="w">        </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-<span class="w">        </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-<span class="w">        </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="c1">#archive_mode: &quot;on&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="c1">#archive_timeout: 600</span><span class="w"></span>
-<span class="w">        </span><span class="c1">#archive_command: &quot;cp -f %p /home/postgres/archived/%f&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="c1">#recovery_conf:</span><span class="w"></span>
-<span class="w">        </span><span class="c1">#restore_command: cp /home/postgres/archived/%f %p</span><span class="w"></span>
+<span class="nt">bootstrap</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span>
+<span class="w">  </span><span class="nt">dcs</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">    </span><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span>
+<span class="c1">#    primary_start_timeout: 300</span>
+<span class="c1">#    synchronous_mode: false</span>
+<span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span>
+<span class="w">        </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
+<span class="w">        </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+<span class="w">        </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">        </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">        </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
+<span class="w">        </span><span class="c1">#archive_mode: &quot;on&quot;</span>
+<span class="w">        </span><span class="c1">#archive_timeout: 600</span>
+<span class="w">        </span><span class="c1">#archive_command: &quot;cp -f %p /home/postgres/archived/%f&quot;</span>
+<span class="w">        </span><span class="c1">#recovery_conf:</span>
+<span class="w">        </span><span class="c1">#restore_command: cp /home/postgres/archived/%f %p</span>
 
-<span class="w">  </span><span class="c1"># some desired options for &#39;initdb&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">initdb</span><span class="p">:</span><span class="w">  </span><span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-checksums</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># some desired options for &#39;initdb&#39;</span>
+<span class="w">  </span><span class="nt">initdb</span><span class="p">:</span><span class="w">  </span><span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-checksums</span>
 
-<span class="w">  </span><span class="nt">pg_hba</span><span class="p">:</span><span class="w">  </span><span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.7/32 md5</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 trust</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pg_hba</span><span class="p">:</span><span class="w">  </span><span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.7/32 md5</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 trust</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.2/32 md5</span><span class="w">  </span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.8/32 md5</span><span class="w"> </span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.6/32 trust</span><span class="w"></span>
-<span class="c1">#  - hostssl all all 0.0.0.0/0 md5</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 10.104.0.6/32 trust</span>
+<span class="c1">#  - hostssl all all 0.0.0.0/0 md5</span>
 
-<span class="w">  </span><span class="c1"># Additional script to be launched after initial cluster creation (will be passed the connection URL as parameter)</span><span class="w"></span>
-<span class="c1"># post_init: /usr/local/bin/setup_cluster.sh</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># Some additional users users which needs to be created after initializing new cluster</span><span class="w"></span>
-<span class="w">  </span><span class="nt">users</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">admin</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span><span class="w"></span>
-<span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createrole</span><span class="w"></span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createdb</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># Additional script to be launched after initial cluster creation (will be passed the connection URL as parameter)</span>
+<span class="c1"># post_init: /usr/local/bin/setup_cluster.sh</span>
+<span class="w">  </span><span class="c1"># Some additional users users which needs to be created after initializing new cluster</span>
+<span class="w">  </span><span class="nt">users</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">admin</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createrole</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createdb</span>
 <span class="w">    </span><span class="nt">replicator</span><span class="p">:</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w">    </span>
-<span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replication</span><span class="w"> </span>
-<span class="nt">postgresql</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:5432</span><span class="w"></span>
-<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:5432</span><span class="w"></span>
-<span class="w">  </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/14/main&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lib/postgresql/14/bin&quot;</span><span class="w"></span>
-<span class="c1">#  config_dir:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">pgpass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass0</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authentication</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">replication</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replicator</span><span class="w"></span>
-<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
-<span class="w">    </span><span class="nt">superuser</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
-<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
-<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">unix_socket_directories</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/run/postgresql&#39;</span><span class="w"></span>
+<span class="nt">postgresql</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:5432</span>
+<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1:5432</span>
+<span class="w">  </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/14/main&quot;</span>
+<span class="w">  </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/usr/lib/postgresql/14/bin&quot;</span>
+<span class="c1">#  config_dir:</span>
+<span class="w">  </span><span class="nt">pgpass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass0</span>
+<span class="w">  </span><span class="nt">authentication</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">replication</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replicator</span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">    </span><span class="nt">superuser</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">unix_socket_directories</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/run/postgresql&#39;</span>
 
-<span class="nt">watchdog</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">required</span><span class="w"> </span><span class="c1"># Allowed values: off, automatic, required</span><span class="w"></span>
-<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/watchdog</span><span class="w"></span>
-<span class="w">  </span><span class="nt">safety_margin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<span class="nt">watchdog</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">required</span><span class="w"> </span><span class="c1"># Allowed values: off, automatic, required</span>
+<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/watchdog</span>
+<span class="w">  </span><span class="nt">safety_margin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 
-<span class="nt">tags</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">nofailover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">    </span><span class="nt">noloadbalance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">nofailover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">noloadbalance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">Patroni configuration file</p>
@@ -1370,8 +1349,8 @@ crw------- <span class="m">1</span> root     root     <span class="m">245</span>
 </li>
 <li>
 <p>Enable and restart the patroni service on every node. Use the following commands:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo systemctl <span class="nb">enable</span> patroni
-$ sudo systemctl restart patroni
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>patroni
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>patroni
 </code></pre></div>
 </li>
 </ol>
@@ -1379,7 +1358,7 @@ $ sudo systemctl restart patroni
 <div class="admonition admonition">
 <p class="admonition-title">Troubleshooting Patroni</p>
 <p>To ensure that Patroni has started properly, check the logs using the following command:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo journalctl -u patroni.service -n <span class="m">100</span> -f
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>patroni.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
 </code></pre></div>
 <p>The output shouldn&rsquo;t show any errors:</p>
 <div class="highlight"><pre><span></span><code>…
@@ -1427,7 +1406,7 @@ Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. 
 <p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
 </div>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo psql -U postgres
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
 <p>The command output looks like the following:</p>
 <div class="highlight"><pre><span></span><code>psql (14.1)
@@ -1441,7 +1420,7 @@ postgres=#
 <ol>
 <li>
 <p>Install HAProxy on the <code>HAProxy-demo</code> node:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo apt install percona-haproxy
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-haproxy
 </code></pre></div>
 </li>
 <li>
@@ -1487,12 +1466,12 @@ listen standbys
 </li>
 <li>
 <p>Restart HAProxy:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo systemctl restart haproxy
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>haproxy
 </code></pre></div>
 </li>
 <li>
 <p>Check the HAProxy logs to see if there are any errors:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$ sudo journalctl -u haproxy.service -n <span class="m">100</span> -f
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>haproxy.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
 </code></pre></div>
 </li>
 </ol>
@@ -1543,42 +1522,6 @@ listen standbys
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="high-availability.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Overview
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="ha-setup-yum.html" class="md-footer__link md-footer__link--next" aria-label="Next: Deploying on RHEL or CentOS" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Deploying on RHEL or CentOS
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1604,11 +1547,11 @@ listen standbys
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
               
-      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
@@ -1622,6 +1565,5 @@ listen standbys
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K48FGP2" height="0" width="0" style="display:none;visibility:hidden"></iframe>
               </noscript>
               
-    
   </body>
 </html>
