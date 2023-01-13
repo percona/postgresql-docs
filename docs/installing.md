@@ -12,6 +12,14 @@ Using a meta-package, you can install all components it contains in one go.
 
 ### `percona-ppg-server`
 
+=== "Package name on Debian/Ubuntu"
+
+     `percona-ppg-server-15`
+
+=== "Package name on RHEL/derivatives"
+
+     `percona-ppg-server15`
+
 The `percona-ppg-server` meta-package installs the PostgreSQL server with the following packages:
 
 | Package contents | Description                             |  
@@ -27,6 +35,14 @@ The `percona-ppg-server` meta-package installs the PostgreSQL server with the fo
 The `%{pgmajorversion}` variable stands for the major version of PostgreSQL.
 
 ### `percona-ppg-server-ha`
+
+=== "Package name on Debian/Ubuntu"
+
+     `percona-ppg-server-ha-15`
+
+=== "Package name on RHEL/derivatives"
+
+     `percona-ppg-server-ha15`
 
 The `percona-ppg-server-ha` meta-package installs high-availability components that are recommended by Percona:
 
