@@ -44,7 +44,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 === "Install using meta-package"
      
      ```{.bash data-promp="$"}
-     $ sudo yum install percona-ppg-server
+     $ sudo yum install percona-ppg-server13
      ```
 
 === "Install packages individually"
