@@ -17,8 +17,14 @@
       
         <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/solutions/dr-pgbackrest-setup.html">
       
+      
+        <link rel="prev" href="backup-recovery.html">
+      
+      
+        <link rel="next" href="../ldap.html">
+      
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.4">
     
     
       
@@ -26,11 +32,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.9c788c91.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -124,7 +129,7 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
   <img src="../_images/percona-logo.svg" alt="logo">
@@ -174,39 +179,6 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
     
       <div class="md-header__source">
         <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
@@ -241,7 +213,7 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
@@ -291,12 +263,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
           Installation and Upgrade
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -317,12 +290,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_1">
+        <label class="md-nav__link" for="__nav_2_1" tabindex="0" aria-expanded="false">
           Install Percona Distribution for PostgreSQL
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -456,12 +430,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
           Extensions
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -506,12 +481,13 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="true">
           Solutions
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -532,8 +508,9 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
       
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
       
       
       
@@ -615,8 +592,9 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
       
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
       
       
       
@@ -858,12 +836,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
           Release notes
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1429,7 +1408,7 @@
                   
                   <a
                     href="https://github.com/percona/postgresql-docs/edit/11/docs/solutions/dr-pgbackrest-setup.md"
-                    title="Edit this page"
+                    title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
@@ -1524,7 +1503,7 @@ pg-secondary
 <ol>
 <li>
 <p>To set or change the password, run the following command <strong>as a root user</strong>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ passwd postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>passwd<span class="w"> </span>postgres
 </code></pre></div>
 </li>
 <li>
@@ -1537,7 +1516,7 @@ pg-secondary
 </li>
 <li>
 <p>In the <code>pg-repo</code> node, restart the <code>sshd</code> service. Without the restart, the SSH server will not allow you to connect to it using a password while adding the keys.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo service sshd restart
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>sshd<span class="w"> </span>restart
 </code></pre></div>
 </li>
 <li>
@@ -1549,23 +1528,23 @@ pg-secondary
 <ul>
 <li>
 <p>Generate SSH keys:   </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ ssh-keygen -t rsa
-Generating public/private rsa key pair.
-Enter file <span class="k">in</span> which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>: 
-Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: 
-Enter same passphrase again: 
-Your identification has been saved <span class="k">in</span> /root/.ssh/id_rsa
-Your public key has been saved <span class="k">in</span> /root/.ssh/id_rsa.pub
-The key fingerprint is:
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
+Generating<span class="w"> </span>public/private<span class="w"> </span>rsa<span class="w"> </span>key<span class="w"> </span>pair.
+Enter<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>which<span class="w"> </span>to<span class="w"> </span>save<span class="w"> </span>the<span class="w"> </span>key<span class="w"> </span><span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>:<span class="w"> </span>
+Enter<span class="w"> </span>passphrase<span class="w"> </span><span class="o">(</span>empty<span class="w"> </span><span class="k">for</span><span class="w"> </span>no<span class="w"> </span>passphrase<span class="o">)</span>:<span class="w"> </span>
+Enter<span class="w"> </span>same<span class="w"> </span>passphrase<span class="w"> </span>again:<span class="w"> </span>
+Your<span class="w"> </span>identification<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>/root/.ssh/id_rsa
+Your<span class="w"> </span>public<span class="w"> </span>key<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>saved<span class="w"> </span><span class="k">in</span><span class="w"> </span>/root/.ssh/id_rsa.pub
+The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"> </span>is:
 ...
 </code></pre></div>
 </li>
 <li>
 <p>Copy the public key to the <code>pg-repo</code> node:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ ssh-copy-id -i ~/.ssh/id_rsa.pub postgres@pg-repo
-/usr/bin/ssh-copy-id: INFO: Source of key<span class="o">(</span>s<span class="o">)</span> to be installed: <span class="s2">&quot;/root/.ssh/id_rsa.pub&quot;</span>
-/usr/bin/ssh-copy-id: INFO: attempting to log <span class="k">in</span> with the new key<span class="o">(</span>s<span class="o">)</span>, to filter out any that are already installed
-/usr/bin/ssh-copy-id: INFO: <span class="m">1</span> key<span class="o">(</span>s<span class="o">)</span> remain to be installed -- <span class="k">if</span> you are prompted now it is to install the new keys
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>postgres@pg-repo
+/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>Source<span class="w"> </span>of<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed:<span class="w"> </span><span class="s2">&quot;/root/.ssh/id_rsa.pub&quot;</span>
+/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>attempting<span class="w"> </span>to<span class="w"> </span>log<span class="w"> </span><span class="k">in</span><span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span>to<span class="w"> </span>filter<span class="w"> </span>out<span class="w"> </span>any<span class="w"> </span>that<span class="w"> </span>are<span class="w"> </span>already<span class="w"> </span>installed
+/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span><span class="m">1</span><span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>remain<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>--<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>prompted<span class="w"> </span>now<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>keys
 postgres@pg-repo<span class="s1">&#39;s password: </span>
 
 <span class="s1">Number of key(s) added: 1</span>
@@ -1579,7 +1558,7 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 </li>
 <li>
 <p>To verify everything has worked as expected, run the following command from the <code>pg-primary</code> node. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ ssh postgres@pg-repo
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ssh<span class="w"> </span>postgres@pg-repo
 </code></pre></div>
 <p>You should be able to connect to the <code>pg-repo</code> terminal without a password.</p>
 </li>
@@ -1594,7 +1573,7 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <li><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <code>percona-release</code></a>.</li>
 <li>
 <p>Enable the repository:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo percona-release setup ppg11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg11
 </code></pre></div>
 </li>
 <li>
@@ -1602,11 +1581,11 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RedHat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt install percona-postgresql-11 -y
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-11<span class="w"> </span>-y
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum install percona-postgresql11-server
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql11-server
 </code></pre></div>
 </div>
 </div>
@@ -1633,7 +1612,7 @@ wal_level = replica
 </li>
 <li>
 <p>Once the changes are saved, restart PostgreSQL.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl restart postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql
 </code></pre></div>
 </li>
 </ol>
@@ -1642,11 +1621,11 @@ wal_level = replica
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo apt-get install percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo yum install percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
 </div>
 </div>
@@ -1656,19 +1635,19 @@ wal_level = replica
 <ol>
 <li>
 <p>Configure a location and permissions for the <code>pgBackRest</code> log rotation:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo mkdir -p -m <span class="m">770</span> /var/log/pgbackrest
-$ sudo chown postgres:postgres /var/log/pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>-m<span class="w"> </span><span class="m">770</span><span class="w"> </span>/var/log/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/log/pgbackrest
 </code></pre></div>
 </li>
 <li>
 <p>Configure the location and permissions for the <code>pgBackRest</code> configuration file:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo mkdir -p /etc/pgbackrest
-$ sudo mkdir -p /etc/pgbackrest/conf.d
-$ sudo touch /etc/pgbackrest/pgbackrest.conf
-$ sudo chmod <span class="m">640</span> /etc/pgbackrest/pgbackrest.conf
-$ sudo chown postgres:postgres /etc/pgbackrest/pgbackrest.conf
-$ sudo mkdir -p /home/pgbackrest
-$ sudo chmod postgres:postgres /home/pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/pgbackrest/conf.d
+$<span class="w"> </span>sudo<span class="w"> </span>touch<span class="w"> </span>/etc/pgbackrest/pgbackrest.conf
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span>/etc/pgbackrest/pgbackrest.conf
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/etc/pgbackrest/pgbackrest.conf
+$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span>postgres:postgres<span class="w"> </span>/home/pgbackrest
 </code></pre></div>
 </li>
 </ol>
@@ -1704,10 +1683,10 @@ pg1-port = 5432
 </code></pre></div>
 <h3 id="initialize-pgbackrest-stanza-in-the-remote-backup-repository-node">Initialize <code>pgBackRest</code> stanza in the remote backup repository node<a class="headerlink" href="#initialize-pgbackrest-stanza-in-the-remote-backup-repository-node" title="Permanent link">&para;</a></h3>
 <p>After the configuration files are set up, it’s now time to initialize the <code>pgBackRest</code> stanza. Run the following command in the remote backup repository node (<code>pg-repo</code>).</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo -u postgres pgbackrest --stanza<span class="o">=</span>prod_backup stanza-create
-<span class="m">2021</span>-11-07 <span class="m">11</span>:08:18.157 P00   INFO: stanza-create <span class="nb">command</span> begin <span class="m">2</span>.36: --exec-id<span class="o">=</span><span class="m">155883</span>-2277a3e7 --log-level-console<span class="o">=</span>info --log-level-file<span class="o">=</span>off --pg1-host<span class="o">=</span>pg-primary --pg1-host-user<span class="o">=</span>postgres --pg1-path<span class="o">=</span>/var/lib/postgresql/11/main --pg1-port<span class="o">=</span><span class="m">5432</span> --repo1-path<span class="o">=</span>/home/pgbackrest/pg_backup --stanza<span class="o">=</span>prod_backup
-<span class="m">2021</span>-11-07 <span class="m">11</span>:08:19.453 P00   INFO: stanza-create <span class="k">for</span> stanza <span class="s1">&#39;prod_backup&#39;</span> on repo1
-<span class="m">2021</span>-11-07 <span class="m">11</span>:08:19.566 P00   INFO: stanza-create <span class="nb">command</span> end: completed successfully <span class="o">(</span>1412ms<span class="o">)</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>stanza-create
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:18.157<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">155883</span>-2277a3e7<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>off<span class="w"> </span>--pg1-host<span class="o">=</span>pg-primary<span class="w"> </span>--pg1-host-user<span class="o">=</span>postgres<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/11/main<span class="w"> </span>--pg1-port<span class="o">=</span><span class="m">5432</span><span class="w"> </span>--repo1-path<span class="o">=</span>/home/pgbackrest/pg_backup<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.453<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="k">for</span><span class="w"> </span>stanza<span class="w"> </span><span class="s1">&#39;prod_backup&#39;</span><span class="w"> </span>on<span class="w"> </span>repo1
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.566<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>end:<span class="w"> </span>completed<span class="w"> </span>successfully<span class="w"> </span><span class="o">(</span>1412ms<span class="o">)</span>
 </code></pre></div>
 <p>Once the stanza is created successfully, you can try out the different use cases for disaster recovery.</p>
 <h2 id="testing-backup-and-restore-with-pgbackrest">Testing Backup and Restore with <code>pgBackRest</code><a class="headerlink" href="#testing-backup-and-restore-with-pgbackrest" title="Permanent link">&para;</a></h2>
@@ -1716,28 +1695,28 @@ pg1-port = 5432
 <ol>
 <li>
 <p>To start our testing, let’s create a table in the <code>postgres</code> database in the <code>pg-primary</code> node and add some data.</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span><span class="w"></span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;john&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;martha&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;mary&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;john&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;martha&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;mary&#39;</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
 <p>Take a full backup of the database instance. Run the following commands from the <code>pg-repo</code> node:</p>
 </li>
 </ol>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres  --stanza<span class="o">=</span>prod_backup backup --type<span class="o">=</span>full
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w">  </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>backup<span class="w"> </span>--type<span class="o">=</span>full
 </code></pre></div>
 <p>If you want an incremental backup, you can omit the <code>type</code> attribute. By default, <code>pgBackRest</code> always takes an incremental backup except the first backup of the cluster which is always a full backup. </p>
 <p>If you need a differential backup,  use <em>diff</em> for the <code>type</code> field:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup backup --type<span class="o">=</span>diff
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>backup<span class="w"> </span>--type<span class="o">=</span>diff
 </code></pre></div>
 <h3 id="use-case-2-restore-a-postgresql-instance-from-a-full-backup">Use Case 2: Restore a PostgreSQL Instance from a full backup<a class="headerlink" href="#use-case-2-restore-a-postgresql-instance-from-a-full-backup" title="Permanent link">&para;</a></h3>
 <p>For testing purposes, let&rsquo;s &ldquo;damage&rdquo; the PostgreSQL instance. </p>
 <ol>
 <li>
 <p>Run the following command in the <code>pg-primary</code> node to delete the main data directory.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ rm -rf /var/lib/postgresql/11/main/*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/postgresql/11/main/*
 </code></pre></div>
 </li>
 <li>
@@ -1745,17 +1724,17 @@ pg1-port = 5432
 <ul>
 <li>Stop the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
 </code></pre></div>
 <ul>
 <li>Restore the backup:</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup restore
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>restore
 </code></pre></div>
 <ul>
 <li>Start the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql
 </code></pre></div>
 </li>
 <li>
@@ -1769,17 +1748,17 @@ pg1-port = 5432
 <ol>
 <li>
 <p>Take a timestamp when the database is stable and error-free. Run the following command from the <code>psql</code>prompt.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">;</span>
 <span class="w">       </span><span class="k">current_timestamp</span><span class="w">       </span>
 <span class="c1">-------------------------------</span>
-<span class="w"> </span><span class="mi">2021</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">07</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">47</span><span class="p">.</span><span class="mi">952405</span><span class="o">+</span><span class="mi">00</span><span class="w"></span>
-<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="mi">2021</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">07</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">47</span><span class="p">.</span><span class="mi">952405</span><span class="o">+</span><span class="mi">00</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
 </code></pre></div>
 <p>Note down the above timestamp since we will use this time in the restore command. Note that in a real life scenario, finding the correct point in time when the database was error-free may require extensive investigation. It is also important to note that all changes after the selected point will be lost after the roll back. </p>
 </li>
 <li>
 <p>Delete one of the customer records added before.</p>
-<div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ID</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ID</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
 </code></pre></div>
 </li>
 <li>
@@ -1787,30 +1766,30 @@ pg1-port = 5432
 <ul>
 <li>Stop the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
 </code></pre></div>
 <ul>
 <li>Restore the backup</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup --delta <span class="se">\</span>
---type<span class="o">=</span><span class="nb">time</span> <span class="s2">&quot;--target= 2021-11-07 11:55:47.952405+00&quot;</span> <span class="se">\</span>
---target-action<span class="o">=</span>promote restore
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>--delta<span class="w"> </span><span class="se">\</span>
+--type<span class="o">=</span><span class="nb">time</span><span class="w"> </span><span class="s2">&quot;--target= 2021-11-07 11:55:47.952405+00&quot;</span><span class="w"> </span><span class="se">\</span>
+--target-action<span class="o">=</span>promote<span class="w"> </span>restore
 </code></pre></div>
 <ul>
 <li>Start the <code>postgresql</code> instance</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql
 </code></pre></div>
 </li>
 <li>
 <p>Check the database table to see if the record has been restored.</p>
-<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span>
 <span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">name</span><span class="w">  </span>
 <span class="c1">----+--------</span>
-<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">john</span><span class="w"></span>
-<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">martha</span><span class="w"></span>
-<span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mary</span><span class="w"></span>
-<span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">john</span>
+<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">martha</span>
+<span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mary</span>
+<span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1829,30 +1808,30 @@ pg1-path=/var/lib/postgresql/11/main
 </code></pre></div>
 <p>There should be bidirectional passwordless SSH communication between <code>pg-repo</code> and <code>pg-secondary</code>. Refer to the <a href="#set-up-passwordless-ssh">Set up passwordless SSH</a> section for the steps, if you haven’t configured it. </p>
 <p>Stop the PostgreSQL instance</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl stop postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
 </code></pre></div>
 <p>Restore the database backup from <code>pg-repo</code> to <code>pg-secondary</code>.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ pgbackrest -u postgres --stanza<span class="o">=</span>prod_backup --delta restore
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>--delta<span class="w"> </span>restore
 
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:08.897 P00   INFO: restore <span class="nb">command</span> begin <span class="m">2</span>.36: --delta --exec-id<span class="o">=</span><span class="m">109728</span>-d81c7b0b --log-level-console<span class="o">=</span>info --log-level-file<span class="o">=</span>debug --pg1-path<span class="o">=</span>/var/lib/postgresql/11/main --process-max<span class="o">=</span><span class="m">2</span> --repo1-host<span class="o">=</span>pg-repo --repo1-host-user<span class="o">=</span>postgres --stanza<span class="o">=</span>prod_backup
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:09.784 P00   INFO: repo1: restore backup <span class="nb">set</span> <span class="m">20211107</span>-111534F_20211107-131807I, recovery will start at <span class="m">2021</span>-11-07 <span class="m">13</span>:18:07
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:09.786 P00   INFO: remove invalid files/links/paths from <span class="s1">&#39;/var/lib/postgresql/11/main&#39;</span>
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:11.803 P00   INFO: write updated /var/lib/postgresql/11/main/postgresql.auto.conf
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:11.819 P00   INFO: restore global/pg_control <span class="o">(</span>performed last to ensure aborted restores cannot be started<span class="o">)</span>
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:11.819 P00   INFO: restore <span class="nv">size</span> <span class="o">=</span> <span class="m">23</span>.2MB, file <span class="nv">total</span> <span class="o">=</span> <span class="m">937</span>
-<span class="m">2021</span>-11-07 <span class="m">13</span>:34:11.820 P00   INFO: restore <span class="nb">command</span> end: completed successfully <span class="o">(</span>2924ms<span class="o">)</span>
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:08.897<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--delta<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">109728</span>-d81c7b0b<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>debug<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/11/main<span class="w"> </span>--process-max<span class="o">=</span><span class="m">2</span><span class="w"> </span>--repo1-host<span class="o">=</span>pg-repo<span class="w"> </span>--repo1-host-user<span class="o">=</span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.784<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>repo1:<span class="w"> </span>restore<span class="w"> </span>backup<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">20211107</span>-111534F_20211107-131807I,<span class="w"> </span>recovery<span class="w"> </span>will<span class="w"> </span>start<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:18:07
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.786<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>remove<span class="w"> </span>invalid<span class="w"> </span>files/links/paths<span class="w"> </span>from<span class="w"> </span><span class="s1">&#39;/var/lib/postgresql/11/main&#39;</span>
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.803<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>write<span class="w"> </span>updated<span class="w"> </span>/var/lib/postgresql/11/main/postgresql.auto.conf
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.819<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span>global/pg_control<span class="w"> </span><span class="o">(</span>performed<span class="w"> </span>last<span class="w"> </span>to<span class="w"> </span>ensure<span class="w"> </span>aborted<span class="w"> </span>restores<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>started<span class="o">)</span>
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.819<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">23</span>.2MB,<span class="w"> </span>file<span class="w"> </span><span class="nv">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">937</span>
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.820<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nb">command</span><span class="w"> </span>end:<span class="w"> </span>completed<span class="w"> </span>successfully<span class="w"> </span><span class="o">(</span>2924ms<span class="o">)</span>
 </code></pre></div>
 <p>After the restore completes successfully, restart PostgreSQL:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ sudo systemctl start postgresql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql
 </code></pre></div>
 <p>Check the database contents from the local <code>psql</code> shell. </p>
-<div class="highlight"><pre><span></span><code><span class="n">postgres</span><span class="o">=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">postgres</span><span class="o">=#</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customer</span><span class="p">;</span>
 <span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">name</span><span class="w">  </span>
 <span class="c1">----+--------</span>
-<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">john</span><span class="w"></span>
-<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">martha</span><span class="w"></span>
-<span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mary</span><span class="w"></span>
-<span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">john</span>
+<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">martha</span>
+<span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">mary</span>
+<span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
 </code></pre></div>
 
                 
@@ -1899,42 +1878,6 @@ pg1-path=/var/lib/postgresql/11/main
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="backup-recovery.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Backup and disaster recovery" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Backup and disaster recovery
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../ldap.html" class="md-footer__link md-footer__link--next" aria-label="Next: LDAP authentication" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              LDAP authentication
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1960,11 +1903,11 @@ pg1-path=/var/lib/postgresql/11/main
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
               
-      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
@@ -1978,6 +1921,5 @@ pg1-path=/var/lib/postgresql/11/main
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K48FGP2" height="0" width="0" style="display:none;visibility:hidden"></iframe>
               </noscript>
               
-    
   </body>
 </html>
