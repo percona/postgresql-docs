@@ -47,7 +47,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 === "Install using meta-package"
      
      ```{.bash data-prompt="$"}
-     $ sudo apt install percona-ppg-server
+     $ sudo apt install percona-ppg-server-15
      ```
 
 === "Install packages individually"
