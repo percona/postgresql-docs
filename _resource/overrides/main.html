@@ -1,5 +1,5 @@
 {#
-MkDocs template for Netlify builds to customize docs layout 
+MkDocs template for builds with Material theme to customize docs layout 
 by adding marketing-requested elements
 #}
 
@@ -75,7 +75,7 @@ by adding marketing-requested elements
                   doesn't, the page title (or respectively site name) is used
                   as the main headline.
                 -->
-                {% if not "\x3ch1" in page.content %}
+                {% if "\x3ch1" not in page.content %}
                   <h1>{{ page.title | d(config.site_name, true)}}</h1>
                 {% endif %}
 
