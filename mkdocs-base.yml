@@ -34,7 +34,6 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
-
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
@@ -68,10 +67,13 @@ markdown_extensions:
 
 
 plugins:
-  search: {}
-  git-revision-date: {}
-
-#  - htmlproofer # Uncomment to check links - but extends build time significantly
+# htmlproofer: {} # Uncomment to check links - but extends build time significantly
+  section-index: {}
+  search: 
+    separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  git-revision-date-localized: 
+    enable_creation_date: true
+    enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
   macros:
       include_yaml:
 #        - 'variables.yml' # Use in markdown as '{{ VAR }}'
@@ -88,7 +90,7 @@ plugins:
           custom_template_path: _resource/templates
           enabled_if_env: ENABLE_PDF_EXPORT
 
-          
+#Version switcher         
   mike:
       version_selector: true
       css_dir: css
