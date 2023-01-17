@@ -1,6 +1,7 @@
 # MkDocs configuration for Netlify builds
 
 INHERIT: mkdocs-base.yml
+
 site_url: https://docs.percona.com/postgresql/13/index.html
 
 theme:
@@ -8,6 +9,15 @@ theme:
   custom_dir: _resource/overrides
 
 
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking 
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+    - content.code.copy   
+  
 #Google Analytics configuration 
 extra:
   analytics:
