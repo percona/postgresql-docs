@@ -11,7 +11,7 @@ edit_uri: edit/14/docs/
 
 use_directory_urls: false
 
-# Theme for netlify testing
+# Material theme features
 theme:
   name: material
   logo: _images/percona-logo.png
@@ -33,6 +33,11 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
 
+#Theme features  
+#  features:
+#    - content.action.edit
+#    - content.action.view
+#    - content.code.copy
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -68,8 +73,12 @@ markdown_extensions:
 
 
 plugins:
-  search: {}
-  git-revision-date: {}
+  section-index: {}
+  search: 
+    separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  git-revision-date-localized: 
+    enable_creation_date: true
+    enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
   macros:
       include_yaml:
 #        - 'variables.yml' # Use in markdown as '{{ VAR }}'
