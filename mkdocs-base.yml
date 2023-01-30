@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2022
+copyright: Percona LLC, &#169; 2023
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -89,7 +89,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 15 (November 21, 2022)
+          cover_subtitle: 15.2 (March 20, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -134,6 +134,7 @@ nav:
       - uninstalling.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v15.2.md
       - release-notes-v15.1.md
       - release-notes-v15.0.md
   - Licensing:

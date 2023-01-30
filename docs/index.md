@@ -33,6 +33,10 @@ PostgreSQL
 
 * [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution 
 
+* [`pgpool`](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
+
+* [PostGIS](https://trac.osgeo.org/postgis/) - a spatial database extender for PostgreSQL. It allows GIS (Geographic Information Systems) objects to be stored in the database.
+
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/14/contrib.html)
 
 
