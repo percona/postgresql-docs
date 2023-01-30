@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2022
+copyright: Percona LLC, &#169; 2023
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -88,7 +88,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-14.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 14.6 (November 23, 2022)
+          cover_subtitle: 14.7 (February , 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
           debug_html: false
@@ -133,6 +133,7 @@ nav:
       - uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v14.7.md
       - release-notes-v14.6.md
       - release-notes-v14.5.md
       - release-notes-v14.4.md
