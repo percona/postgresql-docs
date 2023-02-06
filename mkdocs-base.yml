@@ -18,6 +18,11 @@ theme:
   name: material
   logo: _images/percona-logo.svg
   favicon: _images/percona-favicon.ico
+  custom_dir: _resource/overrides/
+  font:
+    text: Poppins
+
+#Color schemes
   palette:
 
     # Light mode
@@ -33,6 +38,18 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
+
+
+# Theme features
+
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking 
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+    - content.code.copy  
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -82,7 +99,7 @@ plugins:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-12.pdf'
-          cover_title: 'Percona Distribution for PostgreSQL Documentation'
+          cover_title: 'Distribution for PostgreSQL Documentation'
           cover_subtitle: 12.13 (December 1, 2022)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/postgre-logo.jpg
@@ -100,6 +117,8 @@ plugins:
 extra:
   version:
     provider: mike
+  homepage:
+    https://docs.percona.com
 
 nav:
   - index.md
