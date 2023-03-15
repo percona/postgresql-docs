@@ -119,7 +119,12 @@ Run all the commands in the following sections as root or using the `sudo` comma
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
         ```
+        
+        Install pgpool
 
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-pgpool-II-pg15
+        ```
         Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
