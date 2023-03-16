@@ -32,7 +32,7 @@ The following is the list of extensions available in Percona Distribution for Po
 |[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
 |[HAProxy](http://www.haproxy.org/) | 2.5.11 | a high-availability and load-balancing solution |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.2 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
-| [PostGIS](https://trac.osgeo.org/postgis/) |  | a spatial database extender for PostgreSQL.| 
+
 
 Percona Distribution for PostgreSQL also includes the following packages:
 
