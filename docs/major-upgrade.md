@@ -80,6 +80,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pg-stat-monitor15 \
        percona-postgresql-contrib
        percona-haproxy
+       percona-pgpool2
       ```
 
 2. Stop the `postgresql` service.
@@ -265,6 +266,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-wal2json15 \
        percona-postgresql15-contrib
        percona-haproxy
+       percona-pgpool-II-pg15
        ```
 
 

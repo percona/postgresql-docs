@@ -50,7 +50,7 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
      2. Remove the **percona-postgresql** packages
 
          ```{.bash data-prompt="$"}
-         $ sudo yum remove percona-postgresql14* percona-pgbadger
+         $ sudo yum remove percona-postgresql15* percona-pgbadger
          ```
 
 
