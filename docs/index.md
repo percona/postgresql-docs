@@ -35,15 +35,12 @@ PostgreSQL
 
 * [`pgpool`](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
 
-* [PostGIS](https://trac.osgeo.org/postgis/) - a spatial database extender for PostgreSQL. It allows GIS (Geographic Information Systems) objects to be stored in the database.
-
-
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/14/contrib.html)
 
 
 !!! admonition "See also"
 
-    Blog Posts
+    Blog posts
 
     - [pgBackRest - A Great Backup Solution and a Wonderful Year of
       Growth](https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/)

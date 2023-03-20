@@ -114,6 +114,12 @@ Run all the commands in the following sections as root or using the `sudo` comma
         $ sudo yum install percona-postgresql14-contrib
         ```
 
+         Install pgpool
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-pgpool-II-pg14
+        ```
+
         Install HAProxy
         
         ```{.bash data-prompt="$"}

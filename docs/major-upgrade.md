@@ -77,6 +77,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-postgresql-14-wal2json \
        percona-pg-stat-monitor14 \
        percona-postgresql-contrib
+       percona-pgpool2
       ```
 
     !!! seealso
@@ -269,9 +270,10 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgbadger \
        percona-wal2json14 \
        percona-postgresql14-contrib
+       percona-pgpool-II-pg14
        ```
 
-!!! seealso
+!!! admonition "See also"
 
     Percona Documentation:
 
