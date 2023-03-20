@@ -21,7 +21,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.0.1 | a HA (High Availability) solution for PostgreSQL |
-| [PgAudit](https://www.pgaudit.org/)             | 1.3.4   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
+| [PgAudit](https://www.pgaudit.org/)             | 1.7.0   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/)           | 2.43    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.0     | a fast PostgreSQL Log Analyzer.|
