@@ -9,7 +9,6 @@ theme:
   name: material
   custom_dir: _resource/overrides
 
-# Theme features
 
   features:
     - search.highlight
@@ -20,11 +19,8 @@ theme:
     - content.action.view
     - content.code.copy   
   
-plugins:
-  git-revision-date-localized: 
-    enable_creation_date: true
-    enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
-  
+
+
 #Google Analytics configuration 
 extra:
   analytics:

@@ -2,7 +2,7 @@
 
 !!! note
 
-    This document describes the functionality of pg_stat_monitor 1.0.0.
+    This document describes the functionality of pg_stat_monitor 2.0.0.
 
 ## Overview
 
@@ -27,30 +27,47 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 ### Views
 
-`pg_stat_monitor` provides two views:
-
-* [`pg_stat_monitor`](#pg_stat_monitor-view) is the view where statistics data is presented.
-* [`pg_stat_monitor_settings`](#pg_stat_monitor-settings-view) view shows available configuration options which you can change. 
-
 #### pg_stat_monitor view
 
 The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference](https://docs.percona.com/pg-stat-monitor/reference.html).
 
 The following are the primary keys for pg_stat_monitor:
 
-* `bucket`,
-* `userid`,
-* `dbid`,
-* `client_ip`,
-* `application_name`.
+*  `bucket`
+*  `userid`
+*  `datname`
+*  `queryid`
+*  `client_ip`
+*  `planid`
+*  `application_name`
 
 A new row is created for each key in the `pg_stat_monitor` view.
 
-For security reasons, only superusers and members of the `pg_read_all_stats` role are allowed to see the SQL text and `queryid` of queries executed by other users. Other users can see the statistics, however, if the view has been installed in their database.
+For security reasons, only superusers and members of the `pg_read_all_stats` role are allowed to see the SQL text, `client_ip` and `queryid` of queries executed by other users. Other users can see the statistics, however, if the view has been installed in their database.
 
-#### pg_stat_monitor_settings view
+#### pg_stat_monitor_settings view (dropped)
 
-The `pg_stat_monitor_settings` view shows one row per `pg_stat_monitor` configuration parameter. It displays configuration parameter name, value, default value, description, minimum and maximum values, and whether a restart is required for a change in value to be effective.
+Starting with version 2.0.0, the `pg_stat_monitor_settings` view is deprecated and removed. All `pg_stat_monitor` configuration parameters are now available though the `pg_settings` view using the following query: 
+
+```sql
+SELECT name, setting, unit, context, vartype, source, min_val, max_val, enumvals, boot_val, reset_val, pending_restart FROM pg_settings WHERE name LIKE '%pg_stat_monitor%';
+```
+
+For backward compatibility, you can create the `pg_stat_monitor_settings` view using the following SQL statement:
+
+```sql
+CREATE VIEW pg_stat_monitor_settings
+
+AS
+
+SELECT *
+
+FROM pg_settings
+
+WHERE name like 'pg_stat_monitor.%';
+```
+
+In `pg_stat_monitor` version 1.1.1 and earlier, the `pg_stat_monitor_settings` view shows one row per `pg_stat_monitor` configuration parameter. It displays configuration parameter name, value, default value, description, minimum and maximum values, and whether a restart is required for a change in value to be effective.
 
 To learn more, see the [Changing the configuration](#changing-the-configuration) section.
 
