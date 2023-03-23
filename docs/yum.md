@@ -114,6 +114,52 @@ Run all the commands in the following sections as root or using the `sudo` comma
         $ sudo yum install percona-postgresql14-contrib
         ```
 
+        Install pgpool2
+
+        To install `pgpool2` on Red Hat Enterprise Linux 9 and compatible derivatives, do the following:
+
+        === "RHEL 9"
+
+            1. Enable the codeready builder repository
+
+                ```{.bash data-prompt="$"}
+                $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+                ```
+
+            2. Install the extension
+
+                ```{.bash data-prompt="$"}
+                $ sudo yum install percona-pgpool-II-pg14
+                ```
+
+        === "CentOS 9"
+
+            1. Enable the codeready builder repository
+
+                ```{.bash data-prompt="$"}
+                $ sudo dnf config-manager --set-enabled crb
+                ```
+
+            2. Install the extension
+
+                ```{.bash data-prompt="$"}
+                $ sudo yum install percona-pgpool-II-pg14
+                ```
+
+        === "Oracle Linux 9"
+
+            1. Enable the codeready builder repository
+
+                ```{.bash data-prompt="$"}
+                $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+                ```
+
+            2. Install the extension
+
+                ```{.bash data-prompt="$"}
+                $ sudo yum install percona-pgpool-II-pg14
+                ```
+
         Install HAProxy
         
         ```{.bash data-prompt="$"}
