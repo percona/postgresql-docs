@@ -2,7 +2,7 @@
 
 INHERIT: mkdocs-base.yml
 
-site_url: "https://docs.percona.com/postgresql/15/"
+site_url: "https://docs.percona.com/postgresql/"
 
 
 theme:
