@@ -116,7 +116,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
         Install pgpool2
 
-        To install `pgpool2` on Red Hat Enterprise Linux 9 and compatible derivatives, do the following:
+        To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`. The following examples show steps for Red Hat Enterprise Linux 9:
 
         === "RHEL 9"
 
@@ -159,6 +159,8 @@ Run all the commands in the following sections as root or using the `sudo` comma
                 ```{.bash data-prompt="$"}
                 $ sudo yum install percona-pgpool-II-pg14
                 ```
+
+        For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
 
         Install HAProxy
         
