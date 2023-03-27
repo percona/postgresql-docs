@@ -1,6 +1,6 @@
-# Percona Distribution for PostgreSQL 13.10 (2023-03-26)
+# Percona Distribution for PostgreSQL 13.10 (2023-03-27)
 
-| Release date:     | March 26, 2023      |
+| Release date:     | March 27, 2023      |
 |:------------------|:----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
