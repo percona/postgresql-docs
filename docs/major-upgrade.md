@@ -4,7 +4,7 @@ This document describes the in-place upgrade of Percona Distribution for Postgre
 tool.
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
-!!! seealso
+!!! admonition "See also"
 
     `pg_upgrade` Documentation:
 
@@ -78,7 +78,8 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgbadger \
        percona-postgresql-13-wal2json \
        percona-pg-stat-monitor13 \
-       percona-postgresql-contrib
+       percona-postgresql-contrib \
+       percona-pgpool2
       ```
 
     !!! seealso
@@ -270,10 +271,11 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgaudit13_set_user \
        percona-pgbadger \
        percona-wal2json13 \
-       percona-postgresql13-contrib
+       percona-postgresql13-contrib \
+       percona-pgpool-II-pg13
        ```
 
-!!! seealso
+!!! admonition "See also"
 
     Percona Documentation:
 

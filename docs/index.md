@@ -32,6 +32,8 @@ PostgreSQL
 
 * [HAProxy](http://www.haproxy.org/)-  a high-availability and load-balancing solution 
 
+* [`pgpool`](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
+
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/13/contrib.html)
 
 
@@ -48,7 +50,7 @@ Percona Distribution for PostgreSQL is also shipped with the
 [libpq](https://www.postgresql.org/docs/13/libpq.html) library. It
 contains "a set of library functions that allow client programs to pass
 queries to the PostgreSQL backend server and to receive the results of
-these queries." [^1]
+these queries." 
 
 
 
@@ -59,4 +61,3 @@ these queries." [^1]
 
 
 
-[^1]: <https://www.postgresql.org/docs/13/libpq.html>

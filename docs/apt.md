@@ -117,6 +117,12 @@ Run all the commands in the following sections as root or using the `sudo` comma
           $ sudo apt install percona-postgresql-contrib
           ```
 
+          Install `pgpool2`
+
+          ```{.bash data-promp="$"}
+          $ sudo apt install percona-pgpool2
+          ```
+
           Install HAProxy
 
           ```{.bash data-promp="$"}
