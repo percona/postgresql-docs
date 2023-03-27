@@ -120,9 +120,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         $ sudo yum install percona-haproxy
         ```
 
-        Install pgpool2
-
-        Install pgpool2
+        Install `pgpool2`
 
         To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`. The following examples show steps for Red Hat Enterprise Linux 9. 
 
@@ -137,7 +135,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg13
+                $ sudo yum install percona-pgpool-II-pg12
                 ```
 
         === "CentOS 9"
@@ -151,7 +149,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg13
+                $ sudo yum install percona-pgpool-II-pg12
                 ```
 
         === "Oracle Linux 9"
@@ -165,7 +163,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg13
+                $ sudo yum install percona-pgpool-II-pg12
                 ```
 
         For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.

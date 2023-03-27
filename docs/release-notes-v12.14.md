@@ -24,14 +24,14 @@ The following is the list of extensions available in Percona Distribution for Po
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.0.1 | a HA (High Availability) solution for PostgreSQL |
-| [PgAudit](https://www.pgaudit.org/)             | 1.3.4   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
+| [PgAudit](https://www.pgaudit.org/)             | 1.4.3   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/)           | 2.43    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.0     | a fast PostgreSQL Log Analyzer.|
 |[PgBouncer](https://www.pgbouncer.org/)          |1.18.0    | a lightweight connection pooler for PostgreSQL|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                                         |2.0.0 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
-| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 246 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 247 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
 |[HAProxy](http://www.haproxy.org/) | 2.5.11 | a high-availability and load-balancing solution |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.2 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
