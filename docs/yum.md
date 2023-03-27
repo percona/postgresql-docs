@@ -120,6 +120,56 @@ Run all the commands in the following sections as root or using the `sudo` comma
         $ sudo yum install percona-haproxy
         ```
 
+        Install pgpool2
+
+        Install pgpool2
+
+        To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`. The following examples show steps for Red Hat Enterprise Linux 9. 
+
+        === "RHEL 9"
+
+            1. Enable the codeready builder repository
+
+                ```{.bash data-prompt="$"}
+                $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+                ```
+
+            2. Install the extension
+
+                ```{.bash data-prompt="$"}
+                $ sudo yum install percona-pgpool-II-pg13
+                ```
+
+        === "CentOS 9"
+
+            1. Enable the codeready builder repository
+
+                ```{.bash data-prompt="$"}
+                $ sudo dnf config-manager --set-enabled crb
+                ```
+
+            2. Install the extension
+
+                ```{.bash data-prompt="$"}
+                $ sudo yum install percona-pgpool-II-pg13
+                ```
+
+        === "Oracle Linux 9"
+
+            1. Enable the codeready builder repository
+
+                ```{.bash data-prompt="$"}
+                $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+                ```
+
+            2. Install the extension
+
+                ```{.bash data-prompt="$"}
+                $ sudo yum install percona-pgpool-II-pg13
+                ```
+
+        For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
+
         Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service

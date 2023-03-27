@@ -1,7 +1,7 @@
-# Percona Distribution for PostgreSQL 12.14 (2023-02-)
+# Percona Distribution for PostgreSQL 12.14 (2023-03-29)
 
 
-| Release date:     | February , 2022      |
+| Release date:     | March 29, 2023      |
 |:------------------|:----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
@@ -13,12 +13,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 12.1
 
 ## Release Highlights
 
-* New extensions added:
-
-    * [`pgpool`](https://www.pgpool.net/docs/43/en/html/index.html) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
-    * [PostGIS](https://postgis.net/docs/) - a spatial database extender for PostgreSQL. It allows GIS (Geographic Information Systems) objects to be stored in the database.
-
-* PostgresSQL Common package for PRM-based systems is deprecated and removed
+* Added a new extension [`pgpool`](https://www.pgpool.net/docs/43/en/html/index.html) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
 * Percona Distribution for PostgreSQL is now available on Red Hat Enterprise Linux 9 and compatible derivatives
 
 -----------------------------------------------------------------------------
@@ -28,9 +23,9 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
-| [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.0.0 | a HA (High Availability) solution for PostgreSQL |
+| [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.0.1 | a HA (High Availability) solution for PostgreSQL |
 | [PgAudit](https://www.pgaudit.org/)             | 1.3.4   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
-| [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
+| [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/)           | 2.43    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.0     | a fast PostgreSQL Log Analyzer.|
 |[PgBouncer](https://www.pgbouncer.org/)          |1.18.0    | a lightweight connection pooler for PostgreSQL|
@@ -39,8 +34,8 @@ The following is the list of extensions available in Percona Distribution for Po
 | [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 246 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
 |[HAProxy](http://www.haproxy.org/) | 2.5.11 | a high-availability and load-balancing solution |
-| [pgpool](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.3.5 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
-| [PostGIS](https://trac.osgeo.org/postgis/) |  | a spatial database extender for PostgreSQL.|
+| [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.2 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
+
 
  
 Percona Distribution for PostgreSQL also includes the following packages:
