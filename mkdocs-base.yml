@@ -42,6 +42,7 @@ theme:
 
   features:
     - search.highlight
+    - search.share
     - navigation.top
     - navigation.tracking 
     - content.tabs.link
