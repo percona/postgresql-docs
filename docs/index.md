@@ -26,14 +26,12 @@ PostgreSQL
 
 * [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution 
 
-* [`pgpool`](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
-
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/11/contrib.html)
 
 
 !!! admonition "See also"
 
-    Blog posts
+    Blog Posts
 
     - [pgBackRest - A Great Backup Solution and a Wonderful Year of
       Growth](https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/)
@@ -42,11 +40,14 @@ PostgreSQL
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/11/libpq.html) library. It contains “a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” 
+backend server and to receive the results of these queries.” [^1]
 
 
 ## Get started
 
 * [Install Percona Distribution for PostgreSQL](installing.md)
 * [Enable extensions](enable-extensions.md)
+
+
+[^1]: https://www.postgresql.org/docs/11/libpq.html
 
