@@ -2,7 +2,7 @@
 
 INHERIT: mkdocs-base.yml
 
-site_url: "https://www.percona.com/doc/postgresql/"
+site_url: "https://www.percona.com/doc/postgresql/11/index.html"
 
 plugins:
   section-index: {}

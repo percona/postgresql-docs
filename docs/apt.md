@@ -123,12 +123,6 @@ Run all the commands in the following sections as root or using the `sudo` comma
           $ sudo apt install percona-haproxy
           ```
           
-          Install pgpool2
-
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgpool2
-          ```
-          
           Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
