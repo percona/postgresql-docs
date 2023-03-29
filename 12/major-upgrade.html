@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/12/12/major-upgrade.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/major-upgrade.html">
       
       
         <link rel="prev" href="migration.html">
@@ -80,7 +80,7 @@
 
               <html data-lt-installed="true">
                 <head>
-                    <meta property="og:title" content="Percona Server for MongoDB">
+                    <meta property="og:title" content="Percona Distribution for PostgreSQL">
                     <meta property="og:description" content="Documentation">
                     <meta property="og:image" content="https://docs.percona.com/postgresql/12/_images/postgresql.png"
                     <meta property="og:url" content="https://docs.percona.com/postgresql/">
@@ -825,6 +825,20 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v12.14.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 12.14 (2023-03-29)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v12.13.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 12.13 (2022-12-01)
       </a>
@@ -1162,6 +1176,7 @@
   
 
     
+    <br>
    <label class="md-nav__title" for="__drawer">
     <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-12" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
       Download PDF
@@ -1254,8 +1269,8 @@
 <p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code>
 tool.
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
-<div class="admonition seealso">
-<p class="admonition-title">Seealso</p>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
 <p><code>pg_upgrade</code> Documentation:</p>
 <p><a href="https://www.postgresql.org/docs/12/pgupgrade.html">https://www.postgresql.org/docs/12/pgupgrade.html</a></p>
 </div>
@@ -1301,29 +1316,30 @@ so the system is usable.</p>
 <ul>
 <li>Enable Percona repository using the <strong>percona-release</strong> utility:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-12
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-12
 </code></pre></div>
 <ul>
 <li>Install Percona Distribution for PostgreSQL 12 package:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-12
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-12
 </code></pre></div>
 <ul>
 <li>Install the components:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-12-repack
-$ sudo apt install percona-postgresql-12-pgaudit
-$ sudo apt install percona-pgbackrest
-$ sudo apt install percona-patroni
-$ sudo apt install percona-pg-stat-monitor12
-$ sudo apt install percona-pgbadger
-$ sudo apt install percona-pgaudit12-set-user
-$ sudo apt install percona-pgbadger
-$ sudo apt install percona-postgresql-12-wal2json
-$ sudo apt install percona-postgresql-contrib
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-12-repack
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-12-pgaudit
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-patroni
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pg-stat-monitor12
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgaudit12-set-user
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-12-wal2json
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-contrib
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgpool2
 </code></pre></div>
-<div class="admonition seealso">
-<p class="admonition-title">Seealso</p>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
 <p>Percona Documentation:</p>
 <ul>
 <li>
@@ -1337,7 +1353,7 @@ $ sudo apt install percona-postgresql-contrib
 </li>
 <li>
 <p>Stop the <code>postgresql</code> service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
 </code></pre></div>
 <p>This stops both Percona Distribution for PostgreSQL 11 and 12.</p>
 </li>
@@ -1346,36 +1362,36 @@ $ sudo apt install percona-postgresql-contrib
 <ul>
 <li>Log in as the <code>postgres</code> user.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
 <li>Change the current directory to the <code>tmp</code> directory where logs and some scripts will be recorded: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>cd tmp/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tmp/
 </code></pre></div>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 11 to 12:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/lib/postgresql/12/bin/pg_upgrade
---old-datadir=/var/lib/postgresql/11/main \
---new-datadir=/var/lib/postgresql/12/main  \
---old-bindir=/usr/lib/postgresql/11/bin  \
---new-bindir=/usr/lib/postgresql/12/bin  \
---old-options &#39;-c config_file=/etc/postgresql/11/main/postgresql.conf&#39; \
---new-options &#39;-c config_file=/etc/postgresql/12/main/postgresql.conf&#39; \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/12/bin/pg_upgrade
+--old-datadir<span class="o">=</span>/var/lib/postgresql/11/main<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="o">=</span>/var/lib/postgresql/12/main<span class="w">  </span><span class="se">\</span>
+--old-bindir<span class="o">=</span>/usr/lib/postgresql/11/bin<span class="w">  </span><span class="se">\</span>
+--new-bindir<span class="o">=</span>/usr/lib/postgresql/12/bin<span class="w">  </span><span class="se">\</span>
+--old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/11/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
+--new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/12/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
 --check
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/lib/postgresql/12/bin/pg_upgrade
---old-datadir=/var/lib/postgresql/11/main \
---new-datadir=/var/lib/postgresql/12/main  \
---old-bindir=/usr/lib/postgresql/11/bin \
---new-bindir=/usr/lib/postgresql/12/bin \
---old-options &#39;-c config_file=/etc/postgresql/11/main/postgresql.conf&#39; \
---new-options &#39;-c config_file=/etc/postgresql/12/main/postgresql.conf&#39; \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/12/bin/pg_upgrade
+--old-datadir<span class="o">=</span>/var/lib/postgresql/11/main<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="o">=</span>/var/lib/postgresql/12/main<span class="w">  </span><span class="se">\</span>
+--old-bindir<span class="o">=</span>/usr/lib/postgresql/11/bin<span class="w"> </span><span class="se">\</span>
+--new-bindir<span class="o">=</span>/usr/lib/postgresql/12/bin<span class="w"> </span><span class="se">\</span>
+--old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/11/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
+--new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/12/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
 --link
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
@@ -1383,35 +1399,35 @@ $ sudo apt install percona-postgresql-contrib
 <ul>
 <li>Go back to the regular user: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>exit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 <ul>
 <li>The Percona Distribution for PostgreSQL 11 uses the <code>5432</code> port while the Percona Distribution for PostgreSQL 12 is set up to use the <code>5433</code> port by default. To start the Percona Distribution for PostgreSQL 12, swap ports in the configuration files of both versions.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo vim /etc/postgresql/12/main/postgresql.conf
-$ port = 5433 # Change to 5432 here
-$ sudo vim /etc/postgresql/11/main/postgresql.conf
-$ port = 5432 # Change to 5433 here
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/12/main/postgresql.conf
+$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5433</span><span class="w"> </span><span class="c1"># Change to 5432 here</span>
+$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/11/main/postgresql.conf
+$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5432</span><span class="w"> </span><span class="c1"># Change to 5433 here</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>postgreqsl</code> service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
 </code></pre></div>
 </li>
 <li>
 <p>Check the <code>postgresql</code> version.</p>
-<div class="highlight"><pre><span></span><code>$ #Log in as a postgres user
-$ sudo su postgres
-$ #Check the database version
-$ psql -c &quot;SELECT version();&quot;
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="c1">#Log in as a postgres user</span>
+$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
+$<span class="w"> </span><span class="c1">#Check the database version</span>
+$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Run the <strong>analyze_new_cluster.sh</strong> script</p>
-<div class="highlight"><pre><span></span><code>$ tmp/analyze_new_cluster.sh
-$ #Logout
-$ exit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tmp/analyze_new_cluster.sh
+$<span class="w"> </span><span class="c1">#Logout</span>
+$<span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 </li>
 <li>
@@ -1419,12 +1435,12 @@ $ exit
 <ul>
 <li>Remove packages</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt remove percona-postgresql-11* percona-pgbackrest percona-patroni percona-pg-stat-monitor11 percona-pgaudit11-set-user percona-pgbadger percona-pgbouncer percona-postgresql-11-wal2json
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>percona-postgresql-11*<span class="w"> </span>percona-pgbackrest<span class="w"> </span>percona-patroni<span class="w"> </span>percona-pg-stat-monitor11<span class="w"> </span>percona-pgaudit11-set-user<span class="w"> </span>percona-pgbadger<span class="w"> </span>percona-pgbouncer<span class="w"> </span>percona-postgresql-11-wal2json
 </code></pre></div>
 <ul>
 <li>Remove old files</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo rm -rf /etc/postgresql/11/main
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/postgresql/11/main
 </code></pre></div>
 </li>
 </ol>
@@ -1439,26 +1455,27 @@ $ exit
 <ul>
 <li>Enable Percona repository using the <strong>percona-release</strong> utility:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-12
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-12
 </code></pre></div>
 <ul>
 <li>Install Percona Distribution for PostgreSQL 12:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql12-server
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql12-server
 </code></pre></div>
 <ul>
 <li>Install components:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit
-$ sudo yum install percona-pgbackrest
-$ sudo yum install percona-pg_repack12
-$ sudo yum install percona-patroni
-$ sudo yum install percona-pg-stat-monitor12
-$ sudo yum install percona-pgbadger
-$ sudo yum install percona-pgaudit12_set_user
-$ sudo yum install percona-pgbadger
-$ sudo yum install percona-wal2json12
-$ sudo yum install percona-postgresql12-contrib
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgaudit
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg_repack12
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-patroni
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg-stat-monitor12
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgaudit12_set_user
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-wal2json12
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql12-contrib
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg14
 </code></pre></div>
 </li>
 <li>
@@ -1466,17 +1483,17 @@ $ sudo yum install percona-postgresql12-contrib
 <ul>
 <li>Log is as the postgres user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
-$ #Set up locale settings
-$ export LC_ALL=&quot;en_US.UTF-8&quot;
-$ export LC_CTYPE=&quot;en_US.UTF-8&quot;
-$ #Initialize cluster with the new data directory
-$ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
+$<span class="w"> </span><span class="c1">#Set up locale settings</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
+$<span class="w"> </span><span class="c1">#Initialize cluster with the new data directory</span>
+$<span class="w"> </span>/usr/pgsql-12/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/12/data
 </code></pre></div>
 </li>
 <li>
 <p>Stop the <code>postgresql</code> 11 service</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-11
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-11
 </code></pre></div>
 </li>
 <li>
@@ -1484,28 +1501,28 @@ $ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data
 <ul>
 <li>Log in as the <code>postgres</code> user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 11 to 12:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/pgsql-12/bin/pg_upgrade \
---old-bindir /usr/pgsql-11/bin \
---new-bindir /usr/pgsql-12/bin \
---old-datadir /var/lib/pgsql/11/data \
---new-datadir /var/lib/pgsql/12/data \
---link \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-12/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
+--old-bindir<span class="w"> </span>/usr/pgsql-11/bin<span class="w"> </span><span class="se">\</span>
+--new-bindir<span class="w"> </span>/usr/pgsql-12/bin<span class="w"> </span><span class="se">\</span>
+--old-datadir<span class="w"> </span>/var/lib/pgsql/11/data<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="w"> </span>/var/lib/pgsql/12/data<span class="w"> </span><span class="se">\</span>
+--link<span class="w"> </span><span class="se">\</span>
 --check
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/pgsql-12/bin/pg_upgrade \
---old-bindir /usr/pgsql-11/bin \
---new-bindir /usr/pgsql-12/bin \
---old-datadir /var/lib/pgsql/11/data \
---new-datadir /var/lib/pgsql/12/data \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-12/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
+--old-bindir<span class="w"> </span>/usr/pgsql-11/bin<span class="w"> </span><span class="se">\</span>
+--new-bindir<span class="w"> </span>/usr/pgsql-12/bin<span class="w"> </span><span class="se">\</span>
+--old-datadir<span class="w"> </span>/var/lib/pgsql/11/data<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="w"> </span>/var/lib/pgsql/12/data<span class="w"> </span><span class="se">\</span>
 --link
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
@@ -1513,23 +1530,23 @@ $ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data
 </li>
 <li>
 <p>Start the <code>postgresql</code> 12 service.</p>
-<div class="highlight"><pre><span></span><code>$ #Start postgresql service
-$ sudo systemctl start postgresql-12
-$ #Check postgresql status
-$ sudo systemctl status postgresql-12
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="c1">#Start postgresql service</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-12
+$<span class="w"> </span><span class="c1">#Check postgresql status</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql-12
 </code></pre></div>
 </li>
 <li>
 <p>Run the <strong>analyze_new_cluster.sh</strong> script</p>
-<div class="highlight"><pre><span></span><code>$ #Log in as the postgres user
-$ sudo su postgres
-$ #Run the script
-$ ./analyze_new_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="c1">#Log in as the postgres user</span>
+$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
+$<span class="w"> </span><span class="c1">#Run the script</span>
+$<span class="w"> </span>./analyze_new_cluster.sh
 </code></pre></div>
 </li>
 <li>
 <p>Delete Percona Distribution for PostgreSQL 11 configuration files</p>
-<div class="highlight"><pre><span></span><code>$ ./delete_old_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
 </code></pre></div>
 </li>
 <li>
@@ -1537,12 +1554,12 @@ $ ./analyze_new_cluster.sh
 <ul>
 <li>Remove packages</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum -y remove percona-postgresql-11*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>remove<span class="w"> </span>percona-postgresql-11*
 </code></pre></div>
 <ul>
 <li>Remove old files</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo rm -rf /var/lib/pgsql/11/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/pgsql/11/data
 </code></pre></div>
 </li>
 </ol>
@@ -1567,7 +1584,7 @@ $ ./analyze_new_cluster.sh
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2021</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
       
         <br>
         Created:
@@ -1601,7 +1618,7 @@ $ ./analyze_new_cluster.sh
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Percona LLC, &#169; 2022
+      Percona LLC, &#169; 2023
     </div>
   
   
