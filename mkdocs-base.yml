@@ -101,7 +101,7 @@ plugins:
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
           cover_subtitle: 11.19 (March 31, 2023)
           author: 'Percona Technical Documentation Team'
-          cover_logo: docs/_images/postgre-logo.jpg
+          cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
           custom_template_path: _resource/templates
           enabled_if_env: ENABLE_PDF_EXPORT
