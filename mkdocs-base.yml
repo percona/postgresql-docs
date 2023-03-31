@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2022
+copyright: Percona LLC, &#169; 2023
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -154,6 +154,7 @@ nav:
       - uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v11.19.md
       - release-notes-v11.18.md
       - release-notes-v11.17.md
       - release-notes-v11.16.md
