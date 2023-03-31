@@ -26,6 +26,8 @@ PostgreSQL
 
 * [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution 
 
+* [`pgpool`](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
+
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/11/contrib.html)
 
 
