@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/11/11/yum.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/11/yum.html">
       
       
         <link rel="prev" href="apt.html">
@@ -80,7 +80,7 @@
 
               <html data-lt-installed="true">
                 <head>
-                    <meta property="og:title" content="Percona Server for MongoDB">
+                    <meta property="og:title" content="Percona Disteriobution for PostgreSQL">
                     <meta property="og:description" content="Documentation">
                     <meta property="og:image" content="https://docs.percona.com/postgresql/11/_images/postgresql.png"
                     <meta property="og:url" content="https://docs.percona.com/postgresql/">
@@ -847,6 +847,20 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v11.19.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 11.19 (2023-03-31)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v11.18.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.18 (2022-12-08)
       </a>
@@ -1408,12 +1422,61 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 <p>Install HAProxy</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-haproxy
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
+<p>Install <code>pgpool2</code></p>
+<p>To install <code>pgpool2</code> on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for <code>pgpool2</code>. The following examples show steps for Red Hat Enterprise Linux 9. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL 9</label><label for="__tabbed_2_2">CentOS 9</label><label for="__tabbed_2_3">Oracle Linux 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Enable the codeready builder repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg11
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Enable the codeready builder repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg11
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Enable the codeready builder repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg11
+</code></pre></div>
 </li>
 </ol>
 </div>
 </div>
 </div>
+<p>For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
 <h3 id="start-the-service">Start the service<a class="headerlink" href="#start-the-service" title="Permanent link">&para;</a></h3>
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>/usr/pgsql-11/bin/postgresql-11-setup<span class="w"> </span>initdb
@@ -1458,7 +1521,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2023</span>
       
         <br>
         Created:
@@ -1492,7 +1555,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Percona LLC, &#169; 2022
+      Percona LLC, &#169; 2023
     </div>
   
   
