@@ -7,3 +7,4 @@ source/percona-theme/
 .netlify
 source/__pycache__/
 site/
+**/.DS_Store
