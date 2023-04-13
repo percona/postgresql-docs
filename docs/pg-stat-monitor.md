@@ -112,13 +112,12 @@ To install `pg_stat_monitor`, run the following commands:
     2. Install the package:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg-stat-monitor11
+        $ sudo yum install percona-pg-stat-monitor14
         ```
 
 ## Setup
 
 `pg_stat_monitor` requires additional setup in order to use it with PostgreSQL. The setup steps are the following:
-
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
