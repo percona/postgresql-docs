@@ -12,6 +12,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.2
 
 ## Release Highlights
 
+* A new major version of [`pg_stat_monitor` 2.0.0](https://docs.percona.com/pg-stat-monitor/release-notes/2.0.0.html) has been released and is now generally available with Percona Distribution for PostgreSQL.
 * A new extension [`pgpool`](https://www.pgpool.net/docs/43/en/html/index.html) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing - is added.
 
 * Percona Distribution for PostgreSQL is now available on Red Hat Enterprise Linux 9 and compatible derivatives
