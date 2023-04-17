@@ -197,36 +197,39 @@ Find more usage examples in the [`pg_stat_monitor` user guide](https://docs.perc
 Run the following query to list available configuration parameters.
 
 ```sql
-SELECT name,description FROM pg_stat_monitor_settings;
+SELECT name, short_desc FROM pg_settings WHERE name LIKE '%pg_stat_monitor%';
 ```
 
 **Output**
 
 ```
-name                      |                            description
------------------------------------------------+-------------------------------------------------------------------
- pg_stat_monitor.pgsm_max                      | Sets the maximum number of statements tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_query_max_len            | Sets the maximum length of query.
- pg_stat_monitor.pgsm_enable                   | Enable/Disable statistics collector.
- pg_stat_monitor.pgsm_track_utility            | Selects whether utility commands are tracked.
- pg_stat_monitor.pgsm_normalized_query         | Selects whether save query in normalized format.
- pg_stat_monitor.pgsm_max_buckets              | Sets the maximum number of buckets.
- pg_stat_monitor.pgsm_bucket_time              | Sets the time in seconds per bucket.
- pg_stat_monitor.pgsm_histogram_min            | Sets the time in millisecond.
- pg_stat_monitor.pgsm_histogram_max            | Sets the time in millisecond.
- pg_stat_monitor.pgsm_histogram_buckets        | Sets the maximum number of histogram buckets
- pg_stat_monitor.pgsm_query_shared_buffer      | Sets the maximum size of shared memory in (MB) used for query tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_overflow_target          | Sets the overflow target for pg_stat_monitor
- pg_stat_monitor.pgsm_enable_query_plan        | Enable/Disable query plan monitoring
- pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
+                   name                    |                                                           short_desc
+-------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------
+ pg_stat_monitor.pgsm_bucket_time          | Sets the time in seconds per bucket.
+ pg_stat_monitor.pgsm_enable_overflow      | Enable/Disable pg_stat_monitor to grow beyond shared memory into swap space.
+ pg_stat_monitor.pgsm_enable_pgsm_query_id | Enable/disable PGSM specific query id calculation which is very useful in comparing same query across databases and clusters..
+ pg_stat_monitor.pgsm_enable_query_plan    | Enable/Disable query plan monitoring.
+ pg_stat_monitor.pgsm_extract_comments     | Enable/Disable extracting comments from queries.
+ pg_stat_monitor.pgsm_histogram_buckets    | Sets the maximum number of histogram buckets.
+ pg_stat_monitor.pgsm_histogram_max        | Sets the time in millisecond.
+ pg_stat_monitor.pgsm_histogram_min        | Sets the time in millisecond.
+ pg_stat_monitor.pgsm_max                  | Sets the maximum size of shared memory in (MB) used for statement's metadata tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_max_buckets          | Sets the maximum number of buckets.
+ pg_stat_monitor.pgsm_normalized_query     | Selects whether save query in normalized format.
+ pg_stat_monitor.pgsm_overflow_target      | Sets the overflow target for pg_stat_monitor. (Deprecated, use pgsm_enable_overflow)
+ pg_stat_monitor.pgsm_query_max_len        | Sets the maximum length of query.
+ pg_stat_monitor.pgsm_query_shared_buffer  | Sets the maximum size of shared memory in (MB) used for query tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_track                | Selects which statements are tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_track_planning       | Selects whether planning statistics are tracked.
+ pg_stat_monitor.pgsm_track_utility        | Selects whether utility commands are tracked.
 ```
 
 You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration parameters](https://docs.percona.com/pg-stat-monitor/configuration.html) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
-As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the **ALTER SYSTEM** command:
+As an example, let’s set the bucket lifetime from default 60 seconds to 30 seconds. Use the **ALTER SYSTEM** command:
 
 ```sql
-ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 100;
+ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 30;
 ```
 
 Restart the server to apply the change:
@@ -235,7 +238,7 @@ Restart the server to apply the change:
 === "On Debian and Ubuntu"
 
      ```{.bash data-prompt="$"}
-     $ sudo systemctl restart restart postgresql.service
+     $ sudo systemctl restart postgresql.service
      ```
 
 
@@ -248,13 +251,13 @@ Restart the server to apply the change:
 Verify the updated parameter:
 
 ```sql
-SELECT name, value
-  FROM pg_stat_monitor_settings
-  WHERE name = 'pg_stat_monitor.pgsm_bucket_time';
+SELECT name, setting 
+FROM pg_settings 
+WHERE name = 'pg_stat_monitor.pgsm_bucket_time';
 
-                 name               | value
-  ----------------------------------+-------
-   pg_stat_monitor.pgsm_bucket_time |   100
+                 name               | setting
+  ----------------------------------+---------
+   pg_stat_monitor.pgsm_bucket_time |   30
 ```
 
 !!! admonition "See also"
