@@ -1345,35 +1345,38 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <p>Find more usage examples in the <a href="https://docs.percona.com/pg-stat-monitor/user_guide.html"><code>pg_stat_monitor</code> user guide</a>.</p>
 <h2 id="changing-the-configuration">Changing the configuration<a class="headerlink" href="#changing-the-configuration" title="Permanent link">&para;</a></h2>
 <p>Run the following query to list available configuration parameters.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="n">description</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_monitor_settings</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">short_desc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%pg_stat_monitor%&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><code>name                      |                            description
------------------------------------------------+-------------------------------------------------------------------
- pg_stat_monitor.pgsm_max                      | Sets the maximum number of statements tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_query_max_len            | Sets the maximum length of query.
- pg_stat_monitor.pgsm_enable                   | Enable/Disable statistics collector.
- pg_stat_monitor.pgsm_track_utility            | Selects whether utility commands are tracked.
- pg_stat_monitor.pgsm_normalized_query         | Selects whether save query in normalized format.
- pg_stat_monitor.pgsm_max_buckets              | Sets the maximum number of buckets.
- pg_stat_monitor.pgsm_bucket_time              | Sets the time in seconds per bucket.
- pg_stat_monitor.pgsm_histogram_min            | Sets the time in millisecond.
- pg_stat_monitor.pgsm_histogram_max            | Sets the time in millisecond.
- pg_stat_monitor.pgsm_histogram_buckets        | Sets the maximum number of histogram buckets
- pg_stat_monitor.pgsm_query_shared_buffer      | Sets the maximum size of shared memory in (MB) used for query tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_overflow_target          | Sets the overflow target for pg_stat_monitor
- pg_stat_monitor.pgsm_enable_query_plan        | Enable/Disable query plan monitoring
- pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
+<div class="highlight"><pre><span></span><code>                   name                    |                                                           short_desc
+-------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------
+ pg_stat_monitor.pgsm_bucket_time          | Sets the time in seconds per bucket.
+ pg_stat_monitor.pgsm_enable_overflow      | Enable/Disable pg_stat_monitor to grow beyond shared memory into swap space.
+ pg_stat_monitor.pgsm_enable_pgsm_query_id | Enable/disable PGSM specific query id calculation which is very useful in comparing same query across databases and clusters..
+ pg_stat_monitor.pgsm_enable_query_plan    | Enable/Disable query plan monitoring.
+ pg_stat_monitor.pgsm_extract_comments     | Enable/Disable extracting comments from queries.
+ pg_stat_monitor.pgsm_histogram_buckets    | Sets the maximum number of histogram buckets.
+ pg_stat_monitor.pgsm_histogram_max        | Sets the time in millisecond.
+ pg_stat_monitor.pgsm_histogram_min        | Sets the time in millisecond.
+ pg_stat_monitor.pgsm_max                  | Sets the maximum size of shared memory in (MB) used for statement&#39;s metadata tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_max_buckets          | Sets the maximum number of buckets.
+ pg_stat_monitor.pgsm_normalized_query     | Selects whether save query in normalized format.
+ pg_stat_monitor.pgsm_overflow_target      | Sets the overflow target for pg_stat_monitor. (Deprecated, use pgsm_enable_overflow)
+ pg_stat_monitor.pgsm_query_max_len        | Sets the maximum length of query.
+ pg_stat_monitor.pgsm_query_shared_buffer  | Sets the maximum size of shared memory in (MB) used for query tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_track                | Selects which statements are tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_track_planning       | Selects whether planning statistics are tracked.
+ pg_stat_monitor.pgsm_track_utility        | Selects whether utility commands are tracked.
 </code></pre></div>
 <p>You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the <a href="https://docs.percona.com/pg-stat-monitor/configuration.html">configuration parameters</a> of the <code>pg_stat_monitor</code> documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.</p>
-<p>As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the <strong>ALTER SYSTEM</strong> command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<p>As an example, let’s set the bucket lifetime from default 60 seconds to 30 seconds. Use the <strong>ALTER SYSTEM</strong> command:</p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
 </code></pre></div>
 <p>Restart the server to apply the change:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On Red Hat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>restart<span class="w"> </span>postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql.service
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1383,13 +1386,13 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 </div>
 </div>
 <p>Verify the updated parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_monitor_settings</span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.pgsm_bucket_time&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.pgsm_bucket_time&#39;</span><span class="p">;</span>
 
-<span class="w">                 </span><span class="n">name</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">value</span>
-<span class="w">  </span><span class="c1">----------------------------------+-------</span>
-<span class="w">   </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">100</span>
+<span class="w">                 </span><span class="n">name</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">setting</span>
+<span class="w">  </span><span class="c1">----------------------------------+---------</span>
+<span class="w">   </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">30</span>
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -1421,7 +1424,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 14, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2023</span>
       
         <br>
         Created:
