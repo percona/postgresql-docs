@@ -19,15 +19,18 @@ by adding marketing-requested elements
 </div>
 {%- endmacro %}
 
-              {% block extrahead %}
-              {{ super() }}
-
-              <html data-lt-installed="true">
-                <head>
-                    <meta property="og:title" content="Percona Distribution for PostgreSQL">
-                    <meta property="og:description" content="Documentation">
-                    <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png"
-                    <meta property="og:url" content="https://docs.percona.com/postgresql/">
+               {% block extrahead %}
+               {{ super() }}
+                 {% set title = config.site_name %}
+                 {% if page and page.meta and page.meta.title %}
+                 {% set title = title ~ " - " ~ page.meta.title %}
+                 {% elif page and page.title and not page.is_homepage %}
+                 {% set title = title ~ " - " ~ page.title %}
+                 {% endif %}
+                 <meta property="og:type" content="website" />
+                 <meta property="og:title" content="{{ title }}" />
+                 <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
+                 <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
                 <body>
                 </body>
