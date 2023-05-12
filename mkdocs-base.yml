@@ -136,6 +136,7 @@ nav:
       - minor-upgrade.md
   - Extensions:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
+      - postgis.md
   - Solutions:
       - High availability:
           - 'Overview': 'solutions/high-availability.md'
