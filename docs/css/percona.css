@@ -41,7 +41,28 @@ line-height: 1.4;
 margin: 1em 0 .54em;
 }
 
+.md-typeset .md-button {
+    border: .1rem solid;
+    border-radius: 50px;
+    color: var(--md-typeset-a-color);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: .625em 2em;
+    transition:color 125ms, background-color 125ms, border-color 125ms
+}
 
+.md-typeset .md-button--primary {
+    background-color: var(--md-typeset-a-color);
+    border-color: var(--md-typeset-a-color);
+    color:var(--md-primary-bg-color)
+}
+
+.md-typeset .md-button:focus, .md-typeset .md-button:hover {
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+    color:var(--md-accent-bg-color)
+}
 
 /*.git-revision-date-localized-plugin:before {
   content: url('https://api.iconify.design/mdi/clock-edit-outline.svg');

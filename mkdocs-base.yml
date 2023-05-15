@@ -95,7 +95,7 @@ plugins:
     max_length: 160
   macros:
       include_yaml:
-#        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+        - 'variables.yml' # Use in markdown as '{{ VAR }}'
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
@@ -103,7 +103,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 15.2 (May 22, 2023)
+          cover_subtitle: 15.3 (June 28, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -130,6 +130,13 @@ extra:
 
 nav:
   - 'Home': 'index.md'
+  - Release Notes:
+      - "Release notes index": "release-notes.md"
+      - release-notes-v15.3.md
+      - release-notes-v15.2.upd.md
+      - release-notes-v15.2.md
+      - release-notes-v15.1.md
+      - release-notes-v15.0.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
@@ -153,14 +160,6 @@ nav:
           - solutions/dr-pgbackrest-setup.md
       - LDAP authentication:
           - ldap.md
-  - Uninstall:
-      - uninstalling.md
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v15.2.upd.md
-      - release-notes-v15.2.md
-      - release-notes-v15.1.md
-      - release-notes-v15.0.md
-  - Licensing:
-      - licensing.md
+  - Uninstall: uninstalling.md
+  - Licensing: licensing.md
 
