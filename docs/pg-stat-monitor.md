@@ -237,6 +237,7 @@ As an example, let’s set the bucket lifetime from default 60 seconds to 40 sec
 
 ```sql
 ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 40;
+```
 
 Restart the server to apply the change:
 

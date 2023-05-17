@@ -4,7 +4,7 @@ This document describes the in-place upgrade of Percona Distribution for Postgre
 
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
-!!! seealso
+!!! admonition "See also"
 
     [`pg_upgrade` Documentation](https://www.postgresql.org/docs/15/pgupgrade.html)
 
