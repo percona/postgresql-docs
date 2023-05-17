@@ -9,26 +9,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.">
+        <meta name="description" content="Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/apt.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/release-notes-v15.2.upd.html">
       
       
-        <link rel="prev" href="installing.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="yum.html">
+        <link rel="next" href="release-notes-v15.2.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
-        <title>Install on Debian and Ubuntu - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 15.2 Update (2023-05-19) - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -80,7 +80,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Install on Debian and Ubuntu" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 15.2 Update (2023-05-19)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -110,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-percona-distribution-for-postgresql-on-debian-and-ubuntu" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-152-update-2023-05-19" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install on Debian and Ubuntu
+              Percona Distribution for PostgreSQL 15.2 Update (2023-05-19)
             
           </span>
         </div>
@@ -285,16 +285,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -303,7 +301,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Installation and Upgrade
@@ -314,16 +312,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
       
       
       
@@ -332,7 +328,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Install Percona Distribution for PostgreSQL
@@ -357,95 +353,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Install on Debian and Ubuntu
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="apt.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="apt.html" class="md-nav__link">
         Install on Debian and Ubuntu
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preconditions" class="md-nav__link">
-    Preconditions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    Procedure
-  </a>
-  
-    <nav class="md-nav" aria-label="Procedure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-percona-repository" class="md-nav__link">
-    Configure Percona repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-packages" class="md-nav__link">
-    Install packages
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-the-service" class="md-nav__link">
-    Start the service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-to-the-postgresql-server" class="md-nav__link">
-    Connect to the PostgreSQL server
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -819,14 +731,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -835,7 +749,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release Notes
@@ -860,11 +774,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v15.2.upd.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v15.2.upd.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 15.2 Update (2023-05-19)
       </a>
+      
     </li>
   
 
@@ -961,62 +885,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preconditions" class="md-nav__link">
-    Preconditions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    Procedure
-  </a>
-  
-    <nav class="md-nav" aria-label="Procedure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-percona-repository" class="md-nav__link">
-    Configure Percona repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-packages" class="md-nav__link">
-    Install packages
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-the-service" class="md-nav__link">
-    Start the service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-to-the-postgresql-server" class="md-nav__link">
-    Connect to the PostgreSQL server
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1033,14 +901,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/15/docs/apt.md"
+                    href="https://github.com/percona/postgresql-docs/edit/15/docs/release-notes-v15.2.upd.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/apt.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/release-notes-v15.2.upd.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1056,118 +924,23 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="install-percona-distribution-for-postgresql-on-debian-and-ubuntu">Install Percona Distribution for PostgreSQL on Debian and Ubuntu<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.</p>
-<h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<p>Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (postgresql-15) by default. The components of Percona Distribution for PostgreSQL 15 can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-15). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-15) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
-<h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Install the <code>percona-release</code> repository management tool to subscribe to Percona repositories:</p>
-<ul>
-<li>
-<p>Fetch <code>percona-release</code> packages from Percona web:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
-</code></pre></div>
-</li>
-<li>
-<p>Install the downloaded package with <code>dpkg</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
-</code></pre></div>
-</li>
-<li>
-<p>Refresh the local cache:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</code></pre></div>
-</li>
-</ul>
-</li>
-<li>
-<p>Enable the repository</p>
-</li>
-</ol>
-<p>Percona provides <a href="repo-overview.html">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
-<p>To enable a repository, we recommend using the <code>setup</code> command: </p>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-15
-</code></pre></div>
-<h3 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install using meta-package</label><label for="__tabbed_1_2">Install packages individually</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-ppg-server-15
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Install the PostgreSQL server package:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-15
-</code></pre></div>
-</li>
-<li>
-<p>Install the components:</p>
-<p>Install <code>pg_repack</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-15-repack
-</code></pre></div>
-<p>Install <code>pgAudit</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-15-pgaudit
-</code></pre></div>
-<p>Install <code>pgBackRest</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
-</code></pre></div>
-<p>Install <code>Patroni</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-patroni
-</code></pre></div>
-<p><a href="pg-stat-monitor.html">Install <code>pg_stat_monitor</code></a></p>
-<p>Install <code>pgBouncer</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbouncer
-</code></pre></div>
-<p>Install <code>pgAudit-set_user</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgaudit15-set-user
-</code></pre></div>
-<p>Install <code>pgBadger</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
-</code></pre></div>
-<p>Install <code>wal2json</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-15-wal2json
-</code></pre></div>
-<p>Install PostgreSQL contrib extensions:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-contrib
-</code></pre></div>
-<p>Install HAProxy</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-haproxy
-</code></pre></div>
-<p>Install pgpool2</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgpool2
-</code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h3 id="start-the-service">Start the service<a class="headerlink" href="#start-the-service" title="Permanent link">&para;</a></h3>
-<p>The installation process automatically initializes and starts the default database. You can check the database status using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql.service
-</code></pre></div>
-<h3 id="connect-to-the-postgresql-server">Connect to the PostgreSQL server<a class="headerlink" href="#connect-to-the-postgresql-server" title="Permanent link">&para;</a></h3>
-<p>By default, <code>postgres</code> user and <code>postgres</code> database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the <code>postgres</code> user.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<p>Open the PostgreSQL interactive terminal:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql
-</code></pre></div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>You can connect to <code>psql</code> as the <code>postgres</code> user in one go:</p>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres psql
-</code></pre></div>
-</div>
-<p>To exit the <code>psql</code> terminal, use the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="se">\q</span>
-</code></pre></div>
+                <h1 id="percona-distribution-for-postgresql-152-update-2023-05-19">Percona Distribution for PostgreSQL 15.2 Update (2023-05-19)<a class="headerlink" href="#percona-distribution-for-postgresql-152-update-2023-05-19" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="left">Release date:</th>
+<th align="left">May 19, 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Installation</strong>:</td>
+<td align="left"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.</p>
+<p>This update of Percona Distribution for PostgreSQL includes the new version of <a href="https://docs.percona.com/pg-stat-monitor/release-notes/2.0.1.html"><code>pg_stat_monitor</code> 2.0.1</a> that fixes the issues with the database failure.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1189,11 +962,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 17, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 17, 2023</span>
       
     
   </small>
