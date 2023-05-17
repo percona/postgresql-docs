@@ -257,10 +257,18 @@ The exact steps may differ depending on the package manager of your operating sy
 
        ```{.bash data-prompt="$"}
        $ sudo su postgres
-       $ #Set up locale settings
+       ```
+
+    * Set up locale settings
+
+       ```{.bash data-prompt="$"}
        $ export LC_ALL="en_US.UTF-8"
        $ export LC_CTYPE="en_US.UTF-8"
-       $ #Initialize cluster with the new data directory
+       ```
+
+    * Initialize cluster with the new data directory
+
+       ```
        $ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data
        ```
 
@@ -315,21 +323,23 @@ The exact steps may differ depending on the package manager of your operating sy
 5. Start the `postgresql` 12 service.
 
     ```{.bash data-prompt="$"}
-    $ #Start postgresql service
     $ sudo systemctl start postgresql-12
-    $ #Check postgresql status
     $ sudo systemctl status postgresql-12
     ```
 
 
 6. Run the **analyze_new_cluster.sh** script
     
-    ```{.bash data-prompt="$"}
-    $ #Log in as the postgres user
-    $ sudo su postgres
-    $ #Run the script
-    $ ./analyze_new_cluster.sh
-    ```
+    * Log in as the postgres user
+
+       ```{.bash data-prompt="$"}
+       $ sudo su postgres
+       ```
+    * Run the script
+       
+       ```{.bash data-prompt="$"}
+       $ ./analyze_new_cluster.sh
+       ```
 
 
 7. Delete Percona Distribution for PostgreSQL 11 configuration files
