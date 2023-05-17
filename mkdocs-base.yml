@@ -136,7 +136,6 @@ nav:
       - minor-upgrade.md
   - Extensions:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
-      - postgis.md
   - Solutions:
       - High availability:
           - 'Overview': 'solutions/high-availability.md'
@@ -146,6 +145,10 @@ nav:
       - Backup and disaster recovery:
           - 'Overview': 'solutions/backup-recovery.md'
           - solutions/dr-pgbackrest-setup.md
+      - Spatial data manipulation:
+        - Overview: solutions/postgis.md
+        - Deployment: solutions/postgis-deploy.md
+        - Query spatial data: solutions/postgis-testing.md
       - LDAP authentication:
           - ldap.md
   - Uninstall:
