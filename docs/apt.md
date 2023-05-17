@@ -16,19 +16,19 @@ Run all the commands in the following sections as root or using the `sudo` comma
  
      * Fetch `percona-release` packages from Percona web:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
         ```
 
      * Install the downloaded package with `dpkg`:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
         ```
 
      * Refresh the local cache:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo apt update
         ```
 
@@ -38,7 +38,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    To enable a repository, we recommend using the `setup` command: 
 
-   ```{.bash data-promp="$"}
+   ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg-13
    ```
 
@@ -46,7 +46,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 === "Install using meta-package"
      
-     ```{.bash data-promp="$"}
+     ```{.bash data-prompt="$"}
      $ sudo apt install percona-ppg-server-13
      ```
 
@@ -54,7 +54,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
      1. Install the PostgreSQL server package:
 
-         ```{.bash data-promp="$"}
+         ```{.bash data-prompt="$"}
          $ sudo apt install percona-postgresql-13
          ```
 
@@ -62,25 +62,25 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
           Install `pg_repack`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-postgresql-13-repack
           ```
 
           Install `pgAudit`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-postgresql-13-pgaudit
           ```
 
           Install `pgBackRest`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-pgbackrest
           ```
 
           Install `Patroni`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-patroni
           ```
 
@@ -89,43 +89,43 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
           Install `pgBouncer`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-pgbouncer
           ```
 
           Install `pgAudit-set_user`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-pgaudit13-set-user
           ```
 
           Install `pgBadger`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-pgbadger
           ```
 
           Install `wal2json`:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-postgresql-13-wal2json
           ```
 
           Install PostgreSQL contrib extensions:
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-postgresql-contrib
           ```
 
           Install `pgpool2`
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-pgpool2
           ```
 
           Install HAProxy
 
-          ```{.bash data-promp="$"}
+          ```{.bash data-prompt="$"}
           $ sudo apt install percona-haproxy
           ```
           
@@ -135,7 +135,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 The installation process automatically initializes and starts the default database. You can check the database status using the following command:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo systemctl status postgresql.service
 ```
 
@@ -143,13 +143,13 @@ $ sudo systemctl status postgresql.service
 
 By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo su postgres
 ```
 
 Open the PostgreSQL interactive terminal:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ psql
 ```
 
@@ -157,13 +157,13 @@ $ psql
 
     You can connect to `psql` as the `postgres` user in one go:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo su postgres psql
     ```
 
 To exit the `psql` terminal, use the following command:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ \q
 ```
 
