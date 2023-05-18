@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL release notes
 
-* [Percona Distribution for PostgreSQL 13.10 Update](release-notes-v13.10.upd.md) (2023-05-)
+* [Percona Distribution for PostgreSQL 13.10 Update](release-notes-v13.10.upd.md) (2023-05-22)
 
 * [Percona Distribution for PostgreSQL 13.10](release-notes-v13.10.md) (2023-03-27)
 
