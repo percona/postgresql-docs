@@ -1,6 +1,6 @@
-# Percona Distribution for PostgreSQL 11.19 Update (2023-05-19)
+# Percona Distribution for PostgreSQL 11.19 Update (2023-05-22)
 
-| Release date:     |  May 19, 2023      |
+| Release date:     |  May 22, 2023      |
 |:------------------|:-----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
