@@ -1,16 +1,15 @@
-# PostGIS
+# Spatial data manipulation
 
 !!! admonition "Version added: 15.3"
 
-
-PostGIS is the open-source extension that allows storing and manipulating spacial data in PostgreSQL. 
-
-Spatial data includes the following data types:
+Organizations dealing with spatial data need to store it somewhere and manipulate it. PostGIS is the open-source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:
 
 * Geographical data like points, lines, polygons, GPS coordinates that can be mapped on a sphere.
 * Geometrical data. This is also points, lines and polygons but they apply to a 2D surface.
 
 To operate with spacial data inside SQL queries, PostGIS supports [spacial functions](https://postgis.net/docs/reference.html#SRS_Functions) like distance, area, union, intersection. It uses the spacial indexes like [R-Tree](https://en.wikipedia.org/wiki/R-tree) and [Quadtree](https://en.wikipedia.org/wiki/Quadtree) for efficient processing of database operations. Read more about supported spacial functions and indexes in [PostGIS documentation](https://postgis.net/workshops/postgis-intro/introduction.html). 
+
+By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open-source spatial database that you can use in various areas without vendor lock-in. 
 
 ## When to use PostGIS
 
@@ -29,6 +28,19 @@ Despite its power and flexibility, PostGIS may not suit your needs if:
 * You need real-time data analysis. While PostGIS can handle real-time spatial data, it may not be the best option for real-time data analysis on large volumes of data.
 * You need complex 3D analysis or visualization.
 * You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.
+
+## Architecture
+
+The following diagram shows the sample architecture for managing spatial data:
+
+![image](../_images/diagrams/Spatial-data-arch.png)
+
+The architecture components include the following:
+
+* PostgreSQL and PostGIS for storing and operating spatial data
+* Visualization applications like GeoServer for publishing the spatial data on the web
+* Your web application for end users to access the data 
+
 
 ## Next steps:
 

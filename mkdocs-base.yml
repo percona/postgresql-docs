@@ -145,7 +145,7 @@ nav:
       - Backup and disaster recovery:
           - 'Overview': 'solutions/backup-recovery.md'
           - solutions/dr-pgbackrest-setup.md
-      - Spatial data manipulation:
+      - Spatial data handling:
         - Overview: solutions/postgis.md
         - Deployment: solutions/postgis-deploy.md
         - Query spatial data: solutions/postgis-testing.md
