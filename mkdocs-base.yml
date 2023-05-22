@@ -97,14 +97,14 @@ plugins:
     max_length: 160
   macros:
       include_yaml:
-#        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+        - 'variables.yml' # Use in markdown as '{{ VAR }}'
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-11.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
-          cover_subtitle: 11.19 (May 22, 2023)
+          cover_subtitle: 11.20 (June 30, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -132,34 +132,10 @@ extra:
       make our documentation better.
 
 nav:
-  - index.md
-  - Installation and Upgrade:
-      - Install Percona Distribution for PostgreSQL:
-        - "Overview": "installing.md"
-        - "Install on Debian and Ubuntu": "apt.md"
-        - "Install on RHEL and derivatives": "yum.md"
-        - enable-extensions.md
-        - repo-overview.md
-      - migration.md
-      - minor-upgrade.md
-  - Extensions:
-      - pg_stat_monitor:
-          - pg-stat-monitor.md
-  - Solutions:
-      - High availability:
-          - solutions/high-availability.md
-          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
-          - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
-          - solutions/ha-test.md
-      - Backup and disaster recovery:
-          - solutions/backup-recovery.md
-          - solutions/dr-pgbackrest-setup.md
-      - LDAP authentication:
-          - ldap.md
-  - Uninstall:
-      - uninstalling.md
+  - Home: index.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v11.20.md
       - release-notes-v11.19.upd.md
       - release-notes-v11.19.md
       - release-notes-v11.18.md
@@ -187,6 +163,31 @@ nav:
       - release-notes-v11.6.md
       - release-notes-v11.md
       - release-notes-v11-beta.md
+  - Installation and Upgrade:
+      - Install Percona Distribution for PostgreSQL:
+        - "Overview": "installing.md"
+        - "Install on Debian and Ubuntu": "apt.md"
+        - "Install on RHEL and derivatives": "yum.md"
+        - enable-extensions.md
+        - repo-overview.md
+      - migration.md
+      - minor-upgrade.md
+  - Extensions:
+      - pg_stat_monitor:
+          - pg-stat-monitor.md
+  - Solutions:
+      - High availability:
+          - solutions/high-availability.md
+          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
+          - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
+          - solutions/ha-test.md
+      - Backup and disaster recovery:
+          - solutions/backup-recovery.md
+          - solutions/dr-pgbackrest-setup.md
+      - LDAP authentication:
+          - ldap.md
+  - Uninstall:
+      - uninstalling.md
   - Licensing:
       - licensing.md
 # - Version Selector: "../"
