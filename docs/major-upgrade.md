@@ -4,7 +4,7 @@ This document describes the in-place upgrade of Percona Distribution for Postgre
 tool.
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
-!!! seealso
+!!! admonition "See also"
 
     [`pg_upgrade` Documentation](https://www.postgresql.org/docs/14/pgupgrade.html)
 
@@ -52,21 +52,21 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Enable Percona repository using the **percona-release** utility:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg-14
       ```
 
 
     * Install Percona Distribution for PostgreSQL 14 package:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-14
       ```
 
 
     * Install the components:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-14-repack \
        percona-postgresql-14-pgaudit \
        percona-pgbackrest \
@@ -80,7 +80,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgpool2
       ```
 
-    !!! seealso
+    !!! admonition "See also"
 
         Percona Documentation:
 
@@ -92,7 +92,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 2. Stop the `postgresql` service.
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo systemctl stop postgresql.service
     ```
 
@@ -104,21 +104,21 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as the `postgres` user.
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo su postgres
       ```
 
 
     * Change the current directory to the `tmp` directory where logs and some scripts will be recorded:
 
-      ```
-      cd tmp/
+      ```{.bash data-prompt="$"}
+      $ cd tmp/
       ```
 
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:
 
-      ```
+      ```{.bash data-prompt="$"}
       $ /usr/lib/postgresql/14/bin/pg_upgrade
       --old-datadir=/var/lib/postgresql/13/main \
       --new-datadir=/var/lib/postgresql/14/main  \
@@ -154,7 +154,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Upgrade the Percona Distribution for PostgreSQL
 
-      ```
+      ```{.bash data-prompt="$"}
       $ /usr/lib/postgresql/14/bin/pg_upgrade
       --old-datadir=/var/lib/postgresql/13/main \
       --new-datadir=/var/lib/postgresql/14/main  \
@@ -173,14 +173,14 @@ The exact steps may differ depending on the package manager of your operating sy
     * Go back to the regular user:
 
 
-      ```
-      exit
+      ```{.bash data-prompt="$"}
+      $ exit
       ```
 
 
     * The Percona Distribution for PostgreSQL 13 uses the `5432` port while the Percona Distribution for PostgreSQL 14 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 14, swap ports in the configuration files of both versions.
 
-      ```
+      ```{.bash data-prompt="$"}
       $ sudo vim /etc/postgresql/14/main/postgresql.conf
       $ port = 5433 # Change to 5432 here
       $ sudo vim /etc/postgresql/13/main/postgresql.conf
@@ -190,7 +190,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
 4. Start the `postgreqsl` service.
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo systemctl start postgresql.service
     ```
 
@@ -199,23 +199,21 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as a postgres user
  
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
     * Check the database version
     
-       ```
+       ```{.bash data-prompt="$"}
        $ psql -c "SELECT version();"
        ```
 
 
 6. Run the `analyze_new_cluster.sh` script
 
-    ```
+    ```{.bash data-prompt="$"}
     $ tmp/analyze_new_cluster.sh
-    $ #Logout
-    $ exit
     ```
 
 
@@ -223,13 +221,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Remove packages
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo apt remove percona-postgresql-13* percona-pgbackrest percona-patroni percona-pg-stat-monitor13 percona-pgaudit13-set-user percona-pgbadger percona-pgbouncer percona-postgresql-13-wal2json
        ```
 
     * Remove old files
 
-       ```
+       ```{.bash data-prompt="$"}
        $ rm -rf /etc/postgresql/13/main
        ```
 
@@ -246,20 +244,20 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Enable Percona repository using the **percona-release** utility:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-14
        ```
 
 
     * Install Percona Distribution for PostgreSQL 14:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo yum install percona-postgresql14-server
        ```
 
     * Install components:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo yum install percona-pgaudit \
        percona-pgbackrest \
        percona-pg_repack14 \
@@ -288,7 +286,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
    * Log is as the postgres user
 
-      ```
+      ```{.bash data-prompt="$"}
       sudo su postgres
       ```
 
@@ -301,14 +299,14 @@ The exact steps may differ depending on the package manager of your operating sy
 
    * Initialize cluster with the new data directory
 
-      ```
-      /usr/pgsql-14/bin/initdb -D /var/lib/pgsql/14/data
+      ```{.bash data-prompt="$"}
+      $ /usr/pgsql-14/bin/initdb -D /var/lib/pgsql/14/data
       ```
 
 
 3. Stop the `postgresql` 13 service
 
-    ```
+    ```{.bash data-prompt="$"}
     $ systemctl stop postgresql-13
     ```
 
@@ -318,14 +316,14 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as the `postgres` user
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:
 
-       ```
+       ```{.bash data-prompt="$"}
        $ /usr/pgsql-14/bin/pg_upgrade \
        --old-bindir /usr/pgsql-13/bin \
        --new-bindir /usr/pgsql-14/bin  \
@@ -359,7 +357,7 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Upgrade the Percona Distribution for PostgreSQL
 
-       ```
+       ```{.bash data-prompt="$"}
        $ /usr/pgsql-14/bin/pg_upgrade \
        --old-bindir /usr/pgsql-13/bin \
        --new-bindir /usr/pgsql-14/bin  \
@@ -374,13 +372,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
 5. Start the `postgresql` 14 service.
 
-    ```
+    ```{.bash data-prompt="$"}
     $ systemctl start postgresql-14
     ```
 
 6. Check postgresql status
 
-    ```
+    ```{.bash data-prompt="$"}
     $ systemctl status postgresql-14
     ```
 
@@ -390,20 +388,20 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Log in as the postgres user
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
     * Run the script
 
-       ```
+       ```{.bash data-prompt="$"}
        $ ./analyze_new_cluster.sh
        ```
 
 
 8. Delete Percona Distribution for PostgreSQL 13 configuration files
 
-    ```
+    ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
     ```
 
@@ -412,12 +410,12 @@ The exact steps may differ depending on the package manager of your operating sy
 
     *  Remove packages
 
-       ```
+       ```{.bash data-prompt="$"}
        $ sudo yum -y remove percona-postgresql13*
        ```
 
     * Remove old files
 
-       ```
+       ```{.bash data-prompt="$"}
        $ rm -rf /var/lib/pgsql/13/data
        ```

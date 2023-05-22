@@ -114,7 +114,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         $ sudo yum install percona-postgresql14-contrib
         ```
 
-        Install pgpool2
+        Install `pgpool2`
 
         To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`. The following examples show steps for Red Hat Enterprise Linux 9:
 
