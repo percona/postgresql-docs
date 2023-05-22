@@ -5,9 +5,9 @@ database system: it installs PostgreSQL and complements it by a selection of
 extensions that enable solving essential practical tasks efficiently:
 
 
-* [pg_repack](https://github.com/reorg/pg_repack) rebuilds
-PostgreSQL database objects
+* [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution 
 
+* [Patroni](https://patroni.readthedocs.io/en/latest/) is an HA (High Availability) solution for PostgreSQL.
 
 * [pgAudit](https://www.pgaudit.org/) provides detailed session or object
 audit logging via the standard PostgreSQL logging facility
@@ -17,24 +17,27 @@ audit logging via the standard PostgreSQL logging facility
 * [pgBackRest](https://pgbackrest.org/) is a backup and restore solution for
 PostgreSQL
 
+* [pgBadger](https://github.com/darold/pgbadger) - a fast PostgreSQL Log Analyzer.
 
-* [Patroni](https://patroni.readthedocs.io/en/latest/) is an HA (High Availability) solution for PostgreSQL.
+* [PgBouncer](https://www.pgbouncer.org/) - a lightweight connection pooler for PostgreSQL
 
+* [pgpool2](https://www.pgpool.net/mediawiki/index.php/Main_Page) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
+
+* [pg_repack](https://github.com/reorg/pg_repack) rebuilds
+PostgreSQL database objects
 
 * [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) collects and aggregates statistics for PostgreSQL and provides histogram information.
 
-* [PgBouncer](https://www.pgbouncer.org/) - a lightweight connection pooler for PostgreSQL
- 
-
-* [pgBadger](https://github.com/darold/pgbadger) - a fast PostgreSQL Log Analyzer.
+* [PostGIS](http://postgis.net/) allows storing and manipulating spacial data in PostgreSQL.
 
 * [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
 
-* [HAProxy](http://www.haproxy.org/)-  a high-availability and load-balancing solution 
-
-* [`pgpool`](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
-
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/13/contrib.html)
+
+
+[Get started](installing.md){ .md-button }
+[What's new]({{release}}.md){ .md-button }
+
 
 
 !!! admonition "See also"
@@ -51,13 +54,6 @@ Percona Distribution for PostgreSQL is also shipped with the
 contains "a set of library functions that allow client programs to pass
 queries to the PostgreSQL backend server and to receive the results of
 these queries." 
-
-
-
-## Get started
-
-* [Install Percona Distribution for PostgreSQL](installing.md)
-* [Enable extensions](enable-extensions.md)
 
 
 

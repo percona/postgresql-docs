@@ -101,16 +101,16 @@ plugins:
     max_length: 160
   macros:
       include_yaml:
-#        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+        - 'variables.yml' # Use in markdown as '{{ VAR }}'
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
       output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
-      cover_title: 'Percona Distribution for PostgreSQL Documentation'
-      cover_subtitle: 13.10 (May 22, 2023)
+      cover_title: 'Distribution for PostgreSQL Documentation'
+      cover_subtitle: 13.11 (June 29, 2023)
       author: 'Percona Technical Documentation Team'
-      cover_logo: docs/_images/postgre-logo.jpg
+      cover_logo: docs/_images/Percona_Logo_Color.png
       debug_html: false
       custom_template_path: _resource/templates
       enabled_if_env: ENABLE_PDF_EXPORT
@@ -164,6 +164,7 @@ nav:
       - uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v13.11.md
       - release-notes-v13.10.upd.md
       - release-notes-v13.10.md
       - release-notes-v13.9.md
