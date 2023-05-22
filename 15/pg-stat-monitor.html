@@ -1278,26 +1278,22 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <p>You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the <a href="https://docs.percona.com/pg-stat-monitor/configuration.html">configuration parameters</a> of the <code>pg_stat_monitor</code> documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.</p>
 <p>As an example, let’s set the bucket lifetime from default 60 seconds to 40 seconds. Use the <strong>ALTER SYSTEM</strong> command:</p>
 <div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span>
-
-<span class="k">Restart</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">change</span><span class="p">:</span>
-
-
-<span class="o">===</span><span class="w"> </span><span class="ss">&quot;On Debian and Ubuntu&quot;</span>
-
-<span class="w">     </span><span class="o">```</span><span class="err">{</span><span class="p">.</span><span class="n">bash</span><span class="w"> </span><span class="k">data</span><span class="o">-</span><span class="n">prompt</span><span class="o">=</span><span class="ss">&quot;$&quot;</span><span class="err">}</span>
-<span class="w">     </span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="k">restart</span><span class="w"> </span><span class="n">postgresql</span><span class="p">.</span><span class="n">service</span>
-<span class="w">     </span><span class="o">```</span>
-
-<span class="o">===</span><span class="w"> </span><span class="ss">&quot;On Red Hat Enterprise Linux and derivatives&quot;</span>
-
-<span class="w">     </span><span class="o">```</span><span class="err">{</span><span class="p">.</span><span class="n">bash</span><span class="w"> </span><span class="k">data</span><span class="o">-</span><span class="n">prompt</span><span class="o">=</span><span class="ss">&quot;$&quot;</span><span class="err">}</span>
-<span class="w">     </span><span class="err">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="k">restart</span><span class="w"> </span><span class="n">postgresql</span><span class="o">-</span><span class="mi">15</span>
-<span class="w">     </span><span class="o">```</span>
-
-<span class="n">Verify</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">updated</span><span class="w"> </span><span class="k">parameter</span><span class="p">:</span>
-
-<span class="o">```</span><span class="k">sql</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span>
+</code></pre></div>
+<p>Restart the server to apply the change:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On Red Hat Enterprise Linux and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql.service
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql-15
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Verify the updated parameter:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.pgsm_bucket_time&#39;</span><span class="p">;</span>
 
@@ -1335,7 +1331,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
       
         <br>
         Created:
