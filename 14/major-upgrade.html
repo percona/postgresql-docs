@@ -1104,8 +1104,8 @@ The in-place upgrade means installing a new version without removing the old ver
 <p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code>
 tool.
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
-<div class="admonition seealso">
-<p class="admonition-title">Seealso</p>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
 <p><a href="https://www.postgresql.org/docs/14/pgupgrade.html"><code>pg_upgrade</code> Documentation</a></p>
 </div>
 <p>Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.</p>
@@ -1150,30 +1150,30 @@ so the system is usable.</p>
 <ul>
 <li>Enable Percona repository using the <strong>percona-release</strong> utility:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-14
 </code></pre></div>
 <ul>
 <li>Install Percona Distribution for PostgreSQL 14 package:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-14
 </code></pre></div>
 <ul>
 <li>Install the components:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-14-repack \
- percona-postgresql-14-pgaudit \
- percona-pgbackrest \
- percona-patroni \
- percona-pgbadger \
- percona-pgaudit14-set-user \
- percona-pgbadger \
- percona-postgresql-14-wal2json \
- percona-pg-stat-monitor14 \
- percona-postgresql-contrib
- percona-pgpool2
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-14-repack<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-postgresql-14-pgaudit<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-pgbackrest<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-patroni<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-pgbadger<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-pgaudit14-set-user<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-pgbadger<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-postgresql-14-wal2json<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-pg-stat-monitor14<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-postgresql-contrib
+<span class="w"> </span>percona-pgpool2
 </code></pre></div>
-<div class="admonition seealso">
-<p class="admonition-title">Seealso</p>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
 <p>Percona Documentation:</p>
 <ul>
 <li>
@@ -1187,7 +1187,7 @@ so the system is usable.</p>
 </li>
 <li>
 <p>Stop the <code>postgresql</code> service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
 </code></pre></div>
 <p>This stops both Percona Distribution for PostgreSQL 13 and 14.</p>
 </li>
@@ -1196,23 +1196,23 @@ so the system is usable.</p>
 <ul>
 <li>Log in as the <code>postgres</code> user.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
 <li>Change the current directory to the <code>tmp</code> directory where logs and some scripts will be recorded:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>cd tmp/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tmp/
 </code></pre></div>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/lib/postgresql/14/bin/pg_upgrade
---old-datadir=/var/lib/postgresql/13/main \
---new-datadir=/var/lib/postgresql/14/main  \
---old-bindir=/usr/lib/postgresql/13/bin  \
---new-bindir=/usr/lib/postgresql/14/bin  \
---old-options &#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39; \
---new-options &#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39; \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/14/bin/pg_upgrade
+--old-datadir<span class="o">=</span>/var/lib/postgresql/13/main<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="o">=</span>/var/lib/postgresql/14/main<span class="w">  </span><span class="se">\</span>
+--old-bindir<span class="o">=</span>/usr/lib/postgresql/13/bin<span class="w">  </span><span class="se">\</span>
+--new-bindir<span class="o">=</span>/usr/lib/postgresql/14/bin<span class="w">  </span><span class="se">\</span>
+--old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
+--new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
 --check
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
@@ -1236,13 +1236,13 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/lib/postgresql/14/bin/pg_upgrade
---old-datadir=/var/lib/postgresql/13/main \
---new-datadir=/var/lib/postgresql/14/main  \
---old-bindir=/usr/lib/postgresql/13/bin \
---new-bindir=/usr/lib/postgresql/14/bin \
---old-options &#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39; \
---new-options &#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39; \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/14/bin/pg_upgrade
+--old-datadir<span class="o">=</span>/var/lib/postgresql/13/main<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="o">=</span>/var/lib/postgresql/14/main<span class="w">  </span><span class="se">\</span>
+--old-bindir<span class="o">=</span>/usr/lib/postgresql/13/bin<span class="w"> </span><span class="se">\</span>
+--new-bindir<span class="o">=</span>/usr/lib/postgresql/14/bin<span class="w"> </span><span class="se">\</span>
+--old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
+--new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
 --link
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.</p>
@@ -1250,20 +1250,20 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Go back to the regular user:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>exit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 <ul>
 <li>The Percona Distribution for PostgreSQL 13 uses the <code>5432</code> port while the Percona Distribution for PostgreSQL 14 is set up to use the <code>5433</code> port by default. To start the Percona Distribution for PostgreSQL 14, swap ports in the configuration files of both versions.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo vim /etc/postgresql/14/main/postgresql.conf
-$ port = 5433 # Change to 5432 here
-$ sudo vim /etc/postgresql/13/main/postgresql.conf
-$ port = 5432 # Change to 5433 here
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/14/main/postgresql.conf
+$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5433</span><span class="w"> </span><span class="c1"># Change to 5432 here</span>
+$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/13/main/postgresql.conf
+$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5432</span><span class="w"> </span><span class="c1"># Change to 5433 here</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>postgreqsl</code> service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql.service
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
 </code></pre></div>
 </li>
 <li>
@@ -1271,19 +1271,17 @@ $ port = 5432 # Change to 5433 here
 <ul>
 <li>Log in as a postgres user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
 <li>Check the database version</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ psql -c &quot;SELECT version();&quot;
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Run the <code>analyze_new_cluster.sh</code> script</p>
-<div class="highlight"><pre><span></span><code>$ tmp/analyze_new_cluster.sh
-$ #Logout
-$ exit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tmp/analyze_new_cluster.sh
 </code></pre></div>
 </li>
 <li>
@@ -1291,12 +1289,12 @@ $ exit
 <ul>
 <li>Remove packages</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo apt remove percona-postgresql-13* percona-pgbackrest percona-patroni percona-pg-stat-monitor13 percona-pgaudit13-set-user percona-pgbadger percona-pgbouncer percona-postgresql-13-wal2json
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>percona-postgresql-13*<span class="w"> </span>percona-pgbackrest<span class="w"> </span>percona-patroni<span class="w"> </span>percona-pg-stat-monitor13<span class="w"> </span>percona-pgaudit13-set-user<span class="w"> </span>percona-pgbadger<span class="w"> </span>percona-pgbouncer<span class="w"> </span>percona-postgresql-13-wal2json
 </code></pre></div>
 <ul>
 <li>Remove old files</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ rm -rf /etc/postgresql/13/main
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/postgresql/13/main
 </code></pre></div>
 </li>
 </ol>
@@ -1311,25 +1309,25 @@ $ exit
 <ul>
 <li>Enable Percona repository using the <strong>percona-release</strong> utility:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo percona-release setup ppg-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-14
 </code></pre></div>
 <ul>
 <li>Install Percona Distribution for PostgreSQL 14:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql14-server
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql14-server
 </code></pre></div>
 <ul>
 <li>Install components:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit \
-percona-pgbackrest \
-percona-pg_repack14 \
-percona-patroni \
-percona-pg-stat-monitor14 \
-percona-pgbadger \
-percona-pgaudit14_set_user \
-percona-pgbadger \
-percona-wal2json14 \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgaudit<span class="w"> </span><span class="se">\</span>
+percona-pgbackrest<span class="w"> </span><span class="se">\</span>
+percona-pg_repack14<span class="w"> </span><span class="se">\</span>
+percona-patroni<span class="w"> </span><span class="se">\</span>
+percona-pg-stat-monitor14<span class="w"> </span><span class="se">\</span>
+percona-pgbadger<span class="w"> </span><span class="se">\</span>
+percona-pgaudit14_set_user<span class="w"> </span><span class="se">\</span>
+percona-pgbadger<span class="w"> </span><span class="se">\</span>
+percona-wal2json14<span class="w"> </span><span class="se">\</span>
 percona-postgresql14-contrib
 percona-pgpool-II-pg14
 </code></pre></div>
@@ -1353,7 +1351,7 @@ percona-pgpool-II-pg14
 </li>
 <li>
 <p>Log is as the postgres user</p>
-<div class="highlight"><pre><span></span><code>sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 </li>
 <li>
@@ -1364,12 +1362,12 @@ export LC_CTYPE=&quot;en_US.UTF-8&quot;
 </li>
 <li>
 <p>Initialize cluster with the new data directory</p>
-<div class="highlight"><pre><span></span><code>/usr/pgsql-14/bin/initdb -D /var/lib/pgsql/14/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-14/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/14/data
 </code></pre></div>
 </li>
 <li>
 <p>Stop the <code>postgresql</code> 13 service</p>
-<div class="highlight"><pre><span></span><code>$ systemctl stop postgresql-13
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-13
 </code></pre></div>
 </li>
 <li>
@@ -1377,17 +1375,17 @@ export LC_CTYPE=&quot;en_US.UTF-8&quot;
 <ul>
 <li>Log in as the <code>postgres</code> user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/pgsql-14/bin/pg_upgrade \
---old-bindir /usr/pgsql-13/bin \
---new-bindir /usr/pgsql-14/bin  \
---old-datadir /var/lib/pgsql/13/data \
---new-datadir /var/lib/pgsql/14/data \
---link --check
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-14/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
+--old-bindir<span class="w"> </span>/usr/pgsql-13/bin<span class="w"> </span><span class="se">\</span>
+--new-bindir<span class="w"> </span>/usr/pgsql-14/bin<span class="w">  </span><span class="se">\</span>
+--old-datadir<span class="w"> </span>/var/lib/pgsql/13/data<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="w"> </span>/var/lib/pgsql/14/data<span class="w"> </span><span class="se">\</span>
+--link<span class="w"> </span>--check
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
 <p><strong>Sample output</strong></p>
@@ -1410,11 +1408,11 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ /usr/pgsql-14/bin/pg_upgrade \
---old-bindir /usr/pgsql-13/bin \
---new-bindir /usr/pgsql-14/bin  \
---old-datadir /var/lib/pgsql/13/data \
---new-datadir /var/lib/pgsql/14/data \
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-14/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
+--old-bindir<span class="w"> </span>/usr/pgsql-13/bin<span class="w"> </span><span class="se">\</span>
+--new-bindir<span class="w"> </span>/usr/pgsql-14/bin<span class="w">  </span><span class="se">\</span>
+--old-datadir<span class="w"> </span>/var/lib/pgsql/13/data<span class="w"> </span><span class="se">\</span>
+--new-datadir<span class="w"> </span>/var/lib/pgsql/14/data<span class="w"> </span><span class="se">\</span>
 --link
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
@@ -1422,12 +1420,12 @@ Checking for prepared transactions                          ok
 </li>
 <li>
 <p>Start the <code>postgresql</code> 14 service.</p>
-<div class="highlight"><pre><span></span><code>$ systemctl start postgresql-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-14
 </code></pre></div>
 </li>
 <li>
 <p>Check postgresql status</p>
-<div class="highlight"><pre><span></span><code>$ systemctl status postgresql-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql-14
 </code></pre></div>
 </li>
 <li>
@@ -1435,17 +1433,17 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Log in as the postgres user</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo su postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
 <li>Run the script</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ ./analyze_new_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./analyze_new_cluster.sh
 </code></pre></div>
 </li>
 <li>
 <p>Delete Percona Distribution for PostgreSQL 13 configuration files</p>
-<div class="highlight"><pre><span></span><code>$ ./delete_old_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
 </code></pre></div>
 </li>
 <li>
@@ -1453,12 +1451,12 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Remove packages</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ sudo yum -y remove percona-postgresql13*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>remove<span class="w"> </span>percona-postgresql13*
 </code></pre></div>
 <ul>
 <li>Remove old files</li>
 </ul>
-<div class="highlight"><pre><span></span><code>$ rm -rf /var/lib/pgsql/13/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/pgsql/13/data
 </code></pre></div>
 </li>
 </ol>
@@ -1483,7 +1481,7 @@ Checking for prepared transactions                          ok
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
       
         <br>
         Created:
