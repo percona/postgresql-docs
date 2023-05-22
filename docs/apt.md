@@ -38,7 +38,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    To enable a repository, we recommend using the `setup` command: 
 
-   ```
+   ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg-15
    ```
 
@@ -157,7 +157,7 @@ $ psql
 
     You can connect to `psql` as the `postgres` user in one go:
 
-    ```
+    ```{.bash data-prompt="$"}
     $ sudo su postgres psql
     ```
 
