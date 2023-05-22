@@ -14,7 +14,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
      For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
-     ```{.bash data-promp="$"}
+     ```{.bash data-prompt="$"}
      $ sudo yum install etcd python3-python-etcd
      ```
   
