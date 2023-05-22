@@ -1485,11 +1485,17 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 <li>Log is as the postgres user</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-$<span class="w"> </span><span class="c1">#Set up locale settings</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
+</code></pre></div>
+<ul>
+<li>Set up locale settings</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
 $<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
-$<span class="w"> </span><span class="c1">#Initialize cluster with the new data directory</span>
-$<span class="w"> </span>/usr/pgsql-12/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/12/data
+</code></pre></div>
+<ul>
+<li>Initialize cluster with the new data directory</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data
 </code></pre></div>
 </li>
 <li>
@@ -1531,18 +1537,19 @@ $<span class="w"> </span>/usr/pgsql-12/bin/initdb<span class="w"> </span>-D<span
 </li>
 <li>
 <p>Start the <code>postgresql</code> 12 service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="c1">#Start postgresql service</span>
-$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-12
-$<span class="w"> </span><span class="c1">#Check postgresql status</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-12
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql-12
 </code></pre></div>
 </li>
 <li>
 <p>Run the <strong>analyze_new_cluster.sh</strong> script</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="c1">#Log in as the postgres user</span>
-$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-$<span class="w"> </span><span class="c1">#Run the script</span>
-$<span class="w"> </span>./analyze_new_cluster.sh
+<ul>
+<li>Log in as the postgres user</li>
+</ul>
+<p><div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
+</code></pre></div>
+* Run the script</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./analyze_new_cluster.sh
 </code></pre></div>
 </li>
 <li>
@@ -1585,7 +1592,7 @@ $<span class="w"> </span>./analyze_new_cluster.sh
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
       
         <br>
         Created:
