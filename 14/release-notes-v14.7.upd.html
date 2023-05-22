@@ -9,26 +9,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.">
+        <meta name="description" content="Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/14/enable-extensions.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/14/release-notes-v14.7.upd.html">
       
       
-        <link rel="prev" href="yum.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="repo-overview.html">
+        <link rel="next" href="release-notes-v14.7.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Enable Percona Distribution for PostgreSQL extensions - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 14.7 Update (2023-05-22) - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -80,7 +80,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Enable Percona Distribution for PostgreSQL extensions" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 14.7 Update (2023-05-22)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -110,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enable-percona-distribution-for-postgresql-extensions" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-147-update-2023-05-22" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enable Percona Distribution for PostgreSQL extensions
+              Percona Distribution for PostgreSQL 14.7 Update (2023-05-22)
             
           </span>
         </div>
@@ -285,16 +285,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -303,7 +301,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Installation and Upgrade
@@ -314,16 +312,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
       
       
       
@@ -332,7 +328,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Install Percona Distribution for PostgreSQL
@@ -385,21 +381,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="enable-extensions.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="enable-extensions.html" class="md-nav__link">
         Enable Percona Distribution for PostgreSQL extensions
       </a>
-      
     </li>
   
 
@@ -745,14 +731,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -761,7 +749,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release notes
@@ -786,11 +774,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v14.7.upd.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v14.7.upd.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 14.7 Update (2023-05-22)
       </a>
+      
     </li>
   
 
@@ -1015,14 +1013,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/14/docs/enable-extensions.md"
+                    href="https://github.com/percona/postgresql-docs/edit/14/docs/release-notes-v14.7.upd.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/enable-extensions.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/release-notes-v14.7.upd.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1038,63 +1036,23 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="enable-percona-distribution-for-postgresql-extensions">Enable Percona Distribution for PostgreSQL extensions<a class="headerlink" href="#enable-percona-distribution-for-postgresql-extensions" title="Permanent link">&para;</a></h1>
-<p>Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
-<p><strong>Patroni</strong></p>
-<p>Patroni is the third-party high availability solution for PostgreSQL. The <a href="solutions/high-availability.html">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
-<p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:</p>
-<ul>
-<li>
-<p>Patroni installed on every <code>postresql</code> node. </p>
-</li>
-<li>
-<p>Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10, 11 and Ubuntu 18.04, 20.04, 22.04.  </p>
-<p>For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>etcd<span class="w"> </span>python3-python-etcd
-</code></pre></div>
-</li>
-<li>
-<p><a href="http://www.haproxy.org/">HAProxy</a>.</p>
-</li>
-</ul>
-<p>See the configuration guidelines for <a href="solutions/ha-setup-apt.html">Debian and Ubuntu</a> and <a href="solutions/ha-setup-yum.html">RHEL and CentOS</a>. </p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<ul>
-<li>
-<p><a href="https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings">Patroni documentation</a></p>
-</li>
-<li>
-<p>Percona Blog: </p>
-<ul>
-<li><a href="https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/">PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios</a> </li>
-</ul>
-</li>
-</ul>
-</div>
-<p><strong>pgBadger</strong></p>
-<p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
-<div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
-log_line_prefix = &#39;%t [%p]: &#39;
-log_checkpoints = on
-log_connections = on
-log_disconnections = on
-log_lock_waits = on
-log_temp_files = 0
-log_autovacuum_min_duration = 0
-log_error_verbosity = default
-</code></pre></div>
-<p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation</a>.</p>
-<p><strong>pgAudit set-user</strong></p>
-<p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/14/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set-user&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p>Start / restart the server to apply the configuration.</p>
-<p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters</a> supplied with the extension.</p>
-<p><strong>wal2json</strong></p>
-<p>After the installation, enable the following option in <code>postgresql.conf</code> configuration file before starting the service:</p>
-<div class="highlight"><pre><span></span><code>wal_level = logical
-</code></pre></div>
+                <h1 id="percona-distribution-for-postgresql-147-update-2023-05-22">Percona Distribution for PostgreSQL 14.7 Update (2023-05-22)<a class="headerlink" href="#percona-distribution-for-postgresql-147-update-2023-05-22" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="left">Release date:</th>
+<th align="left">May 22, 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Installation</strong>:</td>
+<td align="left"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.</p>
+<p>This update of Percona Distribution for PostgreSQL includes the new version of <a href="https://docs.percona.com/pg-stat-monitor/release-notes/2.0.1.html"><code>pg_stat_monitor</code> 2.0.1</a> that fixes the issues with the database failure.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1116,11 +1074,11 @@ log_error_verbosity = default
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 23, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
       
     
   </small>
