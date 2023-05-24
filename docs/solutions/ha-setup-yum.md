@@ -3,34 +3,46 @@
 This guide provides instructions on how to set up a highly available PostgreSQL cluster with Patroni on Red Hat Enterprise Linux or CentOS. 
 
 
-## Preconditions
+## Considerations
 
-For this setup, we will use the nodes running on CentOS 8 as the base operating system and having the following IP addresses:
+1. This is the example deployment suitable to be used for testing purposes in non-production environments. 
+2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts because ETCD writes every request from the cluster to disk which requires significant amount of disk space.
+3. For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system:
 
-| Hostname      | Public IP address | Internal IP address
-|---------------|-------------------|--------------------
-| node1         | 157.230.42.174    | 10.104.0.7
-| node2         | 68.183.177.183    | 10.104.0.2
-| node3         | 165.22.62.167     | 10.104.0.8
-| etcd          | 159.102.29.166    | 10.104.0.5
-| HAProxy-demo  | 134.209.111.138   | 10.104.0.6
+    | Node name     | Application       | IP address
+    |---------------|-------------------|--------------------
+    | node1         | Patroni, PostgreSQL, ETCD    | 10.104.0.7
+    | node2         | Patroni, PostgreSQL, ETCD    | 10.104.0.2
+    | node3         | Patroni, PostgreSQL, ETCD     | 10.104.0.8
+    | HAProxy-demo  | HAProxy           | 10.104.0.6
+
 
 !!! note
 
-    In a production (or even non-production) setup, the PostgreSQL and ETCD nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. 
+    In a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. 
+
+## Preparation 
+
+Adjust the firewall settings to allow the following ports:
+
+* 5432 - PostgreSQL standard port, not used by PostgreSQL itself but by HAProxy
+* 5000 - PostgreSQL listening port used by HAproxy to route the database connections to write node
+* 5001 - PostgreSQL listening port used by HAproxy to route the database connections to read nodes
+* 2380 - etcd peer urls port required by the etcd members communication
+* 2379 - etcd client port required by any client including patroni to communicate with etcd
+* 8008 - patroni rest api port required by HAProxy to check the nodes status
+* 7000 - HAProxy port to expose the proxy’s statistics
+
 
 ## Setting up hostnames in the `/etc/hosts` file
 
-To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. The following is the `/etc/hosts` file for `node1`:
+To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their IP addresses. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. 
 
-```
-127.0.0.1 localhost node1
-10.104.0.7 node1 
-10.104.0.2 node2 
-10.104.0.8 node3
-```
+| node 1                    | node 2                    | node 3
+|---------------------------| --------------------------|-----------------------
+| <code> 127.0.0.1 localhost node1 <br> 10.104.0.7 node1 <br> **10.104.0.2 node2** <br> **10.104.0.8 node3** </code>   | <code>127.0.0.1 localhost node2  <br> **10.104.0.7 node1** <br> 10.104.0.2 node2  <br> **10.104.0.8 node3** </code>  | <code> 127.0.0.1 localhost node3 <br> **10.104.0.7 node1** <br> **10.104.0.2 node2** <br> 10.104.0.8 node3 </code>
 
-The `/etc/hosts` file of the `HAProxy-demo` node hostnames and IP addresses of all PostgreSQL nodes:
+The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file:
 
 ```
 127.0.1.1 HAProxy-demo HAProxy-demo
@@ -41,7 +53,6 @@ The `/etc/hosts` file of the `HAProxy-demo` node hostnames and IP addresses of a
 10.104.0.8 node3
 ```
 
-Keep the `/etc/hosts` file of the `etcd` node unchanged.
 
 ## Configure ETCD distributed store  
 

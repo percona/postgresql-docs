@@ -2,46 +2,85 @@
 
 This guide provides instructions on how to set up a highly available PostgreSQL cluster with Patroni on Debian or Ubuntu. 
 
+## Considerations
 
-## Preconditions
+1. This is the example deployment suitable to be used for testing purposes in non-production environments. 
+2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts because ETCD writes every request from the cluster to disk which requires significant amount of disk space. See [hardware recommendations](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
+3. For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system:
 
-For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system and having the following IP addresses:
-
-| Node name     | Public IP address | Internal IP address
-|---------------|-------------------|--------------------
-| node1         | 157.230.42.174    | 10.104.0.7
-| node2         | 68.183.177.183    | 10.104.0.2
-| node3         | 165.22.62.167     | 10.104.0.8
-| HAProxy-demo  | 134.209.111.138   | 10.104.0.6
+    | Node name     | Application       | IP address
+    |---------------|-------------------|--------------------
+    | node1         | Patroni, PostgreSQL, ETCD    | 10.104.0.7
+    | node2         | Patroni, PostgreSQL, ETCD    | 10.104.0.2
+    | node3         | Patroni, PostgreSQL, ETCD     | 10.104.0.8
+    | HAProxy-demo  | HAProxy           | 10.104.0.6
 
 
 !!! note
 
-    In a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. 
+    Ideally, in a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a private environment, and each node can access the other by its internal, private IP. 
 
-### Setting up hostnames in the `/etc/hosts` file
+## Preparation 
 
-To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the `/etc/hosts` file of each node as follows:
+Adjust the firewall settings to allow the following ports:
 
-| node 1                    | node 2                    | node 3
-|---------------------------| --------------------------|-----------------------
-| <code> 127.0.0.1 localhost node1 <br> 10.104.0.7 node1 <br> **10.104.0.2 node2** <br> **10.104.0.8 node3** </code>   | <code>127.0.0.1 localhost node2  <br> **10.104.0.7 node1** <br> 10.104.0.2 node2  <br> **10.104.0.8 node3** </code>  | <code> 127.0.0.1 localhost node3 <br> **10.104.0.7 node1** <br> **10.104.0.2 node2** <br> 10.104.0.8 node3 </code>
+* 5432 - PostgreSQL standard port, not used by PostgreSQL itself but by HAProxy
+* 5000 - PostgreSQL listening port used by HAproxy to route the database connections to write node
+* 5001 - PostgreSQL listening port used by HAproxy to route the database connections to read nodes
+* 2380 - etcd peer urls port required by the etcd members communication
+* 2379 - etcd client port required by any client including patroni to communicate with etcd
+* 8008 - patroni rest api port required by HAProxy to check the nodes status
+* 7000 - HAProxy port to expose the proxy’s statistics
 
 
-The `/etc/hosts` file of the HAProxy-demo node looks like the following:
+### Set up hostnames in the `/etc/hosts` file
 
-```
-127.0.1.1 HAProxy-demo HAProxy-demo
-127.0.0.1 localhost
-10.104.0.6 HAProxy-demo
-10.104.0.7 node1
-10.104.0.2 node2
-10.104.0.8 node3
-```
+It's not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we'll use a local name resolution by updating the file `/etc/hosts`. By resolving their hostnames to their IP addresses, we make the nodes aware of each other's names and allow their seamless communication. 
 
-### Install Percona Distribution for PostgreSQL
+Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:
 
-1. Follow the [installation instructions](../installing.md#on-debian-and-ubuntu-using-apt) to install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3`.
+=== "node1"
+
+    ```text hl_lines="3 4"
+    # Cluster IP and names 
+    10.104.0.7 node1 
+    10.104.0.2 node2 
+    10.104.0.8 node3
+    ```
+
+=== "node2"
+
+    ```text hl_lines="2 4"
+    # Cluster IP and names 
+    10.104.0.7 node1 
+    10.104.0.2 node2 
+    10.104.0.8 node3
+    ```
+
+=== "node3"
+
+    ```text hl_lines="2 3"
+    # Cluster IP and names 
+    10.104.0.7 node1 
+    10.104.0.2 node2 
+    10.104.0.8 node3
+    ```
+
+=== "HAproxy-demo"
+
+    The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file. Add the following lines at the end of the file:
+
+    ```text hl_lines="4 5 6"
+    # Cluster IP and names
+    10.104.0.6 HAProxy-demo
+    10.104.0.7 node1
+    10.104.0.2 node2
+    10.104.0.8 node3
+    ```
+
+## Install Percona Distribution for PostgreSQL
+
+1. [Install Percona Distribution for PostgreSQL](../apt.md) on `node1`, `node2` and `node3`.
 
 2. Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:
 
@@ -52,7 +91,7 @@ The `/etc/hosts` file of the HAProxy-demo node looks like the following:
 
 ## Configure ETCD distributed store  
 
-The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is `etcd`. 
+The distributed configuration store provides a reliable way to store data that needs to be accessed by large scale distributed systems. The most popular implementation of the distributed configuration store is ETCD. ETCD is deployed as a cluster for fault-tolerance and requires an odd number of members (n/2+1) to agree on updates to the cluster state. An ETCD cluster helps establish a consensus among nodes during a failover and manages the configuration for the three PostgreSQL instances.
 
 The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. The configuration is stored in the `/etc/default/etcd` file.
 
@@ -62,11 +101,9 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     $ sudo apt install etcd
     ```
 
-2. Modify the `/etc/default/etcd` configuration file on each node.
+2. Configure ETCD on `node1`. Modify the `/etc/default/etcd` configuration file and add the IP address of `node1` (10.104.0.7) to the `ETCD_INITIAL_CLUSTER` parameter. 
 
-    * On `node1`, add the IP address of `node1` to the `ETCD_INITIAL_CLUSTER` parameter. The configuration file looks as follows:
-
-      ```text
+      ```text 
       ETCD_NAME=node1
       ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380"
       ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
@@ -79,7 +116,19 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
       …
       ```
 
-    * On `node2`, add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
+3. Start the `etcd` service on `node1`.
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl start etcd
+    ```
+
+4. Add `node2` to the cluster.
+
+    ```{.bash data-prompt="$"}
+    $ sudo etcdctl member add node2 http://10.104.0.2:2380
+    ```
+       
+5. Configure `etcd` on `node2`. In the `/etc/default/etcd` configuration file add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
 
       ```text
       ETCD_NAME=node2
@@ -94,7 +143,19 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
       …
       ```
 
-    * On `node3`, the `ETCD_INITIAL_CLUSTER` parameter includes the IP addresses of all three nodes:
+6. Start the `etcd` service on `node2`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl start etcd
+    ```
+
+7. Add `node3` to the cluster
+
+    ```{.bash data-prompt="$"}
+    $ sudo etcdctl member add node3 http://10.104.0.8:2380
+    ```
+
+8. Configure `etcd` on `node3`. Modify the `/etc/default/etcd` configuration file and add the IP addresses of all three nodes to the `ETCD_INITIAL_CLUSTER` parameter:
 
       ```text
       ETCD_NAME=node3
@@ -109,20 +170,13 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
       …
       ```  
 
-3. On `node1`, add `node2` and `node3` to the cluster using the `add` command:
-
-    ```{.bash data-prompt="$"}
-    $ sudo etcdctl member add node2 http://10.104.0.2:2380
-    $ sudo etcdctl member add node3 http://10.104.0.8:2380
-    ```
-
-4. Restart the `etcd` service on `node2` and `node3`:
+9. Start the `etcd` service on `node3`:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl restart etcd
     ```
 
-5. Check the etcd cluster members.
+10. Check the etcd cluster members.
     
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member list
