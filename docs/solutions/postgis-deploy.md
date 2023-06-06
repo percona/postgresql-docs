@@ -5,7 +5,7 @@ The following document provides guidelines how to install PostGIS and how to run
 ## Preconditions
 
 1. We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.
-2. You need to acquire spacial data. For the following examples, we will use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/) 
+2. You need to acquire spacial data. For the following examples, we'll use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/) 
 
 ## Install PostGIS
 
@@ -65,17 +65,24 @@ PostGIS provides the `shp2pgsql` command line utility that converts the binary d
 
 1. From the folder where the `.shp` files are located, execute the following command and replace the `dbname` value with the name of your database:
 
-```{.bash data-prompt="$"}
-shp2pgsql \
-  -D \
-  -I \
-  -s 26918 \
-  nyc_streets.shp \
-  nyc_streets \
-  | psql -U postgres dbname=nyc
-```
+    ```{.bash data-prompt="$"}
+    shp2pgsql \
+      -D \
+      -I \
+      -s 26918 \
+      nyc_streets.shp \
+      nyc_streets \
+      | psql -U postgres dbname=nyc
+    ```    
+    
+    The command does the following:
 
-Repeat the command to upload other shapefiles in the data set: `nyc_census_blocks`, `nyc_neighborhoods`, `nyc_subway_stations`
+    * `-D` flag instructs the command to generate the dump format
+    * `-I` flag instructs to create the spatial index on the table upon the data load
+    * `-s` indicates the [spatial reference identifier](https://en.wikipedia.org/wiki/Spatial_reference_system) of the data. The data we load is in the Projected coordinate system for North America and has the value 26918.
+    * `nyc_streets.shp` is the source shapefile
+    * `nyc_streets` is the table name to create in the database
+    * `dbname=nyc` is the database name
 
 2. Check the uploaded data
 
@@ -94,3 +101,5 @@ Repeat the command to upload other shapefiles in the data set: `nyc_census_block
        "nyc_streets_pkey" PRIMARY KEY, btree (gid)
        "nyc_streets_geom_idx" gist (geom)
    ```
+
+3. Repeat the command to upload other shapefiles in the data set: `nyc_census_blocks`, `nyc_neighborhoods`, `nyc_subway_stations`
