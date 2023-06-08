@@ -158,7 +158,7 @@ $ psql
     You can connect to `psql` as the `postgres` user in one go:
 
     ```{.bash data-prompt="$"}
-    $ sudo su postgres psql
+    $ sudo su - postgres -c psql
     ```
 
 To exit the `psql` terminal, use the following command:
