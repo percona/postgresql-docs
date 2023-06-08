@@ -24,7 +24,7 @@
         <link rel="next" href="enable-extensions.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
@@ -32,10 +32,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -410,7 +410,7 @@
       
         <li class="md-nav__item">
   <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
+    Platform specific notes
   </a>
   
 </li>
@@ -1260,7 +1260,7 @@
       
         <li class="md-nav__item">
   <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
+    Platform specific notes
   </a>
   
 </li>
@@ -1349,7 +1349,7 @@
                 <!-- Markdown content -->
                 <h1 id="install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
 <p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives..</p>
-<h2 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h2>
+<h2 id="platform-specific-notes">Platform specific notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h2>
 <p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql<span class="w"> </span>llvm-toolset
 </code></pre></div>
@@ -1493,7 +1493,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You can connect to <code>psql</code> as the <code>postgres</code> user in one go:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres<span class="w"> </span>psql
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span>psql
 </code></pre></div>
 </div>
 <p>To exit the <code>psql</code> terminal, use the following command:</p>
@@ -1520,7 +1520,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 8, 2023</span>
       
         <br>
         Created:
