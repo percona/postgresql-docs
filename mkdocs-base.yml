@@ -93,6 +93,12 @@ plugins:
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  meta-descriptions:
+    export_csv: false
+    quiet: false
+    enable_checks: false
+    min_length: 50
+    max_length: 160
   macros:
       include_yaml:
 #        - 'variables.yml' # Use in markdown as '{{ VAR }}'
@@ -102,7 +108,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
       output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
       cover_title: 'Percona Distribution for PostgreSQL Documentation'
-      cover_subtitle: 13.10 (March 27, 2023)
+      cover_subtitle: 13.10 (May 22, 2023)
       author: 'Percona Technical Documentation Team'
       cover_logo: docs/_images/postgre-logo.jpg
       debug_html: false
@@ -158,6 +164,7 @@ nav:
       - uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v13.10.upd.md
       - release-notes-v13.10.md
       - release-notes-v13.9.md
       - release-notes-v13.8.md
