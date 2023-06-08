@@ -2,7 +2,7 @@
 
 This document describes how to install Percona Server for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives..
 
-## Platform Specific Notes
+## Platform specific notes
 
 If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
 
@@ -203,7 +203,7 @@ $ psql
     You can connect to `psql` as the `postgres` user in one go:
 
     ```{.bash data-prompt="$"}
-    $ sudo su postgres psql
+    $ sudo su - postgres -c psql
     ```
 
 To exit the `psql` terminal, use the following command:
