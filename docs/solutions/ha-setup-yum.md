@@ -277,7 +277,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
         listen: 0.0.0.0:5432
         connect_address: 10.104.0.1:5432
         data_dir: /data/pgsql
-        bin_dir: /usr/pgsql-15/bin
+        bin_dir: /usr/pgsql-14/bin
         pgpass: /tmp/pgpass
 
         authentication:
