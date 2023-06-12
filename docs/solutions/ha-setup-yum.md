@@ -9,10 +9,9 @@ For this setup, we will use the nodes running on RHEL 8 as the base operating sy
 
 | Hostname      | Internal IP address
 |---------------|--------------------
-| node1         | 10.104.0.7
+| node1         | 10.104.0.1
 | node2         | 10.104.0.2
-| node3         | 10.104.0.8
-| etcd          | 10.104.0.5
+| node3         | 10.104.0.3
 | HAProxy-demo  | 10.104.0.6
 
 !!! note
@@ -25,9 +24,9 @@ It's not necessary to have name resolution but it makes the whole setup more rea
 
 ```
 # Cluster IP and names
-10.104.0.7 node1 
+10.104.0.1 node1 
 10.104.0.2 node2 
-10.104.0.8 node3
+10.104.0.3 node3
 ```
 
 We'll also add below lines to `/etc/hosts` file of the `HAProxy-demo` node:
@@ -35,9 +34,9 @@ We'll also add below lines to `/etc/hosts` file of the `HAProxy-demo` node:
 ```
 # Cluster IP and names
 10.104.0.6 HAProxy-demo
-10.104.0.7 node1
+10.104.0.1 node1
 10.104.0.2 node2
-10.104.0.8 node3
+10.104.0.3 node3
 ```
 
 Keep the `/etc/hosts` file of the `etcd` node unchanged.
@@ -76,14 +75,14 @@ In this setup we'll install and configure ETCD on each node.
    ```text
    [Member]
    ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
-   ETCD_LISTEN_PEER_URLS="http://10.104.0.7:2380,http://localhost:2380" 
-   ETCD_LISTEN_CLIENT_URLS="http://10.104.0.7:2379,http://localhost:2379"
+   ETCD_LISTEN_PEER_URLS="http://10.104.0.1:2380,http://localhost:2380" 
+   ETCD_LISTEN_CLIENT_URLS="http://10.104.0.1:2379,http://localhost:2379"
 
 
    ETCD_NAME="node1"
-   ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.7:2380"
-   ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.7:2379"
-   ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380"
+   ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.1:2380"
+   ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.1:2379"
+   ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380"
    ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
    ETCD_INITIAL_CLUSTER_STATE="new"
    ```
@@ -105,7 +104,7 @@ In this setup we'll install and configure ETCD on each node.
     The output resembles the following:
 
     ```text
-    21d50d7f768f153a: name=default peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
+    21d50d7f768f153a: name=default peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
     ```
 
 6. Configure ETCD on **node2** and **node3**:
@@ -187,10 +186,10 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 1. Install Patroni on every PostgreSQL node:
 
     ```{.bash data-promp="$"}
-    $ sudo yum install percona-patroni
+    $ sudo yum install -y percona-patroni
     ```
 
-2. Install the Python module that enables Patroni to communicate with ETCD.
+2. Install the Python module that enables Patroni to communicate with ETCD. You need Python3 `pip`, which is tool for installing and managing Python3 packages:
 
     ```{.bash data-promp="$"}
     $ sudo python3 -m pip install patroni[etcd]
@@ -205,89 +204,98 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
       $ sudo chown -R  postgres:postgres /etc/patroni/
       ``` 
 
-    * Create the data directory for Patroni. Change its ownership to the `postgres` user and restrict the access to it 
+    * We won't use the default RHEL to store PostgreSQL data, but will create a data directory for PostgreSQL. We also need to change its ownership to the `postgres` user and restrict the access to it 
 
      ```{.bash data-promp="$"}
-     $ sudo mkdir /data/patroni -p
-     $ sudo chown -R postgres:postgres /data/patroni
-     $ sudo chmod 700 /data/patroni
+     $ sudo mkdir /data/pgsql -p
+     $ sudo chown -R postgres:postgres /data/pgsql
+     $ sudo chmod 700 /data/pgsql
      ```
 
-4. Create the `patroni.yml` configuration file. 
-
-    ```{.bash data-promp="$"}
-    $ su postgres
-    $ vim /etc/patroni/patroni.yml
-    ```
-
-5. Specify the following configuration:
+4. Create the file `/etc/patroni/patroni.yml` with the following configuration:
  
     ```yaml
-    scope: postgres
-    namespace: /pg_cluster/
+    namespace: percona_lab
+    scope: cluster_1
     name: node1
 
     restapi:
-      listen: 10.104.0.7:8008            # PostgreSQL node IP address
-      connect_address: 10.104.0.7:8008   # PostgreSQL node IP address
+        listen: 0.0.0.0:8008
+        connect_address: 10.104.0.1:8008
 
     etcd:
-      host: 10.104.0.5:2379  # ETCD node IP address
+        host: 10.104.0.1:2379
 
     bootstrap:
-      # this section will be written into Etcd:/<namespace>/<scope>/config after initializing new cluster
-      dcs:
-        ttl: 30
-        loop_wait: 10
-        retry_timeout: 10
-        maximum_lag_on_failover: 1048576
-        postgresql:
-          use_pg_rewind: true
-          use_slots: true
-          parameters:
-            wal_level: replica
-            hot_standby: "on"
-            logging_collector: 'on'
-            max_wal_senders: 5
-            max_replication_slots: 5
-            wal_log_hints: "on"
-            
-      # some desired options for 'initdb'
-      initdb:  # Note: It needs to be a list (some options need values, others are switches)
-      - encoding: UTF8
-      - data-checksums
+        dcs:
+            ttl: 30
+            loop_wait: 10
+            retry_timeout: 10
+            maximum_lag_on_failover: 1048576
+            slots:
+                percona_cluster_1:
+                type: physical
 
-      pg_hba:  # Add following lines to pg_hba.conf after running 'initdb'
-      - host replication replicator 127.0.0.1/32 md5
-      - host replication replicator 10.104.0.2/32 md5  
-      - host replication replicator 10.104.0.8/32 md5 
-      - host replication replicator 10.104.0.7/32 md5
-      - host all all 0.0.0.0/0 md5
-    #  - hostssl all all 0.0.0.0/0 md5
+            postgresql:
+                use_pg_rewind: true
+                use_slots: true
+                parameters:
+                    wal_level: replica
+                    hot_standby: "on"
+                    wal_keep_segments: 10
+                    max_wal_senders: 5
+                    max_replication_slots: 10
+                    wal_log_hints: "on"
+                    logging_collector: 'on'
 
-      # Some additional users users which needs to be created after initializing new cluster
-      users:
-        admin:
-          password: admin
-          options:
-            - createrole
-            - createdb
-        
+        # some desired options for 'initdb'
+        initdb: # Note: It needs to be a list (some options need values, others are switches)
+            - encoding: UTF8
+            - data-checksums
+
+        pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
+            - host replication replicator 127.0.0.1/32 trust
+            - host replication replicator 0.0.0.0/0 md5
+            - host all all 0.0.0.0/0 md5
+            - host all all ::0/0 md5
+
+        # Some additional users which needs to be created after initializing new cluster
+        users:
+            admin:
+                password: qaz123
+                options:
+                    - createrole
+                    - createdb
+            percona:
+                password: qaz123
+                options:
+                    - createrole
+                    - createdb
+
     postgresql:
-      listen: 10.104.0.7:5432            # PostgreSQL node IP address
-      connect_address: 10.104.0.7:5432   # PostgreSQL node IP address
-      data_dir: /data/patroni            # The datadir you created
-      bin_dir: /usr/pgsql-14/bin
-      pgpass: /tmp/pgpass0
-      authentication:
-        replication:
-          username: replicator
-          password: replicator
-        superuser:
-          username: postgres
-          password: postgres
-      parameters:
-        unix_socket_directories: '.'
+        cluster_name: cluster_1
+        listen: 0.0.0.0:5432
+        connect_address: 10.104.0.1:5432
+        data_dir: /data/pgsql
+        bin_dir: /usr/pgsql-15/bin
+        pgpass: /tmp/pgpass
+
+        authentication:
+            replication:
+                username: replicator
+                password: replPasswd
+            superuser:
+                username: postgres
+                password: qaz123
+
+        parameters:
+            unix_socket_directories: "/var/run/postgresql/"
+
+        create_replica_methods:
+            - basebackup
+
+        basebackup:
+            checkpoint: 'fast'
 
     tags:
         nofailover: false
@@ -296,16 +304,10 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
         nosync: false
     ```
 
-6. Create the configuration files for `node2` and `node3`. Replace the node  and IP address of `node1` to those of `node2` and `node3`, respectively.
+5. Create the configuration files for `node2` and `node3`. Replace the **node name and IP address** of `node1` to those of `node2` and `node3`, respectively.
 
-7. Create the systemd unit file `patroni.service` in `/etc/systemd/system`. 
+6. Create the systemd unit file `patroni.service` in `/etc/systemd/system` with the following content:
 
-    ```{.bash data-promp="$"}
-    $ sudo vim /etc/systemd/system/patroni.service
-    ```
-
-    Add the following contents in the file:
-   
     ```ini
     [Unit]
     Description=Runners to orchestrate a high-availability PostgreSQL
