@@ -60,12 +60,18 @@ In this setup we'll install and configure ETCD on each node.
    - Install the etcd packages using the following command:
 
       ```{.bash data-promp="$"}
-      $ sudo yum install etcd python3-python-etcd
+      $ sudo yum install -y etcd python3-python-etcd
       ```
 
 2. We start the configuration on **node1**: 
 
-    Modify the `/etc/etcd/etcd.conf` configuration file.
+    Backup the `etcd.conf` file:
+    
+    ```{.bash data-promp="$"}
+    sudo mv /etc/etcd/etcd.conf /etc/etcd/etcd.conf.orig
+    ```
+
+    Change the `/etc/etcd/etcd.conf` configuration file content to the below value.
 
    ```text
    [Member]
@@ -82,7 +88,7 @@ In this setup we'll install and configure ETCD on each node.
    ETCD_INITIAL_CLUSTER_STATE="new"
    ```
 
-3.  Start the `etcd` to apply the changes on **node1**:
+3.  Start the `etcd` to apply the changes on `node1`:
 
     ```{.bash data-promp="$"}
     $ sudo systemctl enable etcd
@@ -90,7 +96,7 @@ In this setup we'll install and configure ETCD on each node.
     $ sudo systemctl status etcd
     ```
 
-5. Check the etcd cluster members on **node1**
+5. Check the etcd cluster members on `node1`:
     
     ```{.bash data-promp="$"}
     $ sudo etcdctl member list
@@ -98,17 +104,65 @@ In this setup we'll install and configure ETCD on each node.
 
     The output resembles the following:
 
-    ```
+    ```text
     21d50d7f768f153a: name=default peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
     ```
 
 6. Configure ETCD on **node2** and **node3**:
 
-    This is important to note that even though the procedures are the same, only changing the hosts, each node needs to be fully configured before proceeding to the next node.
+    This is important to note that even though the procedures are the same, only changing the hosts, each node needs to be individually fully configured before proceeding to the next node.
+
+    We need to add the node to the cluster executing below command on `Node1`:
 
     ```{.bash data-promp="$"}
+    # Execute on Node1
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
 
+    ```
+
+    The output will be something similar to below one:
+
+    ```text
+    Added member named node2 with ID 10042578c504d052 to cluster
+
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+    ```
+
+    We'll use the below output to create the other node configuration file:
+
+    ```
+    [Member]
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+
+    ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+    ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.2:2380"
+    ETCD_LISTEN_PEER_URLS="http://10.104.0.2:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://10.104.0.2:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.2:2379"
+    ```
+
+    Start the `etcd` to apply the changes on `node2`:
+
+    ```{.bash data-promp="$"}
+    $ sudo systemctl enable etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
+    ```
+
+    We then repeat the process for the next nodes **changing the IP addresses and names**.
+
+    After finishing the configuration in all 3 nodes and check the members list we should see something like:
+
+    ```{.bash data-promp="$"}
+    $ etcdctl member list
+    2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
+    8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379 isLeader=false
+    c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
     ```
 
 ## Install Percona Distribution for PostgreSQL
