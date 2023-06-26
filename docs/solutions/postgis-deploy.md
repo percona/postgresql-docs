@@ -85,7 +85,7 @@ The following document provides guidelines how to install PostGIS and how to run
           ```sql
           SELECT name, default_version,installed_version
           FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
-          ```
+
 
 3. Create a database and a schema to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal
 
