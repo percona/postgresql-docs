@@ -10,9 +10,9 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
     | Node name     | Application       | IP address
     |---------------|-------------------|--------------------
-    | node1         | Patroni, PostgreSQL, ETCD    | 10.104.0.7
+    | node1         | Patroni, PostgreSQL, ETCD    | 10.104.0.1
     | node2         | Patroni, PostgreSQL, ETCD    | 10.104.0.2
-    | node3         | Patroni, PostgreSQL, ETCD     | 10.104.0.8
+    | node3         | Patroni, PostgreSQL, ETCD     | 10.104.0.3
     | HAProxy-demo  | HAProxy           | 10.104.0.6
 
 
@@ -21,17 +21,6 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
     Ideally, in a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a private environment, and each node can access the other by its internal, private IP. 
 
 ## Preparation 
-
-Adjust the firewall settings to allow the following ports:
-
-* 5432 - PostgreSQL standard port, not used by PostgreSQL itself but by HAProxy
-* 5000 - PostgreSQL listening port used by HAproxy to route the database connections to write node
-* 5001 - PostgreSQL listening port used by HAproxy to route the database connections to read nodes
-* 2380 - etcd peer urls port required by the etcd members communication
-* 2379 - etcd client port required by any client including patroni to communicate with etcd
-* 8008 - patroni rest api port required by HAProxy to check the nodes status
-* 7000 - HAProxy port to expose the proxy’s statistics
-
 
 ### Set up hostnames in the `/etc/hosts` file
 
@@ -43,27 +32,27 @@ Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames an
 
     ```text hl_lines="3 4"
     # Cluster IP and names 
-    10.104.0.7 node1 
+    10.104.0.1 node1 
     10.104.0.2 node2 
-    10.104.0.8 node3
+    10.104.0.3 node3
     ```
 
 === "node2"
 
     ```text hl_lines="2 4"
     # Cluster IP and names 
-    10.104.0.7 node1 
+    10.104.0.1 node1 
     10.104.0.2 node2 
-    10.104.0.8 node3
+    10.104.0.3 node3
     ```
 
 === "node3"
 
     ```text hl_lines="2 3"
     # Cluster IP and names 
-    10.104.0.7 node1 
+    10.104.0.1 node1 
     10.104.0.2 node2 
-    10.104.0.8 node3
+    10.104.0.3 node3
     ```
 
 === "HAproxy-demo"
@@ -73,9 +62,9 @@ Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames an
     ```text hl_lines="4 5 6"
     # Cluster IP and names
     10.104.0.6 HAProxy-demo
-    10.104.0.7 node1
+    10.104.0.1 node1
     10.104.0.2 node2
-    10.104.0.8 node3
+    10.104.0.3 node3
     ```
 
 ## Install Percona Distribution for PostgreSQL
@@ -101,40 +90,72 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     $ sudo apt install etcd
     ```
 
-2. Configure ETCD on `node1`. Modify the `/etc/default/etcd` configuration file and add the IP address of `node1` (10.104.0.7) to the `ETCD_INITIAL_CLUSTER` parameter. 
+2. Configure ETCD on `node1`. 
+
+    * Back up the configuration file
+
+        ```{.bash data-promp="$"}
+        $ sudo mv /etc/default/etcd /etc/default/etcd.orig
+        ```
+
+    * Modify the `/etc/default/etcd` configuration file and add the IP address of `node1` (10.104.0.1) to the `ETCD_INITIAL_CLUSTER` parameter. 
 
       ```text 
       ETCD_NAME=node1
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
+      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380"
+      ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
       ETCD_INITIAL_CLUSTER_STATE="new"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.7:2380"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.1:2380"
       ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.7:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.7:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.7:2379"
+      ETCD_LISTEN_PEER_URLS="http://10.104.0.1:2380"
+      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.1:2379,http://localhost:2379"
+      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.1:2379"
       …
       ```
 
-3. Start the `etcd` service on `node1`.
+3. Start the `etcd` service to apply the changes on `node1`.
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl start etcd
     ```
 
-4. Add `node2` to the cluster.
+4. Check the etcd cluster members on `node1`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo etcdctl member list
+    ```
+    
+    Sample output:
+
+     ```{.text .no-copy}
+     21d50d7f768f153a: name=default peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
+     ```
+
+5. Add the `node2` to the cluster. Run the following command on `node`:
 
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
     ```
-       
-5. Configure `etcd` on `node2`. In the `/etc/default/etcd` configuration file add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
+
+    The output resembles the following one:
+    
+    ```{.text .no-copy}
+    Added member named node2 with ID 10042578c504d052 to cluster
+
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+    ```
+
+6. Configure `etcd` on `node2` using the output from adding the node to the cluster. Edit the `/etc/default/etcd` configuration file and add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
 
       ```text
+      [Member]
       ETCD_NAME=node2
       ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
       ETCD_INITIAL_CLUSTER_STATE="existing"
+
+      ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
       ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.2:2380"
       ETCD_DATA_DIR="/var/lib/etcd/postgresql"
       ETCD_LISTEN_PEER_URLS="http://10.104.0.2:2380"
@@ -143,40 +164,45 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
       …
       ```
 
-6. Start the `etcd` service on `node2`:
+7. Start the `etcd` service to apply the changes on `node2`:
 
     ```{.bash data-prompt="$"}
+    $ sudo systemctl enable etcd
     $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
     ```
 
-7. Add `node3` to the cluster
+8. Add `node3` to the cluster
 
     ```{.bash data-prompt="$"}
-    $ sudo etcdctl member add node3 http://10.104.0.8:2380
+    $ sudo etcdctl member add node3 http://10.104.0.3:2380
     ```
 
-8. Configure `etcd` on `node3`. Modify the `/etc/default/etcd` configuration file and add the IP addresses of all three nodes to the `ETCD_INITIAL_CLUSTER` parameter:
+9. Configure `etcd` on `node3`. Modify the `/etc/default/etcd` configuration file and add the IP addresses of all three nodes to the `ETCD_INITIAL_CLUSTER` parameter:
 
       ```text
       ETCD_NAME=node3
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.8:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
+      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
       ETCD_INITIAL_CLUSTER_STATE="existing"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.8:2380"
+
+      ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.3:2380"
       ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.8:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.8:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.8:2379"
+      ETCD_LISTEN_PEER_URLS="http://10.104.0.3:2380"
+      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.3:2379,http://localhost:2379"
+      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.3:2379"
       …
       ```  
 
-9. Start the `etcd` service on `node3`:
+10. Start the `etcd` service on `node3`:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl restart etcd
+    $ sudo systemctl enable etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
     ```
 
-10. Check the etcd cluster members.
+11. Check the etcd cluster members.
     
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member list
@@ -185,9 +211,9 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     The output resembles the following:
 
     ```
-    21d50d7f768f153a: name=node1 peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
-    af4661d829a39112: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
-    e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://10.104.0.8:2379 isLeader=false
+    2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
+    8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379 isLeader=false
+    c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
     ```
 
 ## Set up the watchdog service
@@ -270,88 +296,86 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
     $ sudo apt install percona-patroni
     ```
 
-2. Create the `patroni.yml` configuration file under the `/etc/patroni` directory.  The file holds the default configuration values for a PostgreSQL cluster and will reflect the current cluster setup.
-
-3. Add the following configuration for `node1`:
+2. Create the `/etc/patroni/patroni.yml` configuration file and add the following configuration for `node1`:
 
     ```yaml
-    scope: stampede1
-    name: node1
+    scope: cluster_1
+    namespace: percona_lab
 
     restapi:
-      listen: 0.0.0.0:8008
-      connect_address: node1:8008
+        listen: 0.0.0.0:8008
+        connect_address: 10.104.0.1:8008
 
     etcd:
-      host: node1:2379
+        host: 10.104.0.1:2379
 
     bootstrap:
       # this section will be written into Etcd:/<namespace>/<scope>/config after initializing new cluster
       dcs:
-        ttl: 30
-        loop_wait: 10
-        retry_timeout: 10
-        maximum_lag_on_failover: 1048576
-    #    primary_start_timeout: 300
-    #    synchronous_mode: false
-        postgresql:
-          use_pg_rewind: true
-          use_slots: true
-          parameters:
-            wal_level: replica
-            hot_standby: "on"
-            logging_collector: 'on'
-            max_wal_senders: 5
-            max_replication_slots: 5
-            wal_log_hints: "on"
-            #archive_mode: "on"
-            #archive_timeout: 600
-            #archive_command: "cp -f %p /home/postgres/archived/%f"
-            #recovery_conf:
-            #restore_command: cp /home/postgres/archived/%f %p
+          ttl: 30
+          loop_wait: 10
+          retry_timeout: 10
+          maximum_lag_on_failover: 1048576
+          slots:
+              percona_cluster_1:
+              type: physical
+
+          postgresql:
+              use_pg_rewind: true
+              use_slots: true
+              parameters:
+                  wal_level: replica
+                  hot_standby: "on"
+                  wal_keep_segments: 10
+                  max_wal_senders: 5
+                  max_replication_slots: 10
+                  wal_log_hints: "on"
+                  logging_collector: 'on'
 
       # some desired options for 'initdb'
-      initdb:  # Note: It needs to be a list (some options need values, others are switches)
-      - encoding: UTF8
-      - data-checksums
+      initdb: # Note: It needs to be a list (some options need values, others are switches)
+          - encoding: UTF8
+          - data-checksums
 
-      pg_hba:  # Add following lines to pg_hba.conf after running 'initdb'
-      - host all all 10.104.0.7/32 md5
-      - host replication replicator 127.0.0.1/32 trust
-      - host all all 10.104.0.2/32 md5  
-      - host all all 10.104.0.8/32 md5 
-      - host all all 10.104.0.6/32 trust
-    #  - hostssl all all 0.0.0.0/0 md5
+      pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
+          - host replication replicator 127.0.0.1/32 trust
+          - host replication replicator 0.0.0.0/0 md5
+          - host all all 0.0.0.0/0 md5
+          - host all all ::0/0 md5
 
-      # Additional script to be launched after initial cluster creation (will be passed the connection URL as parameter)
-    # post_init: /usr/local/bin/setup_cluster.sh
-      # Some additional users users which needs to be created after initializing new cluster
+      # Some additional users which needs to be created after initializing new cluster
       users:
-        admin:
-          password: admin
-          options:
-            - createrole
-            - createdb
-        replicator: 
-          password: password    
-          options:
-            - replication 
+          admin:
+              password: qaz123
+              options:
+                  - createrole
+                  - createdb
+          percona:
+              password: qaz123
+              options:
+                  - createrole
+                  - createdb 
+    
     postgresql:
-      listen: 0.0.0.0:5432
-      connect_address: node1:5432
-      data_dir: "/var/lib/postgresql/11/main"
-      bin_dir: "/usr/lib/postgresql/11/bin"
-    #  config_dir:
-      pgpass: /tmp/pgpass0
-      authentication:
-        replication:
-          username: replicator
-          password: password
-        superuser:
-          username: postgres
-          password: password
-      parameters:
-        unix_socket_directories: '/var/run/postgresql'
+        cluster_name: cluster_1
+        listen: 0.0.0.0:5432
+        connect_address: 10.104.0.1:5432
+        data_dir: /data/pgsql
+        bin_dir: /usr/pgsql-14/bin
+        pgpass: /tmp/pgpass
+        authentication:
+            replication:
+                username: replicator
+                password: replPasswd
+            superuser:
+                username: postgres
+                password: qaz123
+        parameters:
+            unix_socket_directories: "/var/run/postgresql/"
+        create_replica_methods:
+            - basebackup
+        basebackup:
+            checkpoint: 'fast'
 
     watchdog:
       mode: required # Allowed values: off, automatic, required
@@ -374,7 +398,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
         Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The `pg_hba.conf` entries specify all the other nodes that can connect to this node and their authentication mechanism. 
 
 
-4. Create the configuration files for `node2` and `node3`. Replace the reference to `node1` with `node2` and `node3`, respectively.
+4. Create the configuration files for `node2` and `node3`. Replace the **node name and IP address** of `node1` to those of `node2` and `node3`, respectively..
 5. Enable and restart the patroni service on every node. Use the following commands:
 
     ```{.bash data-prompt="$"}
@@ -447,7 +471,7 @@ If Patroni has started properly, you should be able to locally connect to a Post
 $ sudo psql -U postgres
 ```
 
-The command output is the following
+The command output is the following:
 
 ```
 psql (11.13)
@@ -458,14 +482,14 @@ postgres=#
 
 ## Configure HAProxy
 
-HAProxy node will accept client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
+HAProxy node accepts client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
 
 HAProxy is capable of routing write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
     ```{.bash data-prompt="$"}
-    $ sudo apt install haproxy
+    $ sudo apt install percona-haproxy
     ```
 
 2. The HAProxy configuration file path is: `/etc/haproxy/haproxy.cfg`. Specify the following configuration in this file.
