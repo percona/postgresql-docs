@@ -1,6 +1,6 @@
 # Spatial data manipulation
 
-!!! admonition "Version added: 14.8"
+!!! admonition "Version added: 13.11"
 
 Organizations dealing with spatial data need to store it somewhere and manipulate it. [PostGIS](https://postgis.net/) is the open-source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:
 
