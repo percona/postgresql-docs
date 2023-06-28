@@ -42,9 +42,45 @@ The following document provides guidelines how to install PostGIS and how to run
 
     === "On RHEL and derivatives"
 
-          ```{.bash data-prompt="$"}
-          $ sudo yum install percona-postgis33
-          ```
+          1. Install `epel` repository
+
+              ```{.bash data-prompt="$"}
+              $ sudo yum install epel-release
+              ```
+
+          2. Enable the `llvm-toolset dnf` module
+
+              ```{.bash data-prompt="$"}
+              $ sudo dnf module enable llvm-toolset
+              ```
+
+          3. Enable the codeready builder repository to resolve dependencies conflict. For Red Hat Enterprise Linux 8, replace the operating system version in the following commands accordingly.
+
+            === "RHEL 9"
+
+                  ```{.bash data-prompt="$"}
+                  $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+                  ```          
+
+            === "CentOS 9"
+
+                 ```{.bash data-prompt="$"}
+                 $ sudo dnf config-manager --set-enabled crb
+                 ```
+
+            === "Oracle Linux 9"
+
+                 ```{.bash data-prompt="$"}
+                 $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+                 ```
+
+ 
+
+          4. Install the extension
+
+              ```{.bash data-prompt="$"}
+              $ sudo yum install percona-postgis33
+              ```
 
           This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
 
