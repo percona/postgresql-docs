@@ -132,6 +132,7 @@ nav:
   - Release notes:
       - "Release notes index": "release-notes.md"
       - release-notes-v14.8.md
+      - release-notes-v14.7.upd.md
       - release-notes-v14.7.md
       - release-notes-v14.6.md
       - release-notes-v14.5.md
