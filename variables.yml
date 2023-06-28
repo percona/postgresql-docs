@@ -1,0 +1,6 @@
+# PG Variables set for HTML output
+# See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
+
+release: 'release-notes-v14.8'
+version: '14.8'
+release_date: 2023-05-
