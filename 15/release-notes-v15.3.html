@@ -9,26 +9,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/pg-stat-monitor.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/release-notes-v15.3.html">
       
       
-        <link rel="prev" href="minor-upgrade.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="solutions/high-availability.html">
+        <link rel="next" href="release-notes-v15.2.upd.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>pg-stat-monitor - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 15.3 (2023-06-28) - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -80,7 +80,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - pg-stat-monitor" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 15.3 (2023-06-28)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -110,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pg_stat_monitor" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-153-2023-06-28" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pg-stat-monitor
+              Percona Distribution for PostgreSQL 15.3 (2023-06-28)
             
           </span>
         </div>
@@ -285,14 +285,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -301,7 +303,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Release Notes
@@ -326,11 +328,54 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v15.3.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Percona Distribution for PostgreSQL 15.3 (2023-06-28)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="release-notes-v15.3.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 15.3 (2023-06-28)
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -585,16 +630,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -603,7 +646,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Extensions
@@ -614,115 +657,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          pg-stat-monitor
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="pg-stat-monitor.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="pg-stat-monitor.html" class="md-nav__link">
         pg-stat-monitor
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#views" class="md-nav__link">
-    Views
-  </a>
-  
-    <nav class="md-nav" aria-label="Views">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pg_stat_monitor-view" class="md-nav__link">
-    pg_stat_monitor view
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pg_stat_monitor_settings-view-dropped" class="md-nav__link">
-    pg_stat_monitor_settings view (dropped)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-the-configuration" class="md-nav__link">
-    Changing the configuration
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1091,69 +1030,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#views" class="md-nav__link">
-    Views
-  </a>
-  
-    <nav class="md-nav" aria-label="Views">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pg_stat_monitor-view" class="md-nav__link">
-    pg_stat_monitor view
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pg_stat_monitor_settings-view-dropped" class="md-nav__link">
-    pg_stat_monitor_settings view (dropped)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-the-configuration" class="md-nav__link">
-    Changing the configuration
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
   </a>
   
 </li>
@@ -1176,14 +1054,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/15/docs/pg-stat-monitor.md"
+                    href="https://github.com/percona/postgresql-docs/edit/15/docs/release-notes-v15.3.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/pg-stat-monitor.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/release-notes-v15.3.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1199,222 +1077,137 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="pg_stat_monitor">pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This document describes the functionality of pg_stat_monitor 2.0.0.</p>
-</div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><code>pg_stat_monitor</code> is a  Query Performance Monitoring
-tool for PostgreSQL. It collects various statistics data such as query statistics, query plan, SQL comments and other performance insights. The collected data is aggregated and presented in a single view. This allows you to view queries from performance, application and analysis perspectives.</p>
-<p><code>pg_stat_monitor</code> groups statistics data and writes it in a storage unit called <em>bucket</em>. The data is added and stored in a bucket for the defined period – the bucket lifetime. This allows you to identify performance issues and patterns based on time.</p>
-<p>You can specify the following:</p>
+                <h1 id="percona-distribution-for-postgresql-153-2023-06-28">Percona Distribution for PostgreSQL 15.3 (2023-06-28)<a class="headerlink" href="#percona-distribution-for-postgresql-153-2023-06-28" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="left">Release date:</th>
+<th align="left">June 28, 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Installation</strong>:</td>
+<td align="left"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/current/release-15-3.html">PostgreSQL 15.3</a>. </p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The number of buckets. Together they form a bucket chain.</li>
-<li>Bucket size. This is the amount of shared memory allocated for buckets. Memory is divided equally among buckets.</li>
-<li>Bucket lifetime.</li>
+<li>Percona Distribution for PostgreSQL components now include <a href="http://postgis.net/">PostGIS</a> - the open-source extension that allows storing and manipulating spacial data in PostgreSQL.</li>
 </ul>
-<p>When a bucket lifetime expires, <code>pg_stat_monitor</code> resets all statistics and writes the data in the next bucket in the chain. When the last bucket’s lifetime expires, <code>pg_stat_monitor</code> returns to the first bucket.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The contents of the bucket will be overwritten. In order not to lose the data, make sure to read the bucket before <code>pg_stat_monitor</code> starts writing new data to it.</p>
-</div>
-<h3 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&para;</a></h3>
-<h4 id="pg_stat_monitor-view">pg_stat_monitor view<a class="headerlink" href="#pg_stat_monitor-view" title="Permanent link">&para;</a></h4>
-<p>The <code>pg_stat_monitor</code> view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the <a href="https://docs.percona.com/pg-stat-monitor/reference.html"><code>pg_stat_monitor</code> view reference</a>.</p>
-<p>The following are the primary keys for pg_stat_monitor:</p>
+<hr />
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>2.6.13</td>
+<td>a high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>3.0.2</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
+<td>1.7.0</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>4.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.44</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>12.1</td>
+<td>a fast PostgreSQL Log Analyzer.</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.19.1</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2</a></td>
+<td>4.4.3</td>
+<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.8</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.0.1</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS</a></td>
+<td>3.3.3</td>
+<td>a spatial extension for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
+<td>250</td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.5</td>
+<td>a PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
 <ul>
-<li><code>bucket</code></li>
-<li><code>userid</code></li>
-<li><code>datname</code></li>
-<li><code>queryid</code></li>
-<li><code>client_ip</code></li>
-<li><code>planid</code></li>
-<li><code>application_name</code></li>
+<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream.</li>
+<li>supplemental <code>ETCD</code> packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
 </ul>
-<p>A new row is created for each key in the <code>pg_stat_monitor</code> view.</p>
-<p>For security reasons, only superusers and members of the <code>pg_read_all_stats</code> role are allowed to see the SQL text, <code>client_ip</code> and <code>queryid</code> of queries executed by other users. Other users can see the statistics, however, if the view has been installed in their database.</p>
-<h4 id="pg_stat_monitor_settings-view-dropped">pg_stat_monitor_settings view (dropped)<a class="headerlink" href="#pg_stat_monitor_settings-view-dropped" title="Permanent link">&para;</a></h4>
-<p>Starting with version 2.0.0, the <code>pg_stat_monitor_settings</code> view is deprecated and removed. All <code>pg_stat_monitor</code> configuration parameters are now available though the <code>pg_settings</code> view using the following query: </p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">vartype</span><span class="p">,</span><span class="w"> </span><span class="k">source</span><span class="p">,</span><span class="w"> </span><span class="n">min_val</span><span class="p">,</span><span class="w"> </span><span class="n">max_val</span><span class="p">,</span><span class="w"> </span><span class="n">enumvals</span><span class="p">,</span><span class="w"> </span><span class="n">boot_val</span><span class="p">,</span><span class="w"> </span><span class="n">reset_val</span><span class="p">,</span><span class="w"> </span><span class="n">pending_restart</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%pg_stat_monitor%&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p>For backward compatibility, you can create the <code>pg_stat_monitor_settings</code> view using the following SQL statement:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">pg_stat_monitor_settings</span>
-
-<span class="k">AS</span>
-
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span>
-
-<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.%&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p>In <code>pg_stat_monitor</code> version 1.1.1 and earlier, the <code>pg_stat_monitor_settings</code> view shows one row per <code>pg_stat_monitor</code> configuration parameter. It displays configuration parameter name, value, default value, description, minimum and maximum values, and whether a restart is required for a change in value to be effective.</p>
-<p>To learn more, see the <a href="#changing-the-configuration">Changing the configuration</a> section.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>This section describes how to install <code>pg_stat_monitor</code> from Percona repositories. To learn about other installation methods, see the <a href="https://docs.percona.com/pg-stat-monitor/install.html">Installation</a> section in the <code>pg_stat_monitor</code> documentation.</p>
-<p><strong>Preconditions</strong>:</p>
-<p>To install <code>pg_stat_monitor</code> from Percona repositories, you need to subscribe to them. To do this, you must have the <a href="https://www.percona.com/doc/percona-repo-config/installing.html"><code>percona-release</code> repository management tool</a> up and running. </p>
-<p>To install <code>pg_stat_monitor</code>, run the following commands:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On Red Hat Enterprise Linux and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable the repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg15
-</code></pre></div>
-</li>
-<li>
-<p>Install the package:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>percona-pg-stat-monitor15
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable the repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg15
-</code></pre></div>
-</li>
-<li>
-<p>Install the package:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg-stat-monitor15
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p><code>pg_stat_monitor</code> requires additional setup in order to use it with PostgreSQL. The setup steps are the following:</p>
-<ol>
-<li>
-<p>Add <code>pg_stat_monitor</code> in the <code>shared_preload_libraries</code> configuration parameter.</p>
-<p>The recommended way to modify PostgreSQL configuration file is using the <a href="https://www.postgresql.org/docs/15/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="installing.html#connect-to-the-server">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p>The parameter value is written to the <code>postgresql.auto.conf</code> file which is read in addition with <code>postgresql.conf</code> file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To use <code>pg_stat_monitor</code> together with <code>pg_stat_statements</code>, specify both modules separated by commas for the <code>ALTER SYSTEM SET</code> command. </p>
-<p>The order of modules is important: <code>pg_stat_monitor</code> must be specified <strong>after</strong> <code>pg_stat_statements</code>: </p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">‘</span><span class="n">pg_stat_statements</span><span class="p">,</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="err">’</span>
-</code></pre></div>
-</div>
-</li>
-<li>
-<p>Start or restart the <code>postgresql</code> instance to enable <code>pg_stat_monitor</code>. Use the following command for restart:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql.service
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql-15
-</code></pre></div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Create the extension. Connect to <code>psql</code> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
-</code></pre></div>
-<p>By default, the extension is created against the <code>postgres</code> database. You need to create the extension on every database where you want to collect statistics.</p>
-</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To check the version of the extension, run the following command in the <code>psql</code> session:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_stat_monitor_version</span><span class="p">();</span>
-</code></pre></div>
-</div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>For example, to view the IP address of the client application that made the query, run the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">userid</span><span class="p">::</span><span class="n">regrole</span><span class="p">,</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">datname</span><span class="p">,</span><span class="w"> </span><span class="n">substr</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="n">calls</span><span class="p">,</span><span class="w"> </span><span class="n">bucket</span><span class="p">,</span><span class="w"> </span><span class="n">bucket_start_time</span><span class="p">,</span><span class="w"> </span><span class="n">queryid</span><span class="p">,</span><span class="w"> </span><span class="n">client_ip</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">,</span><span class="w"> </span><span class="n">pg_database</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">pg_database</span><span class="p">.</span><span class="n">oid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oid</span><span class="p">;</span>
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code>  userid  | datname  |                       query                       | calls | bucket |  bucket_start_time  |     queryid      | client_ip
-----------+----------+---------------------------------------------------+-------+--------+---------------------+------------------+-----------
- postgres | postgres | SELECT name,description FROM pg_stat_monitor_sett |     1 |      9 | 2022-10-24 07:29:00 | AD536A8DEA7F0C73 | 127.0.0.1
- postgres | postgres | SELECT c.oid,                                    +|     1 |      9 | 2022-10-24 07:29:00 | 34B888E5C844519C | 127.0.0.1
-          |          |   n.nspname,                                     +|       |        |                     |                  |
-          |          |   c.relname                                      +|       |        |                     |                  |
-          |          | FROM pg_ca                                        |       |        |                     |                  |
- postgres | postgres | SELECT DISTINCT userid::regrole, pg_stat_monitor. |     1 |      1 | 2022-10-24 07:31:00 | 6230793895381F1D | 127.0.0.1
- postgres | postgres | SELECT pg_stat_monitor_version()                  |     1 |      9 | 2022-10-24 07:29:00 | B617F5F12931F388 | 127.0.0.1
- postgres | postgres | CREATE EXTENSION pg_stat_monitor                  |     1 |      8 | 2022-10-24 07:28:00 | 14B98AF0776BAF7B | 127.0.0.1
- postgres | postgres | SELECT a.attname,                                +|     1 |      9 | 2022-10-24 07:29:00 | 96F8E4B589EF148F | 127.0.0.1
-          |          |   pg_catalog.format_type(a.attt                   |       |        |                     |                  |
- postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 |      9 | 2022-10-24 07:29:00 | CCC51D018AC96A25 | 127.0.0.1
-</code></pre></div>
-<p>Find more usage examples in the <a href="https://docs.percona.com/pg-stat-monitor/user_guide.html"><code>pg_stat_monitor</code> user guide</a>.</p>
-<h2 id="changing-the-configuration">Changing the configuration<a class="headerlink" href="#changing-the-configuration" title="Permanent link">&para;</a></h2>
-<p>Run the following query to list available configuration parameters.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">short_desc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%pg_stat_monitor%&#39;</span><span class="p">;</span>
-</code></pre></div>
-<p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><code>                   name                    |                                                           short_desc
--------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------
- pg_stat_monitor.pgsm_bucket_time          | Sets the time in seconds per bucket.
- pg_stat_monitor.pgsm_enable_overflow      | Enable/Disable pg_stat_monitor to grow beyond shared memory into swap space.
- pg_stat_monitor.pgsm_enable_pgsm_query_id | Enable/disable PGSM specific query id calculation which is very useful in comparing same query across databases and clusters..
- pg_stat_monitor.pgsm_enable_query_plan    | Enable/Disable query plan monitoring.
- pg_stat_monitor.pgsm_extract_comments     | Enable/Disable extracting comments from queries.
- pg_stat_monitor.pgsm_histogram_buckets    | Sets the maximum number of histogram buckets.
- pg_stat_monitor.pgsm_histogram_max        | Sets the time in millisecond.
- pg_stat_monitor.pgsm_histogram_min        | Sets the time in millisecond.
- pg_stat_monitor.pgsm_max                  | Sets the maximum size of shared memory in (MB) used for statement&#39;s metadata tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_max_buckets          | Sets the maximum number of buckets.
- pg_stat_monitor.pgsm_normalized_query     | Selects whether save query in normalized format.
- pg_stat_monitor.pgsm_overflow_target      | Sets the overflow target for pg_stat_monitor. (Deprecated, use pgsm_enable_overflow)
- pg_stat_monitor.pgsm_query_max_len        | Sets the maximum length of query.
- pg_stat_monitor.pgsm_query_shared_buffer  | Sets the maximum size of shared memory in (MB) used for query tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_track                | Selects which statements are tracked by pg_stat_monitor.
- pg_stat_monitor.pgsm_track_planning       | Selects whether planning statistics are tracked.
- pg_stat_monitor.pgsm_track_utility        | Selects whether utility commands are tracked.
-</code></pre></div>
-<p>You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the <a href="https://docs.percona.com/pg-stat-monitor/configuration.html">configuration parameters</a> of the <code>pg_stat_monitor</code> documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.</p>
-<p>As an example, let’s set the bucket lifetime from default 60 seconds to 40 seconds. Use the <strong>ALTER SYSTEM</strong> command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span>
-</code></pre></div>
-<p>Restart the server to apply the change:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On Red Hat Enterprise Linux and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql.service
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql-15
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>Verify the updated parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.pgsm_bucket_time&#39;</span><span class="p">;</span>
-
-<span class="w">                 </span><span class="n">name</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">setting</span>
-<span class="w">  </span><span class="c1">----------------------------------+---------</span>
-<span class="w">   </span><span class="n">pg_stat_monitor</span><span class="p">.</span><span class="n">pgsm_bucket_time</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">40</span>
-</code></pre></div>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p><a href="https://docs.percona.com/pg-stat-monitor/index.html"><code>pg_stat_monitor</code> Documentation</a></p>
-<p>Percona Blog:</p>
-<ul>
-<li><a href="https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/">pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics</a></li>
-<li><a href="https://www.percona.com/blog/improve-postgresql-query-performance-insights-with-pg_stat_monitor/">Improve PostgreSQL Query Performance Insights with pg_stat_monitor</a></li>
-</ul>
-</div>
+<table>
+<thead>
+<tr>
+<th>Operating System</th>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CentOS 8</td>
+<td><code>etcd</code></td>
+<td>3.3.11</td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.3</td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/15/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; </p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1436,11 +1229,11 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 22, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2022</span>
       
     
   </small>
