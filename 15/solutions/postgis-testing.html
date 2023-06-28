@@ -9,33 +9,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:">
+        <meta name="description" content="After you installed and set up PostGIS, let’s find answers to the following questions by querying the database:">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/index.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/solutions/postgis-testing.html">
       
       
+        <link rel="prev" href="postgis-deploy.html">
       
-        <link rel="next" href="installing.html">
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+        <link rel="next" href="../ldap.html">
+      
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Query spatial data - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -55,9 +55,9 @@ extensions that enable solving essential practical tasks efficiently:">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -77,8 +77,10 @@ extensions that enable solving essential practical tasks efficiently:">
                
                  
                  
+                 
+                 
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Query spatial data" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -108,7 +110,7 @@ extensions that enable solving essential practical tasks efficiently:">
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-15-documentation" class="md-skip">
+        <a href="#query-spatial-data" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +128,7 @@ extensions that enable solving essential practical tasks efficiently:">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -142,7 +144,7 @@ extensions that enable solving essential practical tasks efficiently:">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Query spatial data
             
           </span>
         </div>
@@ -242,7 +244,7 @@ extensions that enable solving essential practical tasks efficiently:">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -268,54 +270,11 @@ extensions that enable solving essential practical tasks efficiently:">
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
         Home
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
-    Get started
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -382,7 +341,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="installing.html" class="md-nav__link">
+      <a href="../installing.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -396,7 +355,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="apt.html" class="md-nav__link">
+      <a href="../apt.html" class="md-nav__link">
         Install on Debian and Ubuntu
       </a>
     </li>
@@ -410,7 +369,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+      <a href="../yum.html" class="md-nav__link">
         Install on RHEL and derivatives
       </a>
     </li>
@@ -424,7 +383,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="enable-extensions.html" class="md-nav__link">
+      <a href="../enable-extensions.html" class="md-nav__link">
         Enable Percona Distribution for PostgreSQL extensions
       </a>
     </li>
@@ -438,7 +397,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="repo-overview.html" class="md-nav__link">
+      <a href="../repo-overview.html" class="md-nav__link">
         Repositories overview
       </a>
     </li>
@@ -459,7 +418,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="migration.html" class="md-nav__link">
+      <a href="../migration.html" class="md-nav__link">
         Migrate from PostgreSQL to Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -473,7 +432,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="major-upgrade.html" class="md-nav__link">
+      <a href="../major-upgrade.html" class="md-nav__link">
         Upgrading Percona Distribution for PostgreSQL from 14 to 15
       </a>
     </li>
@@ -487,7 +446,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="../minor-upgrade.html" class="md-nav__link">
         Minor Upgrade of Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -536,7 +495,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="pg-stat-monitor.html" class="md-nav__link">
+      <a href="../pg-stat-monitor.html" class="md-nav__link">
         pg-stat-monitor
       </a>
     </li>
@@ -556,14 +515,16 @@ extensions that enable solving essential practical tasks efficiently:">
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -572,7 +533,7 @@ extensions that enable solving essential practical tasks efficiently:">
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Solutions
@@ -612,7 +573,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/high-availability.html" class="md-nav__link">
+      <a href="high-availability.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -626,7 +587,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
+      <a href="ha-setup-apt.html" class="md-nav__link">
         Deploying on Debian or Ubuntu
       </a>
     </li>
@@ -640,7 +601,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
+      <a href="ha-setup-yum.html" class="md-nav__link">
         Deploying on RHEL or CentOS
       </a>
     </li>
@@ -654,7 +615,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-test.html" class="md-nav__link">
+      <a href="ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
       </a>
     </li>
@@ -702,7 +663,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/backup-recovery.html" class="md-nav__link">
+      <a href="backup-recovery.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -716,7 +677,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
         Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -735,14 +696,16 @@ extensions that enable solving essential practical tasks efficiently:">
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
       
       
       
@@ -751,7 +714,7 @@ extensions that enable solving essential practical tasks efficiently:">
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
           Spatial data handling
@@ -764,7 +727,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis.html" class="md-nav__link">
+      <a href="postgis.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -778,7 +741,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis-deploy.html" class="md-nav__link">
+      <a href="postgis-deploy.html" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -790,11 +753,68 @@ extensions that enable solving essential practical tasks efficiently:">
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="solutions/postgis-testing.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Query spatial data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="postgis-testing.html" class="md-nav__link md-nav__link--active">
         Query spatial data
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-population-of-the-new-york-city" class="md-nav__link">
+    What is the population of the New York City?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-area-of-central-park" class="md-nav__link">
+    What is the area of Central Park?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-long-is-columbus-circle" class="md-nav__link">
+    How long is Columbus Circle?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -813,7 +833,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="ldap.html" class="md-nav__link">
+      <a href="../ldap.html" class="md-nav__link">
         LDAP authentication
       </a>
     </li>
@@ -835,7 +855,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="uninstalling.html" class="md-nav__link">
+      <a href="../uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
     </li>
@@ -877,7 +897,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes.html" class="md-nav__link">
+      <a href="../release-notes.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -891,7 +911,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.2.upd.html" class="md-nav__link">
+      <a href="../release-notes-v15.2.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.2 Update (2023-05-22)
       </a>
     </li>
@@ -905,7 +925,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.2.html" class="md-nav__link">
+      <a href="../release-notes-v15.2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.2 (2023-03-20)
       </a>
     </li>
@@ -919,7 +939,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.1.html" class="md-nav__link">
+      <a href="../release-notes-v15.1.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.1 (2022-11-21)
       </a>
     </li>
@@ -933,7 +953,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.0.html" class="md-nav__link">
+      <a href="../release-notes-v15.0.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.0 (2022-10-24)
       </a>
     </li>
@@ -955,7 +975,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="licensing.html" class="md-nav__link">
+      <a href="../licensing.html" class="md-nav__link">
         Licensing
       </a>
     </li>
@@ -970,7 +990,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1012,8 +1032,22 @@ extensions that enable solving essential practical tasks efficiently:">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
-    Get started
+  <a href="#what-is-the-population-of-the-new-york-city" class="md-nav__link">
+    What is the population of the New York City?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-area-of-central-park" class="md-nav__link">
+    What is the area of Central Park?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-long-is-columbus-circle" class="md-nav__link">
+    How long is Columbus Circle?
   </a>
   
 </li>
@@ -1036,14 +1070,14 @@ extensions that enable solving essential practical tasks efficiently:">
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/15/docs/index.md"
+                    href="https://github.com/percona/postgresql-docs/edit/15/docs/solutions/postgis-testing.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/index.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/solutions/postgis-testing.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1059,79 +1093,42 @@ extensions that enable solving essential practical tasks efficiently:">
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-15-documentation">Percona Distribution for PostgreSQL 15 Documentation<a class="headerlink" href="#percona-distribution-for-postgresql-15-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:</p>
-<ul>
-<li>
-<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
-PostgreSQL database objects</p>
-</li>
-<li>
-<p><a href="https://www.pgaudit.org/">pgAudit</a> provides detailed session or object
-audit logging via the standard PostgreSQL logging facility</p>
-</li>
-<li>
-<p><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a> - The <code>set_user</code> part of <code>pgAudit</code> extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</p>
-</li>
-<li>
-<p><a href="https://pgbackrest.org/">pgBackRest</a> is a backup and restore solution for
-PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
-</li>
-<li>
-<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
-</li>
-<li>
-<p><a href="https://www.pgbouncer.org/">PgBouncer</a> - a lightweight connection pooler for PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://github.com/darold/pgbadger">pgBadger</a> - a fast PostgreSQL Log Analyzer.</p>
-</li>
-<li>
-<p><a href="https://github.com/eulerto/wal2json">wal2json</a> - a PostgreSQL logical decoding JSON output plugin.</p>
-</li>
-<li>
-<p><a href="http://www.haproxy.org/">HAProxy</a> - a high-availability and load-balancing solution </p>
-</li>
-<li>
-<p><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary"><code>pgpool</code></a> - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</p>
-</li>
-<li>
-<p>A collection of <a href="https://www.postgresql.org/docs/14/contrib.html">additional PostgreSQL contrib extensions</a></p>
-</li>
-</ul>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>Blog Posts</p>
-<ul>
-<li><a href="https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/">pgBackRest - A Great Backup Solution and a Wonderful Year of
-  Growth</a></li>
-<li><a href="https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/">Securing PostgreSQL as an Enterprise-Grade
-  Environment</a></li>
-</ul>
-</div>
-<p>Percona Distribution for PostgreSQL is also shipped with the
-<a href="https://www.postgresql.org/docs/15/libpq.html">libpq</a> library. It
-contains &ldquo;a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
-<h2 id="get-started">Get started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="installing.html">Install Percona Distribution for PostgreSQL</a></li>
-<li><a href="enable-extensions.html">Enable extensions</a></li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://www.postgresql.org/docs/15/libpq.html">https://www.postgresql.org/docs/15/libpq.html</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+                <h1 id="query-spatial-data">Query spatial data<a class="headerlink" href="#query-spatial-data" title="Permanent link">&para;</a></h1>
+<p>After you <a href="postgis-install.md">installed and set up PostGIS</a>, let’s find answers to the following questions by querying the database:</p>
+<h2 id="what-is-the-population-of-the-new-york-city"><em>What is the population of the New York City?</em><a class="headerlink" href="#what-is-the-population-of-the-new-york-city" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">Sum</span><span class="p">(</span><span class="n">popn_total</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">population</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_census_blocks</span><span class="p">;</span>
+</code></pre></div>
+<p>Output:</p>
+<div class="no-copy highlight"><pre><span></span><code><span class="n">population</span>
+<span class="c1">------------</span>
+<span class="w">    </span><span class="mi">8175032</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="what-is-the-area-of-central-park"><em>What is the area of Central Park?</em><a class="headerlink" href="#what-is-the-area-of-central-park" title="Permanent link">&para;</a></h2>
+<p>To get the answer we will use the <code>ST_Area</code> function that returns the areas of polygons.</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_neighborhoods</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Central Park&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Output:</p>
+<div class="no-copy highlight"><pre><span></span><code><span class="w">      </span><span class="n">st_area</span>
+<span class="c1">--------------------</span>
+<span class="w"> </span><span class="mi">3519</span><span class="p">.</span><span class="mi">8365965413293</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+</code></pre></div>
+<p>By default, the output is given in square meters. To get the value in square kilometers, divide it by 1000.</p>
+<h2 id="how-long-is-columbus-circle"><em>How long is Columbus Circle?</em><a class="headerlink" href="#how-long-is-columbus-circle" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Length</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_streets</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Columbus Cir&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Output:</p>
+<div class="no-copy highlight"><pre><span></span><code><span class="w">     </span><span class="n">st_length</span>
+<span class="c1">-------------------</span>
+<span class="w"> </span><span class="mi">308</span><span class="p">.</span><span class="mi">3419936909855</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+</code></pre></div>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1153,11 +1150,11 @@ these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
       
     
   </small>
@@ -1281,17 +1278,17 @@ these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
-          <script src="js/version-select.js"></script>
+          <script src="../js/version-select.js"></script>
         
       
         
-          <script src="js/promptremover.js"></script>
+          <script src="../js/promptremover.js"></script>
         
       
     

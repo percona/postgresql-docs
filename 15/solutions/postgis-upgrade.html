@@ -9,33 +9,29 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:">
+        <meta name="description" content="When using PostgreSQL and PostGIS for some time, you may eventually come to the decision to upgrade your spatial database. There can be different reasons for that: to receive improvements and/or bug fixes that come with a minor version of the database/extension, reaching the end of life of the currently used software and others.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/index.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/solutions/postgis-upgrade.html">
       
       
       
-        <link rel="next" href="installing.html">
-      
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Spatial database upgrade - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -55,9 +51,9 @@ extensions that enable solving essential practical tasks efficiently:">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -77,8 +73,10 @@ extensions that enable solving essential practical tasks efficiently:">
                
                  
                  
+                 
+                 
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Spatial database upgrade" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -108,7 +106,7 @@ extensions that enable solving essential practical tasks efficiently:">
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-15-documentation" class="md-skip">
+        <a href="#spatial-database-upgrade" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +124,7 @@ extensions that enable solving essential practical tasks efficiently:">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -142,7 +140,7 @@ extensions that enable solving essential practical tasks efficiently:">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Spatial database upgrade
             
           </span>
         </div>
@@ -242,7 +240,7 @@ extensions that enable solving essential practical tasks efficiently:">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -268,54 +266,11 @@ extensions that enable solving essential practical tasks efficiently:">
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
         Home
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
-    Get started
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -382,7 +337,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="installing.html" class="md-nav__link">
+      <a href="../installing.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -396,7 +351,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="apt.html" class="md-nav__link">
+      <a href="../apt.html" class="md-nav__link">
         Install on Debian and Ubuntu
       </a>
     </li>
@@ -410,7 +365,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+      <a href="../yum.html" class="md-nav__link">
         Install on RHEL and derivatives
       </a>
     </li>
@@ -424,7 +379,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="enable-extensions.html" class="md-nav__link">
+      <a href="../enable-extensions.html" class="md-nav__link">
         Enable Percona Distribution for PostgreSQL extensions
       </a>
     </li>
@@ -438,7 +393,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="repo-overview.html" class="md-nav__link">
+      <a href="../repo-overview.html" class="md-nav__link">
         Repositories overview
       </a>
     </li>
@@ -459,7 +414,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="migration.html" class="md-nav__link">
+      <a href="../migration.html" class="md-nav__link">
         Migrate from PostgreSQL to Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -473,7 +428,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="major-upgrade.html" class="md-nav__link">
+      <a href="../major-upgrade.html" class="md-nav__link">
         Upgrading Percona Distribution for PostgreSQL from 14 to 15
       </a>
     </li>
@@ -487,7 +442,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="../minor-upgrade.html" class="md-nav__link">
         Minor Upgrade of Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -536,7 +491,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="pg-stat-monitor.html" class="md-nav__link">
+      <a href="../pg-stat-monitor.html" class="md-nav__link">
         pg-stat-monitor
       </a>
     </li>
@@ -612,7 +567,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/high-availability.html" class="md-nav__link">
+      <a href="high-availability.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -626,7 +581,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
+      <a href="ha-setup-apt.html" class="md-nav__link">
         Deploying on Debian or Ubuntu
       </a>
     </li>
@@ -640,7 +595,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
+      <a href="ha-setup-yum.html" class="md-nav__link">
         Deploying on RHEL or CentOS
       </a>
     </li>
@@ -654,7 +609,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-test.html" class="md-nav__link">
+      <a href="ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
       </a>
     </li>
@@ -702,7 +657,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/backup-recovery.html" class="md-nav__link">
+      <a href="backup-recovery.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -716,7 +671,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
         Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -764,7 +719,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis.html" class="md-nav__link">
+      <a href="postgis.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -778,7 +733,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis-deploy.html" class="md-nav__link">
+      <a href="postgis-deploy.html" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -792,7 +747,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis-testing.html" class="md-nav__link">
+      <a href="postgis-testing.html" class="md-nav__link">
         Query spatial data
       </a>
     </li>
@@ -813,7 +768,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="ldap.html" class="md-nav__link">
+      <a href="../ldap.html" class="md-nav__link">
         LDAP authentication
       </a>
     </li>
@@ -835,7 +790,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="uninstalling.html" class="md-nav__link">
+      <a href="../uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
     </li>
@@ -877,7 +832,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes.html" class="md-nav__link">
+      <a href="../release-notes.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -891,7 +846,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.2.upd.html" class="md-nav__link">
+      <a href="../release-notes-v15.2.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.2 Update (2023-05-22)
       </a>
     </li>
@@ -905,7 +860,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.2.html" class="md-nav__link">
+      <a href="../release-notes-v15.2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.2 (2023-03-20)
       </a>
     </li>
@@ -919,7 +874,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.1.html" class="md-nav__link">
+      <a href="../release-notes-v15.1.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.1 (2022-11-21)
       </a>
     </li>
@@ -933,7 +888,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v15.0.html" class="md-nav__link">
+      <a href="../release-notes-v15.0.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 15.0 (2022-10-24)
       </a>
     </li>
@@ -955,7 +910,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="licensing.html" class="md-nav__link">
+      <a href="../licensing.html" class="md-nav__link">
         Licensing
       </a>
     </li>
@@ -970,7 +925,7 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1012,8 +967,15 @@ extensions that enable solving essential practical tasks efficiently:">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
-    Get started
+  <a href="#upgrade-postgis" class="md-nav__link">
+    Upgrade PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-postgresql" class="md-nav__link">
+    Upgrade PostgreSQL
   </a>
   
 </li>
@@ -1036,14 +998,14 @@ extensions that enable solving essential practical tasks efficiently:">
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/15/docs/index.md"
+                    href="https://github.com/percona/postgresql-docs/edit/15/docs/solutions/postgis-upgrade.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/index.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/solutions/postgis-upgrade.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1059,79 +1021,44 @@ extensions that enable solving essential practical tasks efficiently:">
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-15-documentation">Percona Distribution for PostgreSQL 15 Documentation<a class="headerlink" href="#percona-distribution-for-postgresql-15-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:</p>
+                <h1 id="spatial-database-upgrade">Spatial database upgrade<a class="headerlink" href="#spatial-database-upgrade" title="Permanent link">&para;</a></h1>
+<p>When using PostgreSQL and PostGIS for some time, you may eventually come to the decision to upgrade your spatial database. There can be different reasons for that: to receive improvements and/or bug fixes that come with a minor version of the database/extension, reaching the end of life of the currently used software and others.</p>
+<p>The spatial database upgrade consists of two steps:</p>
 <ul>
-<li>
-<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
-PostgreSQL database objects</p>
-</li>
-<li>
-<p><a href="https://www.pgaudit.org/">pgAudit</a> provides detailed session or object
-audit logging via the standard PostgreSQL logging facility</p>
-</li>
-<li>
-<p><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a> - The <code>set_user</code> part of <code>pgAudit</code> extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</p>
-</li>
-<li>
-<p><a href="https://pgbackrest.org/">pgBackRest</a> is a backup and restore solution for
-PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
-</li>
-<li>
-<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
-</li>
-<li>
-<p><a href="https://www.pgbouncer.org/">PgBouncer</a> - a lightweight connection pooler for PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://github.com/darold/pgbadger">pgBadger</a> - a fast PostgreSQL Log Analyzer.</p>
-</li>
-<li>
-<p><a href="https://github.com/eulerto/wal2json">wal2json</a> - a PostgreSQL logical decoding JSON output plugin.</p>
-</li>
-<li>
-<p><a href="http://www.haproxy.org/">HAProxy</a> - a high-availability and load-balancing solution </p>
-</li>
-<li>
-<p><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary"><code>pgpool</code></a> - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</p>
-</li>
-<li>
-<p>A collection of <a href="https://www.postgresql.org/docs/14/contrib.html">additional PostgreSQL contrib extensions</a></p>
-</li>
+<li>upgrade of PostgreSQL, and </li>
+<li>upgrade of the PostGIS extension. </li>
 </ul>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>Blog Posts</p>
-<ul>
-<li><a href="https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/">pgBackRest - A Great Backup Solution and a Wonderful Year of
-  Growth</a></li>
-<li><a href="https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/">Securing PostgreSQL as an Enterprise-Grade
-  Environment</a></li>
-</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Before the upgrade, backup your data.</p>
 </div>
-<p>Percona Distribution for PostgreSQL is also shipped with the
-<a href="https://www.postgresql.org/docs/15/libpq.html">libpq</a> library. It
-contains &ldquo;a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
-<h2 id="get-started">Get started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="installing.html">Install Percona Distribution for PostgreSQL</a></li>
-<li><a href="enable-extensions.html">Enable extensions</a></li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://www.postgresql.org/docs/15/libpq.html">https://www.postgresql.org/docs/15/libpq.html</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
+<h2 id="upgrade-postgis">Upgrade PostGIS<a class="headerlink" href="#upgrade-postgis" title="Permanent link">&para;</a></h2>
+<p>Each version of PostGIS is compatible with several versions of PostgreSQL and vise versa. The best practice is to first upgrade the PostGIS extension on the source cluster to match the compatible version on the target cluster and then upgrade PostgreSQL. Please see the <a href="https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS#PostGISSupportMatrix">PostGIS Support matrix</a> for version compatibility. </p>
+<p>PostGIS is enabled on the database level. This means that the upgrade is also done on the database level. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">PostGIS 3 and above</label><label for="__tabbed_1_2">PostGIS 2.5</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Connect to the database where it is enabled and run the <a href="https://postgis.net/docs/PostGIS_Extensions_Upgrade.html"><code>PostGIS_Extensions_Upgrade()</code></a> function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">postgis_extensions_upgrade</span><span class="p">();</span>
+</code></pre></div>
+<p>Repeat these steps to upgrade PostGIS on every database where it is enabled.</p>
 </div>
+<div class="tabbed-block">
+<p>Connect to the database with the enabled extension and run the following commands:</p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">postgis</span><span class="w"> </span><span class="k">UPDATE</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">postgis_extensions_upgrade</span><span class="p">();</span>
+</code></pre></div>
+<p>Starting with version 3, vector and raster functionalities have been separated in two individual extensions. Thus, to upgrade those, you need to run the <code>postgis_extensions_upgrade();</code> twice.</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">postgis_extensions_upgrade</span><span class="p">();</span>
+</code></pre></div>
+<p>TIP: If you don’t need the raster functionality, you can drop the <code>postgis_raster</code> extension after the upgrade.</p>
+<p>Repeat these steps to upgrade PostGIS on every database where it is enabled.</p>
+</div>
+</div>
+</div>
+<h2 id="upgrade-postgresql">Upgrade PostgreSQL<a class="headerlink" href="#upgrade-postgresql" title="Permanent link">&para;</a></h2>
+<p>Upgrade PostgreSQL either to the <a href="../minor-upgrade.html">latest minor</a> or to the <a href="../major-upgrade.html">major version</a>.</p>
+<p>If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, <a href="https://www.percona.com/services/managed-services">contact Percona Managed Services</a> for an individual upgrade scenario development.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1153,11 +1080,11 @@ these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
       
     
   </small>
@@ -1281,17 +1208,17 @@ these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
-          <script src="js/version-select.js"></script>
+          <script src="../js/version-select.js"></script>
         
       
         
-          <script src="js/promptremover.js"></script>
+          <script src="../js/promptremover.js"></script>
         
       
     
