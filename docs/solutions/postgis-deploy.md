@@ -5,7 +5,7 @@ The following document provides guidelines how to install PostGIS and how to run
 ## Preconditions
 
 1. We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.
-2. You need to acquire spacial data. For the following examples, we'll use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/) 
+2. You need to acquire spacial data. For the following examples, we'll use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
 
 ## Install PostGIS
 
@@ -25,13 +25,35 @@ The following document provides guidelines how to install PostGIS and how to run
           $ sudo apt install percona-postgis
           ```
 
+          This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
+
+          ```sql
+          SELECT name, default_version,installed_version
+          FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
+          ```
+
+        !!! note
+
+            To enable the `postgis_sfcgal-3` extension on Ubuntu 18.04, you need to manually install the required dependency:
+
+            ```{.bash data-prompt="$"}
+            $ sudo apt-get install libsfcgal1
+            ```
+
     === "On RHEL and derivatives"
 
           ```{.bash data-prompt="$"}
           $ sudo yum install percona-postgis33
           ```
 
-3. Create a database and a schema to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal
+          This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
+
+          ```sql
+          SELECT name, default_version,installed_version
+          FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
+          ```
+
+3. Create a database and a schema to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal:
 
     ```sql
     CREATE database nyc;

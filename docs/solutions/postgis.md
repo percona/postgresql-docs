@@ -29,18 +29,6 @@ Despite its power and flexibility, PostGIS may not suit your needs if:
 * You need complex 3D analysis or visualization.
 * You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.
 
-## Architecture
-
-The following diagram shows the sample architecture for managing spatial data:
-
-![image](../_images/diagrams/Spatial-data-arch.png)
-
-The architecture components include the following:
-
-* PostgreSQL and PostGIS for storing and operating spatial data
-* Visualization applications like GeoServer for publishing the spatial data on the web
-* Your web application for end users to access the data 
-
 
 ## Next steps:
 
