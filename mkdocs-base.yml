@@ -154,7 +154,7 @@ nav:
           - Overview: solutions/postgis.md
           - Deployment: solutions/postgis-deploy.md
           - Query spatial data: solutions/postgis-testing.md
-          - Upgrade spatial database: solutions/postgis-upgrade.md
+          #- Upgrade spatial database: solutions/postgis-upgrade.md
       - LDAP authentication:
           - ldap.md
   - Uninstall:

@@ -25,11 +25,68 @@ The following document provides guidelines how to install PostGIS and how to run
           $ sudo apt install percona-postgis
           ```
 
+          This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
+
+          ```sql
+          SELECT name, default_version,installed_version
+          FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
+          ```
+
+        !!! note
+            To enable the `postgis_sfcgal-3` extension on Ubuntu 18.04, you need to manually install the required dependency:
+
+            ```{.bash data-prompt="$"}
+            $ sudo apt-get install libsfcgal1
+            ```
+
     === "On RHEL and derivatives"
 
-          ```{.bash data-prompt="$"}
-          $ sudo yum install percona-postgis33
+          1. Install `epel` repository
+
+              ```{.bash data-prompt="$"}
+              $ sudo yum install epel-release
+              ```
+
+          2. Enable the `llvm-toolset dnf` module
+
+              ```{.bash data-prompt="$"}
+              $ sudo dnf module enable llvm-toolset
+              ```
+
+          3. Enable the codeready builder repository to resolve dependencies conflict. For Red Hat Enterprise Linux 8, replace the operating system version in the following commands accordingly.
+
+            === "RHEL 9"
+
+                 ```{.bash data-prompt="$"}
+                 $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+                 ```
+
+            === "CentOS 9"
+
+                 ```{.bash data-prompt="$"}
+                 $ sudo dnf config-manager --set-enabled crb
+                 ```
+
+            === "Oracle Linux 9"
+
+                 ```{.bash data-prompt="$"}
+                 $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+                 ```
+
+                
+          4. Install the extension
+
+              ```{.bash data-prompt="$"}                    
+              $ sudo yum install percona-postgis33
+              ```
+
+          This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
+
+          ```sql
+          SELECT name, default_version,installed_version
+          FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
           ```
+
 
 3. Create a database and a schema to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal
 
