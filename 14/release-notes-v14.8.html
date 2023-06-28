@@ -9,33 +9,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document covers the following scenarios to test the PostgreSQL cluster:">
+        <meta name="description" content="Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/14/solutions/ha-test.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/14/release-notes-v14.8.html">
       
       
-        <link rel="prev" href="ha-setup-yum.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="backup-recovery.html">
+        <link rel="next" href="release-notes-v14.7.html">
       
-      <link rel="icon" href="../_images/percona-favicon.ico">
+      <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Testing the Patroni PostgreSQL Cluster - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 14.8 (2023-06-28) - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -55,9 +55,9 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -80,7 +80,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Testing the Patroni PostgreSQL Cluster" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 14.8 (2023-06-28)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -110,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testing-the-patroni-postgresql-cluster" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-148-2023-06-28" class="md-skip">
           Skip to content
         </a>
       
@@ -128,7 +128,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing the Patroni PostgreSQL Cluster
+              Percona Distribution for PostgreSQL 14.8 (2023-06-28)
             
           </span>
         </div>
@@ -244,7 +244,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -272,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -285,14 +285,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -301,7 +303,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Release notes
@@ -314,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes.html" class="md-nav__link">
+      <a href="release-notes.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -326,11 +328,54 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../release-notes-v14.8.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Percona Distribution for PostgreSQL 14.8 (2023-06-28)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="release-notes-v14.8.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 14.8 (2023-06-28)
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -342,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.7.html" class="md-nav__link">
+      <a href="release-notes-v14.7.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.7 (2023-03-23)
       </a>
     </li>
@@ -356,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.6.html" class="md-nav__link">
+      <a href="release-notes-v14.6.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.6 (2022-11-23)
       </a>
     </li>
@@ -370,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.5.html" class="md-nav__link">
+      <a href="release-notes-v14.5.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.5 (2022-09-05)
       </a>
     </li>
@@ -384,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.4.html" class="md-nav__link">
+      <a href="release-notes-v14.4.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.4 (2022-06-27)
       </a>
     </li>
@@ -398,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.3.html" class="md-nav__link">
+      <a href="release-notes-v14.3.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.3 (2022-06-01)
       </a>
     </li>
@@ -412,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.2.upd2.html" class="md-nav__link">
+      <a href="release-notes-v14.2.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.2 Second Update (2022-05-05)
       </a>
     </li>
@@ -426,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.2.upd.html" class="md-nav__link">
+      <a href="release-notes-v14.2.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.2 Update (2022-04-14)
       </a>
     </li>
@@ -440,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.2.html" class="md-nav__link">
+      <a href="release-notes-v14.2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.2 (2022-03-16)
       </a>
     </li>
@@ -454,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.1.upd2.html" class="md-nav__link">
+      <a href="release-notes-v14.1.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.1 Second Update (2021-12-07)
       </a>
     </li>
@@ -468,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.1.upd.html" class="md-nav__link">
+      <a href="release-notes-v14.1.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.1 Update (2021-12-02)
       </a>
     </li>
@@ -482,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.1.html" class="md-nav__link">
+      <a href="release-notes-v14.1.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.1 (2021-11-22)
       </a>
     </li>
@@ -558,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installing.html" class="md-nav__link">
+      <a href="installing.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -572,7 +617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         Install on Debian and Ubuntu
       </a>
     </li>
@@ -586,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         Install on RHEL and derivatives
       </a>
     </li>
@@ -600,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-extensions.html" class="md-nav__link">
+      <a href="enable-extensions.html" class="md-nav__link">
         Enable Percona Distribution for PostgreSQL extensions
       </a>
     </li>
@@ -614,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../repo-overview.html" class="md-nav__link">
+      <a href="repo-overview.html" class="md-nav__link">
         Repositories overview
       </a>
     </li>
@@ -635,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration.html" class="md-nav__link">
+      <a href="migration.html" class="md-nav__link">
         Migrate from PostgreSQL to Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -649,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../major-upgrade.html" class="md-nav__link">
+      <a href="major-upgrade.html" class="md-nav__link">
         Upgrading Percona Distribution for PostgreSQL from 13 to 14
       </a>
     </li>
@@ -663,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         Minor Upgrade of Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -712,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pg-stat-monitor.html" class="md-nav__link">
+      <a href="pg-stat-monitor.html" class="md-nav__link">
         pg-stat-monitor
       </a>
     </li>
@@ -732,16 +777,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
@@ -750,7 +793,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Solutions
@@ -761,16 +804,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
       
       
       
@@ -779,7 +820,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5_1">
           <span class="md-nav__icon md-icon"></span>
           High availability
@@ -792,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="high-availability.html" class="md-nav__link">
+      <a href="solutions/high-availability.html" class="md-nav__link">
         High availability
       </a>
     </li>
@@ -806,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-apt.html" class="md-nav__link">
+      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
         Deploying on Debian or Ubuntu
       </a>
     </li>
@@ -820,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-yum.html" class="md-nav__link">
+      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         Deploying on RHEL or CentOS
       </a>
     </li>
@@ -832,88 +873,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Testing the Patroni PostgreSQL Cluster
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="ha-test.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="solutions/ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#testing-replication" class="md-nav__link">
-    Testing replication
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-failover" class="md-nav__link">
-    Testing failover
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing failover">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" class="md-nav__link">
-    Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-2-abrupt-machine-shutdown-or-power-outage" class="md-nav__link">
-    Scenario 2. Abrupt machine shutdown or power outage
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-switchover" class="md-nav__link">
-    Manual switchover
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -959,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-recovery.html" class="md-nav__link">
+      <a href="solutions/backup-recovery.html" class="md-nav__link">
         Backup and disaster recovery
       </a>
     </li>
@@ -973,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -1021,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis.html" class="md-nav__link">
+      <a href="solutions/postgis.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1035,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-deploy.html" class="md-nav__link">
+      <a href="solutions/postgis-deploy.html" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -1049,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-testing.html" class="md-nav__link">
+      <a href="solutions/postgis-testing.html" class="md-nav__link">
         Query spatial data
       </a>
     </li>
@@ -1070,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap.html" class="md-nav__link">
+      <a href="ldap.html" class="md-nav__link">
         LDAP authentication
       </a>
     </li>
@@ -1092,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uninstalling.html" class="md-nav__link">
+      <a href="uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
     </li>
@@ -1107,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../licensing.html" class="md-nav__link">
+      <a href="licensing.html" class="md-nav__link">
         Licensing
       </a>
     </li>
@@ -1122,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1164,42 +1128,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#testing-replication" class="md-nav__link">
-    Testing replication
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-failover" class="md-nav__link">
-    Testing failover
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing failover">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" class="md-nav__link">
-    Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-2-abrupt-machine-shutdown-or-power-outage" class="md-nav__link">
-    Scenario 2. Abrupt machine shutdown or power outage
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-switchover" class="md-nav__link">
-    Manual switchover
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
   </a>
   
 </li>
@@ -1222,14 +1152,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/14/docs/solutions/ha-test.md"
+                    href="https://github.com/percona/postgresql-docs/edit/14/docs/release-notes-v14.8.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/solutions/ha-test.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/release-notes-v14.8.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1245,182 +1175,143 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="testing-the-patroni-postgresql-cluster">Testing the Patroni PostgreSQL Cluster<a class="headerlink" href="#testing-the-patroni-postgresql-cluster" title="Permanent link">&para;</a></h1>
-<p>This document covers the following scenarios to test the PostgreSQL cluster:</p>
+                <h1 id="percona-distribution-for-postgresql-148-2023-06-28">Percona Distribution for PostgreSQL 14.8 (2023-06-28)<a class="headerlink" href="#percona-distribution-for-postgresql-148-2023-06-28" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="left">Release date:</th>
+<th align="left">June 28, 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Installation</strong>:</td>
+<td align="left"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/14/release-14-8.html">PostgreSQL 14.8</a>. </p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li>replication, </li>
-<li>connectivity, </li>
-<li>failover, and </li>
-<li>manual switchover.</li>
+<li>Percona Distribution for PostgreSQL components now include <a href="http://postgis.net/">PostGIS</a> - the open source extension that allows storing and manipulating spacial data in PostgreSQL.</li>
 </ul>
-<h3 id="testing-replication">Testing replication<a class="headerlink" href="#testing-replication" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Connect to the cluster and establish the <code>psql</code> session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node&rsquo;s public IP address:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">134</span>.209.111.138<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>
-</code></pre></div>
-</li>
-<li>
-<p>Run the following commands to create a table and insert a few rows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="n">age</span><span class="w"> </span><span class="nb">integer</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;dawson&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
-</code></pre></div>
-</li>
-<li>
-<p>To ensure that the replication is working, we can log in to each PostgreSQL node and run a simple SQL statement against the locally running instance:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
-</code></pre></div>
-<p>The results on each node should be the following:</p>
-<div class="highlight"><pre><span></span><code>  name  | age
---------+-----
- john   |  30
- dawson |  35
-(2 rows)
-</code></pre></div>
-</li>
-</ol>
-<h3 id="testing-failover">Testing failover<a class="headerlink" href="#testing-failover" title="Permanent link">&para;</a></h3>
-<p>In a proper setup, client applications won&rsquo;t have issues connecting to the cluster, even if one or even two of the nodes go down. We will test the cluster for failover in the following scenarios:</p>
-<h4 id="scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql">Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.<a class="headerlink" href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p>Run the following command on any node to check the current cluster status:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code>+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Leader  | running |  1 |           |
-| node2  | node2 | Replica | running |  1 |         0 |
-| node3  | node3 | Replica | running |  1 |         0 |
-+--------+-------+---------+---------+----+-----------+
-</code></pre></div>
-</li>
-<li>
-<p><code>node1</code> is the current leader. Stop Patroni in <code>node1</code> to see how it changes the cluster:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>patroni
-</code></pre></div>
-</li>
-<li>
-<p>Once the service stops in <code>node1</code>, check the logs in <code>node2</code> and <code>node3</code> using the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>patroni.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
-</code></pre></div>
-<details class="admonition">
-<summary>Output</summary>
-<div class="highlight"><pre><span></span><code>Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,011 INFO: Got response from node2 http://node2:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 12:50:29.460027+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67219152, &quot;replayed_location&quot;: 67219152, &quot;replayed_timestamp&quot;: &quot;2021-09-23 13:19:50.329387+00:00&quot;, &quot;paused&quot;: false}, &quot;timeline&quot;: 1, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,031 WARNING: Request failed to node1: GET http://node1:8008/patroni (HTTPConnectionPool(host=&#39;node1&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ProtocolError(&#39;Connection aborted.&#39;, ConnectionResetError(104, &#39;Connection reset by peer&#39;))))
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,038 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,043 INFO: promoted self to leader by acquiring session lock
-Sep 23 14:18:20 node03 patroni[13641]: server promoting
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,049 INFO: cleared rewind state after becoming the leader
-Sep 23 14:18:21 node03 patroni[10042]: 2021-09-23 14:18:21,101 INFO: no action. I am (node3) the leader with the lock
-Sep 23 14:18:21 node03 patroni[10042]: 2021-09-23 14:18:21,117 INFO: no action. I am (node3) the leader with the lock
-Sep 23 14:18:31 node03 patroni[10042]: 2021-09-23 14:18:31,114 INFO: no action. I am (node3) the leader with the lock
-...
-</code></pre></div>
-</details>
-<p>The logs in <code>node3</code> show that the requests to <code>node1</code> are failing, the watchdog is coming into action, and <code>node3</code> is promoting itself as the leader:</p>
-</li>
-<li>
-<p>Verify that you can still access the cluster through the HAProxy instance and read data:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">10</span>.104.0.6<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
-
-<span class="w">  </span>name<span class="w">  </span><span class="p">|</span><span class="w"> </span>age
---------+-----
-<span class="w"> </span>john<span class="w">   </span><span class="p">|</span><span class="w">  </span><span class="m">30</span>
-<span class="w"> </span>dawson<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">35</span>
-<span class="o">(</span><span class="m">2</span><span class="w"> </span>rows<span class="o">)</span>
-</code></pre></div>
-</li>
-<li>
-<p>Restart the Patroni service in <code>node1</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>patroni
-</code></pre></div>
-</li>
-<li>
-<p>Check the current cluster status:  </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
-
-+<span class="w"> </span>Cluster:<span class="w"> </span>stampede1<span class="w"> </span><span class="o">(</span><span class="m">7011110722654005156</span><span class="o">)</span><span class="w"> </span>-----------+
-<span class="p">|</span><span class="w"> </span>Member<span class="w"> </span><span class="p">|</span><span class="w"> </span>Host<span class="w">  </span><span class="p">|</span><span class="w"> </span>Role<span class="w">    </span><span class="p">|</span><span class="w"> </span>State<span class="w">   </span><span class="p">|</span><span class="w"> </span>TL<span class="w"> </span><span class="p">|</span><span class="w"> </span>Lag<span class="w"> </span><span class="k">in</span><span class="w"> </span>MB<span class="w"> </span><span class="p">|</span>
-+--------+-------+---------+---------+----+-----------+
-<span class="p">|</span><span class="w"> </span>node1<span class="w">  </span><span class="p">|</span><span class="w"> </span>node1<span class="w"> </span><span class="p">|</span><span class="w"> </span>Replica<span class="w"> </span><span class="p">|</span><span class="w"> </span>running<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>node2<span class="w">  </span><span class="p">|</span><span class="w"> </span>node2<span class="w"> </span><span class="p">|</span><span class="w"> </span>Replica<span class="w"> </span><span class="p">|</span><span class="w"> </span>running<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>node3<span class="w">  </span><span class="p">|</span><span class="w"> </span>node3<span class="w"> </span><span class="p">|</span><span class="w"> </span>Leader<span class="w">  </span><span class="p">|</span><span class="w"> </span>running<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w">           </span><span class="p">|</span>
-+--------+-------+---------+---------+----+-----------+
-</code></pre></div>
-</li>
-</ol>
-<p>As we see, <code>node3</code> remains the leader and the rest are replicas.</p>
-<h4 id="scenario-2-abrupt-machine-shutdown-or-power-outage">Scenario 2. Abrupt machine shutdown or power outage<a class="headerlink" href="#scenario-2-abrupt-machine-shutdown-or-power-outage" title="Permanent link">&para;</a></h4>
-<p>To emulate the power outage, let&rsquo;s kill the service in <code>node3</code> and see what happens in <code>node1</code> and <code>node2</code>. </p>
-<ol>
-<li>
-<p>Identify the process ID of Patroni and then kill it with a <code>-9</code> switch. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>patroni
-
-postgres<span class="w">   </span><span class="m">10042</span><span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">2</span>.1<span class="w"> </span><span class="m">647132</span><span class="w"> </span><span class="m">43948</span><span class="w"> </span>?<span class="w">        </span>Ssl<span class="w">  </span><span class="m">12</span>:50<span class="w">   </span><span class="m">0</span>:09<span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/bin/patroni<span class="w"> </span>/etc/patroni/patroni.yml
-
-$<span class="w"> </span>sudo<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span><span class="m">10042</span>
-</code></pre></div>
-</li>
-<li>
-<p>Check the logs on <code>node2</code>: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>patroni.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
-</code></pre></div>
-<details class="admonition">
-<summary>Output</summary>
-<div class="highlight"><pre><span></span><code>Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)
-…
-Sep 23 14:41:01 node02 patroni[10577]: 2021-09-23 14:41:01,373 INFO: Got response from node1 http://node1:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 14:25:30.076762+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67221352, &quot;replayed_location&quot;: 67221352, &quot;replayed_timestamp&quot;: null, &quot;paused&quot;: false}, &quot;timeline&quot;: 2, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,364 WARNING: Request failed to node3: GET http://node3:8008/patroni (HTTPConnectionPool(host=&#39;node3&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPConnection object at 0x7f57e06dffa0&gt;, &#39;Connection to node3 timed out. (connect timeout=2)&#39;)))
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,373 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,385 INFO: promoted self to leader by acquiring session lock
-Sep 23 14:41:03 node02 patroni[15478]: server promoting
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,397 INFO: cleared rewind state after becoming the leader
-Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,450 INFO: no action. I am (node2) the leader with the lock
-Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,475 INFO: no action. I am (node2) the leader with the lock
-…
-… 
-</code></pre></div>
-</details>
-<p><code>node2</code> realizes that the leader is dead, and promotes itself as the leader.</p>
-</li>
-<li>
-<p>Try accessing the cluster using the HAProxy endpoint at any point in time between these operations. The cluster is still accepting connections.</p>
-</li>
-</ol>
-<h3 id="manual-switchover">Manual switchover<a class="headerlink" href="#manual-switchover" title="Permanent link">&para;</a></h3>
-<p>Typically, a manual switchover is needed for planned downtime to perform maintenance activity on the leader node. Patroni provides the <code>switchover</code> command to manually switch over from the leader node. </p>
-<p>Run the following command on <code>node2</code> (the current leader node):</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>switchover
-</code></pre></div>
-<p>Patroni asks the name of the current primary node and then the node that should take over as the switched-over primary. You can also specify the time at which the switchover should happen. To trigger the process immediately, specify the value <em>now</em>:</p>
-<div class="highlight"><pre><span></span><code>primary [node2]: node2
-Candidate [&#39;node1&#39;, &#39;node3&#39;] []: node1
-When should the switchover take place (e.g. 2021-09-23T15:56 )  [now]: now
-Current cluster topology
-+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Replica | running |  3 |         0 |
-| node2  | node2 | Leader  | running |  3 |           |
-| node3  | node3 | Replica | stopped |    |   unknown |
-+--------+-------+---------+---------+----+-----------+
-Are you sure you want to switchover cluster stampede1, demoting current primary node2? [y/N]: y
-2021-09-23 14:56:40.54009 Successfully switched over to &quot;node1&quot;
-+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Leader  | running |  3 |           |
-| node2  | node2 | Replica | stopped |    |   unknown |
-| node3  | node3 | Replica | stopped |    |   unknown |
-+--------+-------+---------+---------+----+-----------+
-</code></pre></div>
-<p>Restart the Patroni service in <code>node2</code> (after the &ldquo;planned maintenance&rdquo;). The node rejoins the cluster as a secondary.</p>
+<hr />
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>2.6.13</td>
+<td>a high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>3.0.2</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
+<td>1.6.2</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>4.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.44</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>12.1</td>
+<td>a fast PostgreSQL Log Analyzer.</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.19.1</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2</a></td>
+<td>4.4.3</td>
+<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.8</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.0.1</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS</a></td>
+<td>3.3.3</td>
+<td>a spatial extension for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
+<td>250</td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters may be maintained at one time.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.5</td>
+<td>a PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
+<ul>
+<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8 and derivatives. This fixes compatibility issues with LLVM from upstream.</li>
+<li>supplemental <code>ETCD</code> packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operating system</th>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RHEL 7</td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.3</td>
+<td>A Python client for ETCD</td>
+</tr>
+<tr>
+<td>RHEL 8</td>
+<td><code>etcd</code></td>
+<td>3.3.11</td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.3</td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/14/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; </p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1442,11 +1333,11 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 22, 2021</span>
       
     
   </small>
@@ -1570,17 +1461,17 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
-          <script src="../js/version-select.js"></script>
+          <script src="js/version-select.js"></script>
         
       
         
-          <script src="../js/promptremover.js"></script>
+          <script src="js/promptremover.js"></script>
         
       
     
