@@ -9,33 +9,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes, or unexpected reboots.  Such cluster is often a critical component of the enterprise application landscape, where four nines of availability is a minimum requirement.">
+        <meta name="description" content="Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/13/solutions/high-availability.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/13/release-notes-v13.11.html">
       
       
-        <link rel="prev" href="../pg-stat-monitor.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="ha-setup-apt.html">
+        <link rel="next" href="release-notes-v13.10.upd.html">
       
-      <link rel="icon" href="../_images/percona-favicon.ico">
+      <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>High availability - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 13.11 (2023-06-29) - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -55,11 +55,11 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-      <link rel="stylesheet" href="../css/version-select.css">
+      <link rel="stylesheet" href="css/version-select.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -82,7 +82,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - High availability" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 13.11 (2023-06-29)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -112,7 +112,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#high-availability-in-postgresql-with-patroni" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-1311-2023-06-29" class="md-skip">
           Skip to content
         </a>
       
@@ -130,7 +130,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              High availability
+              Percona Distribution for PostgreSQL 13.11 (2023-06-29)
             
           </span>
         </div>
@@ -246,7 +246,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -274,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -343,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installing.html" class="md-nav__link">
+      <a href="installing.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -357,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         Install on Debian and Ubuntu
       </a>
     </li>
@@ -371,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         Install on RHEL and derivatives
       </a>
     </li>
@@ -385,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-extensions.html" class="md-nav__link">
+      <a href="enable-extensions.html" class="md-nav__link">
         Enable Percona Distribution for PostgreSQL extensions
       </a>
     </li>
@@ -399,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../repo-overview.html" class="md-nav__link">
+      <a href="repo-overview.html" class="md-nav__link">
         Repositories overview
       </a>
     </li>
@@ -420,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration.html" class="md-nav__link">
+      <a href="migration.html" class="md-nav__link">
         Migrate from PostgreSQL to Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -434,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../major-upgrade.html" class="md-nav__link">
+      <a href="major-upgrade.html" class="md-nav__link">
         Upgrading Percona Distribution for PostgreSQL from 12 to 13
       </a>
     </li>
@@ -448,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         Minor Upgrade of Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -497,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pg-stat-monitor.html" class="md-nav__link">
+      <a href="pg-stat-monitor.html" class="md-nav__link">
         pg_stat_monitor
       </a>
     </li>
@@ -517,16 +517,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -535,7 +533,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Solutions
@@ -546,16 +544,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
       
       
       
@@ -564,7 +560,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_1">
           <span class="md-nav__icon md-icon"></span>
           High availability
@@ -575,108 +571,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          High availability
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="high-availability.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="solutions/high-availability.html" class="md-nav__link">
         High availability
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#streaming-replication" class="md-nav__link">
-    Streaming replication
-  </a>
-  
-    <nav class="md-nav" aria-label="Streaming replication">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-native-streaming-replication-is-not-enough" class="md-nav__link">
-    Why native streaming replication is not enough
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#patroni" class="md-nav__link">
-    Patroni
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-layout" class="md-nav__link">
-    Architecture layout
-  </a>
-  
-    <nav class="md-nav" aria-label="Architecture layout">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    Deployment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -688,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-apt.html" class="md-nav__link">
+      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
         Deploying on Debian or Ubuntu
       </a>
     </li>
@@ -702,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-yum.html" class="md-nav__link">
+      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         Deploying on RHEL or CentOS
       </a>
     </li>
@@ -716,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-test.html" class="md-nav__link">
+      <a href="solutions/ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
       </a>
     </li>
@@ -764,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-recovery.html" class="md-nav__link">
+      <a href="solutions/backup-recovery.html" class="md-nav__link">
         Backup and disaster recovery
       </a>
     </li>
@@ -778,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -826,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis.html" class="md-nav__link">
+      <a href="solutions/postgis.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -840,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-deploy.html" class="md-nav__link">
+      <a href="solutions/postgis-deploy.html" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -854,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-testing.html" class="md-nav__link">
+      <a href="solutions/postgis-testing.html" class="md-nav__link">
         Query spatial data
       </a>
     </li>
@@ -875,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap.html" class="md-nav__link">
+      <a href="ldap.html" class="md-nav__link">
         LDAP authentication
       </a>
     </li>
@@ -897,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uninstalling.html" class="md-nav__link">
+      <a href="uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
     </li>
@@ -910,14 +809,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -926,7 +827,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release notes
@@ -939,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes.html" class="md-nav__link">
+      <a href="release-notes.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -951,11 +852,54 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../release-notes-v13.11.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Percona Distribution for PostgreSQL 13.11 (2023-06-29)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="release-notes-v13.11.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 13.11 (2023-06-29)
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -967,7 +911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.10.upd.html" class="md-nav__link">
+      <a href="release-notes-v13.10.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.10 Update (2023-05-22)
       </a>
     </li>
@@ -981,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.10.html" class="md-nav__link">
+      <a href="release-notes-v13.10.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.10 (2023-03-27)
       </a>
     </li>
@@ -995,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.9.html" class="md-nav__link">
+      <a href="release-notes-v13.9.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.9 (2022-11-24)
       </a>
     </li>
@@ -1009,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.8.html" class="md-nav__link">
+      <a href="release-notes-v13.8.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.8 (2022-09-06)
       </a>
     </li>
@@ -1023,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.7.html" class="md-nav__link">
+      <a href="release-notes-v13.7.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.7 (2022-06-02)
       </a>
     </li>
@@ -1037,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.6.upd2.html" class="md-nav__link">
+      <a href="release-notes-v13.6.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.6 Second Update (2022-05-05)
       </a>
     </li>
@@ -1051,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.6.upd.html" class="md-nav__link">
+      <a href="release-notes-v13.6.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.6 Update (2022-04-14)
       </a>
     </li>
@@ -1065,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.6.html" class="md-nav__link">
+      <a href="release-notes-v13.6.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.6 (2022-03-22)
       </a>
     </li>
@@ -1079,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.5.upd2.html" class="md-nav__link">
+      <a href="release-notes-v13.5.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.5 Second Update (2021-12-07)
       </a>
     </li>
@@ -1093,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.5.upd.html" class="md-nav__link">
+      <a href="release-notes-v13.5.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.5 Update (2021-02-12)
       </a>
     </li>
@@ -1107,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.5.html" class="md-nav__link">
+      <a href="release-notes-v13.5.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.5 (2021-11-23)
       </a>
     </li>
@@ -1121,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.4.upd.html" class="md-nav__link">
+      <a href="release-notes-v13.4.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.4 Update (2021-09-30)
       </a>
     </li>
@@ -1135,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.4.html" class="md-nav__link">
+      <a href="release-notes-v13.4.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.4 (2021-09-09)
       </a>
     </li>
@@ -1149,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.3.upd3.html" class="md-nav__link">
+      <a href="release-notes-v13.3.upd3.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.3 Third Update (2021-07-15)
       </a>
     </li>
@@ -1163,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.3.upd2.html" class="md-nav__link">
+      <a href="release-notes-v13.3.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.3 Second Update (2021-07-01)
       </a>
     </li>
@@ -1177,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.3.upd.html" class="md-nav__link">
+      <a href="release-notes-v13.3.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.3 Update (2021-06-10)
       </a>
     </li>
@@ -1191,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.3.html" class="md-nav__link">
+      <a href="release-notes-v13.3.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.3 (2021-05-20)
       </a>
     </li>
@@ -1205,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.2.upd4.html" class="md-nav__link">
+      <a href="release-notes-v13.2.upd4.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.2 Fourth Update (2021-06-10)
       </a>
     </li>
@@ -1219,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.2.upd3.html" class="md-nav__link">
+      <a href="release-notes-v13.2.upd3.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.2 Third Update (2021-05-10)
       </a>
     </li>
@@ -1233,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.2.upd2.html" class="md-nav__link">
+      <a href="release-notes-v13.2.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.2 Second Update (2021-04-27)
       </a>
     </li>
@@ -1247,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.2.upd.html" class="md-nav__link">
+      <a href="release-notes-v13.2.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.2 Update (2021-04-12)
       </a>
     </li>
@@ -1261,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.2.html" class="md-nav__link">
+      <a href="release-notes-v13.2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.2 (2021-03-04)
       </a>
     </li>
@@ -1275,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.1.html" class="md-nav__link">
+      <a href="release-notes-v13.1.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.1 (2020-12-02)
       </a>
     </li>
@@ -1289,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v13.0.html" class="md-nav__link">
+      <a href="release-notes-v13.0.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.0 (2020-10-16)
       </a>
     </li>
@@ -1311,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../licensing.html" class="md-nav__link">
+      <a href="licensing.html" class="md-nav__link">
         Licensing
       </a>
     </li>
@@ -1326,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1368,62 +1312,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#streaming-replication" class="md-nav__link">
-    Streaming replication
-  </a>
-  
-    <nav class="md-nav" aria-label="Streaming replication">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-native-streaming-replication-is-not-enough" class="md-nav__link">
-    Why native streaming replication is not enough
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#patroni" class="md-nav__link">
-    Patroni
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-layout" class="md-nav__link">
-    Architecture layout
-  </a>
-  
-    <nav class="md-nav" aria-label="Architecture layout">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    Components
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    Deployment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
   </a>
   
 </li>
@@ -1446,14 +1336,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/13/docs/solutions/high-availability.md"
+                    href="https://github.com/percona/postgresql-docs/edit/13/docs/release-notes-v13.11.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/13/docs/solutions/high-availability.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/13/docs/release-notes-v13.11.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1469,63 +1359,143 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="high-availability-in-postgresql-with-patroni">High Availability in PostgreSQL with Patroni<a class="headerlink" href="#high-availability-in-postgresql-with-patroni" title="Permanent link">&para;</a></h1>
-<div class="admonition summary">
-<p class="admonition-title">Summary</p>
+                <h1 id="percona-distribution-for-postgresql-1311-2023-06-29">Percona Distribution for PostgreSQL 13.11 (2023-06-29)<a class="headerlink" href="#percona-distribution-for-postgresql-1311-2023-06-29" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="left">Release date:</th>
+<th align="left">June 29, 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Installation</strong>:</td>
+<td align="left"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/13/release-13-11.html">PostgreSQL 13.11</a>.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Solution overview</li>
-<li>Cluster deployment</li>
-<li>Testing the cluster</li>
+<li>Percona Distribution for PostgreSQL components now include <a href="http://postgis.net/">PostGIS</a> - the open source extension that allows storing and manipulating spacial data in PostgreSQL.</li>
 </ul>
-</div>
-<p>PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes, or unexpected reboots.  Such cluster is often a critical component of the enterprise application landscape, where <a href="https://en.wikipedia.org/wiki/High_availability#Percentage_calculation">four nines of availability</a> is a minimum requirement. </p>
-<p>This document provides instructions on how to set up and test a highly-available, single-primary, three-node cluster with Percona PostgreSQL and <a href="#patroni">Patroni</a>. </p>
-<div class="admonition admonition">
-<p class="admonition-title">High availability overview</p>
-<p>There are a few methods for achieving high availability with PostgreSQL:</p>
+<hr />
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>2.6.13</td>
+<td>a high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>3.0.2</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
+<td>1.5.2</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>4.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.44</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>12.1</td>
+<td>a fast PostgreSQL Log Analyzer.</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.19.1</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2</a></td>
+<td>4.4.3</td>
+<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.8</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.0.1</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS</a></td>
+<td>3.3.3</td>
+<td>a spatial extension for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
+<td>250</td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.5</td>
+<td>a PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
 <ul>
-<li>shared disk failover, </li>
-<li>file system replication, </li>
-<li>trigger-based replication, </li>
-<li>statement-based replication, </li>
-<li>logical replication, and </li>
-<li>Write-Ahead Log (WAL) shipping.</li>
+<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8  and compatible derivatives. These fix compatibility issues with LLVM from upstream. </li>
+<li>supplemental ETCD packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
 </ul>
-<p>In recent times, PostgreSQL high availability is most commonly achieved with <a href="#streaming-replication">streaming replication</a>.</p>
-<h2 id="streaming-replication">Streaming replication<a class="headerlink" href="#streaming-replication" title="Permanent link">&para;</a></h2>
-<p>Streaming replication is part of Write-Ahead Log shipping, where changes to the WALs are immediately made available to standby replicas. With this approach, a standby instance is always up-to-date with changes from the primary node and can assume the role of primary in case of a failover.</p>
-<h3 id="why-native-streaming-replication-is-not-enough">Why native streaming replication is not enough<a class="headerlink" href="#why-native-streaming-replication-is-not-enough" title="Permanent link">&para;</a></h3>
-<p>Although the native streaming replication in PostgreSQL supports failing over  to the primary node, it lacks some key features expected from a truly highly-available solution. These include:</p>
-<ul>
-<li>No consensus-based promotion of a “leader” node during a failover</li>
-<li>No decent capability for monitoring cluster status </li>
-<li>No automated way to bring back the failed primary node to the cluster</li>
-<li>A manual or scheduled switchover is not easy to manage </li>
-</ul>
-<p>To address these shortcomings, there are a multitude of third-party, open-source extensions for PostgreSQL. The challenge for a database administrator here is to select the right utility for the current scenario. </p>
-<p>Percona Distribution for PostgreSQL solves this challenge by providing the <a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> extension for achieving PostgreSQL high availability.</p>
-</div>
-<h2 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> provides a template-based approach to create highly available PostgreSQL clusters. Running atop the PostgreSQL streaming replication process, it integrates with watchdog functionality to detect failed primary nodes and take corrective actions to prevent outages. Patroni also provides a pluggable configuration store to manage distributed, multi-node cluster configuration and comes with REST APIs to monitor and manage the cluster. There is also a command-line utility called <em>patronictl</em> that helps manage switchovers and failure scenarios.</p>
-<h2 id="architecture-layout">Architecture layout<a class="headerlink" href="#architecture-layout" title="Permanent link">&para;</a></h2>
-<p>The following diagram shows the architecture of a three-node PostgreSQL cluster with a single-leader node. </p>
-<p><img alt="Architecture of the three-node, single primary PostgreSQL cluster" src="../_images/diagrams/patroni-architecture.png" /></p>
-<h3 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h3>
-<p>The following are the components:</p>
-<ul>
-<li>Three PosgreSQL nodes: <code>node1</code>, <code>node2</code> and <code>node3</code></li>
-<li>A dedicated HAProxy node <code>HAProxy-demo</code>. HAProxy is an open-source load balancing software through which client connections to the cluster are routed.</li>
-<li>ETCD - a distributed configuration storage</li>
-<li>Softdog - a watchdog utility which is used to detect unhealthy nodes in an acceptable time frame.</li>
-</ul>
-<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
-<p>Use the links below to navigate to the setup instructions relevant to your operating system</p>
-<ul>
-<li><a href="ha-setup-apt.html">Deploy on Debian or Ubuntu</a></li>
-<li><a href="ha-setup-yum.html">Deploy on Red Hat Enterprise Linux or CentOS</a></li>
-</ul>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>See the <a href="ha-test.html">Testing PostgreSQL cluster</a> for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.</p>
+<table>
+<thead>
+<tr>
+<th>Operating System</th>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RHEL 7</td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.3</td>
+<td>A Python client for ETCD</td>
+</tr>
+<tr>
+<td>RHEL 8</td>
+<td><code>etcd</code></td>
+<td>3.3.11</td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.3</td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/13/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; </p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1547,11 +1517,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 1, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
       
     
   </small>
@@ -1675,17 +1645,17 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
-          <script src="../js/version-select.js"></script>
+          <script src="js/version-select.js"></script>
         
       
         
-          <script src="../js/promptremover.js"></script>
+          <script src="js/promptremover.js"></script>
         
       
     

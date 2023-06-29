@@ -281,42 +281,9 @@ extensions that enable solving essential practical tasks efficiently:">
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Home
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="index.html" class="md-nav__link md-nav__link--active">
         Home
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
-    Get started
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -893,6 +860,20 @@ extensions that enable solving essential practical tasks efficiently:">
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v13.11.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 13.11 (2023-06-29)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v13.10.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.10 Update (2023-05-22)
       </a>
@@ -1287,21 +1268,6 @@ extensions that enable solving essential practical tasks efficiently:">
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
-    Get started
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1347,8 +1313,10 @@ database system: it installs PostgreSQL and complements it by a selection of
 extensions that enable solving essential practical tasks efficiently:</p>
 <ul>
 <li>
-<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
-PostgreSQL database objects</p>
+<p><a href="http://www.haproxy.org/">HAProxy</a> - a high-availability and load-balancing solution </p>
+</li>
+<li>
+<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
 </li>
 <li>
 <p><a href="https://www.pgaudit.org/">pgAudit</a> provides detailed session or object
@@ -1362,30 +1330,33 @@ audit logging via the standard PostgreSQL logging facility</p>
 PostgreSQL</p>
 </li>
 <li>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
-</li>
-<li>
-<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
+<p><a href="https://github.com/darold/pgbadger">pgBadger</a> - a fast PostgreSQL Log Analyzer.</p>
 </li>
 <li>
 <p><a href="https://www.pgbouncer.org/">PgBouncer</a> - a lightweight connection pooler for PostgreSQL</p>
 </li>
 <li>
-<p><a href="https://github.com/darold/pgbadger">pgBadger</a> - a fast PostgreSQL Log Analyzer.</p>
+<p><a href="https://www.pgpool.net/mediawiki/index.php/Main_Page">pgpool2</a> - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</p>
+</li>
+<li>
+<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
+PostgreSQL database objects</p>
+</li>
+<li>
+<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
+</li>
+<li>
+<p><a href="http://postgis.net/">PostGIS</a> allows storing and manipulating spacial data in PostgreSQL.</p>
 </li>
 <li>
 <p><a href="https://github.com/eulerto/wal2json">wal2json</a> - a PostgreSQL logical decoding JSON output plugin.</p>
 </li>
 <li>
-<p><a href="http://www.haproxy.org/">HAProxy</a>-  a high-availability and load-balancing solution </p>
-</li>
-<li>
-<p><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary"><code>pgpool</code></a> - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</p>
-</li>
-<li>
 <p>A collection of <a href="https://www.postgresql.org/docs/13/contrib.html">additional PostgreSQL contrib extensions</a></p>
 </li>
 </ul>
+<p><a class="md-button" href="installing.html">Get started</a>
+<a class="md-button" href="release-notes-v13.11.html">What&rsquo;s new</a></p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
 <p>Blog Posts</p>
@@ -1401,11 +1372,6 @@ PostgreSQL</p>
 contains &ldquo;a set of library functions that allow client programs to pass
 queries to the PostgreSQL backend server and to receive the results of
 these queries.&rdquo; </p>
-<h2 id="get-started">Get started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="installing.html">Install Percona Distribution for PostgreSQL</a></li>
-<li><a href="enable-extensions.html">Enable extensions</a></li>
-</ul>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1427,7 +1393,7 @@ these queries.&rdquo; </p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 29, 2023</span>
       
         <br>
         Created:
