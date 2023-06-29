@@ -54,7 +54,7 @@ The following document provides guidelines how to install PostGIS and how to run
               $ sudo dnf module enable llvm-toolset
               ```
 
-          3. Enable the codeready builder repository to resolve dependencies conflict. For Red Hat Enterprise Linux, replace the version of the operating system in the following commands respectively.
+          3. Enable the codeready builder repository to resolve dependencies conflict. For Red Hat Enterprise Linux 8 and derivatives, replace the version of the operating system in the following commands respectively.
 
             === "RHEL 9"
 
@@ -73,11 +73,18 @@ The following document provides guidelines how to install PostGIS and how to run
                  ```{.bash data-prompt="$"}
                  $ sudo dnf config-manager --set-enabled ol9_codeready_builder
                  ```
+
+            === "Rocky Linux 9"
+
+                 ```{.bash data-prompt="$"}
+                 $ sudo dnf install dnf-plugins-core
+                 $ sudo dnf config-manager --set-enabled powertools
+                 ```
                 
           4. Install the extension
 
               ```{.bash data-prompt="$"}                    
-              $ sudo yum install percona-postgis33
+              $ sudo yum install percona-postgis33 percona-postgis33-client
               ```
 
           This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:
