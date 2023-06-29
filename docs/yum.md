@@ -174,13 +174,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 /usr/pgsql-13/bin/postgresql-13-setup initdb
 ```
 
 Start the PostgreSQL service:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo systemctl start postgresql-13
 ```
 
