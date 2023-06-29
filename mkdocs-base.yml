@@ -99,16 +99,16 @@ plugins:
     max_length: 160
   macros:
       include_yaml:
-#        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+        - 'variables.yml' # Use in markdown as '{{ VAR }}'
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-12.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 12.14 (May 22, 2023)
+          cover_subtitle: 12.15 (June 29, 2023)
           author: 'Percona Technical Documentation Team'
-          cover_logo: docs/_images/postgre-logo.jpg
+          cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
           custom_template_path: _resource/templates
           enabled_if_env: ENABLE_PDF_EXPORT
@@ -134,7 +134,35 @@ extra:
       make our documentation better. Read more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.
 
 nav:
-  - index.md
+  - Home: index.md
+  - Release Notes:
+      - "Release notes index": "release-notes.md"
+      - release-notes-v12.15.md
+      - release-notes-v12.14.upd.md
+      - release-notes-v12.14.md
+      - release-notes-v12.13.md
+      - release-notes-v12.12.md
+      - release-notes-v12.11.md
+      - release-notes-v12.10.upd2.md
+      - release-notes-v12.10.upd.md
+      - release-notes-v12.10.md
+      - release-notes-v12.9.md
+      - release-notes-v12.8.upd.md
+      - release-notes-v12.8.md
+      - release-notes-v12.7.upd3.md
+      - release-notes-v12.7.upd2.md
+      - release-notes-v12.7.upd.md
+      - release-notes-v12.7.md
+      - release-notes-v12.6.upd4.md
+      - release-notes-v12.6.upd3.md
+      - release-notes-v12.6.upd2.md
+      - release-notes-v12.6.upd.md
+      - release-notes-v12.6.md
+      - release-notes-v12.5.md
+      - release-notes-v12.4.upd.md
+      - release-notes-v12.4.md
+      - release-notes-v12.3.md
+      - release-notes-v12.2.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
@@ -166,33 +194,6 @@ nav:
           - ldap.md
   - Uninstall:
       - uninstalling.md
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v12.14.upd.md
-      - release-notes-v12.14.md
-      - release-notes-v12.13.md
-      - release-notes-v12.12.md
-      - release-notes-v12.11.md
-      - release-notes-v12.10.upd2.md
-      - release-notes-v12.10.upd.md
-      - release-notes-v12.10.md
-      - release-notes-v12.9.md
-      - release-notes-v12.8.upd.md
-      - release-notes-v12.8.md
-      - release-notes-v12.7.upd3.md
-      - release-notes-v12.7.upd2.md
-      - release-notes-v12.7.upd.md
-      - release-notes-v12.7.md
-      - release-notes-v12.6.upd4.md
-      - release-notes-v12.6.upd3.md
-      - release-notes-v12.6.upd2.md
-      - release-notes-v12.6.upd.md
-      - release-notes-v12.6.md
-      - release-notes-v12.5.md
-      - release-notes-v12.4.upd.md
-      - release-notes-v12.4.md
-      - release-notes-v12.3.md
-      - release-notes-v12.2.md
   - Licensing:
       - licensing.md
   - Trademark policy:
