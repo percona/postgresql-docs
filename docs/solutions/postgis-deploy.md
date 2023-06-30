@@ -119,7 +119,7 @@ The following document provides guidelines how to install PostGIS and how to run
     ```{.sql .no-copy}
     postgis_full_version
     -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-     POSTGIS="3.3.3dev 0" [EXTENSION] PGSQL="140" GEOS="3.10.2-CAPI-1.16.0" PROJ="8.2.1" LIBXML="2.9.13" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
+     POSTGIS="3.3.3" [EXTENSION] PGSQL="140" GEOS="3.10.2-CAPI-1.16.0" PROJ="8.2.1" LIBXML="2.9.13" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
     ```
 
 ## Upload spatial data to PostgreSQL
@@ -132,7 +132,7 @@ PostGIS provides the `shp2pgsql` command line utility that converts the binary d
     $ curl -LO https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip
     ```
 
-2. From the folder where the `.shp` files are located, execute the following command and replace the `dbname` value with the name of your database:
+2. Unzip the archive. From the folder where the `.shp` files are located, execute the following command and replace the `dbname` value with the name of your database:
 
     ```{.bash data-prompt="$"}
     shp2pgsql \
