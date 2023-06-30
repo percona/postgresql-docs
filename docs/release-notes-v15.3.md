@@ -12,7 +12,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.3
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL components now include [PostGIS](http://postgis.net/) - the open-source extension that allows storing and manipulating spacial data in PostgreSQL.
+* Percona Distribution for PostgreSQL components now include [PostGIS](http://postgis.net/) - the open source extension that allows storing and manipulating spatial data in PostgreSQL.
 
 ------------------------------------------------------------------------------
 
