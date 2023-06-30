@@ -7,7 +7,7 @@ Organizations dealing with spatial data need to store it somewhere and manipulat
 * Geographical data like points, lines, polygons, GPS coordinates that can be mapped on a sphere.
 * Geometrical data. This is also points, lines and polygons but they apply to a 2D surface.
 
-To operate with spacial data inside SQL queries, PostGIS supports [spacial functions](https://postgis.net/docs/reference.html#SRS_Functions) like distance, area, union, intersection. It uses the spacial indexes like [R-Tree](https://en.wikipedia.org/wiki/R-tree) and [Quadtree](https://en.wikipedia.org/wiki/Quadtree) for efficient processing of database operations. Read more about supported spacial functions and indexes in [PostGIS documentation](https://postgis.net/workshops/postgis-intro/introduction.html). 
+To operate with spatial data inside SQL queries, PostGIS supports [spatial functions](https://postgis.net/docs/reference.html#SRS_Functions) like distance, area, union, intersection. It uses the spatial indexes like [R-Tree](https://en.wikipedia.org/wiki/R-tree) and [Quadtree](https://en.wikipedia.org/wiki/Quadtree) for efficient processing of database operations. Read more about supported spatial functions and indexes in [PostGIS documentation](https://postgis.net/workshops/postgis-intro/introduction.html). 
 
 By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open source spatial database that you can use in various areas without vendor lock-in. PostGIS packages from Percona are available for all currently supported PostgreSQL versions.
 
@@ -16,7 +16,7 @@ By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the o
 You can use PostGIS in the following cases:
 
 * To store and manage spatial data, create and store spatial shapes, calculate areas and distances
-* To build the software that visualizes spacial data on a map, 
+* To build the software that visualizes spatial data on a map, 
 * To work with raster data, such as satellite imagery or digital elevation models.
 * To integrate spatial and non-spatial data such as demographic or economic data in a database
 
