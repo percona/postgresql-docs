@@ -5,7 +5,7 @@ The following document provides guidelines how to install PostGIS and how to run
 ## Preconditions
 
 1. We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.
-2. You need to acquire spacial data. For the following examples, we'll use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
+2. You need to acquire spatial data. For the following examples, we'll use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
 
 ## Install PostGIS
 
