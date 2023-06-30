@@ -9,27 +9,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Organizations dealing with spatial data need to store it somewhere and manipulate it. PostGIS is the open-source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:">
       
       
         <meta name="author" content="Percona LLC">
       
       
+        <link rel="canonical" href="https://docs.percona.com/postgresql/11/solutions/postgis.html">
       
       
-      <link rel="icon" href="/postgresql/11/_images/percona-favicon.ico">
+        <link rel="prev" href="dr-pgbackrest-setup.html">
+      
+      
+        <link rel="next" href="postgis-deploy.html">
+      
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Overview - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="/postgresql/11/assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="/postgresql/11/assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -49,9 +55,9 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="/postgresql/11/css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-    <script>__md_scope=new URL("/postgresql/11",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -71,8 +77,10 @@
                
                  
                  
+                 
+                 
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Overview" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/11/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -101,6 +109,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#spatial-data-manipulation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -115,7 +128,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="/postgresql/11/_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -131,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Overview
             
           </span>
         </div>
@@ -231,7 +244,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="/postgresql/11/_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -259,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11 Documentation
       </a>
     </li>
@@ -328,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/installing.html" class="md-nav__link">
+      <a href="../installing.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -342,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/apt.html" class="md-nav__link">
+      <a href="../apt.html" class="md-nav__link">
         Install on Debian and Ubuntu
       </a>
     </li>
@@ -356,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/yum.html" class="md-nav__link">
+      <a href="../yum.html" class="md-nav__link">
         Install on RHEL and derivatives
       </a>
     </li>
@@ -370,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/enable-extensions.html" class="md-nav__link">
+      <a href="../enable-extensions.html" class="md-nav__link">
         Enable Percona Distribution for PostgreSQL extensions
       </a>
     </li>
@@ -384,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/repo-overview.html" class="md-nav__link">
+      <a href="../repo-overview.html" class="md-nav__link">
         Repositories overview
       </a>
     </li>
@@ -405,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/migration.html" class="md-nav__link">
+      <a href="../migration.html" class="md-nav__link">
         Migrate from PostgreSQL to Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -419,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/minor-upgrade.html" class="md-nav__link">
+      <a href="../minor-upgrade.html" class="md-nav__link">
         Minor Upgrade of Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -468,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/pg-stat-monitor.html" class="md-nav__link">
+      <a href="../pg-stat-monitor.html" class="md-nav__link">
         pg_stat_monitor
       </a>
     </li>
@@ -488,14 +501,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -504,7 +519,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Solutions
@@ -529,7 +544,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/postgresql/11/solutions/high-availability.html">High availability</a>
+          <a href="high-availability.html">High availability</a>
           
             <label for="__nav_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -550,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/ha-setup-apt.html" class="md-nav__link">
+      <a href="ha-setup-apt.html" class="md-nav__link">
         Deploying on Debian or Ubuntu
       </a>
     </li>
@@ -564,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/ha-setup-yum.html" class="md-nav__link">
+      <a href="ha-setup-yum.html" class="md-nav__link">
         Deploying on RHEL or CentOS
       </a>
     </li>
@@ -578,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/ha-test.html" class="md-nav__link">
+      <a href="ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
       </a>
     </li>
@@ -611,7 +626,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/postgresql/11/solutions/backup-recovery.html">Backup and disaster recovery</a>
+          <a href="backup-recovery.html">Backup and disaster recovery</a>
           
             <label for="__nav_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -632,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
         Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -651,14 +666,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
       
       
       
@@ -667,7 +684,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
           Spatial data handling
@@ -678,11 +695,68 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/postgis.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="postgis.html" class="md-nav__link md-nav__link--active">
         Overview
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-postgis" class="md-nav__link">
+    When to use PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-postgis" class="md-nav__link">
+    When not to use PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -694,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/postgis-deploy.html" class="md-nav__link">
+      <a href="postgis-deploy.html" class="md-nav__link">
         Deployment
       </a>
     </li>
@@ -708,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/postgis-testing.html" class="md-nav__link">
+      <a href="postgis-testing.html" class="md-nav__link">
         Query spatial data
       </a>
     </li>
@@ -722,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/solutions/postgis-upgrade.html" class="md-nav__link">
+      <a href="postgis-upgrade.html" class="md-nav__link">
         Upgrade spatial database
       </a>
     </li>
@@ -743,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/ldap.html" class="md-nav__link">
+      <a href="../ldap.html" class="md-nav__link">
         LDAP authentication
       </a>
     </li>
@@ -765,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/uninstalling.html" class="md-nav__link">
+      <a href="../uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
     </li>
@@ -807,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes.html" class="md-nav__link">
+      <a href="../release-notes.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -821,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.19.upd.html" class="md-nav__link">
+      <a href="../release-notes-v11.19.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.19 Update (2023-05-22)
       </a>
     </li>
@@ -835,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.19.html" class="md-nav__link">
+      <a href="../release-notes-v11.19.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.19 (2023-03-31)
       </a>
     </li>
@@ -849,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.18.html" class="md-nav__link">
+      <a href="../release-notes-v11.18.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.18 (2022-12-08)
       </a>
     </li>
@@ -863,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.17.html" class="md-nav__link">
+      <a href="../release-notes-v11.17.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.17 (2022-09-08)
       </a>
     </li>
@@ -877,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.16.html" class="md-nav__link">
+      <a href="../release-notes-v11.16.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.16 (2022-06-07)
       </a>
     </li>
@@ -891,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.15.upd2.html" class="md-nav__link">
+      <a href="../release-notes-v11.15.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.15 Second Update (2022-05-05)
       </a>
     </li>
@@ -905,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.15.upd.html" class="md-nav__link">
+      <a href="../release-notes-v11.15.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.15 Update (2022-04-14)
       </a>
     </li>
@@ -919,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.15.html" class="md-nav__link">
+      <a href="../release-notes-v11.15.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.15 (2022-04-08)
       </a>
     </li>
@@ -933,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.14.html" class="md-nav__link">
+      <a href="../release-notes-v11.14.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.14 (2021-12-20)
       </a>
     </li>
@@ -947,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.13.upd.html" class="md-nav__link">
+      <a href="../release-notes-v11.13.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.13 Update (2021-12-07)
       </a>
     </li>
@@ -961,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.13.html" class="md-nav__link">
+      <a href="../release-notes-v11.13.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.13 (2021-09-09)
       </a>
     </li>
@@ -975,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.12.upd3.html" class="md-nav__link">
+      <a href="../release-notes-v11.12.upd3.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.12 Third Update (2021-07-15)
       </a>
     </li>
@@ -989,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.12.upd2.html" class="md-nav__link">
+      <a href="../release-notes-v11.12.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.12 Second Update (2021-07-01)
       </a>
     </li>
@@ -1003,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.12.upd.html" class="md-nav__link">
+      <a href="../release-notes-v11.12.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.12 Update (2021-06-10)
       </a>
     </li>
@@ -1017,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.12.html" class="md-nav__link">
+      <a href="../release-notes-v11.12.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.12 (2021-05-24)
       </a>
     </li>
@@ -1031,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.11.upd3.html" class="md-nav__link">
+      <a href="../release-notes-v11.11.upd3.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.11 Third Update (2021-06-10)
       </a>
     </li>
@@ -1045,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.11.upd2.html" class="md-nav__link">
+      <a href="../release-notes-v11.11.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.11 Second Update (2021-05-10)
       </a>
     </li>
@@ -1059,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.11.upd.html" class="md-nav__link">
+      <a href="../release-notes-v11.11.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.11 Update (2021-04-12)
       </a>
     </li>
@@ -1073,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.11.html" class="md-nav__link">
+      <a href="../release-notes-v11.11.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.11 (2021-03-08)
       </a>
     </li>
@@ -1087,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.10.upd.html" class="md-nav__link">
+      <a href="../release-notes-v11.10.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.10 Update (2021-06-10)
       </a>
     </li>
@@ -1101,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.10.html" class="md-nav__link">
+      <a href="../release-notes-v11.10.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.10 (2020-12-15)
       </a>
     </li>
@@ -1115,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.9.html" class="md-nav__link">
+      <a href="../release-notes-v11.9.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.9 (2020-09-08)
       </a>
     </li>
@@ -1129,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.8.html" class="md-nav__link">
+      <a href="../release-notes-v11.8.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.8 (2020-06-11)
       </a>
     </li>
@@ -1143,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.7.html" class="md-nav__link">
+      <a href="../release-notes-v11.7.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.7 (2020-04-09)
       </a>
     </li>
@@ -1157,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.6.html" class="md-nav__link">
+      <a href="../release-notes-v11.6.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.6 (2020-01-23)
       </a>
     </li>
@@ -1171,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11.html" class="md-nav__link">
+      <a href="../release-notes-v11.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11 (2019-09-17)
       </a>
     </li>
@@ -1185,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/release-notes-v11-beta.html" class="md-nav__link">
+      <a href="../release-notes-v11-beta.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11 (Beta) (2019-05-15)
       </a>
     </li>
@@ -1207,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/licensing.html" class="md-nav__link">
+      <a href="../licensing.html" class="md-nav__link">
         Licensing
       </a>
     </li>
@@ -1222,7 +1296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/11/trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1253,6 +1327,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-postgis" class="md-nav__link">
+    When to use PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-not-to-use-postgis" class="md-nav__link">
+    When not to use PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps:
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1264,10 +1369,97 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
-  <p> 
-We can't find the page you are looking for. Try using the Search or <a href= "https://docs.percona.com"> return to homepage </a>. </p>
 
+                <!-- Edit and view button -->
+                
+                  
+                  
+                  <a
+                    href="https://github.com/percona/postgresql-docs/edit/11/docs/solutions/postgis.md"
+                    title=""
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/11/docs/solutions/postgis.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+                  </a>
+                
+
+                <!--
+                  Hack: check whether the content contains a h1 headline. If it
+                  doesn't, the page title (or respectively site name) is used
+                  as the main headline.
+                -->
+                
+
+                <!-- Markdown content -->
+                <h1 id="spatial-data-manipulation">Spatial data manipulation<a class="headerlink" href="#spatial-data-manipulation" title="Permanent link">&para;</a></h1>
+<div class="admonition admonition">
+<p class="admonition-title">Version added: 11.20</p>
+</div>
+<p>Organizations dealing with spatial data need to store it somewhere and manipulate it. <a href="https://postgis.net/">PostGIS</a> is the open-source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:</p>
+<ul>
+<li>Geographical data like points, lines, polygons, GPS coordinates that can be mapped on a sphere.</li>
+<li>Geometrical data. This is also points, lines and polygons but they apply to a 2D surface.</li>
+</ul>
+<p>To operate with spacial data inside SQL queries, PostGIS supports <a href="https://postgis.net/docs/reference.html#SRS_Functions">spacial functions</a> like distance, area, union, intersection. It uses the spacial indexes like <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree</a> and <a href="https://en.wikipedia.org/wiki/Quadtree">Quadtree</a> for efficient processing of database operations. Read more about supported spacial functions and indexes in <a href="https://postgis.net/workshops/postgis-intro/introduction.html">PostGIS documentation</a>. </p>
+<p>By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open source spatial database that you can use in various areas without vendor lock-in. PostGIS packages from Percona are available for all currently supported PostgreSQL versions.</p>
+<h2 id="when-to-use-postgis">When to use PostGIS<a class="headerlink" href="#when-to-use-postgis" title="Permanent link">&para;</a></h2>
+<p>You can use PostGIS in the following cases:</p>
+<ul>
+<li>To store and manage spatial data, create and store spatial shapes, calculate areas and distances</li>
+<li>To build the software that visualizes spacial data on a map, </li>
+<li>To work with raster data, such as satellite imagery or digital elevation models.</li>
+<li>To integrate spatial and non-spatial data such as demographic or economic data in a database</li>
+</ul>
+<h2 id="when-not-to-use-postgis">When not to use PostGIS<a class="headerlink" href="#when-not-to-use-postgis" title="Permanent link">&para;</a></h2>
+<p>Despite its power and flexibility, PostGIS may not suit your needs if:</p>
+<ul>
+<li>You need to store only a couple of map locations. Consider using the <a href="https://www.postgresql.org/docs/current/functions-geometry.html">built-in geometric functions and operations of PostgreSQL</a></li>
+<li>You need real-time data analysis. While PostGIS can handle real-time spatial data, it may not be the best option for real-time data analysis on large volumes of data.</li>
+<li>You need complex 3D analysis or visualization.</li>
+<li>You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.</li>
+</ul>
+<h2 id="next-steps">Next steps:<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a href="postgis-deploy.html">Deployment</a></p>
+
+                
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+    <h4>Contact Us </h4>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/postgresql/25?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/DISTPG/issues/" target="_blank">JIRA</a> ticket.<br>
+         <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+ </article>
+</div>
+</div>
+
+                <!-- Last update of source file -->
+                
+                  
+                    <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 30, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 30, 2023</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
               </article>
             </div>
           
@@ -1384,17 +1576,17 @@ We can't find the page you are looking for. Try using the Search or <a href= "ht
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "/postgresql/11", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "/postgresql/11/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="/postgresql/11/assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
-          <script src="/postgresql/11/js/version-select.js"></script>
+          <script src="../js/version-select.js"></script>
         
       
         
-          <script src="/postgresql/11/js/promptremover.js"></script>
+          <script src="../js/promptremover.js"></script>
         
       
     
