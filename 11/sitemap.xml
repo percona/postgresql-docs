@@ -156,6 +156,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/postgresql/11/release-notes-v11.20.html</loc>
+         <lastmod>2023-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/postgresql/11/release-notes-v11.6.html</loc>
          <lastmod>2023-06-30</lastmod>
          <changefreq>daily</changefreq>
