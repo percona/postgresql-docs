@@ -7,7 +7,7 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
 
 ```{.bash data-prompt="$"}
-$ sudo dnf module disable postgresql llvm-toolset
+$ sudo dnf module disable postgresql llvm-toolset rust-toolset
 ```
 
 On CentOS 7, you should install the ``epel-release`` package:
@@ -31,7 +31,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 2. Enable the repository
 
-   Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
+   Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. The Minor repository should only be used if you need to standardize on a minor release, but be aware you may miss some critical updates in later versions. 
 
    To enable a repository, we recommend using the `setup` command: 
 
