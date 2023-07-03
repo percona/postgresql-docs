@@ -7,6 +7,7 @@ The following document provides guidelines how to install PostGIS and how to run
 1. We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.
 2. For uploading the spatial data and querying the database, we use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
 
+
 ## Install PostGIS
 
 1. Enable Percona repository
