@@ -5,11 +5,12 @@ The following document provides guidelines how to install PostGIS and how to run
 ## Preconditions
 
 1. We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.
-2. You need to acquire spatial data. For the following examples, we'll use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
+2. For uploading the spatial data and querying the database, we use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
+
 
 ## Install PostGIS
 
-1. Enable Percona repository.
+1. Enable Percona repository
 
     As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
@@ -93,17 +94,17 @@ The following document provides guidelines how to install PostGIS and how to run
           FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
           ```
 
-3. Create a database and a schema to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal:
+3. Create a database and a schema for this database to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal:
 
     ```sql
     CREATE database nyc;
+    \c nyc;
     CREATE SCHEMA gis;
     ```
 
-4. To make PostGIS functions and operations work, you need to enable the `postgis` extension. From the `psql` terminal, switch to the database you created and run the following command:
+4. To make PostGIS functions and operations work, you need to enable the `postgis` extension. Make sure you are connected to the database you created earlier and run the following command:
 
     ```sql
-    \c nyc;
     CREATE EXTENSION postgis;
     ```
 
@@ -118,14 +119,20 @@ The following document provides guidelines how to install PostGIS and how to run
     ```{.sql .no-copy}
     postgis_full_version
     -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-     POSTGIS="3.3.3dev 0" [EXTENSION] PGSQL="140" GEOS="3.10.2-CAPI-1.16.0" PROJ="8.2.1" LIBXML="2.9.13" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
+     POSTGIS="3.3.3" [EXTENSION] PGSQL="140" GEOS="3.10.2-CAPI-1.16.0" PROJ="8.2.1" LIBXML="2.9.13" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
     ```
 
 ## Upload spatial data to PostgreSQL
 
 PostGIS provides the `shp2pgsql` command line utility that converts the binary data from shapefiles into the series of SQL commands and loads them into the database.
 
-1. From the folder where the `.shp` files are located, execute the following command and replace the `dbname` value with the name of your database:
+1. For testing purposes, download the sample data set:
+
+    ```{.bash data-prompt="$"}
+    $ curl -LO https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip
+    ```
+    
+2. Unzip the archive and from the folder where the `.shp` files are located, execute the following command and replace the `dbname` value with the name of your database:
 
     ```{.bash data-prompt="$"}
     shp2pgsql \
