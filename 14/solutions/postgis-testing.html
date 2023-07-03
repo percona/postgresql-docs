@@ -21,7 +21,7 @@
         <link rel="prev" href="postgis-deploy.html">
       
       
-        <link rel="next" href="../ldap.html">
+        <link rel="next" href="postgis-upgrade.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
@@ -1051,6 +1051,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="postgis-upgrade.html" class="md-nav__link">
+        Upgrade spatial database
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1233,17 +1247,17 @@
 </code></pre></div>
 <h2 id="what-is-the-area-of-central-park"><em>What is the area of Central Park?</em><a class="headerlink" href="#what-is-the-area-of-central-park" title="Permanent link">&para;</a></h2>
 <p>To get the answer we will use the <code>ST_Area</code> function that returns the areas of polygons.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000000</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_neighborhoods</span>
 <span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Central Park&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>Output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">      </span><span class="n">st_area</span>
 <span class="c1">--------------------</span>
-<span class="w"> </span><span class="mi">3519</span><span class="p">.</span><span class="mi">8365965413293</span>
+<span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">5198365965413293</span>
 <span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
 </code></pre></div>
-<p>By default, the output is given in square meters. To get the value in square kilometers, divide it by 1000.</p>
+<p>By default, the output is given in square meters. To get the value in square kilometers, divide it by 1 000 000.</p>
 <h2 id="how-long-is-columbus-circle"><em>How long is Columbus Circle?</em><a class="headerlink" href="#how-long-is-columbus-circle" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Length</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_streets</span>
@@ -1276,7 +1290,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 3, 2023</span>
       
         <br>
         Created:
