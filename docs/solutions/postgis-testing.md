@@ -23,7 +23,7 @@ population
 To get the answer we will use the `ST_Area` function that returns the areas of polygons.
 
 ```sql
-SELECT ST_Area(geom) / 1000
+SELECT ST_Area(geom) / 1000000
   FROM nyc_neighborhoods
   WHERE name = 'Central Park';
 ```
@@ -33,11 +33,11 @@ Output:
 ```{.sql .no-copy}
       st_area
 --------------------
- 3519.8365965413293
+ 3.5198365965413293
 (1 row)
 ```
 
-By default, the output is given in square meters. To get the value in square kilometers, divide it by 1000.
+By default, the output is given in square meters. To get the value in square kilometers, divide it by 1 000 000.
 
 ## *How long is Columbus Circle?*
 
