@@ -5,7 +5,7 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 ## Considerations
 
 1. This is the example deployment suitable to be used for testing purposes in non-production environments. 
-2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts because ETCD writes every request from the cluster to disk which requires significant amount of disk space. See [hardware recommendations](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
+2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts or at least have separate disks for ETCD and PostgreSQL. This is because ETCD writes every request from the cluster to disk which can be CPU intensive and affects disk performance. See [hardware recommendations](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
 3. For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system:
 
     | Node name     | Application       | IP address
@@ -71,7 +71,7 @@ Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames an
 
 1. [Install Percona Distribution for PostgreSQL](../apt.md) on `node1`, `node2` and `node3`.
 
-2. Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:
+2. Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance. Use the following commands to stop the PostgreSQL service and then remove the data directory:
 
    ```{.bash data-prompt="$"}
    $ sudo systemctl stop postgresql
@@ -116,7 +116,9 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 3. Start the `etcd` service to apply the changes on `node1`.
 
     ```{.bash data-prompt="$"}
+    $ sudo systemctl enable etcd
     $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
     ```
 
 4. Check the etcd cluster members on `node1`:
@@ -131,7 +133,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
      21d50d7f768f153a: name=default peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
      ```
 
-5. Add the `node2` to the cluster. Run the following command on `node`:
+5. Add the `node2` to the cluster. Run the following command on `node1`:
 
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
@@ -147,7 +149,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_INITIAL_CLUSTER_STATE="existing"
     ```
 
-6. Configure `etcd` on `node2` using the output from adding the node to the cluster. Edit the `/etc/default/etcd` configuration file and add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
+6. Configure `etcd` on `node2` using the output from adding the node to the cluster. Edit the `/etc/default/etcd` configuration file on `node2` and use the result of the `add` command to change the configuration file as follows:
 
       ```text
       [Member]
@@ -172,13 +174,13 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     $ sudo systemctl status etcd
     ```
 
-8. Add `node3` to the cluster
+8. Add `node3` to the cluster. Run the following command on `node1`
 
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member add node3 http://10.104.0.3:2380
     ```
 
-9. Configure `etcd` on `node3`. Modify the `/etc/default/etcd` configuration file and add the IP addresses of all three nodes to the `ETCD_INITIAL_CLUSTER` parameter:
+9. Configure `etcd` on `node3` using the same approach as for `node2`. Modify the `/etc/default/etcd` configuration file and add the output of the `add` command:
 
       ```text
       ETCD_NAME=node3
@@ -482,9 +484,9 @@ postgres=#
 
 ## Configure HAProxy
 
-HAProxy node accepts client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
+HAproxy is the load balancer and the single point of entry to your PostgreSQL cluster for client applications. A client application accesses the HAPpoxy URL and sends its read/write requests there. Behind-the-scene, HAProxy routes write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001
 
-HAProxy is capable of routing write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
+This way, a client application doesn’t know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
