@@ -110,25 +110,25 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
      Backup the `etcd.conf` file:
     
-    ```{.bash data-promp="$"}
-    sudo mv /etc/etcd/etcd.conf /etc/etcd/etcd.conf.orig
-    ```
+     ```{.bash data-promp="$"}
+     sudo mv /etc/etcd/etcd.conf /etc/etcd/etcd.conf.orig
+     ```
 
      Modify the `/etc/etcd/etcd.conf` configuration file:
 
-   ```text
-   [Member]
-   ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
-   ETCD_LISTEN_PEER_URLS="http://10.104.0.1:2380,http://localhost:2380" 
-   ETCD_LISTEN_CLIENT_URLS="http://10.104.0.1:2379,http://localhost:2379"
+     ```text
+     [Member]
+     ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
+     ETCD_LISTEN_PEER_URLS="http://10.104.0.1:2380,http://localhost:2380" 
+     ETCD_LISTEN_CLIENT_URLS="http://10.104.0.1:2379,http://localhost:2379"  
 
-   ETCD_NAME="node1"
-   ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.1:2380"
-   ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.1:2379"
-   ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380"
-   ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
-   ETCD_INITIAL_CLUSTER_STATE="new"
-   ```
+     ETCD_NAME="node1"
+     ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.1:2380"
+     ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.1:2379"
+     ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380"
+     ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
+     ETCD_INITIAL_CLUSTER_STATE="new"
+     ```
 
 3.  Start the `etcd` to apply the changes on `node1`:
 
@@ -156,7 +156,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
     ```
 
-    The output will be something similar to below one:
+    The output resembles the following one:
     
     ```{.text .no-copy}
     Added member named node2 with ID 10042578c504d052 to cluster
@@ -166,7 +166,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_INITIAL_CLUSTER_STATE="existing"
     ```
 
-7. Edit the `/etc/etcd/etcd.conf` configuration file on `node2` and add the output from step 6:
+7. Edit the `/etc/etcd/etcd.conf` configuration file on `node2` and add the output from the `add` command:
 
     ```text 
     [Member]
@@ -195,7 +195,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     $ sudo etcdctl member add node3 http://10.104.0.3:2380
     ```
 
-10. Configure `etcd` on `node3`. Edit the `/etc/etcd/etcd.conf` configuration file on `node3` and add the IP addresses of all three nodes to the `ETCD_INITIAL_CLUSTER` parameter:
+10. Configure `etcd` on `node3`. Edit the `/etc/etcd/etcd.conf` configuration file on `node3` and add the output from the `add` command as follows:
 
       ```text
       ETCD_NAME=node3
@@ -484,9 +484,9 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 ## Configure HAProxy
 
-HAProxy node will accept client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
+HAproxy is the load balancer and the single point of entry to your PostgreSQL cluster for client applications. A client application accesses the HAPpoxy URL and sends its read/write requests there. Behind-the-scene, HAProxy routes write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001
 
-HAProxy is capable of routing write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
+This way, a client application doesn’t know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
