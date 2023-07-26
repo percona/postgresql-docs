@@ -151,7 +151,7 @@ nav:
       - 'pg-stat-monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
-          - 'Overview': 'solutions/high-availability.md'
+          - 'High availability': 'solutions/high-availability.md'
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
           - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
           - solutions/ha-test.md
