@@ -302,6 +302,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
     ```yaml
     scope: cluster_1
     namespace: percona_lab
+    name: node1
 
     restapi:
         listen: 0.0.0.0:8008
@@ -362,7 +363,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
         listen: 0.0.0.0:5432
         connect_address: 10.104.0.1:5432
         data_dir: /data/pgsql
-        bin_dir: /usr/pgsql-14/bin
+        bin_dir: /usr/pgsql-13/bin
         pgpass: /tmp/pgpass
         authentication:
             replication:
