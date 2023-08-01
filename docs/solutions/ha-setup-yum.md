@@ -273,8 +273,8 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     name: node1
 
     restapi:
-        listen: 10.104.0.7:8008            # PostgreSQL node IP address
-        connect_address: 10.104.0.7:8008   # PostgreSQL node IP address
+        listen: 0.0.0.0:8008
+        connect_address: 10.104.0.1:8008
 
     etcd:
         host: 10.104.0.1:2379  # ETCD node IP address
@@ -327,7 +327,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
       listen: 0.0.0.0:5432
       connect_address: 10.104.0.1:5432
       data_dir: /data/pgsql
-      bin_dir: /usr/pgsql-14/bin
+      bin_dir: /usr/pgsql-11/bin
       pgpass: /tmp/pgpass
       authentication:
           replication:
