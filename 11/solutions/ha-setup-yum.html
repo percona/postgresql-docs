@@ -24,7 +24,7 @@
         <link rel="next" href="ha-test.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -1740,8 +1740,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span>
 
 <span class="nt">restapi</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.7:8008</span><span class="w">            </span><span class="c1"># PostgreSQL node IP address</span>
-<span class="w">    </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.7:8008</span><span class="w">   </span><span class="c1"># PostgreSQL node IP address</span>
+<span class="w">    </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:8008</span>
+<span class="w">    </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.1:8008</span>
 
 <span class="nt">etcd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.1:2379</span><span class="w">  </span><span class="c1"># ETCD node IP address</span>
@@ -1794,7 +1794,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:5432</span>
 <span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.1:5432</span>
 <span class="w">  </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data/pgsql</span>
-<span class="w">  </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/pgsql-14/bin</span>
+<span class="w">  </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/pgsql-11/bin</span>
 <span class="w">  </span><span class="nt">pgpass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass</span>
 <span class="w">  </span><span class="nt">authentication</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">replication</span><span class="p">:</span>
@@ -2022,7 +2022,7 @@ listen standbys
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 1, 2023</span>
       
         <br>
         Created:
