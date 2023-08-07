@@ -2,7 +2,31 @@
 
 INHERIT: mkdocs-base.yml
 
-site_url: https://docs.percona.com/postgresql
+
+site_url: "https://docs.percona.com/postgresql/"
+
+theme:
+  name: material
+  custom_dir: _resource/overrides/
+
+# Theme features
+
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking
+    - content.tabs.link  
+    - content.action.edit
+    - content.action.view
+    - content.code.copy   
+
+# Plugins
+plugins:
+  section-index: {}
+
+#markdown_extensions:
+#  - pymdownx.tabbed:
+#      alternate_style: true 
 
 theme:
   name: material
