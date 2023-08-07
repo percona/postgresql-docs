@@ -4,7 +4,5 @@
 INHERIT: mkdocs-base.yml
 
 markdown_extensions:
-  - pymdownx.tabbed
-  - pymdownx.superfences
-  - admonition 
-
+  pymdownx.tabbed: {}
+  admonition: {}
