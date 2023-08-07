@@ -4,14 +4,25 @@ INHERIT: mkdocs-base.yml
 
 site_url: "https://docs.percona.com/postgresql/"
 
-
 theme:
   name: material
-  custom_dir: _resource/overrides
+  custom_dir: _resource/overrides/
 
+# Theme features
 
-#Google Analytics configuration 
-extra:
-  analytics:
-    provider: google
-    property: UA-343802-3
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking
+    - content.tabs.link  
+    - content.action.edit
+    - content.action.view
+    - content.code.copy   
+
+# Plugins
+plugins:
+  section-index: {}
+
+#markdown_extensions:
+#  - pymdownx.tabbed:
+#      alternate_style: true 
