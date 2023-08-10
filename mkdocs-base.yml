@@ -104,7 +104,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 15.3 (June 28, 2023)
+          cover_subtitle: 15.4 (, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -133,6 +133,7 @@ nav:
   - 'Home': 'index.md'
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v15.4.md
       - release-notes-v15.3.md
       - release-notes-v15.2.upd.md
       - release-notes-v15.2.md
