@@ -162,6 +162,12 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
         For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
 
+        Install `pg_gather`
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-pg_gather
+        ```
+
         Install HAProxy
         
         ```{.bash data-prompt="$"}

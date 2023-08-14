@@ -76,8 +76,9 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgbadger \
        percona-postgresql-14-wal2json \
        percona-pg-stat-monitor14 \
-       percona-postgresql-contrib
-       percona-pgpool2
+       percona-postgresql-contrib \
+       percona-pgpool2 \
+       percona-pg-gather
       ```
 
     !!! admonition "See also"
@@ -267,8 +268,9 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgaudit14_set_user \
        percona-pgbadger \
        percona-wal2json14 \
-       percona-postgresql14-contrib
-       percona-pgpool-II-pg14
+       percona-postgresql14-contrib \
+       percona-pgpool-II-pg14 \
+       percona-pg_gather
        ```
 
 !!! admonition "See also"
