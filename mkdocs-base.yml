@@ -109,7 +109,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
       output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
       cover_title: 'Distribution for PostgreSQL Documentation'
-      cover_subtitle: 13.11 (June 29, 2023)
+      cover_subtitle: 13.12 (, 2023)
       author: 'Percona Technical Documentation Team'
       cover_logo: docs/_images/Percona_Logo_Color.png
       debug_html: false

@@ -2,5 +2,5 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 release: 'release-notes-v13.11'
-version: '13.11'
-release_date: 2023-06-
+version: '13.12'
+
