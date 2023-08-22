@@ -52,6 +52,7 @@ The `percona-ppg-server-ha` meta-package installs high-availability components t
 | `percona-haproxy`| A high-availability and load-balancing solution |
 | `etcd`           | A consistent, distributed key-value store | 
 | `python3-python-etcd` | A Python client for ETCD.[^1]
+| `etcd-client`, `etcd-server` | The client/server of the distributed key-value store. [^2]| 
 
 To install Percona Distribution for PostgreSQL, refer to the following tutorials:
 
@@ -60,3 +61,4 @@ To install Percona Distribution for PostgreSQL, refer to the following tutorials
 
 
 [^1]: Is included in repositories for RHEL 8 / CentOS 8 operating systems 
+[^2]: Are included in repositories for Debian 12 operating system

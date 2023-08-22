@@ -1,18 +1,18 @@
-# Percona Distribution for PostgreSQL 11.21 (2023-)
+# Percona Distribution for PostgreSQL 11.21 (2023-08-31)
 
 
-| Release date:     | , 2023      |
+| Release date:     | August 31, 2023      |
 |:------------------|:----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
-Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.
+Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Spatial data handling, Observability, Performance and Scalability and others that enterprises are facing.
 
 This release is based on [PostgreSQL
 11.21](https://www.postgresql.org/docs/release/11.21/). 
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL components now include [pg_gather](https://github.com/jobinau/pg_gather) - the open source extension to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases. This tool helps you run diagnostics of your PosrgreSQL cluster and is also actively used by Percona Support.
+* Percona Distribution for PostgreSQL components now include [pg_gather](https://github.com/jobinau/pg_gather) - the open source extension to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases. This tool helps you run diagnostics of your PostgreSQL cluster and is also actively used by Percona Support.
 * Percona Distribution for PostgreSQL is now available on Debian 12 (bookworm).
 * The support of Ubuntu 18.04 is deprecated.
 
@@ -45,9 +45,9 @@ Percona Distribution for PostgreSQL also includes the following packages:
 
 |  Operating System   |Package               | Version | Description   |
 | ------------------- | ---------------------| --------|---------------|
-| RHEL 7             |`python3-python-etcd` | 0.4.3   | A Python client for ETCD     |
+| RHEL 7             |`python3-python-etcd` | 0.4.5   | A Python client for ETCD     |
 | RHEL 8             | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
-|                     | `python3-python-etcd`| 0.4.3   | A Python client for ETCD     |
+|                     | `python3-python-etcd`| 0.4.5   | A Python client for ETCD     |
 
 
 Percona Distribution for PostgreSQL is also shipped with the
