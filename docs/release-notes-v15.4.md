@@ -1,6 +1,6 @@
-# Percona Distribution for PostgreSQL 15.4 (2023-)
+# Percona Distribution for PostgreSQL 15.4 (2023-08-29)
 
-| Release date:     |  , 2023      |
+| Release date:     | August 29, 2023      |
 |:------------------|:-----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
@@ -29,7 +29,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgBackRest](https://pgbackrest.org/)           | 2.47    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.1     | a fast PostgreSQL Log Analyzer.|
 |[PgBouncer](https://www.pgbouncer.org/)          |1.20.0    | a lightweight connection pooler for PostgreSQL|
-| [pg_gather](https://github.com/jobinau/pg_gather)| v21     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
+| [pg_gather](https://github.com/jobinau/pg_gather)| v22     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.3 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|2.0.1 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
