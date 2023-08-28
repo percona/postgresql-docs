@@ -34,7 +34,7 @@ PostgreSQL database objects
 
 * [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
 
-* A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/15/contrib.html)
+* A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/14/contrib.html)
 
 
 [Get started](installing.md){ .md-button }
