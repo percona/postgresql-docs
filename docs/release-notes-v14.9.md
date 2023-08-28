@@ -1,7 +1,7 @@
-# Percona Distribution for PostgreSQL 14.9 (2023-08-29)
+# Percona Distribution for PostgreSQL 14.9 (2023-08-30)
 
 
-| Release date:     | August 29, 2023        |
+| Release date:     | August 30, 2023        |
 |:------------------|:-----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
@@ -45,7 +45,7 @@ Percona Distribution for PostgreSQL also includes the following packages:
 
 |  Operating system  | Package              | Version | Description        |
 | ------------------ | ---------------------| --------| ------------------ |
-| RHEL 7              |`python3-python-etcd` | 0.4.3   | A Python client for ETCD     |
+| RHEL 7              |`python3-python-etcd` | 0.4.5   | A Python client for ETCD     |
 | RHEL 8             | `etcd`               | 3.3.11  | A consistent, distributed key-value store |
 |                    | `python3-python-etcd`| 0.4.5   | A Python client for ETCD |
                                                       
