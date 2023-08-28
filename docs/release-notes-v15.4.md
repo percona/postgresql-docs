@@ -6,7 +6,7 @@
 
 
 
-Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.
+Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.4](https://www.postgresql.org/docs/current/release-15-4.html). 
 
@@ -46,7 +46,7 @@ Percona Distribution for PostgreSQL also includes the following packages:
 |  Operating System   | Package              | Version | Description        |
 | ------------------- | ---------------------| --------| ------------------ |
 | CentOS 8            | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
-|                     | `python3-python-etcd`| 0.4.3   | A Python client for ETCD     |
+|                     | `python3-python-etcd`| 0.4.5   | A Python client for ETCD     |
 
                                                       
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/15/libpq.html) library. It contains "a set of

@@ -36,7 +36,7 @@ PostgreSQL database objects
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/15/contrib.html)
 
 
-[Get started](installation.md){ .md-button }
+[Get started](installing.md){ .md-button }
 [What's new]({{release}}.md){ .md-button }
 
 !!! admonition "See also"
