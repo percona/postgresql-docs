@@ -81,6 +81,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-postgresql-contrib
        percona-haproxy
        percona-pgpool2
+       percona-pg-gather
       ```
 
 2. Stop the `postgresql` service.
@@ -267,6 +268,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-postgresql15-contrib
        percona-haproxy
        percona-pgpool-II-pg15
+       percona-pg_gather
        ```
 
 

@@ -19,9 +19,7 @@ theme:
     - content.action.view
     - content.code.copy   
 
-# Plugins
-plugins:
-  section-index: {}
+
 
 #markdown_extensions:
 #  - pymdownx.tabbed:

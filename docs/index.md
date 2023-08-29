@@ -20,6 +20,8 @@ PostgreSQL
 
 * [PgBouncer](https://www.pgbouncer.org/) - a lightweight connection pooler for PostgreSQL
 
+* [pg_gather](https://github.com/jobinau/pg_gather) - an SQL script to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases.
+
 * [pgpool2](https://www.pgpool.net/mediawiki/index.php/Main_Page) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
 
 * [pg_repack](https://github.com/reorg/pg_repack) rebuilds
@@ -34,7 +36,7 @@ PostgreSQL database objects
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/15/contrib.html)
 
 
-[Get started](installation.md){ .md-button }
+[Get started](installing.md){ .md-button }
 [What's new]({{release}}.md){ .md-button }
 
 !!! admonition "See also"
