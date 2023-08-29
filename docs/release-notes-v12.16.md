@@ -1,11 +1,11 @@
-# Percona Distribution for PostgreSQL 12.16 (2023-)
+# Percona Distribution for PostgreSQL 12.16 (2023-08-30)
 
 
-| Release date:     |  2023      |
+| Release date:     |  August 30, 2023      |
 |:------------------|:----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
-Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.
+Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Spatial data handling, Observability, Performance and Scalability and others that enterprises are facing.
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 12.16](https://www.postgresql.org/docs/release/12.16/). 
 
@@ -28,7 +28,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgBackRest](https://pgbackrest.org/)           | 2.47    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.1     | a fast PostgreSQL Log Analyzer.|
 |[PgBouncer](https://www.pgbouncer.org/)          |1.20.0    | a lightweight connection pooler for PostgreSQL|
-| [pg_gather](https://github.com/jobinau/pg_gather)| v21     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
+| [pg_gather](https://github.com/jobinau/pg_gather)| v22     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.3 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|2.0.1 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
@@ -44,9 +44,9 @@ Percona Distribution for PostgreSQL also includes the following packages:
 
 |  Operating System   | Package              | Version | Description        |
 | ------------------- | ---------------------| --------| ------------------ |
-| RHEL 7            |`python3-python-etcd` | 0.4.3   | A Python client for ETCD     |
+| RHEL 7            |`python3-python-etcd` | 0.4.5   | A Python client for ETCD     |
 | RHEL 8              | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
-|                     | `python3-python-etcd`| 0.4.3   | A Python client for ETCD     |
+|                     | `python3-python-etcd`| 0.4.5   | A Python client for ETCD     |
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/12/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
