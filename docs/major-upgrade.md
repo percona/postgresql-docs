@@ -82,6 +82,7 @@ The exact steps may differ depending on the package manager of your operating sy
       $ sudo apt install percona-postgresql-12-wal2json
       $ sudo apt install percona-postgresql-contrib
       $ sudo apt install percona-pgpool2
+      $ sudo apt install percona-pg-gather
       ```
       
     !!! admonition "See also"
@@ -248,6 +249,7 @@ The exact steps may differ depending on the package manager of your operating sy
        $ sudo yum install percona-wal2json12
        $ sudo yum install percona-postgresql12-contrib
        $ sudo yum install percona-pgpool-II-pg14
+       $ sudo yum install percona-pg_gather
        ```
 
 
