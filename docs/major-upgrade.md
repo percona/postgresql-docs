@@ -79,7 +79,8 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-postgresql-13-wal2json \
        percona-pg-stat-monitor13 \
        percona-postgresql-contrib \
-       percona-pgpool2
+       percona-pgpool2 \
+       percona-pg-gather
       ```
 
     !!! admonition "See also"
@@ -272,7 +273,8 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgbadger \
        percona-wal2json13 \
        percona-postgresql13-contrib \
-       percona-pgpool-II-pg13
+       percona-pgpool-II-pg13 \
+       percona-pg_gather
        ```
 
 !!! admonition "See also"
