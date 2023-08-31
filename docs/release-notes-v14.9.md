@@ -12,7 +12,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.9
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL components now include [pg_gather](https://github.com/jobinau/pg_gather) - the open source extension to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases. This tool helps you run diagnostics of your PosrgreSQL cluster and is also actively used by Percona Support.
+* Percona Distribution for PostgreSQL components now include [pg_gather](https://github.com/jobinau/pg_gather) - the open source extension to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases. This tool helps you run diagnostics of your PostgreSQL cluster and is also actively used by Percona Support.
 * Percona Distribution for PostgreSQL is now available on Debian 12 (bookworm).
 * The support of Ubuntu 18.04 is deprecated.
 
