@@ -2,7 +2,7 @@
 
 !!! note
 
-    This document describes the functionality of pg_stat_monitor 2.0.0.
+    This document describes the functionality of pg_stat_monitor 2.0.2.
 
 ## Overview
 
@@ -86,13 +86,13 @@ To install `pg_stat_monitor`, run the following commands:
     1. Enable the repository
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg15
+        $ sudo percona-release setup ppg16
         ```
 
     2. Install the package:
 
         ```{.bash data-prompt="$"}
-        $ sudo apt-get install percona-pg-stat-monitor15
+        $ sudo apt-get install percona-pg-stat-monitor16
         ```
 
 === "On Red Hat Enterprise Linux and derivatives"
@@ -100,13 +100,13 @@ To install `pg_stat_monitor`, run the following commands:
     1. Enable the repository
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg15
+        $ sudo percona-release setup ppg16
         ```
     
     2. Install the package:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg-stat-monitor15
+        $ sudo yum install percona-pg-stat-monitor16
         ```
 
 ## Setup
@@ -147,7 +147,7 @@ To install `pg_stat_monitor`, run the following commands:
     === "On Red Hat Enterprise Linux and derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl restart postgresql-15
+         $ sudo systemctl restart postgresql-16
          ```
 
 

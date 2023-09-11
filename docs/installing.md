@@ -2,11 +2,11 @@
 
 Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
 
-Like many other Percona products, we recommend installing Percona Distribution for PostgreSQL from Percona repositories by using the **percona-release** utility. The **percona-release** utility automatically enables the required repository for you so you can easily install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.
+The default and recommended way to install Percona Distribution for PostgreSQL is from Percona repositories using [percona-release](https://www.percona.com/doc/percona-repo-config/index.html) utility. The **percona-release** utility automatically enables the required repository for you. Then you install and update Percona Distribution for PostgreSQL packages and their dependencies through the package manager of your operating system.
 
-## Package contents
+## Repository contents
 
-In addition to individual packages for its components, Percona Distribution for PostgreSQL also includes two meta-packages: `percona-ppg-server` and `percona-ppg-server-ha`.
+Percona Distribution for PostgreSQL provides individual packages for its components. It also includes two meta-packages: `percona-ppg-server` and `percona-ppg-server-ha`.
 
 Using a meta-package, you can install all components it contains in one go.
 
@@ -14,11 +14,11 @@ Using a meta-package, you can install all components it contains in one go.
 
 === "Package name on Debian/Ubuntu"
 
-     `percona-ppg-server-15`
+     `percona-ppg-server-16`
 
 === "Package name on RHEL/derivatives"
 
-     `percona-ppg-server15`
+     `percona-ppg-server16`
 
 The `percona-ppg-server` meta-package installs the PostgreSQL server with the following packages:
 
@@ -38,11 +38,11 @@ The `%{pgmajorversion}` variable stands for the major version of PostgreSQL.
 
 === "Package name on Debian/Ubuntu"
 
-     `percona-ppg-server-ha-15`
+     `percona-ppg-server-ha-16`
 
 === "Package name on RHEL/derivatives"
 
-     `percona-ppg-server-ha15`
+     `percona-ppg-server-ha16`
 
 The `percona-ppg-server-ha` meta-package installs high-availability components that are recommended by Percona:
 
@@ -54,6 +54,7 @@ The `percona-ppg-server-ha` meta-package installs high-availability components t
 | `python3-python-etcd` | A Python client for ETCD.[^1] |
 | `etcd-client`, `etcd-server` | The client/server of the distributed key-value store. [^2]| 
 
+## Installation guidelines
 To install Percona Distribution for PostgreSQL, refer to the following tutorials:
 
 * [On Debian and Ubuntu](apt.md)
