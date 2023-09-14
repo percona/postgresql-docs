@@ -57,7 +57,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.4 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|2.0.2 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
-| [PostGIS](https://github.com/postgis/postgis) | 3.4.0 | a spatial extension for PostgreSQL.|
+| [PostGIS](https://github.com/postgis/postgis) | 3.3.4 | a spatial extension for PostgreSQL.|
 | [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 253 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
 
