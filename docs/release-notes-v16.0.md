@@ -4,7 +4,7 @@
 [Upgrade](major-upgrade.md){.md-button}
  
 
-We are pleased to announce the launch of Percona Distribution for PostgreSQL 16.0 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Performance and Scalability and others that enterprises are facing.
+We are pleased to announce the launch of Percona Distribution for PostgreSQL 16.0 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16](https://www.postgresql.org/docs/16/release-16.html). 
 
@@ -69,7 +69,7 @@ Percona Distribution for PostgreSQL also includes the following packages:
 |  Operating System   | Package              | Version | Description        |
 | ------------------- | ---------------------| --------| ------------------ |
 | CentOS 8            | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
-|                     | `python3-python-etcd`| 0.4.5   | A Python client for ETCD     |
+|                     | `python3-etcd`| 0.4.5   | A Python client for ETCD     |
 
 
                                                       
