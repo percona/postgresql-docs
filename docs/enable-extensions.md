@@ -10,7 +10,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10, 11, 12 and Ubuntu 18.04, 20.04, 22.04.  
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10, 11, 12 and Ubuntu 20.04, 22.04.  
 
      For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
 
@@ -51,7 +51,7 @@ For details about each option, see [pdBadger documentation](https://github.com/d
 
 **pgAudit set-user**
 
-Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
+Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/16/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
 
 ```sql
 ALTER SYSTEM SET shared_preload_libraries = 'set-user';
