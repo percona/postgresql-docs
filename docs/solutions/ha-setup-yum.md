@@ -75,7 +75,7 @@ Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from
 2. Enable the repository:
 
     ```{.bash data-prompt="$"}
-    $ sudo percona-release setup ppg14
+    $ sudo percona-release setup ppg16
     ```
 
 3. [Install Percona Distribution for PostgreSQL packages](../yum.md).
@@ -95,13 +95,13 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
    - [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
    - Enable the repository:
 
-      ```{.bash data-promp="$"}
-      $ sudo percona-release setup ppg14
+      ```{.bash data-prompt="$"}
+      $ sudo percona-release setup ppg16
       ```
    
    - Install the etcd packages using the following command:
 
-      ```{.bash data-promp="$"}
+      ```{.bash data-prompt="$"}
       $ sudo yum install etcd python3-python-etcd
       ```
 
@@ -109,7 +109,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
      Backup the `etcd.conf` file:
     
-     ```{.bash data-promp="$"}
+     ```{.bash data-prompt="$"}
      sudo mv /etc/etcd/etcd.conf /etc/etcd/etcd.conf.orig
      ```
 
@@ -131,7 +131,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 3.  Start the `etcd` to apply the changes on `node1`:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl enable etcd
     $ sudo systemctl start etcd
     $ sudo systemctl status etcd
@@ -139,7 +139,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 5. Check the etcd cluster members on `node1`.
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo etcdctl member list
     ```
 
@@ -182,7 +182,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 8. Start the `etcd` to apply the changes on `node2`:
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl enable etcd
     $ sudo systemctl start etcd
     $ sudo systemctl status etcd
@@ -236,13 +236,13 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 1. Install Patroni on every PostgreSQL node:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo yum install percona-patroni
     ```
 
 2. Install the Python module that enables Patroni to communicate with ETCD.
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo python3 -m pip install patroni[etcd]
     ```
 
@@ -250,7 +250,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
     * Create the directory to store the configuration file and make it owned by the `postgres` user.
 
-      ```{.bash data-promp="$"}
+      ```{.bash data-prompt="$"}
       $ sudo mkdir -p /etc/patroni/
       $ sudo chown -R  postgres:postgres /etc/patroni/
       ``` 
@@ -352,7 +352,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 6. Create the systemd unit file `patroni.service` in `/etc/systemd/system`. 
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo vim /etc/systemd/system/patroni.service
     ```
 
@@ -390,7 +390,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 7. Make systemd aware of the new service:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
     $ sudo systemctl enable patroni
     $ sudo systemctl start patroni
@@ -400,7 +400,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
         To ensure that Patroni has started properly, check the logs using the following command:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo journalctl -u patroni.service -n 100 -f
         ```
 
@@ -455,7 +455,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
         If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo psql -U postgres
 
         psql (14.1)
@@ -467,7 +467,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 9. Configure, enable and start Patroni on the remaining nodes.
 10. When all nodes are up and running, you can check the cluster status using the following command:
 
-   ```{.bash data-promp="$"}
+   ```{.bash data-prompt="$"}
    $ sudo patronictl -c /etc/patroni/patroni.yml list
    ```
    
@@ -541,18 +541,18 @@ This way, a client application doesn’t know what node in the underlying cluste
 
 3. Enable a SELinux boolean to allow HAProxy to bind to non standard ports:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo setsebool -P haproxy_connect_any on
     ```
 
 4. Restart HAProxy:
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl restart haproxy
     ```
 
 5. Check the HAProxy logs to see if there are any errors:
    
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```

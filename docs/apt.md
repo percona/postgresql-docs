@@ -39,7 +39,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    To enable a repository, we recommend using the `setup` command: 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-15
+   $ sudo percona-release setup ppg-16
    ```
 
 ### Install packages
@@ -47,7 +47,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 === "Install using meta-package"
      
      ```{.bash data-prompt="$"}
-     $ sudo apt install percona-ppg-server-15
+     $ sudo apt install percona-ppg-server-16
      ```
 
 === "Install packages individually"
@@ -55,7 +55,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-15
+         $ sudo apt install percona-postgresql-16
          ```
 
      2. Install the components:
@@ -63,13 +63,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pg_repack`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-15-repack
+          $ sudo apt install percona-postgresql-16-repack
           ```
 
           Install `pgAudit`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-15-pgaudit
+          $ sudo apt install percona-postgresql-16-pgaudit
           ```
 
           Install `pgBackRest`:
@@ -96,7 +96,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pgAudit-set_user`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgaudit15-set-user
+          $ sudo apt install percona-pgaudit16-set-user
           ```
 
           Install `pgBadger`:
@@ -108,7 +108,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `wal2json`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-15-wal2json
+          $ sudo apt install percona-postgresql-16-wal2json
           ```
 
           Install PostgreSQL contrib extensions:
@@ -148,7 +148,7 @@ $ sudo systemctl status postgresql.service
 
 ### Connect to the PostgreSQL server
 
-By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
+By default, the `postgres` user and the `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
 
 ```{.bash data-prompt="$"}
 $ sudo su postgres

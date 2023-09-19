@@ -28,10 +28,12 @@ There are several active versions of the documentation. Each version derives fro
 
 Each version has a branch in the repository named accordingly:
 
-- 11
+- 11 
 - 12
 - 13
 - 14
+- 15
+- 16
 
 The source .md files are in the ``docs`` directory. 
 
@@ -128,13 +130,13 @@ The PDF document is in the ``site/pdf`` folder.
 3. While in the root directory of the doc project, run the following command to build the documentation:
 
 ```sh
-mkdocs build -f mkdocs-netlify.yml
+mkdocs build 
 ```
 4. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
 5. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
 
 ```sh
-mkdocs serve -f mkdocs-netlify.yml
+mkdocs serve 
 ```
 
 6. To build the PDF documentation, do the following:
@@ -142,7 +144,7 @@ mkdocs serve -f mkdocs-netlify.yml
    - Run the following command
 
    ```sh
-   mkdocs build -f mkdocs-pdf.yml
+   ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-pdf.yml
    ```
 
 The PDF document is in the ``site/pdf`` folder.
@@ -153,7 +155,6 @@ The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
 - `mkdocs.yml` - configuration file. Contains the settings for building the docs on Percona website
-- `mkdocs-netlify.yml` - configuration file. Contains the settings for building the docs with Material theme.
 - `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF docs.
 - `docs`:
   - `*.md` - Source markdown files.
@@ -165,7 +166,7 @@ The repository includes the following directories and files:
      - ``styles.scss`` - Styling for PDF documents
    - `theme`:
       - `main.html` - The layout template for hosting the documentation on Percona website
-   - overrides_netlify - The folder with the template customization for Netlify builds
+   - overrides - The folder with the template customization for Netlify builds
 - `.github`:
    - `workflows`:
       - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `netlify` branch)

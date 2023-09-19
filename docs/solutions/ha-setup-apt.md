@@ -23,21 +23,44 @@ For this setup, we will use the nodes running on Ubuntu 20.04 as the base operat
 
 To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the `/etc/hosts` file of each node as follows:
 
-| node 1                    | node 2                    | node 3
-|---------------------------| --------------------------|-----------------------
-| <code> 127.0.0.1 localhost node1 <br> 10.104.0.7 node1 <br> **10.104.0.2 node2** <br> **10.104.0.8 node3** </code>   | <code>127.0.0.1 localhost node2  <br> **10.104.0.7 node1** <br> 10.104.0.2 node2  <br> **10.104.0.8 node3** </code>  | <code> 127.0.0.1 localhost node3 <br> **10.104.0.7 node1** <br> **10.104.0.2 node2** <br> 10.104.0.8 node3 </code>
+=== "node1"
 
+    ```text hl_lines="3 4"
+    # Cluster IP and names 
+    10.104.0.1 node1 
+    10.104.0.2 node2 
+    10.104.0.3 node3
+    ```
 
-The `/etc/hosts` file of the HAProxy-demo node looks like the following:
+=== "node2"
 
-```
-127.0.1.1 HAProxy-demo HAProxy-demo
-127.0.0.1 localhost
-10.104.0.6 HAProxy-demo
-10.104.0.7 node1
-10.104.0.2 node2
-10.104.0.8 node3
-```
+    ```text hl_lines="2 4"
+    # Cluster IP and names 
+    10.104.0.1 node1 
+    10.104.0.2 node2 
+    10.104.0.3 node3
+    ```
+
+=== "node3"
+
+    ```text hl_lines="2 3"
+    # Cluster IP and names 
+    10.104.0.1 node1 
+    10.104.0.2 node2 
+    10.104.0.3 node3
+    ```
+
+=== "HAproxy-demo"
+
+    The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file. Add the following lines at the end of the file:
+
+    ```text hl_lines="4 5 6"
+    # Cluster IP and names
+    10.104.0.6 HAProxy-demo
+    10.104.0.1 node1
+    10.104.0.2 node2
+    10.104.0.3 node3
+    ```
 
 ### Install Percona Distribution for PostgreSQL
 
@@ -45,9 +68,9 @@ The `/etc/hosts` file of the HAProxy-demo node looks like the following:
 
 2. Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:
 
-   ```{.bash data-promp="$"}
+   ```{.bash data-prompt="$"}
    $ sudo systemctl stop postgresql
-   $ sudo rm -rf /var/lib/postgresql/14/main
+   $ sudo rm -rf /var/lib/postgresql/16/main
    ```
 
 ## Configure ETCD distributed store  
@@ -58,71 +81,123 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 1. Install `etcd` on every PostgreSQL node using the following command:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo apt install etcd
     ```
 
-2. Modify the `/etc/default/etcd` configuration file on each node.
+2. Configure ETCD on `node1`. 
 
-    * On `node1`, add the IP address of `node1` to the `ETCD_INITIAL_CLUSTER` parameter. The configuration file looks as follows:
+    * Back up the configuration file:
+
+       ```{.bash data-promp="$"}
+        $ sudo mv /etc/default/etcd /etc/default/etcd.orig
+        ```
+
+    * Modify the `/etc/default/etcd` configuration file and add the IP address of `node1` (10.104.0.1) to the `ETCD_INITIAL_CLUSTER` parameter. 
 
       ```text
       ETCD_NAME=node1
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
+      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380"
+      ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
       ETCD_INITIAL_CLUSTER_STATE="new"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.7:2380"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.1:2380"
       ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.7:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.7:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.7:2379"
+      ETCD_LISTEN_PEER_URLS="http://10.104.0.1:2380"
+      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.1:2379,http://localhost:2379"
+      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.1:2379"
       …
       ```
 
-    * On `node2`, add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
+3. Start the `etcd` service to apply the changes on `node1`.
 
-      ```text
-      ETCD_NAME=node2
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
-      ETCD_INITIAL_CLUSTER_STATE="existing"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.2:2380"
-      ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.2:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.2:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.2:2379"
-      …
-      ```
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
+    ```
 
-    * On `node3`, the `ETCD_INITIAL_CLUSTER` parameter includes the IP addresses of all three nodes:
+4. Check the etcd cluster members on `node1`:
 
-      ```text
-      ETCD_NAME=node3
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.8:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
-      ETCD_INITIAL_CLUSTER_STATE="existing"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.8:2380"
-      ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.8:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.8:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.8:2379"
-      …
-      ```  
+    ```{.bash data-prompt="$"}
+    $ sudo etcdctl member list
+    ```
+    
+    Sample output:
 
-3. On `node1`, add `node2` and `node3` to the cluster using the `add` command:
+     ```{.text .no-copy}
+     21d50d7f768f153a: name=default peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
+     ```
 
-    ```{.bash data-promp="$"}
+5. Add the `node2` to the cluster. Run the following command on `node1`:
+
+    ```{.bash data-prompt="$"}
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
-    $ sudo etcdctl member add node3 http://10.104.0.8:2380
     ```
 
-4. Restart the `etcd` service on `node2` and `node3`:
+    The output resembles the following one:
+    
+    ```{.text .no-copy}
+    Added member named node2 with ID 10042578c504d052 to cluster
+
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+    ```
+
+6. Configure `etcd` on `node2` using the output from adding the node to the cluster. Edit the `/etc/default/etcd` configuration file on `node2` use the result of the `add` command to change the configuration file as follows:
+
+    ```text
+    [Member]
+    ETCD_NAME=node2
+    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380"
+    ETCD_INITIAL_CLUSTER_TOKEN="percona-etcd-cluster"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.2:2380"
+    ETCD_DATA_DIR="/var/lib/etcd/postgresql"
+    ETCD_LISTEN_PEER_URLS="http://10.104.0.2:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://10.104.0.2:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.2:2379"
+    …
+    ```
+
+7. Start the `etcd` service to apply the changes on `node2`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
+    ```
+
+8. Add `node3` to the cluster
+
+    ```{.bash data-prompt="$"}
+    $ sudo etcdctl member add node3 http://10.104.0.3:2380
+    ```
+
+9. Configure `etcd` on `node3` using the same approach as for `node2`. Modify the `/etc/default/etcd` configuration file and add the output of the `add` command:
+
+    ```text
+    ETCD_NAME=node3
+    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
+    ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.3:2380"
+    ETCD_DATA_DIR="/var/lib/etcd/postgresql"
+    ETCD_LISTEN_PEER_URLS="http://10.104.0.3:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://10.104.0.3:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.3:2379"
+    …
+    ```  
+
+10. Start the `etcd` service on `node3`:
 
     ```{.bash data-promp="$"}
-    $ sudo systemctl restart etcd
+    $ sudo systemctl enable etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
     ```
 
-5. Check the etcd cluster members.
+11. Check the etcd cluster members.
     
     ```{.bash data-promp="$"}
     $ sudo etcdctl member list
@@ -131,9 +206,9 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     The output resembles the following:
 
     ```
-    21d50d7f768f153a: name=node1 peerURLs=http://10.104.0.7:2380 clientURLs=http://10.104.0.7:2379 isLeader=true
-    af4661d829a39112: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
-    e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://10.104.0.8:2379 isLeader=false
+    2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
+    8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379 isLeader=false
+    c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
     ```
 
 ## Set up the watchdog service
@@ -146,13 +221,13 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 
 1. Load Softdog:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo sh -c 'echo "softdog" >> /etc/modules'
     ```
 
 2. Patroni will be interacting with the watchdog service. Since Patroni is run by the `postgres` user, this user must have access to Softdog. To make this happen, change the ownership  of the `watchdog.rules` file to the `postgres` user: 
 
-    ``` {.bash data-promp="$"}
+    ``` {.bash data-prompt="$"}
     $ sudo sh -c 'echo "KERNEL==\"watchdog\", OWNER=\"postgres\", GROUP=\"postgres\"" >> /etc/udev/rules.d/61-watchdog.rules'
     ```
 
@@ -160,7 +235,7 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 
     * Find out the files where Softdog is blacklisted:
 
-       ```{.bash data-promp="$"}
+       ```{.bash data-prompt="$"}
        $ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* |grep softdog
        ```
      
@@ -173,13 +248,13 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
     * Remove the `blacklist softdog` line from the `/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf` file. 
     * Restart the service 
 
-      ```{.bash data-promp="$"}
+      ```{.bash data-prompt="$"}
       $ sudo modprobe softdog
       ```
     
     * Verify the `modprobe` is working correctly by running the `lsmod `command:
       
-      ```{.bash data-promp="$"}
+      ```{.bash data-prompt="$"}
       $ sudo lsmod | grep softdog
       ```
       
@@ -192,7 +267,7 @@ Complete the following steps on all three PostgreSQL nodes to load and configure
 4. Check that the Softdog files under the `/dev/ `folder are owned by the `postgres `user: 
 
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ ls -l /dev/watchdog*
 
 crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
@@ -204,7 +279,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 
     If the ownership has not been changed for any reason, run the following command to manually change it:
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo chown postgres:postgres /dev/watchdog*
     ```
 
@@ -212,7 +287,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
 
 1. Install Patroni on every PostgreSQL node:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo apt install percona-patroni
     ```
 
@@ -323,7 +398,7 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
         Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The `pg_hba.conf` entries specify all the other nodes that can connect to this node and their authentication mechanism. 
 
 
-4. Create the configuration files for `node2` and `node3`. Replace the reference to `node1` with `node2` and `node3`, respectively.
+4. Create the configuration files for `node2` and `node3`. Replace the **node name and IP address** of `node1` to those of `node2` and `node3`, respectively.
 5. Enable and restart the patroni service on every node. Use the following commands:
 
     ```{.bash data-promp="$"}
@@ -337,7 +412,7 @@ When Patroni starts, it initializes PostgreSQL (because the service is not curre
 
     To ensure that Patroni has started properly, check the logs using the following command:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo journalctl -u patroni.service -n 100 -f
     ```
 
@@ -392,14 +467,14 @@ When Patroni starts, it initializes PostgreSQL (because the service is not curre
 
 If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo psql -U postgres
 ```
 
 The command output looks like the following:
 
 ```
-psql (14.1)
+psql ({{postgresrecommended}})
 Type "help" for help.
 
 postgres=#
@@ -407,13 +482,13 @@ postgres=#
 
 ## Configure HAProxy
 
-HAProxy node will accept client connection requests and route those to the active node of the PostgreSQL cluster. This way, a client application doesn’t have to know what node in the underlying cluster is the current primary. All it needs to do is to access a single HAProxy URL and send its read/write requests there. Behind-the-scene, HAProxy routes the connection to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
+HAproxy is the load balancer and the single point of entry to your PostgreSQL cluster for client applications. A client application accesses the HAPpoxy URL and sends its read/write requests there. Behind-the-scene, HAProxy routes write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads - to port 5001
 
-HAProxy is capable of routing write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
+This way, a client application doesn’t know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected.
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo apt install percona-haproxy
     ```
 
@@ -463,17 +538,18 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 3. Restart HAProxy:
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl restart haproxy
     ```
 
 
 4. Check the HAProxy logs to see if there are any errors:
    
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```
 
 ## Testing
 
 See the [Testing PostgreSQL cluster](ha-test.md) for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.
+

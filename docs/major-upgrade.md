@@ -1,4 +1,4 @@
-# Upgrading Percona Distribution for PostgreSQL from 14 to 15
+# Upgrading Percona Distribution for PostgreSQL from 15 to 16
 
 This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade` tool.
 
@@ -17,7 +17,7 @@ Similar to installing, we recommend you to upgrade Percona Distribution for Post
 The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:
 
 
-1. Install Percona Distribution for PostgreSQL 15 packages.
+1. Install new version of Percona Distribution for PostgreSQL packages.
 
 
 2. Stop the PostgreSQL service.
@@ -47,7 +47,7 @@ The exact steps may differ depending on the package manager of your operating sy
     Run **all** commands as root or via **sudo**.
 
 
-1. Install Percona Distribution for PostgreSQL 15 packages.
+1. Install Percona Distribution for PostgreSQL 16 packages.
 
 
     * [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
@@ -55,28 +55,28 @@ The exact steps may differ depending on the package manager of your operating sy
     * Enable Percona repository:
 
       ```{.bash data-prompt="$"}
-      $ sudo percona-release setup ppg-15
+      $ sudo percona-release setup ppg-16
       ```
 
 
-    * Install Percona Distribution for PostgreSQL 15 package:
+    * Install Percona Distribution for PostgreSQL 16 package:
 
       ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-15
+      $ sudo apt install percona-postgresql-16
       ```
 
 
     * Install the components:
 
       ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-15-repack \
-       percona-postgresql-15-pgaudit \
+      $ sudo apt install percona-postgresql-16-repack \
+       percona-postgresql-16-pgaudit \
        percona-pgbackrest \
        percona-patroni \
        percona-pgbadger \
-       percona-pgaudit15-set-user \
+       percona-pgaudit16-set-user \
        percona-pgbadger \
-       percona-postgresql-15-wal2json \
+       percona-postgresql-16-wal2json \
        percona-pg-stat-monitor15 \
        percona-postgresql-contrib
        percona-haproxy
@@ -110,16 +110,16 @@ The exact steps may differ depending on the package manager of your operating sy
       ```
 
 
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 14 to 15:
+    * Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/15/bin/pg_upgrade
-      --old-datadir=/var/lib/postgresql/14/main \
-      --new-datadir=/var/lib/postgresql/15/main  \
-      --old-bindir=/usr/lib/postgresql/14/bin  \
-      --new-bindir=/usr/lib/postgresql/15/bin  \
-      --old-options '-c config_file=/etc/postgresql/14/main/postgresql.conf' \
-      --new-options '-c config_file=/etc/postgresql/15/main/postgresql.conf' \
+      $ /usr/lib/postgresql/16/bin/pg_upgrade
+      --old-datadir=/var/lib/postgresql/15/main \
+      --new-datadir=/var/lib/postgresql/16/main  \
+      --old-bindir=/usr/lib/postgresql/15/bin  \
+      --new-bindir=/usr/lib/postgresql/16/bin  \
+      --old-options '-c config_file=/etc/postgresql/15/main/postgresql.conf' \
+      --new-options '-c config_file=/etc/postgresql/16/main/postgresql.conf' \
       --check
       ```
 
@@ -149,13 +149,13 @@ The exact steps may differ depending on the package manager of your operating sy
     * Upgrade the Percona Distribution for PostgreSQL
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/15/bin/pg_upgrade
-      --old-datadir=/var/lib/postgresql/14/main \
-      --new-datadir=/var/lib/postgresql/15/main  \
-      --old-bindir=/usr/lib/postgresql/14/bin  \
-      --new-bindir=/usr/lib/postgresql/15/bin  \
-      --old-options '-c config_file=/etc/postgresql/14/main/postgresql.conf' \
-      --new-options '-c config_file=/etc/postgresql/15/main/postgresql.conf' \
+      $ /usr/lib/postgresql/16/bin/pg_upgrade
+      --old-datadir=/var/lib/postgresql/15/main \
+      --new-datadir=/var/lib/postgresql/16/main  \
+      --old-bindir=/usr/lib/postgresql/15/bin  \
+      --new-bindir=/usr/lib/postgresql/16/bin  \
+      --old-options '-c config_file=/etc/postgresql/15/main/postgresql.conf' \
+      --new-options '-c config_file=/etc/postgresql/16/main/postgresql.conf' \
       --link
       ```
 
@@ -166,18 +166,17 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Go back to the regular user:
 
-
       ```{.bash data-prompt="$"}
       $ exit
       ```
 
 
-    * The Percona Distribution for PostgreSQL 14 uses the `5432` port while the Percona Distribution for PostgreSQL 15 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 15, swap ports in the configuration files of both versions.
+    * The Percona Distribution for PostgreSQL 15 uses the `5432` port while the Percona Distribution for PostgreSQL 16 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 15, swap ports in the configuration files of both versions.
 
       ```{.bash data-prompt="$"}
-      $ sudo vim /etc/postgresql/15/main/postgresql.conf
+      $ sudo vim /etc/postgresql/16/main/postgresql.conf
       $ port = 5433 # Change to 5432 here
-      $ sudo vim /etc/postgresql/14/main/postgresql.conf
+      $ sudo vim /etc/postgresql/15/main/postgresql.conf
       $ port = 5432 # Change to 5433 here
       ```
 
@@ -213,18 +212,18 @@ The exact steps may differ depending on the package manager of your operating sy
     ```
 
 
-7. Delete Percona Distribution for PostgreSQL 14 packages and configuration files
+7. Delete Percona Distribution for PostgreSQL 15 packages and configuration files
 
     * Remove packages
 
        ```{.bash data-prompt="$"}
-       $ sudo apt remove percona-postgresql-14* percona-pgbackrest percona-patroni percona-pg-stat-monitor14 percona-pgaudit14-set-user percona-pgbadger percona-pgbouncer percona-postgresql-14-wal2json
+       $ sudo apt remove percona-postgresql-15* percona-pgbackrest percona-patroni percona-pg-stat-monitor15 percona-pgaudit15-set-user percona-pgbadger percona-pgbouncer percona-postgresql-15-wal2json
        ```
 
     * Remove old files
 
        ```{.bash data-prompt="$"}
-       $ rm -rf /etc/postgresql/14/main
+       $ rm -rf /etc/postgresql/15/main
        ```
 
 
@@ -235,7 +234,7 @@ The exact steps may differ depending on the package manager of your operating sy
     Run **all** commands as root or via **sudo**.
 
 
-1. Install Percona Distribution for PostgreSQL 15 packages
+1. Install Percona Distribution for PostgreSQL 16 packages
 
 
     * [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
@@ -243,14 +242,14 @@ The exact steps may differ depending on the package manager of your operating sy
     * Enable Percona repository:
 
        ```{.bash data-prompt="$"}
-       $ sudo percona-release setup ppg-15
+       $ sudo percona-release setup ppg-16
        ```
 
 
-    * Install Percona Distribution for PostgreSQL 15:
+    * Install Percona Distribution for PostgreSQL 16:
 
        ```{.bash data-prompt="$"}
-       $ sudo yum install percona-postgresql15-server
+       $ sudo yum install percona-postgresql16-server
        ```
 
     * Install components:
@@ -258,21 +257,21 @@ The exact steps may differ depending on the package manager of your operating sy
        ```{.bash data-prompt="$"}
        $ sudo yum install percona-pgaudit \
        percona-pgbackrest \
-       percona-pg_repack15 \
+       percona-pg_repack16 \
        percona-patroni \
-       percona-pg-stat-monitor15 \
+       percona-pg-stat-monitor16 \
        percona-pgbadger \
-       percona-pgaudit15_set_user \
+       percona-pgaudit16_set_user \
        percona-pgbadger \
-       percona-wal2json15 \
-       percona-postgresql15-contrib
+       percona-wal2json16 \
+       percona-postgresql16-contrib
        percona-haproxy
-       percona-pgpool-II-pg15
+       percona-pgpool-II-pg16
        percona-pg_gather
        ```
 
 
-2. Set up Percona Distribution for PostgreSQL 15 cluster
+2. Set up Percona Distribution for PostgreSQL 16 cluster
 
    * Log is as the postgres user
 
@@ -290,14 +289,14 @@ The exact steps may differ depending on the package manager of your operating sy
    * Initialize cluster with the new data directory
 
       ```{.bash data-prompt="$"}
-      $ /usr/pgsql-15/bin/initdb -D /var/lib/pgsql/15/data
+      $ /usr/pgsql-16/bin/initdb -D /var/lib/pgsql/15/data
       ```
 
 
-3. Stop the `postgresql` 14 service
+3. Stop the `postgresql` 15 service
 
     ```{.bash data-prompt="$"}
-    $ systemctl stop postgresql-14
+    $ systemctl stop postgresql-15
     ```
 
 
@@ -311,14 +310,14 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
 
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 14 to 15:
+    * Check the ability to upgrade Percona Distribution for PostgreSQL from 5 to 16:
 
        ```{.bash data-prompt="$"}
-       $ /usr/pgsql-15/bin/pg_upgrade \
-       --old-bindir /usr/pgsql-14/bin \
-       --new-bindir /usr/pgsql-15/bin  \
-       --old-datadir /var/lib/pgsql/14/data \
-       --new-datadir /var/lib/pgsql/15/data \
+       $ /usr/pgsql-16/bin/pg_upgrade \
+       --old-bindir /usr/pgsql-15/bin \
+       --new-bindir /usr/pgsql-16/bin  \
+       --old-datadir /var/lib/pgsql/15/data \
+       --new-datadir /var/lib/pgsql/16/data \
        --check
        ```
 
@@ -349,10 +348,10 @@ The exact steps may differ depending on the package manager of your operating sy
 
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-15/bin/pg_upgrade \
-       --old-bindir /usr/pgsql-14/bin \
-       --new-bindir /usr/pgsql-15/bin  \
-       --old-datadir /var/lib/pgsql/14/data \
-       --new-datadir /var/lib/pgsql/15/data \
+       --old-bindir /usr/pgsql-15/bin \
+       --new-bindir /usr/pgsql-16/bin  \
+       --old-datadir /var/lib/pgsql/15/data \
+       --new-datadir /var/lib/pgsql/16/data \
        --link
        ```
 
@@ -360,16 +359,16 @@ The exact steps may differ depending on the package manager of your operating sy
        If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
 
 
-5. Start the `postgresql` 15 service.
+5. Start the `postgresql` 16 service.
 
     ```{.bash data-prompt="$"}
-    $ systemctl start postgresql-15
+    $ systemctl start postgresql-16
     ```
 
 6. Check postgresql status
 
     ```{.bash data-prompt="$"}
-    $ systemctl status postgresql-15
+    $ systemctl status postgresql-16
     ```
 
 
@@ -389,23 +388,23 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
 
-8. Delete Percona Distribution for PostgreSQL 14 configuration files
+8. Delete Percona Distribution for PostgreSQL 15 configuration files
 
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
     ```
 
 
-9. Delete Percona Distribution for PostgreSQL 14 packages
+9. Delete Percona Distribution for PostgreSQL 15 packages
 
     *  Remove packages
 
        ```{.bash data-prompt="$"}
-       $ sudo yum -y remove percona-postgresql14*
+       $ sudo yum -y remove percona-postgresql15*
        ```
 
     * Remove old files
 
        ```{.bash data-prompt="$"}
-       $ rm -rf /var/lib/pgsql/14/data
+       $ rm -rf /var/lib/pgsql/15/data
        ```

@@ -12,7 +12,7 @@ This repository contains the source files for [Percona Distribution for PostgreS
 
 We welcome all contributions and are always looking for new members that are as dedicated to serving the community as we are. You can reach out to us using our [forums](https://forums.percona.com/c/postgresql/25) and [Jira issue tracker](https://jira.percona.com/projects/DISTPG/issues/DISTPG-16?filter=allopenissues). 
 
-For how to contribute to documentation, read the [Contributing guide](https://github.com/percona/postgresql-docs/blob/13/CONTRIBUTING.md).
+For how to contribute to documentation, read the [Contributing guide](https://github.com/percona/postgresql-docs/blob/16/CONTRIBUTING.md).
 
 ## License
 
