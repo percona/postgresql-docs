@@ -6,7 +6,7 @@ The in-place upgrade means installing a new version without removing the old ver
 
 !!! admonition "See also"
 
-    [`pg_upgrade` Documentation](https://www.postgresql.org/docs/15/pgupgrade.html)
+    [`pg_upgrade` Documentation](https://www.postgresql.org/docs/16/pgupgrade.html)
 
 Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
 
@@ -77,7 +77,7 @@ The exact steps may differ depending on the package manager of your operating sy
        percona-pgaudit16-set-user \
        percona-pgbadger \
        percona-postgresql-16-wal2json \
-       percona-pg-stat-monitor15 \
+       percona-pg-stat-monitor16 \
        percona-postgresql-contrib
        percona-haproxy
        percona-pgpool2
@@ -90,7 +90,7 @@ The exact steps may differ depending on the package manager of your operating sy
     $ sudo systemctl stop postgresql.service
     ```
 
-    This stops both Percona Distribution for PostgreSQL 14 and 15.
+    This stops both Percona Distribution for PostgreSQL 15 and 16.
 
 
 3. Run the database upgrade.
@@ -289,7 +289,7 @@ The exact steps may differ depending on the package manager of your operating sy
    * Initialize cluster with the new data directory
 
       ```{.bash data-prompt="$"}
-      $ /usr/pgsql-16/bin/initdb -D /var/lib/pgsql/15/data
+      $ /usr/pgsql-16/bin/initdb -D /var/lib/pgsql/16/data
       ```
 
 
@@ -310,7 +310,7 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
 
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 5 to 16:
+    * Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:
 
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-16/bin/pg_upgrade \
