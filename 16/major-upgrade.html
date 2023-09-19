@@ -1274,7 +1274,7 @@
 <p>The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
-<p><a href="https://www.postgresql.org/docs/15/pgupgrade.html"><code>pg_upgrade</code> Documentation</a></p>
+<p><a href="https://www.postgresql.org/docs/16/pgupgrade.html"><code>pg_upgrade</code> Documentation</a></p>
 </div>
 <p>Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.</p>
 <div class="admonition important">
@@ -1341,7 +1341,7 @@ so the system is usable.</p>
 <span class="w"> </span>percona-pgaudit16-set-user<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>percona-pgbadger<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>percona-postgresql-16-wal2json<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-pg-stat-monitor15<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>percona-pg-stat-monitor16<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>percona-postgresql-contrib
 <span class="w"> </span>percona-haproxy
 <span class="w"> </span>percona-pgpool2
@@ -1352,7 +1352,7 @@ so the system is usable.</p>
 <p>Stop the <code>postgresql</code> service.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
 </code></pre></div>
-<p>This stops both Percona Distribution for PostgreSQL 14 and 15.</p>
+<p>This stops both Percona Distribution for PostgreSQL 15 and 16.</p>
 </li>
 <li>
 <p>Run the database upgrade.</p>
@@ -1520,7 +1520,7 @@ export LC_CTYPE=&quot;en_US.UTF-8&quot;
 </li>
 <li>
 <p>Initialize cluster with the new data directory</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-16/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/15/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-16/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/16/data
 </code></pre></div>
 </li>
 <li>
@@ -1536,7 +1536,7 @@ export LC_CTYPE=&quot;en_US.UTF-8&quot;
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 5 to 16:</li>
+<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-16/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-bindir<span class="w"> </span>/usr/pgsql-15/bin<span class="w"> </span><span class="se">\</span>
