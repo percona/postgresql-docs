@@ -9,19 +9,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:">
+        <meta name="description" content="Installation
+Upgrade">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/16/index.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/16/release-notes-v16.0.html">
       
       
+        <link rel="prev" href="release-notes.html">
       
-        <link rel="next" href="release-notes.html">
+      
+        <link rel="next" href="installing.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -29,7 +30,7 @@ extensions that enable solving essential practical tasks efficiently:">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 16.0 (2023-09-19) - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -83,8 +84,10 @@ extensions that enable solving essential practical tasks efficiently:">
                
                  
                  
+                 
+                 
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 16.0 (2023-09-19)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -114,7 +117,7 @@ extensions that enable solving essential practical tasks efficiently:">
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-16-documentation" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-160-2023-09-19" class="md-skip">
           Skip to content
         </a>
       
@@ -148,7 +151,7 @@ extensions that enable solving essential practical tasks efficiently:">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Percona Distribution for PostgreSQL 16.0 (2023-09-19)
             
           </span>
         </div>
@@ -276,18 +279,9 @@ extensions that enable solving essential practical tasks efficiently:">
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -296,7 +290,6 @@ extensions that enable solving essential practical tasks efficiently:">
   
 
       </a>
-      
     </li>
   
 
@@ -305,17 +298,19 @@ extensions that enable solving essential practical tasks efficiently:">
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
@@ -328,7 +323,7 @@ extensions that enable solving essential practical tasks efficiently:">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release Notes
@@ -359,9 +354,29 @@ extensions that enable solving essential practical tasks efficiently:">
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v16.0.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 16.0 (2023-09-19)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="release-notes-v16.0.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -370,6 +385,35 @@ extensions that enable solving essential practical tasks efficiently:">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1158,6 +1202,21 @@ extensions that enable solving essential practical tasks efficiently:">
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1174,14 +1233,14 @@ extensions that enable solving essential practical tasks efficiently:">
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/16/docs/index.md"
+                    href="https://github.com/percona/postgresql-docs/edit/16/docs/release-notes-v16.0.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/16/docs/index.md"
+                    href="https://github.com/percona/postgresql-docs/edit/16/docs/release-notes-v16.0.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1197,74 +1256,167 @@ extensions that enable solving essential practical tasks efficiently:">
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-16-documentation">Percona Distribution for PostgreSQL 16 Documentation<a class="headerlink" href="#percona-distribution-for-postgresql-16-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:</p>
+                <h1 id="percona-distribution-for-postgresql-160-2023-09-19">Percona Distribution for PostgreSQL 16.0 (2023-09-19)<a class="headerlink" href="#percona-distribution-for-postgresql-160-2023-09-19" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="installing.html">Installation</a>
+<a class="md-button" href="major-upgrade.html">Upgrade</a></p>
+<p>We are pleased to announce the launch of Percona Distribution for PostgreSQL 16.0 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/16/release-16.html">PostgreSQL 16</a>. </p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<p>Percona Distribution for PostgreSQL 16 features a lot of new functionalities and enhancements to performance, replication, monitoring, developer experience and more. Among them are the following:</p>
 <ul>
 <li>
-<p><a href="http://www.haproxy.org/">HAProxy</a> - a high-availability and load-balancing solution </p>
+<p>Performance improvements:</p>
+<ul>
+<li>The support for CPU acceleration using SIMD (Single Instruction/Multiple Data) computing method for both x86 and ARM architectures </li>
+<li>Optimized processing of ASCII and JSON strings and array and subtransaction searches improve query processing performance.</li>
+<li>The support of concurrent bulk data loading using <code>COPY</code> boost performance up to 300%.</li>
+<li>Load balancing for <code>libpq</code> client simplifies scaling read queries.</li>
+<li>The use of lz4 and zstd compression methods for <code>pg_dump</code> results in better compression performance compared to the default gzip compression method.</li>
+</ul>
 </li>
 <li>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
+<p>Logical replication improvements include the ability to apply large transactions in parallel and the ability to perform logical decoding on standbys. This enables users to distribute their workloads among nodes. </p>
 </li>
 <li>
-<p><a href="https://www.pgaudit.org/">pgAudit</a> provides detailed session or object
-audit logging via the standard PostgreSQL logging facility</p>
+<p>Developer experience:</p>
+<ul>
+<li>The standard for manipulating JSON data now includes the SQL/JSON constructors and the <code>ANY_VALUE</code> aggregate function, which returns any arbitrary value from the aggregate set. </li>
+<li>Developers can now specify non-decimal integers such as 0xff and 0o777.</li>
+<li>Added support for the extended query protocol to the  <code>psql</code> client.</li>
+</ul>
 </li>
 <li>
-<p><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a> - The <code>set_user</code> part of <code>pgAudit</code> extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</p>
+<p>Privilege administration improvements:</p>
+<ul>
+<li>Logical replication subscribers now execute transactions on a table as the table owner, not the superuser.</li>
+<li>Now only the users that have the ADMIN OPTION for roles can grant privileges in these roles using the <code>CREATEROLE</code> function. This allows fine-tuning privileges definition.</li>
+<li>New predefined role <code>pg_maintain</code> enables non-superusers to run VACUUM, ANALYZE, CLUSTER, REFRESH MATERIALIZED VIEW, REINDEX, and LOCK TABLE on all tables.</li>
+</ul>
 </li>
 <li>
-<p><a href="https://pgbackrest.org/">pgBackRest</a> is a backup and restore solution for
-PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://github.com/darold/pgbadger">pgBadger</a> - a fast PostgreSQL Log Analyzer.</p>
-</li>
-<li>
-<p><a href="https://www.pgbouncer.org/">PgBouncer</a> - a lightweight connection pooler for PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://github.com/jobinau/pg_gather">pg_gather</a> - an SQL script to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases.</p>
-</li>
-<li>
-<p><a href="https://www.pgpool.net/mediawiki/index.php/Main_Page">pgpool2</a> - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</p>
-</li>
-<li>
-<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
-PostgreSQL database objects</p>
-</li>
-<li>
-<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
-</li>
-<li>
-<p><a href="http://postgis.net/">PostGIS</a> allows storing and manipulating spacial data in PostgreSQL.</p>
-</li>
-<li>
-<p><a href="https://github.com/eulerto/wal2json">wal2json</a> - a PostgreSQL logical decoding JSON output plugin.</p>
-</li>
-<li>
-<p>A collection of <a href="https://www.postgresql.org/docs/16/contrib.html">additional PostgreSQL contrib extensions</a></p>
+<p>Database administrators can now view insights on I/O statistics in a separate <code>pg_stat_io</code> view provides. </p>
 </li>
 </ul>
-<p><a class="md-button" href="installing.html">Get started</a>
-<a class="md-button" href="release-notes-v16.0.html">What&rsquo;s new</a></p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
-<p>Percona Blog:</p>
 <ul>
-<li><a href="https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/">pgBackRest - A Great Backup Solution and a Wonderful Year of
-  Growth</a></li>
-<li><a href="https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/">Securing PostgreSQL as an Enterprise-Grade
-  Environment</a></li>
+<li><a href="https://www.postgresql.org/docs/16/release-16.html">PostgreSQL 16 release notes</a></li>
 </ul>
 </div>
-<p>Percona Distribution for PostgreSQL is also shipped with the
-<a href="https://www.postgresql.org/docs/16/libpq.html">libpq</a> library. It
-contains &ldquo;a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries.&rdquo;</p>
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>2.8.2</td>
+<td>a high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>3.1.0</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
+<td>16.0</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>4.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.47</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>12.2</td>
+<td>a fast PostgreSQL Log Analyzer.</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.20.1</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jobinau/pg_gather">pg_gather</a></td>
+<td>v22</td>
+<td>an SQL script for running the diagnostics of the health of PostgreSQL cluster</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2</a></td>
+<td>4.4.4</td>
+<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.8</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.0.2</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS</a></td>
+<td>3.3.4</td>
+<td>a spatial extension for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
+<td>253</td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.5</td>
+<td>a PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
+<ul>
+<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream.</li>
+<li>supplemental <code>ETCD</code> packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operating System</th>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CentOS 8</td>
+<td><code>etcd</code></td>
+<td>3.3.11</td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-etcd</code></td>
+<td>0.4.5</td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/16/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; </p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1291,7 +1443,7 @@ these queries.&rdquo;</p>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2023</span>
       
     
   </small>

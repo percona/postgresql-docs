@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
@@ -353,11 +353,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v16.0.md" class="md-nav__link">
+      <a href="../release-notes-v16.0.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Percona Distribution for PostgreSQL 16.0 (2023-09-19)
   </span>
   
 
@@ -1230,7 +1230,7 @@
     
     <br>
    <label class="md-nav__title" for="__drawer">
-    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-15" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-16" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
       Download PDF
     </a>
   </label> 
@@ -1441,7 +1441,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 </details>
 <p><br></p>
 <p>To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with <a href="#pgbackrest">pgBackRest</a>: a reliable, open-source backup and recovery solution for PostgreSQL.</p>
-<p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="dr-pg-backrestsetup.md">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
+<p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
 <h3 id="pgbackrest">pgBackRest<a class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h3>
 <p><a href="https://pgbackrest.org/">pgBackRest</a> is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. <code>pgBackRest</code> supports the following backup types:</p>
 <ul>
@@ -1454,7 +1454,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p><code>pgBackRest</code> can restore a database to a specific point in time in the past. This is the case where a database is not inaccessible but perhaps contains corrupted data. Using the point-in-time recovery, a database administrator can restore the database to the last known good state.  </p>
 <p>Finally, <code>pgBackRest</code> also supports restoring PostgreSQL databases to a different PostgreSQL instance or a separate data directory.</p>
 <h2 id="setup-overview">Setup overview<a class="headerlink" href="#setup-overview" title="Permanent link">&para;</a></h2>
-<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="dr-pg-backrestsetup.md">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
+<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
 <h3 id="system-architecture">System architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h3>
 <p>As the configuration example, we will use a three server architecture where <code>pgBackRest</code> resides on a dedicated remote host. The servers communicate with each other via passwordless SSH.</p>
 <div class="admonition important">
@@ -1498,7 +1498,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2023</span>
       
         <br>
         Created:
@@ -1533,7 +1533,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Percona LLC, &#169; 2023
+      <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2023 — <a href="#__consent">Cookie Consent</a>
     </div>
   
   
