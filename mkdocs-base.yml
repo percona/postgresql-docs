@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2023
+copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2023 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
