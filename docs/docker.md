@@ -1,0 +1,153 @@
+# Run Percona Distribution for PostgreSQL in a Docker container
+
+Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub](https://hub.docker.com/r/percona/).
+
+For more information about using Docker, see the [Docker Docs](https://docs.docker.com/).
+
+!!! note ""
+
+    Make sure that you are using the latest version of Docker.  The ones provided via `apt` and `yum` may be outdated and cause errors.
+
+    By default, Docker pulls the image from Docker Hub if it is not available locally.
+
+??? admonition "Docker image contents"
+
+    The Docker image of Percona Distribution for PostgreSQL includes the following components:    
+
+    | Component name                | Description                          |
+    |-------------------------------|--------------------------------------|  
+    | `percona-postgresql{{pgversion}}`| A metapackage that installs the latest version of PostgreSQL|
+     | `percona-postgresql{{pgversion}}-server` | The PostgreSQL server package. |
+    | `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+    | `percona-postgresql-client-common`| The manager for multiple PostgreSQL client versions.|
+    | `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
+    | `percona-postgresql{{pgversion}}-libs`| Libraries for use with PostgreSQL.|
+    | `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
+    | `percona-pgaudit` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
+    | `percona-pgaudit{{pgversion}}_set_user`| An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.|
+    | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
+    | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
+
+## Start the container
+
+Start a Percona Distribution for PostgreSQL container as follows:
+
+```{.bash data-prompt="$"}
+$ docker run --name container-name -e POSTGRES_PASSWORD=secret -d perconalab/percona-distribution-postgresql:tag
+```
+Where:
+
+* `container-name` is the name you want to assign to your container
+* `POSTGRES_PASSWORD` is the superuser password 
+* `tag` is the tag specifying the version you want. 
+
+See the list above for relevant tags, or look at the [full list of tags](https://hub.docker.com/r/perconalab/percona-distribution-postgresql/tags/).
+
+!!! tip 
+
+    You can secure the password by exporting it to the environment file and using that to start the container.
+
+    1. Export the password to the environment file:
+
+        ```{.bash data-prompt="$"}
+        $ echo "POSTGRES_PASSWORD=secret" > .my-pg.env
+        ``` 
+
+    2. Start the container:   
+
+        ```{.bash data-prompt="$"}
+        $ docker run --rm -it --env-file ./.my-pg.env percona-distribution-postgresql:tag
+        ```
+
+## Connect to Percona Distribution for PostgreSQL from an application in another Docker container
+
+This image exposes the standard PostgreSQL port (`5432`), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:
+
+```{.bash data-prompt="$"}
+$ docker run --rm -it --name app-container-name --network container:container-name -d app-that-uses-postgresql 
+```
+
+where:
+
+* `app-container-name` is the name of the container where your application is running, 
+* `container name` is the name of your Percona Distribution for PostgreSQL container, and 
+* `app-that-uses-postgresql` is the name of your PostgreSQL client.
+
+## Connect to Percona Distribution for PostgreSQL from the `psql` command line client
+
+The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
+
+```{.bash data-prompt="$"}
+$ docker run -it --network container:container-name --rm perconalab/percona-distribution-postgresql:tag psql -h container-name -U user-name
+```
+
+The `container-name` in this command is the name of your database container.
+
+## Enable `pg_stat_monitor`
+
+After launching container, To enable the `pg_stat_monitor` extension after launching the container, do the following:
+
+* connect to server, 
+* select the desired database and enable the `pg_stat_monitor` view for that database:
+
+   ```sql
+   create extension pg_stat_monitor;
+   ```
+
+* to ensure that everything is set up correctly, run:
+
+   ```sql
+   \d pg_stat_monitor;
+   ```
+
+??? example "Output"   
+
+    ```
+                             View "public.pg_stat_monitor"
+          Column        |           Type           | Collation | Nullable | Default
+    ---------------------+--------------------------+-----------+----------+---------
+    bucket              | integer                  |           |          |
+    bucket_start_time   | timestamp with time zone |           |          |
+    userid              | oid                      |           |          |
+    dbid                | oid                      |           |          |
+    queryid             | text                     |           |          |
+    query               | text                     |           |          |
+    plan_calls          | bigint                   |           |          |
+    plan_total_time     | numeric                  |           |          |
+    plan_min_timei      | numeric                  |           |          |
+    plan_max_time       | numeric                  |           |          |
+    plan_mean_time      | numeric                  |           |          |
+    plan_stddev_time    | numeric                  |           |          |
+    plan_rows           | bigint                   |           |          |
+    calls               | bigint                   |           |          |
+    total_time          | numeric                  |           |          |
+    min_time            | numeric                  |           |          |
+    max_time            | numeric                  |           |          |
+    mean_time           | numeric                  |           |          |
+    stddev_time         | numeric                  |           |          |
+    rows                | bigint                   |           |          |
+    shared_blks_hit     | bigint                   |           |          |
+    shared_blks_read    | bigint                   |           |          |
+    shared_blks_dirtied | bigint                   |           |          |
+    shared_blks_written | bigint                   |           |          |
+    local_blks_hit      | bigint                   |           |          |
+    local_blks_read     | bigint                   |           |          |
+    local_blks_dirtied  | bigint                   |           |          |
+    local_blks_written  | bigint                   |           |          |
+    temp_blks_read      | bigint                   |           |          |
+    temp_blks_written   | bigint                   |           |          |
+    blk_read_time       | double precision         |           |          |
+    blk_write_time      | double precision         |           |          |
+    host                | bigint                   |           |          |
+    client_ip           | inet                     |           |          |
+    resp_calls          | text[]                   |           |          |
+    cpu_user_time       | double precision         |           |          |
+    cpu_sys_time        | double precision         |           |          |
+    tables_names        | text[]                   |           |          |
+    wait_event          | text                     |           |          |
+    wait_event_type     | text                     |           |          |
+    ```
+
+Note that the `pg_stat_monitor` view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.
+
+

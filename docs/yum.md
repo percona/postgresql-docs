@@ -1,21 +1,27 @@
 # Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives
 
-This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. [Read more about Percona repositories :material-arrow-top-right:](repo-overview.md).
 
 ## Platform specific notes
 
-If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
+To install Percona Distribution for PostgreSQL, do the following:
 
-```{.bash data-prompt="$"}
-$ sudo dnf module disable postgresql llvm-toolset
-```
+=== "On Red Hat Enterprise Linux v8"
 
-On CentOS 7, you should install the ``epel-release`` package:
+    Disable the ``postgresql``  and ``llvm-toolset``modules:
 
-```{.bash data-prompt="$"}
-$ sudo yum -y install epel-release
-$ sudo yum repolist
-```
+    ```{.bash data-prompt="$"}
+    $ sudo dnf module disable postgresql llvm-toolset
+    ```
+
+=== "On CentOS 7"
+
+    Install the ``epel-release`` package:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum -y install epel-release
+    $ sudo yum repolist
+    ```
 
 ## Procedure
 
@@ -33,8 +39,6 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
-   To enable a repository, we recommend using the `setup` command: 
-
    ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg-16
    ```
@@ -42,6 +46,8 @@ Run all the commands in the following sections as root or using the `sudo` comma
 ### Install packages
 
 === "Install using meta-package"
+
+     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
      $ sudo yum install percona-ppg-server16
