@@ -2,267 +2,267 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.percona.com/postgresql/12/index.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/apt.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/enable-extensions.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/extenstions.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/installing.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/ldap.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/licensing.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/major-upgrade.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/migration.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/minor-upgrade.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/pg-stat-monitor.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.10.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.10.upd.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.10.upd2.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.11.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.12.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.13.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.14.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.14.upd.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.15.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.16.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.2.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.3.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.4.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.4.upd.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.5.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.6.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.6.upd.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.6.upd2.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.6.upd3.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.6.upd4.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.7.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.7.upd.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.7.upd2.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.7.upd3.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.8.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.8.upd.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes-v12.9.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/release-notes.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/repo-overview.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/trademark-policy.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/uninstalling.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/yum.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/backup-recovery.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/dr-pgbackrest-setup.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/ha-setup-apt.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/ha-setup-yum.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/ha-test.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/high-availability.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/postgis-deploy.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/postgis-testing.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/postgis-upgrade.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/12/solutions/postgis.html</loc>
-         <lastmod>2023-08-31</lastmod>
+         <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

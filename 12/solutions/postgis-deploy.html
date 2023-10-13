@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
     
     
       
@@ -33,10 +33,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6a10b989.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -301,14 +301,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
+          
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
@@ -902,14 +904,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
+          
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
@@ -936,14 +940,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
+          
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
             
   
@@ -1145,14 +1151,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
+          
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
@@ -1208,14 +1216,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
+          
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
@@ -1242,9 +1252,10 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         
@@ -1263,7 +1274,8 @@
 
             </a>
             
-              <label class="md-nav__link " for="__nav_5_1">
+              
+              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -1352,9 +1364,10 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         
@@ -1373,7 +1386,8 @@
 
             </a>
             
-              <label class="md-nav__link " for="__nav_5_2">
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -1424,14 +1438,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
+          
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
@@ -1524,8 +1540,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#preconditions" class="md-nav__link">
-    Preconditions
+  <a href="#considerations" class="md-nav__link">
+    Considerations
   </a>
   
 </li>
@@ -1533,6 +1549,13 @@
         <li class="md-nav__item">
   <a href="#install-postgis" class="md-nav__link">
     Install PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-postgis-extension" class="md-nav__link">
+    Enable PostGIS extension
   </a>
   
 </li>
@@ -1720,8 +1743,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#preconditions" class="md-nav__link">
-    Preconditions
+  <a href="#considerations" class="md-nav__link">
+    Considerations
   </a>
   
 </li>
@@ -1729,6 +1752,13 @@
         <li class="md-nav__item">
   <a href="#install-postgis" class="md-nav__link">
     Install PostGIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-postgis-extension" class="md-nav__link">
+    Enable PostGIS extension
   </a>
   
 </li>
@@ -1783,12 +1813,15 @@
                 <!-- Markdown content -->
                 <h1 id="deploy-spatial-data-with-postgresql">Deploy spatial data with PostgreSQL<a class="headerlink" href="#deploy-spatial-data-with-postgresql" title="Permanent link">&para;</a></h1>
 <p>The following document provides guidelines how to install PostGIS and how to run the basic queries. </p>
-<h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
+<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h2>
 <ol>
 <li>We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.</li>
 <li>For uploading the spatial data and querying the database, we use the same <a href="https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip">data set</a> as is used in <a href="http://postgis.net/workshops/postgis-intro/">PostGIS tutorial</a>. </li>
 </ol>
 <h2 id="install-postgis">Install PostGIS<a class="headerlink" href="#install-postgis" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>
 <p>Enable Percona repository</p>
@@ -1798,14 +1831,13 @@
 </li>
 <li>
 <p>Install PostGIS packages</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgis
 </code></pre></div>
-<p>This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:</p>
+</li>
+<li>
+<p>The command in the previous step installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;address%&#39;</span><span class="p">;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="n">address</span><span class="o">%</span><span class="err">&#39;</span><span class="p">;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1813,9 +1845,21 @@
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libsfcgal1
 </code></pre></div>
 </div>
+</li>
+</ol>
 </div>
 <div class="tabbed-block">
+<p>For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL 9</label><label for="__tabbed_2_2">CentOS 9</label><label for="__tabbed_2_3">Oracle Linux 9</label><label for="__tabbed_2_4">Rocky Linux 9</label><label for="__tabbed_2_5">RHEL UBI 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
+<li>
+<p>Enable Percona repository</p>
+<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg12
+</code></pre></div>
+</li>
 <li>
 <p>Install <code>epel</code> repository</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
@@ -1827,28 +1871,9 @@
 </code></pre></div>
 </li>
 <li>
-<p>Enable the codeready builder repository to resolve dependencies conflict. For Red Hat Enterprise Linux 8 and derivatives, replace the version of the operating system in the following commands respectively.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL 9</label><label for="__tabbed_2_2">CentOS 9</label><label for="__tabbed_2_3">Oracle Linux 9</label><label for="__tabbed_2_4">Rocky Linux 9</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
-$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
-</code></pre></div>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>Install the extension</p>
@@ -1856,14 +1881,163 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </code></pre></div>
 </li>
 </ol>
-<p>This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:</p>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Enable Percona repository</p>
+<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg12
+</code></pre></div>
+</li>
+<li>
+<p>Install <code>epel</code> repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Enable the <code>llvm-toolset dnf</code> module</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+</code></pre></div>
+</li>
+<li>
+<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Enable Percona repository</p>
+<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg12
+</code></pre></div>
+</li>
+<li>
+<p>Install <code>epel</code> repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Enable the <code>llvm-toolset dnf</code> module</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+</code></pre></div>
+</li>
+<li>
+<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Enable Percona repository</p>
+<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg12
+</code></pre></div>
+</li>
+<li>
+<p>Install <code>epel</code> repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Enable the <code>llvm-toolset dnf</code> module</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+</code></pre></div>
+</li>
+<li>
+<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Configure the Oracle-Linux repository. Create the <code>/etc/yum.repos.d/oracle-linux-ol9.repo</code> file to install the required dependencies: </p>
+<div class="highlight"><span class="filename">/etc/yum.repos.d/oracle-linux-ol9.repo</span><pre><span></span><code>[ol9_baseos_latest]
+name=Oracle Linux 9 BaseOS Latest ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/baseos/latest/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1     
+
+[ol9_appstream]
+name=Oracle Linux 9 Application Stream ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/appstream/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1     
+
+[ol9_codeready_builder]
+name=Oracle Linux 9 CodeReady Builder ($basearch) - Unsupported
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/codeready/builder/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
+</code></pre></div>
+</li>
+<li>
+<p>Download the right GPG key for the Oracle Yum Repository:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://yum.oracle.com/RPM-GPG-KEY-oracle-ol9<span class="w"> </span>-O<span class="w"> </span>/etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+</code></pre></div>
+</li>
+<li>
+<p>Enable Percona repository    </p>
+<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository.     </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg12
+</code></pre></div>
+</li>
+<li>
+<p>Install <code>epel</code> repository    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Disable the upstream <code>postgresql</code> package:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql
+</code></pre></div>
+</li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
+</code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p>This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:    </p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;address%&#39;</span><span class="p">;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-</li>
+<h2 id="enable-postgis-extension">Enable PostGIS extension<a class="headerlink" href="#enable-postgis-extension" title="Permanent link">&para;</a></h2>
+<ol>
 <li>
 <p>Create a database and a schema for this database to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the <code>psql</code> terminal:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">nyc</span><span class="p">;</span>
@@ -1958,7 +2132,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
       
         <br>
         Created:
@@ -1979,10 +2153,10 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
         </div>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            Back to top
-          </button>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
@@ -2012,6 +2186,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
+    
     
       <div class="md-consent" data-md-component="consent" id="__consent" hidden>
         <div class="md-consent__overlay"></div>
@@ -2087,10 +2262,10 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
