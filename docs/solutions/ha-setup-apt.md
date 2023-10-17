@@ -5,7 +5,9 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 ## Preconditions
 
-For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system and having the following IP addresses:
+1. This is the example deployment suitable to be used for testing purposes in non-production environments. 
+2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts or at least have separate disks for ETCD and PostgreSQL. This is because ETCD writes every request from the cluster to disk which can be CPU intensive and affects disk performance. See [hardware recommendations](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
+3. For this setup, we will use the nodes running on Ubuntu 22.04 as the base operating system:
 
 | Node name     | Public IP address | Internal IP address
 |---------------|-------------------|--------------------
@@ -19,7 +21,8 @@ For this setup, we will use the nodes running on Ubuntu 20.04 as the base operat
 
     In a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. 
 
-### Setting up hostnames in the `/etc/hosts` file
+
+## Initial setup 
 
 To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the `/etc/hosts` file of each node as follows:
 
@@ -28,22 +31,93 @@ To make the nodes aware of each other and allow their seamless communication, re
 | <code> 127.0.0.1 localhost node1 <br> 10.104.0.7 node1 <br> **10.104.0.2 node2** <br> **10.104.0.8 node3** </code>   | <code>127.0.0.1 localhost node2  <br> **10.104.0.7 node1** <br> 10.104.0.2 node2  <br> **10.104.0.8 node3** </code>  | <code> 127.0.0.1 localhost node3 <br> **10.104.0.7 node1** <br> **10.104.0.2 node2** <br> 10.104.0.8 node3 </code>
 
 
-The `/etc/hosts` file of the HAProxy-demo node looks like the following:
+1. Run the following command on each node. Change the node name to `node1`, `node2` and `node3` respectively:
 
-```
-127.0.1.1 HAProxy-demo HAProxy-demo
-127.0.0.1 localhost
-10.104.0.6 HAProxy-demo
-10.104.0.7 node1
-10.104.0.2 node2
-10.104.0.8 node3
-```
+    ```{.bash data-prompt="$"}
+    $ sudo hostnamectl set-hostname node-1
+    ```
 
-### Install Percona Distribution for PostgreSQL
+2. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:
 
-1. Follow the [installation instructions](../installing.md#on-debian-and-ubuntu-using-apt) to install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3`.
+    === "node1"    
 
-2. Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:
+        ```text hl_lines="3 4"
+        # Cluster IP and names 
+        10.104.0.1 node1 
+        10.104.0.2 node2 
+        10.104.0.3 node3
+        ```    
+
+    === "node2"    
+
+        ```text hl_lines="2 4"
+        # Cluster IP and names 
+        10.104.0.1 node1 
+        10.104.0.2 node2 
+        10.104.0.3 node3
+        ```    
+
+    === "node3"    
+
+        ```text hl_lines="2 3"
+        # Cluster IP and names 
+        10.104.0.1 node1 
+        10.104.0.2 node2 
+        10.104.0.3 node3
+        ```    
+
+    === "HAproxy-demo"    
+
+        The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file. Add the following lines at the end of the file:    
+
+        ```text hl_lines="4 5 6"
+        # Cluster IP and names
+        10.104.0.6 HAProxy-demo
+        10.104.0.1 node1
+        10.104.0.2 node2
+        10.104.0.3 node3
+        ```
+
+
+### Install the software
+
+Run the following commands on node1`, `node2` and `node3`:
+
+1. Install Percona Distribution for PostgreSQL
+    
+    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+
+    * Enable the repository:
+
+       ```{.bash data-prompt="$"}
+       $ sudo percona-release setup ppg14
+       ```
+
+    * [Install Percona Distribution for PostgreSQL packages](../apt.md).
+
+2. Install some Python and auxiliary packages to help with Patroni and ETCD
+    
+    ```{.bash data-prompt="$"}
+    $ sudo apt install python3-pip python3-dev binutils
+    ```
+
+3. Install ETCD, Patroni, pgBackRest packages:
+
+
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-patroni \
+    etcd etcd-server etcd-client \
+    percona-pgbackrest
+    ```
+
+4. Stop and disable all installed services:
+    
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl stop {etcd,patroni,postgresql}
+    $ systemctl disable {etcd,patroni,postgresql}
+    ```
+
+5. Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance.
 
    ```{.bash data-promp="$"}
    $ sudo systemctl stop postgresql
@@ -56,43 +130,64 @@ The distributed configuration store helps establish a consensus among nodes duri
 
 The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. The configuration is stored in the `/etc/default/etcd` file.
 
-1. Install `etcd` on every PostgreSQL node using the following command:
+### Configure `node1` 
+
+1. Back up the configuration file
 
     ```{.bash data-promp="$"}
-    $ sudo apt install etcd
+    $ sudo mv /etc/default/etcd /etc/default/etcd.orig
     ```
 
-2. Modify the `/etc/default/etcd` configuration file on each node.
+2. Export environment variables to simplify the config file creation
 
-    * On `node1`, add the IP address of `node1` to the `ETCD_INITIAL_CLUSTER` parameter. The configuration file looks as follows:
+    * Node name:
 
-      ```text
-      ETCD_NAME=node1
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
-      ETCD_INITIAL_CLUSTER_STATE="new"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.7:2380"
-      ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.7:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.7:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.7:2379"
-      …
-      ```
+       ```{.bash data-prompt="$"}
+       $ export NODE_NAME=`hostname -f`
+       ```
 
-    * On `node2`, add the IP addresses of both `node1` and `node2` to the `ETCD_INITIAL_CLUSTER` parameter:
+    * Node IP:
 
-      ```text
-      ETCD_NAME=node2
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.7:2380,node2=http://10.104.0.2:2380"
-      ETCD_INITIAL_CLUSTER_TOKEN="devops_token"
-      ETCD_INITIAL_CLUSTER_STATE="existing"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://10.104.0.2:2380"
-      ETCD_DATA_DIR="/var/lib/etcd/postgresql"
-      ETCD_LISTEN_PEER_URLS="http://10.104.0.2:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://10.104.0.2:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://10.104.0.2:2379"
-      …
-      ```
+       ```{.bash data-prompt="$"}
+       $ export NODE_IP=`hostname -i | awk '{print $1}'`
+       ```
+    
+    * Initial cluster token for the ETCD cluster during bootstrap:
+
+       ```{.bash data-prompt="$"}
+       $ export ETCD_TOKEN='PostgreSQL_HA_Cluster_1'
+       ```
+
+    * ETCD data directory:
+
+       ```{.bash data-prompt="$"}
+       $ export ETCD_DATA_DIR='/var/lib/etcd/postgresql'
+       ```
+
+3. Modify the `/etc/default/etcd` configuration file as follows:. 
+
+    ```text 
+    ETCD_NAME=${NODE_NAME}
+    ETCD_INITIAL_CLUSTER="${NODE_NAME}=http://${NODE_IP}:2380"
+    ETCD_INITIAL_CLUSTER_STATE="new"
+    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+    …
+    ```
+
+4. Start the `etcd` service to apply the changes on `node1`.
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
+    ```
+
+5. Check the etcd cluster members on `node1`:
 
     * On `node3`, the `ETCD_INITIAL_CLUSTER` parameter includes the IP addresses of all three nodes:
 
@@ -109,17 +204,80 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
       …
       ```  
 
-3. On `node1`, add `node2` and `node3` to the cluster using the `add` command:
+6. Add the `node2` to the cluster. Run the following command on `node1`:
 
     ```{.bash data-promp="$"}
     $ sudo etcdctl member add node2 http://10.104.0.2:2380
     $ sudo etcdctl member add node3 http://10.104.0.8:2380
     ```
 
-4. Restart the `etcd` service on `node2` and `node3`:
+    The output resembles the following one:
+    
+    ```{.text .no-copy}
+    Added member named node2 with ID 10042578c504d052 to cluster
 
-    ```{.bash data-promp="$"}
-    $ sudo systemctl restart etcd
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+    ```
+
+### Configure `node2`
+
+1. Back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
+2. Edit the `/etc/default/etcd` configuration file on `node2`. Use the result of the `add` command on `node1` to change the configuration file as follows:
+
+      ```text
+      ETCD_NAME=${NODE_NAME}
+      ETCD_INITIAL_CLUSTER="node-1=http://10.0.100.1:2380,node-2=http://10.0.100.2:2380"
+      ETCD_INITIAL_CLUSTER_STATE="existing"
+
+      ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+      ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+      ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+      ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+      ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+      ```
+
+3. Start the `etcd` service to apply the changes on `node2`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
+    ```
+
+### Configure `node3`
+
+1. Add `node3` to the cluster. **Run the following command on `node1`**
+
+    ```{.bash data-prompt="$"}
+    $ sudo etcdctl member add node3 http://10.104.0.3:2380
+    ```
+
+2. On `node3`, back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
+3. Modify the `/etc/default/etcd` configuration file and add the output of the `add` command:
+
+     ```text
+     ETCD_NAME=${NODE_NAME}
+     ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
+     ETCD_INITIAL_CLUSTER_STATE="existing"
+
+     ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+     ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+     ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+     …
+     ```  
+
+4. Start the `etcd` service on `node3`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
     ```
 
 5. Check the etcd cluster members.
@@ -136,101 +294,55 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     e3f3c0c1d12e9097: name=node3 peerURLs=http://10.104.0.8:2380 clientURLs=http://10.104.0.8:2379 isLeader=false
     ```
 
-## Set up the watchdog service
-
-The Linux kernel uses the utility called a _watchdog_ to protect against an unresponsive system. The watchdog monitors a system for unrecoverable application errors, depleted system resources, etc., and initiates a reboot to safely return the system to a working state. The watchdog functionality is  useful for servers that are intended to run without human intervention for a long time. Instead of users finding a hung server, the watchdog functionality can help maintain the service.
-
-In this example, we will configure _Softdog_ - a standard software implementation for watchdog that is shipped with Ubuntu 20.04. 
-
-Complete the following steps on all three PostgreSQL nodes to load and configure Softdog.  
-
-1. Load Softdog:
-
-    ```{.bash data-promp="$"}
-    $ sudo sh -c 'echo "softdog" >> /etc/modules'
-    ```
-
-2. Patroni will be interacting with the watchdog service. Since Patroni is run by the `postgres` user, this user must have access to Softdog. To make this happen, change the ownership  of the `watchdog.rules` file to the `postgres` user: 
-
-    ``` {.bash data-promp="$"}
-    $ sudo sh -c 'echo "KERNEL==\"watchdog\", OWNER=\"postgres\", GROUP=\"postgres\"" >> /etc/udev/rules.d/61-watchdog.rules'
-    ```
-
-3. Remove Softdog from the blacklist. 
-
-    * Find out the files where Softdog is blacklisted:
-
-       ```{.bash data-promp="$"}
-       $ grep blacklist /lib/modprobe.d/* /etc/modprobe.d/* |grep softdog
-       ```
-     
-      In our case, `modprobe `is blacklisting the Softdog:
-
-      ```
-      /lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf:blacklist softdog
-      ```
-    
-    * Remove the `blacklist softdog` line from the `/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf` file. 
-    * Restart the service 
-
-      ```{.bash data-promp="$"}
-      $ sudo modprobe softdog
-      ```
-    
-    * Verify the `modprobe` is working correctly by running the `lsmod `command:
-      
-      ```{.bash data-promp="$"}
-      $ sudo lsmod | grep softdog
-      ```
-      
-      The output will show a process identifier if it’s running.
-
-      ```
-      softdog                16384  0
-      ```
-
-4. Check that the Softdog files under the `/dev/ `folder are owned by the `postgres `user: 
-
-
-```{.bash data-promp="$"}
-$ ls -l /dev/watchdog*
-
-crw-rw---- 1 postgres postgres  10, 130 Sep 11 12:53 /dev/watchdog
-crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
-```
-
-
-!!! tip 
-
-    If the ownership has not been changed for any reason, run the following command to manually change it:
-    
-    ```{.bash data-promp="$"}
-    $ sudo chown postgres:postgres /dev/watchdog*
-    ```
-
 ## Configure Patroni
 
-1. Install Patroni on every PostgreSQL node:
+Run the following commands on all nodes. You can do this in parallel:
 
-    ```{.bash data-promp="$"}
-    $ sudo apt install percona-patroni
-    ```
+1. Export and create environment variables to simplify the config file creation:
+
+    * Node name:
+
+       ```{.bash data-prompt="$"}
+       $ export NODE_NAME=`hostname -f`
+       ```
+
+    * Node IP:
+
+       ```{.bash data-prompt="$"}
+       $ export NODE_IP=`hostname -i | awk '{print $1}'`
+       ```
+   
+    * Create variables to store the PATH:
+
+       ```bash
+       DATA_DIR="/var/lib/postgresql/14/main"
+       PG_BIN_DIR="/usr/lib/postgresql/14/bin"
+       ```
+
+       **NOTE**: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.
+
+    * Patroni information:
+
+       ```bash
+       NAMESPACE="percona_lab"
+       SCOPE="cluster_1
+       ```
 
 2. Create the `patroni.yml` configuration file under the `/etc/patroni` directory.  The file holds the default configuration values for a PostgreSQL cluster and will reflect the current cluster setup.
 
 3. Add the following configuration for `node1`:
 
-    ```yaml
-    scope: cluster_1
-    namespace: percona_lab
-    name: node1
+    ```yaml title="/etc/patroni/patroni.yml"
+    namespace: ${NAMESPACE}
+    scope: ${SCOPE}
+    name: ${NODE_NAME}
 
     restapi:
-      listen: 0.0.0.0:8008
-      connect_address: 10.104.0.1:8008
+        listen: 0.0.0.0:8008
+        connect_address: ${NODE_IP}:8008
 
     etcd:
-      host: 10.104.0.1:2379
+        host: ${NODE_IP}:2379
 
     bootstrap:
       # this section will be written into Etcd:/<namespace>/<scope>/config after initializing new cluster
@@ -284,9 +396,9 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
     postgresql:
         cluster_name: cluster_1
         listen: 0.0.0.0:5432
-        connect_address: 10.104.0.1:5432
-        data_dir: /data/pgsql
-        bin_dir: /usr/pgsql-14/bin
+        connect_address: ${NODE_IP}:5432
+        data_dir: ${DATADIR}
+        bin_dir: ${PG_BIN_DIR}
         pgpass: /tmp/pgpass
         authentication:
             replication:
@@ -301,11 +413,6 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
             - basebackup
         basebackup:
             checkpoint: 'fast'
-            
-    watchdog:
-      mode: required # Allowed values: off, automatic, required
-      device: /dev/watchdog
-      safety_margin: 5
 
     tags:
         nofailover: false
@@ -314,81 +421,99 @@ crw------- 1 root     root     245,   0 Sep 11 12:53 /dev/watchdog0
         nosync: false
     ```
 
-    !!! admonition "Patroni configuration file"
+    ??? admonition "Patroni configuration file"
 
         Let’s take a moment to understand the contents of the `patroni.yml` file. 
 
-        The first section provides the details of the first node (`node1`) and its connection ports. After that, we have the `etcd` service and its port details.
+        The first section provides the details of the node and its connection ports. After that, we have the `etcd` service and its port details.
 
         Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The `pg_hba.conf` entries specify all the other nodes that can connect to this node and their authentication mechanism. 
 
+3. Check that the `systemd` unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
-4. Create the configuration files for `node2` and `node3`. Replace the reference to `node1` with `node2` and `node3`, respectively.
-5. Enable and restart the patroni service on every node. Use the following commands:
+    If it's **not** created, create it manually and specify the following contents within: 
 
-    ```{.bash data-promp="$"}
-    $ sudo systemctl enable patroni
+     ```ini title="/etc/systemd/system/patroni.service"
+     [Unit]
+     Description=Runners to orchestrate a high-availability PostgreSQL
+     After=syslog.target network.target 
+
+     [Service]
+     Type=simple 
+
+     User=postgres
+     Group=postgres 
+
+     # Start the patroni process
+     ExecStart=/bin/patroni /etc/patroni/patroni.yml 
+
+     # Send HUP to reload from patroni.yml
+     ExecReload=/bin/kill -s HUP $MAINPID 
+
+     # only kill the patroni process, not its children, so it will gracefully stop postgres
+     KillMode=process 
+
+     # Give a reasonable amount of time for the server to start up/shut down
+     TimeoutSec=30 
+
+     # Do not restart the service if it crashes, we want to manually inspect database on failure
+     Restart=no 
+
+     [Install]
+     WantedBy=multi-user.target
+     ```
+
+4. Make `systemd` aware of the new service:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl daemon-reload
+    ```
+
+5. Now it's time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now patroni
     $ sudo systemctl restart patroni
     ```
    
-When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
+    When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
-!!! admonition "Troubleshooting Patroni"
+6. Check the service to see if there are errors:
 
-    To ensure that Patroni has started properly, check the logs using the following command:
-
-    ```{.bash data-promp="$"}
-    $ sudo journalctl -u patroni.service -n 100 -f
-    ```
-
-    The output shouldn't show any errors:
-
-    ```
-    …
-
-    Sep 23 12:50:21 node01 systemd[1]: Started PostgreSQL high-availability manager.
-    Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,022 INFO: Selected new etcd server http://10.104.0.2:2379
-    Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,029 INFO: No PostgreSQL configuration items changed, nothing to reload.
-    Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,168 INFO: Lock owner: None; I am node1
-    Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,177 INFO: trying to bootstrap a new cluster
-    Sep 23 12:50:22 node01 patroni[10140]: The files belonging to this database system will be owned by user "postgres".
-    Sep 23 12:50:22 node01 patroni[10140]: This user must also own the server process.
-    Sep 23 12:50:22 node01 patroni[10140]: The database cluster will be initialized with locale "C.UTF-8".
-    Sep 23 12:50:22 node01 patroni[10140]: The default text search configuration will be set to "english".
-    Sep 23 12:50:22 node01 patroni[10140]: Data page checksums are enabled.
-    Sep 23 12:50:22 node01 patroni[10140]: creating directory /var/lib/postgresql/12/main ... ok
-    Sep 23 12:50:22 node01 patroni[10140]: creating subdirectories ... ok
-    Sep 23 12:50:22 node01 patroni[10140]: selecting dynamic shared memory implementation ... posix
-    Sep 23 12:50:22 node01 patroni[10140]: selecting default max_connections ... 100
-    Sep 23 12:50:22 node01 patroni[10140]: selecting default shared_buffers ... 128MB
-    Sep 23 12:50:22 node01 patroni[10140]: selecting default time zone ... Etc/UTC
-    Sep 23 12:50:22 node01 patroni[10140]: creating configuration files ... ok
-    Sep 23 12:50:22 node01 patroni[10140]: running bootstrap script ... ok
-    Sep 23 12:50:23 node01 patroni[10140]: performing post-bootstrap initialization ... ok
-    Sep 23 12:50:23 node01 patroni[10140]: syncing data to disk ... ok
-    Sep 23 12:50:23 node01 patroni[10140]: initdb: warning: enabling "trust" authentication for local connections
-    Sep 23 12:50:23 node01 patroni[10140]: You can change this by editing pg_hba.conf or using the option -A, or
-    Sep 23 12:50:23 node01 patroni[10140]: --auth-local and --auth-host, the next time you run initdb.
-    Sep 23 12:50:23 node01 patroni[10140]: Success. You can now start the database server using:
-    Sep 23 12:50:23 node01 patroni[10140]:     /usr/lib/postgresql/14/bin/pg_ctl -D /var/lib/postgresql/14/main -l logfile start
-    Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] LOG:  redirecting log output to logging collector process
-    Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] HINT:  Future log output will appear in directory "log".
-    Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,694 INFO: postprimary pid=10156
-    Sep 23 12:50:23 node01 patroni[10165]: localhost:5432 - accepting connections
-    Sep 23 12:50:23 node01 patroni[10167]: localhost:5432 - accepting connections
-    Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,743 INFO: establishing a new patroni connection to the postgres cluster
-    Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,757 INFO: running post_bootstrap
-    Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,767 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-    Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,793 INFO: initialized a new cluster
-    Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,810 INFO: no action. I am (node1) the leader with the lock
-    Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,899 INFO: no action. I am (node1) the leader with the lock
-    Sep 23 12:50:43 node01 patroni[10119]: 2021-09-23 12:50:43,898 INFO: no action. I am (node1) the leader with the lock
-    Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. I am (node1) the leader with the 
+    ```{.bash data-prompt="$"}
+    $ sudo journalctl -fu patroni
     ```
 
     A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.
 
-    Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. 
+    Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted.
+
+7. Check the cluster:
+ 
+    ```{.bash data-prompt="$"}
+    $ patronictl -c /etc/patroni/patroni.yml list $SCOPE
+    ```
+
+    The output on `node1` resembles the following:
+
+    ```{.text .no-copy}
+    + Cluster: cluster_1 --+---------+---------+----+-----------+
+    | Member | Host        | Role    | State   | TL | Lag in MB |
+    +--------+-------------+---------+---------+----+-----------+
+    | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
+    +--------+-------------+---------+---------+----+-----------+
+    ```
+
+    On the remaining nodes:
+    
+    ```{.text .no-copy}
+    + Cluster: cluster_1 --+---------+---------+----+-----------+
+    | Member | Host        | Role    | State   | TL | Lag in MB |
+    +--------+-------------+---------+---------+----+-----------+
+    | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
+    | node-2 | 10.0.100.2  | Replica | running |  1 |         0 |
+    +--------+-------------+---------+---------+----+-----------+
+    ```
 
 If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
@@ -400,6 +525,7 @@ The command output looks like the following:
 
 ```
 psql (14.1)
+
 Type "help" for help.
 
 postgres=#
@@ -467,13 +593,12 @@ HAProxy is capable of routing write requests to the primary node and read reques
     $ sudo systemctl restart haproxy
     ```
 
-
 4. Check the HAProxy logs to see if there are any errors:
    
     ```{.bash data-promp="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```
 
-## Testing
+## Next steps
 
-See the [Testing PostgreSQL cluster](ha-test.md) for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.
+[Configure pgBackRest](pgbackrest.md){.md-button}
