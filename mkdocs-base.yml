@@ -183,6 +183,7 @@ nav:
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
           - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
           - solutions/ha-test.md
+          - solutions/pgbackrest.md
       - Backup and disaster recovery:
           - solutions/backup-recovery.md
           - solutions/dr-pgbackrest-setup.md
