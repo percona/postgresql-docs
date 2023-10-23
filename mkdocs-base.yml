@@ -104,7 +104,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-16.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 16.0 (September 19, 2023)
+          cover_subtitle: 16.0 (November 2, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -134,6 +134,7 @@ nav:
   - 'Home': 'index.md'
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v16.0.upd.md
       - release-notes-v16.0.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
