@@ -1,12 +1,12 @@
 # Run Percona Distribution for PostgreSQL in a Docker container
 
-Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub](https://hub.docker.com/r/percona/).
+Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub](https://hub.docker.com/r/perconalab/percona-distribution-postgresql).
 
 For more information about using Docker, see the [Docker Docs](https://docs.docker.com/).
 
 !!! note ""
 
-    Make sure that you are using the latest version of Docker.  The ones provided via `apt` and `yum` may be outdated and cause errors.
+    Make sure that you are using the latest version of Docker. The ones provided via `apt` and `yum` may be outdated and cause errors.
 
     By default, Docker pulls the image from Docker Hub if it is not available locally.
 
@@ -30,41 +30,52 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
 ## Start the container
 
-Start a Percona Distribution for PostgreSQL container as follows:
+1. Start a Percona Distribution for PostgreSQL container as follows:
 
-```{.bash data-prompt="$"}
-$ docker run --name container-name -e POSTGRES_PASSWORD=secret -d perconalab/percona-distribution-postgresql:tag
-```
-Where:
+    ```{.bash data-prompt="$"}
+    $ docker run --name container-name -e POSTGRES_PASSWORD=secret -d perconalab/percona-distribution-postgresql:tag
+    ```    
 
-* `container-name` is the name you want to assign to your container
-* `POSTGRES_PASSWORD` is the superuser password 
-* `tag` is the tag specifying the version you want. 
+    Where:    
 
-See the list above for relevant tags, or look at the [full list of tags](https://hub.docker.com/r/perconalab/percona-distribution-postgresql/tags/).
+    * `container-name` is the name you assign to your container
+    * `POSTGRES_PASSWORD` is the superuser password 
+    * `tag` is the tag specifying the version you want.     
 
-!!! tip 
+    Check the [full list of tags](https://hub.docker.com/r/perconalab/percona-distribution-postgresql/tags/).
+    
 
-    You can secure the password by exporting it to the environment file and using that to start the container.
+    !!! tip     
 
-    1. Export the password to the environment file:
+        You can secure the password by exporting it to the environment file and using that to start the container.    
 
-        ```{.bash data-prompt="$"}
-        $ echo "POSTGRES_PASSWORD=secret" > .my-pg.env
-        ``` 
+        1. Export the password to the environment file:    
 
-    2. Start the container:   
+            ```{.bash data-prompt="$"}
+            $ echo "POSTGRES_PASSWORD=secret" > .my-pg.env
+            ```     
 
-        ```{.bash data-prompt="$"}
-        $ docker run --rm -it --env-file ./.my-pg.env percona-distribution-postgresql:tag
-        ```
+        2. Start the container:       
+
+            ```{.bash data-prompt="$"}
+            $ docker run --name container-name --env-file ./.my-pg.env -d perconalab/percona-distribution-postgresql:tag
+            ```
+
+2. Connect to the container's interactive terminal: 
+
+    ```{.bash data-prompt="$"}
+    $ docker exec -it container-name bash
+    ```
+
+    The `container-name` is the name of the container that you started in the previous step.
+
 
 ## Connect to Percona Distribution for PostgreSQL from an application in another Docker container
 
 This image exposes the standard PostgreSQL port (`5432`), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:
 
 ```{.bash data-prompt="$"}
-$ docker run --rm -it --name app-container-name --network container:container-name -d app-that-uses-postgresql 
+$ docker run --name app-container-name --network container:container-name -d app-that-uses-postgresql 
 ```
 
 where:
@@ -78,16 +89,20 @@ where:
 The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
 
 ```{.bash data-prompt="$"}
-$ docker run -it --network container:container-name --rm perconalab/percona-distribution-postgresql:tag psql -h container-name -U user-name
+$ docker run -it --network container:db-container-name --name container-name perconalab/percona-distribution-postgresql:tag psql -h address -U postgres
 ```
 
-The `container-name` in this command is the name of your database container.
+Where:
 
+* `db-container-name` is the name of your database container
+* `container-name` is the name of your container that you will use to connect to the database container using the `psql` command line client
+* `tag` is the tag specifying the Docker image version you want to use.
+* `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.   
 ## Enable `pg_stat_monitor`
 
-After launching container, To enable the `pg_stat_monitor` extension after launching the container, do the following:
+To enable the `pg_stat_monitor` extension after launching the container, do the following:
 
-* connect to server, 
+* connect to the server, 
 * select the desired database and enable the `pg_stat_monitor` view for that database:
 
    ```sql
