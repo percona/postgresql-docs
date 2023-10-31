@@ -56,44 +56,15 @@ The exact steps may differ depending on the package manager of your operating sy
 
     * Enable Percona repository using the **percona-release** utility:
 
-      ```{.bash data-prompt="$"}
-      $ sudo percona-release setup ppg-12
-      ```
-
+       ```{.bash data-prompt="$"}
+       $ sudo percona-release setup ppg-12
+       ```
 
     * Install Percona Distribution for PostgreSQL 12 package:
       
-      ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-12
-      ```
-
-
-    * Install the components:
-
-      ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-12-repack
-      $ sudo apt install percona-postgresql-12-pgaudit
-      $ sudo apt install percona-pgbackrest
-      $ sudo apt install percona-patroni
-      $ sudo apt install percona-pg-stat-monitor12
-      $ sudo apt install percona-pgbadger
-      $ sudo apt install percona-pgaudit12-set-user
-      $ sudo apt install percona-pgbadger
-      $ sudo apt install percona-postgresql-12-wal2json
-      $ sudo apt install percona-postgresql-contrib
-      $ sudo apt install percona-pgpool2
-      $ sudo apt install percona-pg-gather
-      ```
-      
-    !!! admonition "See also"
-
-        Percona Documentation:
-
-        - [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-
-        - [Installing Percona Distribution for PostgreSQL](installing.md)
-
-
+       ```{.bash data-prompt="$"}
+       $ sudo apt install percona-postgresql-12
+       ```
 
 2. Stop the `postgresql` service.
 
@@ -124,7 +95,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 11 to 12:
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/12/bin/pg_upgrade
+      $ /usr/lib/postgresql/12/bin/pg_upgrade \
       --old-datadir=/var/lib/postgresql/11/main \
       --new-datadir=/var/lib/postgresql/12/main  \
       --old-bindir=/usr/lib/postgresql/11/bin  \
@@ -140,11 +111,11 @@ The exact steps may differ depending on the package manager of your operating sy
     * Upgrade the Percona Distribution for PostgreSQL
       
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/12/bin/pg_upgrade
+      $ /usr/lib/postgresql/12/bin/pg_upgrade \
       --old-datadir=/var/lib/postgresql/11/main \
       --new-datadir=/var/lib/postgresql/12/main  \
-      --old-bindir=/usr/lib/postgresql/11/bin \
-      --new-bindir=/usr/lib/postgresql/12/bin \
+      --old-bindir=/usr/lib/postgresql/11/bin  \
+      --new-bindir=/usr/lib/postgresql/12/bin  \
       --old-options '-c config_file=/etc/postgresql/11/main/postgresql.conf' \
       --new-options '-c config_file=/etc/postgresql/12/main/postgresql.conf' \
       --link
@@ -187,31 +158,22 @@ The exact steps may differ depending on the package manager of your operating sy
     $ psql -c "SELECT version();"
     ```
 
-
-6. Run the **analyze_new_cluster.sh** script
+6. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
     ```{.bash data-prompt="$"}
-    $ tmp/analyze_new_cluster.sh
+    $ /usr/lib/postgresql/12/bin/vacuumdb --all --analyze-in-stages
+    ```
+
+7. Delete the old cluster's data files:
+    
+    ```{.bash data-prompt="$"}
+    $ ./delete_old_cluster.sh
+    $ sudo rm -rf /etc/postgresql/12/main
     $ #Logout
     $ exit
     ```
 
-
-7. Delete Percona Distribution for PostgreSQL 11 packages and configuration files
-
-    - Remove packages
-
-      ```{.bash data-prompt="$"}
-      $ sudo apt remove percona-postgresql-11* percona-pgbackrest percona-patroni percona-pg-stat-monitor11 percona-pgaudit11-set-user percona-pgbadger percona-pgbouncer percona-postgresql-11-wal2json
-      ```
-
-     - Remove old files
-
-       ```{.bash data-prompt="$"}
-       $ sudo rm -rf /etc/postgresql/11/main
-       ```
-
-## On Red Hat Enterprise Linux and CentOS using `yum`
+## On Red Hat Enterprise Linux and derivatives using `yum`
 
 !!! important
 
@@ -232,24 +194,6 @@ The exact steps may differ depending on the package manager of your operating sy
 
        ```{.bash data-prompt="$"}
        $ sudo yum install percona-postgresql12-server
-       ```
-
-
-    * Install components:
-
-       ```{.bash data-prompt="$"}
-       $ sudo yum install percona-pgaudit
-       $ sudo yum install percona-pgbackrest
-       $ sudo yum install percona-pg_repack12
-       $ sudo yum install percona-patroni
-       $ sudo yum install percona-pg-stat-monitor12
-       $ sudo yum install percona-pgbadger
-       $ sudo yum install percona-pgaudit12_set_user
-       $ sudo yum install percona-pgbadger
-       $ sudo yum install percona-wal2json12
-       $ sudo yum install percona-postgresql12-contrib
-       $ sudo yum install percona-pgpool-II-pg14
-       $ sudo yum install percona-pg_gather
        ```
 
 
@@ -274,13 +218,11 @@ The exact steps may differ depending on the package manager of your operating sy
        $ /usr/pgsql-12/bin/initdb -D /var/lib/pgsql/12/data
        ```
 
-
 3. Stop the `postgresql` 11 service
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl stop postgresql-11
     ```
-
 
 4. Run the database upgrade.
 
@@ -291,16 +233,16 @@ The exact steps may differ depending on the package manager of your operating sy
        $ sudo su postgres
        ```
 
+<<<<<<< HEAD
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 11 to 12:
-       
+
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-12/bin/pg_upgrade \
        --old-bindir /usr/pgsql-11/bin \
-       --new-bindir /usr/pgsql-12/bin \
+       --new-bindir /usr/pgsql-12/bin  \
        --old-datadir /var/lib/pgsql/11/data \
        --new-datadir /var/lib/pgsql/12/data \
-       --link \
        --check
        ```
 
@@ -312,35 +254,40 @@ The exact steps may differ depending on the package manager of your operating sy
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-12/bin/pg_upgrade \
        --old-bindir /usr/pgsql-11/bin \
-       --new-bindir /usr/pgsql-12/bin \
+       --new-bindir /usr/pgsql-12/bin  \
        --old-datadir /var/lib/pgsql/11/data \
        --new-datadir /var/lib/pgsql/12/data \
-       --link
+       --link 
        ```
 
        The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
        If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
 
-
 5. Start the `postgresql` 12 service.
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl start postgresql-12
+    $ systemctl start postgresql-13
+    ```
+
+6. Check `postgresql` status
+
+    ```{.bash data-prompt="$"}
     $ sudo systemctl status postgresql-12
     ```
 
+7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
-6. Run the **analyze_new_cluster.sh** script
-    
+
     * Log in as the postgres user
 
        ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
-    * Run the script
-       
+
+    * Run the `vaccumdb` command
+
        ```{.bash data-prompt="$"}
-       $ ./analyze_new_cluster.sh
+       $ /usr/pgsql-12/bin/vacuumdb --all --analyze-in-stages
        ```
 
 
@@ -350,16 +297,7 @@ The exact steps may differ depending on the package manager of your operating sy
     $ ./delete_old_cluster.sh
     ```
 
-
-8. Delete Percona Distribution for PostgreSQL 11 packages
-
-    * Remove packages
-
-       ```{.bash data-prompt="$"}
-       $ sudo yum -y remove percona-postgresql-11*
-       ```
-
-    * Remove old files
+8. Delete Percona Distribution for PostgreSQL old data files
 
        ```{.bash data-prompt="$"}
        $ sudo rm -rf /var/lib/pgsql/11/data
