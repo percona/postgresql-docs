@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6a10b989.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
@@ -1346,23 +1346,6 @@ so the system is usable.</p>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-16
 </code></pre></div>
-<ul>
-<li>Install the components:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-16-repack<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-postgresql-16-pgaudit<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-pgbackrest<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-patroni<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-pgbadger<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-pgaudit16-set-user<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-pgbadger<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-postgresql-16-wal2json<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-pg-stat-monitor16<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>percona-postgresql-contrib
-<span class="w"> </span>percona-haproxy
-<span class="w"> </span>percona-pgpool2
-<span class="w"> </span>percona-pg-gather
-</code></pre></div>
 </li>
 <li>
 <p>Stop the <code>postgresql</code> service.</p>
@@ -1385,7 +1368,7 @@ so the system is usable.</p>
 <ul>
 <li>Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/16/bin/pg_upgrade
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/16/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-datadir<span class="o">=</span>/var/lib/postgresql/15/main<span class="w"> </span><span class="se">\</span>
 --new-datadir<span class="o">=</span>/var/lib/postgresql/16/main<span class="w">  </span><span class="se">\</span>
 --old-bindir<span class="o">=</span>/usr/lib/postgresql/15/bin<span class="w">  </span><span class="se">\</span>
@@ -1415,7 +1398,7 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/16/bin/pg_upgrade
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/16/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-datadir<span class="o">=</span>/var/lib/postgresql/15/main<span class="w"> </span><span class="se">\</span>
 --new-datadir<span class="o">=</span>/var/lib/postgresql/16/main<span class="w">  </span><span class="se">\</span>
 --old-bindir<span class="o">=</span>/usr/lib/postgresql/15/bin<span class="w">  </span><span class="se">\</span>
@@ -1459,23 +1442,16 @@ $<span class="w"> </span><span class="nv">port</span><span class="w"> </span><sp
 </code></pre></div>
 </li>
 <li>
-<p>Run the <code>analyze_new_cluster.sh</code> script</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tmp/analyze_new_cluster.sh
-$<span class="w"> </span><span class="c1">#Logout</span>
-$<span class="w"> </span><span class="nb">exit</span>
+<p>After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the <code>vaccumdb</code> command to analyze the new cluster:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/16/bin/vacuumdb<span class="w"> </span>--all<span class="w"> </span>--analyze-in-stages
 </code></pre></div>
 </li>
 <li>
-<p>Delete Percona Distribution for PostgreSQL 15 packages and configuration files</p>
-<ul>
-<li>Remove packages</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>percona-postgresql-15*<span class="w"> </span>percona-pgbackrest<span class="w"> </span>percona-patroni<span class="w"> </span>percona-pg-stat-monitor15<span class="w"> </span>percona-pgaudit15-set-user<span class="w"> </span>percona-pgbadger<span class="w"> </span>percona-pgbouncer<span class="w"> </span>percona-postgresql-15-wal2json
-</code></pre></div>
-<ul>
-<li>Remove old files</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/postgresql/15/main
+<p>Delete the old cluster&rsquo;s data files:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
+$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/postgresql/15/main
+$<span class="w"> </span><span class="c1">#Logout</span>
+$<span class="w"> </span><span class="nb">exit</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1501,23 +1477,6 @@ $<span class="w"> </span><span class="nb">exit</span>
 <li>Install Percona Distribution for PostgreSQL 16:</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql16-server
-</code></pre></div>
-<ul>
-<li>Install components:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgaudit<span class="w"> </span><span class="se">\</span>
-percona-pgbackrest<span class="w"> </span><span class="se">\</span>
-percona-pg_repack16<span class="w"> </span><span class="se">\</span>
-percona-patroni<span class="w"> </span><span class="se">\</span>
-percona-pg-stat-monitor16<span class="w"> </span><span class="se">\</span>
-percona-pgbadger<span class="w"> </span><span class="se">\</span>
-percona-pgaudit16_set_user<span class="w"> </span><span class="se">\</span>
-percona-pgbadger<span class="w"> </span><span class="se">\</span>
-percona-wal2json16<span class="w"> </span><span class="se">\</span>
-percona-postgresql16-contrib
-percona-haproxy
-percona-pgpool-II-pg16
-percona-pg_gather
 </code></pre></div>
 </li>
 <li>
@@ -1582,12 +1541,12 @@ Checking for prepared transactions                          ok
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-15/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-16/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
 --old-bindir<span class="w"> </span>/usr/pgsql-15/bin<span class="w"> </span><span class="se">\</span>
 --new-bindir<span class="w"> </span>/usr/pgsql-16/bin<span class="w">  </span><span class="se">\</span>
 --old-datadir<span class="w"> </span>/var/lib/pgsql/15/data<span class="w"> </span><span class="se">\</span>
 --new-datadir<span class="w"> </span>/var/lib/pgsql/16/data<span class="w"> </span><span class="se">\</span>
---link
+--link<span class="w"> </span>
 </code></pre></div>
 <p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
    If you don’t wish to use the <code>--link</code> option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.</p>
@@ -1603,16 +1562,16 @@ Checking for prepared transactions                          ok
 </code></pre></div>
 </li>
 <li>
-<p>Run the <code>analyze_new_cluster.sh</code> script</p>
+<p>After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the <code>vaccumdb</code> command to analyze the new cluster:</p>
 <ul>
 <li>Log in as the postgres user</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Run the script</li>
+<li>Run the script to analyze the new cluster:</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./analyze_new_cluster.sh
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-16/bin/vacuumdb<span class="w"> </span>--all<span class="w"> </span>--analyze-in-stages
 </code></pre></div>
 </li>
 <li>
@@ -1621,15 +1580,7 @@ Checking for prepared transactions                          ok
 </code></pre></div>
 </li>
 <li>
-<p>Delete Percona Distribution for PostgreSQL 15 packages</p>
-<ul>
-<li>Remove packages</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>remove<span class="w"> </span>percona-postgresql15*
-</code></pre></div>
-<ul>
-<li>Remove old files</li>
-</ul>
+<p>Delete Percona Distribution old data files</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/pgsql/15/data
 </code></pre></div>
 </li>
@@ -1656,7 +1607,7 @@ Checking for prepared transactions                          ok
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 31, 2023</span>
       
         <br>
         Created:
