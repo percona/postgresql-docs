@@ -58,40 +58,11 @@ The exact steps may differ depending on the package manager of your operating sy
       $ sudo percona-release setup ppg-13
       ```
 
-
     * Install Percona Distribution for PostgreSQL 13 package:
 
       ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-13
       ```
-
-
-    * Install the components:
-
-      ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-13-repack \
-       percona-postgresql-13-pgaudit \
-       percona-pgbackrest \
-       percona-patroni \
-       percona-pgbadger \
-       percona-pgaudit13-set-user \
-       percona-pgbadger \
-       percona-postgresql-13-wal2json \
-       percona-pg-stat-monitor13 \
-       percona-postgresql-contrib \
-       percona-pgpool2 \
-       percona-pg-gather
-      ```
-
-    !!! admonition "See also"
-
-        Percona Documentation:
-
-
-        - [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-
-        - [Installing Percona Distribution for PostgreSQL](installing.md)
-
 
 2. Stop the `postgresql` service.
 
@@ -122,7 +93,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 12 to 13:
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/13/bin/pg_upgrade
+      $ /usr/lib/postgresql/13/bin/pg_upgrade \
       --old-datadir=/var/lib/postgresql/12/main \
       --new-datadir=/var/lib/postgresql/13/main  \
       --old-bindir=/usr/lib/postgresql/12/bin  \
@@ -158,11 +129,11 @@ The exact steps may differ depending on the package manager of your operating sy
     * Upgrade the Percona Distribution for PostgreSQL
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/13/bin/pg_upgrade
+      $ /usr/lib/postgresql/13/bin/pg_upgrade \
       --old-datadir=/var/lib/postgresql/12/main \
       --new-datadir=/var/lib/postgresql/13/main  \
-      --old-bindir=/usr/lib/postgresql/12/bin \
-      --new-bindir=/usr/lib/postgresql/13/bin \
+      --old-bindir=/usr/lib/postgresql/12/bin  \
+      --new-bindir=/usr/lib/postgresql/13/bin  \
       --old-options '-c config_file=/etc/postgresql/12/main/postgresql.conf' \
       --new-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
       --link
@@ -213,31 +184,22 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
 
-6. Run the `analyze_new_cluster.sh` script
+6. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
     ```{.bash data-prompt="$"}
-    $ tmp/analyze_new_cluster.sh
+    $ /usr/lib/postgresql/13/bin/vacuumdb --all --analyze-in-stages
+    ```
+
+7. Delete the old cluster's data files:
+    
+    ```{.bash data-prompt="$"}
+    $ ./delete_old_cluster.sh
+    $ sudo rm -rf /etc/postgresql/13/main
     $ #Logout
     $ exit
     ```
 
-
-7. Delete Percona Distribution for PostgreSQL 12 packages and configuration files
-
-    * Remove packages
-
-       ```{.bash data-prompt="$"}
-       $ sudo apt remove percona-postgresql-12* percona-pgbackrest percona-patroni percona-pg-stat-monitor12 percona-pgaudit12-set-user percona-pgbadger percona-pgbouncer percona-postgresql-12-wal2json
-       ```
-
-    * Remove old files
-
-       ```{.bash data-prompt="$"}
-       $ rm -rf /etc/postgresql/12/main
-       ```
-
-
-## On Red Hat Enterprise Linux and CentOS using `yum`
+## On Red Hat Enterprise Linux and derivatives using `yum`
 
 !!! important
 
@@ -260,34 +222,6 @@ The exact steps may differ depending on the package manager of your operating sy
        $ sudo yum install percona-postgresql13-server
        ```
 
-    * Install components:
-
-       ```{.bash data-prompt="$"}
-       $ sudo yum install percona-pgaudit \
-       percona-pgbackrest \
-       percona-pg_repack13 \
-       percona-patroni \
-       percona-pg-stat-monitor13 \
-       percona-pgbadger \
-       percona-pgaudit13_set_user \
-       percona-pgbadger \
-       percona-wal2json13 \
-       percona-postgresql13-contrib \
-       percona-pgpool-II-pg13 \
-       percona-pg_gather
-       ```
-
-!!! admonition "See also"
-
-    Percona Documentation:
-
-
-    * [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-
-
-    * [Installing Percona Distribution for PostgreSQL](#installing.md)
-
-
 2. Set up Percona Distribution for PostgreSQL 13 cluster
 
    * Log is as the postgres user
@@ -309,13 +243,11 @@ The exact steps may differ depending on the package manager of your operating sy
       $ /usr/pgsql-13/bin/initdb -D /var/lib/pgsql/13/data
       ```
 
-
 3. Stop the `postgresql` 12 service
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl stop postgresql-12
     ```
-
 
 4. Run the database upgrade.
 
@@ -326,7 +258,6 @@ The exact steps may differ depending on the package manager of your operating sy
        $ sudo su postgres
        ```
 
-
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 12 to 13:
 
        ```{.bash data-prompt="$"}
@@ -335,7 +266,7 @@ The exact steps may differ depending on the package manager of your operating sy
        --new-bindir /usr/pgsql-13/bin  \
        --old-datadir /var/lib/pgsql/12/data \
        --new-datadir /var/lib/pgsql/13/data \
-       --link --check
+       --check
        ```
 
        The `--check` flag here instructs `pg_upgrade` to only check the upgrade without changing any data.
@@ -369,7 +300,7 @@ The exact steps may differ depending on the package manager of your operating sy
        --new-bindir /usr/pgsql-13/bin  \
        --old-datadir /var/lib/pgsql/12/data \
        --new-datadir /var/lib/pgsql/13/data \
-       --link
+       --link 
        ```
 
        The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
@@ -382,14 +313,14 @@ The exact steps may differ depending on the package manager of your operating sy
     $ systemctl start postgresql-13
     ```
 
-6. Check postgresql status
+6. Check `postgresql` status
 
     ```{.bash data-prompt="$"}
     $ systemctl status postgresql-13
     ```
 
 
-7. Run the `analyze_new_cluster.sh` script
+7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
 
     * Log in as the postgres user
@@ -398,10 +329,10 @@ The exact steps may differ depending on the package manager of your operating sy
        $ sudo su postgres
        ```
 
-    * Run the script
+    * Run the `vaccumdb` command
 
        ```{.bash data-prompt="$"}
-       $ ./analyze_new_cluster.sh
+       $ /usr/pgsql-13/bin/vacuumdb --all --analyze-in-stages
        ```
 
 
@@ -411,17 +342,8 @@ The exact steps may differ depending on the package manager of your operating sy
     $ ./delete_old_cluster.sh
     ```
 
-
-9. Delete Percona Distribution for PostgreSQL 12 packages
-
-    *  Remove packages
-
-       ```{.bash data-prompt="$"}
-       $ sudo yum -y remove percona-postgresql12*
-       ```
-
-    * Remove old files
-
-       ```{.bash data-prompt="$"}
-       $ rm -rf /var/lib/pgsql/12/data
-       ```
+9. Delete Percona Distribution old data files
+    
+    ```{.bash data-prompt="$"}
+    $ rm -rf /var/lib/pgsql/12/data
+    ```
