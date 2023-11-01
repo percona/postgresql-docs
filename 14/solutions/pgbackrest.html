@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The following document provides guidelines how to install PostGIS and how to run the basic queries.">
+        <meta name="description" content="pgBackRest is the backup tool used to perform Postgres database backup, restoration, and point-in-time recovery. It is a server-client application, where the server runs on a dedicated host and a client runs on every PostgreSQL node.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/14/solutions/postgis-deploy.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/14/solutions/pgbackrest.html">
       
       
-        <link rel="prev" href="postgis.html">
+        <link rel="prev" href="ha-setup-yum.html">
       
       
-        <link rel="next" href="postgis-testing.html">
+        <link rel="next" href="ha-test.html">
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Deployment - Percona Distribution for PostgreSQL</title>
+        <title>pgBackRest setup - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Deployment" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - pgBackRest setup" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deploy-spatial-data-with-postgresql" class="md-skip">
+        <a href="#pgbackrest-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deployment
+              pgBackRest setup
             
           </span>
         </div>
@@ -988,18 +988,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -1013,7 +1015,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             High availability
@@ -1084,9 +1086,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="pgbackrest.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    pgBackRest setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="pgbackrest.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1095,6 +1117,76 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configure-backup-server" class="md-nav__link">
+    Configure backup server
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure backup server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pgbackrest" class="md-nav__link">
+    Install pgBackRest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-configuration-file" class="md-nav__link">
+    Create the configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-certificate-files" class="md-nav__link">
+    Create the certificate files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-database-servers" class="md-nav__link">
+    Configure database servers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-backups" class="md-nav__link">
+    Create backups
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1216,20 +1308,18 @@
                 
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1243,7 +1333,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Spatial data handling
@@ -1274,29 +1364,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Deployment
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="postgis-deploy.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="postgis-deploy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,56 +1375,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#considerations" class="md-nav__link">
-    Considerations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-postgis" class="md-nav__link">
-    Install PostGIS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-postgis-extension" class="md-nav__link">
-    Enable PostGIS extension
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upload-spatial-data-to-postgresql" class="md-nav__link">
-    Upload spatial data to PostgreSQL
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1527,29 +1547,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#considerations" class="md-nav__link">
-    Considerations
+  <a href="#configure-backup-server" class="md-nav__link">
+    Configure backup server
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure backup server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pgbackrest" class="md-nav__link">
+    Install pgBackRest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-configuration-file" class="md-nav__link">
+    Create the configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-certificate-files" class="md-nav__link">
+    Create the certificate files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-database-servers" class="md-nav__link">
+    Configure database servers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-postgis" class="md-nav__link">
-    Install PostGIS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-postgis-extension" class="md-nav__link">
-    Enable PostGIS extension
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upload-spatial-data-to-postgresql" class="md-nav__link">
-    Upload spatial data to PostgreSQL
+  <a href="#create-backups" class="md-nav__link">
+    Create backups
   </a>
   
 </li>
@@ -1572,14 +1612,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/14/docs/solutions/postgis-deploy.md"
+                    href="https://github.com/percona/postgresql-docs/edit/14/docs/solutions/pgbackrest.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/solutions/postgis-deploy.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/solutions/pgbackrest.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1595,305 +1635,324 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="deploy-spatial-data-with-postgresql">Deploy spatial data with PostgreSQL<a class="headerlink" href="#deploy-spatial-data-with-postgresql" title="Permanent link">&para;</a></h1>
-<p>The following document provides guidelines how to install PostGIS and how to run the basic queries. </p>
-<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h2>
+                <h1 id="pgbackrest-setup">pgBackRest setup<a class="headerlink" href="#pgbackrest-setup" title="Permanent link">&para;</a></h1>
+<p>pgBackRest is the backup tool used to perform Postgres database backup, restoration, and point-in-time recovery. It is a server-client application, where the server runs on a dedicated host and a client runs on every PostgreSQL node. </p>
+<p>You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. </p>
+<h2 id="configure-backup-server">Configure backup server<a class="headerlink" href="#configure-backup-server" title="Permanent link">&para;</a></h2>
+<h3 id="install-pgbackrest">Install pgBackRest<a class="headerlink" href="#install-pgbackrest" title="Permanent link">&para;</a></h3>
 <ol>
-<li>We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.</li>
-<li>For uploading the spatial data and querying the database, we use the same <a href="https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip">data set</a> as is used in <a href="http://postgis.net/workshops/postgis-intro/">PostGIS tutorial</a>. </li>
-</ol>
-<h2 id="install-postgis">Install PostGIS<a class="headerlink" href="#install-postgis" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
+<li>
+<p>Enable the repository with <a href="https://www.percona.com/doc/percona-repo-config/index.html">percona-release</a></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-14<span class="w">       </span>
+</code></pre></div>
+</li>
+<li>
+<p>Install pgBackRest package</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
-</li>
-<li>
-<p>Install PostGIS packages</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgis
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
-</li>
-<li>
-<p>The command in the previous step installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="n">address</span><span class="o">%</span><span class="err">&#39;</span><span class="p">;</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To enable the <code>postgis_sfcgal-3</code> extension on Ubuntu 18.04, you need to manually install the required dependency:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libsfcgal1
-</code></pre></div>
+</div>
+</div>
 </div>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
-<p>For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL 9</label><label for="__tabbed_2_2">CentOS 9</label><label for="__tabbed_2_3">Oracle Linux 9</label><label for="__tabbed_2_4">Rocky Linux 9</label><label for="__tabbed_2_5">RHEL UBI 9</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<h3 id="create-the-configuration-file">Create the configuration file<a class="headerlink" href="#create-the-configuration-file" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
+<p>Create environment variables to simplify the config file creation:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;bkp-srv&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE1_NAME</span><span class="o">=</span><span class="s2">&quot;node-1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE2_NAME</span><span class="o">=</span><span class="s2">&quot;node-2&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE3_NAME</span><span class="o">=</span><span class="s2">&quot;node-3&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+<p>Create the <code>pgBackRest</code> repository</p>
+<p>A repository is where <code>pgBackRest</code> stores backups. In this example, the backups will be saved to <code>/var/lib/pgbackrest</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/lib/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/pgbackrest
 </code></pre></div>
 </li>
 <li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
-$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Configure the Oracle-Linux repository. Create the <code>/etc/yum.repos.d/oracle-linux-ol9.repo</code> file to install the required dependencies: </p>
-<div class="highlight"><span class="filename">/etc/yum.repos.d/oracle-linux-ol9.repo</span><pre><span></span><code>[ol9_baseos_latest]
-name=Oracle Linux 9 BaseOS Latest ($basearch)
-baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/baseos/latest/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1     
+<p>The default pgBackRest configuration file location is <code>/etc/pgbackrest/pgbackrest.conf</code>. If it does not exist, then <code>/etc/pgbackrest.conf</code> is used next. Edit the <code>pgbackrest.conf</code> file to include the following configuration:</p>
+<div class="highlight"><pre><span></span><code>[global] 
 
-[ol9_appstream]
-name=Oracle Linux 9 Application Stream ($basearch)
-baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/appstream/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1     
+# Server repo details
+repo1-path=/var/lib/pgbackrest 
 
-[ol9_codeready_builder]
-name=Oracle Linux 9 CodeReady Builder ($basearch) - Unsupported
-baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/codeready/builder/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1
+### Retention ###
+#  - repo1-retention-archive-type
+#  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
+repo1-retention-archive-type=full 
+
+# repo1-retention-archive
+#  - Number of backups worth of continuous WAL to retain
+#  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
+#  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
+# repo1-retention-archive=2 
+
+# repo1-retention-full
+#  - Full backup retention count/time.
+#  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
+#  - When the option is not defined a warning will be issued. 
+#  - If indefinite retention is desired then set the option to the max value. 
+repo1-retention-full=4 
+
+# Server general options
+process-max=12
+log-level-console=info
+#log-level-file=debug
+log-level-file=info
+start-fast=y
+delta=y
+backup-standby=y 
+
+########## Server TLS options ##########
+tls-server-address=*
+tls-server-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+tls-server-key-file=/pg_ha/certs/${SRV_NAME}.key
+tls-server-ca-file=/pg_ha/certs/ca.crt 
+
+### Auth entry ###
+tls-server-auth=${NODE1_NAME}=cluster_1
+tls-server-auth=${NODE2_NAME}=cluster_1
+tls-server-auth=${NODE3_NAME}=cluster_1 
+
+### Clusters and nodes ###
+[cluster_1]
+pg1-host=${NODE1_NAME}
+pg1-host-port=8432
+pg1-port=5432
+pg1-path=/var/lib/postgresql/11/
+pg1-host-type=tls
+pg1-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+pg1-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+pg1-host-ca-file=/pg_ha/certs/ca.crt
+pg1-socket-path=/var/run/postgresql 
+
+
+pg2-host=${NODE2_NAME}
+pg2-host-port=8432
+pg2-port=5432
+pg2-path=/var/lib/postgresql/11/
+pg2-host-type=tls
+pg2-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+pg2-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+pg2-host-ca-file=/pg_ha/certs/ca.crt
+pg2-socket-path=/var/run/postgresql 
+
+pg3-host=${NODE3_NAME}
+pg3-host-port=8432
+pg3-port=5432
+pg3-path=/var/lib/postgresql/11/
+pg3-host-type=tls
+pg3-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+pg3-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+pg3-host-ca-file=/pg_ha/certs/ca.crt
+pg3-socket-path=/var/run/postgresql
 </code></pre></div>
 </li>
 <li>
-<p>Download the right GPG key for the Oracle Yum Repository:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://yum.oracle.com/RPM-GPG-KEY-oracle-ol9<span class="w"> </span>-O<span class="w"> </span>/etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-</code></pre></div>
-</li>
-<li>
-<p>Enable Percona repository    </p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository.     </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Disable the upstream <code>postgresql</code> package:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
+<p>Create the <code>systemd</code> unit file at the path <code>/etc/systemd/system/pgbackrest.service</code></p>
+<div class="highlight"><span class="filename">/etc/systemd/system/pgbackrest.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">pgBackRest Server</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+<span class="na">StartLimitIntervalSec</span><span class="o">=</span><span class="s">0</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">User</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">1</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/pgbackrest server</span>
+<span class="c1">#ExecStartPost=/bin/sleep 3</span>
+<span class="c1">#ExecStartPost=/bin/bash -c &quot;[ ! -z $MAINPID ]&quot;</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
 </code></pre></div>
 </li>
 </ol>
-</div>
-</div>
-</div>
-<p>This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:    </p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;address%&#39;</span><span class="p">;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="enable-postgis-extension">Enable PostGIS extension<a class="headerlink" href="#enable-postgis-extension" title="Permanent link">&para;</a></h2>
+<h3 id="create-the-certificate-files">Create the certificate files<a class="headerlink" href="#create-the-certificate-files" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Create a database and a schema for this database to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the <code>psql</code> terminal:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">nyc</span><span class="p">;</span>
-<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">nyc</span><span class="p">;</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">gis</span><span class="p">;</span>
+<p>Create the folder where to store the certificates. For example, <code>/pg_ha/certs</code></p>
+</li>
+<li>
+<p>Define the variable for the certificates path:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/pg_ha/certs&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>To make PostGIS functions and operations work, you need to enable the <code>postgis</code> extension. Make sure you are connected to the database you created earlier and run the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">postgis</span><span class="p">;</span>
+<p>Create the certificates and keys</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=root-ca&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>Check that the extension is enabled:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">postgis_full_version</span><span class="p">();</span>
+<p>Create the certificate for the backup server</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
-<p>The output should resemble the following:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="n">postgis_full_version</span>
-<span class="c1">-----------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="w"> </span><span class="n">POSTGIS</span><span class="o">=</span><span class="ss">&quot;3.3.3&quot;</span><span class="w"> </span><span class="p">[</span><span class="n">EXTENSION</span><span class="p">]</span><span class="w"> </span><span class="n">PGSQL</span><span class="o">=</span><span class="ss">&quot;140&quot;</span><span class="w"> </span><span class="n">GEOS</span><span class="o">=</span><span class="ss">&quot;3.10.2-CAPI-1.16.0&quot;</span><span class="w"> </span><span class="n">PROJ</span><span class="o">=</span><span class="ss">&quot;8.2.1&quot;</span><span class="w"> </span><span class="n">LIBXML</span><span class="o">=</span><span class="ss">&quot;2.9.13&quot;</span><span class="w"> </span><span class="n">LIBJSON</span><span class="o">=</span><span class="ss">&quot;0.15&quot;</span><span class="w"> </span><span class="n">LIBPROTOBUF</span><span class="o">=</span><span class="ss">&quot;1.3.3&quot;</span><span class="w"> </span><span class="n">WAGYU</span><span class="o">=</span><span class="ss">&quot;0.5.0 (Internal)&quot;</span>
+</li>
+<li>
+<p>Create the certificates for each node: <code>node1</code>, <code>node2</code>, <code>node3</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Sign the certificates with the <code>root-ca</code> key</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.crt
+</code></pre></div>
+</li>
+<li>
+<p>Remove temporary files</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*.csr
+</code></pre></div>
+</li>
+<li>
+<p>Reload, enable, and start the service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest
 </code></pre></div>
 </li>
 </ol>
-<h2 id="upload-spatial-data-to-postgresql">Upload spatial data to PostgreSQL<a class="headerlink" href="#upload-spatial-data-to-postgresql" title="Permanent link">&para;</a></h2>
-<p>PostGIS provides the <code>shp2pgsql</code> command line utility that converts the binary data from shapefiles into the series of SQL commands and loads them into the database.</p>
+<h2 id="configure-database-servers">Configure database servers<a class="headerlink" href="#configure-database-servers" title="Permanent link">&para;</a></h2>
+<p>Run the following command on <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
 <ol>
 <li>
-<p>For testing purposes, download the sample data set:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-LO<span class="w"> </span>https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip
+<p>Create the certificates folder. For example, <code>/pg_ha/certs</code> </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/pg_ha/certs
 </code></pre></div>
 </li>
 <li>
-<p>From the folder where the <code>.shp</code> files are located, execute the following command and replace the <code>dbname</code> value with the name of your database:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>shp2pgsql<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-D<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-I<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-s<span class="w"> </span><span class="m">26918</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>nyc_streets.shp<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>nyc_streets<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="p">|</span><span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span><span class="nv">dbname</span><span class="o">=</span>nyc
+<p>Export environment variables to simplify config file creation</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
 </code></pre></div>
-<p>The command does the following:</p>
-<ul>
-<li><code>-D</code> flag instructs the command to generate the dump format</li>
-<li><code>-I</code> flag instructs to create the spatial index on the table upon the data load</li>
-<li><code>-s</code> indicates the <a href="https://en.wikipedia.org/wiki/Spatial_reference_system">spatial reference identifier</a> of the data. The data we load is in the Projected coordinate system for North America and has the value 26918.</li>
-<li><code>nyc_streets.shp</code> is the source shapefile</li>
-<li><code>nyc_streets</code> is the table name to create in the database</li>
-<li><code>dbname=nyc</code> is the database name</li>
-</ul>
 </li>
 <li>
-<p>Check the uploaded data</p>
+<p>Create the configuration file. The default path is <code>/etc/pgbackrest.conf</code></p>
+<div class="highlight"><span class="filename">/etc/pgbackrest.conf</span><pre><span></span><code><span class="k">[global]</span>
+<span class="na">repo1-host</span><span class="o">=</span><span class="s">bkp-srv</span>
+<span class="na">repo1-host-user</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">repo1-host-type</span><span class="o">=</span><span class="s">tls</span>
+<span class="na">repo1-host-cert-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.crt</span>
+<span class="na">repo1-host-key-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.key</span>
+<span class="na">repo1-host-ca-file</span><span class="o">=</span><span class="s">/pg_ha/certs/ca.crt</span>
+
+<span class="c1"># general options</span>
+<span class="na">process-max</span><span class="o">=</span><span class="s">16</span>
+<span class="na">log-level-console</span><span class="o">=</span><span class="s">info</span>
+<span class="na">log-level-file</span><span class="o">=</span><span class="s">debug</span>
+
+<span class="c1"># tls server options</span>
+<span class="na">tls-server-address</span><span class="o">=</span><span class="s">*</span>
+<span class="na">tls-server-cert-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.crt</span>
+<span class="na">tls-server-key-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.key</span>
+<span class="na">tls-server-ca-file</span><span class="o">=</span><span class="s">/pg_ha/certs/ca.crt</span>
+<span class="na">tls-server-auth</span><span class="o">=</span><span class="s">bkp-srv=cluster_1</span>
+
+<span class="k">[cluster_1]</span>
+<span class="na">pg1-path</span><span class="o">=</span><span class="s">/var/lib/postgresql/11</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the <code>systemd</code> unit file at the path <code>/etc/systemd/system/pgbackrest.service</code></p>
+<div class="highlight"><span class="filename">/etc/systemd/system/pgbackrest.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">pgBackRest Server</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+<span class="na">StartLimitIntervalSec</span><span class="o">=</span><span class="s">0</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">User</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">1</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/pgbackrest server</span>
+<span class="c1">#ExecStartPost=/bin/sleep 3</span>
+<span class="c1">#ExecStartPost=/bin/bash -c &quot;[ ! -z $MAINPID ]&quot;</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
+</li>
+<li>
+<p>Reload, enable, and start the service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest
+</code></pre></div>
+</li>
+<li>
+<p>Change Patroni configuration to use pgBackRest. Run this command on one node only, for example, on <code>node1</code>. Edit the <code>/etc/patroni/patroni.yml</code> file :</p>
+<div class="highlight"><span class="filename">/etc/patroni/patroni.yml</span><pre><span></span><code><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span>
+<span class="nt">postgresql</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">archive_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --stanza=cluster_1 archive-push &quot;/var/lib/postgresql/15/main/pg_wal/%f&quot;</span>
+<span class="w">    </span><span class="nt">archive_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">archive_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1800s</span>
+<span class="w">    </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+<span class="w">    </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">wal_keep_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="w">    </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logical</span>
+<span class="w">    </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">recovery_conf</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">recovery_target_timeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f &quot;%p&quot;</span>
+<span class="w">  </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">percona_cluster_1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">physical</span>
+<span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</code></pre></div>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">nyc_streets</span><span class="p">;</span>
-<span class="w">                                         </span><span class="k">Table</span><span class="w"> </span><span class="ss">&quot;public.nyc_streets&quot;</span>
-<span class="w"> </span><span class="k">Column</span><span class="w"> </span><span class="o">|</span><span class="w">              </span><span class="k">Type</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">Collation</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Nullable</span><span class="w"> </span><span class="o">|</span><span class="w">                 </span><span class="k">Default</span>
-<span class="c1">--------+---------------------------------+-----------+----------+------------------------------------------</span>
-<span class="w"> </span><span class="n">gid</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">                         </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">nextval</span><span class="p">(</span><span class="s1">&#39;nyc_streets_gid_seq&#39;</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
-<span class="w"> </span><span class="n">id</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="k">precision</span><span class="w">                </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
-<span class="w"> </span><span class="n">name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w">          </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
-<span class="w"> </span><span class="n">oneway</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w">           </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
-<span class="w"> </span><span class="k">type</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">           </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
-<span class="w"> </span><span class="n">geom</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">geometry</span><span class="p">(</span><span class="n">MultiLineString</span><span class="p">,</span><span class="mi">26918</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
-<span class="n">Indexes</span><span class="p">:</span>
-<span class="w">    </span><span class="ss">&quot;nyc_streets_pkey&quot;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">gid</span><span class="p">)</span>
-<span class="w">    </span><span class="ss">&quot;nyc_streets_geom_idx&quot;</span><span class="w"> </span><span class="n">gist</span><span class="w"> </span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-</code></pre></div>
+<h2 id="create-backups">Create backups<a class="headerlink" href="#create-backups" title="Permanent link">&para;</a></h2>
+<p>Run the following commands on the <strong>backup server</strong></p>
 <ol>
-<li>Repeat the command to upload other shapefiles in the data set: <code>nyc_census_blocks</code>, <code>nyc_neighborhoods</code>, <code>nyc_subway_stations</code></li>
+<li>
+<p>Create the stanza. A stanza is the configuration for a PostgreSQL database cluster that defines where it is located, how it will be backed up, archiving options, etc. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>stanza-create
+</code></pre></div>
+</li>
+<li>
+<p>Create a full backup</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>--type<span class="o">=</span>full<span class="w"> </span>backup
+</code></pre></div>
+</li>
+<li>
+<p>Create an incremental backup</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>--type<span class="o">=</span>incr<span class="w"> </span>backup
+</code></pre></div>
+</li>
+<li>
+<p>Check backup info</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>info
+</code></pre></div>
+</li>
+<li>
+<p>Expire (remove) a backup. Be careful with removal, because removing a full backup also removes dependent incremental backups </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>expire<span class="w"> </span>--set<span class="o">=</span><span class="m">20230617</span>-021338F
+</code></pre></div>
+</li>
 </ol>
+<p><a class="md-button" href="ha-test.html">Test PostgreSQL cluster</a></p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1916,11 +1975,11 @@ enabled=1
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 12, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2023</span>
       
     
   </small>

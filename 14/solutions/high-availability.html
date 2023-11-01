@@ -1143,15 +1143,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    Deployment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -1195,7 +1188,27 @@
         
   
   <span class="md-ellipsis">
-    Deploying on RHEL or CentOS
+    Deploying on RHEL or derivatives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pgbackrest.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pgBackRest setup
   </span>
   
 
@@ -1627,15 +1640,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    Deployment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -1682,19 +1688,11 @@
 
                 <!-- Markdown content -->
                 <h1 id="high-availability-in-postgresql-with-patroni">High Availability in PostgreSQL with Patroni<a class="headerlink" href="#high-availability-in-postgresql-with-patroni" title="Permanent link">&para;</a></h1>
-<div class="admonition summary">
-<p class="admonition-title">Summary</p>
-<ul>
-<li>Solution overview</li>
-<li>Cluster deployment</li>
-<li>Testing the cluster</li>
-</ul>
-</div>
 <p>PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes or unexpected reboots. Such cluster is often a critical component of the enterprise application landscape, where <a href="https://en.wikipedia.org/wiki/High_availability#Percentage_calculation">four nines of availability</a> is a minimum requirement. </p>
-<p>There are several methods to achieve high availability in PostgreSQL. In this description we use <a href="#patroni">Patroni</a> - the open-source extension to facilitate and manage the deployment of high availability in PostgreSQL.</p>
-<div class="admonition admonition">
-<p class="admonition-title">High availability methods</p>
-<p>There are a few methods for achieving high availability with PostgreSQL:</p>
+<p>There are several methods to achieve high availability in PostgreSQL. This solution document provides <a href="#patroni">Patroni</a> - the open-source extension to facilitate and manage the deployment of high availability in PostgreSQL.</p>
+<details class="admonition">
+<summary>High availability methods</summary>
+<p>There are several native methods for achieving high availability with PostgreSQL:</p>
 <ul>
 <li>shared disk failover, </li>
 <li>file system replication, </li>
@@ -1716,9 +1714,9 @@
 </ul>
 <p>To address these shortcomings, there are a multitude of third-party, open-source extensions for PostgreSQL. The challenge for a database administrator here is to select the right utility for the current scenario. </p>
 <p>Percona Distribution for PostgreSQL solves this challenge by providing the <a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> extension for achieving PostgreSQL high availability.</p>
-</div>
+</details>
 <h2 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> provides a template-based approach to create highly available PostgreSQL clusters. Running atop the PostgreSQL streaming replication process, it integrates with watchdog functionality to detect failed primary nodes and take corrective actions to prevent outages. Patroni also relies on a pluggable configuration store to manage distributed, multi-node cluster configuration and store the information about the cluster health there. Patroni comes with REST APIs to monitor and manage the cluster and has a command-line utility called <em>patronictl</em> that helps manage switchovers and failure scenarios.</p>
+<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. </p>
 <h3 id="key-benefits-of-patroni">Key benefits of Patroni:<a class="headerlink" href="#key-benefits-of-patroni" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Continuous monitoring and automatic failover</li>
@@ -1737,30 +1735,28 @@
 <ul>
 <li>PostgreSQL nodes </li>
 <li>
-<p>Patroni provides a template for configuring a highly available PostgreSQL cluster.</p>
+<p>Patroni - a template for configuring a highly available PostgreSQL cluster.</p>
 </li>
 <li>
-<p>ETCD is a Distributed Configuration store that stores the state of the PostgreSQL cluster. </p>
+<p>ETCD - a Distributed Configuration store that stores the state of the PostgreSQL cluster. </p>
 </li>
 <li>
-<p>HAProxy is the load balancer for the cluster and is the single point of entry to client applications. </p>
+<p>HAProxy - the load balancer for the cluster and is the single point of entry to client applications. </p>
 </li>
 <li>
-<p>Softdog - a watchdog utility which is used by Patroni to check the nodes&rsquo; health. Watchdog resets the whole system when it doesn&rsquo;t receive a keepalive heartbeat within a specified time. </p>
+<p>pgBackRest - the backup and restore solution for PostgreSQL</p>
+</li>
+<li>
+<p>Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster </p>
 </li>
 </ul>
 <h3 id="how-components-work-together">How components work together<a class="headerlink" href="#how-components-work-together" title="Permanent link">&para;</a></h3>
 <p>Each PostgreSQL instance in the cluster maintains consistency with other members through streaming replication. Each instance hosts Patroni - a cluster manager that monitors the cluster health. Patroni relies on the operational ETCD cluster to store the cluster configuration and sensitive data about the cluster health there. </p>
 <p>Patroni periodically sends heartbeat requests with the cluster status to ETCD. ETCD writes this information to disk and sends the response back to Patroni. If the current primary fails to renew its status as leader within the specified timeout, Patroni updates the state change in ETCD, which uses this information to elect the new primary and keep the cluster up and running.</p>
 <p>The connections to the cluster do not happen directly to the database nodes but are routed via a connection proxy like HAProxy. This proxy determines the active node by querying the Patroni REST API.</p>
-<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
-<p>Use the following links to navigate to the setup instructions relevant to your operating system:</p>
-<ul>
-<li><a href="ha-setup-apt.html">Deploy on Debian or Ubuntu</a></li>
-<li><a href="ha-setup-yum.html">Deploy on Red Hat Enterprise Linux or CentOS</a></li>
-</ul>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>See the <a href="ha-test.html">Testing PostgreSQL cluster</a> for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="ha-setup-apt.html">Deploy on Debian or Ubuntu</a>
+<a class="md-button" href="ha-setup-yum.html">Deploy on RHEL or derivatives</a></p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1783,7 +1779,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2023</span>
       
         <br>
         Created:
