@@ -149,12 +149,12 @@ nav:
         - "Install via yum": "yum.md"
         - enable-extensions.md
         - repo-overview.md
-      - docker.md
+      - "Run in Docker": docker.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
-      - 'pg-stat-monitor': 'pg-stat-monitor.md'
+      - 'pg_stat_monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
           - 'High availability': 'solutions/high-availability.md'

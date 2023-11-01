@@ -1,6 +1,6 @@
 # Run Percona Distribution for PostgreSQL in a Docker container
 
-Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub](https://hub.docker.com/r/perconalab/percona-distribution-postgresql).
+Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub](https://hub.docker.com/r/percona/percona-distribution-postgresql/).
 
 For more information about using Docker, see the [Docker Docs](https://docs.docker.com/).
 
@@ -42,7 +42,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
     * `POSTGRES_PASSWORD` is the superuser password 
     * `tag` is the tag specifying the version you want.     
 
-    Check the [full list of tags](https://hub.docker.com/r/perconalab/percona-distribution-postgresql/tags/).
+    Check the [full list of tags](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
     
 
     !!! tip     
