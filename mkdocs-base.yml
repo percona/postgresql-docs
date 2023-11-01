@@ -154,7 +154,8 @@ nav:
       - High availability:
           - "High availability": "solutions/high-availability.md"
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
-          - 'Deploying on RHEL or CentOS': 'solutions/ha-setup-yum.md'
+          - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
+          - solutions/pgbackrest.md
           - solutions/ha-test.md
       - Backup and disaster recovery:
           - "Backup and disaster recovery": "solutions/backup-recovery.md"
