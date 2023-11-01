@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="After you installed and set up PostGIS, let’s find answers to the following questions by querying the database:">
+        <meta name="description" content="pgBackRest is the backup tool used to perform Postgres database backup, restoration, and point-in-time recovery. It is a server-client application, where the server runs on a dedicated host and a client runs on every PostgreSQL node.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/solutions/postgis-testing.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/solutions/pgbackrest.html">
       
       
-        <link rel="prev" href="postgis-deploy.html">
+        <link rel="prev" href="ha-setup-yum.html">
       
       
-        <link rel="next" href="postgis-upgrade.html">
+        <link rel="next" href="ha-test.html">
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Query spatial data - Percona Distribution for PostgreSQL</title>
+        <title>pgBackRest setup - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Query spatial data" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - pgBackRest setup" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#query-spatial-data" class="md-skip">
+        <a href="#pgbackrest-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Query spatial data
+              pgBackRest setup
             
           </span>
         </div>
@@ -828,18 +828,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -853,7 +855,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             High availability
@@ -924,9 +926,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="pgbackrest.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    pgBackRest setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="pgbackrest.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -935,6 +957,76 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configure-backup-server" class="md-nav__link">
+    Configure backup server
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure backup server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pgbackrest" class="md-nav__link">
+    Install pgBackRest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-configuration-file" class="md-nav__link">
+    Create the configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-certificate-files" class="md-nav__link">
+    Create the certificate files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-database-servers" class="md-nav__link">
+    Configure database servers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-backups" class="md-nav__link">
+    Create backups
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1056,20 +1148,18 @@
                 
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1083,7 +1173,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Spatial data handling
@@ -1134,29 +1224,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Query spatial data
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="postgis-testing.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="postgis-testing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1165,49 +1235,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-the-population-of-the-new-york-city" class="md-nav__link">
-    What is the population of the New York City?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-the-area-of-central-park" class="md-nav__link">
-    What is the area of Central Park?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-long-is-columbus-circle" class="md-nav__link">
-    How long is Columbus Circle?
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1360,22 +1387,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-the-population-of-the-new-york-city" class="md-nav__link">
-    What is the population of the New York City?
+  <a href="#configure-backup-server" class="md-nav__link">
+    Configure backup server
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure backup server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-pgbackrest" class="md-nav__link">
+    Install pgBackRest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-configuration-file" class="md-nav__link">
+    Create the configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-the-certificate-files" class="md-nav__link">
+    Create the certificate files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-database-servers" class="md-nav__link">
+    Configure database servers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-the-area-of-central-park" class="md-nav__link">
-    What is the area of Central Park?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-long-is-columbus-circle" class="md-nav__link">
-    How long is Columbus Circle?
+  <a href="#create-backups" class="md-nav__link">
+    Create backups
   </a>
   
 </li>
@@ -1398,14 +1452,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/15/docs/solutions/postgis-testing.md"
+                    href="https://github.com/percona/postgresql-docs/edit/15/docs/solutions/pgbackrest.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/solutions/postgis-testing.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/solutions/pgbackrest.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1421,42 +1475,324 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="query-spatial-data">Query spatial data<a class="headerlink" href="#query-spatial-data" title="Permanent link">&para;</a></h1>
-<p>After you <a href="postgis-install.md">installed and set up PostGIS</a>, let’s find answers to the following questions by querying the database:</p>
-<h2 id="what-is-the-population-of-the-new-york-city"><em>What is the population of the New York City?</em><a class="headerlink" href="#what-is-the-population-of-the-new-york-city" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">Sum</span><span class="p">(</span><span class="n">popn_total</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">population</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_census_blocks</span><span class="p">;</span>
+                <h1 id="pgbackrest-setup">pgBackRest setup<a class="headerlink" href="#pgbackrest-setup" title="Permanent link">&para;</a></h1>
+<p>pgBackRest is the backup tool used to perform Postgres database backup, restoration, and point-in-time recovery. It is a server-client application, where the server runs on a dedicated host and a client runs on every PostgreSQL node. </p>
+<p>You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. </p>
+<h2 id="configure-backup-server">Configure backup server<a class="headerlink" href="#configure-backup-server" title="Permanent link">&para;</a></h2>
+<h3 id="install-pgbackrest">Install pgBackRest<a class="headerlink" href="#install-pgbackrest" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Enable the repository with <a href="https://www.percona.com/doc/percona-repo-config/index.html">percona-release</a></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-15<span class="w">       </span>
 </code></pre></div>
-<p>Output:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="n">population</span>
-<span class="c1">------------</span>
-<span class="w">    </span><span class="mi">8175032</span>
-<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+</li>
+<li>
+<p>Install pgBackRest package</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">RHEL/derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
-<h2 id="what-is-the-area-of-central-park"><em>What is the area of Central Park?</em><a class="headerlink" href="#what-is-the-area-of-central-park" title="Permanent link">&para;</a></h2>
-<p>To get the answer we will use the <code>ST_Area</code> function that returns the areas of polygons.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000000</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_neighborhoods</span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Central Park&#39;</span><span class="p">;</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
-<p>Output:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="w">      </span><span class="n">st_area</span>
-<span class="c1">--------------------</span>
-<span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">5198365965413293</span>
-<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+</div>
+</div>
+</div>
+</li>
+</ol>
+<h3 id="create-the-configuration-file">Create the configuration file<a class="headerlink" href="#create-the-configuration-file" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Create environment variables to simplify the config file creation:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;bkp-srv&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE1_NAME</span><span class="o">=</span><span class="s2">&quot;node-1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE2_NAME</span><span class="o">=</span><span class="s2">&quot;node-2&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE3_NAME</span><span class="o">=</span><span class="s2">&quot;node-3&quot;</span>
 </code></pre></div>
-<p>By default, the output is given in square meters. To get the value in square kilometers, divide it by 1 000 000.</p>
-<h2 id="how-long-is-columbus-circle"><em>How long is Columbus Circle?</em><a class="headerlink" href="#how-long-is-columbus-circle" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Length</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_streets</span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Columbus Cir&#39;</span><span class="p">;</span>
+</li>
+<li>
+<p>Create the <code>pgBackRest</code> repository</p>
+<p>A repository is where <code>pgBackRest</code> stores backups. In this example, the backups will be saved to <code>/var/lib/pgbackrest</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/lib/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/pgbackrest
 </code></pre></div>
-<p>Output:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="w">     </span><span class="n">st_length</span>
-<span class="c1">-------------------</span>
-<span class="w"> </span><span class="mi">308</span><span class="p">.</span><span class="mi">3419936909855</span>
-<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
+</li>
+<li>
+<p>The default pgBackRest configuration file location is <code>/etc/pgbackrest/pgbackrest.conf</code>. If it does not exist, then <code>/etc/pgbackrest.conf</code> is used next. Edit the <code>pgbackrest.conf</code> file to include the following configuration:</p>
+<div class="highlight"><pre><span></span><code>[global] 
+
+# Server repo details
+repo1-path=/var/lib/pgbackrest 
+
+### Retention ###
+#  - repo1-retention-archive-type
+#  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
+repo1-retention-archive-type=full 
+
+# repo1-retention-archive
+#  - Number of backups worth of continuous WAL to retain
+#  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
+#  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
+# repo1-retention-archive=2 
+
+# repo1-retention-full
+#  - Full backup retention count/time.
+#  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
+#  - When the option is not defined a warning will be issued. 
+#  - If indefinite retention is desired then set the option to the max value. 
+repo1-retention-full=4 
+
+# Server general options
+process-max=12
+log-level-console=info
+#log-level-file=debug
+log-level-file=info
+start-fast=y
+delta=y
+backup-standby=y 
+
+########## Server TLS options ##########
+tls-server-address=*
+tls-server-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+tls-server-key-file=/pg_ha/certs/${SRV_NAME}.key
+tls-server-ca-file=/pg_ha/certs/ca.crt 
+
+### Auth entry ###
+tls-server-auth=${NODE1_NAME}=cluster_1
+tls-server-auth=${NODE2_NAME}=cluster_1
+tls-server-auth=${NODE3_NAME}=cluster_1 
+
+### Clusters and nodes ###
+[cluster_1]
+pg1-host=${NODE1_NAME}
+pg1-host-port=8432
+pg1-port=5432
+pg1-path=/var/lib/postgresql/11/
+pg1-host-type=tls
+pg1-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+pg1-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+pg1-host-ca-file=/pg_ha/certs/ca.crt
+pg1-socket-path=/var/run/postgresql 
+
+
+pg2-host=${NODE2_NAME}
+pg2-host-port=8432
+pg2-port=5432
+pg2-path=/var/lib/postgresql/11/
+pg2-host-type=tls
+pg2-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+pg2-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+pg2-host-ca-file=/pg_ha/certs/ca.crt
+pg2-socket-path=/var/run/postgresql 
+
+pg3-host=${NODE3_NAME}
+pg3-host-port=8432
+pg3-port=5432
+pg3-path=/var/lib/postgresql/11/
+pg3-host-type=tls
+pg3-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+pg3-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+pg3-host-ca-file=/pg_ha/certs/ca.crt
+pg3-socket-path=/var/run/postgresql
 </code></pre></div>
+</li>
+<li>
+<p>Create the <code>systemd</code> unit file at the path <code>/etc/systemd/system/pgbackrest.service</code></p>
+<div class="highlight"><span class="filename">/etc/systemd/system/pgbackrest.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">pgBackRest Server</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+<span class="na">StartLimitIntervalSec</span><span class="o">=</span><span class="s">0</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">User</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">1</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/pgbackrest server</span>
+<span class="c1">#ExecStartPost=/bin/sleep 3</span>
+<span class="c1">#ExecStartPost=/bin/bash -c &quot;[ ! -z $MAINPID ]&quot;</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="create-the-certificate-files">Create the certificate files<a class="headerlink" href="#create-the-certificate-files" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Create the folder where to store the certificates. For example, <code>/pg_ha/certs</code></p>
+</li>
+<li>
+<p>Define the variable for the certificates path:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/pg_ha/certs&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the certificates and keys</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=root-ca&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the certificate for the backup server</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the certificates for each node: <code>node1</code>, <code>node2</code>, <code>node3</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Sign the certificates with the <code>root-ca</code> key</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.crt
+</code></pre></div>
+</li>
+<li>
+<p>Remove temporary files</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*.csr
+</code></pre></div>
+</li>
+<li>
+<p>Reload, enable, and start the service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest
+</code></pre></div>
+</li>
+</ol>
+<h2 id="configure-database-servers">Configure database servers<a class="headerlink" href="#configure-database-servers" title="Permanent link">&para;</a></h2>
+<p>Run the following command on <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<ol>
+<li>
+<p>Create the certificates folder. For example, <code>/pg_ha/certs</code> </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/pg_ha/certs
+</code></pre></div>
+</li>
+<li>
+<p>Export environment variables to simplify config file creation</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the configuration file. The default path is <code>/etc/pgbackrest.conf</code></p>
+<div class="highlight"><span class="filename">/etc/pgbackrest.conf</span><pre><span></span><code><span class="k">[global]</span>
+<span class="na">repo1-host</span><span class="o">=</span><span class="s">bkp-srv</span>
+<span class="na">repo1-host-user</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">repo1-host-type</span><span class="o">=</span><span class="s">tls</span>
+<span class="na">repo1-host-cert-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.crt</span>
+<span class="na">repo1-host-key-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.key</span>
+<span class="na">repo1-host-ca-file</span><span class="o">=</span><span class="s">/pg_ha/certs/ca.crt</span>
+
+<span class="c1"># general options</span>
+<span class="na">process-max</span><span class="o">=</span><span class="s">16</span>
+<span class="na">log-level-console</span><span class="o">=</span><span class="s">info</span>
+<span class="na">log-level-file</span><span class="o">=</span><span class="s">debug</span>
+
+<span class="c1"># tls server options</span>
+<span class="na">tls-server-address</span><span class="o">=</span><span class="s">*</span>
+<span class="na">tls-server-cert-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.crt</span>
+<span class="na">tls-server-key-file</span><span class="o">=</span><span class="s">/pg_ha/certs/${NODE_NAME}.key</span>
+<span class="na">tls-server-ca-file</span><span class="o">=</span><span class="s">/pg_ha/certs/ca.crt</span>
+<span class="na">tls-server-auth</span><span class="o">=</span><span class="s">bkp-srv=cluster_1</span>
+
+<span class="k">[cluster_1]</span>
+<span class="na">pg1-path</span><span class="o">=</span><span class="s">/var/lib/postgresql/11</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the <code>systemd</code> unit file at the path <code>/etc/systemd/system/pgbackrest.service</code></p>
+<div class="highlight"><span class="filename">/etc/systemd/system/pgbackrest.service</span><pre><span></span><code><span class="k">[Unit]</span>
+<span class="na">Description</span><span class="o">=</span><span class="s">pgBackRest Server</span>
+<span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
+<span class="na">StartLimitIntervalSec</span><span class="o">=</span><span class="s">0</span>
+
+<span class="k">[Service]</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="na">User</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">always</span>
+<span class="na">RestartSec</span><span class="o">=</span><span class="s">1</span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/pgbackrest server</span>
+<span class="c1">#ExecStartPost=/bin/sleep 3</span>
+<span class="c1">#ExecStartPost=/bin/bash -c &quot;[ ! -z $MAINPID ]&quot;</span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
+
+<span class="k">[Install]</span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+</code></pre></div>
+</li>
+<li>
+<p>Reload, enable, and start the service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest
+</code></pre></div>
+</li>
+<li>
+<p>Change Patroni configuration to use pgBackRest. Run this command on one node only, for example, on <code>node1</code>. Edit the <code>/etc/patroni/patroni.yml</code> file :</p>
+<div class="highlight"><span class="filename">/etc/patroni/patroni.yml</span><pre><span></span><code><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span>
+<span class="nt">postgresql</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">archive_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --stanza=cluster_1 archive-push &quot;/var/lib/postgresql/15/main/pg_wal/%f&quot;</span>
+<span class="w">    </span><span class="nt">archive_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">archive_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1800s</span>
+<span class="w">    </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+<span class="w">    </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">wal_keep_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4096</span>
+<span class="w">    </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logical</span>
+<span class="w">    </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">recovery_conf</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">recovery_target_timeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f &quot;%p&quot;</span>
+<span class="w">  </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">percona_cluster_1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">physical</span>
+<span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="create-backups">Create backups<a class="headerlink" href="#create-backups" title="Permanent link">&para;</a></h2>
+<p>Run the following commands on the <strong>backup server</strong></p>
+<ol>
+<li>
+<p>Create the stanza. A stanza is the configuration for a PostgreSQL database cluster that defines where it is located, how it will be backed up, archiving options, etc. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>stanza-create
+</code></pre></div>
+</li>
+<li>
+<p>Create a full backup</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>--type<span class="o">=</span>full<span class="w"> </span>backup
+</code></pre></div>
+</li>
+<li>
+<p>Create an incremental backup</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>--type<span class="o">=</span>incr<span class="w"> </span>backup
+</code></pre></div>
+</li>
+<li>
+<p>Check backup info</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>info
+</code></pre></div>
+</li>
+<li>
+<p>Expire (remove) a backup. Be careful with removal, because removing a full backup also removes dependent incremental backups </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-iu<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>cluster_1<span class="w"> </span>expire<span class="w"> </span>--set<span class="o">=</span><span class="m">20230617</span>-021338F
+</code></pre></div>
+</li>
+</ol>
+<p><a class="md-button" href="ha-test.html">Test PostgreSQL cluster</a></p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1479,11 +1815,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2023</span>
       
     
   </small>
