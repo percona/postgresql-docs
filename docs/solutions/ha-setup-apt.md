@@ -91,8 +91,7 @@ Run the following commands on node1`, `node2` and `node3`:
 
 2. Install some Python and auxiliary packages to help with Patroni and ETCD
     
-    ```
-    {.bash data-prompt="$"}
+    ```{.bash data-prompt="$"}
     $ sudo apt install python3-pip python3-dev binutils
     ```
 
@@ -416,7 +415,7 @@ Run the following commands on all nodes. You can do this in parallel:
 
 3. Check that the `systemd` unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
-   If it's **not** created, create it manually and specify the following contents within:
+    If it's **not** created, create it manually and specify the following contents within:
 
     ```ini title="/etc/systemd/system/patroni.service"
     [Unit]
@@ -461,7 +460,7 @@ Run the following commands on all nodes. You can do this in parallel:
     $ sudo systemctl restart patroni
     ```
    
-When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
+    When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
 6. Check the service to see if there are errors:
 
