@@ -840,19 +840,19 @@
     Preconditions
   </a>
   
-    <nav class="md-nav" aria-label="Preconditions">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    Initial setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-hostnames-in-the-etchosts-file" class="md-nav__link">
-    Setting up hostnames in the /etc/hosts file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-percona-distribution-for-postgresql" class="md-nav__link">
-    Install Percona Distribution for PostgreSQL
+  <a href="#install-the-software" class="md-nav__link">
+    Install the software
   </a>
   
 </li>
@@ -867,19 +867,25 @@
     Configure ETCD distributed store
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-up-the-watchdog-service" class="md-nav__link">
-    Set up the watchdog service
+    <nav class="md-nav" aria-label="Configure ETCD distributed store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-node1" class="md-nav__link">
+    Configure node1
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-patroni" class="md-nav__link">
-    Configure Patroni
+        
+          <li class="md-nav__item">
+  <a href="#configure-node3" class="md-nav__link">
+    Configure node3
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -891,8 +897,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -916,7 +922,27 @@
         
   
   <span class="md-ellipsis">
-    Deploying on RHEL or CentOS
+    Deploying on RHEL or derivatives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pgbackrest.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pgBackRest setup
   </span>
   
 
@@ -1285,19 +1311,19 @@
     Preconditions
   </a>
   
-    <nav class="md-nav" aria-label="Preconditions">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    Initial setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Initial setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setting-up-hostnames-in-the-etchosts-file" class="md-nav__link">
-    Setting up hostnames in the /etc/hosts file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-percona-distribution-for-postgresql" class="md-nav__link">
-    Install Percona Distribution for PostgreSQL
+  <a href="#install-the-software" class="md-nav__link">
+    Install the software
   </a>
   
 </li>
@@ -1312,19 +1338,25 @@
     Configure ETCD distributed store
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-up-the-watchdog-service" class="md-nav__link">
-    Set up the watchdog service
+    <nav class="md-nav" aria-label="Configure ETCD distributed store">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-node1" class="md-nav__link">
+    Configure node1
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-patroni" class="md-nav__link">
-    Configure Patroni
+        
+          <li class="md-nav__item">
+  <a href="#configure-node3" class="md-nav__link">
+    Configure node3
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1336,8 +1368,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -1386,7 +1418,11 @@
                 <h1 id="deploying-postgresql-for-high-availability-with-patroni-on-debian-or-ubuntu">Deploying PostgreSQL for high availability with Patroni on Debian or Ubuntu<a class="headerlink" href="#deploying-postgresql-for-high-availability-with-patroni-on-debian-or-ubuntu" title="Permanent link">&para;</a></h1>
 <p>This guide provides instructions on how to set up a highly available PostgreSQL cluster with Patroni on Debian or Ubuntu. </p>
 <h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<p>For this setup, we will use the nodes running on Ubuntu 20.04 as the base operating system and having the following IP addresses:</p>
+<ol>
+<li>This is the example deployment suitable to be used for testing purposes in non-production environments. </li>
+<li>In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts or at least have separate disks for ETCD and PostgreSQL. This is because ETCD writes every request from the cluster to disk which can be CPU intensive and affects disk performance. See <a href="https://etcd.io/docs/v3.6/op-guide/hardware/">hardware recommendations</a> for details.</li>
+<li>For this setup, we will use the nodes running on Ubuntu 22.04 as the base operating system:</li>
+</ol>
 <table>
 <thead>
 <tr>
@@ -1422,8 +1458,16 @@
 <p class="admonition-title">Note</p>
 <p>In a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. </p>
 </div>
-<h3 id="setting-up-hostnames-in-the-etchosts-file">Setting up hostnames in the <code>/etc/hosts</code> file<a class="headerlink" href="#setting-up-hostnames-in-the-etchosts-file" title="Permanent link">&para;</a></h3>
-<p>To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the <code>/etc/hosts</code> file of each node as follows:</p>
+<h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h2>
+<p>It’s not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we use a local name resolution by updating the file <code>/etc/hosts</code>. By resolving their hostnames to their IP addresses, we make the nodes aware of each other’s names and allow their seamless communication.</p>
+<ol>
+<li>
+<p>Run the following command on each node. Change the node name to <code>node1</code>, <code>node2</code> and <code>node3</code> respectively:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>node-1
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/hosts</code> file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the <code>/etc/hosts</code> file on all nodes:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">node1</label><label for="__tabbed_1_2">node2</label><label for="__tabbed_1_3">node3</label><label for="__tabbed_1_4">HAproxy-demo</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1448,7 +1492,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>The HAProxy instance should have the name resolution for all the three nodes in its <code>/etc/hosts</code> file. Add the following lines at the end of the file:</p>
+<p>The HAProxy instance should have the name resolution for all the three nodes in its <code>/etc/hosts</code> file. Add the following lines at the end of the file:    </p>
 <div class="highlight"><pre><span></span><code># Cluster IP and names
 10.104.0.6 HAProxy-demo
 10.104.0.1 node1
@@ -1458,13 +1502,47 @@
 </div>
 </div>
 </div>
-<h3 id="install-percona-distribution-for-postgresql">Install Percona Distribution for PostgreSQL<a class="headerlink" href="#install-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h3>
+</li>
+</ol>
+<h3 id="install-the-software">Install the software<a class="headerlink" href="#install-the-software" title="Permanent link">&para;</a></h3>
+<p>Run the following commands on node1<code>,</code>node2<code>and</code>node3`:</p>
 <ol>
 <li>
-<p>Follow the <a href="../installing.html#on-debian-and-ubuntu-using-apt">installation instructions</a> to install Percona Distribution for PostgreSQL on <code>node1</code>, <code>node2</code> and <code>node3</code>.</p>
+<p>Install Percona Distribution for PostgreSQL</p>
+<ul>
+<li>
+<p><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <code>percona-release</code></a>.</p>
 </li>
 <li>
-<p>Remove the data directory. Patroni requires a clean environment to initialize a new cluster. Use the following commands to stop the PostgreSQL service and then remove the data directory:</p>
+<p>Enable the repository:</p>
+</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg16
+</code></pre></div>
+<ul>
+<li><a href="../apt.html">Install Percona Distribution for PostgreSQL packages</a>.</li>
+</ul>
+</li>
+<li>
+<p>Install some Python and auxiliary packages to help with Patroni and ETCD</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>python3-dev<span class="w"> </span>binutils
+</code></pre></div>
+</li>
+<li>
+<p>Install ETCD, Patroni, pgBackRest packages:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-patroni<span class="w"> </span><span class="se">\</span>
+etcd<span class="w"> </span>etcd-server<span class="w"> </span>etcd-client<span class="w"> </span><span class="se">\</span>
+percona-pgbackrest
+</code></pre></div>
+</li>
+<li>
+<p>Stop and disable all installed services:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>etcd,patroni,postgresql<span class="o">}</span>
+$<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>etcd,patroni,postgresql<span class="o">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance.</p>
 </li>
 </ol>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
@@ -1473,37 +1551,53 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 <h2 id="configure-etcd-distributed-store">Configure ETCD distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
 <p>The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is <code>etcd</code>. </p>
 <p>The <code>etcd</code> cluster is first started in one node and then the subsequent nodes are added to the first node using the <code>add</code>command. The configuration is stored in the <code>/etc/default/etcd</code> file.</p>
+<h3 id="configure-node1">Configure <code>node1</code><a class="headerlink" href="#configure-node1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Install <code>etcd</code> on every PostgreSQL node using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>etcd
+<p>Back up the configuration file</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/default/etcd<span class="w"> </span>/etc/default/etcd.orig
 </code></pre></div>
 </li>
 <li>
-<p>Configure ETCD on <code>node1</code>. </p>
+<p>Export environment variables to simplify the config file creation</p>
 <ul>
-<li>Back up the configuration file:</li>
+<li>Node name:</li>
 </ul>
-<p><code>{.bash data-promp="$"}
-    $ sudo mv /etc/default/etcd /etc/default/etcd.orig</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
+</code></pre></div>
 <ul>
-<li>Modify the <code>/etc/default/etcd</code> configuration file and add the IP address of <code>node1</code> (10.104.0.1) to the <code>ETCD_INITIAL_CLUSTER</code> parameter. </li>
+<li>Node IP:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>ETCD_NAME=node1
-ETCD_INITIAL_CLUSTER=&quot;node1=http://10.104.0.1:2380&quot;
-ETCD_INITIAL_CLUSTER_TOKEN=&quot;percona-etcd-cluster&quot;
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-i<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span>
+</code></pre></div>
+<ul>
+<li>Initial cluster token for the ETCD cluster during bootstrap:</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ETCD_TOKEN</span><span class="o">=</span><span class="s1">&#39;PostgreSQL_HA_Cluster_1&#39;</span>
+</code></pre></div>
+<ul>
+<li>ETCD data directory:</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ETCD_DATA_DIR</span><span class="o">=</span><span class="s1">&#39;/var/lib/etcd/postgresql&#39;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/default/etcd</code> configuration file as follows:. </p>
+<div class="highlight"><pre><span></span><code>ETCD_NAME=${NODE_NAME}
+ETCD_INITIAL_CLUSTER=&quot;${NODE_NAME}=http://${NODE_IP}:2380&quot;
 ETCD_INITIAL_CLUSTER_STATE=&quot;new&quot;
-ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.104.0.1:2380&quot;
-ETCD_DATA_DIR=&quot;/var/lib/etcd/postgresql&quot;
-ETCD_LISTEN_PEER_URLS=&quot;http://10.104.0.1:2380&quot;
-ETCD_LISTEN_CLIENT_URLS=&quot;http://10.104.0.1:2379,http://localhost:2379&quot;
-ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.1:2379&quot;
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;${ETCD_TOKEN}&quot;
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://${NODE_IP}:2380&quot;
+ETCD_DATA_DIR=&quot;${ETCD_DATA_DIR}&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://${NODE_IP}:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://${NODE_IP}:2379,http://localhost:2379&quot;
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://${NODE_IP}:2379&quot;
 …
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>etcd</code> service to apply the changes on <code>node1</code>.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>etcd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>etcd
 </code></pre></div>
@@ -1528,57 +1622,66 @@ ETCD_INITIAL_CLUSTER=&quot;node2=http://10.104.0.2:2380,node1=http://10.104.0.1:
 ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
 </code></pre></div>
 </li>
-<li>
-<p>Configure <code>etcd</code> on <code>node2</code> using the output from adding the node to the cluster. Edit the <code>/etc/default/etcd</code> configuration file on <code>node2</code> use the result of the <code>add</code> command to change the configuration file as follows:</p>
-<div class="highlight"><pre><span></span><code>[Member]
-ETCD_NAME=node2
-ETCD_INITIAL_CLUSTER=&quot;node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380&quot;
-ETCD_INITIAL_CLUSTER_TOKEN=&quot;percona-etcd-cluster&quot;
-ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
-ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.104.0.2:2380&quot;
-ETCD_DATA_DIR=&quot;/var/lib/etcd/postgresql&quot;
-ETCD_LISTEN_PEER_URLS=&quot;http://10.104.0.2:2380&quot;
-ETCD_LISTEN_CLIENT_URLS=&quot;http://10.104.0.2:2379,http://localhost:2379&quot;
-ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.2:2379&quot;
-…
+</ol>
+<p>Back up the configuration file and export environment variables as described in steps 1-2 of the <a href="#configure-node1"><code>node1</code> configuration</a> 
+2. Edit the <code>/etc/default/etcd</code> configuration file on <code>node2</code>. Use the result of the <code>add</code> command on <code>node1</code> to change the configuration file as follows:</p>
+<div class="highlight"><pre><span></span><code>  ```text
+  ETCD_NAME=${NODE_NAME}
+  ETCD_INITIAL_CLUSTER=&quot;node-1=http://10.0.100.1:2380,node-2=http://10.0.100.2:2380&quot;
+  ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
+
+  ETCD_INITIAL_CLUSTER_TOKEN=&quot;${ETCD_TOKEN}&quot;
+  ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://${NODE_IP}:2380&quot;
+  ETCD_DATA_DIR=&quot;${ETCD_DATA_DIR}&quot;
+  ETCD_LISTEN_PEER_URLS=&quot;http://${NODE_IP}:2380&quot;
+  ETCD_LISTEN_CLIENT_URLS=&quot;http://${NODE_IP}:2379,http://localhost:2379&quot;
+  ETCD_ADVERTISE_CLIENT_URLS=&quot;http://${NODE_IP}:2379&quot;
+  ```
 </code></pre></div>
-</li>
+<ol>
 <li>
 <p>Start the <code>etcd</code> service to apply the changes on <code>node2</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>etcd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>etcd
 </code></pre></div>
 </li>
+</ol>
+<h3 id="configure-node3">Configure <code>node3</code><a class="headerlink" href="#configure-node3" title="Permanent link">&para;</a></h3>
+<ol>
 <li>
-<p>Add <code>node3</code> to the cluster</p>
+<p>Add <code>node3</code> to the cluster. <strong>Run the following command on <code>node1</code></strong></p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>add<span class="w"> </span>node3<span class="w"> </span>http://10.104.0.3:2380
 </code></pre></div>
 </li>
 <li>
-<p>Configure <code>etcd</code> on <code>node3</code> using the same approach as for <code>node2</code>. Modify the <code>/etc/default/etcd</code> configuration file and add the output of the <code>add</code> command:</p>
-<div class="highlight"><pre><span></span><code>ETCD_NAME=node3
+<p>On <code>node3</code>, back up the configuration file and export environment variables as described in steps 1-2 of the <a href="#configure-node1"><code>node1</code> configuration</a> </p>
+</li>
+<li>
+<p>Modify the <code>/etc/default/etcd</code> configuration file and add the output of the <code>add</code> command:</p>
+<div class="highlight"><pre><span></span><code>ETCD_NAME=${NODE_NAME}
 ETCD_INITIAL_CLUSTER=&quot;node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380&quot;
-ETCD_INITIAL_CLUSTER_TOKEN=&quot;devops_token&quot;
 ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
-ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.104.0.3:2380&quot;
-ETCD_DATA_DIR=&quot;/var/lib/etcd/postgresql&quot;
-ETCD_LISTEN_PEER_URLS=&quot;http://10.104.0.3:2380&quot;
-ETCD_LISTEN_CLIENT_URLS=&quot;http://10.104.0.3:2379,http://localhost:2379&quot;
-ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.104.0.3:2379&quot;
+
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;${ETCD_TOKEN}&quot;
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://${NODE_IP}:2380&quot;
+ETCD_DATA_DIR=&quot;${ETCD_DATA_DIR}&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://${NODE_IP}:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://${NODE_IP}:2379,http://localhost:2379&quot;
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://${NODE_IP}:2379&quot;
 …
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>etcd</code> service on <code>node3</code>:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>etcd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>etcd
 </code></pre></div>
 </li>
 <li>
 <p>Check the etcd cluster members.</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>list
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>list
 </code></pre></div>
 <p>The output resembles the following:</p>
 <div class="highlight"><pre><span></span><code>2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
@@ -1587,121 +1690,82 @@ c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://1
 </code></pre></div>
 </li>
 </ol>
-<h2 id="set-up-the-watchdog-service">Set up the watchdog service<a class="headerlink" href="#set-up-the-watchdog-service" title="Permanent link">&para;</a></h2>
-<p>The Linux kernel uses the utility called a <em>watchdog</em> to protect against an unresponsive system. The watchdog monitors a system for unrecoverable application errors, depleted system resources, etc., and initiates a reboot to safely return the system to a working state. The watchdog functionality is  useful for servers that are intended to run without human intervention for a long time. Instead of users finding a hung server, the watchdog functionality can help maintain the service.</p>
-<p>In this example, we will configure <em>Softdog</em> - a standard software implementation for watchdog that is shipped with Ubuntu 20.04. </p>
-<p>Complete the following steps on all three PostgreSQL nodes to load and configure Softdog.  </p>
+<p>Run the following commands on all nodes. You can do this in parallel:</p>
 <ol>
 <li>
-<p>Load Softdog:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;softdog&quot; &gt;&gt; /etc/modules&#39;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Patroni will be interacting with the watchdog service. Since Patroni is run by the <code>postgres</code> user, this user must have access to Softdog. To make this happen, change the ownership  of the <code>watchdog.rules</code> file to the <code>postgres</code> user: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;KERNEL==\&quot;watchdog\&quot;, OWNER=\&quot;postgres\&quot;, GROUP=\&quot;postgres\&quot;&quot; &gt;&gt; /etc/udev/rules.d/61-watchdog.rules&#39;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Remove Softdog from the blacklist. </p>
+<p>Export and create environment variables to simplify the config file creation:</p>
 <ul>
-<li>Find out the files where Softdog is blacklisted:</li>
+<li>Node name:</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>grep<span class="w"> </span>blacklist<span class="w"> </span>/lib/modprobe.d/*<span class="w"> </span>/etc/modprobe.d/*<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>softdog
-</code></pre></div>
-<p>In our case, <code>modprobe</code>is blacklisting the Softdog:</p>
-<div class="highlight"><pre><span></span><code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf:blacklist softdog
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
 </code></pre></div>
 <ul>
-<li>Remove the <code>blacklist softdog</code> line from the <code>/lib/modprobe.d/blacklist_linux_5.4.0-73-generic.conf</code> file. </li>
-<li>Restart the service </li>
+<li>Node IP:</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>modprobe<span class="w"> </span>softdog
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-i<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span>
 </code></pre></div>
 <ul>
-<li>Verify the <code>modprobe</code> is working correctly by running the <code>lsmod</code>command:</li>
+<li>Create variables to store the PATH:</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>softdog
+<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/postgresql/16/main&quot;</span>
+<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/lib/postgresql/16/bin&quot;</span>
 </code></pre></div>
-<p>The output will show a process identifier if it’s running.</p>
-<div class="highlight"><pre><span></span><code>softdog                16384  0
-</code></pre></div>
-</li>
-<li>
-<p>Check that the Softdog files under the <code>/dev/</code>folder are owned by the <code>postgres</code>user: </p>
-</li>
-</ol>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/dev/watchdog*
-
-crw-rw----<span class="w"> </span><span class="m">1</span><span class="w"> </span>postgres<span class="w"> </span>postgres<span class="w">  </span><span class="m">10</span>,<span class="w"> </span><span class="m">130</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>/dev/watchdog
-crw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">     </span><span class="m">245</span>,<span class="w">   </span><span class="m">0</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>/dev/watchdog0
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If the ownership has not been changed for any reason, run the following command to manually change it:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/dev/watchdog*
-</code></pre></div>
-</div>
-<h2 id="configure-patroni">Configure Patroni<a class="headerlink" href="#configure-patroni" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Install Patroni on every PostgreSQL node:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-patroni
+<p><strong>NOTE</strong>: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.</p>
+<ul>
+<li>Patroni information:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;percona_lab&quot;</span>
+<span class="nv">SCOPE</span><span class="o">=</span><span class="s2">&quot;cluster_1</span>
 </code></pre></div>
 </li>
 <li>
-<p>Create the <code>patroni.yml</code> configuration file under the <code>/etc/patroni</code> directory.  The file holds the default configuration values for a PostgreSQL cluster and will reflect the current cluster setup.</p>
-</li>
-<li>
-<p>Add the following configuration for <code>node1</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster_1</span>
-<span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona_lab</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span>
+<p>Create the <code>/etc/patroni/patroni.yml</code> configuration file and add the following configuration for <code>node1</code>:</p>
+<div class="highlight"><span class="filename">/etc/patroni/patroni.yml</span><pre><span></span><code><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${NAMESPACE}</span>
+<span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SCOPE}</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${NODE_NAME}</span>
 
 <span class="nt">restapi</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:8008</span>
-<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.1:8008</span>
+<span class="w">    </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:8008</span>
+<span class="w">    </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${NODE_IP}:8008</span>
 
 <span class="nt">etcd</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.1:2379</span>
+<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${NODE_IP}:2379</span>
 
 <span class="nt">bootstrap</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span>
 <span class="w">  </span><span class="nt">dcs</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<span class="w">    </span><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span>
-<span class="w">    </span><span class="nt">slots</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">      </span><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span>
+<span class="w">      </span><span class="nt">slots</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">percona_cluster_1</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">physical</span>
 
-<span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">parameters</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span>
-<span class="w">        </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
-<span class="w">        </span><span class="nt">wal_keep_segments</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">        </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="w">        </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">        </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
-<span class="w">        </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+<span class="w">      </span><span class="nt">postgresql</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span>
+<span class="w">              </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
+<span class="w">              </span><span class="nt">wal_keep_segments</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">              </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">              </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">              </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span>
+<span class="w">              </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
 
 <span class="w">  </span><span class="c1"># some desired options for &#39;initdb&#39;</span>
-<span class="w">  </span><span class="nt">initdb</span><span class="p">:</span><span class="w">  </span><span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-checksums</span>
+<span class="w">  </span><span class="nt">initdb</span><span class="p">:</span><span class="w"> </span><span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-checksums</span>
 
-<span class="w">  </span><span class="nt">pg_hba</span><span class="p">:</span><span class="w">  </span><span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 trust</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 0.0.0.0/0 md5</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 0.0.0.0/0 md5</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all ::0/0 md5</span>
+<span class="w">  </span><span class="nt">pg_hba</span><span class="p">:</span><span class="w"> </span><span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 trust</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 0.0.0.0/0 md5</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 0.0.0.0/0 md5</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all ::0/0 md5</span>
 
-<span class="w">  </span><span class="c1"># Additional script to be launched after initial cluster creation (will be passed the connection URL as parameter)</span>
-<span class="c1"># post_init: /usr/local/bin/setup_cluster.sh</span>
-<span class="w">  </span><span class="c1"># Some additional users users which needs to be created after initializing new cluster</span>
+<span class="w">  </span><span class="c1"># Some additional users which needs to be created after initializing new cluster</span>
 <span class="w">  </span><span class="nt">users</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">admin</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qaz123</span>
@@ -1717,9 +1781,9 @@ crw-------<span class="w"> </span><span class="m">1</span><span class="w"> </spa
 <span class="nt">postgresql</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">cluster_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster_1</span>
 <span class="w">    </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:5432</span>
-<span class="w">    </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.1:5432</span>
-<span class="w">    </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data/pgsql</span>
-<span class="w">    </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/pgsql-15/bin</span>
+<span class="w">    </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${NODE_IP}:5432</span>
+<span class="w">    </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DATADIR}</span>
+<span class="w">    </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_BIN_DIR}</span>
 <span class="w">    </span><span class="nt">pgpass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass</span>
 <span class="w">    </span><span class="nt">authentication</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">replication</span><span class="p">:</span>
@@ -1735,97 +1799,109 @@ crw-------<span class="w"> </span><span class="m">1</span><span class="w"> </spa
 <span class="w">    </span><span class="nt">basebackup</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">checkpoint</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;fast&#39;</span>
 
-<span class="nt">watchdog</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">required</span><span class="w"> </span><span class="c1"># Allowed values: off, automatic, required</span>
-<span class="w">  </span><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/watchdog</span>
-<span class="w">  </span><span class="nt">safety_margin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-
 <span class="nt">tags</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">nofailover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">noloadbalance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-<div class="admonition admonition">
-<p class="admonition-title">Patroni configuration file</p>
+<details class="admonition">
+<summary>Patroni configuration file</summary>
 <p>Let’s take a moment to understand the contents of the <code>patroni.yml</code> file. </p>
-<p>The first section provides the details of the first node (<code>node1</code>) and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
+<p>The first section provides the details of the node and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
 <p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The <code>pg_hba.conf</code> entries specify all the other nodes that can connect to this node and their authentication mechanism. </p>
-</div>
+</details>
 </li>
 <li>
-<p>Create the configuration files for <code>node2</code> and <code>node3</code>. Replace the <strong>node name and IP address</strong> of <code>node1</code> to those of <code>node2</code> and <code>node3</code>, respectively.</p>
+<p>Check that the systemd unit file <code>patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
+</li>
+</ol>
+<p>If it&rsquo;s <strong>not</strong> created, create it manually and specify the following contents within:</p>
+<div class="highlight"><pre><span></span><code>```ini title=&quot;/etc/systemd/system/patroni.service&quot;
+[Unit]
+Description=Runners to orchestrate a high-availability PostgreSQL
+After=syslog.target network.target
+
+[Service]
+Type=simple
+
+User=postgres
+Group=postgres
+
+# Start the patroni process
+ExecStart=/bin/patroni /etc/patroni/patroni.yml
+
+# Send HUP to reload from patroni.yml
+ExecReload=/bin/kill -s HUP $MAINPID
+
+# only kill the patroni process, not its children, so it will gracefully stop postgres
+KillMode=process
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=30
+
+# Do not restart the service if it crashes, we want to manually inspect database on failure
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
+```
+</code></pre></div>
+<ol>
+<li>
+<p>Make systemd aware of the new service:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</code></pre></div>
 </li>
 <li>
-<p>Enable and restart the patroni service on every node. Use the following commands:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>patroni
+<p>Now it&rsquo;s time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the <code>node1</code> first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>patroni
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>patroni
 </code></pre></div>
 </li>
 </ol>
 <p>When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. </p>
-<div class="admonition admonition">
-<p class="admonition-title">Troubleshooting Patroni</p>
-<p>To ensure that Patroni has started properly, check the logs using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>patroni.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
-</code></pre></div>
-<p>The output shouldn&rsquo;t show any errors:</p>
-<div class="highlight"><pre><span></span><code>…
-
-Sep 23 12:50:21 node01 systemd[1]: Started PostgreSQL high-availability manager.
-Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,022 INFO: Selected new etcd server http://10.104.0.2:2379
-Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,029 INFO: No PostgreSQL configuration items changed, nothing to reload.
-Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,168 INFO: Lock owner: None; I am node1
-Sep 23 12:50:22 node01 patroni[10119]: 2021-09-23 12:50:22,177 INFO: trying to bootstrap a new cluster
-Sep 23 12:50:22 node01 patroni[10140]: The files belonging to this database system will be owned by user &quot;postgres&quot;.
-Sep 23 12:50:22 node01 patroni[10140]: This user must also own the server process.
-Sep 23 12:50:22 node01 patroni[10140]: The database cluster will be initialized with locale &quot;C.UTF-8&quot;.
-Sep 23 12:50:22 node01 patroni[10140]: The default text search configuration will be set to &quot;english&quot;.
-Sep 23 12:50:22 node01 patroni[10140]: Data page checksums are enabled.
-Sep 23 12:50:22 node01 patroni[10140]: creating directory /var/lib/postgresql/12/main ... ok
-Sep 23 12:50:22 node01 patroni[10140]: creating subdirectories ... ok
-Sep 23 12:50:22 node01 patroni[10140]: selecting dynamic shared memory implementation ... posix
-Sep 23 12:50:22 node01 patroni[10140]: selecting default max_connections ... 100
-Sep 23 12:50:22 node01 patroni[10140]: selecting default shared_buffers ... 128MB
-Sep 23 12:50:22 node01 patroni[10140]: selecting default time zone ... Etc/UTC
-Sep 23 12:50:22 node01 patroni[10140]: creating configuration files ... ok
-Sep 23 12:50:22 node01 patroni[10140]: running bootstrap script ... ok
-Sep 23 12:50:23 node01 patroni[10140]: performing post-bootstrap initialization ... ok
-Sep 23 12:50:23 node01 patroni[10140]: syncing data to disk ... ok
-Sep 23 12:50:23 node01 patroni[10140]: initdb: warning: enabling &quot;trust&quot; authentication for local connections
-Sep 23 12:50:23 node01 patroni[10140]: You can change this by editing pg_hba.conf or using the option -A, or
-Sep 23 12:50:23 node01 patroni[10140]: --auth-local and --auth-host, the next time you run initdb.
-Sep 23 12:50:23 node01 patroni[10140]: Success. You can now start the database server using:
-Sep 23 12:50:23 node01 patroni[10140]:     /usr/lib/postgresql/14/bin/pg_ctl -D /var/lib/postgresql/14/main -l logfile start
-Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] LOG:  redirecting log output to logging collector process
-Sep 23 12:50:23 node01 patroni[10156]: 2021-09-23 12:50:23.672 UTC [10156] HINT:  Future log output will appear in directory &quot;log&quot;.
-Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,694 INFO: postprimary pid=10156
-Sep 23 12:50:23 node01 patroni[10165]: localhost:5432 - accepting connections
-Sep 23 12:50:23 node01 patroni[10167]: localhost:5432 - accepting connections
-Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,743 INFO: establishing a new patroni connection to the postgres cluster
-Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,757 INFO: running post_bootstrap
-Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,767 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-Sep 23 12:50:23 node01 patroni[10119]: 2021-09-23 12:50:23,793 INFO: initialized a new cluster
-Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,810 INFO: no action. I am (node1) the leader with the lock
-Sep 23 12:50:33 node01 patroni[10119]: 2021-09-23 12:50:33,899 INFO: no action. I am (node1) the leader with the lock
-Sep 23 12:50:43 node01 patroni[10119]: 2021-09-23 12:50:43,898 INFO: no action. I am (node1) the leader with the lock
-Sep 23 12:50:53 node01 patroni[10119]: 2021-09-23 12:50:53,894 INFO: no action. I am (node1) the leader with the 
+<ol>
+<li>
+<p>Check the service to see if there are errors:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-fu<span class="w"> </span>patroni
 </code></pre></div>
 <p>A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.</p>
-<p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. </p>
-</div>
+<p>Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted.</p>
+</li>
+<li>
+<p>Check the cluster:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list<span class="w"> </span><span class="nv">$SCOPE</span>
+</code></pre></div>
+<p>The output on <code>node1</code> resembles the following:</p>
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 --+---------+---------+----+-----------+
+| Member | Host        | Role    | State   | TL | Lag in MB |
++--------+-------------+---------+---------+----+-----------+
+| node-1 | 10.0.100.1  | Leader  | running |  1 |           |
++--------+-------------+---------+---------+----+-----------+
+</code></pre></div>
+<p>On the remaining nodes:</p>
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 --+---------+---------+----+-----------+
+| Member | Host        | Role    | State   | TL | Lag in MB |
++--------+-------------+---------+---------+----+-----------+
+| node-1 | 10.0.100.1  | Leader  | running |  1 |           |
+| node-2 | 10.0.100.2  | Replica | running |  1 |         0 |
++--------+-------------+---------+---------+----+-----------+
+</code></pre></div>
+</li>
+</ol>
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
-<p>The command output looks like the following:</p>
-<div class="highlight"><pre><span></span><code>psql (16)
+<p>The command output is the following:</p>
+<div class="highlight"><pre><span></span><code>psql (16.0)
 Type &quot;help&quot; for help.
 
 postgres=#
 </code></pre></div>
 <h2 id="configure-haproxy">Configure HAProxy<a class="headerlink" href="#configure-haproxy" title="Permanent link">&para;</a></h2>
-<p>HAproxy is the load balancer and the single point of entry to your PostgreSQL cluster for client applications. A client application accesses the HAPpoxy URL and sends its read/write requests there. Behind-the-scene, HAProxy routes write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads - to port 5001</p>
-<p>This way, a client application doesn’t know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected.</p>
+<p>HAproxy is the load balancer and the single point of entry to your PostgreSQL cluster for client applications. A client application accesses the HAPpoxy URL and sends its read/write requests there. Behind-the-scene, HAProxy routes write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001</p>
+<p>This way, a client application doesn’t know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. </p>
 <ol>
 <li>
 <p>Install HAProxy on the <code>HAProxy-demo</code> node:</p>
@@ -1884,8 +1960,8 @@ listen standbys
 </code></pre></div>
 </li>
 </ol>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>See the <a href="ha-test.html">Testing PostgreSQL cluster</a> for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="pgbackrest.html">Configure pgBackRest</a></p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1908,7 +1984,7 @@ listen standbys
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2023</span>
       
         <br>
         Created:
