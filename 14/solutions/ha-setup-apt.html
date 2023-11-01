@@ -1747,23 +1747,7 @@
 <p>In a production (or even non-production) setup, the PostgreSQL nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a DigitalOcean VPS environment, and each node can access the other by its internal, private IP. </p>
 </div>
 <h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h2>
-<p>To make the nodes aware of each other and allow their seamless communication, resolve their hostnames to their public IP addresses. Modify the <code>/etc/hosts</code> file of each node as follows:</p>
-<table>
-<thead>
-<tr>
-<th>node 1</th>
-<th>node 2</th>
-<th>node 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code> 127.0.0.1 localhost node1 <br> 10.104.0.7 node1 <br> <strong>10.104.0.2 node2</strong> <br> <strong>10.104.0.8 node3</strong> </code></td>
-<td><code>127.0.0.1 localhost node2  <br> <strong>10.104.0.7 node1</strong> <br> 10.104.0.2 node2  <br> <strong>10.104.0.8 node3</strong> </code></td>
-<td><code> 127.0.0.1 localhost node3 <br> <strong>10.104.0.7 node1</strong> <br> <strong>10.104.0.2 node2</strong> <br> 10.104.0.8 node3 </code></td>
-</tr>
-</tbody>
-</table>
+<p>It’s not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we use a local name resolution by updating the file /etc/hosts. By resolving their hostnames to their IP addresses, we make the nodes aware of each other’s names and allow their seamless communication.</p>
 <ol>
 <li>
 <p>Run the following command on each node. Change the node name to <code>node1</code>, <code>node2</code> and <code>node3</code> respectively:</p>
