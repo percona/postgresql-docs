@@ -93,8 +93,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 2. Install some Python and auxiliary packages to help with Patroni and ETCD
     
-    ```
-    {.bash data-prompt="$"}
+    ```{.bash data-prompt="$"}
     $ sudo yum install python3-pip python3-dev binutils
     ```
 
@@ -204,7 +203,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_INITIAL_CLUSTER_STATE="existing"
     ```
 
-## Configure `node2`
+### Configure `node2`
 
 1. Back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
 2. Edit the `/etc/etcd/etcd.conf` configuration file on `node2` and add the output from the `add` command:
@@ -419,39 +418,39 @@ Run the following commands on all nodes. You can do this in parallel:
 
 4. Check that the systemd unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
-   If it's **not** created, create it manually and specify the following contents within:
-   
-    ```ini title="/etc/systemd/system/patroni.service"
-    [Unit]
-    Description=Runners to orchestrate a high-availability PostgreSQL
-    After=syslog.target network.target
+    If it's **not** created, create it manually and specify the following contents within:
+    
+     ```ini title="/etc/systemd/system/patroni.service"
+     [Unit]
+     Description=Runners to orchestrate a high-availability PostgreSQL
+     After=syslog.target network.target 
 
-    [Service]
-    Type=simple
+     [Service]
+     Type=simple 
 
-    User=postgres
-    Group=postgres
+     User=postgres
+     Group=postgres 
 
-    # Start the patroni process
-    ExecStart=/bin/patroni /etc/patroni/patroni.yml
+     # Start the patroni process
+     ExecStart=/bin/patroni /etc/patroni/patroni.yml 
 
-    # Send HUP to reload from patroni.yml
-    ExecReload=/bin/kill -s HUP $MAINPID
+     # Send HUP to reload from patroni.yml
+     ExecReload=/bin/kill -s HUP $MAINPID 
 
-    # only kill the patroni process, not its children, so it will gracefully stop postgres
-    KillMode=process
+     # only kill the patroni process, not its children, so it will gracefully stop postgres
+     KillMode=process 
 
-    # Give a reasonable amount of time for the server to start up/shut down
-    TimeoutSec=30
+     # Give a reasonable amount of time for the server to start up/shut down
+     TimeoutSec=30 
 
-    # Do not restart the service if it crashes, we want to manually inspect database on failure
-    Restart=no
+     # Do not restart the service if it crashes, we want to manually inspect database on failure
+     Restart=no 
 
-    [Install]
-    WantedBy=multi-user.target
-    ```
+     [Install]
+     WantedBy=multi-user.target
+     ```
 
-5. Make systemd aware of the new service:
+5. Make `systemd` aware of the new service:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
@@ -464,7 +463,7 @@ Run the following commands on all nodes. You can do this in parallel:
     $ sudo systemctl restart patroni
     ```
 
-When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
+   When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
 7. Check the service to see if there are errors:
 
@@ -487,32 +486,32 @@ When Patroni starts, it initializes PostgreSQL (because the service is not curre
     postgres=#
     ```
 
-8.  When all nodes are up and running, you can check the cluster status using the following command:
+8. When all nodes are up and running, you can check the cluster status using the following command:
 
-   ```{.bash data-prompt="$"}
-   $ sudo patronictl -c /etc/patroni/patroni.yml list
-   ```
-   
-    The output on `node1` resembles the following:
-
-    ```{.text .no-copy}
-    + Cluster: cluster_1 --+---------+---------+----+-----------+
-    | Member | Host        | Role    | State   | TL | Lag in MB |
-    +--------+-------------+---------+---------+----+-----------+
-    | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
-    +--------+-------------+---------+---------+----+-----------+
+    ```{.bash data-prompt="$"}
+    $ sudo patronictl -c /etc/patroni/patroni.yml list
     ```
-
-    On the remaining nodes:
     
-    ```{.text .no-copy}
-    + Cluster: cluster_1 --+---------+---------+----+-----------+
-    | Member | Host        | Role    | State   | TL | Lag in MB |
-    +--------+-------------+---------+---------+----+-----------+
-    | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
-    | node-2 | 10.0.100.2  | Replica | running |  1 |         0 |
-    +--------+-------------+---------+---------+----+-----------+
-    ```
+     The output on `node1` resembles the following: 
+
+     ```{.text .no-copy}
+     + Cluster: cluster_1 --+---------+---------+----+-----------+
+     | Member | Host        | Role    | State   | TL | Lag in MB |
+     +--------+-------------+---------+---------+----+-----------+
+     | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
+     +--------+-------------+---------+---------+----+-----------+
+     ``` 
+
+     On the remaining nodes:
+     
+     ```{.text .no-copy}
+     + Cluster: cluster_1 --+---------+---------+----+-----------+
+     | Member | Host        | Role    | State   | TL | Lag in MB |
+     +--------+-------------+---------+---------+----+-----------+
+     | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
+     | node-2 | 10.0.100.2  | Replica | running |  1 |         0 |
+     +--------+-------------+---------+---------+----+-----------+
+     ```
 
 ## Configure HAProxy
 

@@ -22,7 +22,7 @@ You also need a backup storage to store the backups. It can either be a remote s
         $ sudo apt install percona-pgbackrest
         ```
 
-     === "RHEL/derivatives"
+    === "RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbackrest
@@ -41,95 +41,95 @@ You also need a backup storage to store the backups. It can either be a remote s
 
 2. Create the `pgBackRest` repository
 
-   A repository is where `pgBackRest` stores backups. In this example, the backups will be saved to `/var/lib/pgbackrest`
+    A repository is where `pgBackRest` stores backups. In this example, the backups will be saved to `/var/lib/pgbackrest`
 
-   ```{.bash data-prompt="$"}
-   $ sudo mkdir -p /var/lib/pgbackrest
-   $ sudo chmod 750 /var/lib/pgbackrest
-   $ sudo chown postgres:postgres /var/lib/pgbackrest
-   ```
+    ```{.bash data-prompt="$"}
+    $ sudo mkdir -p /var/lib/pgbackrest
+    $ sudo chmod 750 /var/lib/pgbackrest
+    $ sudo chown postgres:postgres /var/lib/pgbackrest
+    ```
 
-3. The default pgBackRest configuration file location is `/etc/pgbackrest/pgbackrest.conf`. If it does not exist, then `/etc/pgbackrest.conf` is used next. Edit the `pgbackrest.conf` file to include the following configuration:
+3. The default location of the pgBackRest configuration file is `/etc/pgbackrest/pgbackrest.conf`. If it does not exist, then `/etc/pgbackrest.conf` is used next. Edit the `pgbackrest.conf` file to include the following configuration:
 
-   ```
-   [global]
+    ```
+    [global] 
 
-   # Server repo details
-   repo1-path=/var/lib/pgbackrest
+    # Server repo details
+    repo1-path=/var/lib/pgbackrest 
 
-   ### Retention ###
-   #  - repo1-retention-archive-type
-   #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
-   repo1-retention-archive-type=full
+    ### Retention ###
+    #  - repo1-retention-archive-type
+    #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
+    repo1-retention-archive-type=full 
 
-   # repo1-retention-archive
-   #  - Number of backups worth of continuous WAL to retain
-   #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
-   #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
-   # repo1-retention-archive=2
+    # repo1-retention-archive
+    #  - Number of backups worth of continuous WAL to retain
+    #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
+    #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
+    # repo1-retention-archive=2 
 
-   # repo1-retention-full
-   #  - Full backup retention count/time.
-   #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
-   #  - When the option is not defined a warning will be issued. 
-   #  - If indefinite retention is desired then set the option to the max value. 
-   repo1-retention-full=4
+    # repo1-retention-full
+    #  - Full backup retention count/time.
+    #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
+    #  - When the option is not defined a warning will be issued. 
+    #  - If indefinite retention is desired then set the option to the max value. 
+    repo1-retention-full=4 
 
-   # Server general options
-   process-max=12
-   log-level-console=info
-   #log-level-file=debug
-   log-level-file=info
-   start-fast=y
-   delta=y
-   backup-standby=y
+    # Server general options
+    process-max=12
+    log-level-console=info
+    #log-level-file=debug
+    log-level-file=info
+    start-fast=y
+    delta=y
+    backup-standby=y 
 
-   ########## Server TLS options ##########
-   tls-server-address=*
-   tls-server-cert-file=/pg_ha/certs/${SRV_NAME}.crt
-   tls-server-key-file=/pg_ha/certs/${SRV_NAME}.key
-   tls-server-ca-file=/pg_ha/certs/ca.crt
+    ########## Server TLS options ##########
+    tls-server-address=*
+    tls-server-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+    tls-server-key-file=/pg_ha/certs/${SRV_NAME}.key
+    tls-server-ca-file=/pg_ha/certs/ca.crt 
 
-   ### Auth entry ###
-   tls-server-auth=${NODE1_NAME}=cluster_1
-   tls-server-auth=${NODE2_NAME}=cluster_1
-   tls-server-auth=${NODE3_NAME}=cluster_1
+    ### Auth entry ###
+    tls-server-auth=${NODE1_NAME}=cluster_1
+    tls-server-auth=${NODE2_NAME}=cluster_1
+    tls-server-auth=${NODE3_NAME}=cluster_1 
 
-   ### Clusters and nodes ###
-   [cluster_1]
-   pg1-host=${NODE1_NAME}
-   pg1-host-port=8432
-   pg1-port=5432
-   pg1-path=/var/lib/postgresql/11/
-   pg1-host-type=tls
-   pg1-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
-   pg1-host-key-file=/pg_ha/certs/${SRV_NAME}.key
-   pg1-host-ca-file=/pg_ha/certs/ca.crt
-   pg1-socket-path=/var/run/postgresql
+    ### Clusters and nodes ###
+    [cluster_1]
+    pg1-host=${NODE1_NAME}
+    pg1-host-port=8432
+    pg1-port=5432
+    pg1-path=/var/lib/postgresql/11/
+    pg1-host-type=tls
+    pg1-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+    pg1-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+    pg1-host-ca-file=/pg_ha/certs/ca.crt
+    pg1-socket-path=/var/run/postgresql 
+ 
 
+    pg2-host=${NODE2_NAME}
+    pg2-host-port=8432
+    pg2-port=5432
+    pg2-path=/var/lib/postgresql/11/
+    pg2-host-type=tls
+    pg2-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+    pg2-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+    pg2-host-ca-file=/pg_ha/certs/ca.crt
+    pg2-socket-path=/var/run/postgresql 
 
-   pg2-host=${NODE2_NAME}
-   pg2-host-port=8432
-   pg2-port=5432
-   pg2-path=/var/lib/postgresql/11/
-   pg2-host-type=tls
-   pg2-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
-   pg2-host-key-file=/pg_ha/certs/${SRV_NAME}.key
-   pg2-host-ca-file=/pg_ha/certs/ca.crt
-   pg2-socket-path=/var/run/postgresql
+    pg3-host=${NODE3_NAME}
+    pg3-host-port=8432
+    pg3-port=5432
+    pg3-path=/var/lib/postgresql/11/
+    pg3-host-type=tls
+    pg3-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
+    pg3-host-key-file=/pg_ha/certs/${SRV_NAME}.key
+    pg3-host-ca-file=/pg_ha/certs/ca.crt
+    pg3-socket-path=/var/run/postgresql
+    ```
 
-   pg3-host=${NODE3_NAME}
-   pg3-host-port=8432
-   pg3-port=5432
-   pg3-path=/var/lib/postgresql/11/
-   pg3-host-type=tls
-   pg3-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
-   pg3-host-key-file=/pg_ha/certs/${SRV_NAME}.key
-   pg3-host-ca-file=/pg_ha/certs/ca.crt
-   pg3-socket-path=/var/run/postgresql
-   ```
-
-5. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+4. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
 
     ```ini title="/etc/systemd/system/pgbackrest.service"
     [Unit]
@@ -246,7 +246,7 @@ Run the following command on `node1`, `node2` and `node3`.
     pg1-path=/var/lib/postgresql/11
     ```
 
-5. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+4. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
 
     ```ini title="/etc/systemd/system/pgbackrest.service"
     [Unit]
@@ -268,14 +268,14 @@ Run the following command on `node1`, `node2` and `node3`.
     WantedBy=multi-user.target
     ```
 
-6. Reload, enable, and start the service
+5. Reload, enable, and start the service
 
-    {.bash data-prompt="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
     $ sudo systemctl enable --now pgbackrest
     ```
 
-7. Change Patroni configuration to use pgBackRest. Run this command on one node only, for example, on `node1`. Edit the `/etc/patroni/patroni.yml` file :
+6. Change Patroni configuration to use pgBackRest. Run this command on one node only, for example, on `node1`. Edit the `/etc/patroni/patroni.yml` file :
 
     ```yaml title="/etc/patroni/patroni.yml"
     loop_wait: 10
