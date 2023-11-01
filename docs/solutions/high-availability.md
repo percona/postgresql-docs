@@ -1,18 +1,12 @@
 # High Availability in PostgreSQL with Patroni
 
-!!! summary
-
-    - Solution overview
-    - Cluster deployment
-    - Testing the cluster
-
 PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes or unexpected reboots. Such cluster is often a critical component of the enterprise application landscape, where [four nines of availability](https://en.wikipedia.org/wiki/High_availability#Percentage_calculation) is a minimum requirement. 
 
-There are several methods to achieve high availability in PostgreSQL. In this description we use [Patroni](#patroni) - the open-source extension to facilitate and manage the deployment of high availability in PostgreSQL.
+There are several methods to achieve high availability in PostgreSQL. This solution document provides [Patroni](#patroni) - the open-source extension to facilitate and manage the deployment of high availability in PostgreSQL.
 
-!!! admonition "High availability methods"
+??? admonition "High availability methods"
 
-    There are a few methods for achieving high availability with PostgreSQL:
+    There are several native methods for achieving high availability with PostgreSQL:
 
     - shared disk failover, 
     - file system replication, 
@@ -44,7 +38,7 @@ There are several methods to achieve high availability in PostgreSQL. In this de
 
 ## Patroni
 
-[Patroni](https://patroni.readthedocs.io/en/latest/) provides a template-based approach to create highly available PostgreSQL clusters. Running atop the PostgreSQL streaming replication process, it integrates with watchdog functionality to detect failed primary nodes and take corrective actions to prevent outages. Patroni also relies on a pluggable configuration store to manage distributed, multi-node cluster configuration and store the information about the cluster health there. Patroni comes with REST APIs to monitor and manage the cluster and has a command-line utility called _patronictl_ that helps manage switchovers and failure scenarios.
+[Patroni](https://patroni.readthedocs.io/en/latest/) is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. 
 
 ### Key benefits of Patroni:
 
@@ -67,13 +61,15 @@ The following diagram shows the architecture of a three-node PostgreSQL cluster 
 The components in this architecture are:
 
 - PostgreSQL nodes 
-- Patroni provides a template for configuring a highly available PostgreSQL cluster.
+- Patroni - a template for configuring a highly available PostgreSQL cluster.
 
-- ETCD is a Distributed Configuration store that stores the state of the PostgreSQL cluster. 
+- ETCD - a Distributed Configuration store that stores the state of the PostgreSQL cluster. 
 
-- HAProxy is the load balancer for the cluster and is the single point of entry to client applications. 
+- HAProxy - the load balancer for the cluster and is the single point of entry to client applications. 
 
-- Softdog - a watchdog utility which is used by Patroni to check the nodes' health. Watchdog resets the whole system when it doesn't receive a keepalive heartbeat within a specified time. 
+- pgBackRest - the backup and restore solution for PostgreSQL
+
+- Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster 
 
 ### How components work together
 
@@ -83,13 +79,8 @@ Patroni periodically sends heartbeat requests with the cluster status to ETCD. E
 
 The connections to the cluster do not happen directly to the database nodes but are routed via a connection proxy like HAProxy. This proxy determines the active node by querying the Patroni REST API.
 
-## Deployment
+## Next steps
 
-Use the following links to navigate to the setup instructions relevant to your operating system
+[Deploy on Debian or Ubuntu](ha-setup-apt.md){.md-button}
+[Deploy on RHEL or derivatives](ha-setup-yum.md){.md-button}
 
-- [Deploy on Debian or Ubuntu](ha-setup-apt.md)
-- [Deploy on Red Hat Enterprise Linux or CentOS](ha-setup-yum.md)
-
-## Testing
-
-See the [Testing PostgreSQL cluster](ha-test.md) for the guidelines on how to test your PostgreSQL cluster for replication, failure, switchover.
