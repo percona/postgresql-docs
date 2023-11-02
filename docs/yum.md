@@ -1,21 +1,27 @@
 # Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives
 
-This document describes how to install Percona Server for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives..
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. [Read more about Percona repositories](repo-overview.md).
 
 ## Platform specific notes
 
-If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
+To install Percona Distribution for PostgreSQL, do the following:
 
-```{.bash data-prompt="$"}
-$ sudo dnf module disable postgresql llvm-toolset
-```
+=== "On Red Hat Enterprise Linux v8"
 
-On CentOS 7, you should install the ``epel-release`` package:
+    Disable the ``postgresql``  and ``llvm-toolset``modules:
 
-```{.bash data-prompt="$"}
-$ sudo yum -y install epel-release
-$ sudo yum repolist
-```
+    ```{.bash data-prompt="$"}
+    $ sudo dnf module disable postgresql llvm-toolset
+    ```
+
+=== "On CentOS 7"
+
+    Install the ``epel-release`` package:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum -y install epel-release
+    $ sudo yum repolist
+    ```
 
 ## Procedure
 
@@ -33,18 +39,18 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
-   To enable a repository, we recommend using the `setup` command: 
-
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-11
+   $ sudo percona-release setup ppg-{{pgversion}}
    ```
 
 ### Install packages
 
 === "Install using meta-package"
+
+     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server11
+     $ sudo yum install percona-ppg-server{{pgversion}}
      ```
 
 === "Install packages individually"
@@ -52,7 +58,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql11-server
+         $ sudo yum install percona-postgresql{{pgversion}}-server
          ```
 
      2. Install the components:
@@ -60,7 +66,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pg_repack`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_repack11
+        $ sudo yum install percona-pg_repack{{pgversion}}
         ```
 
         Install `pgaudit`:
@@ -93,7 +99,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pgAudit-set_user`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit11_set_user
+        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
         ```
 
         Install `pgBadger`:
@@ -105,13 +111,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `wal2json`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-wal2json11
+        $ sudo yum install percona-wal2json{{pgversion}}
         ```
 
         Install PostgreSQL contrib extensions:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql11-contrib
+        $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
         Install HAProxy
@@ -141,7 +147,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg11
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         === "CentOS 9"
@@ -155,7 +161,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg11
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         === "Oracle Linux 9"
@@ -169,7 +175,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg11
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
@@ -181,13 +187,13 @@ Some extensions require additional setup in order to use them with Percona Distr
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```{.bash data-prompt="$"}
-/usr/pgsql-11/bin/postgresql-11-setup initdb
+$ /usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
 ```
 
 Start the PostgreSQL service:
 
 ```{.bash data-prompt="$"}
-$ sudo systemctl start postgresql-11
+$ sudo systemctl start postgresql-{{pgversion}}
 ```
 
 ### Connect to the PostgreSQL server
@@ -217,3 +223,4 @@ To exit the `psql` terminal, use the following command:
 ```{.bash data-prompt="$"}
 $ \q
 ```
+
