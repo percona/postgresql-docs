@@ -64,6 +64,18 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
     ```
 
+=== "Rocky Linux 8"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled powertools install perl-IPC-Run -y
+    ```
+
+=== "Oracle Linux 8"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
+    ```
+
 ### For `pgpool2` extension
 
 To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`.
