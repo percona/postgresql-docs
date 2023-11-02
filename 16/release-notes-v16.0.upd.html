@@ -9,19 +9,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.">
+        <meta name="description" content="Installation
+Upgrade">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/16/minor-upgrade.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/16/release-notes-v16.0.upd.html">
       
       
-        <link rel="prev" href="major-upgrade.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="pg-stat-monitor.html">
+        <link rel="next" href="release-notes-v16.0.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -29,7 +30,7 @@
     
     
       
-        <title>Minor Upgrade of Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 16.0 Update (2023-11-02) - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -86,7 +87,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Minor Upgrade of Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 16.0 Update (2023-11-02)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -116,7 +117,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#minor-upgrade-of-percona-distribution-for-postgresql" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-160-update-2023-11-02" class="md-skip">
           Skip to content
         </a>
       
@@ -150,7 +151,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Minor Upgrade of Percona Distribution for PostgreSQL
+              Percona Distribution for PostgreSQL 16.0 Update (2023-11-02)
             
           </span>
         </div>
@@ -297,18 +298,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -322,7 +325,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release Notes
@@ -353,9 +356,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v16.0.upd.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v16.0.upd.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -364,6 +376,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -400,20 +413,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -427,7 +438,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Installation and Upgrade
@@ -642,18 +653,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="minor-upgrade.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +664,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1254,14 +1255,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/16/docs/minor-upgrade.md"
+                    href="https://github.com/percona/postgresql-docs/edit/16/docs/release-notes-v16.0.upd.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/16/docs/minor-upgrade.md"
+                    href="https://github.com/percona/postgresql-docs/edit/16/docs/release-notes-v16.0.upd.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1277,68 +1278,10 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="minor-upgrade-of-percona-distribution-for-postgresql">Minor Upgrade of Percona Distribution for PostgreSQL<a class="headerlink" href="#minor-upgrade-of-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.</p>
-<p>Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.</p>
-<p>Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:</p>
-<ol>
-<li>
-<p>Stop the <code>postgresql</code> cluster;</p>
-</li>
-<li>
-<p>Install new version packages;</p>
-</li>
-<li>
-<p>Restart the <code>postgresql</code> cluster.</p>
-</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These steps apply if you installed Percona Distribution for PostgreSQL from the Major Release repository. In this case, you are always upgraded to the latest available release.</p>
-<p>If you installed Percona Distribution for PostgreSQL from the Minor Release repository, you will need to enable a new version repository to upgrade.</p>
-<p>For more information about Percona repositories, refer to <a href="installing.html">Installing Percona Distribution for PostgreSQL</a>.</p>
-<p>Before the upgrade, <a href="https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version">update the <code>percona-release</code></a> utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. </p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Run all commands as root or via <strong>sudo</strong>.</p>
-</div>
-<ol>
-<li>
-<p>Stop the <code>postgresql</code> service.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian / Ubuntu</label><label for="__tabbed_1_2">On Red Hat Enterprise Linux / derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-16
-</code></pre></div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Install new version packages. See <a href="installing.html#installation-guidellines">Installing Percona Distribution for PostgreSQL</a>.</p>
-</li>
-<li>
-<p>Restart the <code>postgresql</code> service.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux / derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-16
-</code></pre></div>
-</div>
-</div>
-</div>
-</li>
-</ol>
-<p>If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to <a href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 15 to 16</a>.</p>
+                <h1 id="percona-distribution-for-postgresql-160-update-2023-11-02">Percona Distribution for PostgreSQL 16.0 Update (2023-11-02)<a class="headerlink" href="#percona-distribution-for-postgresql-160-update-2023-11-02" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="installing.html">Installation</a>
+<a class="md-button" href="major-upgrade.html">Upgrade</a></p>
+<p>This update to the release of Percona Distribution for PostgreSQL 16.0 includes the Docker images for x86_64 architectures. It aims to simplify the developers&rsquo; experience with the Distribution. Refer to the <a href="docker.html">Docker guide</a> for how to run Percona Distribution for PostgreSQL in Docker.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1361,11 +1304,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 2, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 2, 2023</span>
       
     
   </small>
