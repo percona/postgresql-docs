@@ -65,25 +65,6 @@ The exact steps may differ depending on the package manager of your operating sy
       $ sudo apt install percona-postgresql-16
       ```
 
-
-    * Install the components:
-
-      ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-16-repack \
-       percona-postgresql-16-pgaudit \
-       percona-pgbackrest \
-       percona-patroni \
-       percona-pgbadger \
-       percona-pgaudit16-set-user \
-       percona-pgbadger \
-       percona-postgresql-16-wal2json \
-       percona-pg-stat-monitor16 \
-       percona-postgresql-contrib
-       percona-haproxy
-       percona-pgpool2
-       percona-pg-gather
-      ```
-
 2. Stop the `postgresql` service.
 
     ```{.bash data-prompt="$"}
@@ -113,7 +94,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/16/bin/pg_upgrade
+      $ /usr/lib/postgresql/16/bin/pg_upgrade \
       --old-datadir=/var/lib/postgresql/15/main \
       --new-datadir=/var/lib/postgresql/16/main  \
       --old-bindir=/usr/lib/postgresql/15/bin  \
@@ -149,7 +130,7 @@ The exact steps may differ depending on the package manager of your operating sy
     * Upgrade the Percona Distribution for PostgreSQL
 
       ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/16/bin/pg_upgrade
+      $ /usr/lib/postgresql/16/bin/pg_upgrade \
       --old-datadir=/var/lib/postgresql/15/main \
       --new-datadir=/var/lib/postgresql/16/main  \
       --old-bindir=/usr/lib/postgresql/15/bin  \
@@ -203,28 +184,20 @@ The exact steps may differ depending on the package manager of your operating sy
        ```
 
 
-6. Run the `analyze_new_cluster.sh` script
+6. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
     ```{.bash data-prompt="$"}
-    $ tmp/analyze_new_cluster.sh
+    $ /usr/lib/postgresql/16/bin/vacuumdb --all --analyze-in-stages
+    ```
+
+7. Delete the old cluster's data files:
+    
+    ```{.bash data-prompt="$"}
+    $ ./delete_old_cluster.sh
+    $ sudo rm -rf /etc/postgresql/15/main
     $ #Logout
     $ exit
     ```
-
-
-7. Delete Percona Distribution for PostgreSQL 15 packages and configuration files
-
-    * Remove packages
-
-       ```{.bash data-prompt="$"}
-       $ sudo apt remove percona-postgresql-15* percona-pgbackrest percona-patroni percona-pg-stat-monitor15 percona-pgaudit15-set-user percona-pgbadger percona-pgbouncer percona-postgresql-15-wal2json
-       ```
-
-    * Remove old files
-
-       ```{.bash data-prompt="$"}
-       $ rm -rf /etc/postgresql/15/main
-       ```
 
 
 ## On Red Hat Enterprise Linux and CentOS using `yum`
@@ -251,25 +224,6 @@ The exact steps may differ depending on the package manager of your operating sy
        ```{.bash data-prompt="$"}
        $ sudo yum install percona-postgresql16-server
        ```
-
-    * Install components:
-
-       ```{.bash data-prompt="$"}
-       $ sudo yum install percona-pgaudit \
-       percona-pgbackrest \
-       percona-pg_repack16 \
-       percona-patroni \
-       percona-pg-stat-monitor16 \
-       percona-pgbadger \
-       percona-pgaudit16_set_user \
-       percona-pgbadger \
-       percona-wal2json16 \
-       percona-postgresql16-contrib
-       percona-haproxy
-       percona-pgpool-II-pg16
-       percona-pg_gather
-       ```
-
 
 2. Set up Percona Distribution for PostgreSQL 16 cluster
 
@@ -347,12 +301,12 @@ The exact steps may differ depending on the package manager of your operating sy
     * Upgrade the Percona Distribution for PostgreSQL
 
        ```{.bash data-prompt="$"}
-       $ /usr/pgsql-15/bin/pg_upgrade \
+       $ /usr/pgsql-16/bin/pg_upgrade \
        --old-bindir /usr/pgsql-15/bin \
        --new-bindir /usr/pgsql-16/bin  \
        --old-datadir /var/lib/pgsql/15/data \
        --new-datadir /var/lib/pgsql/16/data \
-       --link
+       --link 
        ```
 
        The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
@@ -372,7 +326,7 @@ The exact steps may differ depending on the package manager of your operating sy
     ```
 
 
-7. Run the `analyze_new_cluster.sh` script
+7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
 
     * Log in as the postgres user
@@ -381,10 +335,10 @@ The exact steps may differ depending on the package manager of your operating sy
        $ sudo su postgres
        ```
 
-    * Run the script
+    * Run the script to analyze the new cluster:
 
        ```{.bash data-prompt="$"}
-       $ ./analyze_new_cluster.sh
+       $ /usr/pgsql-16/bin/vacuumdb --all --analyze-in-stages
        ```
 
 
@@ -395,15 +349,7 @@ The exact steps may differ depending on the package manager of your operating sy
     ```
 
 
-9. Delete Percona Distribution for PostgreSQL 15 packages
-
-    *  Remove packages
-
-       ```{.bash data-prompt="$"}
-       $ sudo yum -y remove percona-postgresql15*
-       ```
-
-    * Remove old files
+9. Delete Percona Distribution old data files
 
        ```{.bash data-prompt="$"}
        $ rm -rf /var/lib/pgsql/15/data
