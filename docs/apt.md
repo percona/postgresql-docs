@@ -1,11 +1,11 @@
 # Install Percona Distribution for PostgreSQL on Debian and Ubuntu
 
-This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. [Read more about Percona repositories :material-arrow-top-right:](repo-overview.md).
 
 ## Preconditions
 
-Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (postgresql-14) by default. The components of Percona Distribution for PostgreSQL 14 can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-14). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-14) and then install the chosen components from Percona Distribution for PostgreSQL.
-
+Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (postgresql-{{pgversion}}) by default. The components of Percona Distribution for PostgreSQL can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-{{pgversion}}). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-{{pgversion}}) and then install the chosen components from Percona Distribution for PostgreSQL.
+    
 ## Procedure
 
 Run all the commands in the following sections as root or using the `sudo` command:
@@ -36,18 +36,18 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
-   To enable a repository, we recommend using the `setup` command: 
-
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-14
+   $ sudo percona-release setup ppg-{{pgversion}}
    ```
 
 ### Install packages
 
 === "Install using meta-package"
+
+    The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
-     $ sudo apt install percona-ppg-server-14
+     $ sudo apt install percona-ppg-server-{{pgversion}}
      ```
 
 === "Install packages individually"
@@ -55,7 +55,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-14
+         $ sudo apt install percona-postgresql-{{pgversion}}
          ```
 
      2. Install the components:
@@ -63,13 +63,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pg_repack`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-14-repack
+          $ sudo apt install percona-postgresql-{{pgversion}}-repack
           ```
 
           Install `pgAudit`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-14-pgaudit
+          $ sudo apt install percona-postgresql-{{pgversion}}-pgaudit
           ```
 
           Install `pgBackRest`:
@@ -172,6 +172,4 @@ To exit the `psql` terminal, use the following command:
 ```{.bash data-prompt="$"}
 $ \q
 ```
-
-
 
