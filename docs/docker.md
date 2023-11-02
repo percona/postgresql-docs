@@ -33,7 +33,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 1. Start a Percona Distribution for PostgreSQL container as follows:
 
     ```{.bash data-prompt="$"}
-    $ docker run --name container-name -e POSTGRES_PASSWORD=secret -d perconalab/percona-distribution-postgresql:tag
+    $ docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:tag
     ```    
 
     Where:    
@@ -58,7 +58,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
         2. Start the container:       
 
             ```{.bash data-prompt="$"}
-            $ docker run --name container-name --env-file ./.my-pg.env -d perconalab/percona-distribution-postgresql:tag
+            $ docker run --name container-name --env-file ./.my-pg.env -d percona/percona-distribution-postgresql:tag
             ```
 
 2. Connect to the container's interactive terminal: 
@@ -89,7 +89,7 @@ where:
 The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
 
 ```{.bash data-prompt="$"}
-$ docker run -it --network container:db-container-name --name container-name perconalab/percona-distribution-postgresql:tag psql -h address -U postgres
+$ docker run -it --network container:db-container-name --name container-name percona/percona-distribution-postgresql:tag psql -h address -U postgres
 ```
 
 Where:
