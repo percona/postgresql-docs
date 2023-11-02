@@ -175,10 +175,9 @@ nav:
         - Upgrade spatial database: solutions/postgis-upgrade.md
       - LDAP authentication:
           - ldap.md
-  - Uninstall:
-      - uninstalling.md
-  - Licensing:
-      - licensing.md
+  - Telemetry: telemetry.md
+  - Uninstall: uninstalling.md
+  - Licensing: licensing.md
   - Trademark policy:
       - trademark-policy.md
 

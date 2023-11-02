@@ -19,7 +19,15 @@ $ sudo yum repolist
 
 ## Procedure
 
-Run all the commands in the following sections as root or using the `sudo` command:
+Run all the commands in the following sections as root or using the `sudo` command.
+
+### Install dependencies
+
+Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
+
+```{.bash data-prompt="$"}
+$ sudo yum -y install curl
+```
 
 ### Configure the repository
 
@@ -66,7 +74,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pgaudit`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit
+        $ sudo yum install percona-pgaudit{{pgversion}}
         ```
 
         Install `pgBackRest`:
