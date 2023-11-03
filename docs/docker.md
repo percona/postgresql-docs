@@ -10,7 +10,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     By default, Docker pulls the image from Docker Hub if it is not available locally.
 
-??? admonition "Docker image contents"
+???+ admonition "Docker image contents"
 
     The Docker image of Percona Distribution for PostgreSQL includes the following components:    
 
