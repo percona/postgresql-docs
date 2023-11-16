@@ -41,6 +41,8 @@ The following document provides guidelines how to install PostGIS and how to run
             $ sudo apt-get install libsfcgal1
             ```
 
+=== "On RHEL and derivatives"
+
     1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
 
     2. Enable Percona repository
@@ -53,9 +55,9 @@ The following document provides guidelines how to install PostGIS and how to run
 
     3. Install the extension
 
-            ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
-            ```   
+        ```{.bash data-prompt="$"}                    
+        $ sudo yum install percona-postgis33 percona-postgis33-client
+        ```   
 
     This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:    
 
