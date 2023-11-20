@@ -2,5 +2,5 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 release: 'release-notes-v15.4'
-version: '15.4'
-release_date: 2023-08-29
+pgversion: '15'
+
