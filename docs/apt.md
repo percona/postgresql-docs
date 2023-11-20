@@ -37,7 +37,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-16
+   $ sudo percona-release setup ppg-{{pgversion}}
    ```
 
 ### Install packages
@@ -47,7 +47,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
-     $ sudo apt install percona-ppg-server-16
+     $ sudo apt install percona-ppg-server-{{pgversion}}
      ```
 
 === "Install packages individually"
@@ -55,7 +55,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-16
+         $ sudo apt install percona-postgresql-{{pgversion}}
          ```
 
      2. Install the components:
@@ -63,13 +63,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pg_repack`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-16-repack
+          $ sudo apt install percona-postgresql-{{pgversion}}-repack
           ```
 
           Install `pgAudit`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-16-pgaudit
+          $ sudo apt install percona-postgresql-{{pgversion}}-pgaudit
           ```
 
           Install `pgBackRest`:
@@ -96,7 +96,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pgAudit-set_user`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgaudit16-set-user
+          $ sudo apt install percona-pgaudit{{pgversion}}-set-user
           ```
 
           Install `pgBadger`:
@@ -108,7 +108,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `wal2json`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-16-wal2json
+          $ sudo apt install percona-postgresql-{{pgversion}}-wal2json
           ```
 
           Install PostgreSQL contrib extensions:

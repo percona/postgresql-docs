@@ -17,7 +17,7 @@ The following document provides guidelines how to install PostGIS and how to run
         As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg16
+        $ sudo percona-release setup ppg{{pgversion}}
         ```
 
     2. Install PostGIS packages
@@ -52,7 +52,7 @@ The following document provides guidelines how to install PostGIS and how to run
             As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
             ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
+            $ sudo percona-release setup ppg{{pgversion}}
             ```
 
         2. Install `epel` repository
@@ -76,7 +76,7 @@ The following document provides guidelines how to install PostGIS and how to run
         5. Install the extension
 
             ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
+            $ sudo yum install percona-postgis34_{{pgversion}} percona-postgis34_{{pgversion}}-client
             ``` 
 
     === "CentOS 9"
@@ -86,7 +86,7 @@ The following document provides guidelines how to install PostGIS and how to run
             As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
             ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
+            $ sudo percona-release setup ppg{{pgversion}}
             ```
            
         2. Install `epel` repository
@@ -110,7 +110,7 @@ The following document provides guidelines how to install PostGIS and how to run
         5. Install the extension
 
             ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
+            $ sudo yum install percona-postgis34_{{pgversion}} percona-postgis34_{{pgversion}}-client            
             ``` 
 
     === "Oracle Linux 9"
@@ -120,7 +120,7 @@ The following document provides guidelines how to install PostGIS and how to run
             As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
             ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
+            $ sudo percona-release setup ppg{{pgversion}}
             ```
            
         2. Install `epel` repository
@@ -144,7 +144,7 @@ The following document provides guidelines how to install PostGIS and how to run
         5. Install the extension
 
             ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
+            $ sudo yum install percona-postgis34_{{pgversion}} percona-postgis34_{{pgversion}}-client
             ``` 
 
     === "Rocky Linux 9"
@@ -154,7 +154,7 @@ The following document provides guidelines how to install PostGIS and how to run
             As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
             ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
+            $ sudo percona-release setup ppg{{pgversion}}
             ```
            
         2. Install `epel` repository
@@ -179,7 +179,7 @@ The following document provides guidelines how to install PostGIS and how to run
         5. Install the extension
               
             ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
+            $ sudo yum install percona-postgis34_{{pgversion}} percona-postgis34_{{pgversion}}-client
             ```
 
     === "RHEL UBI 9"
@@ -220,7 +220,7 @@ The following document provides guidelines how to install PostGIS and how to run
             As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository.     
 
             ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
+            $ sudo percona-release setup ppg{{pgversion}}
             ```    
 
         4. Install `epel` repository    
@@ -238,7 +238,7 @@ The following document provides guidelines how to install PostGIS and how to run
         6.  Install the extension
                   
              ```{.bash data-prompt="$"}                    
-             $ sudo yum install percona-postgis33 percona-postgis33-client
+             $ sudo yum install percona-postgis34_{{pgversion}} percona-postgis34_{{pgversion}}-client
              ```   
 
     This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:    
