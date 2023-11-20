@@ -10,6 +10,8 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.1
 
 * Docker images are now available for x86_64 architectures. Their inclusion in the distribution aims to simplify the developers' experience with the Distribution. Refer to the [Docker guide](docker.md) for how to run Percona Distribution for PostgreSQL in Docker.
 * Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [on Percona Distribution for PostgreSQL](telemetry.md) document.
+* The `percona-postgis34` package on YUM-based operating systems is renamed `percona-postgis34_{{pgversion}}`
+* The `percona-postgresql-pgaudit`/`percona-pgaudit` packages are renamed `percona-postgresql-{{pgversion}}-pgaudit`/`percona-pgaudit{{pgversion}}` respectively
 
 ----------------------------------------------------------------------------
 
@@ -18,7 +20,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
 |[HAProxy](http://www.haproxy.org/) | 2.8.3 | a high-availability and load-balancing solution |
-| [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.2.0 | a HA (High Availability) solution for PostgreSQL |
+| [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.1.0 | a HA (High Availability) solution for PostgreSQL |
 | [PgAudit](https://www.pgaudit.org/)             | 1.5.2   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/)           | 2.48    | a backup and restore solution for PostgreSQL       |
@@ -29,7 +31,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|2.0.2 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
 | [PostGIS](https://github.com/postgis/postgis) | 3.4.0 | a spatial extension for PostgreSQL.|
-| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 255 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 256 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
 
 Percona Distribution for PostgreSQL also includes the following packages:
