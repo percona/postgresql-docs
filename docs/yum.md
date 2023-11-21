@@ -36,7 +36,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    To enable a repository, we recommend using the `setup` command: 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-14
+   $ sudo percona-release setup ppg{{pgversion}}
    ```
 
 ### Install packages
@@ -44,7 +44,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 === "Install using meta-package"
      
      ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server14
+     $ sudo yum install percona-ppg-server{{pgversion}}
      ```
 
 === "Install packages individually"
@@ -52,7 +52,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql14-server
+         $ sudo yum install percona-postgresql{{pgversion}}-server
          ```
 
      2. Install the components:
@@ -60,7 +60,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pg_repack`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_repack14
+        $ sudo yum install percona-pg_repack{{pgversion}}
         ```
 
         Install `pgaudit`:
@@ -72,7 +72,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pgBackRest`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
+        $ sudo yum install percona-pgbackrest{{pgversion}}
         ```
 
         Install `Patroni`:
@@ -93,7 +93,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pgAudit-set_user`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit14_set_user
+        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
         ```
 
         Install `pgBadger`:
@@ -105,13 +105,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `wal2json`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-wal2json14
+        $ sudo yum install percona-wal2json{{pgversion}}
         ```
 
         Install PostgreSQL contrib extensions:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql14-contrib
+        $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
         Install `pgpool2`
@@ -129,7 +129,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg14
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         === "CentOS 9"
@@ -143,7 +143,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg14
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         === "Oracle Linux 9"
@@ -157,7 +157,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg14
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
@@ -181,13 +181,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```{.bash data-prompt="$"}
-$ /usr/pgsql-14/bin/postgresql-14-setup initdb
+$ /usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
 ```
 
 Start the PostgreSQL service:
 
 ```{.bash data-prompt="$"}
-$ sudo systemctl start postgresql-14
+$ sudo systemctl start postgresql-{{pgversion}}
 ```
 
 ### Connect to the PostgreSQL server
