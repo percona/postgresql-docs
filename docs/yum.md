@@ -30,15 +30,12 @@ Depending on what operating system you are using, you may need to enable or disa
 You may need to install the `percona-postgresql{{pgversion}}-devel` package when working with some extensions or creating programs that interface with PostgreSQL database. This package requires dependencies that are not part of the Distribution, but can be installed from the specific repositories:
 
 === "RHEL8"
-<<<<<<< HEAD
 
     ```{.bash data-prompt="$"}
     $ sudo yum --enablerepo=codeready-builder-for-rhel-8-rhui-rpms install perl-IPC-Run -y
     ```
 
 === "Rocky Linux 8"
-=======
->>>>>>> Removed CentOS 8 instructions
 
     ```{.bash data-prompt="$"}
     $ sudo dnf install dnf-plugins-core
@@ -67,34 +64,6 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
     ```
 
-=== "Rocky Linux 8"
-
-    ```{.bash data-prompt="$"}
-    $ sudo dnf install dnf-plugins-core
-    $ sudo dnf module enable llvm-toolset
-    $ sudo dnf config-manager --set-enabled powertools
-    ```
-
-=== "Oracle Linux 8"
-
-    ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol8_codeready_builder install perl-IPC-Run -y
-    ```
-
-=== "Rocky Linux 9"
-
-    ```{.bash data-prompt="$"}
-    $ sudo dnf install dnf-plugins-core
-    $ sudo dnf module enable llvm-toolset
-    $ sudo dnf config-manager --set-enabled crb
-    $ sudo dnf install perl-IPC-Run -y
-    ```
-
-=== "Oracle Linux 9"
-
-    ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
-    ```
 
 ### For `pgpool2` extension
 
@@ -144,7 +113,6 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
         ```
 
-<<<<<<< HEAD
 === "Rocky Linux 9"
 
     1. Install `epel` repository
@@ -166,8 +134,6 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         $ sudo dnf config-manager --set-enabled crb
         ```
 
-=======
->>>>>>> Removed CentOS 8 instructions
 === "Oracle Linux 9"
 
     1. Install `epel` repository
@@ -188,30 +154,6 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         $ sudo dnf config-manager --set-enabled ol9_codeready_builder
         ```
 
-<<<<<<< HEAD
-=======
-=== "Rocky Linux 9"
-
-    1. Install `epel` repository
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install epel-release
-        ```
-
-    2. Enable the `llvm-toolset dnf` module
-
-        ```{.bash data-prompt="$"}
-        $ sudo dnf module enable llvm-toolset
-        ```
-
-    3. Enable the codeready builder repository to resolve dependencies conflict.
-
-        ```{.bash data-prompt="$"}
-        $ sudo dnf install dnf-plugins-core
-        $ sudo dnf config-manager --set-enabled crb
-        ```
-
->>>>>>> Removed CentOS 8 instructions
 === "RHEL UBI 9"
 
     1. Configure the Oracle-Linux repository. Create the `/etc/yum.repos.d/oracle-linux-ol9.repo` file to install the required dependencies: 
@@ -260,6 +202,14 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
 ## Procedure
 
 Run all the commands in the following sections as root or using the `sudo` command:
+
+### Install dependencies
+
+Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
+
+```{.bash data-prompt="$"}
+$ sudo yum -y install curl
+```
 
 ### Configure the repository
 
