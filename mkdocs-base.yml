@@ -111,7 +111,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 15.5 (November , 2023)
+          cover_subtitle: 15.5 (November 30, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false

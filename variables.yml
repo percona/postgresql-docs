@@ -3,4 +3,4 @@
 
 
 release: 'release-notes-v15.5'
-pgversion: '15.5'
+pgversion: '15'
