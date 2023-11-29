@@ -23,7 +23,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
     | `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
     | `percona-postgresql{{pgversion}}-libs`| Libraries for use with PostgreSQL.|
     | `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
-    | `percona-pgaudit` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
+    | `percona-pgaudit{{pgversion}}` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
     | `percona-pgaudit{{pgversion}}_set_user`| An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.|
     | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
     | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
