@@ -16,17 +16,17 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     | Component name                | Description                          |
     |-------------------------------|--------------------------------------|  
-    | `percona-postgresql{{majorversion}}`| A metapackage that installs the latest version of PostgreSQL|
-     | `percona-postgresql{{majorversion}}-server` | The PostgreSQL server package. |
+    | `percona-postgresql{{pgversion}}`| A metapackage that installs the latest version of PostgreSQL|
+     | `percona-postgresql{{pgversion}}-server` | The PostgreSQL server package. |
     | `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
     | `percona-postgresql-client-common`| The manager for multiple PostgreSQL client versions.|
-    | `percona-postgresql{{majorversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
-    | `percona-postgresql{{majorversion}}-libs`| Libraries for use with PostgreSQL.|
-    | `percona-pg-stat-monitor{{majorversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
-    | `percona-pgaudit` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
-    | `percona-pgaudit{{majorversion}}_set_user`| An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.|
-    | `percona-pg_repack{{majorversion}}`| rebuilds PostgreSQL database objects.| 
-    | `percona-wal2json{{majorversion}}` | a PostgreSQL logical decoding JSON output plugin.|
+    | `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
+    | `percona-postgresql{{pgversion}}-libs`| Libraries for use with PostgreSQL.|
+    | `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
+    | `percona-pgaudit{{pgversion}}` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
+    | `percona-pgaudit{{pgversion}}_set_user`| An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.|
+    | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
+    | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
 
 ## Start the container
 
