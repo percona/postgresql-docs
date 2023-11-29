@@ -224,7 +224,7 @@ $ sudo yum -y install curl
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-16
+   $ sudo percona-release setup ppg{{pgversion}}
    ```
 
 ### Install packages
@@ -234,7 +234,7 @@ $ sudo yum -y install curl
      The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server16
+     $ sudo yum install percona-ppg-server{{pgversion}}
      ```
 
 === "Install packages individually"
@@ -242,7 +242,7 @@ $ sudo yum -y install curl
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql16-server
+         $ sudo yum install percona-postgresql{{pgversion}}-server
          ```
 
      2. Install the components:
@@ -250,13 +250,13 @@ $ sudo yum -y install curl
         Install `pg_repack`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_repack16
+        $ sudo yum install percona-pg_repack{{pgversion}}
         ```
 
         Install `pgaudit`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit
+        $ sudo yum install percona-pgaudit{{pgversion}}
         ```
 
         Install `pgBackRest`:
@@ -283,7 +283,7 @@ $ sudo yum -y install curl
         Install `pgAudit-set_user`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit16_set_user
+        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
         ```
 
         Install `pgBadger`:
@@ -295,13 +295,13 @@ $ sudo yum -y install curl
         Install `wal2json`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-wal2json16
+        $ sudo yum install percona-wal2json{{pgversion}}
         ```
 
         Install PostgreSQL contrib extensions:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql16-contrib
+        $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
         Install HAProxy
@@ -322,7 +322,7 @@ $ sudo yum -y install curl
         2. Install the extension
 
             ```{.bash data-prompt="$"}
-            $ sudo yum install percona-pgpool-II-pg16
+            $ sudo yum install percona-pgpool-II-pg{{pgversion}}
             ```
 
         Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
@@ -332,13 +332,13 @@ $ sudo yum -y install curl
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```{.bash data-prompt="$"}
-$ /usr/pgsql-16/bin/postgresql-16-setup initdb
+$ /usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
 ```
 
 Start the PostgreSQL service:
 
 ```{.bash data-prompt="$"}
-$ sudo systemctl start postgresql-16
+$ sudo systemctl start postgresql-{{pgversion}}
 ```
 
 ### Connect to the PostgreSQL server
