@@ -8,10 +8,8 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 
 ## Release Highlights
 
-* Docker images are now available for x86_64 architectures. Their inclusion in the distribution aims to simplify the developers' experience with the Distribution. Refer to the [Docker guide](docker.md) for how to run Percona Distribution for PostgreSQL in Docker.
-* Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [on Percona Distribution for PostgreSQL](telemetry.md) document.
-* The `percona-postgis34` package on YUM-based operating systems is renamed `percona-postgis34_{{pgversion}}`
-* The `percona-postgresql-pgaudit`/`percona-pgaudit` packages are renamed `percona-postgresql-{{pgversion}}-pgaudit`/`percona-pgaudit{{pgversion}}` respectively
+* Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [Telemetry on Percona Distribution for PostgreSQL](telemetry.md) document.
+* The `percona-postgis33` and `percona-pgaudit` packages on YUM-based operating systems are renamed `percona-postgis33_{{pgversion}}` and `percona-pgaudit{{pgversion}}` respectively
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
