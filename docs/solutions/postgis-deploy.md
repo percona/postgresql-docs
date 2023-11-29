@@ -43,203 +43,21 @@ The following document provides guidelines how to install PostGIS and how to run
 
 === "On RHEL and derivatives"
 
-    For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.
+    1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
 
-    === "RHEL 9"     
+    2. Enable Percona repository
 
-        1. Enable Percona repository
+        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
-            As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
+        ```{.bash data-prompt="$"}
+        $ sudo percona-release setup ppg16
+        ```
 
-            ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
-            ```
+    3. Install the extension
 
-        2. Install `epel` repository
-
-            ```{.bash data-prompt="$"}
-            $ sudo yum install epel-release
-            ```
-
-        3. Enable the `llvm-toolset dnf` module
-
-              ```{.bash data-prompt="$"}
-              $ sudo dnf module enable llvm-toolset
-              ```
-
-        4. Enable the codeready builder repository to resolve dependencies conflict. 
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
-            ```
-
-        5. Install the extension
-
-            ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
-            ``` 
-
-    === "CentOS 9"
-
-        1. Enable Percona repository
-
-            As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
-
-            ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
-            ```
-           
-        2. Install `epel` repository
-
-            ```{.bash data-prompt="$"}
-            $ sudo yum install epel-release
-            ```
-
-        3. Enable the `llvm-toolset dnf` module
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf module enable llvm-toolset
-            ```
-
-        4. Enable the codeready builder repository to resolve dependencies conflict. 
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf config-manager --set-enabled crb
-            ```
-
-        5. Install the extension
-
-            ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
-            ``` 
-
-    === "Oracle Linux 9"
-
-        1. Enable Percona repository
-
-            As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
-
-            ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
-            ```
-           
-        2. Install `epel` repository
-
-            ```{.bash data-prompt="$"}
-            $ sudo yum install epel-release
-            ```
-
-        3. Enable the `llvm-toolset dnf` module
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf module enable llvm-toolset
-            ```
-
-        4. Enable the codeready builder repository to resolve dependencies conflict.
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf config-manager --set-enabled ol9_codeready_builder
-            ```
-
-        5. Install the extension
-
-            ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
-            ``` 
-
-    === "Rocky Linux 9"
-
-        1. Enable Percona repository
-
-            As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
-
-            ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
-            ```
-           
-        2. Install `epel` repository
-
-            ```{.bash data-prompt="$"}
-            $ sudo yum install epel-release
-            ```
-
-        3. Enable the `llvm-toolset dnf` module
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf module enable llvm-toolset
-            ```
-
-        4. Enable the codeready builder repository to resolve dependencies conflict.
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf install dnf-plugins-core
-            $ sudo dnf config-manager --set-enabled powertools
-            ```
-                
-        5. Install the extension
-              
-            ```{.bash data-prompt="$"}                    
-            $ sudo yum install percona-postgis33 percona-postgis33-client
-            ```
-
-    === "RHEL UBI 9"
-
-        1. Configure the Oracle-Linux repository. Create the `/etc/yum.repos.d/oracle-linux-ol9.repo` file to install the required dependencies: 
-
-            ```init title="/etc/yum.repos.d/oracle-linux-ol9.repo"
-            [ol9_baseos_latest]
-            name=Oracle Linux 9 BaseOS Latest ($basearch)
-            baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/baseos/latest/$basearch/
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-            gpgcheck=1
-            enabled=1     
-
-            [ol9_appstream]
-            name=Oracle Linux 9 Application Stream ($basearch)
-            baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/appstream/$basearch/
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-            gpgcheck=1
-            enabled=1     
-
-            [ol9_codeready_builder]
-            name=Oracle Linux 9 CodeReady Builder ($basearch) - Unsupported
-            baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/codeready/builder/$basearch/
-            gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-            gpgcheck=1
-            enabled=1
-            ```
-
-        2. Download the right GPG key for the Oracle Yum Repository:    
-
-            ```{.bash data-prompt="$"}
-            $ wget https://yum.oracle.com/RPM-GPG-KEY-oracle-ol9 -O /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-            ```    
-
-        3. Enable Percona repository    
-
-            As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository.     
-
-            ```{.bash data-prompt="$"}
-            $ sudo percona-release setup ppg16
-            ```    
-
-        4. Install `epel` repository    
-
-            ```{.bash data-prompt="$"}
-            $ sudo yum install epel-release
-            ```    
-
-        5. Disable the upstream `postgresql` package:    
-
-            ```{.bash data-prompt="$"}
-            $ sudo dnf module disable postgresql
-            ```    
-
-        6.  Install the extension
-                  
-             ```{.bash data-prompt="$"}                    
-             $ sudo yum install percona-postgis33 percona-postgis33-client
-             ```   
+        ```{.bash data-prompt="$"}                    
+        $ sudo yum install percona-postgis33 percona-postgis33-client
+        ```   
 
     This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:    
 
@@ -250,7 +68,7 @@ The following document provides guidelines how to install PostGIS and how to run
 
 ## Enable PostGIS extension
 
-3. Create a database and a schema for this database to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal:
+1. Create a database and a schema for this database to store your data. A schema is a container that logically segments objects (tables, functions, views, and so on) for better management. Run the following commands from the `psql` terminal:
 
     ```sql
     CREATE database nyc;
@@ -258,13 +76,13 @@ The following document provides guidelines how to install PostGIS and how to run
     CREATE SCHEMA gis;
     ```
 
-4. To make PostGIS functions and operations work, you need to enable the `postgis` extension. Make sure you are connected to the database you created earlier and run the following command:
+2. To make PostGIS functions and operations work, you need to enable the `postgis` extension. Make sure you are connected to the database you created earlier and run the following command:
 
     ```sql
     CREATE EXTENSION postgis;
     ```
 
-5. Check that the extension is enabled:
+3. Check that the extension is enabled:
 
     ```sql
     SELECT postgis_full_version();
