@@ -9,28 +9,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Percona telemetry fills in the gaps in our understanding of how you use Percona Distribution for PostgreSQL to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.">
       
       
         <meta name="author" content="Percona LLC">
       
       
+        <link rel="canonical" href="https://docs.percona.com/postgresql/16/telemetry.html">
       
       
+        <link rel="prev" href="uninstalling.html">
       
-      <link rel="icon" href="/postgresql/16/_images/percona-favicon.ico">
+      
+        <link rel="next" href="licensing.html">
+      
+      
+      <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Telemetry - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="/postgresql/16/assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="/postgresql/16/assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +59,11 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="/postgresql/16/css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-      <link rel="stylesheet" href="/postgresql/16/css/extra.css">
+      <link rel="stylesheet" href="css/extra.css">
     
-    <script>__md_scope=new URL("/postgresql/16",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -77,8 +83,10 @@
                
                  
                  
+                 
+                 
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Telemetry" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -107,6 +115,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#telemetry-on-percona-distribution-for-postgresql" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -121,7 +134,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="/postgresql/16/_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -137,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Telemetry
             
           </span>
         </div>
@@ -241,7 +254,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="/postgresql/16/_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -268,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -325,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/release-notes.html" class="md-nav__link">
+      <a href="release-notes.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -346,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/release-notes-v16.1.html" class="md-nav__link">
+      <a href="release-notes-v16.1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -367,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/release-notes-v16.0.upd.html" class="md-nav__link">
+      <a href="release-notes-v16.0.upd.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -388,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/release-notes-v16.0.html" class="md-nav__link">
+      <a href="release-notes-v16.0.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -490,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/installing.html" class="md-nav__link">
+      <a href="installing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -511,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/enable-extensions.html" class="md-nav__link">
+      <a href="enable-extensions.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/repo-overview.html" class="md-nav__link">
+      <a href="repo-overview.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -603,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -661,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/major-upgrade.html" class="md-nav__link">
+      <a href="major-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -703,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/migration.html" class="md-nav__link">
+      <a href="migration.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/pg-stat-monitor.html" class="md-nav__link">
+      <a href="pg-stat-monitor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -878,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/high-availability.html" class="md-nav__link">
+      <a href="solutions/high-availability.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -899,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/ha-setup-apt.html" class="md-nav__link">
+      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -920,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/ha-setup-yum.html" class="md-nav__link">
+      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -941,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/pgbackrest.html" class="md-nav__link">
+      <a href="solutions/pgbackrest.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -962,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/ha-test.html" class="md-nav__link">
+      <a href="solutions/ha-test.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1028,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/backup-recovery.html" class="md-nav__link">
+      <a href="solutions/backup-recovery.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1049,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1115,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/postgis.html" class="md-nav__link">
+      <a href="solutions/postgis.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1136,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/postgis-deploy.html" class="md-nav__link">
+      <a href="solutions/postgis-deploy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/postgis-testing.html" class="md-nav__link">
+      <a href="solutions/postgis-testing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1178,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/solutions/postgis-upgrade.html" class="md-nav__link">
+      <a href="solutions/postgis-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1207,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/ldap.html" class="md-nav__link">
+      <a href="ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1235,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/uninstalling.html" class="md-nav__link">
+      <a href="uninstalling.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1252,10 +1265,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/postgresql/16/telemetry.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="telemetry.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1264,6 +1297,46 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-information-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      What information is collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1275,7 +1348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/licensing.html" class="md-nav__link">
+      <a href="licensing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1295,7 +1368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/postgresql/16/trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1333,6 +1406,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-information-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      What information is collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1344,10 +1445,106 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
-  <p> 
-We can't find the page you are looking for. Try using the Search or <a href= "https://docs.percona.com"> return to homepage </a>. </p>
 
+                <!-- Edit and view button -->
+                
+                  
+                  
+                  <a
+                    href="https://github.com/percona/postgresql-docs/edit/16/docs/telemetry.md"
+                    title="edit.link.title"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://github.com/percona/postgresql-docs/edit/16/docs/telemetry.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+                  </a>
+                
+
+                <!--
+                  Hack: check whether the content contains a h1 headline. If it
+                  doesn't, the page title (or respectively site name) is used
+                  as the main headline.
+                -->
+                
+
+                <!-- Markdown content -->
+                <h1 id="telemetry-on-percona-distribution-for-postgresql">Telemetry on Percona Distribution for PostgreSQL<a class="headerlink" href="#telemetry-on-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>Percona telemetry fills in the gaps in our understanding of how you use Percona Distribution for PostgreSQL to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.</p>
+<h2 id="what-information-is-collected">What information is collected<a class="headerlink" href="#what-information-is-collected" title="Permanent link">&para;</a></h2>
+<p>Currently, telemetry is added only to the Percona packages and Docker images. It collects only information about the installation environment. Future releases may add additional telemetry metrics.</p>
+<p>Be assured that access to this raw data is rigorously controlled. Percona does not collect personal data. All data is anonymous and cannot be traced to a specific user. To learn more about our privacy practices, read the <a href="https://www.percona.com/privacy-policy#h.e34c40q8sb1a">Percona Privacy statement</a>.</p>
+<p>The following is an example of the collected data:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c416c3ee-48cd-471c-9733-37c2886f8231&quot;</span><span class="p">,</span>
+<span class="nt">&quot;product_family&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY_PPG&quot;</span><span class="p">,</span>
+<span class="nt">&quot;instanceId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6aef422e-56a7-4530-af9d-94cc02198343&quot;</span><span class="p">,</span>
+<span class="nt">&quot;createTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-10-16T10:46:23Z&quot;</span><span class="p">,</span>
+<span class="nt">&quot;metrics&quot;</span><span class="p">:</span>
+<span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PACKAGE&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16.1&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oracle Linux Server 8.8&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hardware_arch&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x86_64 x86_64&quot;</span><span class="p">}]}]</span>
+</code></pre></div>
+<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">&para;</a></h2>
+<p>Starting with Percona Distribution for PostgreSQL 16.1, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian-derived distribution</label><label for="__tabbed_1_2">Red Hat-derived distribution</label><label for="__tabbed_1_3">DOCKER</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-16
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql16-server
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add the environment variable when running a command in a new container.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-e<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span>perconalab/percona-distribution-postgresql:tag<span class="w"> </span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+                
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+    <h4>Contact Us </h4>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/postgresql/25?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/DISTPG/issues/" target="_blank">JIRA</a> ticket.<br>
+         <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+ <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=b95a2b04-c5c7-47f9-bb4e-b7fc13c3ab0d" />
+ </article>
+</div>
+</div>
+
+                <!-- Last update of source file -->
+                
+                  
+                    <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
               </article>
             </div>
           
@@ -1449,14 +1646,14 @@ We can't find the page you are looking for. Try using the Search or <a href= "ht
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "/postgresql/16", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "/postgresql/16/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="/postgresql/16/assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
-        <script src="/postgresql/16/js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="/postgresql/16/js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
     
   </body>
