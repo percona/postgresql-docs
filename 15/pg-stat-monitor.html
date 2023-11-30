@@ -25,15 +25,15 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>pg-stat-monitor - Percona Distribution for PostgreSQL</title>
+        <title>pg_stat_monitor - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - pg-stat-monitor" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - pg_stat_monitor" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pg-stat-monitor
+              pg_stat_monitor
             
           </span>
         </div>
@@ -279,6 +279,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
         
@@ -295,6 +296,7 @@
     
       
       
+  
   
   
   
@@ -334,6 +336,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes.html" class="md-nav__link">
         
@@ -351,6 +354,28 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes-v15.5.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 15.5 (2023-11-30)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -374,6 +399,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v15.3.html" class="md-nav__link">
         
@@ -391,6 +417,7 @@
             
               
                 
+  
   
   
   
@@ -414,6 +441,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v15.2.html" class="md-nav__link">
         
@@ -434,6 +462,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v15.1.html" class="md-nav__link">
         
@@ -451,6 +480,7 @@
             
               
                 
+  
   
   
   
@@ -478,6 +508,7 @@
     
       
       
+  
   
   
   
@@ -517,6 +548,7 @@
   
   
   
+  
     
     
     
@@ -553,6 +585,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="installing.html" class="md-nav__link">
         
@@ -573,12 +606,13 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Install on Debian and Ubuntu
+    Install via apt
   </span>
   
 
@@ -590,6 +624,7 @@
             
               
                 
+  
   
   
   
@@ -598,7 +633,7 @@
         
   
   <span class="md-ellipsis">
-    Install on RHEL and derivatives
+    Install via yum
   </span>
   
 
@@ -610,6 +645,7 @@
             
               
                 
+  
   
   
   
@@ -630,6 +666,7 @@
             
               
                 
+  
   
   
   
@@ -661,6 +698,28 @@
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="migration.html" class="md-nav__link">
         
@@ -681,6 +740,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="major-upgrade.html" class="md-nav__link">
         
@@ -698,6 +758,7 @@
             
               
                 
+  
   
   
   
@@ -728,6 +789,7 @@
   
   
     
+  
   
   
     
@@ -768,6 +830,7 @@
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -780,7 +843,7 @@
           
   
   <span class="md-ellipsis">
-    pg-stat-monitor
+    pg_stat_monitor
   </span>
   
 
@@ -791,7 +854,7 @@
         
   
   <span class="md-ellipsis">
-    pg-stat-monitor
+    pg_stat_monitor
   </span>
   
 
@@ -816,7 +879,9 @@
       
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
-    Overview
+    <span class="md-ellipsis">
+      Overview
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Overview">
@@ -824,7 +889,9 @@
         
           <li class="md-nav__item">
   <a href="#views" class="md-nav__link">
-    Views
+    <span class="md-ellipsis">
+      Views
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Views">
@@ -832,14 +899,18 @@
         
           <li class="md-nav__item">
   <a href="#pg_stat_monitor-view" class="md-nav__link">
-    pg_stat_monitor view
+    <span class="md-ellipsis">
+      pg_stat_monitor view
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#pg_stat_monitor_settings-view-dropped" class="md-nav__link">
-    pg_stat_monitor_settings view (dropped)
+    <span class="md-ellipsis">
+      pg_stat_monitor_settings view (dropped)
+    </span>
   </a>
   
 </li>
@@ -856,28 +927,36 @@
       
         <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
-    Installation
+    <span class="md-ellipsis">
+      Installation
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
-    Setup
+    <span class="md-ellipsis">
+      Setup
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
-    Usage
+    <span class="md-ellipsis">
+      Usage
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#changing-the-configuration" class="md-nav__link">
-    Changing the configuration
+    <span class="md-ellipsis">
+      Changing the configuration
+    </span>
   </a>
   
 </li>
@@ -900,6 +979,7 @@
     
       
       
+  
   
   
   
@@ -939,6 +1019,7 @@
   
   
   
+  
     
     
     
@@ -975,6 +1056,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/high-availability.html" class="md-nav__link">
         
@@ -992,6 +1074,7 @@
             
               
                 
+  
   
   
   
@@ -1015,6 +1098,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         
@@ -1035,6 +1119,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/pgbackrest.html" class="md-nav__link">
         
@@ -1052,6 +1137,7 @@
             
               
                 
+  
   
   
   
@@ -1080,6 +1166,7 @@
             
               
                 
+  
   
   
   
@@ -1119,6 +1206,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/backup-recovery.html" class="md-nav__link">
         
@@ -1136,6 +1224,7 @@
             
               
                 
+  
   
   
   
@@ -1164,6 +1253,7 @@
             
               
                 
+  
   
   
   
@@ -1203,6 +1293,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/postgis.html" class="md-nav__link">
         
@@ -1220,6 +1311,7 @@
             
               
                 
+  
   
   
   
@@ -1243,6 +1335,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/postgis-testing.html" class="md-nav__link">
         
@@ -1260,6 +1353,7 @@
             
               
                 
+  
   
   
   
@@ -1291,6 +1385,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="ldap.html" class="md-nav__link">
         
@@ -1318,6 +1413,27 @@
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="uninstalling.html" class="md-nav__link">
         
@@ -1334,6 +1450,7 @@
     
       
       
+  
   
   
   
@@ -1356,6 +1473,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="trademark-policy.html" class="md-nav__link">
         
@@ -1370,14 +1488,14 @@
   
 
     
-    <br>
-   <label class="md-nav__title" for="__drawer">
-    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-15" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
+  </ul>
+</nav>
+                    <br>
+                    <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-15" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL 15', 'Download', 'Download Manual Percona Distribution for PostgreSQL 15']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
       Download PDF
     </a>
   </label> 
-  </ul>
-</nav>
                   </div>
                 </div>
               </div>
@@ -1406,7 +1524,9 @@
       
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
-    Overview
+    <span class="md-ellipsis">
+      Overview
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Overview">
@@ -1414,7 +1534,9 @@
         
           <li class="md-nav__item">
   <a href="#views" class="md-nav__link">
-    Views
+    <span class="md-ellipsis">
+      Views
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Views">
@@ -1422,14 +1544,18 @@
         
           <li class="md-nav__item">
   <a href="#pg_stat_monitor-view" class="md-nav__link">
-    pg_stat_monitor view
+    <span class="md-ellipsis">
+      pg_stat_monitor view
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#pg_stat_monitor_settings-view-dropped" class="md-nav__link">
-    pg_stat_monitor_settings view (dropped)
+    <span class="md-ellipsis">
+      pg_stat_monitor_settings view (dropped)
+    </span>
   </a>
   
 </li>
@@ -1446,28 +1572,36 @@
       
         <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
-    Installation
+    <span class="md-ellipsis">
+      Installation
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
-    Setup
+    <span class="md-ellipsis">
+      Setup
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
-    Usage
+    <span class="md-ellipsis">
+      Usage
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#changing-the-configuration" class="md-nav__link">
-    Changing the configuration
+    <span class="md-ellipsis">
+      Changing the configuration
+    </span>
   </a>
   
 </li>
@@ -1867,7 +2001,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

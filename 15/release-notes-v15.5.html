@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="When a client application or a user that runs the client application connects to the database, it must identify themselves. The process of validating the client’s identity and determining whether this client is permitted to access the database it has requested is called authentication.">
+        <meta name="description" content="Installation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/ldap.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/release-notes-v15.5.html">
       
       
-        <link rel="prev" href="solutions/postgis-upgrade.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="telemetry.html">
+        <link rel="next" href="release-notes-v15.4.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -29,7 +29,7 @@
     
     
       
-        <title>LDAP authentication - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 15.5 (2023-11-30) - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - LDAP authentication" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 15.5 (2023-11-30)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/15/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ldap-authentication" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-155-2023-11-30" class="md-skip">
           Skip to content
         </a>
       
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LDAP authentication
+              Percona Distribution for PostgreSQL 15.5 (2023-11-30)
             
           </span>
         </div>
@@ -298,19 +298,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -324,7 +326,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release Notes
@@ -356,10 +358,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release-notes-v15.5.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 15.5 (2023-11-30)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="release-notes-v15.5.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -368,6 +390,37 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -853,21 +906,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -881,7 +932,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Solutions
@@ -1258,19 +1309,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="ldap.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1279,7 +1321,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1400,6 +1441,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1416,14 +1474,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/15/docs/ldap.md"
+                    href="https://github.com/percona/postgresql-docs/edit/15/docs/release-notes-v15.5.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/ldap.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/15/docs/release-notes-v15.5.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1439,10 +1497,131 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="ldap-authentication">LDAP Authentication<a class="headerlink" href="#ldap-authentication" title="Permanent link">&para;</a></h1>
-<p>When a client application or a user that runs the client application connects to the database, it must identify themselves. The process of validating the client&rsquo;s identity and determining whether this client is permitted to access the database it has requested is called <strong>authentication</strong>. </p>
-<p>Percona Distribution for PortgreSQL supports several <a href="https://www.postgresql.org/docs/15/auth-methods.html">authentication methods</a>, including the <a href="https://www.postgresql.org/docs/14/auth-ldap.html">LDAP authentication</a>. The use of LDAP is to provide a central place for authentication - meaning the LDAP server stores usernames and passwords and their resource permissions. </p>
-<p>The LDAP authentication in Percona Distribution for PortgreSQL is implemented the same way as in upstream PostgreSQL.</p>
+                <h1 id="percona-distribution-for-postgresql-155-2023-11-30">Percona Distribution for PostgreSQL 15.5 (2023-11-30)<a class="headerlink" href="#percona-distribution-for-postgresql-155-2023-11-30" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="installing.html">Installation</a></p>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/current/release-15-5.html">PostgreSQL 15.5</a>. </p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docker images are now available for x86_64 architectures. They aim to simplify the developers&rsquo; experience with the Distribution. Refer to the <a href="docker.html">Docker guide</a> for how to run Percona Distribution for PostgreSQL in Docker.</li>
+<li>Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the <a href="telemetry.html">Telemetry on Percona Distribution for PostgreSQL</a> document.</li>
+<li>The <code>percona-postgis33</code> and <code>percona-pgaudit</code> packages on YUM-based operating systems are renamed <code>percona-postgis33_15</code> and <code>percona-pgaudit15</code> respectively</li>
+</ul>
+<hr />
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>2.8.3</td>
+<td>a high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>3.1.0</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
+<td>1.7.0</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>4.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.48</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>12.2</td>
+<td>a fast PostgreSQL Log Analyzer.</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.21.0</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jobinau/pg_gather">pg_gather</a></td>
+<td>v23</td>
+<td>an SQL script for running the diagnostics of the health of PostgreSQL cluster</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2</a></td>
+<td>4.4.4</td>
+<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.8</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.0.3</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS</a></td>
+<td>3.3.4</td>
+<td>a spatial extension for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
+<td>256</td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.5</td>
+<td>a PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
+<ul>
+<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8 and compatible derivatives. This fixes compatibility issues with LLVM from upstream.</li>
+<li>supplemental <code>ETCD</code> packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operating System</th>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RHEL 8</td>
+<td><code>etcd</code></td>
+<td>3.3.11</td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.5</td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/15/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; </p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1465,11 +1644,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 30, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2022</span>
       
     
   </small>
