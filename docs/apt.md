@@ -1,10 +1,11 @@
 # Install Percona Distribution for PostgreSQL on Debian and Ubuntu
 
-This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. [Read more about Percona repositories :material-arrow-top-right:](repo-overview.md).
 
 ## Preconditions
 
-Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (postgresql-{{pgversion}}) by default. The components of Percona Distribution for PostgreSQL can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-{{pgversion}}). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-{{pgversion}}) and then install the chosen components from Percona Distribution for PostgreSQL.
+1. Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (postgresql-15) by default. The components of Percona Distribution for PostgreSQL 15 can only be installed together with the PostgreSQL server shipped by Percona (percona-postgresql-15). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-15) and then install the chosen components from Percona Distribution for PostgreSQL.
+2. Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
 
 ## Procedure
 
@@ -36,8 +37,6 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
-   To enable a repository, we recommend using the `setup` command: 
-
    ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg-{{pgversion}}
    ```
@@ -45,6 +44,8 @@ Run all the commands in the following sections as root or using the `sudo` comma
 ### Install packages
 
 === "Install using meta-package"
+
+    The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
      $ sudo apt install percona-ppg-server-{{pgversion}}
@@ -176,3 +177,4 @@ $ \q
 
 
 
+[^1]: Are included in repositories for Debian 12 operating system
