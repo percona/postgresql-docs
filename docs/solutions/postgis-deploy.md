@@ -17,7 +17,7 @@ The following document provides guidelines how to install PostGIS and how to run
         As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg15
+        $ sudo percona-release setup ppg{{pgversion}}
         ```
 
     2. Install PostGIS packages
@@ -59,12 +59,12 @@ The following document provides guidelines how to install PostGIS and how to run
         $ sudo yum install percona-postgis33_{{pgversion}} percona-postgis33_{{pgversion}}-client
         ```    
 
-    This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:    
+ This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:    
 
-    ```sql
-    SELECT name, default_version,installed_version
-    FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
-    ```
+ ```sql
+ SELECT name, default_version,installed_version
+ FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
+ ```
 
 ## Enable PostGIS extension
 

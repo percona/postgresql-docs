@@ -261,7 +261,7 @@ $ sudo yum -y install curl
         Install `pgaudit`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit
+        $ sudo yum install percona-pgaudit{{pgversion}}
         ```
 
         Install `pgBackRest`:
@@ -329,8 +329,8 @@ $ sudo yum -y install curl
             ```{.bash data-prompt="$"}
             $ sudo yum install percona-pgpool-II-pg{{pgversion}}
             ```
-
-    Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+            
+Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
 
