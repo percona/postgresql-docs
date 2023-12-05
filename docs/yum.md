@@ -257,7 +257,7 @@ $ sudo yum -y install curl
         Install `pgBackRest`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
+        $ sudo yum install percona-pgbackrest{{pgversion}}
         ```
 
         Install `Patroni`:
@@ -304,7 +304,7 @@ $ sudo yum -y install curl
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
         ```
-        
+
         Install `pg_gather`
 
         ```{.bash data-prompt="$"}
