@@ -11,12 +11,12 @@ jobs:
     steps: 
       #Pull the latest changes
       - name: Chekout code
-        uses: percona-platform/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       #Prepare the env
       - name: Set up Python
-        uses: percona-platform/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: '3.x'
       
