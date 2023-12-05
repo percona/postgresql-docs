@@ -43,18 +43,18 @@ The following document provides guidelines how to install PostGIS and how to run
 === "On RHEL and derivatives"
 
     1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
-    2. Enable Percona repository    
+    2. Enable Percona repository
 
-        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository.     
+        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg{{pgversion}}
-        ```    
-
-    3. Install the extension
+        ```
+           
+    3.  Install the extension
                   
         ```{.bash data-prompt="$"}                    
-        $ sudo yum install percona-postgis34_{{pgversion}} percona-postgis34_{{pgversion}}-client
+        $ sudo yum install percona-postgis33_{{pgversion}} percona-postgis33_{{pgversion}}-client
         ```   
 
     This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the `psql` terminal:    
@@ -91,7 +91,7 @@ The following document provides guidelines how to install PostGIS and how to run
     ```{.sql .no-copy}
     postgis_full_version
     -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-     POSTGIS="3.3.3" [EXTENSION] PGSQL="140" GEOS="3.10.2-CAPI-1.16.0" PROJ="8.2.1" LIBXML="2.9.13" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
+     POSTGIS="3.3.4" [EXTENSION] PGSQL="140" GEOS="3.10.2-CAPI-1.16.0" PROJ="8.2.1" LIBXML="2.9.13" LIBJSON="0.15" LIBPROTOBUF="1.3.3" WAGYU="0.5.0 (Internal)"
     ```
 
 ## Upload spatial data to PostgreSQL
