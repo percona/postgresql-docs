@@ -38,7 +38,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-{{pgversion}}
+   $ sudo percona-release setup ppg{{pgversion}}
    ```
 
 ### Install packages
@@ -97,7 +97,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pgAudit-set_user`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgaudit14-set-user
+          $ sudo apt install percona-pgaudit{{pgversion}}-set-user
           ```
 
           Install `pgBadger`:
@@ -109,7 +109,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `wal2json`:
 
           ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-14-wal2json
+          $ sudo apt install percona-postgresql-{{pgversion}}-wal2json
           ```
 
           Install PostgreSQL contrib extensions:

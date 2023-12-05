@@ -84,8 +84,8 @@ markdown_extensions:
       auto_append:
         - services-banner.md
   pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 
 plugins:
@@ -110,7 +110,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-14.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 14.9 (August 30, 2023)
+          cover_subtitle: 14.10 (November , 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -139,6 +139,7 @@ nav:
   - Home: index.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v14.10.md
       - release-notes-v14.9.md
       - release-notes-v14.8.md
       - release-notes-v14.7.upd.md
