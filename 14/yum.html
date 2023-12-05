@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.">
+        <meta name="description" content="This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. Read more about Percona repositories .">
       
       
         <meta name="author" content="Percona LLC">
@@ -25,15 +25,15 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>Install on RHEL and derivatives - Percona Distribution for PostgreSQL</title>
+        <title>Install via yum - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Install on RHEL and derivatives" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Install via yum" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install on RHEL and derivatives
+              Install via yum
             
           </span>
         </div>
@@ -279,6 +279,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
         
@@ -295,6 +296,7 @@
     
       
       
+  
   
   
   
@@ -334,6 +336,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes.html" class="md-nav__link">
         
@@ -351,6 +354,28 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes-v14.10.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 14.10 (2023-11-05)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -374,6 +399,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.8.html" class="md-nav__link">
         
@@ -391,6 +417,7 @@
             
               
                 
+  
   
   
   
@@ -414,6 +441,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.7.html" class="md-nav__link">
         
@@ -431,6 +459,7 @@
             
               
                 
+  
   
   
   
@@ -454,6 +483,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.5.html" class="md-nav__link">
         
@@ -471,6 +501,7 @@
             
               
                 
+  
   
   
   
@@ -494,6 +525,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.3.html" class="md-nav__link">
         
@@ -511,6 +543,7 @@
             
               
                 
+  
   
   
   
@@ -534,6 +567,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.2.upd.html" class="md-nav__link">
         
@@ -551,6 +585,7 @@
             
               
                 
+  
   
   
   
@@ -574,6 +609,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.1.upd2.html" class="md-nav__link">
         
@@ -594,6 +630,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.1.upd.html" class="md-nav__link">
         
@@ -611,6 +648,7 @@
             
               
                 
+  
   
   
   
@@ -641,6 +679,7 @@
   
   
     
+  
   
   
     
@@ -681,6 +720,7 @@
     
   
   
+  
     
     
     
@@ -717,6 +757,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="installing.html" class="md-nav__link">
         
@@ -737,12 +778,13 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Install on Debian and Ubuntu
+    Install via apt
   </span>
   
 
@@ -759,6 +801,7 @@
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -771,7 +814,7 @@
           
   
   <span class="md-ellipsis">
-    Install on RHEL and derivatives
+    Install via yum
   </span>
   
 
@@ -782,7 +825,7 @@
         
   
   <span class="md-ellipsis">
-    Install on RHEL and derivatives
+    Install via yum
   </span>
   
 
@@ -807,43 +850,106 @@
       
         <li class="md-nav__item">
   <a href="#platform-specific-notes" class="md-nav__link">
-    Platform specific notes
+    <span class="md-ellipsis">
+      Platform specific notes
+    </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Platform specific notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-percona-distribution-for-postgresql-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Percona Distribution for PostgreSQL packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-percona-postgresql14-devel-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      For percona-postgresql14-devel package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-pgpool2-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      For pgpool2 extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-postgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      For PostGIS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
-    Procedure
+    <span class="md-ellipsis">
+      Procedure
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Procedure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configure-the-repository" class="md-nav__link">
-    Configure the repository
+    <span class="md-ellipsis">
+      Configure the repository
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#install-packages" class="md-nav__link">
-    Install packages
+    <span class="md-ellipsis">
+      Install packages
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#start-the-service" class="md-nav__link">
-    Start the service
+    <span class="md-ellipsis">
+      Start the service
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#connect-to-the-postgresql-server" class="md-nav__link">
-    Connect to the PostgreSQL server
+    <span class="md-ellipsis">
+      Connect to the PostgreSQL server
+    </span>
   </a>
   
 </li>
@@ -867,6 +973,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="enable-extensions.html" class="md-nav__link">
         
@@ -884,6 +991,7 @@
             
               
                 
+  
   
   
   
@@ -915,6 +1023,28 @@
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="migration.html" class="md-nav__link">
         
@@ -935,6 +1065,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="major-upgrade.html" class="md-nav__link">
         
@@ -952,6 +1083,7 @@
             
               
                 
+  
   
   
   
@@ -979,6 +1111,7 @@
     
       
       
+  
   
   
   
@@ -1018,12 +1151,13 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="pg-stat-monitor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    pg-stat-monitor
+    pg_stat_monitor
   </span>
   
 
@@ -1042,6 +1176,7 @@
     
       
       
+  
   
   
   
@@ -1081,6 +1216,7 @@
   
   
   
+  
     
     
     
@@ -1117,6 +1253,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/high-availability.html" class="md-nav__link">
         
@@ -1134,6 +1271,7 @@
             
               
                 
+  
   
   
   
@@ -1157,6 +1295,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         
@@ -1177,6 +1316,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/pgbackrest.html" class="md-nav__link">
         
@@ -1194,6 +1334,7 @@
             
               
                 
+  
   
   
   
@@ -1222,6 +1363,7 @@
             
               
                 
+  
   
   
   
@@ -1261,6 +1403,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/backup-recovery.html" class="md-nav__link">
         
@@ -1278,6 +1421,7 @@
             
               
                 
+  
   
   
   
@@ -1306,6 +1450,7 @@
             
               
                 
+  
   
   
   
@@ -1345,6 +1490,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/postgis.html" class="md-nav__link">
         
@@ -1362,6 +1508,7 @@
             
               
                 
+  
   
   
   
@@ -1385,6 +1532,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/postgis-testing.html" class="md-nav__link">
         
@@ -1402,6 +1550,7 @@
             
               
                 
+  
   
   
   
@@ -1433,6 +1582,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="ldap.html" class="md-nav__link">
         
@@ -1460,6 +1610,27 @@
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="uninstalling.html" class="md-nav__link">
         
@@ -1476,6 +1647,7 @@
     
       
       
+  
   
   
   
@@ -1498,6 +1670,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="trademark-policy.html" class="md-nav__link">
         
@@ -1512,14 +1685,14 @@
   
 
     
-    <br>
-   <label class="md-nav__title" for="__drawer">
-    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-14" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
+  </ul>
+</nav>
+                    <br>
+                    <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-14" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Percona Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
       Download PDF
     </a>
   </label> 
-  </ul>
-</nav>
                   </div>
                 </div>
               </div>
@@ -1548,43 +1721,106 @@
       
         <li class="md-nav__item">
   <a href="#platform-specific-notes" class="md-nav__link">
-    Platform specific notes
+    <span class="md-ellipsis">
+      Platform specific notes
+    </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Platform specific notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-percona-distribution-for-postgresql-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Percona Distribution for PostgreSQL packages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-percona-postgresql14-devel-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      For percona-postgresql14-devel package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-pgpool2-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      For pgpool2 extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-postgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      For PostGIS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
-    Procedure
+    <span class="md-ellipsis">
+      Procedure
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Procedure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configure-the-repository" class="md-nav__link">
-    Configure the repository
+    <span class="md-ellipsis">
+      Configure the repository
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#install-packages" class="md-nav__link">
-    Install packages
+    <span class="md-ellipsis">
+      Install packages
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#start-the-service" class="md-nav__link">
-    Start the service
+    <span class="md-ellipsis">
+      Start the service
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#connect-to-the-postgresql-server" class="md-nav__link">
-    Connect to the PostgreSQL server
+    <span class="md-ellipsis">
+      Connect to the PostgreSQL server
+    </span>
   </a>
   
 </li>
@@ -1636,17 +1872,184 @@
 
                 <!-- Markdown content -->
                 <h1 id="install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.</p>
+<p>This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. <a href="repo-overview.html">Read more about Percona repositories <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 17.59 15.59 7H9V5h10v10h-2V8.41L6.41 19 5 17.59Z"/></svg></span></a>.</p>
 <h2 id="platform-specific-notes">Platform specific notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h2>
-<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql<span class="w"> </span>llvm-toolset
-</code></pre></div>
-<p>On CentOS 7, you should install the <code>epel-release</code> package:</p>
+<p>To install Percona Distribution for PostgreSQL, do the following:</p>
+<h3 id="for-percona-distribution-for-postgresql-packages">For Percona Distribution for PostgreSQL packages<a class="headerlink" href="#for-percona-distribution-for-postgresql-packages" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CentOS 7</label><label for="__tabbed_1_2">RHEL8/Oracle Linux 8/Rocky Linux 8</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Install the <code>epel-release</code> package:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>epel-release
 $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>repolist
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql<span class="w"> </span>llvm-toolset
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="for-percona-postgresql14-devel-package">For <code>percona-postgresql14-devel</code> package<a class="headerlink" href="#for-percona-postgresql14-devel-package" title="Permanent link">&para;</a></h3>
+<p>You may need to install the <code>percona-postgresql14-devel</code> package when working with some extensions or creating programs that interface with PostgreSQL database. This package requires dependencies that are not part of the Distribution, but can be installed from the specific repositories:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL8</label><label for="__tabbed_2_2">Rocky Linux 8</label><label for="__tabbed_2_3">Oracle Linux 8</label><label for="__tabbed_2_4">Rocky Linux 9</label><label for="__tabbed_2_5">Oracle Linux 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>--enablerepo<span class="o">=</span>codeready-builder-for-rhel-8-rhui-rpms<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol8_codeready_builder<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="for-pgpool2-extension">For <code>pgpool2</code> extension<a class="headerlink" href="#for-pgpool2-extension" title="Permanent link">&para;</a></h3>
+<p>To install <code>pgpool2</code> on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve the dependencies conflict.</p>
+<p>The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">RHEL 9</label><label for="__tabbed_3_2">Rocky Linux 9</label><label for="__tabbed_3_3">Oracle Linux 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="for-postgis">For PostGIS<a class="headerlink" href="#for-postgis" title="Permanent link">&para;</a></h3>
+<p>The following commands provide instructions how to enable required repositories and modules on Red Hat Enterprise Linux 9 and derivatives.</p>
+<p>For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the commands accordingly.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">RHEL 9</label><label for="__tabbed_4_2">Rocky Linux 9</label><label for="__tabbed_4_3">Oracle Linux 9</label><label for="__tabbed_4_4">RHEL UBI 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Install <code>epel</code> repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Enable the <code>llvm-toolset dnf</code> module</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+</code></pre></div>
+</li>
+<li>
+<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Install <code>epel</code> repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Enable the <code>llvm-toolset dnf</code> module</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+</code></pre></div>
+</li>
+<li>
+<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Install <code>epel</code> repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+<li>
+<p>Enable the <code>llvm-toolset dnf</code> module</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
+</code></pre></div>
+</li>
+<li>
+<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Configure the Oracle-Linux repository. Create the <code>/etc/yum.repos.d/oracle-linux-ol9.repo</code> file to install the required dependencies: </p>
+<div class="highlight"><span class="filename">/etc/yum.repos.d/oracle-linux-ol9.repo</span><pre><span></span><code>[ol9_baseos_latest]
+name=Oracle Linux 9 BaseOS Latest ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/baseos/latest/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1     
+
+[ol9_appstream]
+name=Oracle Linux 9 Application Stream ($basearch)
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/appstream/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1     
+
+[ol9_codeready_builder]
+name=Oracle Linux 9 CodeReady Builder ($basearch) - Unsupported
+baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/codeready/builder/$basearch/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+gpgcheck=1
+enabled=1
+</code></pre></div>
+</li>
+<li>
+<p>Download the right GPG key for the Oracle Yum Repository:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://yum.oracle.com/RPM-GPG-KEY-oracle-ol9<span class="w"> </span>-O<span class="w"> </span>/etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+</code></pre></div>
+</li>
+<li>
+<p>Install <code>epel</code> repository    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
+<p>Run all the commands in the following sections as root or using the <code>sudo</code> command.</p>
+<h3 id="install-dependencies">Install dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h3>
+<p>Install <code>curl</code> for <a href="telemetry.html">Telemetry</a>. We use it to better understand the use of our products and improve them.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>curl
+</code></pre></div>
 <h3 id="configure-the-repository">Configure the repository<a class="headerlink" href="#configure-the-repository" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1659,13 +2062,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 </li>
 </ol>
 <p>Percona provides <a href="repo-overview.html">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
-<p>To enable a repository, we recommend using the <code>setup</code> command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg14
 </code></pre></div>
 <h3 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install using meta-package</label><label for="__tabbed_1_2">Install packages individually</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Install using meta-package</label><label for="__tabbed_5_2">Install packages individually</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>The <a href="repo-overview.html#percona-ppg-server" target="”_blank”">meta package</a> enables you to install several components of the distribution in one go.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-ppg-server14
 </code></pre></div>
 </div>
@@ -1682,10 +2085,10 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg_repack14
 </code></pre></div>
 <p>Install <code>pgaudit</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgaudit
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgaudit14
 </code></pre></div>
 <p>Install <code>pgBackRest</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest14
 </code></pre></div>
 <p>Install <code>Patroni</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-patroni
@@ -1706,64 +2109,24 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 <p>Install PostgreSQL contrib extensions:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql14-contrib
 </code></pre></div>
-<p>Install <code>pgpool2</code></p>
-<p>To install <code>pgpool2</code> on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for <code>pgpool2</code>. The following examples show steps for Red Hat Enterprise Linux 9:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL 9</label><label for="__tabbed_2_2">CentOS 9</label><label for="__tabbed_2_3">Oracle Linux 9</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable the codeready builder repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg14
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable the codeready builder repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg14
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable the codeready builder repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg14
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<p>For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.</p>
-<p>Install <code>pg_gather</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg_gather
-</code></pre></div>
 <p>Install HAProxy</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-haproxy
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
+<p>Install <code>pg_gather</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg_gather
+</code></pre></div>
+<p>Install pgpool2</p>
+<ol>
+<li>Check the <a href="#for-pgpool2-extension">platform specific notes</a></li>
+<li>
+<p>Install the extension</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg14
+</code></pre></div>
 </li>
 </ol>
+</li>
+</ol>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
 </div>
 </div>
 </div>
@@ -1812,7 +2175,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2023</span>
       
         <br>
         Created:
@@ -1945,7 +2308,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

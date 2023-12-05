@@ -21,11 +21,11 @@
         <link rel="prev" href="enable-extensions.html">
       
       
-        <link rel="next" href="migration.html">
+        <link rel="next" href="docker.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
@@ -279,6 +279,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
         
@@ -295,6 +296,7 @@
     
       
       
+  
   
   
   
@@ -334,6 +336,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes.html" class="md-nav__link">
         
@@ -351,6 +354,28 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes-v14.10.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 14.10 (2023-11-05)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -374,6 +399,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.8.html" class="md-nav__link">
         
@@ -391,6 +417,7 @@
             
               
                 
+  
   
   
   
@@ -414,6 +441,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.7.html" class="md-nav__link">
         
@@ -431,6 +459,7 @@
             
               
                 
+  
   
   
   
@@ -454,6 +483,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.5.html" class="md-nav__link">
         
@@ -471,6 +501,7 @@
             
               
                 
+  
   
   
   
@@ -494,6 +525,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.3.html" class="md-nav__link">
         
@@ -511,6 +543,7 @@
             
               
                 
+  
   
   
   
@@ -534,6 +567,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.2.upd.html" class="md-nav__link">
         
@@ -551,6 +585,7 @@
             
               
                 
+  
   
   
   
@@ -574,6 +609,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.1.upd2.html" class="md-nav__link">
         
@@ -594,6 +630,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="release-notes-v14.1.upd.html" class="md-nav__link">
         
@@ -611,6 +648,7 @@
             
               
                 
+  
   
   
   
@@ -641,6 +679,7 @@
   
   
     
+  
   
   
     
@@ -681,6 +720,7 @@
     
   
   
+  
     
     
     
@@ -717,6 +757,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="installing.html" class="md-nav__link">
         
@@ -737,12 +778,13 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Install on Debian and Ubuntu
+    Install via apt
   </span>
   
 
@@ -754,6 +796,7 @@
             
               
                 
+  
   
   
   
@@ -762,7 +805,7 @@
         
   
   <span class="md-ellipsis">
-    Install on RHEL and derivatives
+    Install via yum
   </span>
   
 
@@ -774,6 +817,7 @@
             
               
                 
+  
   
   
   
@@ -799,6 +843,7 @@
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -806,6 +851,17 @@
       
         
       
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Repositories overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="repo-overview.html" class="md-nav__link md-nav__link--active">
         
@@ -816,6 +872,60 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repository-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percona-ppg-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      percona-ppg-server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percona-ppg-server-ha" class="md-nav__link">
+    <span class="md-ellipsis">
+      percona-ppg-server-ha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -832,6 +942,28 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
@@ -855,6 +987,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="major-upgrade.html" class="md-nav__link">
         
@@ -872,6 +1005,7 @@
             
               
                 
+  
   
   
   
@@ -899,6 +1033,7 @@
     
       
       
+  
   
   
   
@@ -938,12 +1073,13 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="pg-stat-monitor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    pg-stat-monitor
+    pg_stat_monitor
   </span>
   
 
@@ -962,6 +1098,7 @@
     
       
       
+  
   
   
   
@@ -1001,6 +1138,7 @@
   
   
   
+  
     
     
     
@@ -1037,6 +1175,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/high-availability.html" class="md-nav__link">
         
@@ -1054,6 +1193,7 @@
             
               
                 
+  
   
   
   
@@ -1077,6 +1217,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         
@@ -1097,6 +1238,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/pgbackrest.html" class="md-nav__link">
         
@@ -1114,6 +1256,7 @@
             
               
                 
+  
   
   
   
@@ -1142,6 +1285,7 @@
             
               
                 
+  
   
   
   
@@ -1181,6 +1325,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/backup-recovery.html" class="md-nav__link">
         
@@ -1198,6 +1343,7 @@
             
               
                 
+  
   
   
   
@@ -1226,6 +1372,7 @@
             
               
                 
+  
   
   
   
@@ -1265,6 +1412,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/postgis.html" class="md-nav__link">
         
@@ -1282,6 +1430,7 @@
             
               
                 
+  
   
   
   
@@ -1305,6 +1454,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="solutions/postgis-testing.html" class="md-nav__link">
         
@@ -1322,6 +1472,7 @@
             
               
                 
+  
   
   
   
@@ -1353,6 +1504,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="ldap.html" class="md-nav__link">
         
@@ -1380,6 +1532,27 @@
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="uninstalling.html" class="md-nav__link">
         
@@ -1396,6 +1569,7 @@
     
       
       
+  
   
   
   
@@ -1418,6 +1592,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="trademark-policy.html" class="md-nav__link">
         
@@ -1432,14 +1607,14 @@
   
 
     
-    <br>
-   <label class="md-nav__title" for="__drawer">
-    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-14" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active">
+  </ul>
+</nav>
+                    <br>
+                    <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-14" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Percona Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
       Download PDF
     </a>
   </label> 
-  </ul>
-</nav>
                   </div>
                 </div>
               </div>
@@ -1459,6 +1634,47 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#repository-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository contents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percona-ppg-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      percona-ppg-server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percona-ppg-server-ha" class="md-nav__link">
+    <span class="md-ellipsis">
+      percona-ppg-server-ha
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1515,6 +1731,112 @@
 </tr>
 </tbody>
 </table>
+<h2 id="repository-contents">Repository contents<a class="headerlink" href="#repository-contents" title="Permanent link">&para;</a></h2>
+<p>Percona Distribution for PostgreSQL provides individual packages for its components. It also includes two meta-packages: <code>percona-ppg-server</code> and <code>percona-ppg-server-ha</code>.</p>
+<p>Using a meta-package, you can install all components it contains in one go.</p>
+<h3 id="percona-ppg-server"><code>percona-ppg-server</code><a class="headerlink" href="#percona-ppg-server" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Package name on Debian/Ubuntu</label><label for="__tabbed_1_2">Package name on RHEL/derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><code>percona-ppg-server-14</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>percona-ppg-server14</code></p>
+</div>
+</div>
+</div>
+<p>The <code>percona-ppg-server</code> meta-package installs the PostgreSQL server with the following packages:</p>
+<table>
+<thead>
+<tr>
+<th>Package contents</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>percona-postgresql14-server</code></td>
+<td>The PostgreSQL server package.</td>
+</tr>
+<tr>
+<td><code>percona-postgresql-common</code></td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
+</tr>
+<tr>
+<td><code>percona-postgresql14-contrib</code></td>
+<td>A collection of additional PostgreSQLcontrib extensions</td>
+</tr>
+<tr>
+<td><code>percona-pg-stat-monitor14</code></td>
+<td>A Query Performance Monitoring tool for PostgreSQL.</td>
+</tr>
+<tr>
+<td><code>percona-pgaudit</code></td>
+<td>Provides detailed session or object audit logging via the standard PostgreSQL logging facility.</td>
+</tr>
+<tr>
+<td><code>percona-pg_repack14</code></td>
+<td>rebuilds PostgreSQL database objects.</td>
+</tr>
+<tr>
+<td><code>percona-wal2json14</code></td>
+<td>a PostgreSQL logical decoding JSON output plugin.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="percona-ppg-server-ha"><code>percona-ppg-server-ha</code><a class="headerlink" href="#percona-ppg-server-ha" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Package name on Debian/Ubuntu</label><label for="__tabbed_2_2">Package name on RHEL/derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><code>percona-ppg-server-ha-14</code></p>
+</div>
+<div class="tabbed-block">
+<p><code>percona-ppg-server-14</code></p>
+</div>
+</div>
+</div>
+<p>The <code>percona-ppg-server-ha</code> meta-package installs high-availability components that are recommended by Percona:</p>
+<table>
+<thead>
+<tr>
+<th>Package contents</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>percona-patroni</code></td>
+<td>A high-availability solution for PostgreSQL.</td>
+</tr>
+<tr>
+<td><code>percona-haproxy</code></td>
+<td>A high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><code>etcd</code></td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td><code>python3-python-etcd</code></td>
+<td>A Python client for ETCD.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+</tr>
+<tr>
+<td><code>etcd-client</code>, <code>etcd-server</code></td>
+<td>The client/server of the distributed key-value store. <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Is included in repositories for RHEL 8 / CentOS 8 operating systems&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Are included in repositories for Debian 12 operating system&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1537,7 +1859,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 23, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2023</span>
       
         <br>
         Created:
@@ -1670,7 +1992,7 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

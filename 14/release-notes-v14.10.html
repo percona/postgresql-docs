@@ -9,34 +9,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Organizations dealing with spatial data need to store it somewhere and manipulate it. PostGIS is the open-source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:">
+        <meta name="description" content="Installation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/14/solutions/postgis.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/14/release-notes-v14.10.html">
       
       
-        <link rel="prev" href="dr-pgbackrest-setup.html">
+        <link rel="prev" href="release-notes.html">
       
       
-        <link rel="next" href="postgis-deploy.html">
+        <link rel="next" href="release-notes-v14.9.html">
       
       
-      <link rel="icon" href="../_images/percona-favicon.ico">
+      <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>Overview - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 14.10 (2023-11-05) - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -59,11 +59,11 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="css/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Overview" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 14.10 (2023-11-05)" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#spatial-data-manipulation" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-1410-2023-11-05" class="md-skip">
           Skip to content
         </a>
       
@@ -134,7 +134,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -150,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Percona Distribution for PostgreSQL 14.10 (2023-11-05)
             
           </span>
         </div>
@@ -254,7 +254,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -281,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -298,19 +298,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -324,7 +326,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -338,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes.html" class="md-nav__link">
+      <a href="release-notes.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,10 +358,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../release-notes-v14.10.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 14.10 (2023-11-05)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="release-notes-v14.10.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -368,6 +390,37 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -380,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.9.html" class="md-nav__link">
+      <a href="release-notes-v14.9.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.8.html" class="md-nav__link">
+      <a href="release-notes-v14.8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -422,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.7.upd.html" class="md-nav__link">
+      <a href="release-notes-v14.7.upd.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -443,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.7.html" class="md-nav__link">
+      <a href="release-notes-v14.7.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -464,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.6.html" class="md-nav__link">
+      <a href="release-notes-v14.6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -485,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.5.html" class="md-nav__link">
+      <a href="release-notes-v14.5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -506,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.4.html" class="md-nav__link">
+      <a href="release-notes-v14.4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -527,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.3.html" class="md-nav__link">
+      <a href="release-notes-v14.3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -548,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.2.upd2.html" class="md-nav__link">
+      <a href="release-notes-v14.2.upd2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -569,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.2.upd.html" class="md-nav__link">
+      <a href="release-notes-v14.2.upd.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -590,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.2.html" class="md-nav__link">
+      <a href="release-notes-v14.2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -611,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.1.upd2.html" class="md-nav__link">
+      <a href="release-notes-v14.1.upd2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -632,7 +685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.1.upd.html" class="md-nav__link">
+      <a href="release-notes-v14.1.upd.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -653,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-v14.1.html" class="md-nav__link">
+      <a href="release-notes-v14.1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -755,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installing.html" class="md-nav__link">
+      <a href="installing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -797,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-extensions.html" class="md-nav__link">
+      <a href="enable-extensions.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -839,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../repo-overview.html" class="md-nav__link">
+      <a href="repo-overview.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration.html" class="md-nav__link">
+      <a href="migration.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -910,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../major-upgrade.html" class="md-nav__link">
+      <a href="major-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -931,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -996,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pg-stat-monitor.html" class="md-nav__link">
+      <a href="pg-stat-monitor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1021,21 +1074,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1049,7 +1100,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Solutions
@@ -1100,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="high-availability.html" class="md-nav__link">
+      <a href="solutions/high-availability.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1121,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-apt.html" class="md-nav__link">
+      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1142,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-yum.html" class="md-nav__link">
+      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1163,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pgbackrest.html" class="md-nav__link">
+      <a href="solutions/pgbackrest.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1184,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-test.html" class="md-nav__link">
+      <a href="solutions/ha-test.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1250,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-recovery.html" class="md-nav__link">
+      <a href="solutions/backup-recovery.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1271,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1297,21 +1348,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1325,7 +1374,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Spatial data handling
@@ -1336,30 +1385,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="postgis.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="solutions/postgis.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1368,55 +1397,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-postgis" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to use PostGIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-not-to-use-postgis" class="md-nav__link">
-    <span class="md-ellipsis">
-      When not to use PostGIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next steps:
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1429,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-deploy.html" class="md-nav__link">
+      <a href="solutions/postgis-deploy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1450,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-testing.html" class="md-nav__link">
+      <a href="solutions/postgis-testing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1471,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-upgrade.html" class="md-nav__link">
+      <a href="solutions/postgis-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1500,7 +1480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap.html" class="md-nav__link">
+      <a href="ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1528,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../telemetry.html" class="md-nav__link">
+      <a href="telemetry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1548,7 +1528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uninstalling.html" class="md-nav__link">
+      <a href="uninstalling.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1568,7 +1548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../licensing.html" class="md-nav__link">
+      <a href="licensing.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1588,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1636,27 +1616,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-postgis" class="md-nav__link">
+  <a href="#release-highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      When to use PostGIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-not-to-use-postgis" class="md-nav__link">
-    <span class="md-ellipsis">
-      When not to use PostGIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next steps:
+      Release Highlights
     </span>
   </a>
   
@@ -1680,14 +1642,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/14/docs/solutions/postgis.md"
+                    href="https://github.com/percona/postgresql-docs/edit/14/docs/release-notes-v14.10.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/solutions/postgis.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/14/docs/release-notes-v14.10.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1703,35 +1665,136 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="spatial-data-manipulation">Spatial data manipulation<a class="headerlink" href="#spatial-data-manipulation" title="Permanent link">&para;</a></h1>
-<div class="admonition admonition">
-<p class="admonition-title">Version added: 14.8</p>
-</div>
-<p>Organizations dealing with spatial data need to store it somewhere and manipulate it. <a href="https://postgis.net/">PostGIS</a> is the open-source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:</p>
+                <h1 id="percona-distribution-for-postgresql-1410-2023-11-05">Percona Distribution for PostgreSQL 14.10 (2023-11-05)<a class="headerlink" href="#percona-distribution-for-postgresql-1410-2023-11-05" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="installing.html">Installation</a></p>
+<p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/14/release-14-10.html">PostgreSQL 14.10</a>. </p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Geographical data like points, lines, polygons, GPS coordinates that can be mapped on a sphere.</li>
-<li>Geometrical data. This is also points, lines and polygons but they apply to a 2D surface.</li>
+<li>Docker images are now available for x86_64 architectures. Their inclusion in the distribution aims to simplify the developers&rsquo; experience with the Distribution. Refer to the <a href="docker.html">Docker guide</a> for how to run Percona Distribution for PostgreSQL in Docker.</li>
+<li>Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the <a href="telemetry.html">on Percona Distribution for PostgreSQL</a> document.</li>
 </ul>
-<p>To operate with spatial data inside SQL queries, PostGIS supports <a href="https://postgis.net/docs/reference.html#SRS_Functions">spatial functions</a> like distance, area, union, intersection. It uses the spatial indexes like <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree</a> and <a href="https://en.wikipedia.org/wiki/Quadtree">Quadtree</a> for efficient processing of database operations. Read more about supported spatial functions and indexes in <a href="https://postgis.net/workshops/postgis-intro/introduction.html">PostGIS documentation</a>. </p>
-<p>By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open source spatial database that you can use in various areas without vendor lock-in. </p>
-<h2 id="when-to-use-postgis">When to use PostGIS<a class="headerlink" href="#when-to-use-postgis" title="Permanent link">&para;</a></h2>
-<p>You can use PostGIS in the following cases:</p>
+<hr />
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>2.8.3</td>
+<td>a high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>3.2.0</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
+<td>1.6.2</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>4.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.48</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>12.2</td>
+<td>a fast PostgreSQL Log Analyzer.</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.21.0</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jobinau/pg_gather">pg_gather</a></td>
+<td>v23</td>
+<td>an SQL script for running the diagnostics of the health of PostgreSQL cluster</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2</a></td>
+<td>4.4.4</td>
+<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.8</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.0.2</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS</a></td>
+<td>3.4.0</td>
+<td>a spatial extension for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
+<td>255</td>
+<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters may be maintained at one time.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.5</td>
+<td>a PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
 <ul>
-<li>To store and manage spatial data, create and store spatial shapes, calculate areas and distances</li>
-<li>To build the software that visualizes spatial data on a map, </li>
-<li>To work with raster data, such as satellite imagery or digital elevation models.</li>
-<li>To integrate spatial and non-spatial data such as demographic or economic data in a database</li>
+<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8 and derivatives. This fixes compatibility issues with LLVM from upstream.</li>
+<li>supplemental <code>ETCD</code> packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
 </ul>
-<h2 id="when-not-to-use-postgis">When not to use PostGIS<a class="headerlink" href="#when-not-to-use-postgis" title="Permanent link">&para;</a></h2>
-<p>Despite its power and flexibility, PostGIS may not suit your needs if:</p>
-<ul>
-<li>You need to store only a couple of map locations. Consider using the <a href="https://www.postgresql.org/docs/current/functions-geometry.html">built-in geometric functions and operations of PostgreSQL</a></li>
-<li>You need real-time data analysis. While PostGIS can handle real-time spatial data, it may not be the best option for real-time data analysis on large volumes of data.</li>
-<li>You need complex 3D analysis or visualization.</li>
-<li>You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.</li>
-</ul>
-<h2 id="next-steps">Next steps:<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p><a href="postgis-deploy.html">Deployment</a></p>
+<table>
+<thead>
+<tr>
+<th>Operating system</th>
+<th>Package</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RHEL 7</td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.5</td>
+<td>A Python client for ETCD</td>
+</tr>
+<tr>
+<td>RHEL 8</td>
+<td><code>etcd</code></td>
+<td>3.3.11</td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-python-etcd</code></td>
+<td>0.4.5</td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/14/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; </p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1754,11 +1817,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 5, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 28, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 22, 2021</span>
       
     
   </small>
@@ -1884,14 +1947,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
     
   </body>
