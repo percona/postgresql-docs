@@ -6,13 +6,13 @@ This document describes how to install Percona Server for PostgreSQL from Percon
 
 If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo dnf module disable postgresql llvm-toolset
 ```
 
 On CentOS 7, you should install the ``epel-release`` package:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo yum -y install epel-release
 $ sudo yum repolist
 ```
@@ -33,7 +33,7 @@ $ sudo yum -y install curl
 
 1. Install the `percona-release` repository management tool to subscribe to Percona repositories:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     ```
 
@@ -43,49 +43,49 @@ $ sudo yum -y install curl
 
    To enable a repository, we recommend using the `setup` command: 
 
-   ```{.bash data-promp="$"}
-   $ sudo percona-release setup ppg-13
+   ```{.bash data-prompt="$"}
+   $ sudo percona-release setup ppg-{{pgversion}}
    ```
 
 ### Install packages
 
 === "Install using meta-package"
      
-     ```{.bash data-promp="$"}
-     $ sudo yum install percona-ppg-server13
+     ```{.bash data-prompt="$"}
+     $ sudo yum install percona-ppg-server{{pgversion}}
      ```
 
 === "Install packages individually"
 
      1. Install the PostgreSQL server package:
 
-         ```{.bash data-promp="$"}
-         $ sudo yum install percona-postgresql13-server
+         ```{.bash data-prompt="$"}
+         $ sudo yum install percona-postgresql{{pgversion}}-server
          ```
 
      2. Install the components:
 
         Install `pg_repack`:
 
-        ```{.bash data-promp="$"}
-        $ sudo yum install percona-pg_repack13
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-pg_repack{{pgversion}}
         ```
 
         Install `pgaudit`:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgaudit
         ```
 
         Install `pgBackRest`:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbackrest
         ```
 
         Install `Patroni`:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-patroni
         ```
 
@@ -94,37 +94,37 @@ $ sudo yum -y install curl
 
         Install `pgBouncer`:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbouncer
         ```
 
         Install `pgAudit-set_user`:
 
-        ```{.bash data-promp="$"}
-        $ sudo yum install percona-pgaudit13_set_user
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
         ```
 
         Install `pgBadger`:
 
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbadger
         ```
 
         Install `wal2json`:
 
-        ```{.bash data-promp="$"}
-        $ sudo yum install percona-wal2json13
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-wal2json{{pgversion}}
         ```
 
         Install PostgreSQL contrib extensions:
 
-        ```{.bash data-promp="$"}
-        $ sudo yum install percona-postgresql15-contrib
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
         Install HAProxy
         
-        ```{.bash data-promp="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
         ```
 
@@ -149,7 +149,7 @@ $ sudo yum -y install curl
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg13
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         === "CentOS 9"
@@ -163,7 +163,7 @@ $ sudo yum -y install curl
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg13
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
 
         === "Oracle Linux 9"
@@ -177,7 +177,7 @@ $ sudo yum -y install curl
             2. Install the extension
 
                 ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg13
+                $ sudo yum install percona-pgpool-II-pg{{pgversion}}
                 ```
                 
         For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
@@ -189,26 +189,26 @@ $ sudo yum -y install curl
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```{.bash data-prompt="$"}
-/usr/pgsql-13/bin/postgresql-13-setup initdb
+/usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
 ```
 
 Start the PostgreSQL service:
 
 ```{.bash data-prompt="$"}
-$ sudo systemctl start postgresql-13
+$ sudo systemctl start postgresql-{{pgversion}}
 ```
 
 ### Connect to the PostgreSQL server
 
 By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo su postgres
 ```
 
 Open the PostgreSQL interactive terminal:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ psql
 ```
 
@@ -222,6 +222,6 @@ $ psql
 
 To exit the `psql` terminal, use the following command:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ \q
 ```
