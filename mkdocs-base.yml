@@ -83,8 +83,15 @@ markdown_extensions:
   pymdownx.tilde: {}
   pymdownx.superfences: {}
   pymdownx.highlight:
-      linenums: false
+      use_pygments: true
   pymdownx.inlinehilite: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
+  pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 
 plugins:
@@ -137,38 +144,6 @@ extra:
 
 nav:
   - "Home": "index.md"
-  - Installation and Upgrade:
-      - Install Percona Distribution for PostgreSQL:
-        - "Overview": "installing.md"
-        - "Install on Debian and Ubuntu": "apt.md"
-        - "Install on RHEL and derivatives": "yum.md"
-        - enable-extensions.md
-        - repo-overview.md
-      - migration.md
-      - major-upgrade.md
-      - minor-upgrade.md
-  - Extensions:
-      - 'pg_stat_monitor': 'pg-stat-monitor.md'
-  - Solutions:
-      #- solutions.md
-      - High availability:
-          - "High availability": "solutions/high-availability.md"
-          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
-          - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
-          - solutions/pgbackrest.md
-          - solutions/ha-test.md
-      - Backup and disaster recovery:
-          - "Backup and disaster recovery": "solutions/backup-recovery.md"
-          - solutions/dr-pgbackrest-setup.md
-      - Spatial data handling:
-        - Overview: solutions/postgis.md
-        - Deployment: solutions/postgis-deploy.md
-        - Query spatial data: solutions/postgis-testing.md
-        - Upgrade spatial database: solutions/postgis-upgrade.md
-      - LDAP authentication:
-          - ldap.md
-  - Uninstall:
-      - uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
       - release-notes-v13.12.md
@@ -197,8 +172,40 @@ nav:
       - release-notes-v13.2.md
       - release-notes-v13.1.md
       - release-notes-v13.0.md
-  - Licensing:
-      - licensing.md
+  - Installation and Upgrade:
+      - Install Percona Distribution for PostgreSQL:
+        - "Overview": "installing.md"
+        - "Install via apt": "apt.md"
+        - "Install via yum": "yum.md"
+        - enable-extensions.md
+        - repo-overview.md
+      - "Run in Docker": docker.md
+      - migration.md
+      - major-upgrade.md
+      - minor-upgrade.md
+  - Extensions:
+      - 'pg_stat_monitor': 'pg-stat-monitor.md'
+  - Solutions:
+      #- solutions.md
+      - High availability:
+          - "High availability": "solutions/high-availability.md"
+          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
+          - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
+          - solutions/pgbackrest.md
+          - solutions/ha-test.md
+      - Backup and disaster recovery:
+          - "Backup and disaster recovery": "solutions/backup-recovery.md"
+          - solutions/dr-pgbackrest-setup.md
+      - Spatial data handling:
+        - Overview: solutions/postgis.md
+        - Deployment: solutions/postgis-deploy.md
+        - Query spatial data: solutions/postgis-testing.md
+        - Upgrade spatial database: solutions/postgis-upgrade.md
+      - LDAP authentication:
+          - ldap.md
+  - Telemetry: telemetry.md
+  - Uninstall: uninstalling.md
+  - Licensing: licensing.md
   - Trademark policy:
       - trademark-policy.md
 # - Version Selector: "../"

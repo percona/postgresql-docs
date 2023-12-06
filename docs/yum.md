@@ -6,6 +6,7 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 
 To install Percona Distribution for PostgreSQL, do the following:
 
+
 ### For Percona Distribution for PostgreSQL packages
 
 === "CentOS 7"
@@ -196,7 +197,15 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
 
 ## Procedure
 
-Run all the commands in the following sections as root or using the `sudo` command:
+Run all the commands in the following sections as root or using the `sudo` command.
+
+### Install dependencies
+
+Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
+
+```{.bash data-prompt="$"}
+$ sudo yum -y install curl
+```
 
 ### Configure the repository
 
