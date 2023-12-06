@@ -6,7 +6,6 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 
 To install Percona Distribution for PostgreSQL, do the following:
 
-
 ### For Percona Distribution for PostgreSQL packages
 
 === "CentOS 7"

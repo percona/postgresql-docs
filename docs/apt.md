@@ -40,7 +40,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    To enable a repository, we recommend using the `setup` command: 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-{{pgversion}}
+   $ sudo percona-release setup ppg{{pgversion}}
    ```
 
 ### Install packages

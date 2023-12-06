@@ -17,7 +17,7 @@ The following document provides guidelines how to install PostGIS and how to run
         As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg13
+        $ sudo percona-release setup ppg{{pgversion}}
         ```
 
     2. Install PostGIS packages
