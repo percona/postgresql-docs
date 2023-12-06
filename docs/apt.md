@@ -4,7 +4,8 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 
 ## Preconditions
 
-Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (`postgresql-13`) by default. The components of Percona Distribution for PostgreSQL 13 can only be installed together with the PostgreSQL server shipped by Percona (`percona-postgresql-13`). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (`postgresql-13`) and then install the chosen components from Percona Distribution for PostgreSQL.
+1. Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (`postgresql-13`) by default. The components of Percona Distribution for PostgreSQL 13 can only be installed together with the PostgreSQL server shipped by Percona (`percona-postgresql-13`). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (`postgresql-13`) and then install the chosen components from Percona Distribution for PostgreSQL.
+2. Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
 
 ## Procedure
 
