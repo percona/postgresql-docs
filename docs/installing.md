@@ -1,65 +1,34 @@
 # Install Percona Distribution for PostgreSQL
 
-We recommend that you install Percona Distribution for PostgreSQL from Percona repositories using the package manager of your operating system. Find the list of supported Linux distributions on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql) page.
+Percona Distribution for PostgreSQL is the solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. [Read more :material-arrow-top-right: ](index.md).
 
-Installing Percona Distribution for PostgreSQL from Percona repositories means to subscribe to these repositories. Percona provides the [percona-release](https://www.percona.com/doc/percona-repo-config/index.html) repository management tool for this purpose. It simplifies operating repositories and enables to install and update both Percona Distribution for PostgreSQL packages and required dependencies smoothly.
+You can select from multiple easy-to-follow installation options, but **we recommend using a Package Manager** for a convenient and quick way to try the software first.
 
-## Package contents
+=== "Package manager"
 
-In addition to individual packages for its components, Percona Distribution for PostgreSQL also includes two meta-packages: `percona-ppg-server` and `percona-ppg-server-ha`.
+    Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms and versions on the [Percona Software and Platform Lifecycle page](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
 
-Using a meta-package, you can install all components it contains in one go.
+    If you are on Debian or Ubuntu, use `apt` for installation.
 
-### `percona-ppg-server`
+    If you are on Red Hat Enterprise Linux or compatible derivatives, use `yum`.
 
-=== "Package name on Debian/Ubuntu"
+    Choose your package manager below to get access to a detailed step-by-step guide.
 
-     `percona-ppg-server-13`
+    [Install via apt :material-arrow-right:](apt.md){.md-button}
+    [Install via yum :material-arrow-right:](yum.md){.md-button}
 
-=== "Package name on RHEL/derivatives"
+=== "Docker"
 
-     `percona-ppg-server13`
+    Get our image from Docker Hub and spin up a cluster on a Docker container for quick evaluation.
 
-The `percona-ppg-server` meta-package installs the PostgreSQL server with the following packages:
+    Check below to get access to a detailed step-by-step guide.
+    
+    [Run in Docker](docker.md){.md-button}
 
-| Package contents | Description                             |  
-| ---------------- | --------------------------------------- | 
-| `percona-postgresql%{pgmajorversion}-server` | The PostgreSQL server package. |
-| `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
-| `percona-postgresql%{pgmajorversion}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
-| `percona-pg-stat-monitor%{pgmajorversion}` | A Query Performance Monitoring tool for PostgreSQL. | 
-| `percona-pgaudit` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
-| `percona-pg_repack%{pgmajorversion}`| rebuilds PostgreSQL database objects.| 
-| `percona-wal2json%{pgmajorversion}` | a PostgreSQL logical decoding JSON output plugin.|
+=== "Kubernetes"
 
-The `%{pgmajorversion}` variable stands for the major version of PostgreSQL.
+    **Percona Operator for Kubernetes** is a controller introduced to simplify complex deployments that require meticulous and secure database expertise.
 
-### `percona-ppg-server-ha`
+    Check below to get access to a detailed step-by-step guide.
 
-=== "Package name on Debian/Ubuntu"
-
-     `percona-ppg-server-ha-13`
-
-=== "Package name on RHEL/derivatives"
-
-     `percona-ppg-server-ha13`
-
-The `percona-ppg-server-ha` meta-package installs high-availability components that are recommended by Percona:
-
-| Package contents | Description                             |  
-| ---------------- | --------------------------------------- | 
-| `percona-patroni`| A high-availability solution for PostgreSQL. | 
-| `percona-haproxy`| A high-availability and load-balancing solution |
-| `etcd`           | A consistent, distributed key-value store | 
-| `python3-python-etcd` | A Python client for ETCD.[^1]|
-| `etcd-client`, `etcd-server` | The client/server of the distributed key-value store. [^2]| 
-
-To install Percona Distribution for PostgreSQL, refer to the following tutorials:
-
-* [On Debian and Ubuntu](apt.md)
-* [On Red Hat Enterprise Linux and derivatives](yum.md)
-
-
-
-[^1]: Is included in repositories for RHEL 8 / CentOS 8 operating systems
-[^2]: Are included in repositories for Debian 12 operating system
+    [Get started with Percona Operator for PostgreSQL](https://docs.percona.com/percona-operator-for-postgresql/2.0/quickstart.html){.md-button}

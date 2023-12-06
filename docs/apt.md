@@ -1,6 +1,6 @@
 # Install Percona Distribution for PostgreSQL on Debian and Ubuntu
 
-This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.  [Read more about Percona repositories :material-arrow-top-right:](repo-overview.md).
 
 ## Preconditions
 
