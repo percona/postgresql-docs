@@ -9,21 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the pg_upgrade
-tool.
-The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.">
+        <meta name="description" content="Percona telemetry fills in the gaps in our understanding of how you use Percona Distribution for PostgreSQL to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/13/major-upgrade.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/13/telemetry.html">
       
       
-        <link rel="prev" href="migration.html">
+        <link rel="prev" href="ldap.html">
       
       
-        <link rel="next" href="minor-upgrade.html">
+        <link rel="next" href="uninstalling.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -31,7 +29,7 @@ The in-place upgrade means installing a new version without removing the old ver
     
     
       
-        <title>Upgrading Percona Distribution for PostgreSQL from 12 to 13 - Percona Distribution for PostgreSQL</title>
+        <title>Telemetry - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -90,7 +88,7 @@ The in-place upgrade means installing a new version without removing the old ver
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Upgrading Percona Distribution for PostgreSQL from 12 to 13" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Telemetry" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -120,7 +118,7 @@ The in-place upgrade means installing a new version without removing the old ver
     <div data-md-component="skip">
       
         
-        <a href="#upgrading-percona-distribution-for-postgresql-from-12-to-13" class="md-skip">
+        <a href="#telemetry-on-percona-distribution-for-postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -154,7 +152,7 @@ The in-place upgrade means installing a new version without removing the old ver
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrading Percona Distribution for PostgreSQL from 12 to 13
+              Telemetry
             
           </span>
         </div>
@@ -934,21 +932,19 @@ The in-place upgrade means installing a new version without removing the old ver
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -962,7 +958,7 @@ The in-place upgrade means installing a new version without removing the old ver
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Installation and Upgrade
@@ -1165,30 +1161,10 @@ The in-place upgrade means installing a new version without removing the old ver
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Upgrading Percona Distribution for PostgreSQL from 12 to 13
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="major-upgrade.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="major-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,46 +1173,6 @@ The in-place upgrade means installing a new version without removing the old ver
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#on-debian-and-ubuntu-using-apt" class="md-nav__link">
-    <span class="md-ellipsis">
-      On Debian and Ubuntu using apt
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#on-red-hat-enterprise-linux-and-derivatives-using-yum" class="md-nav__link">
-    <span class="md-ellipsis">
-      On Red Hat Enterprise Linux and derivatives using yum
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1770,10 +1706,30 @@ The in-place upgrade means installing a new version without removing the old ver
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="telemetry.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1782,6 +1738,46 @@ The in-place upgrade means installing a new version without removing the old ver
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-information-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      What information is collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1881,18 +1877,18 @@ The in-place upgrade means installing a new version without removing the old ver
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#on-debian-and-ubuntu-using-apt" class="md-nav__link">
+  <a href="#what-information-is-collected" class="md-nav__link">
     <span class="md-ellipsis">
-      On Debian and Ubuntu using apt
+      What information is collected
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#on-red-hat-enterprise-linux-and-derivatives-using-yum" class="md-nav__link">
+  <a href="#disable-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
-      On Red Hat Enterprise Linux and derivatives using yum
+      Disable telemetry
     </span>
   </a>
   
@@ -1916,14 +1912,14 @@ The in-place upgrade means installing a new version without removing the old ver
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/13/docs/major-upgrade.md"
+                    href="https://github.com/percona/postgresql-docs/edit/13/docs/telemetry.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/13/docs/major-upgrade.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/13/docs/telemetry.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1939,298 +1935,43 @@ The in-place upgrade means installing a new version without removing the old ver
                 
 
                 <!-- Markdown content -->
-                <h1 id="upgrading-percona-distribution-for-postgresql-from-12-to-13">Upgrading Percona Distribution for PostgreSQL from 12 to 13<a class="headerlink" href="#upgrading-percona-distribution-for-postgresql-from-12-to-13" title="Permanent link">&para;</a></h1>
-<p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code>
-tool.
-The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p><code>pg_upgrade</code> Documentation:</p>
-<p><a href="https://www.postgresql.org/docs/13/pgupgrade.html">https://www.postgresql.org/docs/13/pgupgrade.html</a></p>
+                <h1 id="telemetry-on-percona-distribution-for-postgresql">Telemetry on Percona Distribution for PostgreSQL<a class="headerlink" href="#telemetry-on-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>Percona telemetry fills in the gaps in our understanding of how you use Percona Distribution for PostgreSQL to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.</p>
+<h2 id="what-information-is-collected">What information is collected<a class="headerlink" href="#what-information-is-collected" title="Permanent link">&para;</a></h2>
+<p>Currently, telemetry is added only to the Percona packages and Docker images. It collects only information about the installation environment. Future releases may add additional telemetry metrics.</p>
+<p>Be assured that access to this raw data is rigorously controlled. Percona does not collect personal data. All data is anonymous and cannot be traced to a specific user. To learn more about our privacy practices, read the <a href="https://www.percona.com/privacy-policy#h.e34c40q8sb1a">Percona Privacy statement</a>.</p>
+<p>The following is an example of the collected data:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c416c3ee-48cd-471c-9733-37c2886f8231&quot;</span><span class="p">,</span>
+<span class="nt">&quot;product_family&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY_POSTGRESQL&quot;</span><span class="p">,</span>
+<span class="nt">&quot;instanceId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6aef422e-56a7-4530-af9d-94cc02198343&quot;</span><span class="p">,</span>
+<span class="nt">&quot;createTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-11-01T10:46:23Z&quot;</span><span class="p">,</span>
+<span class="nt">&quot;metrics&quot;</span><span class="p">:</span>
+<span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PACKAGE&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13.13&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oracle Linux Server 8.8&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hardware_arch&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x86_64 x86_64&quot;</span><span class="p">}]}]</span>
+</code></pre></div>
+<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">&para;</a></h2>
+<p>Starting with Percona Distribution for PostgreSQL 13.13, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian-derived distribution</label><label for="__tabbed_1_2">Red Hat-derived distribution</label><label for="__tabbed_1_3">DOCKER</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-13
+</code></pre></div>
 </div>
-<p>Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>A major upgrade is a risky process because of many changes between versions and issues that might occur during or after the upgrade. Therefore, make sure to back up your data first. The backup tools are out of scope of this document. Use the backup tool of your choice.</p>
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql13-server
+</code></pre></div>
 </div>
-<p>The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:</p>
-<ol>
-<li>
-<p>Install Percona Distribution for PostgreSQL 13 packages.</p>
-</li>
-<li>
-<p>Stop the PostgreSQL service.</p>
-</li>
-<li>
-<p>Check the upgrade without modifying the data.</p>
-</li>
-<li>
-<p>Upgrade Percona Distribution for PostgreSQL.</p>
-</li>
-<li>
-<p>Start PostgreSQL service.</p>
-</li>
-<li>
-<p>Execute the  <strong>analyze_new_cluster.sh</strong> script to generate statistics
-so the system is usable.</p>
-</li>
-<li>
-<p>Delete old packages and configuration files.</p>
-</li>
-</ol>
-<p>The exact steps may differ depending on the package manager of your operating system.</p>
-<h2 id="on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a class="headerlink" href="#on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Run <strong>all</strong> commands as root or via <strong>sudo</strong>.</p>
+<div class="tabbed-block">
+<p>Add the environment variable when running a command in a new container.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-e<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:tag<span class="w"> </span>
+</code></pre></div>
 </div>
-<ol>
-<li>
-<p>Install Percona Distribution for PostgreSQL 13 packages.</p>
-<ul>
-<li>Enable Percona repository using the <strong>percona-release</strong> utility:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-13
-</code></pre></div>
-<ul>
-<li>Install Percona Distribution for PostgreSQL 13 package:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-13
-</code></pre></div>
-</li>
-<li>
-<p>Stop the <code>postgresql</code> service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
-</code></pre></div>
-<p>This stops both Percona Distribution for PostgreSQL 12 and 13.</p>
-</li>
-<li>
-<p>Run the database upgrade.</p>
-<ul>
-<li>Log in as the <code>postgres</code> user.</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Change the current directory to the <code>tmp</code> directory where logs and some scripts will be recorded:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tmp/
-</code></pre></div>
-<ul>
-<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 12 to 13:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/13/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-datadir<span class="o">=</span>/var/lib/postgresql/12/main<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="o">=</span>/var/lib/postgresql/13/main<span class="w">  </span><span class="se">\</span>
---old-bindir<span class="o">=</span>/usr/lib/postgresql/12/bin<span class="w">  </span><span class="se">\</span>
---new-bindir<span class="o">=</span>/usr/lib/postgresql/13/bin<span class="w">  </span><span class="se">\</span>
---old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/12/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---check
-</code></pre></div>
-<p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
-<p><strong>Sample output</strong></p>
-<div class="no-copy highlight"><pre><span></span><code>Performing Consistency Checks
------------------------------
-Checking cluster versions                                   ok
-Checking database user is the install user                  ok
-Checking database connection settings                       ok
-Checking for prepared transactions                          ok
-Checking for reg* data types in user tables                 ok
-Checking for contrib/isn with bigint-passing mismatch       ok
-Checking for tables WITH OIDS                               ok
-Checking for invalid &quot;sql_identifier&quot; user columns          ok
-Checking for presence of required libraries                 ok
-Checking database user is the install user                  ok
-Checking for prepared transactions                          ok
-
-*Clusters are compatible*
-</code></pre></div>
-<ul>
-<li>Upgrade the Percona Distribution for PostgreSQL</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/13/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-datadir<span class="o">=</span>/var/lib/postgresql/12/main<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="o">=</span>/var/lib/postgresql/13/main<span class="w">  </span><span class="se">\</span>
---old-bindir<span class="o">=</span>/usr/lib/postgresql/12/bin<span class="w">  </span><span class="se">\</span>
---new-bindir<span class="o">=</span>/usr/lib/postgresql/13/bin<span class="w">  </span><span class="se">\</span>
---old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/12/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---link
-</code></pre></div>
-<p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.</p>
-<p>If you don’t wish to use the <code>--link</code> option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.</p>
-<ul>
-<li>Go back to the regular user:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">exit</span>
-</code></pre></div>
-<ul>
-<li>The Percona Distribution for PostgreSQL 12 uses the <code>5432</code> port while the Percona Distribution for PostgreSQL 13 is set up to use the <code>5433</code> port by default. To start the Percona Distribution for PostgreSQL 13, swap ports in the configuration files of both versions.</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/13/main/postgresql.conf
-$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5433</span><span class="w"> </span><span class="c1"># Change to 5432 here</span>
-$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/12/main/postgresql.conf
-$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5432</span><span class="w"> </span><span class="c1"># Change to 5433 here</span>
-</code></pre></div>
-</li>
-<li>
-<p>Start the <code>postgreqsl</code> service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
-</code></pre></div>
-</li>
-<li>
-<p>Check the <code>postgresql</code> version.</p>
-<ul>
-<li>Log in as a postgres user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Check the database version</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the <code>vaccumdb</code> command to analyze the new cluster:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/13/bin/vacuumdb<span class="w"> </span>--all<span class="w"> </span>--analyze-in-stages
-</code></pre></div>
-</li>
-<li>
-<p>Delete the old cluster&rsquo;s data files:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
-$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/postgresql/13/main
-$<span class="w"> </span><span class="c1">#Logout</span>
-$<span class="w"> </span><span class="nb">exit</span>
-</code></pre></div>
-</li>
-</ol>
-<h2 id="on-red-hat-enterprise-linux-and-derivatives-using-yum">On Red Hat Enterprise Linux and derivatives using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-derivatives-using-yum" title="Permanent link">&para;</a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Run <strong>all</strong> commands as root or via <strong>sudo</strong>.</p>
 </div>
-<ol>
-<li>
-<p>Install Percona Distribution for PostgreSQL 13 packages</p>
-<ul>
-<li>Enable Percona repository using the <strong>percona-release</strong> utility:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-13
-</code></pre></div>
-<ul>
-<li>Install Percona Distribution for PostgreSQL 13:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql13-server
-</code></pre></div>
-</li>
-<li>
-<p>Set up Percona Distribution for PostgreSQL 13 cluster</p>
-</li>
-<li>
-<p>Log is as the postgres user</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-</li>
-<li>
-<p>Set up locale settings</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&quot;en_US.UTF-8&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Initialize cluster with the new data directory</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-13/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/pgsql/13/data
-</code></pre></div>
-</li>
-<li>
-<p>Stop the <code>postgresql</code> 12 service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql-12
-</code></pre></div>
-</li>
-<li>
-<p>Run the database upgrade.</p>
-<ul>
-<li>Log in as the <code>postgres</code> user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 12 to 13:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-13/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-bindir<span class="w"> </span>/usr/pgsql-12/bin<span class="w"> </span><span class="se">\</span>
---new-bindir<span class="w"> </span>/usr/pgsql-13/bin<span class="w">  </span><span class="se">\</span>
---old-datadir<span class="w"> </span>/var/lib/pgsql/12/data<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="w"> </span>/var/lib/pgsql/13/data<span class="w"> </span><span class="se">\</span>
---check
-</code></pre></div>
-<p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
-<p><strong>Sample output</strong></p>
-<div class="no-copy highlight"><pre><span></span><code>Performing Consistency Checks
------------------------------
-Checking cluster versions                                   ok
-Checking database user is the install user                  ok
-Checking database connection settings                       ok
-Checking for prepared transactions                          ok
-Checking for reg* data types in user tables                 ok
-Checking for contrib/isn with bigint-passing mismatch       ok
-Checking for tables WITH OIDS                               ok
-Checking for invalid &quot;sql_identifier&quot; user columns          ok
-Checking for presence of required libraries                 ok
-Checking database user is the install user                  ok
-Checking for prepared transactions                          ok
-
-*Clusters are compatible*
-</code></pre></div>
-<ul>
-<li>Upgrade the Percona Distribution for PostgreSQL</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-13/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-bindir<span class="w"> </span>/usr/pgsql-12/bin<span class="w"> </span><span class="se">\</span>
---new-bindir<span class="w"> </span>/usr/pgsql-13/bin<span class="w">  </span><span class="se">\</span>
---old-datadir<span class="w"> </span>/var/lib/pgsql/12/data<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="w"> </span>/var/lib/pgsql/13/data<span class="w"> </span><span class="se">\</span>
---link<span class="w"> </span>
-</code></pre></div>
-<p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.
-   If you don’t wish to use the <code>--link</code> option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.</p>
-</li>
-<li>
-<p>Start the <code>postgresql</code> 13 service.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql-13
-</code></pre></div>
-</li>
-<li>
-<p>Check <code>postgresql</code> status</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql-13
-</code></pre></div>
-</li>
-<li>
-<p>After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the <code>vaccumdb</code> command to analyze the new cluster:</p>
-<ul>
-<li>Log in as the postgres user</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
-</code></pre></div>
-<ul>
-<li>Run the <code>vaccumdb</code> command</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-13/bin/vacuumdb<span class="w"> </span>--all<span class="w"> </span>--analyze-in-stages
-</code></pre></div>
-</li>
-<li>
-<p>Delete Percona Distribution for PostgreSQL 12 configuration files</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
-</code></pre></div>
-</li>
-<li>
-<p>Delete Percona Distribution old data files</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/pgsql/12/data
-</code></pre></div>
-</li>
-</ol>
+</div>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -2253,11 +1994,11 @@ Checking for prepared transactions                          ok
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 31, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 6, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 6, 2023</span>
       
     
   </small>

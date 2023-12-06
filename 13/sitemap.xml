@@ -2,262 +2,277 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.percona.com/postgresql/13/index.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/apt.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/13/docker.html</loc>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/enable-extensions.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/installing.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/ldap.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/licensing.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/major-upgrade.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/migration.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/minor-upgrade.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/pg-stat-monitor.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.0.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.1.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.10.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.10.upd.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.11.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.12.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/13/release-notes-v13.13.html</loc>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.2.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.2.upd.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.2.upd2.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.2.upd3.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.2.upd4.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.3.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.3.upd.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.3.upd2.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.3.upd3.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.4.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.4.upd.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.5.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.5.upd.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.5.upd2.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.6.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.6.upd.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.6.upd2.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.7.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.8.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes-v13.9.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/release-notes.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/repo-overview.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/13/telemetry.html</loc>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/trademark-policy.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/uninstalling.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/yum.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/backup-recovery.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/dr-pgbackrest-setup.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/ha-setup-apt.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/ha-setup-yum.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/ha-test.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/high-availability.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/pgbackrest.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/postgis-deploy.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/postgis-testing.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/postgis-upgrade.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/13/solutions/postgis.html</loc>
-         <lastmod>2023-11-01</lastmod>
+         <lastmod>2023-12-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
