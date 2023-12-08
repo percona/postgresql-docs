@@ -27,7 +27,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 1. Run the following command on each node. Change the node name to `node1`, `node2` and `node3` respectively:
 
     ```{.bash data-prompt="$"}
-    $ sudo hostnamectl set-hostname node-1
+    $ sudo hostnamectl set-hostname node1
     ```
 
 2. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:
@@ -91,10 +91,10 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 2. Install some Python and auxiliary packages to help with Patroni and ETCD
     
     ```{.bash data-prompt="$"}
-    $ sudo yum install python3-pip python3-dev binutils
+    $ sudo yum install python3-pip python3-devel binutils
     ```
 
-3. Install ETCD, Patroni, pgBackRest packages:
+3. Install ETCD, Patroni, pgBackRest packages. Check [platform specific notes for Patroni](../yum.md#for-percona-patroni-package):
 
     ```{.bash data-prompt="$"}
     $ sudo yum install percona-patroni \
@@ -151,18 +151,19 @@ In this setup we'll install and configure ETCD on each database node.
 
 3. Modify the `/etc/etcd/etcd.conf` configuration file:
 
-     ```text
-     ETCD_NAME=${NODE_NAME}
-     ETCD_INITIAL_CLUSTER="${NODE_NAME}=http://${NODE_IP}:2380"
-     ETCD_INITIAL_CLUSTER_STATE="new"
-     ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-     ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-     ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-     …
-     ```
+    ```{.bash data-prompt="$"} 
+    $ echo "
+    ETCD_NAME=${NODE_NAME}
+    ETCD_INITIAL_CLUSTER="${NODE_NAME}=http://${NODE_IP}:2380"
+    ETCD_INITIAL_CLUSTER_STATE="new"
+    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+    " | sudo tee -a /etc/etcd/etcd.conf 
+    ```
 
 4.  Start the `etcd` to apply the changes on `node1`:
 
@@ -211,16 +212,19 @@ In this setup we'll install and configure ETCD on each database node.
 1. Back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
 2. Edit the `/etc/etcd/etcd.conf` configuration file on `node2` and add the output from the `add` command:
 
-    ```
-    [Member]
-    ETCD_NAME=${NODE_NAME}
-    ETCD_INITIAL_CLUSTER="node-1=http://10.0.100.1:2380,node-2=http://10.0.100.2:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"       ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+    ```{.bash data-prompt="$"}
+    $ echo "
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node1=http://10.0.100.1:2380,node2=http://10.0.100.2:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
+
+    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
     ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_DATA_DIR="${ETCD_DATA_DIR}"
     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+    " | sudo tee -a /etc/etcd/etcd.conf
     ```
 
 3. Start the `etcd` to apply the changes on `node2`:
@@ -242,19 +246,19 @@ In this setup we'll install and configure ETCD on each database node.
 2. On `node3`, back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
 3. Modify the `/etc/etcd/etcd.conf` configuration file on `node3` and add the output from the `add` command as follows:
 
-      ```text
-      ETCD_NAME=${NODE_NAME}
-      ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
-      ETCD_INITIAL_CLUSTER_STATE="existing"
-
-      ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-      ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-      ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-      …
-      ```  
+    ```{.bash data-prompt="$"}
+    $ echo "
+    ETCD_NAME=node3
+    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"  
+    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+    " | sudo tee -a /etc/etcd/etcd.conf
+    ```  
 
 3. Start the `etcd` service on `node3`:
 
@@ -327,9 +331,10 @@ Run the following commands on all nodes. You can do this in parallel:
      $ sudo chmod 700 /data/pgsql
      ```
 
-3. Create the `/etc/patroni/patroni.yml` configuration file with the following configuration:
+3. Create the `/etc/patroni/patroni.yml` configuration file. Add the following configuration:
  
-    ```yaml title="/etc/patroni/patroni.yml"
+    ```bash
+    echo "
     namespace: ${NAMESPACE}
     scope: ${SCOPE}
     name: ${NODE_NAME}
@@ -415,6 +420,7 @@ Run the following commands on all nodes. You can do this in parallel:
         noloadbalance: false
         clonefrom: false
         nosync: false
+    " | sudo tee -a /etc/patroni/patroni.yml
     ```
 
 4. Check that the systemd unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
