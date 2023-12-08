@@ -4,18 +4,201 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 
 ## Platform specific notes
 
-If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the ``postgresql``  and ``llvm-toolset``modules:
+To install Percona Distribution for PostgreSQL, do the following:
+
+### For Percona Distribution for PostgreSQL packages
+
+=== "CentOS 7"
+
+    Install the `epel-release` package:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum -y install epel-release
+    $ sudo yum repolist
+    ```
+
+=== "RHEL8/Oracle Linux 8/Rocky Linux 8"
+
+    Disable the ``postgresql``  and ``llvm-toolset``modules:    
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf module disable postgresql llvm-toolset
+    ```
+
+### For `percona-postgresql{{pgversion}}-devel` package
+
+You may need to install the `percona-postgresql{{pgversion}}-devel` package when working with some extensions or creating programs that interface with PostgreSQL database. This package requires dependencies that are not part of the Distribution, but can be installed from the specific repositories:
+
+=== "RHEL8"
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum --enablerepo=codeready-builder-for-rhel-8-rhui-rpms install perl-IPC-Run -y
+    ```
+
+=== "Rocky Linux 8"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install dnf-plugins-core
+    $ sudo dnf module enable llvm-toolset
+    $ sudo dnf config-manager --set-enabled powertools
+    ```
+
+=== "Oracle Linux 8"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol8_codeready_builder install perl-IPC-Run -y
+    ```
+
+=== "Rocky Linux 9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install dnf-plugins-core
+    $ sudo dnf module enable llvm-toolset
+    $ sudo dnf config-manager --set-enabled crb
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Oracle Linux 9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
+    ```
+
+### For `percona-patroni` package
+
+To install Patroni on Red Hat Enterprise Linux 9 and compatible derivatives, enable the `epel` repository:
 
 ```{.bash data-prompt="$"}
-$ sudo dnf module disable postgresql llvm-toolset
+$ sudo yum install epel-release
 ```
 
-On CentOS 7, you should install the ``epel-release`` package:
+### For `pgpool2` extension
 
-```{.bash data-prompt="$"}
-$ sudo yum -y install epel-release
-$ sudo yum repolist
-```
+To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`.
+
+The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly. 
+
+=== "RHEL 9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+    ```
+
+=== "Rocky Linux 9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled crb
+    ```
+
+=== "Oracle Linux 9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+    ```
+
+### For PostGIS 
+
+For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.
+
+=== "RHEL 9"     
+
+    1. Install `epel` repository
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install epel-release
+        ```
+
+    2. Enable the `llvm-toolset dnf` module
+
+          ```{.bash data-prompt="$"}
+          $ sudo dnf module enable llvm-toolset
+          ```
+
+    3. Enable the codeready builder repository to resolve dependencies conflict. 
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+        ```
+
+=== "Rocky Linux 9"
+
+    1. Install `epel` repository
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install epel-release
+        ```
+
+    2. Enable the `llvm-toolset dnf` module
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf module enable llvm-toolset
+        ```
+
+    3. Enable the codeready builder repository to resolve dependencies conflict.
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install dnf-plugins-core
+        $ sudo dnf config-manager --set-enabled crb
+        ```
+
+=== "Oracle Linux 9"
+
+    1. Install `epel` repository
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install epel-release
+        ```
+
+    2. Enable the `llvm-toolset dnf` module
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf module enable llvm-toolset
+        ```
+
+    3. Enable the codeready builder repository to resolve dependencies conflict.
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+        ```
+
+=== "RHEL UBI 9"
+
+    1. Configure the Oracle-Linux repository. Create the `/etc/yum.repos.d/oracle-linux-ol9.repo` file to install the required dependencies: 
+
+        ```init title="/etc/yum.repos.d/oracle-linux-ol9.repo"
+        [ol9_baseos_latest]
+        name=Oracle Linux 9 BaseOS Latest ($basearch)
+        baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/baseos/latest/$basearch/
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+        gpgcheck=1
+        enabled=1     
+
+        [ol9_appstream]
+        name=Oracle Linux 9 Application Stream ($basearch)
+        baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/appstream/$basearch/
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+        gpgcheck=1
+        enabled=1     
+
+        [ol9_codeready_builder]
+        name=Oracle Linux 9 CodeReady Builder ($basearch) - Unsupported
+        baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/codeready/builder/$basearch/
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+        gpgcheck=1
+        enabled=1
+        ```
+
+    2. Download the right GPG key for the Oracle Yum Repository:    
+
+        ```{.bash data-prompt="$"}
+        $ wget https://yum.oracle.com/RPM-GPG-KEY-oracle-ol9 -O /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+        ```    
+
+    3. Install `epel` repository    
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install epel-release
+        ```    
 
 ## Procedure
 
@@ -181,17 +364,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```{.bash data-prompt="$"}
-<<<<<<< HEAD
-$ /usr/pgsql-12/bin/postgresql-12-setup initdb
-=======
-/usr/pgsql-13/bin/postgresql-13-setup initdb
->>>>>>> 809f3f7f... Updated YUM setup
+$ /usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
 ```
 
 Start the PostgreSQL service:
 
 ```{.bash data-prompt="$"}
-$ sudo systemctl start postgresql-12
+$ sudo systemctl start postgresql-{{pgversion}}
 ```
 
 ### Connect to the PostgreSQL server
