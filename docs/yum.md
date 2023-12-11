@@ -64,6 +64,13 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
     ```
 
+### For `percona-patroni` package
+
+To install Patroni on Red Hat Enterprise Linux 9 and compatible derivatives, enable the `epel` repository
+
+```{.bash data-prompt="$"}
+$ sudo yum install epel-release
+```
 
 ### For `pgpool2` extension
 
