@@ -1,7 +1,7 @@
-# Percona Distribution for PostgreSQL 11.22 (2023-11-)
+# Percona Distribution for PostgreSQL 11.22 (2023-12-13)
 
 
-| Release date:     | November 31, 2023      |
+| Release date:     | December 13, 2023      |
 |:------------------|:----------------------|
 | **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
 
@@ -15,8 +15,7 @@ This release is based on [PostgreSQL
 * This is the last minor release of PostgreSQL 11. [Learn more about PostgreSQL 11 end of life implications](https://www.percona.com/blog/postgresql-11-will-soon-reach-end-of-life/).
 * Docker images are now available for x86_64 architectures. Their inclusion in the distribution aims to simplify the developers' experience with the Distribution. Refer to the [Docker guide](docker.md) for how to run Percona Distribution for PostgreSQL in Docker.
 * Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [on Percona Distribution for PostgreSQL](telemetry.md) document.
-* The `percona-postgis34` package on YUM-based operating systems is renamed `percona-postgis34_{{pgversion}}`
-* The `percona-postgresql-pgaudit`/`percona-pgaudit` packages are renamed `percona-postgresql-{{pgversion}}-pgaudit`/`percona-pgaudit{{pgversion}}` respectively
+* The `percona-postgis33` and `percona-pgaudit` packages on YUM-based operating systems are renamed `percona-postgis33_{{pgversion}}` and `percona-pgaudit{{pgversion}}` respectively.
 
 -----------------------------------------------------------------------------
 
@@ -35,7 +34,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.4.4 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.4.8   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|2.0.3 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
-| [PostGIS](https://github.com/postgis/postgis) | 3.4.0 | a spatial extension for PostgreSQL.|
+| [PostGIS](https://github.com/postgis/postgis) | 3.3.4 | a spatial extension for PostgreSQL.|
 | [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 256 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
 
