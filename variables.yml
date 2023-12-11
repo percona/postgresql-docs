@@ -3,5 +3,5 @@
 
 
 release: 'release-notes-v11.21'
-pgversion: '11.21'
+pgversion: '11'
 
