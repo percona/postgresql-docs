@@ -1,10 +1,11 @@
 # Install Percona Distribution for PostgreSQL on Debian and Ubuntu
 
-This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.  [Read more about Percona repositories :material-arrow-top-right:](repo-overview.md).
 
 ## Preconditions
 
-Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (`postgresql-12`) by default. The components of Percona Distribution for PostgreSQL 12 can only be installed together with the PostgreSQL server shipped by Percona (`percona-postgresql-12`). If you wish to use Percona Distribution for PostgreSQL, uninstall the `postgresql-12` and then install the chosen components from Percona Distribution for PostgreSQL.
+1. Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (`postgresql-{{pgversion}}`) by default. The components of Percona Distribution for PostgreSQL 12 can only be installed together with the PostgreSQL server shipped by Percona (`percona-postgresql-12`). If you wish to use Percona Distribution for PostgreSQL, uninstall the `postgresql-12` and then install the chosen components from Percona Distribution for PostgreSQL.
+2. Install `curl` for [Telemetry](telemetry.md). We use Telemetry to better understand the use of our products and improve them.
 
 ## Procedure
 

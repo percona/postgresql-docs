@@ -43,15 +43,16 @@ The following document provides guidelines how to install PostGIS and how to run
 
 === "On RHEL and derivatives"
 
-     1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
-     2. Enable Percona repository
+    1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
 
-         As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
+    2. Enable Percona repository
 
-         ```{.bash data-prompt="$"}
-         $ sudo percona-release setup ppg{{pgversion}}
-         ```
+        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
+        ```{.bash data-prompt="$"}
+        $ sudo percona-release setup ppg{{pgversion}}
+        ```
+           
     3. Install the extension
                   
         ```{.bash data-prompt="$"}                    
