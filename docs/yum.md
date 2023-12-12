@@ -89,6 +89,7 @@ The following are commands for Red Hat Enterprise Linux 9 and derivatives. For R
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder
     ```
 
+
 ### For PostGIS 
 
 The following commands provide instructions how to enable required repositories and modules on Red Hat Enterprise Linux 9 and derivatives.
@@ -321,7 +322,7 @@ $ sudo yum -y install curl
             $ sudo yum install percona-pgpool-II-pg{{pgversion}}
             ```
 
-Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+        Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
 
