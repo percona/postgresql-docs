@@ -115,7 +115,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-12.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 12.16 (August 30, 2023)
+          cover_subtitle: 12.17 (December 12, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -146,6 +146,7 @@ nav:
   - Home: index.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v12.17.md
       - release-notes-v12.16.md
       - release-notes-v12.15.md
       - release-notes-v12.14.upd.md
