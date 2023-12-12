@@ -12,12 +12,12 @@ jobs:
     steps: 
       #Pull the latest changes
       - name: Chekout code
-        uses: actions/checkout@v3
+        uses: percona-platform/checkout@v2
         with:
           fetch-depth: 0
       #Prepare the env
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: percona-platform/setup-python@v2
         with:
           python-version: '3.x'
       
@@ -48,7 +48,7 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 11 -b publish -p
-          mike retitle 11 "11.22" -b publish -p
+          mike retitle 11 "11.21" -b publish -p
 
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2
