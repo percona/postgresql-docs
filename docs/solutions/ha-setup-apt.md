@@ -29,7 +29,7 @@ It’s not necessary to have name resolution, but it makes the whole setup more 
 1. Run the following command on each node. Change the node name to `node1`, `node2` and `node3` respectively:
 
     ```{.bash data-prompt="$"}
-    $ sudo hostnamectl set-hostname node-1
+    $ sudo hostnamectl set-hostname node1
     ```
 
 2. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:
@@ -161,7 +161,8 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 3. Modify the `/etc/default/etcd` configuration file as follows:. 
 
-    ```text 
+    ```{.bash data-prompt="$"} 
+    $ echo "
     ETCD_NAME=${NODE_NAME}
     ETCD_INITIAL_CLUSTER="${NODE_NAME}=http://${NODE_IP}:2380"
     ETCD_INITIAL_CLUSTER_STATE="new"
@@ -171,7 +172,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    …
+    " | sudo tee -a /pg_ha/config/etcd.conf 
     ```
 
 4. Start the `etcd` service to apply the changes on `node1`.
@@ -215,24 +216,25 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
     ETCD_INITIAL_CLUSTER_STATE="existing"
     ```
-
 ### Configure `node2`
 
 1. Back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
 2. Edit the `/etc/default/etcd` configuration file on `node2`. Use the result of the `add` command on `node1` to change the configuration file as follows:
 
-      ```text
-      ETCD_NAME=${NODE_NAME}
-      ETCD_INITIAL_CLUSTER="node-1=http://10.0.100.1:2380,node-2=http://10.0.100.2:2380"
-      ETCD_INITIAL_CLUSTER_STATE="existing"
+    ```{.bash data-prompt="$"}
+    $ echo "
+    ETCD_NAME="node2"
+    ETCD_INITIAL_CLUSTER="node1=http://10.0.100.1:2380,node2=http://10.0.100.2:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"
 
-      ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-      ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-      ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-      ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-      ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-      ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-      ```
+    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+    " | sudo tee -a /pg_ha/config/etcd.conf
+    ```
 
 3. Start the `etcd` service to apply the changes on `node2`:
 
@@ -253,19 +255,19 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 2. On `node3`, back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
 3. Modify the `/etc/default/etcd` configuration file and add the output of the `add` command:
 
-     ```text
-     ETCD_NAME=${NODE_NAME}
-     ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
-     ETCD_INITIAL_CLUSTER_STATE="existing"
-
-     ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-     ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-     ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-     …
-     ```  
+    ```{.bash data-prompt="$"}
+    $ echo "
+    ETCD_NAME=node3
+    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
+    ETCD_INITIAL_CLUSTER_STATE="existing"  
+    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
+    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
+    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
+    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
+    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
+    " | sudo tee -a /pg_ha/config/etcd.conf
+    ```  
 
 4. Start the `etcd` service on `node3`:
 
@@ -323,11 +325,10 @@ Run the following commands on all nodes. You can do this in parallel:
        SCOPE="cluster_1
        ```
 
-2. Create the `patroni.yml` configuration file under the `/etc/patroni` directory.  The file holds the default configuration values for a PostgreSQL cluster and will reflect the current cluster setup.
+2. Create the `/etc/patroni/patroni.yml` configuration file. The file holds the default configuration values for a PostgreSQL cluster and will reflect the current cluster setup. Add the following configuration for `node1`:
 
-3. Add the following configuration for `node1`:
-
-    ```yaml title="/etc/patroni/patroni.yml"
+    ```bash
+    echo "
     namespace: ${NAMESPACE}
     scope: ${SCOPE}
     name: ${NODE_NAME}
@@ -414,6 +415,7 @@ Run the following commands on all nodes. You can do this in parallel:
         noloadbalance: false
         clonefrom: false
         nosync: false
+    " | sudo tee -a /etc/patroni/patroni.yml
     ```
 
     ??? admonition "Patroni configuration file"
@@ -512,14 +514,14 @@ Run the following commands on all nodes. You can do this in parallel:
 
 If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-```{.bash data-promp="$"}
+```{.bash data-prompt="$"}
 $ sudo psql -U postgres
 ```
 
 The command output looks like the following:
 
 ```
-psql (14.1)
+psql (14.10)
 
 Type "help" for help.
 
@@ -534,7 +536,7 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 1. Install HAProxy on the `HAProxy-demo` node:
 
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo apt install percona-haproxy
     ```
 
@@ -584,13 +586,13 @@ HAProxy is capable of routing write requests to the primary node and read reques
 
 3. Restart HAProxy:
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl restart haproxy
     ```
 
 4. Check the HAProxy logs to see if there are any errors:
    
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```
 
