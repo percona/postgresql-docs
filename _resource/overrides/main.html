@@ -38,6 +38,9 @@ by adding marketing-requested elements
               </html>
               {% endblock %}
 
+              {% block outdated %}
+              <div>This documentation is for the end of life version of Percona Distribution for PostgreSQL 11. <br><strong><a href="https://www.percona.com/blog/postgresql-11-will-soon-reach-end-of-life/">Learn more about PostgreSQL 11 end of life implications</a>.</strong> See the <strong><a href= {{ '../' ~ base_url }}>current documentation</a></strong>. </div>
+             {% endblock %}
 
               {% block analytics %}
               <!-- Google Tag Manager -->
