@@ -79,8 +79,15 @@ markdown_extensions:
   pymdownx.tilde: {}
   pymdownx.superfences: {}
   pymdownx.highlight:
-      linenums: false
+      use_pygments: true
   pymdownx.inlinehilite: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
+  pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
 # htmlproofer: {} # Uncomment to check links - but extends build time significantly
@@ -105,7 +112,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-11.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
-          cover_subtitle: 11.22 (December 13, 2023)
+          cover_subtitle: 11.21 (August 31, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -172,11 +179,11 @@ nav:
         - "Via yum": "yum.md"
         - enable-extensions.md
         - repo-overview.md
+      - "Run in Docker": docker.md
       - migration.md
       - minor-upgrade.md
   - Extensions:
-      - pg_stat_monitor:
-          - pg-stat-monitor.md
+      - 'pg_stat_monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
           - solutions/high-availability.md
@@ -194,10 +201,9 @@ nav:
           - Upgrade spatial database: solutions/postgis-upgrade.md
       - LDAP authentication:
           - ldap.md
-  - Uninstall:
-      - uninstalling.md
-  - Licensing:
-      - licensing.md
+  - Telemetry: telemetry.md
+  - Uninstall: uninstalling.md
+  - Licensing: licensing.md
   - Trademark policy:
       - trademark-policy.md
 # - Version Selector: "../"
