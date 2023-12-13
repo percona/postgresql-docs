@@ -175,8 +175,8 @@ nav:
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
-        - "Install via apt": "apt.md"
-        - "Install via yum": "yum.md"
+        - "Via apt": "apt.md"
+        - "Via yum": "yum.md"
         - enable-extensions.md
         - repo-overview.md
       - "Run in Docker": docker.md
