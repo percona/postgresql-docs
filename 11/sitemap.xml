@@ -206,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/postgresql/11/telemetry.html</loc>
+         <lastmod>2023-12-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/postgresql/11/trademark-policy.html</loc>
          <lastmod>2023-12-13</lastmod>
          <changefreq>daily</changefreq>

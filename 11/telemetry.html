@@ -9,21 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently.">
+        <meta name="description" content="Percona telemetry fills in the gaps in our understanding of how you use Percona Distribution for PostgreSQL to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/11/release-notes-v11.19.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/11/telemetry.html">
       
       
-        <link rel="prev" href="release-notes-v11.19.upd.html">
+        <link rel="prev" href="ldap.html">
       
       
-        <link rel="next" href="release-notes-v11.18.html">
+        <link rel="next" href="uninstalling.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -31,7 +29,7 @@ enable solving essential practical tasks efficiently.">
     
     
       
-        <title>Percona Distribution for PostgreSQL 11.19 (2023-03-31) - Percona Distribution for PostgreSQL</title>
+        <title>Telemetry - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -88,7 +86,7 @@ enable solving essential practical tasks efficiently.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 11.19 (2023-03-31)" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Telemetry" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/11/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -115,7 +113,7 @@ enable solving essential practical tasks efficiently.">
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-1119-2023-03-31" class="md-skip">
+        <a href="#telemetry-on-percona-distribution-for-postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -149,7 +147,7 @@ enable solving essential practical tasks efficiently.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 11.19 (2023-03-31)
+              Telemetry
             
           </span>
         </div>
@@ -297,21 +295,19 @@ enable solving essential practical tasks efficiently.">
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -325,7 +321,7 @@ enable solving essential practical tasks efficiently.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -420,30 +416,10 @@ enable solving essential practical tasks efficiently.">
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Percona Distribution for PostgreSQL 11.19 (2023-03-31)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="release-notes-v11.19.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v11.19.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,37 +428,6 @@ enable solving essential practical tasks efficiently.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#release-highlights" class="md-nav__link">
-    <span class="md-ellipsis">
-      Release Highlights
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1751,10 +1696,30 @@ enable solving essential practical tasks efficiently.">
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="telemetry.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1763,6 +1728,46 @@ enable solving essential practical tasks efficiently.">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-information-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      What information is collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1867,9 +1872,18 @@ enable solving essential practical tasks efficiently.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#release-highlights" class="md-nav__link">
+  <a href="#what-information-is-collected" class="md-nav__link">
     <span class="md-ellipsis">
-      Release Highlights
+      What information is collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry
     </span>
   </a>
   
@@ -1893,14 +1907,14 @@ enable solving essential practical tasks efficiently.">
                   
                   
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/11/docs/release-notes-v11.19.md"
+                    href="https://github.com/percona/postgresql-docs/edit/11/docs/telemetry.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/postgresql-docs/11/docs/release-notes-v11.19.md"
+                    href="https://raw.githubusercontent.com/percona/postgresql-docs/11/docs/telemetry.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1916,144 +1930,43 @@ enable solving essential practical tasks efficiently.">
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-1119-2023-03-31">Percona Distribution for PostgreSQL 11.19 (2023-03-31)<a class="headerlink" href="#percona-distribution-for-postgresql-1119-2023-03-31" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Release date:</th>
-<th style="text-align: left;">March 31, 2023</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Installation</strong>:</td>
-<td style="text-align: left;"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
-</tr>
-</tbody>
-</table>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently.</p>
-<p>This release is based on <a href="https://www.postgresql.org/docs/release/11.19/">PostgreSQL
-11.19</a>. </p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<ul>
-<li>A new major version of <a href="https://docs.percona.com/pg-stat-monitor/release-notes/2.0.0.html"><code>pg_stat_monitor</code> 2.0.0</a> has been released and is now generally available with Percona Distribution for PostgreSQL.</li>
-<li>Added a new extension <a href="https://www.pgpool.net/docs/43/en/html/index.html"><code>pgpool</code></a> - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</li>
-<li>Percona Distribution for PostgreSQL is now available on Red Hat Enterprise Linux 9 and compatible derivatives</li>
-</ul>
-<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
-<table>
-<thead>
-<tr>
-<th>Extension</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
-<td>3.0.1</td>
-<td>a HA (High Availability) solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://www.pgaudit.org/">PgAudit</a></td>
-<td>1.3.4</td>
-<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
-<td>4.0.1</td>
-<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.</td>
-</tr>
-<tr>
-<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
-<td>2.43</td>
-<td>a backup and restore solution for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
-<td>12.0</td>
-<td>a fast PostgreSQL Log Analyzer.</td>
-</tr>
-<tr>
-<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
-<td>1.18.0</td>
-<td>a lightweight connection pooler for PostgreSQL</td>
-</tr>
-<tr>
-<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
-<td>1.4.8</td>
-<td>rebuilds PostgreSQL database objects</td>
-</tr>
-<tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>2.0.0</td>
-<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
-</tr>
-<tr>
-<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common</a></td>
-<td>247</td>
-<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
-<td>2.5</td>
-<td>a PostgreSQL logical decoding JSON output plugin</td>
-</tr>
-<tr>
-<td><a href="http://www.haproxy.org/">HAProxy</a></td>
-<td>2.5.11</td>
-<td>a high-availability and load-balancing solution</td>
-</tr>
-<tr>
-<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool</a></td>
-<td>4.4.2</td>
-<td>a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.</td>
-</tr>
-</tbody>
-</table>
-<p>Percona Distribution for PostgreSQL also includes the following packages:</p>
-<ul>
-<li><code>llvm</code> 12.0.1 packages for Red Hat Enterprise Linux 8  and derivatives. This fixes compatibility issues with LLVM from upstream.</li>
-<li>supplemental ETCD packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Operating System</th>
-<th>Package</th>
-<th>Version</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RHEL 7</td>
-<td><code>python3-python-etcd</code></td>
-<td>0.4.3</td>
-<td>A Python client for ETCD</td>
-</tr>
-<tr>
-<td>RHEL 8</td>
-<td><code>etcd</code></td>
-<td>3.3.11</td>
-<td>A consistent, distributed key-value store</td>
-</tr>
-<tr>
-<td></td>
-<td><code>python3-python-etcd</code></td>
-<td>0.4.3</td>
-<td>A Python client for ETCD</td>
-</tr>
-</tbody>
-</table>
-<p>Percona Distribution for PostgreSQL is also shipped with the
-<a href="https://www.postgresql.org/docs/11/libpq.html">libpq</a> library. It
-contains &ldquo;a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries.&rdquo;</p>
+                <h1 id="telemetry-on-percona-distribution-for-postgresql">Telemetry on Percona Distribution for PostgreSQL<a class="headerlink" href="#telemetry-on-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>Percona telemetry fills in the gaps in our understanding of how you use Percona Distribution for PostgreSQL to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.</p>
+<h2 id="what-information-is-collected">What information is collected<a class="headerlink" href="#what-information-is-collected" title="Permanent link">&para;</a></h2>
+<p>Currently, telemetry is added only to the Percona packages and Docker images. It collects only information about the installation environment. Future releases may add additional telemetry metrics.</p>
+<p>Be assured that access to this raw data is rigorously controlled. Percona does not collect personal data. All data is anonymous and cannot be traced to a specific user. To learn more about our privacy practices, read the <a href="https://www.percona.com/privacy-policy#h.e34c40q8sb1a">Percona Privacy statement</a>.</p>
+<p>The following is an example of the collected data:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c416c3ee-48cd-471c-9733-37c2886f8231&quot;</span><span class="p">,</span>
+<span class="nt">&quot;product_family&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY_POSTGRESQL&quot;</span><span class="p">,</span>
+<span class="nt">&quot;instanceId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6aef422e-56a7-4530-af9d-94cc02198343&quot;</span><span class="p">,</span>
+<span class="nt">&quot;createTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-11-01T10:46:23Z&quot;</span><span class="p">,</span>
+<span class="nt">&quot;metrics&quot;</span><span class="p">:</span>
+<span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PACKAGE&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11.22&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oracle Linux Server 8.8&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hardware_arch&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x86_64 x86_64&quot;</span><span class="p">}]}]</span>
+</code></pre></div>
+<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">&para;</a></h2>
+<p>Starting with Percona Distribution for PostgreSQL 11.22, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian-derived distribution</label><label for="__tabbed_1_2">Red Hat-derived distribution</label><label for="__tabbed_1_3">DOCKER</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-11
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql11-server
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add the environment variable when running a command in a new container.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-e<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:tag<span class="w"> </span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -2093,7 +2006,7 @@ these queries.&rdquo;</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 14, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     
@@ -2103,7 +2016,7 @@ these queries.&rdquo;</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 20, 2021</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     

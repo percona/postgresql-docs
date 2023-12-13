@@ -1805,6 +1805,26 @@
   
   
     <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="uninstalling.html" class="md-nav__link">
         
   
@@ -2001,7 +2021,10 @@
                 <h1 id="install-percona-distribution-for-postgresql-on-debian-and-ubuntu">Install Percona Distribution for PostgreSQL on Debian and Ubuntu<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
 <p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. <a href="repo-overview.html">Read more about Percona repositories <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 17.59 15.59 7H9V5h10v10h-2V8.41L6.41 19 5 17.59Z"/></svg></span></a>.</p>
 <h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<p>Debian and other systems that use the apt package manager include the upstream PostgreSQL server package <code>postgresql-11</code> by default. The components of Percona Distribution for PostgreSQL 11 can only be installed together with the PostgreSQL server shipped by Percona (<code>percona-postgresql-11</code>). If you wish to use Percona Distribution for PostgreSQL, uninstall the upstream <code>postgresql-11</code> package and then install the chosen components from Percona Distribution for PostgreSQL.</p>
+<ol>
+<li>Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (<code>postgresql-11)</code> by default. The components of Percona Distribution for PostgreSQL 11 can only be installed together with the PostgreSQL server shipped by Percona (<code>percona-postgresql-11</code>). If you wish to use Percona Distribution for PostgreSQL, uninstall the upstream <code>postgresql-11</code> package and then install the chosen components from Percona Distribution for PostgreSQL.</li>
+<li>Install <code>curl</code> for <a href="telemetry.html">Telemetry</a>. We use Telemetry to better understand the use of our products and improve them.</li>
+</ol>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
 <h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
