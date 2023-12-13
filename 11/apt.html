@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.">
+        <meta name="description" content="This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. Read more about Percona repositories .">
       
       
         <meta name="author" content="Percona LLC">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Install on Debian and Ubuntu - Percona Distribution for PostgreSQL</title>
+        <title>Install via apt - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -86,7 +86,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Install on Debian and Ubuntu" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Install via apt" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/11/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -147,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install on Debian and Ubuntu
+              Install via apt
             
           </span>
         </div>
@@ -1084,7 +1084,7 @@
           
   
   <span class="md-ellipsis">
-    Install on Debian and Ubuntu
+    Install via apt
   </span>
   
 
@@ -1095,7 +1095,7 @@
         
   
   <span class="md-ellipsis">
-    Install on Debian and Ubuntu
+    Install via apt
   </span>
   
 
@@ -1198,7 +1198,7 @@
         
   
   <span class="md-ellipsis">
-    Install on RHEL and derivatives
+    Install via yum
   </span>
   
 
@@ -1253,6 +1253,27 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run in Docker
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1844,6 +1865,12 @@
   </label> 
   </ul>
 </nav>
+                    <br>
+                    <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-15" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL 15', 'Download', 'Download Manual Percona Distribution for PostgreSQL 15']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
+      Download PDF
+    </a>
+  </label> 
                   </div>
                 </div>
               </div>
@@ -1972,9 +1999,9 @@
 
                 <!-- Markdown content -->
                 <h1 id="install-percona-distribution-for-postgresql-on-debian-and-ubuntu">Install Percona Distribution for PostgreSQL on Debian and Ubuntu<a class="headerlink" href="#install-percona-distribution-for-postgresql-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu.</p>
+<p>This document describes how to install Percona Server for PostgreSQL from Percona repositories on DEB-based distributions such as Debian and Ubuntu. <a href="repo-overview.html">Read more about Percona repositories <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 17.59 15.59 7H9V5h10v10h-2V8.41L6.41 19 5 17.59Z"/></svg></span></a>.</p>
 <h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<p>Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (<code>postgresql-11)</code> by default. The components of Percona Distribution for PostgreSQL 11 can only be installed together with the PostgreSQL server shipped by Percona (<code>percona-postgresql-11</code>). If you wish to use Percona Distribution for PostgreSQL, uninstall the upstream <code>postgresql-11</code> package and then install the chosen components from Percona Distribution for PostgreSQL.</p>
+<p>Debian and other systems that use the apt package manager include the upstream PostgreSQL server package <code>postgresql-11</code> by default. The components of Percona Distribution for PostgreSQL 11 can only be installed together with the PostgreSQL server shipped by Percona (<code>percona-postgresql-11</code>). If you wish to use Percona Distribution for PostgreSQL, uninstall the upstream <code>postgresql-11</code> package and then install the chosen components from Percona Distribution for PostgreSQL.</p>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <p>Run all the commands in the following sections as root or using the <code>sudo</code> command:</p>
 <h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
@@ -2004,13 +2031,13 @@
 </li>
 </ol>
 <p>Percona provides <a href="repo-overview.html">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
-<p>To enable a repository, we recommend using the <code>setup</code> command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-11
 </code></pre></div>
 <h3 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install using meta-package</label><label for="__tabbed_1_2">Install packages individually</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>The <a href="repo-overview.html#percona-ppg-server" target="”_blank”">meta package</a> enables you to install several components of the distribution in one go.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-ppg-server-11
 </code></pre></div>
 </div>
@@ -2040,7 +2067,7 @@
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbouncer
 </code></pre></div>
 <p>Install <code>pgAudit-set_user</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgaudit15-set-user
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgaudit11-set-user
 </code></pre></div>
 <p>Install <code>pgBadger</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbadger
@@ -2125,7 +2152,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 31, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     
