@@ -1,6 +1,6 @@
 # Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives
 
-This document describes how to install Percona Server for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. [Read more about Percona repositories](repo-overview.md).
 
 ## Platform specific notes
 
@@ -196,7 +196,15 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
 
 ## Procedure
 
-Run all the commands in the following sections as root or using the `sudo` command:
+Run all the commands in the following sections as root or using the `sudo` command.
+
+### Install dependencies
+
+Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
+
+```{.bash data-prompt="$"}
+$ sudo yum -y install curl
+```
 
 ### Configure the repository
 
@@ -210,8 +218,6 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
-   To enable a repository, we recommend using the `setup` command: 
-
    ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg{{pgversion}}
    ```
@@ -219,6 +225,8 @@ Run all the commands in the following sections as root or using the `sudo` comma
 ### Install packages
 
 === "Install using meta-package"
+
+     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
      ```{.bash data-prompt="$"}
      $ sudo yum install percona-ppg-server{{pgversion}}
@@ -319,7 +327,7 @@ Some extensions require additional setup in order to use them with Percona Distr
 After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:
 
 ```{.bash data-prompt="$"}
-/usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
+$ /usr/pgsql-{{pgversion}}/bin/postgresql-{{pgversion}}-setup initdb
 ```
 
 Start the PostgreSQL service:
@@ -355,3 +363,4 @@ To exit the `psql` terminal, use the following command:
 ```{.bash data-prompt="$"}
 $ \q
 ```
+
