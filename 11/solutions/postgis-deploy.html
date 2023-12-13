@@ -2009,10 +2009,8 @@
 </div>
 <div class="tabbed-block">
 <p>For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RHEL 9</label><label for="__tabbed_2_2">CentOS 9</label><label for="__tabbed_2_3">Oracle Linux 9</label><label for="__tabbed_2_4">Rocky Linux 9</label><label for="__tabbed_2_5">RHEL UBI 9</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <ol>
+<li>Check the <a href="../yum.html#for-postgis">Platform specific notes</a> and enable required repositories and modules for the dependencies relevant to your operating system.</li>
 <li>
 <p>Enable Percona repository</p>
 <p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
@@ -2020,174 +2018,11 @@
 </code></pre></div>
 </li>
 <li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
-</code></pre></div>
-</li>
-<li>
 <p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33_11<span class="w"> </span>percona-postgis33_11-client
 </code></pre></div>
 </li>
 </ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg11
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg11
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Enable Percona repository</p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg11
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
-<p>Enable the codeready builder repository to resolve dependencies conflict.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
-$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>
-<p>Configure the Oracle-Linux repository. Create the <code>/etc/yum.repos.d/oracle-linux-ol9.repo</code> file to install the required dependencies: </p>
-<div class="highlight"><span class="filename">/etc/yum.repos.d/oracle-linux-ol9.repo</span><pre><span></span><code>[ol9_baseos_latest]
-name=Oracle Linux 9 BaseOS Latest ($basearch)
-baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/baseos/latest/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1     
-
-[ol9_appstream]
-name=Oracle Linux 9 Application Stream ($basearch)
-baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/appstream/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1     
-
-[ol9_codeready_builder]
-name=Oracle Linux 9 CodeReady Builder ($basearch) - Unsupported
-baseurl=https://yum.oracle.com/repo/OracleLinux/OL9/codeready/builder/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1
-</code></pre></div>
-</li>
-<li>
-<p>Download the right GPG key for the Oracle Yum Repository:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://yum.oracle.com/RPM-GPG-KEY-oracle-ol9<span class="w"> </span>-O<span class="w"> </span>/etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-</code></pre></div>
-</li>
-<li>
-<p>Enable Percona repository    </p>
-<p>As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the <a href="https://docs.percona.com/percona-software-repositories/installing.html"><code>percona-release</code></a> repository management tool to enable the repository.     </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg11
-</code></pre></div>
-</li>
-<li>
-<p>Install <code>epel</code> repository    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Disable the upstream <code>postgresql</code> package:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql
-</code></pre></div>
-</li>
-<li>
-<p>Install the extension</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgis33<span class="w"> </span>percona-postgis33-client
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
 <p>This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:    </p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;address%&#39;</span><span class="p">;</span>
@@ -2251,8 +2086,6 @@ enabled=1
 </li>
 <li>
 <p>Check the uploaded data</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">nyc_streets</span><span class="p">;</span>
 <span class="w">                                         </span><span class="k">Table</span><span class="w"> </span><span class="ss">&quot;public.nyc_streets&quot;</span>
 <span class="w"> </span><span class="k">Column</span><span class="w"> </span><span class="o">|</span><span class="w">              </span><span class="k">Type</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">Collation</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Nullable</span><span class="w"> </span><span class="o">|</span><span class="w">                 </span><span class="k">Default</span>
@@ -2267,8 +2100,10 @@ enabled=1
 <span class="w">    </span><span class="ss">&quot;nyc_streets_pkey&quot;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">gid</span><span class="p">)</span>
 <span class="w">    </span><span class="ss">&quot;nyc_streets_geom_idx&quot;</span><span class="w"> </span><span class="n">gist</span><span class="w"> </span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 </code></pre></div>
-<ol>
-<li>Repeat the command to upload other shapefiles in the data set: <code>nyc_census_blocks</code>, <code>nyc_neighborhoods</code>, <code>nyc_subway_stations</code></li>
+</li>
+<li>
+<p>Repeat the command to upload other shapefiles in the data set: <code>nyc_census_blocks</code>, <code>nyc_neighborhoods</code>, <code>nyc_subway_stations</code></p>
+</li>
 </ol>
 
                 
@@ -2309,7 +2144,7 @@ enabled=1
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     
