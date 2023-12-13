@@ -79,8 +79,15 @@ markdown_extensions:
   pymdownx.tilde: {}
   pymdownx.superfences: {}
   pymdownx.highlight:
-      linenums: false
+      use_pygments: true
   pymdownx.inlinehilite: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
+  pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
 # htmlproofer: {} # Uncomment to check links - but extends build time significantly
@@ -168,15 +175,15 @@ nav:
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
-        - "Install on Debian and Ubuntu": "apt.md"
-        - "Install on RHEL and derivatives": "yum.md"
+        - "Install via apt": "apt.md"
+        - "Install via yum": "yum.md"
         - enable-extensions.md
         - repo-overview.md
+      - "Run in Docker": docker.md
       - migration.md
       - minor-upgrade.md
   - Extensions:
-      - pg_stat_monitor:
-          - pg-stat-monitor.md
+      - 'pg_stat_monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
           - solutions/high-availability.md
