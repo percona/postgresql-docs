@@ -7,7 +7,6 @@ This document describes how to install Percona Server for PostgreSQL from Percon
 1. Debian and other systems that use the apt package manager include the upstream PostgreSQL server package (`postgresql-{{pgversion}})` by default. The components of Percona Distribution for PostgreSQL 11 can only be installed together with the PostgreSQL server shipped by Percona (`percona-postgresql-11`). If you wish to use Percona Distribution for PostgreSQL, uninstall the upstream `postgresql-11` package and then install the chosen components from Percona Distribution for PostgreSQL.
 2. Install `curl` for [Telemetry](telemetry.md). We use Telemetry to better understand the use of our products and improve them.
 
-
 ## Procedure
 
 Run all the commands in the following sections as root or using the `sudo` command:
@@ -39,7 +38,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-{{pgversion}}
+   $ sudo percona-release setup ppg{{pgversion}}
    ```
 
 ### Install packages
