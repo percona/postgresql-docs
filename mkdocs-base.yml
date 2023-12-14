@@ -81,7 +81,15 @@ markdown_extensions:
   pymdownx.tilde: {}
   pymdownx.superfences: {}
   pymdownx.highlight:
-      linenums: false
+      use_pygments: true
+  pymdownx.inlinehilite: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
+  pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 
 plugins:
@@ -107,7 +115,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-12.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 12.16 (August 30, 2023)
+          cover_subtitle: 12.17 (December 12, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -138,6 +146,7 @@ nav:
   - Home: index.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v12.17.md
       - release-notes-v12.16.md
       - release-notes-v12.15.md
       - release-notes-v12.14.upd.md
@@ -168,10 +177,11 @@ nav:
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
-        - "Install on Debian and Ubuntu": "apt.md"
-        - "Install on RHEL and derivatives": "yum.md"
+        - "Install via apt": "apt.md"
+        - "Install via yum": "yum.md"
         - enable-extensions.md
         - repo-overview.md
+      - "Run in Docker": docker.md
       - migration.md
       - major-upgrade.md
       - minor-upgrade.md
@@ -195,9 +205,8 @@ nav:
         - Upgrade spatial database: solutions/postgis-upgrade.md
       - LDAP authentication:
           - ldap.md
-  - Uninstall:
-      - uninstalling.md
-  - Licensing:
-      - licensing.md
+  - Telemetry: telemetry.md
+  - Uninstall: uninstalling.md
+  - Licensing: licensing.md
   - Trademark policy:
       - trademark-policy.md

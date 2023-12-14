@@ -1,6 +1,7 @@
 # Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives
 
-This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives..
+
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
 
 ## Platform specific notes
 
@@ -74,7 +75,7 @@ $ sudo yum install epel-release
 
 ### For `pgpool2` extension
 
-To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`.
+To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve the dependencies conflict.
 
 The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly. 
 
@@ -96,9 +97,12 @@ The following are commands for Red Hat Enterprise Linux 9 and derivatives. For R
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder
     ```
 
+
 ### For PostGIS 
 
-For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.
+The following commands provide instructions how to enable required repositories and modules on Red Hat Enterprise Linux 9 and derivatives.
+
+For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the commands accordingly.
 
 === "RHEL 9"     
 
@@ -198,11 +202,19 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
 
         ```{.bash data-prompt="$"}
         $ sudo yum install epel-release
-        ```    
+        ```     
 
 ## Procedure
 
-Run all the commands in the following sections as root or using the `sudo` command:
+Run all the commands in the following sections as root or using the `sudo` command.
+
+### Install dependencies
+
+Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
+
+```{.bash data-prompt="$"}
+$ sudo yum -y install curl
+```
 
 ### Configure the repository
 
@@ -219,7 +231,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
    To enable a repository, we recommend using the `setup` command: 
 
    ```{.bash data-prompt="$"}
-   $ sudo percona-release setup ppg-12
+   $ sudo percona-release setup ppg{{pgversion}}
    ```
 
 ### Install packages
@@ -227,7 +239,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 === "Install using meta-package"
      
      ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server12
+     $ sudo yum install percona-ppg-server{{pgversion}}
      ```
 
 === "Install packages individually"
@@ -235,7 +247,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
      1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql12-server
+         $ sudo yum install percona-postgresql{{pgversion}}-server
          ```
 
      2. Install the components:
@@ -243,13 +255,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pg_repack`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_repack12
+        $ sudo yum install percona-pg_repack{{pgversion}}
         ```
 
         Install `pgaudit`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit
+        $ sudo yum install percona-pgaudit{{pgversion}}
         ```
 
         Install `pgBackRest`:
@@ -276,7 +288,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `pgAudit-set_user`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit12_set_user
+        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
         ```
 
         Install `pgBadger`:
@@ -288,13 +300,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
         Install `wal2json`:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-wal2json12
+        $ sudo yum install percona-wal2json{{pgversion}}
         ```
 
         Install PostgreSQL contrib extensions:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql12-contrib
+        $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
         Install HAProxy
@@ -302,7 +314,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
         ```
-
+        
         Install `pg_gather`
 
         ```{.bash data-prompt="$"}
@@ -311,51 +323,12 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
         Install `pgpool2`
 
-        To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`. The following examples show steps for Red Hat Enterprise Linux 9. 
+        1. Check the [platform specific notes](#for-pgpool2-extension)
+        2. Install the extension
 
-        === "RHEL 9"
-
-            1. Enable the codeready builder repository
-
-                ```{.bash data-prompt="$"}
-                $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
-                ```
-
-            2. Install the extension
-
-                ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg12
-                ```
-
-        === "CentOS 9"
-
-            1. Enable the codeready builder repository
-
-                ```{.bash data-prompt="$"}
-                $ sudo dnf config-manager --set-enabled crb
-                ```
-
-            2. Install the extension
-
-                ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg12
-                ```
-
-        === "Oracle Linux 9"
-
-            1. Enable the codeready builder repository
-
-                ```{.bash data-prompt="$"}
-                $ sudo dnf config-manager --set-enabled ol9_codeready_builder
-                ```
-
-            2. Install the extension
-
-                ```{.bash data-prompt="$"}
-                $ sudo yum install percona-pgpool-II-pg12
-                ```
-
-        For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
+            ```{.bash data-prompt="$"}
+            $ sudo yum install percona-pgpool-II-pg{{pgversion}}
+            ```
 
         Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
