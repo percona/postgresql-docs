@@ -1,6 +1,8 @@
 # Release notes index
 
-* [Percona Distribution for PostgreSQL 14.10](release-notes-v14.10.md) (2023-11-)
+* [Percona Distribution for PostgreSQL 14.10 Update](release-notes-v14.10.md) ()
+
+* [Percona Distribution for PostgreSQL 14.10](release-notes-v14.10.md) (2023-11-05)
 
 * [Percona Distribution for PostgreSQL 14.9](release-notes-v14.9.md) (2023-08-30)
 

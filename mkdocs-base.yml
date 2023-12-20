@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2023
+copyright: Percona LLC, &#169; 2024
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -110,7 +110,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-14.pdf'
           cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 14.10 (November , 2023)
+          cover_subtitle: 14.10 ()
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -139,21 +139,24 @@ nav:
   - Home: index.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v14.10.upd.md
       - release-notes-v14.10.md
       - release-notes-v14.9.md
       - release-notes-v14.8.md
       - release-notes-v14.7.upd.md
       - release-notes-v14.7.md
-      - release-notes-v14.6.md
-      - release-notes-v14.5.md
-      - release-notes-v14.4.md
-      - release-notes-v14.3.md
-      - release-notes-v14.2.upd2.md
-      - release-notes-v14.2.upd.md
-      - release-notes-v14.2.md
-      - release-notes-v14.1.upd2.md
-      - release-notes-v14.1.upd.md
-      - release-notes-v14.1.md
+      - 2022 (versions 14.2 - 14.6):
+        - release-notes-v14.6.md
+        - release-notes-v14.5.md
+        - release-notes-v14.4.md
+        - release-notes-v14.3.md
+        - release-notes-v14.2.upd2.md
+      - 2021 (versions 14.1 - 14.2):
+        - release-notes-v14.2.upd.md
+        - release-notes-v14.2.md
+        - release-notes-v14.1.upd2.md
+        - release-notes-v14.1.upd.md
+        - release-notes-v14.1.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
