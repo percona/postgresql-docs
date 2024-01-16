@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 13.13 Update (2024-01-)
+# Percona Distribution for PostgreSQL 13.13 Update (2024-01-19)
 
 [Installation](installing.md){.md-button}
 
