@@ -100,7 +100,7 @@ You also need a backup storage to store the backups. It can either be a remote s
     pg1-host=${NODE1_NAME}
     pg1-host-port=8432
     pg1-port=5432
-    pg1-path=/var/lib/postgresql/11/
+    pg1-path=/var/lib/postgresql/16/main
     pg1-host-type=tls
     pg1-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
     pg1-host-key-file=/pg_ha/certs/${SRV_NAME}.key
@@ -111,7 +111,7 @@ You also need a backup storage to store the backups. It can either be a remote s
     pg2-host=${NODE2_NAME}
     pg2-host-port=8432
     pg2-port=5432
-    pg2-path=/var/lib/postgresql/11/
+    pg2-path=/var/lib/postgresql/16/main
     pg2-host-type=tls
     pg2-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
     pg2-host-key-file=/pg_ha/certs/${SRV_NAME}.key
@@ -121,7 +121,7 @@ You also need a backup storage to store the backups. It can either be a remote s
     pg3-host=${NODE3_NAME}
     pg3-host-port=8432
     pg3-port=5432
-    pg3-path=/var/lib/postgresql/11/
+    pg3-path=/var/lib/postgresql/16/main
     pg3-host-type=tls
     pg3-host-cert-file=/pg_ha/certs/${SRV_NAME}.crt
     pg3-host-key-file=/pg_ha/certs/${SRV_NAME}.key
@@ -243,7 +243,7 @@ Run the following command on `node1`, `node2` and `node3`.
     tls-server-auth=bkp-srv=cluster_1
 
     [cluster_1]
-    pg1-path=/var/lib/postgresql/11
+    pg1-path=/var/lib/postgresql/16/main
     ```
 
 4. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
