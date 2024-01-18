@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2023
+copyright: Percona LLC, &#169; 2024
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -84,8 +84,8 @@ markdown_extensions:
       auto_append:
         - services-banner.md
   pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 
 plugins:
@@ -110,8 +110,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
-
-          cover_subtitle: 15.5 (November 30, 2023)
+          cover_subtitle: 15.5 (January 18, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -140,13 +139,15 @@ nav:
   - 'Home': 'index.md'
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v15.5.upd.md
       - release-notes-v15.5.md
       - release-notes-v15.4.md
       - release-notes-v15.3.md
       - release-notes-v15.2.upd.md
       - release-notes-v15.2.md
-      - release-notes-v15.1.md
-      - release-notes-v15.0.md
+      - 2022 (versions 15.0 - 15.1):
+        - release-notes-v15.1.md
+        - release-notes-v15.0.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
