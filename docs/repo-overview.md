@@ -28,7 +28,7 @@ The `percona-ppg-server` meta-package installs the PostgreSQL server with the fo
 | `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 | `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
 | `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
-| `percona-pgaudit` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
+| `percona-pgaudit{{pgversion}}` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
 | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
 | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
 
