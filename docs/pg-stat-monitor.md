@@ -136,7 +136,7 @@ To install `pg_stat_monitor`, run the following commands:
         The order of modules is important: `pg_stat_monitor` must be specified **after** `pg_stat_statements`: 
        
         ```sql
-        ALTER SYSTEM SET shared_preload_libraries = ‘pg_stat_statements, pg_stat_monitor’
+        ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_statements, pg_stat_monitor'
         ```
 
 2. Start or restart the `postgresql` instance to enable `pg_stat_monitor`. Use the following command for restart:
