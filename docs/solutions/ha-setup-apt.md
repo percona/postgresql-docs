@@ -170,7 +170,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /pg_ha/config/etcd.conf 
+    " | sudo tee -a /etc/default/etcd
     ```
 
 3. Start the `etcd` service to apply the changes on `node1`.
@@ -225,7 +225,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /pg_ha/config/etcd.conf
+    " | sudo tee -a /etc/default/etcd
     ```
 
 3. Start the `etcd` service to apply the changes on `node2`:
@@ -258,7 +258,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /pg_ha/config/etcd.conf
+    " | sudo tee -a /etc/default/etcd
     ```  
 
 4. Start the `etcd` service on `node3`:
@@ -315,7 +315,7 @@ Run the following commands on all nodes. You can do this in parallel:
 
        ```bash
        NAMESPACE="percona_lab"
-       SCOPE="cluster_1
+       SCOPE="cluster_1"
        ```
 
 2. Create the `/etc/patroni/patroni.yml` configuration file. Add the following configuration for `node1`:
