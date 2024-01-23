@@ -64,18 +64,6 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
     ```
 
-<<<<<<< HEAD
-=== "Rocky Linux 8"
-
-    ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled powertools install perl-IPC-Run -y
-    ```
-
-=== "Oracle Linux 8"
-
-    ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
-    ```
 
 ### For `percona-patroni` package
 
