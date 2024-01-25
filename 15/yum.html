@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.5">
     
     
       
@@ -1822,19 +1822,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </div>
 </div>
 </div>
-<p>&laquo;&laquo;&laquo;&lt; HEAD</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Rocky Linux 8</label><label for="__tabbed_3_2">Oracle Linux 8</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
-</code></pre></div>
-</div>
-</div>
-</div>
 <h3 id="for-percona-patroni-package">For <code>percona-patroni</code> package<a class="headerlink" href="#for-percona-patroni-package" title="Permanent link">&para;</a></h3>
 <p>To install Patroni on Red Hat Enterprise Linux 9 and compatible derivatives, enable the <code>epel</code> repository</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
@@ -1842,7 +1829,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 <h3 id="for-pgpool2-extension">For <code>pgpool2</code> extension<a class="headerlink" href="#for-pgpool2-extension" title="Permanent link">&para;</a></h3>
 <p>To install <code>pgpool2</code> on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for <code>pgpool2</code>.</p>
 <p>The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly. </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">RHEL 9</label><label for="__tabbed_4_2">Rocky Linux 9</label><label for="__tabbed_4_3">Oracle Linux 9</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">RHEL 9</label><label for="__tabbed_3_2">Rocky Linux 9</label><label for="__tabbed_3_3">Oracle Linux 9</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
@@ -1860,7 +1847,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </div>
 <h3 id="for-postgis">For PostGIS<a class="headerlink" href="#for-postgis" title="Permanent link">&para;</a></h3>
 <p>For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">RHEL 9</label><label for="__tabbed_5_2">Rocky Linux 9</label><label for="__tabbed_5_3">Oracle Linux 9</label><label for="__tabbed_5_4">RHEL UBI 9</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">RHEL 9</label><label for="__tabbed_4_2">Rocky Linux 9</label><label for="__tabbed_4_3">Oracle Linux 9</label><label for="__tabbed_4_4">RHEL UBI 9</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -1981,7 +1968,7 @@ enabled=1
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-15
 </code></pre></div>
 <h3 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Install using meta-package</label><label for="__tabbed_6_2">Install packages individually</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Install using meta-package</label><label for="__tabbed_5_2">Install packages individually</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The <a href="repo-overview.html#percona-ppg-server" target="”_blank”">meta package</a> enables you to install several components of the distribution in one go.</p>
@@ -2108,7 +2095,7 @@ enabled=1
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2024</span>
   </span>
 
     
@@ -2229,10 +2216,10 @@ enabled=1
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="assets/javascripts/bundle.c18c5fb9.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
