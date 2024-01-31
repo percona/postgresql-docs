@@ -10,8 +10,6 @@ repo_url: https://github.com/percona/postgresql-docs
 edit_uri: edit/12/docs/
 
 use_directory_urls: false
-features:
-  - content.tabs.link
 
 # Theme settings
 theme:
@@ -144,37 +142,42 @@ extra:
 
 nav:
   - Home: index.md
-  - Release Notes:
+  - Release notes:
       - "Release notes index": "release-notes.md"
-      - release-notes-v12.17.upd.md
-      - release-notes-v12.17.md
-      - release-notes-v12.16.md
-      - release-notes-v12.15.md
-      - release-notes-v12.14.upd.md
-      - release-notes-v12.14.md
-      - release-notes-v12.13.md
-      - release-notes-v12.12.md
-      - release-notes-v12.11.md
-      - release-notes-v12.10.upd2.md
-      - release-notes-v12.10.upd.md
-      - release-notes-v12.10.md
-      - release-notes-v12.9.md
-      - release-notes-v12.8.upd.md
-      - release-notes-v12.8.md
-      - release-notes-v12.7.upd3.md
-      - release-notes-v12.7.upd2.md
-      - release-notes-v12.7.upd.md
-      - release-notes-v12.7.md
-      - release-notes-v12.6.upd4.md
-      - release-notes-v12.6.upd3.md
-      - release-notes-v12.6.upd2.md
-      - release-notes-v12.6.upd.md
-      - release-notes-v12.6.md
-      - release-notes-v12.5.md
-      - release-notes-v12.4.upd.md
-      - release-notes-v12.4.md
-      - release-notes-v12.3.md
-      - release-notes-v12.2.md
+      - release-notes-v12.18.md
+      - 2023 (versions 12.14 through 12.17):
+         - release-notes-v12.17.upd.md
+         - release-notes-v12.17.md
+         - release-notes-v12.16.md
+         - release-notes-v12.15.md
+         - release-notes-v12.14.upd.md
+         - release-notes-v12.14.md
+      - 2022 (versions 12.10 through 12.13):
+         - release-notes-v12.13.md
+         - release-notes-v12.12.md
+         - release-notes-v12.11.md
+         - release-notes-v12.10.upd2.md
+         - release-notes-v12.10.upd.md
+         - release-notes-v12.10.md
+      - 2021 (versions 12.6 through 12.9):
+         - release-notes-v12.9.md
+         - release-notes-v12.8.upd.md
+         - release-notes-v12.8.md
+         - release-notes-v12.7.upd3.md
+         - release-notes-v12.7.upd2.md
+         - release-notes-v12.7.upd.md
+         - release-notes-v12.7.md
+         - release-notes-v12.6.upd4.md
+         - release-notes-v12.6.upd3.md
+         - release-notes-v12.6.upd2.md
+         - release-notes-v12.6.upd.md
+         - release-notes-v12.6.md
+      - 2020 (versions 12.2 through 12.5):
+         - release-notes-v12.5.md
+         - release-notes-v12.4.upd.md
+         - release-notes-v12.4.md
+         - release-notes-v12.3.md
+         - release-notes-v12.2.md
   - Installation and Upgrade:
       - Install Percona Distribution for PostgreSQL:
         - "Overview": "installing.md"
