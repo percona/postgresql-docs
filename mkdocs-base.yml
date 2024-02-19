@@ -11,6 +11,13 @@ edit_uri: edit/13/docs/
 
 features: 
   - content.tabs.link
+  - search.highlight
+  - navigation.top
+  - navigation.tracking
+  - content.tabs.link  
+  - content.action.edit
+  - content.action.view
+  - content.code.copy 
 
 use_directory_urls: false
 
@@ -22,7 +29,11 @@ theme:
   favicon: _images/percona-favicon.ico
   custom_dir: _resource/overrides/
   font:
-    text: Poppins
+    text: Roboto  
+    code: Roboto Mono
+  icon:
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
 
 #Color schemes
   palette:
@@ -58,6 +69,7 @@ extra_css:
   - css/percona.css
   - css/version-select.css
   - css/extra.css
+  - css/design.css
 
 extra_javascript:
   - js/version-select.js
@@ -81,7 +93,11 @@ markdown_extensions:
   pymdownx.tabbed: 
       alternate_style: true
   pymdownx.tilde: {}
-  pymdownx.superfences: {}
+  pymdownx.superfences: 
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
   pymdownx.highlight:
       use_pygments: true
   pymdownx.inlinehilite: {}
@@ -92,6 +108,9 @@ markdown_extensions:
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - _resource/.icons
 
 
 plugins:
