@@ -4,4 +4,4 @@
 
 release: 'release-notes-v15.6'
 pgversion: '15'
-dockertag: '15.6-1'
+dockertag: '15.6'

@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 15.6 (2024-02-)
+# Percona Distribution for PostgreSQL 15.6 (2024-02-28)
 
 [Installation](installing.md){.md-button}
 
