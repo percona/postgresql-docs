@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 14.11 (2024-02-29)
+# Percona Distribution for PostgreSQL 14.11 (2024-03-01)
 
 [Installation](installing.md){.md-button}
 
@@ -24,7 +24,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/)           | 2.50    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.4     | a fast PostgreSQL Log Analyzer.|
-|[PgBouncer](https://www.pgbouncer.org/)          |1.21.0    | a lightweight connection pooler for PostgreSQL|
+|[PgBouncer](https://www.pgbouncer.org/)          |1.22.0    | a lightweight connection pooler for PostgreSQL|
 | [pg_gather](https://github.com/jobinau/pg_gather)| v25     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.5.0 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.5.0   | rebuilds PostgreSQL database objects           |

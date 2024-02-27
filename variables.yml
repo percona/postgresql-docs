@@ -4,3 +4,4 @@
 
 release: 'release-notes-v14.11'
 pgversion: '14'
+dockertag: '14.11'
