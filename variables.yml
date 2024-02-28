@@ -3,4 +3,5 @@
 
 release: 'release-notes-v13.14'
 pgversion: '13'
+dockertag: '13.14'
 
