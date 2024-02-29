@@ -3,3 +3,4 @@
 
 release: 'release-notes-v12.18'
 pgversion: '12'
+dockertag: '12.18'

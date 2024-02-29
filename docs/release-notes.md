@@ -1,6 +1,6 @@
 # Release notes index
 
-* [Percona Distribution for PostgreSQL 12.18](release-notes-v12.18.md) (2024-02)
+* [Percona Distribution for PostgreSQL 12.18](release-notes-v12.18.md) (2024-03-11)
 
 * [Percona Distribution for PostgreSQL 12.17 Update](release-notes-v12.17.upd.md) (2024-01-22)
 
