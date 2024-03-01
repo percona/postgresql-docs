@@ -2,5 +2,6 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 
-release: 'release-notes-v14.10.upd'
+release: 'release-notes-v14.11'
 pgversion: '14'
+dockertag: '14.11'
