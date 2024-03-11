@@ -7,11 +7,10 @@ copyright: Percona LLC, &#169; 2024
 site_url: ""
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
+
 edit_uri: edit/12/docs/
 
 use_directory_urls: false
-features:
-  - content.tabs.link
 
 # Theme settings
 theme:
@@ -20,7 +19,11 @@ theme:
   favicon: _images/percona-favicon.ico
   custom_dir: _resource/overrides/
   font:
-    text: Poppins
+    text: Roboto  
+    code: Roboto Mono
+  icon:
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
 
 #Color schemes
   palette:
@@ -49,13 +52,15 @@ theme:
     - content.tabs.link
     - content.action.edit
     - content.action.view
-    - content.code.copy  
+    - content.code.copy
+      
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
   - css/percona.css
   - css/extra.css
+  - css/design.css
   - css/osano.css
 
 extra_javascript:
@@ -81,7 +86,11 @@ markdown_extensions:
   pymdownx.tabbed: 
       {alternate_style: true}
   pymdownx.tilde: {}
-  pymdownx.superfences: {}
+  pymdownx.superfences: 
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
   pymdownx.highlight:
       use_pygments: true
   pymdownx.inlinehilite: {}
@@ -92,6 +101,9 @@ markdown_extensions:
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - _resource/.icons
 
 
 plugins:
