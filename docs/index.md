@@ -1,3 +1,8 @@
+---
+hide:
+- toc
+---
+
 # Percona Distribution for PostgreSQL 13 Documentation
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
