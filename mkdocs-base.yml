@@ -119,12 +119,6 @@ markdown_extensions:
 plugins:
   search: 
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  macros:
-      include_yaml:
-        - 'variables.yml' # Use in markdown as '{{ VAR }}'
-# exclude: # Don't process these files
-#      glob:
-#         - file.md
   
 nav:
   - "Home": "index.md"
