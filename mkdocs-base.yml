@@ -115,7 +115,6 @@ markdown_extensions:
         custom_icons:
           - _resource/.icons
 
-
 plugins:
   search: 
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
