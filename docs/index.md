@@ -42,7 +42,7 @@ PostgreSQL database objects
 
 
 
-!!! admonition "See also"
+!!! note "See also"
 
     Blog Posts
 

@@ -25,32 +25,34 @@ use_directory_urls: false
 # Theme settings
 theme:
   name: material
-  logo: _images/percona-logo.svg
-  favicon: _images/percona-favicon.ico
-  custom_dir: _resource/overrides/
+  logo: assets/postgresql-mark.svg
+  favicon: assets/postgresql-fav.svg
+  custom_dir: overrides/
   font:
-    text: Roboto  
+    text: Roboto
     code: Roboto Mono
   icon:
     edit: material/file-edit-outline
     view: material/file-eye-outline
-
-#Color schemes
   palette:
-
-    # Light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Color theme set to Automatic. Click to change
     - media: "(prefers-color-scheme: light)"
       scheme: percona-light
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-
-    # Dark mode
+        icon: material/brightness-7
+        name: Color theme set to Light Mode. Click to change
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: percona-dark
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
+        icon: material/brightness-4
+        name: Color theme set to Dark Mode. Click to change
 
 # Theme features
 
@@ -66,14 +68,13 @@ theme:
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
-  - css/percona.css
-  - css/version-select.css
   - css/extra.css
   - css/design.css
   - css/osano.css
+  - css/postgresql.css
 
 extra_javascript:
-  - js/version-select.js
+  # - js/version-select.js
   - js/promptremover.js
   - js/consent.js
 
@@ -116,45 +117,14 @@ markdown_extensions:
 
 
 plugins:
-  section-index: {}
   search: 
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-  git-revision-date-localized: 
-    enable_creation_date: true
-    enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
-  meta-descriptions:
-    export_csv: false
-    quiet: false
-    enable_checks: false
-    min_length: 50
-    max_length: 160
   macros:
       include_yaml:
         - 'variables.yml' # Use in markdown as '{{ VAR }}'
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
-  with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-      output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
-      cover_title: 'Distribution for PostgreSQL Documentation'
-      cover_subtitle: 13.14 (March 7, 2024)
-      author: 'Percona Technical Documentation Team'
-      cover_logo: docs/_images/Percona_Logo_Color.png
-      debug_html: false
-      custom_template_path: _resource/templates
-      enabled_if_env: ENABLE_PDF_EXPORT
-
-  mike:
-      version_selector: true
-      css_dir: css
-      javascript_dir: js
-      canonical_version: null
-
-extra:
-  version:
-    provider: mike
-  homepage:
-    https://docs.percona.com
   
 nav:
   - "Home": "index.md"

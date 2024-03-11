@@ -1,0 +1,14 @@
+/* Overrides */
+
+:root {
+    --md-primary-fg-color--dark: var(--night400)
+}
+.md-header,
+.md-tabs {
+    background-color: var(--md-primary-fg-color--dark)
+}
+.superNav,
+.md-search__form,
+.md-nav__source {
+    background-color: var(--night500);
+}

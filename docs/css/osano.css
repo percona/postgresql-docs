@@ -6,11 +6,7 @@
 }
 .osano-cm-dialog--type_bar {
     justify-content: center;
-    color: #000;
-    background: #fff;
-    box-shadow: 0 0 0 100vmax rgba(0,0,0,0.66)
 }
-
 .osano-cm-dialog {
     font-size: 0.75em;
     padding: 2em 1em;
