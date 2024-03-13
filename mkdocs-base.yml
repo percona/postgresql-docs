@@ -3,7 +3,9 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2024
+copyright: >
+  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2024 
+  — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
 site_url: ""
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -27,7 +29,7 @@ theme:
   name: material
   logo: assets/postgresql-mark.svg
   favicon: assets/postgresql-fav.svg
-  custom_dir: overrides/
+  custom_dir: _resource/overrides/
   font:
     text: Roboto
     code: Roboto Mono
