@@ -4,7 +4,7 @@ site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
 copyright: >-
-  <a href="https://www.percona.com/about">Percona LLC</a> and its affiliates &copy; <script>document.write(new Date().getFullYear())</script> — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
+  <a href="https://www.percona.com/about">Percona LLC</a> and its affiliates &copy; 2024 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
 site_url: ""
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
