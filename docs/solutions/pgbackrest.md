@@ -5,11 +5,12 @@
 You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. 
 
 ## Configure backup server
-To make things easier when working with some templates, the commands below should be executed as the root user:
+
+To make things easier when working with some templates, run the commands below  as the root user. Run the following command to switch to the root user:
     
-    ```{.bash data-prompt="$"}
-    $ sudo su -
-    ```
+```{.bash data-prompt="$"}
+$ sudo su -
+```
 
 ### Install pgBackRest
 
@@ -48,6 +49,7 @@ To make things easier when working with some templates, the commands below shoul
 2. Create the `pgBackRest` repository, *if necessary*
 
     A repository is where `pgBackRest` stores backups. In this example, the backups will be saved to `/var/lib/pgbackrest`.
+
     This directory is usually created during pgBackRest's installation process. If it's not there already, create it as follows:
 
     ```{.bash data-prompt="$"}
@@ -56,12 +58,12 @@ To make things easier when working with some templates, the commands below shoul
     $ chown postgres:postgres /var/lib/pgbackrest
     ```
 
-3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but some systems continue to use the old default file, `/etc/pgbackrest.conf`, which remains a valid alternative. If the former is not present in your system, create the latter.
+3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but some systems continue to use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. If the former is not present in your system, create the latter.
 
     Access the file's parent directory (either `cd /etc/` or `cd /etc/pgbackrest/`), and make a backup copy of it:
 
-    ```
-    cp pgbackrest.conf pgbackrest.conf.bak
+    ```{.bash data-prompt="$"}
+    $ cp pgbackrest.conf pgbackrest.conf.bak
     ```
 
     Then use the following command to create a basic configuration file using the environment variables we created in a previous step:
@@ -234,20 +236,20 @@ To make things easier when working with some templates, the commands below shoul
    
 1. Create the folder to store the certificates:
 
-    ```bash
-    mkdir -p ${CA_PATH}
+    ```{.bash data-prompt="$"}
+    $ mkdir -p ${CA_PATH}
     ```
     
 2. Create the certificates and keys
 
     ```{.bash data-prompt="$"}
-    openssl req -new -x509 -days 365 -nodes -out ${CA_PATH}/ca.crt -keyout ${CA_PATH}/ca.key -subj "/CN=root-ca"
+    $ openssl req -new -x509 -days 365 -nodes -out ${CA_PATH}/ca.crt -keyout ${CA_PATH}/ca.key -subj "/CN=root-ca"
     ```
 
 3. Create the certificate for the backup and the PostgreSQL servers
 
     ```{.bash data-prompt="$"}
-    for node in ${SRV_NAME} ${NODE1_NAME} ${NODE2_NAME} ${NODE3_NAME}
+    $ for node in ${SRV_NAME} ${NODE1_NAME} ${NODE2_NAME} ${NODE3_NAME}
     do
     openssl req -new -nodes -out ${CA_PATH}/$node.csr -keyout ${CA_PATH}/$node.key -subj "/CN=$node";
     done
@@ -256,21 +258,21 @@ To make things easier when working with some templates, the commands below shoul
 4. Sign the certificates with the `root-ca` key
 
     ```{.bash data-prompt="$"}
-    for node in ${SRV_NAME} ${NODE1_NAME} ${NODE2_NAME} ${NODE3_NAME}
+    $ for node in ${SRV_NAME} ${NODE1_NAME} ${NODE2_NAME} ${NODE3_NAME}
     do
     openssl x509 -req -in ${CA_PATH}/$node.csr -days 365 -CA ${CA_PATH}/ca.crt -CAkey ${CA_PATH}/ca.key -CAcreateserial -out ${CA_PATH}/$node.crt;
     done
     ```
 
-5. Remove temporary files, set ownership of the remaining files to the postgres user, and restrict their access:
+5. Remove temporary files, set ownership of the remaining files to the `postgres` user, and restrict their access:
 
     ```{.bash data-prompt="$"}
     $ rm -f ${CA_PATH}/*.csr
     $ chown postgres:postgres -R ${CA_PATH}
-    $ chomode 0600 ${CA_PATH}/*
+    $ chmod 0600 ${CA_PATH}/*
     ``` 
 
-## Create the pgbackrest daemon service
+### Create the `pgbackrest` daemon service
 
 1. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
 
@@ -318,12 +320,12 @@ Run the following commands on `node1`, `node2`, and `node3`.
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
     
-2. Export environment variables to simplify config file creation:
+2. Export environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
-    export NODE_NAME=`hostname -f`
-    export SRV_NAME="bkp-srv"
-    export CA_PATH="/etc/ssl/certs/pg_ha"
+    $ export NODE_NAME=`hostname -f`
+    $ export SRV_NAME="bkp-srv"
+    $ export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
     
 3. Create the certificates folder:
@@ -332,15 +334,15 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ mkdir -p ${CA_PATH}
     ```
 
-4. You'll have to copy the respective node's `.crt` and `.key` certificate files as well as the `ca.crt` file over from the backup server where they have been created, something like:
+4. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
 
-    ```bash
-    scp ${SRV_NAME}:${CA_PATH}/{$NODE_NAME.crt,$NODE_NAME.key,ca.crt} ${CA_PATH}/
-    chown postgres:postgres -R ${CA_PATH}
-    chmod 0600 ${CA_PATH}/* 
+    ```{.bash data-prompt="$"}
+    $ scp ${SRV_NAME}:${CA_PATH}/{$NODE_NAME.crt,$NODE_NAME.key,ca.crt} ${CA_PATH}/
+    $ chown postgres:postgres -R ${CA_PATH}
+    $ chmod 0600 ${CA_PATH}/* 
     ```
    
-5. Edit/create the configuration file which, as explained above, can be either `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf`:
+5. Edit or create the configuration file which, as explained above, can be either at the `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf` path:
 
     === "Debian/Ubuntu"
 
@@ -431,6 +433,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     ```
 
     The pgBackRest daemon listens on port `8432` by default:
+
     ```{.bash data-prompt="$"}
     $ netstat -taunp
     Active Internet connections (servers and established)
@@ -439,8 +442,12 @@ Run the following commands on `node1`, `node2`, and `node3`.
     tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
     ```
 
-8. If you are using Patroni, change its configuration to use pgBackRest for archiving and restoring WAL files. Run this command on one node only, for example, on `node1`: `patronictl -c /etc/patroni/patroni.yml edit-config`:
+8. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`: 
 
+    ```{.bash data-prompt="$"}
+    $ patronictl -c /etc/patroni/patroni.yml edit-config
+    ```
+    
     === "Debian/Ubuntu"
 
         ```yaml title="/etc/patroni/patroni.yml"
@@ -448,7 +455,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
           (...)
           parameters:
             (...)
-            archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/16/main/pg_wal/%f
+            archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/{{pgversion}}/main/pg_wal/%f
             (...)
           recovery_conf:
             (...)
@@ -462,7 +469,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         postgresql:
           (...)
           parameters:
-            archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/pgsql/16/data/pg_wal/%f
+            archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/pgsql/{{pgversion}}/data/pg_wal/%f
             (...)
           recovery_conf:
             restore_command: pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f %p
@@ -472,10 +479,10 @@ Run the following commands on `node1`, `node2`, and `node3`.
     Reload the changed configurations:
 
     ```{.bash data-prompt="$"}
-    patronictl -c /etc/patroni/postgresql.yml reload
+    $ patronictl -c /etc/patroni/postgresql.yml reload
     ```
 
-    *NOTE*: When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from a pgBackRest server, edit its main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
+    <info>:material-information: Note:</i> When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
 
 ## Create backups
 
