@@ -206,8 +206,8 @@ nav:
           - 'High Availability in PostgreSQL with Patroni': solutions/high-availability.md
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
           - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
-          - solutions/ha-test.md
           - solutions/pgbackrest.md
+          - solutions/ha-test.md
       - Backup and disaster recovery:
           - solutions/backup-recovery.md
           - solutions/dr-pgbackrest-setup.md
