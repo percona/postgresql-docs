@@ -319,8 +319,9 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
+        ```
     
-2. Export environment variables to simplify the config file creation:
+3. Export environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
     $ export NODE_NAME=`hostname -f`
@@ -328,13 +329,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
     
-3. Create the certificates folder:
+4. Create the certificates folder:
 
     ```{.bash data-prompt="$"}
     $ mkdir -p ${CA_PATH}
     ```
 
-4. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
+5. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
 
     ```{.bash data-prompt="$"}
     $ scp ${SRV_NAME}:${CA_PATH}/{$NODE_NAME.crt,$NODE_NAME.key,ca.crt} ${CA_PATH}/
@@ -342,7 +343,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ chmod 0600 ${CA_PATH}/* 
     ```
    
-5. Edit or create the configuration file which, as explained above, can be either at the `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf` path:
+6. Edit or create the configuration file which, as explained above, can be either at the `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf` path:
 
     === "Debian/Ubuntu"
 
@@ -403,7 +404,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         EOF
         ```
 
-6. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+7. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
 
     ```ini title="/etc/systemd/system/pgbackrest.service"
     [Unit]
@@ -424,7 +425,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     WantedBy=multi-user.target
     ```
 
-7. Reload, start, and enable the service
+8. Reload, start, and enable the service
 
     ```{.bash data-prompt="$"}
     $ systemctl daemon-reload
@@ -442,7 +443,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
     ```
 
-8. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`: 
+9. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`: 
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml edit-config
