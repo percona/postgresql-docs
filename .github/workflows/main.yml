@@ -48,7 +48,7 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 11 -b publish -p
-          mike retitle 11 "11.22" -b publish -p
+          mike retitle 11 "11.22 (EOL)" -b publish -p
 
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2
