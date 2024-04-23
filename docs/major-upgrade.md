@@ -65,7 +65,9 @@ The exact steps may differ depending on the package manager of your operating sy
 1. Install Percona Distribution for PostgreSQL 13 packages.
 
 
-    * Enable Percona repository using the **percona-release** utility:
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
+    
+    * Enable Percona repository:
 
       ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg-13
@@ -222,7 +224,9 @@ The exact steps may differ depending on the package manager of your operating sy
 1. Install Percona Distribution for PostgreSQL 13 packages
 
 
-    * Enable Percona repository using the **percona-release** utility:
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
+    
+    * Enable Percona repository:
 
        ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-13

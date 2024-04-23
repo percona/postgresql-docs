@@ -25,7 +25,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
          $ sudo apt-get --purge remove postgresql
          ```
 
-      3. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
+      3. [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
       4. Enable the repository
 
            ```{.bash data-prompt="$"}
@@ -63,7 +63,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
          $ sudo yum remove postgresql
          ```
 
-      3. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
+      3. [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
       4. Enable the repository
 
            ```{.bash data-prompt="$"}
@@ -106,7 +106,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 
 **On the target server**:
 
-1. [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html) 
+1. [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) 
 2. Enable the repository
 
     ```{.bash data-promp="$"}

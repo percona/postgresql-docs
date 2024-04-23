@@ -52,7 +52,7 @@ This document focuses on the Disaster recovery solution in Percona Distribution 
 
 ### pgBackRest
 
-[pgBackRest](https://pgbackrest.org/) is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. `pgBackRest` supports the following backup types:
+[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. `pgBackRest` supports the following backup types:
 
 * full backup - a complete copy of your entire data set.
 * differential backup - includes all data that has changed since the last full backup. While this means the backup time is slightly higher, it enables a faster restore.
@@ -76,7 +76,7 @@ As the configuration example, we will use a three server architecture where `pgB
 
 !!! important
 
-    Passwordless SSH may not be an ideal solution for your environment. In this case, consider using other methods, for example, [TLS with client certificates](https://pgbackrest.org/user-guide-rhel.html#repo-host/config).
+    Passwordless SSH may not be an ideal solution for your environment. In this case, consider using other methods, for example, [TLS with client certificates :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host/config).
 
 The following diagram illustrates the architecture layout:
 

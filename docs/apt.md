@@ -146,33 +146,10 @@ The installation process automatically initializes and starts the default databa
 $ sudo systemctl status postgresql.service
 ```
 
-### Connect to the PostgreSQL server
+Congratulations! Your Percona Distribution for PostgreSQL is up and running.
 
-By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
+## Next steps
 
-```{.bash data-prompt="$"}
-$ sudo su postgres
-```
+[Enable extensions :material-arrow-right:](enable-extensions.md){.md-button}
 
-Open the PostgreSQL interactive terminal:
-
-```{.bash data-prompt="$"}
-$ psql
-```
-
-!!! hint
-
-    You can connect to `psql` as the `postgres` user in one go:
-
-    ```{.bash data-prompt="$"}
-    $ sudo su - postgres -c psql
-    ```
-
-To exit the `psql` terminal, use the following command:
-
-```{.bash data-prompt="$"}
-$ \q
-```
-
-
-
+[Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}
