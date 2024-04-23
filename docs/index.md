@@ -1,36 +1,50 @@
 # Percona Distribution for PostgreSQL 14 Documentation
 
-Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
+Percona Distribution for PostgreSQL is a collection of open source tools to assist you in managing your PostgreSQL
 database system: it installs PostgreSQL and complements it by a selection of
 extensions that enable solving essential practical tasks efficiently.
 
-[What's included in the Distribution](extensions.md){.md-button}
+[What's included in the Distribution?](extensions.md){.md-button}
 
-[Get started](installing.md){ .md-button }
-[What's new]({{release}}.md){ .md-button }
+## What’s in it for you?
 
-!!! admonition "See also"
+- Compatible for every deployment scenario - whether on premises or in the cloud through [the Kubernetes Operator for PostgreSQL :octicons-link-external-16:](https://www.percona.com/doc/kubernetes-operator-for-postgresql/index.html)
+-	No guesswork on finding the right version of a component – all components in the Distribution undergo thorough testing to ensure compatibility.
+-	Ensure compliance with security standards to safeguard your sensitive data at rest.
+- Get insights into the database health and performance with [Percona Management and Monitoring :octicons-link-external-16:](https://www.percona.com/doc/percona-monitoring-and-management/2.x/index.html)
 
-    Blog posts
+<div data-grid markdown><div data-banner markdown>
 
-    - [pgBackRest - A Great Backup Solution and a Wonderful Year of
-      Growth](https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/)
-    - [Securing PostgreSQL as an Enterprise-Grade
-      Environment](https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/)
+## :material-progress-download: Installation guides { .title }
+
+Get started quickly with the step-by-step installation instructions.
+
+[Quickstart guides :material-arrow-right:](installing.md){ .md-button }
+
+</div><div data-banner markdown>
+
+### :fontawesome-solid-gears: Solutions { .title }
+
+Check our solutions to build the database infrastructure that meets the requirements of your organization - be it high-availability, disaster recovery or spatial data handling.
+
+[Solutions :material-arrow-right:](solutions/index.md){ .md-button }
+
+</div><div data-banner markdown>
+
+### :material-frequently-asked-questions: Troubleshooting and FAQ { .title }
+
+Our comprehensive resources will help you overcome challenges, from everyday issues to specific doubts.
+
+[Troubleshooting :material-arrow-right:](troubleshoot.md){.md-button}
+
+</div><div data-banner markdown>
+
+### :loudspeaker: What's new? { .title }
+
+Learn about the releases and changes in the Distribution.
+
+[Release notes :material-arrow-right:](release-notes.md){.md-button}
+</div>
+</div>
 
 
-Percona Distribution for PostgreSQL is also shipped with the
-[libpq](https://www.postgresql.org/docs/14/libpq.html) library. It
-contains "a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries." [^1]
-
-
-## Get started
-
-* [Install Percona Distribution for PostgreSQL](installing.md)
-* [Enable extensions](enable-extensions.md)
-
-
-
-[^1]: <https://www.postgresql.org/docs/14/libpq.html>

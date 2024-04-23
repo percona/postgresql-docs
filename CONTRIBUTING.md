@@ -3,20 +3,39 @@
 
 Thank you for deciding to contribute and help us improve Percona Distribution for PostgreSQL documentation!
 
-We welcome contributors from all users and community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
+We welcome contributors from all users and community. By contributing, you agree to the [Percona Community code of conduct :octicons-link-external-16: :octicons-link-external-16:](httpss://github.com/percona/community/blob/main/content/contribute/coc.md).
 
+<<<<<<< HEAD
 This repository contains the source file for `pg_stat_monitor` documentation and this document explains how you can contribute to it. 
+=======
+You can contribute to documentation in the following ways:
+
+1. **Request a doc change through a Jira issue**. If you’ve spotted a doc issue (a typo, broken links, inaccurate instructions, etc.) but don’t have time nor desire to fix it yourself - let us know about it.
+
+	- Click the **Submit DOC bug** link on the sidebar. This opens the [Jira issue tracker :octicons-link-external-16: :octicons-link-external-16:](httpss://jira.percona.com/projects/DISTPG/issues) for the doc project.
+	- Sign in (create a Jira account if you don’t have one) and click **Create** to create an issue.
+	- Describe the issue you have detected in the Summary, Description, Steps To Reproduce, Affects Version fields.
+
+2. **[Contribute to documentation yourself](#contribute-to-documentation-yourself)**. There is the **Edit this page** link that leads you to the source file of the page on GitHub. There you make changes, create a pull request that we review and add to the doc project. For details how to do it, read on.
+>>>>>>> 9ee26788... Restructured docs
 
 ## Contribute to documentation 
 
-Percona Distribution for PostgreSQL documentation is written in [Markdown](https://www.markdownguide.org/basic-syntax/) language, so you can 
+Percona Distribution for PostgreSQL documentation is written in [Markdown :octicons-link-external-16:](httpss://www.markdownguide.org/basic-syntax/) language, so you can 
 [edit it online via GitHub](#edit-documentation-online-vi-github). If you wish to have more control over the doc process, jump to how to [edit documentation locally](#edit-documentation-locally). 
 
 To contribute to the documentation, you should be familiar with the following technologies:
+<<<<<<< HEAD
 
-- [MkDocs](https://www.mkdocs.org/getting-started/) documentation generator. We use it to convert source ``.md`` files to .html and PDF documents.
-- [git](https://git-scm.com/) and [GitHub](https://guides.github.com/activities/hello-world/)
-- [Docker](https://docs.docker.com/get-docker/). It allows you to run MkDocs in a virtual environment instead of installing it and its dependencies on your machine.
+- [MkDocs :octicons-link-external-16:](httpss://www.mkdocs.org/getting-started/) documentation generator. We use it to convert source ``.md`` files to .html and PDF documents.
+- [git :octicons-link-external-16:](httpss://git-scm.com/) and [GitHub :octicons-link-external-16:](httpss://guides.github.com/activities/hello-world/)
+- [Docker :octicons-link-external-16:](httpss://docs.docker.com/get-docker/). It allows you to run MkDocs in a virtual environment instead of installing it and its dependencies on your machine.
+=======
+- [Markdown :octicons-link-external-16: :octicons-link-external-16:](httpss://www.markdownguide.org/basic-syntax/) markup language. It is used to write the documentation.
+- [MkDocs :octicons-link-external-16: :octicons-link-external-16:](httpss://www.mkdocs.org/getting-started/) documentation generator. We use it to convert source ``.md`` files to html and PDF documents.
+- [git :octicons-link-external-16: :octicons-link-external-16:](httpss://git-scm.com/) and [GitHub :octicons-link-external-16: :octicons-link-external-16:](httpss://guides.github.com/activities/hello-world/)
+- [Docker :octicons-link-external-16: :octicons-link-external-16:](httpss://docs.docker.com/get-docker/). It allows you to run MkDocs in a virtual environment instead of installing it and its dependencies on your machine.
+>>>>>>> 9ee26788... Restructured docs
 
 There are several active versions of the documentation. Each version derives from the major version of PostgreSQL, included in the distribution. 
 
@@ -32,7 +51,11 @@ The source .md files are in the ``docs`` directory.
 
 ### Edit documentation online via GitHub
 
-1. Click the **Edit this page** icon next to the page title. The Markdown file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+<<<<<<< HEAD
+1. Click the **Edit this page** icon next to the page title. The Markdown file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork :octicons-link-external-16:](httpss://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+=======
+1. Click the **Edit this page** link on the sidebar. The Markdown file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork :octicons-link-external-16: :octicons-link-external-16:](httpss://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+>>>>>>> 9ee26788... Restructured docs
 
 2. Edit the page. You can check your changes on the **Preview** tab.
 
@@ -95,8 +118,8 @@ Learn more about the documentation structure in the [Repository structure](#repo
 
 #### Use Docker
 
-1. [Get Docker](https://docs.docker.com/get-docker/)
-2. We use [this Docker image](https://github.com/Percona-Lab/percona-doc-docker) to build documentation. Run the following command:
+1. [Get Docker :octicons-link-external-16: :octicons-link-external-16:](httpss://docs.docker.com/get-docker/)
+2. We use [this Docker image :octicons-link-external-16: :octicons-link-external-16:](httpss://github.com/Percona-Lab/percona-doc-docker) to build documentation. Run the following command:
 
 ```sh
 docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md mkdocs build
@@ -121,8 +144,8 @@ The PDF document is in the ``site/pdf`` folder.
 
 #### Install MkDocs and build locally
 
-1. Install [pip](https://pip.pypa.io/en/stable/installing/)
-2. Install [MkDocs](https://www.mkdocs.org/getting-started/#installation).
+1. Install [pip :octicons-link-external-16: :octicons-link-external-16:](httpss://pip.pypa.io/en/stable/installing/)
+2. Install [MkDocs :octicons-link-external-16: :octicons-link-external-16:](httpss://www.mkdocs.org/getting-started/#installation).
 3. While in the root directory of the doc project, run the following command to build the documentation:
 
 ```sh
@@ -136,7 +159,7 @@ mkdocs serve
 ```
 
 6. To build the PDF documentation, do the following:
-   - Install [mkdocs-with-pdf plugin](https://pypi.org/project/mkdocs-with-pdf/)
+   - Install [mkdocs-with-pdf plugin :octicons-link-external-16: :octicons-link-external-16:](httpss://pypi.org/project/mkdocs-with-pdf/)
    - Run the following command
 
    ```sh

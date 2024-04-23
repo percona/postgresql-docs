@@ -14,7 +14,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.3
 
 ## Release Highlights
 
-The set of extensions supplied with Percona Distribution for PostgreSQL now includes the [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution.
+The set of extensions supplied with Percona Distribution for PostgreSQL now includes the [HAProxy](https://www.haproxy.org/) - a high-availability and load-balancing solution.
 
 -----------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)| 1.0.1 | collects and aggregates statistics for PostgreSQL and provides histogram information.       |
 | [PostgreSQL Common](https://packages.debian.org/sid/percona-postgresql-common)| 241 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[`wal2json`](https://github.com/eulerto/wal2json) |2.4        | a PostgreSQL logical decoding JSON output plugin.|
-|[HAProxy](http://www.haproxy.org/) | 2.5.6 | a high-availability and load-balancing solution |
+|[HAProxy](https://www.haproxy.org/) | 2.5.6 | a high-availability and load-balancing solution |
 
 Percona Distribution for PostgreSQL also includes the following packages:
 

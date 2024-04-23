@@ -9,14 +9,14 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
     If etcd is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for etcd and PostgreSQL is recommended due to performance reasons.
 
-2. For this setup, we will use the nodes running on Ubuntu 22.04 as the base operating system::
+2. For this setup, we will use the nodes running on Ubuntu 22.04 as the base operating system:
 
-| Node name     | Public IP address | Internal IP address
-|---------------|-------------------|--------------------
-| node1         | 157.230.42.174    | 10.104.0.7
-| node2         | 68.183.177.183    | 10.104.0.2
-| node3         | 165.22.62.167     | 10.104.0.8
-| HAProxy-demo  | 134.209.111.138   | 10.104.0.6
+   | Node name     | Public IP address | Internal IP address
+   |---------------|-------------------|--------------------
+   | node1         | 157.230.42.174    | 10.104.0.7
+   | node2         | 68.183.177.183    | 10.104.0.2
+   | node3         | 165.22.62.167     | 10.104.0.8
+   | HAProxy-demo  | 134.209.111.138   | 10.104.0.6
 
 
 !!! note
@@ -82,7 +82,7 @@ Run the following commands on node1`, `node2` and `node3`:
 
 1. Install Percona Distribution for PostgreSQL
     
-    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
 
     * Enable the repository:
 
@@ -125,7 +125,7 @@ Run the following commands on node1`, `node2` and `node3`:
 
 The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is `etcd`. 
 
-This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
+This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
 
 The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. 
 
