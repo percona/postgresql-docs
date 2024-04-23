@@ -29,7 +29,7 @@ When a bucket lifetime expires, `pg_stat_monitor` resets all statistics and writ
 
 #### pg_stat_monitor view
 
-The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference](https://docs.percona.com/pg-stat-monitor/reference.html).
+The `pg_stat_monitor` view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the [`pg_stat_monitor` view reference :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/reference.html).
 
 The following are the primary keys for pg_stat_monitor:
 
@@ -73,11 +73,11 @@ To learn more, see the [Changing the configuration](#changing-the-configuration)
 
 ## Installation
 
-This section describes how to install `pg_stat_monitor` from Percona repositories. To learn about other installation methods, see the [Installation](https://docs.percona.com/pg-stat-monitor/install.html) section in the `pg_stat_monitor` documentation.
+This section describes how to install `pg_stat_monitor` from Percona repositories. To learn about other installation methods, see the [Installation :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html) section in the `pg_stat_monitor` documentation.
 
 **Preconditions**:
 
-To install `pg_stat_monitor` from Percona repositories, you need to subscribe to them. To do this, you must have the [`percona-release` repository management tool](https://www.percona.com/doc/percona-repo-config/installing.html) up and running. 
+To install `pg_stat_monitor` from Percona repositories, you need to subscribe to them. To do this, you must have the [`percona-release` repository management tool :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html) up and running. 
 
 To install `pg_stat_monitor`, run the following commands:
 
@@ -116,7 +116,7 @@ To install `pg_stat_monitor`, run the following commands:
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/15/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM :octicons-link-external-16:](https://www.postgresql.org/docs/15/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
 
     ```sql
     ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
@@ -197,7 +197,7 @@ Output:
 ```
 
 
-Find more usage examples in the [`pg_stat_monitor` user guide](https://docs.percona.com/pg-stat-monitor/user_guide.html).
+Find more usage examples in the [`pg_stat_monitor` user guide :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/user_guide.html).
 
 ## Changing the configuration
 
@@ -231,7 +231,7 @@ SELECT name, short_desc FROM pg_settings WHERE name LIKE '%pg_stat_monitor%';
  pg_stat_monitor.pgsm_track_utility        | Selects whether utility commands are tracked.
 ```
 
-You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration parameters](https://docs.percona.com/pg-stat-monitor/configuration.html) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
+You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the [configuration parameters :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/configuration.html) of the `pg_stat_monitor` documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.
 
 As an example, let’s set the bucket lifetime from default 60 seconds to 40 seconds. Use the **ALTER SYSTEM** command:
 
@@ -268,10 +268,10 @@ WHERE name = 'pg_stat_monitor.pgsm_bucket_time';
 
 !!! admonition "See also"
 
-    [`pg_stat_monitor` Documentation](https://docs.percona.com/pg-stat-monitor/index.html)
+    [`pg_stat_monitor` Documentation :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/index.html)
 
 
     Percona Blog:
 
-    * [pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics](https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/)
-    * [Improve PostgreSQL Query Performance Insights with pg_stat_monitor](https://www.percona.com/blog/improve-postgresql-query-performance-insights-with-pg_stat_monitor/)
+    * [pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics :octicons-link-external-16:](https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/)
+    * [Improve PostgreSQL Query Performance Insights with pg_stat_monitor :octicons-link-external-16:](https://www.percona.com/blog/improve-postgresql-query-performance-insights-with-pg_stat_monitor/)

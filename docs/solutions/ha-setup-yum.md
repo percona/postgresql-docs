@@ -80,7 +80,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 1. Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from Percona repository:
 
-    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
     * Enable the repository:    
 
         ```{.bash data-prompt="$"}

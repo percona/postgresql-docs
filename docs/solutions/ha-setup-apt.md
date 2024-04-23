@@ -82,7 +82,7 @@ Run the following commands on node1`, `node2` and `node3`:
 
 1. Install Percona Distribution for PostgreSQL
     
-    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
 
     * Enable the repository:
 
