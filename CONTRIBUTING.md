@@ -5,7 +5,15 @@ Thank you for deciding to contribute and help us improve Percona Distribution fo
 
 We welcome contributors from all users and community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
 
-This repository contains the source file for `pg_stat_monitor` documentation and this document explains how you can contribute to it. 
+You can contribute to documentation in the following ways:
+
+1. **Request a doc change through a Jira issue**. If you’ve spotted a doc issue (a typo, broken links, inaccurate instructions, etc.) but don’t have time nor desire to fix it yourself - let us know about it.
+
+	- Click the **Submit DOC bug** link on the sidebar. This opens the [Jira issue tracker](https://jira.percona.com/projects/DISTPG/issues) for the doc project.
+	- Sign in (create a Jira account if you don’t have one) and click **Create** to create an issue.
+	- Describe the issue you have detected in the Summary, Description, Steps To Reproduce, Affects Version fields.
+
+2. **[Contribute to documentation yourself](#contribute-to-documentation-yourself)**. There is the **Edit this page** link that leads you to the source file of the page on GitHub. There you make changes, create a pull request that we review and add to the doc project. For details how to do it, read on.
 
 ## Contribute to documentation 
 
@@ -14,7 +22,8 @@ Percona Distribution for PostgreSQL documentation is written in [Markdown](https
 
 To contribute to the documentation, you should be familiar with the following technologies:
 
-- [MkDocs](https://www.mkdocs.org/getting-started/) documentation generator. We use it to convert source ``.md`` files to .html and PDF documents.
+- [Markdown](https://www.markdownguide.org/basic-syntax/) markup language. It is used to write the documentation.
+- [MkDocs](https://www.mkdocs.org/getting-started/) documentation generator. We use it to convert source ``.md`` files to html and PDF documents.
 - [git](https://git-scm.com/) and [GitHub](https://guides.github.com/activities/hello-world/)
 - [Docker](https://docs.docker.com/get-docker/). It allows you to run MkDocs in a virtual environment instead of installing it and its dependencies on your machine.
 
@@ -27,6 +36,7 @@ Each version has a branch in the repository named accordingly:
 - 13
 - 14
 - 15
+- 16
 
 The source .md files are in the ``docs`` directory. 
 
@@ -128,6 +138,7 @@ The PDF document is in the ``site/pdf`` folder.
 ```sh
 mkdocs build 
 ```
+
 4. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
 5. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
 

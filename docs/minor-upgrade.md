@@ -23,7 +23,7 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     For more information about Percona repositories, refer to [Installing Percona Distribution for PostgreSQL](installing.md).
 
-  Before the upgrade, update the **percona-release** utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. Refer to [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) for update instructions.
+    Before the upgrade, [update the `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. 
 
 !!! important
 

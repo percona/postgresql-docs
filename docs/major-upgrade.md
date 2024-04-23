@@ -18,10 +18,14 @@ The in-place upgrade means installing a new version without removing the old ver
 
 !!! admonition "See also"
 
+<<<<<<< HEAD
     `pg_upgrade` Documentation:
 
     [https://www.postgresql.org/docs/12/pgupgrade.html](https://www.postgresql.org/docs/12/pgupgrade.html)
 
+=======
+    [`pg_upgrade` Documentation :octicons-link-external-16:](https://www.postgresql.org/docs/16/pgupgrade.html)
+>>>>>>> 9ee26788... Restructured docs
 
 Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
 
@@ -65,8 +69,9 @@ The exact steps may differ depending on the package manager of your operating sy
 
 1. Install Percona Distribution for PostgreSQL 12 packages.
 
-
-    * Enable Percona repository using the **percona-release** utility:
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
+    
+    * Enable Percona repository:
 
        ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-12
@@ -194,13 +199,13 @@ The exact steps may differ depending on the package manager of your operating sy
 
 1. Install Percona Distribution for PostgreSQL 12 packages
 
-
-    * Enable Percona repository using the **percona-release** utility:
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
+    
+    * Enable Percona repository:
 
        ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-12
        ```
-
 
     * Install Percona Distribution for PostgreSQL 12:
 
@@ -244,8 +249,6 @@ The exact steps may differ depending on the package manager of your operating sy
        ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
-
-<<<<<<< HEAD
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 11 to 12:
 
