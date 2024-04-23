@@ -137,7 +137,7 @@ Before setting up passwordless SSH, ensure that the _postgres_ user in all three
 
 Install Percona Distribution for PostgreSQL in the primary and the secondary nodes from Percona repository. 
 
-1. [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+1. [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
 2. Enable the repository:
 
     ```{.bash data-prompt="$"}

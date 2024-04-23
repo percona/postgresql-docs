@@ -1,6 +1,6 @@
 # Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives
 
-This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. [Read more about Percona repositories :material-arrow-top-right:](repo-overview.md).
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. [Read more about Percona repositories](repo-overview.md).
 
 ## Platform specific notes
 
@@ -348,30 +348,10 @@ Start the PostgreSQL service:
 $ sudo systemctl start postgresql-{{pgversion}}
 ```
 
-### Connect to the PostgreSQL server
+Congratulations! Your Percona Distribution for PostgreSQL is up and running.
 
-By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
+## Next steps
 
-```{.bash data-prompt="$"}
-$ sudo su postgres
-```
+[Enable extensions :material-arrow-right:](enable-extensions.md){.md-button}
 
-Open the PostgreSQL interactive terminal:
-
-```{.bash data-prompt="$"}
-$ psql
-```
-
-!!! hint
-
-    You can connect to `psql` as the `postgres` user in one go:
-
-    ```{.bash data-prompt="$"}
-    $ sudo su - postgres -c psql
-    ```
-
-To exit the `psql` terminal, use the following command:
-
-```{.bash data-prompt="$"}
-$ \q
-```
+[Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}

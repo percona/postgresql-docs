@@ -6,7 +6,7 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 ## Preconditions
 
 1. This is the example deployment suitable to be used for testing purposes in non-production environments. 
-2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts or at least have separate disks for ETCD and PostgreSQL. This is because ETCD writes every request from the cluster to disk which can be CPU intensive and affects disk performance. See [hardware recommendations](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
+2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts or at least have separate disks for ETCD and PostgreSQL. This is because ETCD writes every request from the cluster to disk which can be CPU intensive and affects disk performance. See [hardware recommendations :octicons-link-external-16:](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
 3. For this setup, we will use the nodes running on Ubuntu 22.04 as the base operating system:
 
 | Node name     | Public IP address | Internal IP address
@@ -80,7 +80,7 @@ Run the following commands on node1`, `node2` and `node3`:
 
 1. Install Percona Distribution for PostgreSQL
     
-    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
 
     * Enable the repository:
 

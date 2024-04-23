@@ -6,7 +6,7 @@ The in-place upgrade means installing a new version without removing the old ver
 
 !!! admonition "See also"
 
-    [`pg_upgrade` Documentation](https://www.postgresql.org/docs/16/pgupgrade.html)
+    [`pg_upgrade` Documentation :octicons-link-external-16:](https://www.postgresql.org/docs/16/pgupgrade.html)
 
 Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
 
@@ -50,7 +50,7 @@ The exact steps may differ depending on the package manager of your operating sy
 1. Install Percona Distribution for PostgreSQL 16 packages.
 
 
-    * [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
     
     * Enable Percona repository:
 
@@ -210,7 +210,7 @@ The exact steps may differ depending on the package manager of your operating sy
 1. Install Percona Distribution for PostgreSQL 16 packages
 
 
-    * [Install percona-release](https://docs.percona.com/percona-software-repositories/installing.html)
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
     
     * Enable Percona repository:
 

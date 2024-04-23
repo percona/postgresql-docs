@@ -152,32 +152,25 @@ extra:
 
 nav:
   - 'Home': 'index.md'
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v16.2.md
-      - release-notes-v16.1.upd.md
-      - release-notes-v16.1.md
-      - release-notes-v16.0.upd.md
-      - release-notes-v16.0.md
-  - Installation and upgrade:
-      - Install:
-        - "Overview": "installing.md"
-        - "Install via apt": "apt.md"
-        - "Install via yum": "yum.md"
-        - enable-extensions.md
-        - repo-overview.md
-      - "Run in Docker": docker.md
-      - Upgrade:
-        - "Major upgrade": major-upgrade.md
-        - minor-upgrade.md
-        - migration.md
+  - Get started: 
+      - Quickstart guide: installing.md
+      - 1. Install: 
+          - Via apt: apt.md
+          - Via yum: yum.md
+          - Run in Docker: docker.md
+          - enable-extensions.md
+          - repo-overview.md
+      - 2. Connect to PostgreSQL: connect.md
+      - 3. Manipulate data in PostgreSQL: crud.md  
+      - 4. What's next: whats-next.md 
   - Extensions:
       - 'Extensions': extensions.md
       - contrib.md
-      - third-party.md
       - Percona-authored extensions:
         - 'pg_stat_monitor': 'pg-stat-monitor.md'
+      - third-party.md
   - Solutions:
+      - Overview: solutions.md
       - High availability:
           - 'High availability': 'solutions/high-availability.md'
           - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
@@ -194,9 +187,21 @@ nav:
         - Upgrade spatial database: solutions/postgis-upgrade.md
       - LDAP authentication:
           - ldap.md
+  - Upgrade:
+      - "Major upgrade": major-upgrade.md
+      - minor-upgrade.md
+      - migration.md
+  - Troubleshooting guide: troubleshooting.md
   - Uninstall: uninstalling.md
-  - Telemetry: telemetry.md
-  - Licensing: licensing.md
-  - Trademark policy:
-      - trademark-policy.md
+  - Release notes:
+      - "Release notes index": "release-notes.md"
+      - release-notes-v16.2.md
+      - release-notes-v16.1.upd.md
+      - release-notes-v16.1.md
+      - release-notes-v16.0.upd.md
+      - release-notes-v16.0.md
+  - Reference:
+      - Telemetry: telemetry.md
+      - Licensing: licensing.md
+      - Trademark policy: trademark-policy.md
 

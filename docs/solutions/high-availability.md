@@ -1,6 +1,6 @@
 # High Availability in PostgreSQL with Patroni
 
-PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes or unexpected reboots. Such cluster is often a critical component of the enterprise application landscape, where [four nines of availability](https://en.wikipedia.org/wiki/High_availability#Percentage_calculation) is a minimum requirement. 
+PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes or unexpected reboots. Such cluster is often a critical component of the enterprise application landscape, where [four nines of availability :octicons-link-external-16:](https://en.wikipedia.org/wiki/High_availability#Percentage_calculation) is a minimum requirement. 
 
 There are several methods to achieve high availability in PostgreSQL. This solution document provides [Patroni](#patroni) - the open-source extension to facilitate and manage the deployment of high availability in PostgreSQL.
 
@@ -34,11 +34,11 @@ There are several methods to achieve high availability in PostgreSQL. This solut
 
     To address these shortcomings, there are a multitude of third-party, open-source extensions for PostgreSQL. The challenge for a database administrator here is to select the right utility for the current scenario. 
 
-    Percona Distribution for PostgreSQL solves this challenge by providing the [Patroni](https://patroni.readthedocs.io/en/latest/) extension for achieving PostgreSQL high availability.
+    Percona Distribution for PostgreSQL solves this challenge by providing the [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) extension for achieving PostgreSQL high availability.
 
 ## Patroni
 
-[Patroni](https://patroni.readthedocs.io/en/latest/) is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. 
+[Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. 
 
 ### Key benefits of Patroni:
 
