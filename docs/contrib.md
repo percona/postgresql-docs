@@ -2,7 +2,7 @@
 
 Find the list of controb modules and extensions included in Percona Distribution for PostgtreSQL.
 
-| Name     | Superuser privileges | Description   |
+| Name     | Database superuser | Description   |
 | ---------| -------------------- | ------------- | 
 | [adminpack](https://www.postgresql.org/docs/{{pgversion}}/adminpack.html) | Required | Support toolpack for pgAdmin to provide additional functionality like remote management of server log files. |
 | [amcheck](https://www.postgresql.org/docs/{{pgversion}}/amcheck.html) | Required | Provides functions to verify the logical consistency of the structure of indexes, such as B-trees. It's useful for detecting system catalog corruption and index corruption.|
