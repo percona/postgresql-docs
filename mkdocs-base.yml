@@ -132,7 +132,7 @@ extra:
   version:
     provider: mike
   homepage:
-    https://docs.percona.com
+    https://docs.percona.com/percona-for-postgresql
   
 nav:
   - Home: index.md
