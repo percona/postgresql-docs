@@ -25,8 +25,8 @@ use_directory_urls: false
 # Theme settings
 theme:
   name: material
-  logo: _images/percona-logo.svg
-  favicon: _images/percona-favicon.ico
+  logo: _images/postgresql-mark.svg
+  favicon: _images/postgresql-fav.svg
   custom_dir: _resource/overrides/
   font:
     text: Roboto  
@@ -37,6 +37,11 @@ theme:
 
 #Color schemes
   palette:
+    #Autimatic color palette  
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Color theme set to Automatic. Click to change
 
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -71,6 +76,8 @@ extra_css:
   - css/extra.css
   - css/design.css
   - css/osano.css
+  - css/landing.css
+  - css/postgresql.css
 
 extra_javascript:
   - js/version-select.js
@@ -153,9 +160,10 @@ plugins:
 extra:
   version:
     provider: mike
-  homepage:
-    https://docs.percona.com
-  
+  #homepage:
+  #  https://docs.percona.com
+  postgresrecommended: 16
+
 nav:
   - "Home": "index.md"
   - Release notes:
