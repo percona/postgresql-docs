@@ -185,7 +185,11 @@ nav:
       - major-upgrade.md
       - minor-upgrade.md
   - Extensions:
-      - 'pg_stat_monitor': 'pg-stat-monitor.md'
+      - 'Extensions': extensions.md
+      - contrib.md
+      - third-party.md
+      - Percona-authored extensions:
+        - 'pg_stat_monitor': 'pg-stat-monitor.md'
   - Solutions:
       - High availability:
           - "High availability": "solutions/high-availability.md"
