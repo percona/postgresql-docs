@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL 16.2 (2024-02-27)">
+        <meta name="description" content="Find the list of controb modules and extensions included in Percona Distribution for PostgtreSQL.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/16/release-notes.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/16/contrib.html">
       
       
-        <link rel="prev" href="index.html">
+        <link rel="prev" href="extensions.html">
       
       
-        <link rel="next" href="release-notes-v16.2.html">
+        <link rel="next" href="third-party.html">
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Release notes index - Percona Distribution for PostgreSQL</title>
+        <title>PostgreSQL contrib modules and utilities - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -94,7 +94,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Release notes index" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - PostgreSQL contrib modules and utilities" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/16/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -121,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-release-notes" class="md-skip">
+        <a href="#postgresql-contrib-modules-and-utilities" class="md-skip">
           Skip to content
         </a>
       
@@ -218,7 +218,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Release notes index
+              PostgreSQL contrib modules and utilities
             
           </span>
         </div>
@@ -401,19 +401,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -427,7 +425,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release Notes
@@ -438,30 +436,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Release notes index
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="release-notes.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,37 +448,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -939,17 +886,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -963,7 +912,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Extensions
@@ -995,10 +944,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="contrib.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PostgreSQL contrib modules and utilities
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="contrib.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1007,6 +976,37 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1665,7 +1665,7 @@
                   
 
   
-    <a href="https://github.com/percona/postgresql-docs/edit/16/docs/release-notes.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/edit/16/docs/contrib.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1674,31 +1674,266 @@
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/16/docs/release-notes.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/16/docs/contrib.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="percona-distribution-for-postgresql-release-notes">Percona Distribution for PostgreSQL release notes<a class="headerlink" href="#percona-distribution-for-postgresql-release-notes" title="Permanent link">&para;</a></h1>
-<ul>
-<li>
-<p><a href="release-notes-v16.2.html">Percona Distribution for PostgreSQL 16.2</a> (2024-02-27)</p>
-</li>
-<li>
-<p><a href="release-notes-v16.1.upd.html">Percona Distribution for PostgreSQL 16.1 Update</a> (2024-01-18)</p>
-</li>
-<li>
-<p><a href="release-notes-v16.1.html">Percona Distribution for PostgreSQL 16.1</a> (2023-11-29)</p>
-</li>
-<li>
-<p><a href="release-notes-v16.0.upd.html">Percona Distribution for PostgreSQL 16.0 Update</a> (2023-11-02)</p>
-</li>
-<li>
-<p><a href="release-notes-v16.0.html">Percona Distribution for PostgreSQL 16</a> (2023-09-19)</p>
-</li>
-</ul>
+<h1 id="postgresql-contrib-modules-and-utilities">PostgreSQL contrib modules and utilities<a class="headerlink" href="#postgresql-contrib-modules-and-utilities" title="Permanent link">&para;</a></h1>
+<p>Find the list of controb modules and extensions included in Percona Distribution for PostgtreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Database superuser</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/adminpack.html">adminpack</a></td>
+<td>Required</td>
+<td>Support toolpack for pgAdmin to provide additional functionality like remote management of server log files.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/amcheck.html">amcheck</a></td>
+<td>Required</td>
+<td>Provides functions to verify the logical consistency of the structure of indexes, such as B-trees. It&rsquo;s useful for detecting system catalog corruption and index corruption.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/auth-delay.html">auth_delay</a></td>
+<td>Required</td>
+<td>Causes the server to pause briefly before reporting authentication failure, to make brute-force attacks on database passwords more difficult.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/auto-explain.html">auto_explain</a></td>
+<td>Required</td>
+<td>Automatically logs execution plans of slow SQL statements. It helps in performance analysis by tracking down un-optimized queries in large applications that exceed a specified time threshold.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/basebackup-to-shell.html">basebackup_to_shell</a></td>
+<td></td>
+<td>Adds a custom basebackup target called <code>shell</code>. This enables an administartor to make a base backup of a running PostgreSQL server to a shell archive.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/basic-archive.html">basic-archive</a></td>
+<td>Required</td>
+<td>An archive module that copies completed WAL segment files to the specified directory. Can be used as a starting point for developing own archive module.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/bloom.html">bloom</a></td>
+<td>Required</td>
+<td>Provides an index access method based on Bloom filters. <br> A Bloom filter is a space-efficient data structure that is used to test whether an element is a member of a set.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/btree-gin.html">btree_gin</a></td>
+<td>Required</td>
+<td>Provides GIN index operator classes with B-tree-like behavior. This allows you to use GIN indexes, which are typically used for full-text search, in situations where you might otherwise use a B-tree index, such as with integer or text data.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/btree-gist.html">btree_gist</a></td>
+<td>Required</td>
+<td>Provides GiST (Generalized Search Tree) index operator classes that implement B-tree-like behavior. This allows you to use GiST indexes, which are typically used for multidimensional and non-scalar data, in situations where you might otherwise use a B-tree index, such as with integer or text data.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/citext.html">citext</a></td>
+<td></td>
+<td>Provides a case-insensitive character string type, citext. Essentially, it internally calls <code>lower</code> when comparing values. Otherwise, it behaves almost exactly like <code>text</code>.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/cube.html">cube</a></td>
+<td></td>
+<td>Implements a data type cube for representing multidimensional cubes</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/dblink.html">dblink</a></td>
+<td>Required</td>
+<td>Provides functions to connect to other PostgreSQL databases from within a database session. This allows for queries to be run across multiple databases as if they were on the same server.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/dict-int.html">dict_int</a></td>
+<td></td>
+<td>An example of an add-on dictionary template for full-text search. It&rsquo;s used to demonstrate how to create custom dictionaries in PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/dict-xsyn.html">dict_xsyn</a></td>
+<td>Required</td>
+<td>Example synonym full-text search dictionary. This dictionary type replaces words with groups of their synonyms, and so makes it possible to search for a word using any of its synonyms.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/earthdistance.html">earthdistance</a></td>
+<td>Required</td>
+<td>This module  provides two different approaches to calculating great circle distances on the surface of the Earth. The fisrt one depends on the <code>cube</code> module. The second one is based on the built-in <code>point</code> data type, using longitude and latitude for the coordinates.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/hstore.html">hstore</a></td>
+<td></td>
+<td>Implements the <code>hstore</code> data type for storing sets of key/value pairs within a single PostgreSQL value.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/intagg.html">intagg</a></td>
+<td></td>
+<td>Integer aggregator and enumerator.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/intarray.html">intarray</a></td>
+<td></td>
+<td>Provides a number of useful functions and operators for manipulating null-free arrays of integers.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/isn.html">isn</a></td>
+<td></td>
+<td>Provides data types for the following international product numbering standards: EAN13, UPC, ISBN (books), ISMN (music), and ISSN (serials).</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/lo.html">lo</a></td>
+<td></td>
+<td>Provides support for managing Large Objects (also called LOs or BLOBs). This includes a data type lo and a trigger lo_manage.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/ltree.html">ltree</a></td>
+<td></td>
+<td>Implements a data type <code>ltree</code> for representing labels of data stored in a hierarchical tree-like structure. Extensive facilities for searching through label trees are provided.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/oldsnapshot.html">oldsnapshot</a></td>
+<td>Required</td>
+<td>Allows inspection of the server state that is used to implement <a href="https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD">old_snapshot_threshold</a>.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pageinspect.html">pageinspect</a></td>
+<td>Required</td>
+<td>Provides functions that allow you to inspect the contents of database pages at a low level, which is useful for debugging purposes.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/passwordcheck.html">passwordcheck</a></td>
+<td></td>
+<td>Checks users&rsquo; passwords whenever they are set with CREATE ROLE or ALTER ROLE. If a password is considered too weak, it will be rejected and the command will terminate with an error.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgbuffercache.html">pg_buffercache</a></td>
+<td>Required</td>
+<td>Provides the set of functions for examining what&rsquo;s happening in the shared buffer cache in real time.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgcrypto.html">pgcrypto</a></td>
+<td>Required</td>
+<td>Provides cryptographic functions for PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgfreespacemap.html">pg_freespacemap</a></td>
+<td>Required</td>
+<td>Provides a means of examining the free space map (FSM), which PostgreSQL uses to track the locations of available space in tables and indexes. This can be useful for understanding space utilization and planning for maintenance operations.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgprewarm.html">pg_prewarm</a></td>
+<td></td>
+<td>Provides a convenient way to load relation data into either the operating system buffer cache or the PostgreSQL buffer cache. This can be useful for reducing the time needed for a newly started database to reach its full performance potential by preloading frequently accessed data.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgrowlocks.html">pgrowlocks</a></td>
+<td>Required</td>
+<td>Provides a function to show row locking information for a specified table.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgstatstatements.html">pg_stat_statements</a></td>
+<td>Required</td>
+<td>A module for tracking planning and execution statistics of all SQL statements executed by a server. Consider using an advanced version of <code>pg_stat_statements</code> - <a href="pg-stat-monitor.html"><code>pg_stat_monitor</code></a></td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgstattuple.html">pgstattuple</a></td>
+<td>Required</td>
+<td>Povides various functions to obtain tuple-level statistics. It offers detailed information about tables and indexes, such as the amount of free space and the number of live and dead tuples.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgsurgery.html">pg_surgery</a></td>
+<td>Required</td>
+<td>Provides various functions to perform surgery on a damaged relation. These functions are unsafe by design and using them may corrupt (or further corrupt) your database. Use them with caution and only as a last resort</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgtrgm.html">pg_trgm</a></td>
+<td></td>
+<td>Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. A trigram is a contiguous sequence of three characters. The extension can be used for text search and pattern matching operations.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgvisibility.html">pg_visibility</a></td>
+<td>Required</td>
+<td>Provides a way to examine the visibility map (VM) and the page-level visibility information of a table. It also provides functions to check the integrity of a visibility map and to force it to be rebuilt.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/pgwalinspect.html">pg_walinspect</a></td>
+<td>Required</td>
+<td>Provides SQL functions that allow you to inspect the contents of write-ahead log of a running PostgreSQL database cluster at a low level, which is useful for debugging, analytical, reporting or educational purposes.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/postgres-fdw.html">postgres_fdw</a></td>
+<td>Required</td>
+<td>Provides a Foreign Data Wrapper (FDW) for accessing data in remote PostgreSQL servers. It allows a PostgreSQL database to interact with remote tables as if they were local.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/seg.html">seg</a></td>
+<td></td>
+<td>Implements a data type <code>seg</code> for representing line segments, or floating point intervals. <code>seg</code> can represent uncertainty in the interval endpoints, making it especially useful for representing laboratory measurements.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/sepgsql.html">segpgsql</a></td>
+<td></td>
+<td>SELinux-, label-based mandatory access control (MAC) security module. It can only be used on Linux 2.6.28 or higher with SELinux enabled.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/contrib-spi.html">spi</a></td>
+<td>Required</td>
+<td>Provides several workable examples of using the Server Programming Interface (SPI) and triggers.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/sslinfo.html">sslinfo</a></td>
+<td>Reqjuired</td>
+<td>Provides information about the SSL certificate that the current client provided when connecting to PostgreSQL.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/tablefunc.html">tablefunc</a></td>
+<td></td>
+<td>Includes various functions that return tables (that is, multiple rows). These functions are useful both in their own right and as examples of how to write C functions that return multiple rows.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/tcn.html">tcn</a></td>
+<td></td>
+<td>Provides a trigger function that notifies listeners of changes to any table on which it is attached.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/test-decoding.html">test_decoding</a></td>
+<td>Required</td>
+<td>An SQL-based test/example module for WAL logical decoding</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/tsm-system-rows.html">tsm_system_rows</a></td>
+<td></td>
+<td>Provides the table sampling method SYSTEM_ROWS, which can be used in the TABLESAMPLE clause of a SELECT command.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/tsm-system-time.html">tsm_system_time</a></td>
+<td></td>
+<td>Provides the table sampling method  SYSTEM_TIME, which can be used in the TABLESAMPLE clause of a SELECT command.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/unaccent.html">unaccent</a></td>
+<td></td>
+<td>A text search dictionary that removes accents (diacritic signs) from lexemes. It&rsquo;s a filtering dictionary, which means its output is always passed to the next dictionary (if any). This allows accent-insensitive processing for full text search.</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/uuid-ossp.html">uuid-ossp</a></td>
+<td>Required</td>
+<td>Provides functions to generate universally unique identifiers (UUIDs) using one of several standard algorithms</td>
+</tr>
+<tr>
+<td><a href="https://www.postgresql.org/docs/16/xml2.html">xml2</a></td>
+<td>Required</td>
+<td>Provides XPath querying and XSLT functionality. It allows for complex querying and transformation of XML data stored in PostgreSQL.</td>
+</tr>
+</tbody>
+</table>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -1730,7 +1965,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 14, 2024</span>
   </span>
 
     
@@ -1740,7 +1975,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 14, 2024</span>
   </span>
 
     
