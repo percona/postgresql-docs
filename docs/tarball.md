@@ -4,8 +4,8 @@ You can find the binary tarballs on the [Percona website](https://www.percona.co
 
 There are the following tarballs available: 
 
-* percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz  - for operating systems that run OpenSSL version 1.1
-* percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz - for for operating systems that run OpenSSL version 3.0
+* percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz  - for operating systems that run OpenSSL version 1.x
+* percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz - for for operating systems that run OpenSSL version 3.x
 
 To check what OpenSSL version you have, run the following command: 
 
@@ -60,7 +60,7 @@ The tarballs include the following components:
 
 ## Procedure
 
-The steps below install the tarballs for OpenSSL 3.0. Use another tarball if your operating system has OpenSSL version 1.1.
+The steps below install the tarballs for OpenSSL 3.x. Use another tarball if your operating system has OpenSSL version 1.x.
 
 1. Create the directory where you will store the binaries. For example, `/opt/pgdistro`
 
