@@ -9,21 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently.">
+        <meta name="description" content="Percona Distribution for PostgreSQL is supplied with the set of third-party open source components and tools that provide additional functionality such as high-availability or disaster recovery, without the need of modifying PostgreSQL core code. These components are included in the Percona Distribution for PostgreSQL repository and are tested to work together.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/14/release-notes-v14.4.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/14/third-party.html">
       
       
-        <link rel="prev" href="release-notes-v14.5.html">
+        <link rel="prev" href="contrib.html">
       
       
-        <link rel="next" href="release-notes-v14.3.html">
+        <link rel="next" href="pg-stat-monitor.html">
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
@@ -31,7 +29,7 @@ enable solving essential practical tasks efficiently.">
     
     
       
-        <title>Percona Distribution for PostgreSQL 14.4 (2022-06-27) - Percona Distribution for PostgreSQL</title>
+        <title>Third-party components - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -96,7 +94,7 @@ enable solving essential practical tasks efficiently.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 14.4 (2022-06-27)" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Third-party components" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -123,7 +121,7 @@ enable solving essential practical tasks efficiently.">
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-144-2022-06-27" class="md-skip">
+        <a href="#third-party-components" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +218,7 @@ enable solving essential practical tasks efficiently.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 14.4 (2022-06-27)
+              Third-party components
             
           </span>
         </div>
@@ -403,19 +401,17 @@ enable solving essential practical tasks efficiently.">
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -429,7 +425,7 @@ enable solving essential practical tasks efficiently.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -608,19 +604,17 @@ enable solving essential practical tasks efficiently.">
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
         
           
           
@@ -642,7 +636,7 @@ enable solving essential practical tasks efficiently.">
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
             2022 (versions 14.2 - 14.6)
@@ -674,30 +668,10 @@ enable solving essential practical tasks efficiently.">
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Percona Distribution for PostgreSQL 14.4 (2022-06-27)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="release-notes-v14.4.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v14.4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,37 +680,6 @@ enable solving essential practical tasks efficiently.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1212,17 +1155,19 @@ enable solving essential practical tasks efficiently.">
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1236,7 +1181,7 @@ enable solving essential practical tasks efficiently.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Extensions
@@ -1289,10 +1234,30 @@ enable solving essential practical tasks efficiently.">
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="third-party.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Third-party components
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="third-party.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1301,6 +1266,37 @@ enable solving essential practical tasks efficiently.">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1938,7 +1934,7 @@ enable solving essential practical tasks efficiently.">
                   
 
   
-    <a href="https://github.com/percona/postgresql-docs/edit/14/docs/release-notes-v14.4.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/edit/14/docs/third-party.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1947,44 +1943,91 @@ enable solving essential practical tasks efficiently.">
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/14/docs/release-notes-v14.4.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/14/docs/third-party.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="percona-distribution-for-postgresql-144-2022-06-27">Percona Distribution for PostgreSQL 14.4 (2022-06-27)<a class="headerlink" href="#percona-distribution-for-postgresql-144-2022-06-27" title="Permanent link">&para;</a></h1>
+<h1 id="third-party-components">Third-party components<a class="headerlink" href="#third-party-components" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL is supplied with the set of third-party open source components and tools that provide additional functionality such as high-availability or disaster recovery, without the need of modifying PostgreSQL core code. These components are included in the Percona Distribution for PostgreSQL repository and are tested to work together.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Release date:</th>
-<th style="text-align: left;">June 27, 2022</th>
+<th>Name</th>
+<th>Superuser privileges</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Installation</strong>:</td>
-<td style="text-align: left;"><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></td>
+<td><a href="http://www.haproxy.org/">HAProxy</a></td>
+<td>Required</td>
+<td>A high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>Required</td>
+<td>An HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">pgAudit</a></td>
+<td>Required</td>
+<td>Provides detailed session or object audit logging via the standard PostgreSQL logging facility</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>Required</td>
+<td>The <code>set_user</code> part of <code>pgAudit</code> extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>Required</td>
+<td>A backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>Required</td>
+<td>A fast PostgreSQL Log Analyzer</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>Required</td>
+<td>A lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jobinau/pg_gather">pg_gather</a></td>
+<td>Required</td>
+<td>An SQL script to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases</td>
+</tr>
+<tr>
+<td><a href="https://www.pgpool.net/mediawiki/index.php/Main_Page">pgpool2</a></td>
+<td>Required</td>
+<td>A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>Required</td>
+<td>Rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>Required</td>
+<td>Collects and aggregates statistics for PostgreSQL and provides histogram information</td>
+</tr>
+<tr>
+<td><a href="http://postgis.net/">PostGIS</a></td>
+<td>Required</td>
+<td>Allows storing and manipulating spacial data in PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>Required</td>
+<td>A PostgreSQL logical decoding JSON output plugin.</td>
 </tr>
 </tbody>
 </table>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/release/14.4/">PostgreSQL 14.4</a>. It fixes the issue with all PostgreSQL 14 versions that could cause silent data corruption when using the <code>CREATE INDEX CONCURRENTLY</code> or <code>REINDEX CONCURRENTLY</code> commands. Learn how to detect and fix silent data corruption in your indexes in the <a href="https://www.postgresql.org/about/news/postgresql-144-released-2470/">upstream documentation</a>.</p>
-<p>This release also includes the following bug fixes:</p>
-<ul>
-<li>Query plan memorization fixes</li>
-<li>Fixes for queries in which a &ldquo;whole-row variable&rdquo; references the result of a function that returns a domain over composite type</li>
-<li>Fixed the &ldquo;variable not found in subplan target list&rdquo; planner error using a <code>sub-SELECT</code> that is referenced in a <code>GROUPING</code> function</li>
-<li>Fixed error checking in <code>COPY FROM</code> when the database encoding is <code>SQL_ASCII</code> but the client encoding is a multi-byte encoding.</li>
-<li>Reported implicitly-created operator families (generated by <code>CREATE OPERATOR CLASS</code>) to event triggers.</li>
-<li>Prevented triggering <code>wal_receiver_timeout</code> on a standby during logical replication of large transactions.</li>
-<li>Removed incorrect TLS private key file ownership check in <code>libpq</code>.</li>
-<li>Prevented crash after server connection loss in <code>pg_amcheck</code>.</li>
-</ul>
-<p>Find the full list of changes in the <a href="https://www.postgresql.org/docs/release/14.4/">PostgreSQL 14.4 release notes</a>. </p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2016,7 +2059,7 @@ enable solving essential practical tasks efficiently.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 27, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 14, 2024</span>
   </span>
 
     
@@ -2026,7 +2069,7 @@ enable solving essential practical tasks efficiently.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 27, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 14, 2024</span>
   </span>
 
     
