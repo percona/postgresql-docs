@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently.">
+        <meta name="description" content="Percona Distribution for PostgreSQL includes a set of extensions that have been tested to work together. These extensions enable you to efficiently solve essential practical tasks to operate and manage PostgreSQL.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/15/index.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/15/extensions.html">
       
       
+        <link rel="prev" href="minor-upgrade.html">
       
-        <link rel="next" href="release-notes.html">
+      
+        <link rel="next" href="contrib.html">
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
@@ -29,7 +29,7 @@ extensions that enable solving essential practical tasks efficiently.">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Extensions - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -91,8 +91,10 @@ extensions that enable solving essential practical tasks efficiently.">
                
                  
                  
+                 
+                 
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Extensions" />
                  <meta property="og:image" content="https://docs.percona.com/percona-backup-mongodb/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-backup-mongodb/">
                 </head>
@@ -119,7 +121,7 @@ extensions that enable solving essential practical tasks efficiently.">
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-15-documentation" class="md-skip">
+        <a href="#extensions" class="md-skip">
           Skip to content
         </a>
       
@@ -216,7 +218,7 @@ extensions that enable solving essential practical tasks efficiently.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Extensions
             
           </span>
         </div>
@@ -379,30 +381,10 @@ extensions that enable solving essential practical tasks efficiently.">
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,37 +393,6 @@ extensions that enable solving essential practical tasks efficiently.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1006,17 +957,19 @@ extensions that enable solving essential practical tasks efficiently.">
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1030,7 +983,7 @@ extensions that enable solving essential practical tasks efficiently.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Extensions
@@ -1041,10 +994,30 @@ extensions that enable solving essential practical tasks efficiently.">
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="extensions.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Extensions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="extensions.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1053,6 +1026,46 @@ extensions that enable solving essential practical tasks efficiently.">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-an-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install an extension
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1709,6 +1722,15 @@ extensions that enable solving essential practical tasks efficiently.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install-an-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install an extension
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-expert-help" class="md-nav__link">
     <span class="md-ellipsis">
       Get expert help
@@ -1732,7 +1754,7 @@ extensions that enable solving essential practical tasks efficiently.">
                   
 
   
-    <a href="https://github.com/percona/postgresql-docs/edit/15/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/edit/15/docs/extensions.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1741,35 +1763,33 @@ extensions that enable solving essential practical tasks efficiently.">
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/15/docs/index.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/15/docs/extensions.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="percona-distribution-for-postgresql-15-documentation">Percona Distribution for PostgreSQL 15 Documentation<a class="headerlink" href="#percona-distribution-for-postgresql-15-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently.</p>
-<p><a class="md-button" href="extensions.html">What&rsquo;s included in the Distribution</a></p>
-<p><a class="md-button" href="installing.html">Get started</a>
-<a class="md-button" href="release-notes-v15.6.html">What&rsquo;s new</a></p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>Percona Blog:</p>
+<h1 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL includes a set of extensions that have been tested to work together. These extensions enable you to efficiently solve essential practical tasks to operate and manage PostgreSQL.</p>
+<p>The set of extensions includes the following:</p>
 <ul>
-<li><a href="https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/">pgBackRest - A Great Backup Solution and a Wonderful Year of
-  Growth</a></li>
-<li><a href="https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/">Securing PostgreSQL as an Enterprise-Grade
-  Environment</a></li>
+<li><a href="contrib.html">PostgreSQL contrib modules and utilities</a></li>
+<li><a href="third-party.html">Third-party components</a></li>
+<li>
+<p>Extensions authored by Percona:</p>
+<ul>
+<li><a href="pg-stat-monitor.html"><code>pg_stat_monitor</code></a></li>
+<li><a href="#"><code>pg_tde</code></a> </li>
 </ul>
-</div>
-<p>Percona Distribution for PostgreSQL is also shipped with the
-<a href="https://www.postgresql.org/docs/15/libpq.html">libpq</a> library. It
-contains &ldquo;a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries.&rdquo;</p>
+</li>
+<li>
+<p>Extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it and supported by Percona.</p>
+</li>
+</ul>
+<h2 id="install-an-extension">Install an extension<a class="headerlink" href="#install-an-extension" title="Permanent link">&para;</a></h2>
+<p>To use an extension, install it. Run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code></a> command on the PostgreSQL node where you want the extension to be available. </p>
+<p>The user should be a superuser or have the <code>CREATE</code> privilege on the current database to be able to run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code></a> command. Some extensions may require additional privileges depending on their functionality. To learn more, check the documentation for the desired extension.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
