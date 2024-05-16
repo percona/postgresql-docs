@@ -2,202 +2,202 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.percona.com/postgresql/15/index.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/apt.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/contrib.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/docker.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/enable-extensions.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/extensions.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/installing.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/ldap.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/licensing.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/major-upgrade.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/migration.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/minor-upgrade.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/pg-stat-monitor.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.0.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.1.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.2.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.2.upd.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.3.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.4.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.5.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.5.upd.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.6.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/repo-overview.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/telemetry.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/third-party.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/trademark-policy.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/uninstalling.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/yum.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/backup-recovery.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/dr-pgbackrest-setup.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/ha-setup-apt.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/ha-setup-yum.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/ha-test.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/high-availability.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/pgbackrest.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/postgis-deploy.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/postgis-testing.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/postgis-upgrade.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/solutions/postgis.html</loc>
-         <lastmod>2024-05-14</lastmod>
+         <lastmod>2024-05-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
