@@ -8,10 +8,10 @@ extensions that enable solving essential practical tasks efficiently:
 
 * [Patroni](https://patroni.readthedocs.io/en/latest/) is an HA (High Availability) solution for PostgreSQL.
 
-* [pgAudit](https://www.pgaudit.org/) provides detailed session or object
+* [pgaudit](https://www.pgaudit.org/) provides detailed session or object
 audit logging via the standard PostgreSQL logging facility
 
-* [pgAudit set_user](https://github.com/pgaudit/set_user) - The `set_user` part of `pgAudit` extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.
+* [pgaudit set_user](https://github.com/pgaudit/set_user) - The `set_user` part of `pgAudit` extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.
 
 * [pgBackRest](https://pgbackrest.org/) is a backup and restore solution for
 PostgreSQL
@@ -33,7 +33,7 @@ PostgreSQL database objects
 
 * [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
 
-* A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/16/contrib.html)
+* A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/{{pgversion}}/contrib.html)
 
 
 [Get started](installing.md){ .md-button }

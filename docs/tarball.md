@@ -19,7 +19,7 @@ The tarballs include the following components:
 
 | Component | Description |
 |-----------|-------------|
-| percona-postgresql{{pgversion}}| A metapackage that installs the latest version of PostgreSQL|
+| percona-postgresql{{pgversion}}| A metapackage that installs the latest version of PostgreSQL. It also includes the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> -  the set of [contrib extensions](contrib.md)|
 | percona-haproxy | A high-availability solution and load-balancing solution |
 | percona-patroni | A high-availability solution for PostgreSQL |
 | percona-pgbackrest| A backup and restore tool |
@@ -85,10 +85,10 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
 5. Add the location of the binaries to the PATH variable:
 
     ```{.bash data-prompt="$"}
-    $ export PATH=:/opt/pgdistro/percona-haproxy/bin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/bin/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql{{pgversion}}/bin/:$PATH
+    $ export PATH=:/opt/pgdistro/percona-haproxy/sbin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql{{pgversion}}/bin/:$PATH
     ```
 
-6. Create the data directory. For example, `/usr/local/pgsql/data`.
+6. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
 7. Grant access to this directory for the `mypguser` user.
 
     ```{.bash data-prompt="$"}
@@ -144,3 +144,12 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
         postgres=#
         ```
    
+### Start the components
+
+After you unpacked the tarball and added the location of the components' binaries to the $PATH variable, the components are available for use. You can invoke a component by running its command-line tool. For example, to check HAProxy version, type:
+
+```{.bash data-prompt="$"}
+$ haproxy version
+```
+
+Some components require additional setup. Check the [Enabling extensions](enable-extensions.md) page for details.
