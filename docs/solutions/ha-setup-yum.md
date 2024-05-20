@@ -116,9 +116,16 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 The distributed configuration store provides a reliable way to store data that needs to be accessed by large scale distributed systems. The most popular implementation of the distributed configuration store is ETCD. ETCD is deployed as a cluster for fault-tolerance and requires an odd number of members (n/2+1) to agree on updates to the cluster state. An ETCD cluster helps establish a consensus among nodes during a failover and manages the configuration for the three PostgreSQL instances.
 
-The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. The configuration is stored in the `/etc/etcd/etcd.conf` configuration file.
+Starting with ETCD 3.5.x. the cluster is configured from a sufficient number of nodes (minimum 3 nodes to follow the n2+1 rule of nodes to form the quorum) and bootstrapped using one of the following methods:
 
-### Configure `node1`
+* Static in the case when the IP addresses of the cluster nodes are known
+* Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.
+
+For how to configure ETCD cluster with earlier versions of ETCD, read the blog post by _Fernando Laudares Camargos _and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
+
+This document focuses on the static bootstrapping method.
+
+Run the following commands on every `etcd` node:
 
 1. Backup the `etcd.conf` file:
     
@@ -152,12 +159,12 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
        $ export ETCD_DATA_DIR='/var/lib/etcd/postgresql'
        ```
 
-3. Modify the `/etc/etcd/etcd.conf` configuration file:
+3. Modify the `/etc/default/etcd` configuration file. Replace the URLs for the `ETCD_INITIAL_CLUSTER` parameter with the actual URLs and names of your nodes. 
 
     ```{.bash data-prompt="$"} 
     $ echo "
     ETCD_NAME=${NODE_NAME}
-    ETCD_INITIAL_CLUSTER="${NODE_NAME}=http://${NODE_IP}:2380"
+    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
     ETCD_INITIAL_CLUSTER_STATE="new"
     ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
     ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
@@ -165,107 +172,18 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
     ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
     ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/etcd/etcd.conf 
+    " | sudo tee -a /etc/default/etcd
     ```
 
-4.  Start the `etcd` to apply the changes on `node1`:
+4.  Start the `etcd` to apply the changes:
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
-    $ sudo systemctl status etcd
-    ```
+     ```{.bash data-prompt="$"}
+     $ sudo systemctl enable --now etcd
+     $ sudo systemctl start etcd
+     $ sudo systemctl status etcd
+     ```
 
-5. Check the etcd cluster members on `node1`.
-    
-    ```{.bash data-prompt="$"}
-    $ sudo etcdctl member list
-    ```
-
-    The output resembles the following:
-
-    ```{.text .no-copy}
-    21d50d7f768f153a: name=default peerURLs=http://10.104.0.5:2380 clientURLs=http://10.104.0.5:2379 isLeader=true
-    ```
-
-6. Add `node2` to the cluster. Run the following command on `node1`:
-    
-    ```{.bash data-prompt="$"}
-    $ sudo etcdctl member add node2 http://10.104.0.2:2380
-    ```
-
-    The output resembles the following one:
-    
-    ```{.text .no-copy}
-    Added member named node2 with ID 10042578c504d052 to cluster
-
-    ETCD_NAME="node2"
-    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"
-    ```
-
-### Configure `node2`
-
-1. Back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
-2. Edit the `/etc/etcd/etcd.conf` configuration file on `node2` and add the output from the `add` command:
-
-    ```{.bash data-prompt="$"}
-    $ echo "
-    ETCD_NAME="node2"
-    ETCD_INITIAL_CLUSTER="node1=http://10.0.100.1:2380,node2=http://10.0.100.2:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"
-
-    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/etcd/etcd.conf
-    ```
-
-3. Start the `etcd` to apply the changes on `node2`:
-    
-    ```{.bash data-promp="$"}
-    $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
-    $ sudo systemctl status etcd
-    ```
-
-### Configure `node3`
-
-1. Add `node3` to the cluster. **Run the following command on `node1`**:
-    
-    ```{.bash data-prompt="$"}
-    $ sudo etcdctl member add node3 http://10.104.0.3:2380
-    ```
-
-2. On `node3`, back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
-3. Modify the `/etc/etcd/etcd.conf` configuration file on `node3` and add the output from the `add` command as follows:
-
-    ```{.bash data-prompt="$"}
-    $ echo "
-    ETCD_NAME=node3
-    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"  
-    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/etcd/etcd.conf
-    ```  
-
-3. Start the `etcd` service on `node3`:
-
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
-    $ sudo systemctl status etcd
-    ```
-
-4. Check the etcd cluster members.
+4. Check the etcd cluster members.  Connect to one of the nodes and run the following command:
     
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member list
@@ -278,7 +196,6 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379 isLeader=false
     c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
     ``` 
-
 
 ## Configure Patroni
 
