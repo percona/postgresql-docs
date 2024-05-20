@@ -1,8 +1,8 @@
 # Extensions
 
-Percona Distribution for PostgreSQL includes a set of extensions that have been tested to work together. These extensions enable you to efficiently solve essential practical tasks to operate and manage PostgreSQL.
+PostgreSQL extensions are add-ons that enhance the functionality of PostgreSQL databases. By installing these extensions, you can modify and extend your database system with new features, functions, and data types.
 
-The set of extensions includes the following:
+Percona Distribution for PostgreSQL includes extensions that have been tested to work together. These extensions encompass the following:
 
 * [PostgreSQL contrib modules and utilities](contrib.md)
 * Extensions authored by Percona:
@@ -11,8 +11,8 @@ The set of extensions includes the following:
     * [`pg_tde`](#) 
 
 * [Third-party components](third-party.md)
-* Extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it and supported by Percona.
-* Other [PostgreSQL software covered by Percona Support](https://www.percona.com/services/support/support-tiers-postgresql).
+
+Percona also supports extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it. See the list of [PostgreSQL software](https://www.percona.com/services/support/support-tiers-postgresql) covered by Percona Support.
 
 ## Install an extension
 
