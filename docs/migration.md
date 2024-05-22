@@ -11,7 +11,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
 
 === "On Debian and Ubuntu Linux"
 
-     To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. 
+     >To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. For more information, see the blog post [PostgreSQL Upgrade Using pg_dumpall](https://www.percona.com/blog/postgresql-upgrade-using-pg_dumpall/) by _Avinash Vallarapu_, _Fernando Laudares Camargos_, _Jobin Augustine_ and _Nickolay Ihalainen_.
 
      1. Stop the `postgresql` server   
 
