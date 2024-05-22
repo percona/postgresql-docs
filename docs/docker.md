@@ -6,7 +6,7 @@ For more information about using Docker, see the [Docker Docs  :octicons-link-ex
 
 !!! note ""
 
-    Make sure that you are using the latest version of Docker. The ones provided via `apt` and `yum` may be outdated and cause errors.
+    Make sure that you are using [the latest version of Docker :octicons-link-external-16:](https://docs.docker.com/get-docker/). The ones provided via `apt` and `yum` may be outdated and cause errors.
 
     By default, Docker pulls the image from Docker Hub if it is not available locally.
 
