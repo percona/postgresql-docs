@@ -12,7 +12,7 @@ Percona Distribution for PostgreSQL includes extensions that have been tested to
 
 * [Third-party components](third-party.md)
 
-Percona also supports extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it. See the list of [PostgreSQL software](https://www.percona.com/services/support/support-tiers-postgresql) covered by Percona Support.
+Percona also supports [extra modules](https://repo.percona.com/ppg-16-extras/), not included in Percona Distribution for PostgreSQL but tested to work with it. See the list of [PostgreSQL software](https://www.percona.com/services/support/support-tiers-postgresql) covered by Percona Support.
 
 ## Install an extension
 
