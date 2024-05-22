@@ -8,15 +8,16 @@ The set of extensions includes the following:
 * Extensions authored by Percona:
   
     * [`pg_stat_monitor`](pg-stat-monitor.md)
-    * [`pg_tde`](#) 
 
-<<<<<<< HEAD
-* Extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it and supported by Percona.
-=======
 * [Third-party components](third-party.md)
 * Extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it and supported by Percona.
 * Other [PostgreSQL software covered by Percona Support](https://www.percona.com/services/support/support-tiers-postgresql).
->>>>>>> 9ee26788... Restructured docs
+
+
+Percona also supports [extra modules](https://repo.percona.com/ppg-16-extras/), not included in Percona Distribution for PostgreSQL but tested to work with it.
+
+Additionally, see the list of [PostgreSQL software](https://www.percona.com/services/support/support-tiers-postgresql) covered by Percona Support.
+>>>>>>> 7c41d733... Reworked the What's in it section
 
 ## Install an extension
 
