@@ -178,6 +178,7 @@ nav:
         - "Overview": "installing.md"
         - "Install via apt": "apt.md"
         - "Install via yum": "yum.md"
+        - "From tarballs": "tarball.md"
         - enable-extensions.md
         - repo-overview.md
       - "Run in Docker": docker.md
