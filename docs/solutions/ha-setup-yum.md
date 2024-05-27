@@ -5,9 +5,10 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 ## Considerations
 
-1. This is the example deployment suitable to be used for testing purposes in non-production environments. 
-2. In this setup ETCD resides on the same hosts as Patroni. In production, consider deploying ETCD cluster on dedicated hosts because ETCD writes every request from the cluster to disk which requires significant amount of disk space. See [hardware recommendations](https://etcd.io/docs/v3.6/op-guide/hardware/) for details.
-3. For this setup, we use the nodes running on Red Hat Enterprise Linux 8 as the base operating system:
+1. This is an example deployment where ETCD runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively ETCD can run on different set of nodes. 
+
+    If ETCD is deployed on same host machine as Patroni and PostgreSQL, separate disk system for ETCD and PostgreSQL is recommended due to performance reasons.
+2. For this setup, we use the nodes running on Red Hat Enterprise Linux 8 as the base operating system:
 
     | Node name     | Application       | IP address
     |---------------|-------------------|--------------------
@@ -19,7 +20,7 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 !!! note
 
-    Ideally, in a production (or even non-production) setup, the PostgreSQL and ETCD nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a private environment, and each node can access the other by its internal, private IP.  
+    We recommend not to expose the hosts/nodes where Patroni / ETCD / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack.   
 
 ## Initial setup 
 
@@ -127,61 +128,84 @@ This document focuses on the static bootstrapping method.
 
 Run the following commands on every `etcd` node:
 
-1. Backup the `etcd.conf` file:
-    
-    ```{.bash data-promp="$"}
-    $ sudo mv /etc/etcd/etcd.conf /etc/etcd/etcd.conf.orig
+1. Create the configuration file. For example, `/etc/etcd/etcd.conf.yaml`. Replace the node names and IP addresses with the actual names and IP addresses of your nodes
+
+    === "node1"
+
+         ```yaml title="/etc/etcd/etcd.conf.yaml"
+         name: 'node1'
+         initial-cluster-token: PostgreSQL_HA_Cluster_1
+         initial-cluster-state: new
+         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         data-dir: /var/lib/etcd/postgresql
+         initial-advertise-peer-urls: http://10.104.0.1:2380 
+         listen-peer-urls: http://10.104.0.1:2380
+         advertise-client-urls: http://10.104.0.1:2379
+         listen-client-urls: http://10.104.0.1:2379
+         ```
+
+    === "node2"
+
+         ```yaml title="/etc/etcd/etcd.conf.yaml"
+         name: 'node2'
+         initial-cluster-token: PostgreSQL_HA_Cluster_1
+         initial-cluster-state: new
+         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         data-dir: /var/lib/etcd/postgresql
+         initial-advertise-peer-urls: http://10.104.0.2:2380 
+         listen-peer-urls: http://10.104.0.2:2380
+         advertise-client-urls: http://10.104.0.2:2379
+         listen-client-urls: http://10.104.0.2:2379
+         ```
+
+    === "node3"
+
+         ```yaml title="/etc/etcd/etcd.conf.yaml"
+         name: 'node1'
+         initial-cluster-token: PostgreSQL_HA_Cluster_1
+         initial-cluster-state: new
+         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         data-dir: /var/lib/etcd/postgresql
+         initial-advertise-peer-urls: http://10.104.0.3:2380 
+         listen-peer-urls: http://10.104.0.3:2380
+         advertise-client-urls: http://10.104.0.3:2379
+         listen-client-urls: http://10.104.0.3:2379
+         ```
+
+2. Create the unit file to instruct systemd how to start ETCD.
+
+    ```ini
+    [Unit]
+    Description=Runners to orchestrate a high-availability PostgreSQL
+    After=network.target
+
+    [Service]
+    #  Set the maximum number of file descriptors that the etcd service can open. 
+    LimitNOFILE=65536
+
+    # Start other services after etcd notifies it has finished the startup
+    Type=notify
+
+    # Run etcd as the user
+    User=etcd
+
+    # Start the patroni process
+    ExecStart=/usr/bin/etcd --config-file /etc/etcd/etcd.conf.yaml
+
+    # Restart the service if it crashes
+    Restart=on-failure
+
+    [Install]
+    WantedBy=multi-user.target
     ```
 
-2. Export environment variables to simplify the config file creation
+3. Start the `etcd` service to apply the changes.
 
-    * Node name:
-
-       ```{.bash data-prompt="$"}
-       $ export NODE_NAME=`hostname -f`
-       ```
-
-    * Node IP:
-
-       ```{.bash data-prompt="$"}
-       $ export NODE_IP=`hostname -i | awk '{print $1}'`
-       ```
-    
-    * Initial cluster token for the ETCD cluster during bootstrap:
-
-       ```{.bash data-prompt="$"}
-       $ export ETCD_TOKEN='PostgreSQL_HA_Cluster_1'
-       ```
-
-    * ETCD data directory:
-
-       ```{.bash data-prompt="$"}
-       $ export ETCD_DATA_DIR='/var/lib/etcd/postgresql'
-       ```
-
-3. Modify the `/etc/default/etcd` configuration file. Replace the URLs for the `ETCD_INITIAL_CLUSTER` parameter with the actual URLs and names of your nodes. 
-
-    ```{.bash data-prompt="$"} 
-    $ echo "
-    ETCD_NAME=${NODE_NAME}
-    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
-    ETCD_INITIAL_CLUSTER_STATE="new"
-    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/default/etcd
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now etcd
+    $ sudo systemctl start etcd
+    $ sudo systemctl status etcd
     ```
-
-4.  Start the `etcd` to apply the changes:
-
-     ```{.bash data-prompt="$"}
-     $ sudo systemctl enable --now etcd
-     $ sudo systemctl start etcd
-     $ sudo systemctl status etcd
-     ```
 
 4. Check the etcd cluster members.  Connect to one of the nodes and run the following command:
     
@@ -260,7 +284,7 @@ Run the following commands on all nodes. You can do this in parallel:
         listen: 0.0.0.0:8008
         connect_address: ${NODE_IP}:8008
 
-    etcd:
+    etcd3:
         host: ${NODE_IP}:2379
 
     bootstrap:
