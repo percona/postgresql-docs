@@ -2,9 +2,9 @@
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
 database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:
+extensions that enable solving essential practical tasks efficiently.
 
-* [HAProxy](http://www.haproxy.org/) - a high-availability and load-balancing solution 
+[What's included in the Distribution](extensions.md){.md-button}
 
 * [Patroni](https://patroni.readthedocs.io/en/latest/) is an HA (High Availability) solution for PostgreSQL.
 
@@ -34,6 +34,7 @@ PostgreSQL database objects
 * [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
 
 * A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/{{pgversion}}/contrib.html)
+
 
 
 [Get started](installing.md){ .md-button }
