@@ -196,6 +196,7 @@ nav:
           - ldap.md
   - Uninstall: uninstalling.md
   - Telemetry: telemetry.md
+  - How to: how-to.md
   - Licensing: licensing.md
   - Trademark policy:
       - trademark-policy.md
