@@ -14,7 +14,6 @@ Unlike traditional encryption methods that require significant changes to databa
 
 * Encryption of heap tables, including TOAST.
 * Storage of encryption keys in either a Hashicorp Vault server or a local keyring file (primarily for development purposes).
-* Configurable key storage through separate JSON configuration files.
 * Configurable encryption settings per database: you can choose which tables to encrypt, achieving granular control over data protection.
 * Replication support.
 * Enhanced security through the ability to rotate master keys used for data encryption, reducing the risk of long-term exposure to potential attacks and aiding compliance with security standards like GDPR, HIPAA, and PCI DSS.
@@ -114,7 +113,7 @@ The setup of the Vault server is out of scope of this document. We're assuming y
     ALTER SYSTEM SET shared_preload_libraries = 'pg_tde';
     ```
 
-2. Start or restart the `postgresql` instance to enable `pg_stat_monitor`. Use the following command for restart:
+2. Start or restart the `postgresql` instance to enable `pg_tde`. Use the following command for restart:
 
 
     === "On Debian and Ubuntu"
