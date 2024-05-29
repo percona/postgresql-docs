@@ -8,7 +8,9 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.3
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL is now fully compatible with upstream `llvm` packages and includes the latest version of them.
+* Percona Distribution for PostgreSQL is now fully compatible with upstream `llvm` packages and includes the latest version 16.0.6 of them. 
+
+   To ensure a smooth upgrade process, there's one important thing to keep in mind:  **upgrade to the latest minor version within your current major version before going to the next major version**. For example, if you're currently on 15.6, upgrade to 15.7 first, then you can upgrade to 16.3. This two-step approach avoids any potential conflicts caused by differing llvm versions.
 * Percona Distribution for PostgreSQL now includes the ETCD distributed configuration store version 3.5.x for all supported operating systems. This enhancement simplifies deploying high-availability solutions because you can install all necessary components from a single source, ensuring their seamless compatibility.
 * Percona Distribution for PostgreSQL is now available on Ubuntu 24.04 LTS Noble Numbat.
 
