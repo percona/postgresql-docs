@@ -8,6 +8,8 @@
 
 Instead of adding `etcd` nodes one by one, you can configure and start all nodes in parallel. 
 
+1. Create the ETCD configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
+
     === "node1"
 
          ```yaml title="/etc/etcd/etcd.conf.yaml"

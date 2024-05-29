@@ -7,7 +7,8 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 1. This is an example deployment where ETCD runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively ETCD can run on different set of nodes. 
 
-    If ETCD is deployed on same host machine as Patroni and PostgreSQL, separate disk system for ETCD and PostgreSQL is recommended due to performance reasons.
+    If ETCD is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for ETCD and PostgreSQL is recommended due to performance reasons.
+    
 2. For this setup, we use the nodes running on Red Hat Enterprise Linux 8 as the base operating system:
 
     | Node name     | Application       | IP address
@@ -128,7 +129,7 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     * Static in the case when the IP addresses of the cluster nodes are known
     * Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.
 
-    See the [How to configure ETCD nodes simultaneously](how-to.md#how-to-configure-etcd-nodes-simultaneously) section for details.
+    See the [How to configure ETCD nodes simultaneously](../how-to.md#how-to-configure-etcd-nodes-simultaneously) section for details.
 
 ### Configure `node1`
 
