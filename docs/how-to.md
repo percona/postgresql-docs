@@ -8,7 +8,7 @@
 
 Instead of adding `etcd` nodes one by one, you can configure and start all nodes in parallel. 
 
-1. Create the ETCD configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
+1. Create the ETCD configuration file on every node. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
 
     === "node1"
 
@@ -52,21 +52,15 @@ Instead of adding `etcd` nodes one by one, you can configure and start all nodes
          listen-client-urls: http://10.104.0.3:2379
          ```
 
-2. Enable the `etcd` service:
+2. Enable and start the `etcd` service on all nodes:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
     ```
 
-3. Start `etcd`:
+    During the node start, ETCD searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the ETCD cluster to be created.
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl start etcd
-    ```
-    
-    During the node start, ETCD searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a timeout. This is expected behavior. 
-
-4. Check the etcd cluster members.  Connect to one of the nodes and run the following command:
+3. Check the etcd cluster members.  Connect to one of the nodes and run the following command:
     
     ```{.bash data-prompt="$"}
     $ sudo etcdctl member list

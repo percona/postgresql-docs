@@ -147,11 +147,10 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     listen-client-urls: http://10.104.0.1:2379
     ```
 
-2. Start the `etcd` service to apply the changes on `node1`.
+2. Enable and start the `etcd` service to apply the changes on `node1`.
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
@@ -199,11 +198,10 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
     listen-client-urls: http://10.104.0.2:2379
     ```
 
-3. Start the `etcd` service to apply the changes on `node2`:
+3. Enable and start the `etcd` service to apply the changes on `node2`:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
@@ -229,11 +227,10 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
          listen-client-urls: http://10.104.0.3:2379
          ```
 
-3. Start the `etcd` service to apply the changes.
+3. Enable and start the `etcd` service to apply the changes.
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
