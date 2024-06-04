@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 16.3 (2024-05-27)
+# Percona Distribution for PostgreSQL 16.3 (2024-06-05)
 
 [Installation](installing.md){.md-button}
 
@@ -8,11 +8,12 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.3
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL is now fully compatible with upstream `llvm` packages and includes the latest version 16.0.6 of them. 
-
-   To ensure a smooth upgrade process, there's one important thing to keep in mind:  **upgrade to the latest minor version within your current major version before going to the next major version**. For example, if you're currently on 15.6, upgrade to 15.7 first, then you can upgrade to 16.3. This two-step approach avoids any potential conflicts caused by differing llvm versions.
 * Percona Distribution for PostgreSQL now includes the ETCD distributed configuration store version 3.5.x for all supported operating systems. This enhancement simplifies deploying high-availability solutions because you can install all necessary components from a single source, ensuring their seamless compatibility.
 * Percona Distribution for PostgreSQL is now available on Ubuntu 24.04 LTS Noble Numbat.
+* Percona Distribution for PostgreSQL on Red Hat Enterprise Linux 8 and compatible derivatives is now fully compatible with upstream `llvm` packages and includes the latest version 16.0.6 of them. 
+
+    To ensure a smooth upgrade process, the recommended approach is to  **upgrade to the latest minor version within your current major version before going to the next major version**. For example, if you're currently on 15.6, upgrade to 15.7 first, then you can upgrade to 16.3. This two-step approach avoids any potential conflicts caused by differing `llvm` versions on Red Hat Enterprise Linux 8 and compatible derivatives.
+
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
@@ -31,18 +32,14 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.5.1 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.5.0   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|2.0.4 | collects and aggregates statistics for PostgreSQL and provides histogram information.|
-| [PostGIS](https://github.com/postgis/postgis) | 3.3.5 | a spatial extension for PostgreSQL.|
-| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 256 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
-|[wal2json](https://github.com/eulerto/wal2json)  |2.5       | a PostgreSQL logical decoding JSON output plugin|
+| [PostGIS](https://github.com/postgis/postgis) | 3.3.6 | a spatial extension for PostgreSQL.|
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)| 259 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
+|[wal2json](https://github.com/eulerto/wal2json)  |2.6       | a PostgreSQL logical decoding JSON output plugin|
 
-Percona Distribution for PostgreSQL also includes the following packages:
+Percona Distribution for PostgreSQL Red Hat Enterprise Linux 8 and compatible derivatives also includes the following packages:
 
-* `llvm` 16.0.6 packages for Red Hat Enterprise Linux 8 and compatible derivatives. This fixes compatibility issues with LLVM from upstream.
-* supplemental `ETCD` packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:
-
-|  Operating System     | Package              | Version | Description        |
-| --------------------- | ---------------------| --------| ------------------ |
-| RHEL 8 and derivatives| `python3-etcd`| 0.4.5   | A Python client for ETCD  |
+* `llvm` 16.0.6 packages. This fixes compatibility issues with LLVM from upstream.
+* supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters. 
 
 
                                                       
