@@ -5,18 +5,23 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 ## Preconditions
 
-For this setup, we will use the nodes running on RHEL 8 as the base operating system and having the following IP addresses:
+1. This is an example deployment where ETCD runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively ETCD can run on different set of nodes. 
 
-| Hostname      | Internal IP address
-|---------------|--------------------
-| node1         | 10.104.0.1
-| node2         | 10.104.0.2
-| node3         | 10.104.0.3
-| HAProxy-demo  | 10.104.0.6
+    If ETCD is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for ETCD and PostgreSQL is recommended due to performance reasons.
+
+2. For this setup, we use the nodes running on Red Hat Enterprise Linux 8 as the base operating system:
+
+    | Node name     | Application       | IP address
+    |---------------|-------------------|--------------------
+    | node1         | Patroni, PostgreSQL, ETCD    | 10.104.0.1
+    | node2         | Patroni, PostgreSQL, ETCD    | 10.104.0.2
+    | node3         | Patroni, PostgreSQL, ETCD     | 10.104.0.3
+    | HAProxy-demo  | HAProxy           | 10.104.0.6
+
 
 !!! note
 
-    Ideally, in a production (or even non-production) setup, the PostgreSQL and ETCD nodes will be within a private subnet without any public connectivity to the Internet, and the HAProxy will be in a different subnet that allows client traffic coming only from a selected IP range. To keep things simple, we have implemented this architecture in a private environment, and each node can access the other by its internal, private IP.  
+    We recommend not to expose the hosts / nodes where Patroni / ETCD / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack.   
 
 ## Initial setup 
 
@@ -113,65 +118,41 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is `etcd`. 
 
-In this setup we'll install and configure ETCD on each database node.
+This document provides configuration for ETCD version 3.5.x. For how to configure ETCD cluster with earlier versions of ETCD, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
+
+The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. 
+
+!!! note
+
+    Users with deeper understanding of how ETCD works can configure and start all ETCD nodes at a time and bootstrap the cluster using one of the following methods:
+
+    * Static in the case when the IP addresses of the cluster nodes are known
+    * Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.
+
+    See the [How to configure ETCD nodes simultaneously](../how-to.md#how-to-configure-etcd-nodes-simultaneously) section for details.
 
 ### Configure `node1`
 
-1. Backup the `etcd.conf` file:
-    
-    ```{.bash data-promp="$"}
-    $ sudo mv /etc/etcd/etcd.conf /etc/etcd/etcd.conf.orig
+1. Create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node name and IP address with the actual name and IP address of your node.
+
+    ```yaml title="/etc/etcd/etcd.conf.yaml"
+    name: 'node1'
+    initial-cluster-token: PostgreSQL_HA_Cluster_1
+    initial-cluster-state: new
+    initial-cluster: node1=http://10.104.0.1:2380
+    data-dir: /var/lib/etcd
+    initial-advertise-peer-urls: http://10.104.0.1:2380 
+    listen-peer-urls: http://10.104.0.1:2380
+    advertise-client-urls: http://10.104.0.1:2379
+    listen-client-urls: http://10.104.0.1:2379
     ```
 
-2. Export environment variables to simplify the config file creation
+4.  Start the `etcd` service to apply the changes on `node1`:
 
-    * Node name:
-
-       ```{.bash data-prompt="$"}
-       $ export NODE_NAME=`hostname -f`
-       ```
-
-    * Node IP:
-
-       ```{.bash data-prompt="$"}
-       $ export NODE_IP=`hostname -i | awk '{print $1}'`
-       ```
-    
-    * Initial cluster token for the ETCD cluster during bootstrap:
-
-       ```{.bash data-prompt="$"}
-       $ export ETCD_TOKEN='PostgreSQL_HA_Cluster_1'
-       ```
-
-    * ETCD data directory:
-
-       ```{.bash data-prompt="$"}
-       $ export ETCD_DATA_DIR='/var/lib/etcd/postgresql'
-       ```
-
-3. Modify the `/etc/etcd/etcd.conf` configuration file:
-
-    ```{.bash data-prompt="$"} 
-    $ echo "
-    ETCD_NAME=${NODE_NAME}
-    ETCD_INITIAL_CLUSTER="${NODE_NAME}=http://${NODE_IP}:2380"
-    ETCD_INITIAL_CLUSTER_STATE="new"
-    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/etcd/etcd.conf 
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now etcd
+    $ sudo systemctl status etcd
     ```
-
-4.  Start the `etcd` to apply the changes on `node1`:
-
-     ```{.bash data-prompt="$"}
-     $ sudo systemctl enable --now etcd
-     $ sudo systemctl start etcd
-     $ sudo systemctl status etcd
-     ```
 
 5. Check the etcd cluster members on `node1`:
     
@@ -179,11 +160,11 @@ In this setup we'll install and configure ETCD on each database node.
     $ sudo etcdctl member list
     ```
 
-    The output resembles the following:
+    ??? example "Sample output"
 
-    ```text
-    21d50d7f768f153a: name=default peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
-    ```
+        ```{.text .no-copy}
+        21d50d7f768f153a: name=default peerURLs=http://10.104.0.5:2380 clientURLs=http://10.     104.0.5:2379 isLeader=true
+        ```
 
 6. Configure ETCD on **node2** and **node3**:
 
@@ -197,41 +178,36 @@ In this setup we'll install and configure ETCD on each database node.
 
     ```
 
-    The output will be something similar to below one:
+    ??? example "Sample output"
+    
+        ```{.text .no-copy}
+        Added member named node2 with ID 10042578c504d052 to cluster
 
-    ```text
-    Added member named node2 with ID 10042578c504d052 to cluster
-
-    ETCD_NAME="node2"
-    ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"
-    ```
+        ETCD_NAME="node2"
+        ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+        ETCD_INITIAL_CLUSTER_STATE="existing"
+        ```
 
 ### Configure `node2`
 
-1. Back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
-2. Edit the `/etc/etcd/etcd.conf` configuration file on `node2` and add the output from the `add` command:
+1. Create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
 
-    ```{.bash data-prompt="$"}
-    $ echo "
-    ETCD_NAME="node2"
-    ETCD_INITIAL_CLUSTER="node1=http://10.0.100.1:2380,node2=http://10.0.100.2:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"
-
-    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/etcd/etcd.conf
+    ```yaml title="/etc/etcd/etcd.conf.yaml"
+    name: 'node2'
+    initial-cluster-token: PostgreSQL_HA_Cluster_1
+    initial-cluster-state: existing
+    initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380
+    data-dir: /var/lib/etcd
+    initial-advertise-peer-urls: http://10.104.0.2:2380 
+    listen-peer-urls: http://10.104.0.2:2380
+    advertise-client-urls: http://10.104.0.2:2379
+    listen-client-urls: http://10.104.0.2:2379
     ```
 
-3. Start the `etcd` to apply the changes on `node2`:
+2. Start the `etcd` service to apply the changes on `node2`:
     
-    ```{.bash data-promp="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
@@ -243,28 +219,24 @@ In this setup we'll install and configure ETCD on each database node.
     $ sudo etcdctl member add node3 http://10.104.0.3:2380
     ```
 
-2. On `node3`, back up the configuration file and export environment variables as described in steps 1-2 of the [`node1` configuration](#configure-node1) 
-3. Modify the `/etc/etcd/etcd.conf` configuration file on `node3` and add the output from the `add` command as follows:
+2. On `node3`, create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:
 
-    ```{.bash data-prompt="$"}
-    $ echo "
-    ETCD_NAME=node3
-    ETCD_INITIAL_CLUSTER="node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380"
-    ETCD_INITIAL_CLUSTER_STATE="existing"  
-    ETCD_INITIAL_CLUSTER_TOKEN="${ETCD_TOKEN}"
-    ETCD_INITIAL_ADVERTISE_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_DATA_DIR="${ETCD_DATA_DIR}"
-    ETCD_LISTEN_PEER_URLS="http://${NODE_IP}:2380"
-    ETCD_LISTEN_CLIENT_URLS="http://${NODE_IP}:2379,http://localhost:2379"
-    ETCD_ADVERTISE_CLIENT_URLS="http://${NODE_IP}:2379"
-    " | sudo tee -a /etc/etcd/etcd.conf
-    ```  
+    ```yaml title="/etc/etcd/etcd.conf.yaml"
+    name: 'node1'
+    initial-cluster-token: PostgreSQL_HA_Cluster_1
+    initial-cluster-state: existing
+    initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380
+    data-dir: /var/lib/etcd
+    initial-advertise-peer-urls: http://10.104.0.3:2380 
+    listen-peer-urls: http://10.104.0.3:2380
+    advertise-client-urls: http://10.104.0.3:2379
+    listen-client-urls: http://10.104.0.3:2379
+    ```
 
-3. Start the `etcd` service on `node3`:
+3. Start the `etcd` service to apply the changes.
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
@@ -274,9 +246,13 @@ In this setup we'll install and configure ETCD on each database node.
     $ sudo etcdctl member list
     ```
 
-3. [Install Percona Distribution for PostgreSQL packages](../installing.md#on-red-hat-enterprise-linux-and-centos-using-yum).
+    ??? example "Sample output"
 
-!!! important
+        ```{.text .no-copy}
+        2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379     isLeader=false
+        8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379     isLeader=false
+        c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379     isLeader=true
+        ``` 
 
     **Don't** initialize the cluster and start the `postgresql` service. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
@@ -343,7 +319,7 @@ Run the following commands on all nodes. You can do this in parallel:
         listen: 0.0.0.0:8008
         connect_address: ${NODE_IP}:8008
 
-    etcd:
+    etcd3:
         host: ${NODE_IP}:2379
 
     bootstrap:
