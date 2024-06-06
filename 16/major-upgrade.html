@@ -460,6 +460,27 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v16.3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 16.3 (2024-06-06)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v16.2.html" class="md-nav__link">
         
   
@@ -1743,6 +1764,16 @@
 
 <h1 id="upgrading-percona-distribution-for-postgresql-from-15-to-16">Upgrading Percona Distribution for PostgreSQL from 15 to 16<a class="headerlink" href="#upgrading-percona-distribution-for-postgresql-from-15-to-16" title="Permanent link">&para;</a></h1>
 <p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code> tool.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
+<p>Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. </p>
+<p>To ensure a smooth upgrade path, follow these steps:</p>
+<ul>
+<li>Upgrade to the latest minor version within your current major version (e.g., from 15.6 to 15.7).</li>
+<li>Then, perform the major upgrade to your desired version (e.g., from 15.7 to 16.3).</li>
+</ul>
+</div>
 <p>The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -2072,7 +2103,7 @@ Checking for prepared transactions                          ok
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 31, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 6, 2024</span>
   </span>
 
     
