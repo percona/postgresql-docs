@@ -2,6 +2,18 @@
 
 This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade`
 tool.
+
+!!! important
+
+    When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
+
+    Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. 
+
+    To ensure a smooth upgrade path, follow these steps:
+
+    * Upgrade to the latest minor version within your current major version (e.g., from 12.18 to 12.19).
+    * Then, perform the major upgrade to your desired version (e.g., from 12.19 to 13.15).
+
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
 !!! admonition "See also"
