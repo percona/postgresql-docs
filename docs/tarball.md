@@ -137,7 +137,7 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
         server started
         ```
 
-11. To be able to create database users, set the path to the `createuser` binary via the `LD_LIBRARY_PATH` environment variable.
+11. To use the `createuser` binary to create a database user, set the `LD_LIBRARY_PATH` environment variable to the server's library path.
 
     ```{.bash data-prompt="$"}
     export LD_LIBRARY_PATH=/opt/pgdistro/percona-postgresql{{pgversion}}/lib:$LD_LIBRARY_PATH
