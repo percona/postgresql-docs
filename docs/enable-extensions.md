@@ -10,13 +10,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available upstream as DEB packages for Debian 10, 11 and Ubuntu 18.04, 20.04, 22.04.  
-
-     For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: 
-
-     ```{.bash data-prompt="$"}
-     $ sudo yum install etcd python3-python-etcd
-     ```
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. ETCD is included in Percona distribution for PostgreSQL.
   
 - [HAProxy](http://www.haproxy.org/).
 
