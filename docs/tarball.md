@@ -94,7 +94,7 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
 6. Add the location of the binaries to the PATH variable:
 
     ```{.bash data-prompt="$"}
-    $ export PATH=:/opt/pgdistro/percona-haproxy/sbin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql{{pgversion}}/bin/:$PATH
+    $ export PATH=:/opt/pgdistro/percona-haproxy/sbin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql{{pgversion}}/bin/:/opt/percona-perl/bin:/opt/percona-tcl/bin:/opt/percona-python3/bin/:$PATH
     ```
 
 6. Create the data directory for PostgreSQL server. For example, `/usr/local/pgsql/data`.
