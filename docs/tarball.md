@@ -29,7 +29,7 @@ The tarballs include the following components:
 | percona-perl | A Perl module required to create the `plperl` extension - a procedural language handler for PostgreSQL that allows writing functions in the Perl programming language|
 | percona-python3 | A Python3 module required to create `plpython` extension - a procedural language handler for PostgreSQL that allows writing functions in the Python programming language. Python is also required by Patroni
 | percona-tcl | Tcl development libraries required to create the `pltcl` extension - a loadable procedural language for the PostgreSQL database system that enables the creation of functions and trigger procedures in the Tcl language |
-| etcd | A key-value distributed store that stores the state of the PostgreSQL cluster|
+| percona-etcd | A key-value distributed store that stores the state of the PostgreSQL cluster|
 
 ## Preconditions
 
