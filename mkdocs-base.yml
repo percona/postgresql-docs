@@ -235,6 +235,7 @@ nav:
       - LDAP authentication:
           - ldap.md
   - Telemetry: telemetry.md
+  - How to: how-to.md
   - Uninstall: uninstalling.md
   - Licensing: licensing.md
   - Trademark policy:
