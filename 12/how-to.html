@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker images of Percona Distribution for PostgreSQL are hosted publicly on Docker Hub.">
+        <meta name="description" content="Documentation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/12/docker.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/12/how-to.html">
       
       
-        <link rel="prev" href="repo-overview.html">
+        <link rel="prev" href="telemetry.html">
       
       
-        <link rel="next" href="migration.html">
+        <link rel="next" href="uninstalling.html">
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Run in Docker - Percona Distribution for PostgreSQL</title>
+        <title>How to - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -94,7 +94,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Run in Docker" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - How to" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/12/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                </head>
@@ -121,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#run-percona-distribution-for-postgresql-in-a-docker-container" class="md-skip">
+        <a href="#how-to" class="md-skip">
           Skip to content
         </a>
       
@@ -218,7 +218,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Run in Docker
+              How to
             
           </span>
         </div>
@@ -1214,19 +1214,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -1240,7 +1238,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Installation and Upgrade
@@ -1399,30 +1397,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Run in Docker
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="docker.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1431,73 +1409,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#start-the-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      Start the container
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connect to Percona Distribution for PostgreSQL from an application in another Docker container
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connect to Percona Distribution for PostgreSQL from the psql command line client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-pg_stat_monitor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable pg_stat_monitor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2176,10 +2087,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="how-to.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How to
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="how-to.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2188,6 +2119,46 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-configure-etcd-nodes-simultaneously" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to configure ETCD nodes simultaneously
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2287,36 +2258,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#start-the-container" class="md-nav__link">
+  <a href="#how-to-configure-etcd-nodes-simultaneously" class="md-nav__link">
     <span class="md-ellipsis">
-      Start the container
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connect to Percona Distribution for PostgreSQL from an application in another Docker container
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connect to Percona Distribution for PostgreSQL from the psql command line client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-pg_stat_monitor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enable pg_stat_monitor
+      How to configure ETCD nodes simultaneously
     </span>
   </a>
   
@@ -2348,7 +2292,7 @@
                   
 
   
-    <a href="https://github.com/percona/postgresql-docs/edit/12/docs/docker.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/edit/12/docs/how-to.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2357,196 +2301,81 @@
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/12/docs/docker.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/12/docs/how-to.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
-<p>Docker images of Percona Distribution for PostgreSQL are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub</a>.</p>
-<p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs</a>.</p>
+<h1 id="how-to">How to<a class="headerlink" href="#how-to" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-configure-etcd-nodes-simultaneously">How to configure ETCD nodes simultaneously<a class="headerlink" href="#how-to-configure-etcd-nodes-simultaneously" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
-<p>Make sure that you are using the latest version of Docker. The ones provided via <code>apt</code> and <code>yum</code> may be outdated and cause errors.</p>
-<p>By default, Docker pulls the image from Docker Hub if it is not available locally.</p>
+<p class="admonition-title">Note</p>
+<p>We assume you have a deeper knowledge of how ETCD works. Otherwise, refer to the configuration where you add ETCD nodes one by one. </p>
 </div>
-<details class="admonition" open="open">
-<summary>Docker image contents</summary>
-<p>The Docker image of Percona Distribution for PostgreSQL includes the following components:    </p>
-<table>
-<thead>
-<tr>
-<th>Component name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>percona-postgresql12</code></td>
-<td>A metapackage that installs the latest version of PostgreSQL</td>
-</tr>
-<tr>
-<td><code>percona-postgresql12-server</code></td>
-<td>The PostgreSQL server package.</td>
-</tr>
-<tr>
-<td><code>percona-postgresql-common</code></td>
-<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
-</tr>
-<tr>
-<td><code>percona-postgresql-client-common</code></td>
-<td>The manager for multiple PostgreSQL client versions.</td>
-</tr>
-<tr>
-<td><code>percona-postgresql12-contrib</code></td>
-<td>A collection of additional PostgreSQLcontrib extensions</td>
-</tr>
-<tr>
-<td><code>percona-postgresql12-libs</code></td>
-<td>Libraries for use with PostgreSQL.</td>
-</tr>
-<tr>
-<td><code>percona-pg-stat-monitor12</code></td>
-<td>A Query Performance Monitoring tool for PostgreSQL.</td>
-</tr>
-<tr>
-<td><code>percona-pgaudit12</code></td>
-<td>Provides detailed session or object audit logging via the standard PostgreSQL logging facility.</td>
-</tr>
-<tr>
-<td><code>percona-pgaudit12_set_user</code></td>
-<td>An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</td>
-</tr>
-<tr>
-<td><code>percona-pg_repack12</code></td>
-<td>rebuilds PostgreSQL database objects.</td>
-</tr>
-<tr>
-<td><code>percona-wal2json12</code></td>
-<td>a PostgreSQL logical decoding JSON output plugin.</td>
-</tr>
-</tbody>
-</table>
-</details>
-<h2 id="start-the-container">Start the container<a class="headerlink" href="#start-the-container" title="Permanent link">&para;</a></h2>
+<p>Instead of adding <code>etcd</code> nodes one by one, you can configure and start all nodes in parallel. </p>
 <ol>
 <li>
-<p>Start a Percona Distribution for PostgreSQL container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:&lt;tag&gt;-multi
+<p>Create ETCD configuration file on every node. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">node1</label><label for="__tabbed_1_2">node2</label><label for="__tabbed_1_3">node3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node1&#39;</span>
+<span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
+<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
+<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380</span>
+<span class="nt">data-dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/etcd</span>
+<span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2380</span><span class="w"> </span>
+<span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2380</span>
+<span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2379</span>
+<span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2379</span>
 </code></pre></div>
-<p>Where:    </p>
-<ul>
-<li><code>container-name</code> is the name you assign to your container</li>
-<li><code>POSTGRES_PASSWORD</code> is the superuser password </li>
-<li><code>tag-multi</code> is the tag specifying the version you need. For example, <code>12.18-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags</a>.    </li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can secure the password by exporting it to the environment file and using that to start the container.    </p>
-<ol>
-<li>
-<p>Export the password to the environment file:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;POSTGRES_PASSWORD=secret&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node2&#39;</span>
+<span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
+<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
+<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
+<span class="nt">data-dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/etcd</span>
+<span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2380</span><span class="w"> </span>
+<span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2380</span>
+<span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2379</span>
+<span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2379</span>
 </code></pre></div>
-</li>
-<li>
-<p>Start the container:       </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:&lt;tag&gt;-multi
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node1&#39;</span>
+<span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
+<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
+<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
+<span class="nt">data-dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/etcd</span>
+<span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2380</span><span class="w"> </span>
+<span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2380</span>
+<span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2379</span>
+<span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2379</span>
 </code></pre></div>
-</li>
-</ol>
+</div>
+</div>
 </div>
 </li>
 <li>
-<p>Connect to the container&rsquo;s interactive terminal: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>bash
+<p>Enable and start the <code>etcd</code> service on all nodes:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
 </code></pre></div>
-<p>The <code>container-name</code> is the name of the container that you started in the previous step.</p>
+<p>During the node start, ETCD searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the ETCD cluster to be created.</p>
+</li>
+<li>
+<p>Check the etcd cluster members.  Connect to one of the nodes and run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>list
+</code></pre></div>
+<p>The output resembles the following:</p>
+<div class="highlight"><pre><span></span><code>2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379 isLeader=false
+8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379 isLeader=false
+c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379 isLeader=true
+</code></pre></div>
 </li>
 </ol>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
-<p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>app-container-name<span class="w"> </span>--network<span class="w"> </span>container:container-name<span class="w"> </span>-d<span class="w"> </span>app-that-uses-postgresql<span class="w"> </span>
-</code></pre></div>
-<p>where:</p>
-<ul>
-<li><code>app-container-name</code> is the name of the container where your application is running, </li>
-<li><code>container name</code> is the name of your Percona Distribution for PostgreSQL container, and </li>
-<li><code>app-that-uses-postgresql</code> is the name of your PostgreSQL client.</li>
-</ul>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
-<p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:&lt;tag&gt;-multi<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
-</code></pre></div>
-<p>Where:</p>
-<ul>
-<li><code>db-container-name</code> is the name of your database container</li>
-<li><code>container-name</code> is the name of your container that you will use to connect to the database container using the <code>psql</code> command line client</li>
-<li><code>tag-multi</code> is the tag specifying the version you need. For example, <code>12.18-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. </li>
-<li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.   </li>
-</ul>
-<h2 id="enable-pg_stat_monitor">Enable <code>pg_stat_monitor</code><a class="headerlink" href="#enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
-<p>To enable the <code>pg_stat_monitor</code> extension after launching the container, do the following:</p>
-<ul>
-<li>connect to the server, </li>
-<li>select the desired database and enable the <code>pg_stat_monitor</code> view for that database:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="n">extension</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
-</code></pre></div>
-<ul>
-<li>to ensure that everything is set up correctly, run:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
-</code></pre></div>
-<details class="example">
-<summary>Output</summary>
-<div class="highlight"><pre><span></span><code>                         View &quot;public.pg_stat_monitor&quot;
-      Column        |           Type           | Collation | Nullable | Default
----------------------+--------------------------+-----------+----------+---------
-bucket              | integer                  |           |          |
-bucket_start_time   | timestamp with time zone |           |          |
-userid              | oid                      |           |          |
-dbid                | oid                      |           |          |
-queryid             | text                     |           |          |
-query               | text                     |           |          |
-plan_calls          | bigint                   |           |          |
-plan_total_time     | numeric                  |           |          |
-plan_min_timei      | numeric                  |           |          |
-plan_max_time       | numeric                  |           |          |
-plan_mean_time      | numeric                  |           |          |
-plan_stddev_time    | numeric                  |           |          |
-plan_rows           | bigint                   |           |          |
-calls               | bigint                   |           |          |
-total_time          | numeric                  |           |          |
-min_time            | numeric                  |           |          |
-max_time            | numeric                  |           |          |
-mean_time           | numeric                  |           |          |
-stddev_time         | numeric                  |           |          |
-rows                | bigint                   |           |          |
-shared_blks_hit     | bigint                   |           |          |
-shared_blks_read    | bigint                   |           |          |
-shared_blks_dirtied | bigint                   |           |          |
-shared_blks_written | bigint                   |           |          |
-local_blks_hit      | bigint                   |           |          |
-local_blks_read     | bigint                   |           |          |
-local_blks_dirtied  | bigint                   |           |          |
-local_blks_written  | bigint                   |           |          |
-temp_blks_read      | bigint                   |           |          |
-temp_blks_written   | bigint                   |           |          |
-blk_read_time       | double precision         |           |          |
-blk_write_time      | double precision         |           |          |
-host                | bigint                   |           |          |
-client_ip           | inet                     |           |          |
-resp_calls          | text[]                   |           |          |
-cpu_user_time       | double precision         |           |          |
-cpu_sys_time        | double precision         |           |          |
-tables_names        | text[]                   |           |          |
-wait_event          | text                     |           |          |
-wait_event_type     | text                     |           |          |
-</code></pre></div>
-</details>
-<p>Note that the <code>pg_stat_monitor</code> view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2578,7 +2407,7 @@ wait_event_type     | text                     |           |          |
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
   </span>
 
     
@@ -2588,7 +2417,7 @@ wait_event_type     | text                     |           |          |
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
   </span>
 
     
