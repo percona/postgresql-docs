@@ -63,7 +63,7 @@ The components in this architecture are:
 - PostgreSQL nodes 
 - Patroni - a template for configuring a highly available PostgreSQL cluster.
 
-- ETCD - a Distributed Configuration store that stores the state of the PostgreSQL cluster. 
+- etcd - a Distributed Configuration store that stores the state of the PostgreSQL cluster. 
 
 - HAProxy - the load balancer for the cluster and is the single point of entry to client applications. 
 
@@ -73,9 +73,9 @@ The components in this architecture are:
 
 ### How components work together
 
-Each PostgreSQL instance in the cluster maintains consistency with other members through streaming replication. Each instance hosts Patroni - a cluster manager that monitors the cluster health. Patroni relies on the operational ETCD cluster to store the cluster configuration and sensitive data about the cluster health there. 
+Each PostgreSQL instance in the cluster maintains consistency with other members through streaming replication. Each instance hosts Patroni - a cluster manager that monitors the cluster health. Patroni relies on the operational etcd cluster to store the cluster configuration and sensitive data about the cluster health there. 
 
-Patroni periodically sends heartbeat requests with the cluster status to ETCD. ETCD writes this information to disk and sends the response back to Patroni. If the current primary fails to renew its status as leader within the specified timeout, Patroni updates the state change in ETCD, which uses this information to elect the new primary and keep the cluster up and running.
+Patroni periodically sends heartbeat requests with the cluster status to etcd. etcd writes this information to disk and sends the response back to Patroni. If the current primary fails to renew its status as leader within the specified timeout, Patroni updates the state change in etcd, which uses this information to elect the new primary and keep the cluster up and running.
 
 The connections to the cluster do not happen directly to the database nodes but are routed via a connection proxy like HAProxy. This proxy determines the active node by querying the Patroni REST API.
 
