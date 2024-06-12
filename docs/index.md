@@ -29,7 +29,7 @@ Get started quickly with the step-by-step installation instructions.
 
 Check our solutions to build the database infrastructure that meets the requirements of your organization - be it high-availability, disaster recovery or spatial data handling.
 
-[Solutions :material-arrow-right:](solutions/index.md){ .md-button }
+[Solutions :material-arrow-right:](solutions.md){ .md-button }
 
 </div><div data-banner markdown>
 

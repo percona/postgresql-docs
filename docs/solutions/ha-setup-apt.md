@@ -313,8 +313,8 @@ Run the following commands on all nodes. You can do this in parallel:
         retry_timeout: 10
         maximum_lag_on_failover: 1048576
         slots:
-              percona_cluster_1:
-                type: physical
+          percona_cluster_1:
+            type: physical
 
         postgresql:
           use_pg_rewind: true

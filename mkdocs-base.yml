@@ -198,11 +198,12 @@ nav:
       - release-notes-v14.12.md
       - release-notes-v14.11.md
       - release-notes-v14.10.upd.md
-      - release-notes-v14.10.md
-      - release-notes-v14.9.md
-      - release-notes-v14.8.md
-      - release-notes-v14.7.upd.md
-      - release-notes-v14.7.md
+      - 2023 (versions 14.7 - 14.10):
+        - release-notes-v14.10.md
+        - release-notes-v14.9.md
+        - release-notes-v14.8.md
+        - release-notes-v14.7.upd.md
+        - release-notes-v14.7.md
       - 2022 (versions 14.2 - 14.6):
         - release-notes-v14.6.md
         - release-notes-v14.5.md

@@ -29,7 +29,7 @@ Despite its power and flexibility, PostGIS may not suit your needs if:
 * You need complex 3D analysis or visualization.
 * You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.
 
-## Next steps:
+## Next steps
 
-[Deployment](postgis-deploy.md)
+[Deployment](postgis-deploy.md){.md-button}
 

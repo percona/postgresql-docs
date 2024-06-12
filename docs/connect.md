@@ -3,6 +3,7 @@
 With PostgreSQL server up and running, let's connect to it.
 
 By default, the `postgres` user and the `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
+{.power-number}
 
 1. Switch to the `postgres` user.
 
@@ -26,6 +27,7 @@ By default, the `postgres` user and the `postgres` database are created in Postg
 ## Basic `psql` commands
 
 While connected to PostgreSQL, let's practice some basic `psql` commands to interact with the database:
+{.power-number}
 
 1. List databases:
 

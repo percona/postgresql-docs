@@ -28,7 +28,7 @@ For more information about using Docker, see the [Docker Docs  :octicons-link-ex
     | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
     | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
 
-## Start the container
+## Start the container {.power-number}
 
 1. Start a Percona Distribution for PostgreSQL container as follows:
 
