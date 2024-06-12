@@ -18,11 +18,7 @@ The in-place upgrade means installing a new version without removing the old ver
 
 !!! admonition "See also"
 
-<<<<<<< HEAD
     [`pg_upgrade` Documentation](https://www.postgresql.org/docs/15/pgupgrade.html)
-=======
-    [`pg_upgrade` Documentation :octicons-link-external-16:](https://www.postgresql.org/docs/16/pgupgrade.html)
->>>>>>> 9ee26788... Restructured docs
 
 Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
 
