@@ -178,6 +178,7 @@ nav:
       - third-party.md
       - Percona-authored extensions:
         - 'pg_stat_monitor': 'pg-stat-monitor.md'
+        - 'pg_tde': 'pg-tde.md'
   - Solutions:
       - High availability:
           - 'High availability': 'solutions/high-availability.md'

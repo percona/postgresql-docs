@@ -2,7 +2,7 @@
 
 !!! note
 
-    This document describes the functionality of pg_stat_monitor 2.0.2.
+    This document describes the functionality of pg_stat_monitor {{pgsmversion}}.
 
 ## Overview
 
