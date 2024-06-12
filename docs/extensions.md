@@ -9,7 +9,7 @@ The set of extensions includes the following:
 * Extensions authored by Percona:
   
     * [`pg_stat_monitor`](pg-stat-monitor.md)
-    * [`pg_tde`](#) 
+    * [`pg_tde`](pg-tde.md) 
 
 * Extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it and supported by Percona
 
