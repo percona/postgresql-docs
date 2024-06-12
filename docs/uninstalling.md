@@ -10,6 +10,7 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
      or Ubuntu, complete the following steps.
 
      Run all commands as root or via **sudo**.
+     {.power-number}
 
 
      1. Stop the Percona Distribution for PostgreSQL service.
@@ -38,6 +39,7 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
      Red Hat Enterprise Linux or CentOS, complete the following steps.
 
      Run all commands as root or via **sudo**.
+     {.power-number}
 
 
      1. Stop the Percona Distribution for PostgreSQL service.

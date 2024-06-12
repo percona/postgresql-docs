@@ -42,10 +42,8 @@ The exact steps may differ depending on the package manager of your operating sy
 
 ## On Debian and Ubuntu using `apt`
 
-!!! important
-
-    Run **all** commands as root or via **sudo**.
-
+Run **all** commands as root or via **sudo**:
+{.power-number}
 
 1. Install Percona Distribution for PostgreSQL 16 packages.
 
@@ -202,10 +200,8 @@ The exact steps may differ depending on the package manager of your operating sy
 
 ## On Red Hat Enterprise Linux and CentOS using `yum`
 
-!!! important
-
-    Run **all** commands as root or via **sudo**.
-
+Run **all** commands as root or via **sudo**:
+{.power-number}
 
 1. Install Percona Distribution for PostgreSQL 16 packages
 
