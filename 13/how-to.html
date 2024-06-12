@@ -2125,7 +2125,7 @@
         <li class="md-nav__item">
   <a href="#how-to-configure-etcd-nodes-simultaneously" class="md-nav__link">
     <span class="md-ellipsis">
-      How to configure ETCD nodes simultaneously
+      How to configure etcd nodes simultaneously
     </span>
   </a>
   
@@ -2245,7 +2245,7 @@
         <li class="md-nav__item">
   <a href="#how-to-configure-etcd-nodes-simultaneously" class="md-nav__link">
     <span class="md-ellipsis">
-      How to configure ETCD nodes simultaneously
+      How to configure etcd nodes simultaneously
     </span>
   </a>
   
@@ -2294,15 +2294,15 @@
 
 
 <h1 id="how-to">How to<a class="headerlink" href="#how-to" title="Permanent link">&para;</a></h1>
-<h2 id="how-to-configure-etcd-nodes-simultaneously">How to configure ETCD nodes simultaneously<a class="headerlink" href="#how-to-configure-etcd-nodes-simultaneously" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-configure-etcd-nodes-simultaneously">How to configure etcd nodes simultaneously<a class="headerlink" href="#how-to-configure-etcd-nodes-simultaneously" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We assume you have a deeper knowledge of how ETCD works. Otherwise, refer to the configuration where you add ETCD nodes one by one. </p>
+<p>We assume you have a deeper knowledge of how etcd works. Otherwise, refer to the configuration where you add etcd nodes one by one. </p>
 </div>
 <p>Instead of adding <code>etcd</code> nodes one by one, you can configure and start all nodes in parallel. </p>
 <ol>
 <li>
-<p>Create ETCD configuration file on every node. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:</p>
+<p>Create etcd configuration file on every node. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">node1</label><label for="__tabbed_1_2">node2</label><label for="__tabbed_1_3">node3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2348,7 +2348,7 @@
 <p>Enable and start the <code>etcd</code> service on all nodes:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
 </code></pre></div>
-<p>During the node start, ETCD searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the ETCD cluster to be created.</p>
+<p>During the node start, etcd searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the etcd cluster to be created.</p>
 </li>
 <li>
 <p>Check the etcd cluster members.  Connect to one of the nodes and run the following command:</p>
@@ -2392,7 +2392,7 @@ c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://1
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2024</span>
   </span>
 
     

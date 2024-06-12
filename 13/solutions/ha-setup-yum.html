@@ -1840,11 +1840,11 @@
         <li class="md-nav__item">
   <a href="#configure-etcd-distributed-store" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure ETCD distributed store
+      Configure etcd distributed store
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configure ETCD distributed store">
+    <nav class="md-nav" aria-label="Configure etcd distributed store">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2393,11 +2393,11 @@
         <li class="md-nav__item">
   <a href="#configure-etcd-distributed-store" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure ETCD distributed store
+      Configure etcd distributed store
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configure ETCD distributed store">
+    <nav class="md-nav" aria-label="Configure etcd distributed store">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2506,8 +2506,8 @@
 <h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>This is an example deployment where ETCD runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively ETCD can run on different set of nodes. </p>
-<p>If ETCD is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for ETCD and PostgreSQL is recommended due to performance reasons.</p>
+<p>This is an example deployment where etcd runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively etcd can run on different set of nodes. </p>
+<p>If etcd is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for etcd and PostgreSQL is recommended due to performance reasons.</p>
 </li>
 <li>
 <p>For this setup, we use the nodes running on Red Hat Enterprise Linux 8 as the base operating system:</p>
@@ -2522,17 +2522,17 @@
 <tbody>
 <tr>
 <td>node1</td>
-<td>Patroni, PostgreSQL, ETCD</td>
+<td>Patroni, PostgreSQL, etcd</td>
 <td>10.104.0.1</td>
 </tr>
 <tr>
 <td>node2</td>
-<td>Patroni, PostgreSQL, ETCD</td>
+<td>Patroni, PostgreSQL, etcd</td>
 <td>10.104.0.2</td>
 </tr>
 <tr>
 <td>node3</td>
-<td>Patroni, PostgreSQL, ETCD</td>
+<td>Patroni, PostgreSQL, etcd</td>
 <td>10.104.0.3</td>
 </tr>
 <tr>
@@ -2546,7 +2546,7 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We recommend not to expose the hosts / nodes where Patroni / ETCD / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack.   </p>
+<p>We recommend not to expose the hosts / nodes where Patroni / etcd / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack.   </p>
 </div>
 <h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h2>
 <h3 id="set-up-hostnames-in-the-etchosts-file">Set up hostnames in the <code>/etc/hosts</code> file<a class="headerlink" href="#set-up-hostnames-in-the-etchosts-file" title="Permanent link">&para;</a></h3>
@@ -2616,12 +2616,12 @@
 </div>
 </li>
 <li>
-<p>Install some Python and auxiliary packages to help with Patroni and ETCD</p>
+<p>Install some Python and auxiliary packages to help with Patroni and etcd</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>python3-devel<span class="w"> </span>binutils
 </code></pre></div>
 </li>
 <li>
-<p>Install ETCD, Patroni, pgBackRest packages. Check <a href="../yum.html#for-percona-patroni-package">platform specific notes for Patroni</a>:</p>
+<p>Install etcd, Patroni, pgBackRest packages. Check <a href="../yum.html#for-percona-patroni-package">platform specific notes for Patroni</a>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-patroni<span class="w"> </span><span class="se">\</span>
 etcd<span class="w"> </span>python3-python-etcd<span class="se">\</span>
 percona-pgbackrest
@@ -2634,18 +2634,18 @@ $<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"
 </code></pre></div>
 </li>
 </ol>
-<h2 id="configure-etcd-distributed-store">Configure ETCD distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
+<h2 id="configure-etcd-distributed-store">Configure etcd distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
 <p>The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is <code>etcd</code>. </p>
-<p>This document provides configuration for ETCD version 3.5.x. For how to configure ETCD cluster with earlier versions of ETCD, read the blog post by <em>Fernando Laudares Camargos</em> and <em>Jobin Augustine</em> <a href="https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/">PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios</a></p>
+<p>This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by <em>Fernando Laudares Camargos</em> and <em>Jobin Augustine</em> <a href="https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/">PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios</a></p>
 <p>The <code>etcd</code> cluster is first started in one node and then the subsequent nodes are added to the first node using the <code>add</code>command. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Users with deeper understanding of how ETCD works can configure and start all ETCD nodes at a time and bootstrap the cluster using one of the following methods:</p>
+<p>Users with deeper understanding of how etcd works can configure and start all etcd nodes at a time and bootstrap the cluster using one of the following methods:</p>
 <ul>
 <li>Static in the case when the IP addresses of the cluster nodes are known</li>
 <li>Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.</li>
 </ul>
-<p>See the <a href="../how-to.html#how-to-configure-etcd-nodes-simultaneously">How to configure ETCD nodes simultaneously</a> section for details.</p>
+<p>See the <a href="../how-to.html#how-to-configure-etcd-nodes-simultaneously">How to configure etcd nodes simultaneously</a> section for details.</p>
 </div>
 <h3 id="configure-node1">Configure <code>node1</code><a class="headerlink" href="#configure-node1" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2679,7 +2679,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </details>
 </li>
 <li>
-<p>Configure ETCD on <strong>node2</strong> and <strong>node3</strong>:</p>
+<p>Configure etcd on <strong>node2</strong> and <strong>node3</strong>:</p>
 <p>This is important to note that even though the procedures are the same, only changing the hosts, each node needs to be individually fully configured before proceeding to the next node.</p>
 <p>We need to add the node to the cluster executing below command on <code>Node1</code>:</p>
 <div class="highlight" data-promp="$"><pre><span></span><code><span class="c1"># Execute on Node1</span>
@@ -2689,9 +2689,9 @@ $<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </s
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Added member named node2 with ID 10042578c504d052 to cluster
 
-ETCD_NAME=&quot;node2&quot;
-ETCD_INITIAL_CLUSTER=&quot;node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380&quot;
-ETCD_INITIAL_CLUSTER_STATE=&quot;existing&quot;
+etcd_NAME=&quot;node2&quot;
+etcd_INITIAL_CLUSTER=&quot;node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380&quot;
+etcd_INITIAL_CLUSTER_STATE=&quot;existing&quot;
 </code></pre></div>
 </details>
 </li>
@@ -3073,7 +3073,7 @@ listen standbys
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 12, 2024</span>
   </span>
 
     
