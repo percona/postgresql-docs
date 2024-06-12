@@ -10,7 +10,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. It is available within Percona Distribution for PostgreSQL for all supported operating systems.
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though [etcd](https://etcd.io/) is the most popular one. It is available within Percona Distribution for PostgreSQL for all supported operating systems.
   
 - [HAProxy](http://www.haproxy.org/).
 

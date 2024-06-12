@@ -35,13 +35,13 @@ The following is the list of extensions available in Percona Distribution for Po
 Percona Distribution for PostgreSQL also includes the following packages:
 
 - `llvm` 12.0.1 packages for Red Hat Enterprise Linux 8  and compatible derivatives. These fix compatibility issues with LLVM from upstream. 
-- supplemental ETCD packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:
+- supplemental etcd packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:
 
 |  Operating System   |Package               | Version | Description        |
 | ------------------- | ---------------------| --------| -------------------|
-| RHEL 7              |`python3-python-etcd` | 0.4.3   | A Python client for ETCD
+| RHEL 7              |`python3-python-etcd` | 0.4.3   | A Python client for etcd
 | RHEL 8              | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
-|                     | `python3-python-etcd`| 0.4.3   | A Python client for ETCD     |
+|                     | `python3-python-etcd`| 0.4.3   | A Python client for etcd     |
 
 
                                                       

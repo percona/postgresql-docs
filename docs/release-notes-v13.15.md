@@ -8,7 +8,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.1
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL now includes the ETCD distributed configuration store version 3.5.x for all supported operating systems. This enhancement simplifies deploying high-availability solutions because you can install all necessary components from a single source, ensuring their seamless compatibility.
+* Percona Distribution for PostgreSQL now includes the etcd distributed configuration store version 3.5.x for all supported operating systems. This enhancement simplifies deploying high-availability solutions because you can install all necessary components from a single source, ensuring their seamless compatibility.
 * Percona Distribution for PostgreSQL is now available on Ubuntu 24.04 LTS Noble Numbat.
 * Percona Distribution for PostgreSQL on Red Hat Enterprise Linux 8 and compatible derivatives is now fully compatible with upstream `llvm` packages and includes the latest version 16.0.6 of them. 
 
@@ -21,7 +21,7 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
-| [ETCD](https://etcd.io/)| 3.5.13 | A distributed, reliable key-value store for setting up high available Patroni clusters |
+| [etcd](https://etcd.io/)| 3.5.13 | A distributed, reliable key-value store for setting up high available Patroni clusters |
 |[HAProxy](http://www.haproxy.org/) | 2.8.9 | a high-availability and load-balancing solution |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.3.0 | a HA (High Availability) solution for PostgreSQL |
 | [PgAudit](https://www.pgaudit.org/)             | 1.5.2   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
