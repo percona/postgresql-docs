@@ -19,4 +19,4 @@
   </tbody>
 </table>
 
-This update of Percona Distribution for PostgreSQL, includes the RPM package for ``python3-python-etcd`` for CentOS 7. This package is a Python client for ETCD and is used by Patroni to communicate with ETCD storage. For how to set up Patroni clusters, see [Patroni documentation](https://patroni.readthedocs.io/en/latest/README.html#running-configuring). 
+This update of Percona Distribution for PostgreSQL, includes the RPM package for ``python3-python-etcd`` for CentOS 7. This package is a Python client for etcd and is used by Patroni to communicate with etcd storage. For how to set up Patroni clusters, see [Patroni documentation](https://patroni.readthedocs.io/en/latest/README.html#running-configuring). 

@@ -50,7 +50,7 @@ The `percona-ppg-server-ha` meta-package installs high-availability components t
 | `percona-patroni`| A high-availability solution for PostgreSQL. | 
 | `percona-haproxy`| A high-availability and load-balancing solution |
 | `etcd`           | A consistent, distributed key-value store | 
-| `python3-python-etcd` | A Python client for ETCD.[^1] |
+| `python3-python-etcd` | A Python client for etcd.[^1] |
 | `etcd-client`, `etcd-server` | The client/server of the distributed key-value store. [^2]| 
 
 
