@@ -6,7 +6,7 @@ Welcome to Percona Distribution for PostgreSQL documentation!
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL database system. It includes the upstream version of PostgreSQL and a selection of extensions that enable solving essential practical tasks efficiently.
  
-This repository contains the source files for [Percona Distribution for PostgreSQL documentation](https://www.percona.com/doc/postgresql/16/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup langiage and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/). 
+This repository contains the source files for [Percona Distribution for PostgreSQL documentation](https://www.percona.com/doc/postgresql/16/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/). 
 
 ## Contributing
 
