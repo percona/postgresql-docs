@@ -1,14 +1,14 @@
 # How to
 
-## How to configure ETCD nodes simultaneously
+## How to configure `etcd` nodes simultaneously
 
 !!! note 
 
-    We assume you have a deeper knowledge of how ETCD works. Otherwise, refer to the configuration where you add ETCD nodes one by one. 
+    We assume you have a deeper knowledge of how etcd works. Otherwise, refer to the configuration where you add etcd nodes one by one. 
 
 Instead of adding `etcd` nodes one by one, you can configure and start all nodes in parallel. 
 
-1. Create ETCD configuration file on every node. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:
+1. Create etcd configuration file on every node. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:
 
     === "node1"
 
@@ -58,7 +58,7 @@ Instead of adding `etcd` nodes one by one, you can configure and start all nodes
     $ sudo systemctl enable --now etcd
     ```
 
-    During the node start, ETCD searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the ETCD cluster to be created.
+    During the node start, etcd searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the etcd cluster to be created.
 
 3. Check the etcd cluster members.  Connect to one of the nodes and run the following command:
 
