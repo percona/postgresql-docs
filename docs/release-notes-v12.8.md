@@ -42,15 +42,15 @@ The following is the list of extensions available in Percona Distribution for Po
 |[wal2json](https://github.com/eulerto/wal2json)   | 2.3     | a PostgreSQL logical decoding JSON output plugin.  |
 
  
-Percona Distribution for PostgreSQL also includes the ETCD packages which are used for Patroni cluster setup. These packages are available for the following operating systems:
+Percona Distribution for PostgreSQL also includes the etcd packages which are used for Patroni cluster setup. These packages are available for the following operating systems:
 
 |  Operating System |Package               | Description                  |
 | ------------------- | ---------------------| ---------------------------- |
-| CentOS 7            |`python3-python-etcd` | A Python client for ETCD     |
+| CentOS 7            |`python3-python-etcd` | A Python client for etcd     |
 | CentOS 8            | `etcd`               | A consistent, distributed key-value store|
-|                     | `python3-python-etcd`| A Python client for ETCD     |
+|                     | `python3-python-etcd`| A Python client for etcd     |
 | Debian 9 ('stretch')| `etcd`               | A consistent, distributed key-value store|
-|                     | `python3-etcd`       | A Python client for ETCD     |
+|                     | `python3-etcd`       | A Python client for etcd     |
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/12/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
