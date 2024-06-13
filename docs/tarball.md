@@ -77,7 +77,7 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
 3. Fetch the binary tarball:
 
     ```{.bash data-prompt="$"}
-    $ wget https://downloads.percona.com/downloads/pg_tarballs-{{dockertag}}/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz
+    $ wget https://downloads.percona.com/downloads/postgresql-distribution-16/16.3/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz
     ```
 
 4. Extract the tarball to the directory for binaries that you created on step 1.
