@@ -22,13 +22,13 @@ $ sudo su -
 
 2. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian andUbuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === " :material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
@@ -309,13 +309,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 1. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest

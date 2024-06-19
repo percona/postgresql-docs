@@ -122,7 +122,7 @@ To install `pg_stat_monitor`, run the following commands:
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to `psql`](installing.md#connect-to-the-postgresql-server) and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to `psql`](connecct.md) and use the following command:
 
     ```sql
     ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';

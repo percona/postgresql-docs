@@ -9,7 +9,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
 
 ## Migrate on the same server
 
-=== "On Debian and Ubuntu Linux"
+=== ":material-debian: On Debian and Ubuntu"
 
      >To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. For more information, see the blog post [PostgreSQL Upgrade Using pg_dumpall](https://www.percona.com/blog/postgresql-upgrade-using-pg_dumpall/) by _Avinash Vallarapu_, _Fernando Laudares Camargos_, _Jobin Augustine_ and _Nickolay Ihalainen_.
 
@@ -50,7 +50,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
            ```
 
 
-=== "On RHEL and compatible derivatives"
+=== ":material-redhat: On RHEL and compatible derivatives"
 
     To ensure that your data is safe during the migration, we recommend to make a backup of your data and all configuration files (such as `pg_hba.conf`, `postgresql.conf`, `postgresql.auto.conf`) using the tool of your choice. The backup process is out of scope of this document. You can use `pg_dumpall` or other tools of your choice. 
 
@@ -121,17 +121,17 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
     $ sudo percona-release setup ppg12
     ```
 
-3. [Install Percona Distribution for PostgreSQL packages](installing.md#install-percona-distribution-for-postgresql-packages) on the target server.
+3. [Install Percona Distribution for PostgreSQL packages](installing.md#__tabbed_1_1) on the target server.
 4. Restore the data from the backup
 5. Start `postgresql` service
 
-    === "On Debian and Ubuntu"
+    === ":material-debian: On Debian and Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
-    === "On RHEL and compatible derivatives"
+    === ":material-redhat: On RHEL and compatible derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-12
