@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This update of Percona Distribution for PostgreSQL includes the set of new extensions which are now supplied with Percona Distribution for PostgreSQL:">
+        <meta name="description" content="Documentation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/13/release-notes-v13.2.upd2.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/13/troubleshooting.html">
       
       
-        <link rel="prev" href="release-notes-v13.2.upd3.html">
+        <link rel="prev" href="migration.html">
       
       
-        <link rel="next" href="release-notes-v13.2.upd.html">
+        <link rel="next" href="how-to.html">
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Percona Distribution for PostgreSQL 13.2 Second Update (2021-04-27) - Percona Distribution for PostgreSQL</title>
+        <title>Troubleshooting guide - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -96,7 +96,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Percona Distribution for PostgreSQL 13.2 Second Update (2021-04-27)" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Troubleshooting guide" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                </head>
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-132-second-update-2021-04-27" class="md-skip">
+        <a href="#troubleshooting-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 13.2 Second Update (2021-04-27)
+              Troubleshooting guide
             
           </span>
         </div>
@@ -1395,10 +1395,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="troubleshooting.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Troubleshooting guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="troubleshooting.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1407,6 +1427,46 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cannot-create-a-table-permission-denied-in-schema-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cannot create a table. Permission denied in schema public
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1455,19 +1515,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -1481,7 +1539,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -1837,19 +1895,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_11" >
         
           
           
@@ -1871,7 +1927,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_11">
             <span class="md-nav__icon md-icon"></span>
             2021 (versions 13.2 - 13.5)
@@ -2092,30 +2148,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Percona Distribution for PostgreSQL 13.2 Second Update (2021-04-27)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="release-notes-v13.2.upd2.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v13.2.upd2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2124,37 +2160,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2429,6 +2434,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#cannot-create-a-table-permission-denied-in-schema-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cannot create a table. Permission denied in schema public
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-expert-help" class="md-nav__link">
     <span class="md-ellipsis">
       Get expert help
@@ -2454,7 +2468,7 @@
                   
 
   
-    <a href="https://github.com/percona/postgresql-docs/edit/13/docs/release-notes-v13.2.upd2.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/edit/13/docs/troubleshooting.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2463,40 +2477,25 @@
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/13/docs/release-notes-v13.2.upd2.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/13/docs/troubleshooting.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="percona-distribution-for-postgresql-132-second-update-2021-04-27">Percona Distribution for PostgreSQL 13.2 Second Update (2021-04-27)<a class="headerlink" href="#percona-distribution-for-postgresql-132-second-update-2021-04-27" title="Permanent link">&para;</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-  <colgroup>
-    <col class="field-name">
-    <col class="field-body">
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field-odd field">
-      <th class="field-name">Date:</th>
-      <td class="field-body">April 27, 2021</td>
-    </tr>
-    <tr class="field-even field">
-      <th class="field-name">Installation:</th>
-      <td class="field-body">
-        <a class="reference external" href="https://www.percona.com/doc/postgresql/13/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>This update of Percona Distribution for PostgreSQL includes the set of new extensions which are now supplied with Percona Distribution for PostgreSQL:</p>
-<ul>
-<li><a href="https://www.pgbouncer.org/"><code>pgBouncer</code></a> 1.15.0 - lightweight connection pooler for PostgreSQL</li>
-<li><a href="https://github.com/pgaudit/set_user"><code>pgAudit set user</code></a> 2.0.0 - The PostgreSQL Audit extension (<code>pgaudit</code>) provides detailed session and/or object audit logging via the standard PostgreSQL logging facility. The <code>set_user</code> part of that extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</li>
-<li><a href="https://github.com/darold/pgbadger"><code>pgBadger</code></a> 11.5 - a fast PostgreSQL Log Analyzer.</li>
-<li><a href="https://github.com/eulerto/wal2json"><code>wal2json</code></a> 2.3 - a PostgreSQL logical decoding JSON output plugin.</li>
-</ul>
-<p>This update of Percona Distribution for PostgreSQL  also includes the updated version of <a href="https://patroni.readthedocs.io/en/latest/">`Patroni</a> 2.0.2 - a High Availability solution for PostgreSQL.</p>
+<h1 id="troubleshooting-guide">Troubleshooting guide<a class="headerlink" href="#troubleshooting-guide" title="Permanent link">&para;</a></h1>
+<h2 id="cannot-create-a-table-permission-denied-in-schema-public">Cannot create a table. Permission denied in schema <code>public</code><a class="headerlink" href="#cannot-create-a-table-permission-denied-in-schema-public" title="Permanent link">&para;</a></h2>
+<p>Every database in PostgreSQL has a default schema called <code>public</code>. A schema stores database objects like tables, views, indexes and allows organizing them into logical groups.</p>
+<p>When you create a table without specifying a schema name, it ends up in the <code>public</code> schema by default. </p>
+<p>Starting with PostgreSQL 15, non-database owners cannot access the <code>public</code> schema. Therefore, you can either grant privileges to the database for your user using the <a href="https://www.postgresql.org/docs/{{ pgvesrion }}/sql-grant.html">GRANT</a> command or create your own schema to insert the data.</p>
+<p>To create a schema, use the following statement:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">demo</span><span class="p">;</span>
+</code></pre></div>
+<p>To ensure all tables end up in your newly created schema, use the following statement ot set the schema:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">demo</span><span class="p">;</span>
+</code></pre></div>
+<p>Replace the <code>demo</code> name with your value.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2528,7 +2527,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 2, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 19, 2024</span>
   </span>
 
     
@@ -2538,7 +2537,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2021</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 19, 2024</span>
   </span>
 
     
