@@ -10,7 +10,7 @@ The following document provides guidelines how to install PostGIS and how to run
 
 ## Install PostGIS
 
-=== "On Debian and Ubuntu"
+=== ":material-debian: On Debian and Ubuntu"
 
     1. Enable Percona repository
 
@@ -41,7 +41,7 @@ The following document provides guidelines how to install PostGIS and how to run
             $ sudo apt-get install libsfcgal1
             ```
 
-=== "On RHEL and derivatives"
+=== ":material-redhat: On RHEL and derivatives"
 
     1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
 
@@ -129,20 +129,20 @@ PostGIS provides the `shp2pgsql` command line utility that converts the binary d
 
 3. Check the uploaded data
 
-   ```sql
-   \d nyc_streets;
-                                            Table "public.nyc_streets"
-    Column |              Type               | Collation | Nullable |                 Default
-   --------+---------------------------------+-----------+----------+------------------------------------------
-    gid    | integer                         |           | not null | nextval('nyc_streets_gid_seq'::regclass)
-    id     | double precision                |           |          |
-    name   | character varying(200)          |           |          |
-    oneway | character varying(10)           |           |          |
-    type   | character varying(50)           |           |          |
-    geom   | geometry(MultiLineString,26918) |           |          |
-   Indexes:
-       "nyc_streets_pkey" PRIMARY KEY, btree (gid)
-       "nyc_streets_geom_idx" gist (geom)
-   ```
+    ```sql
+    \d nyc_streets;
+                                             Table "public.nyc_streets"
+     Column |              Type               | Collation | Nullable |                 Default
+    --------+---------------------------------+-----------+----------+------------------------------------------
+     gid    | integer                         |           | not null | nextval('nyc_streets_gid_seq'::regclass)
+     id     | double precision                |           |          |
+     name   | character varying(200)          |           |          |
+     oneway | character varying(10)           |           |          |
+     type   | character varying(50)           |           |          |
+     geom   | geometry(MultiLineString,26918) |           |          |
+    Indexes:
+        "nyc_streets_pkey" PRIMARY KEY, btree (gid)
+        "nyc_streets_geom_idx" gist (geom)
+    ```
 
 4. Repeat the command to upload other shapefiles in the data set: `nyc_census_blocks`, `nyc_neighborhoods`, `nyc_subway_stations`

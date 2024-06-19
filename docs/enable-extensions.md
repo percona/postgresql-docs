@@ -45,7 +45,7 @@ For details about each option, see [pdBadger documentation :octicons-link-extern
 
 **pgAudit set-user**
 
-Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
+Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/13/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
 ```sql
 ALTER SYSTEM SET shared_preload_libraries = 'set-user';

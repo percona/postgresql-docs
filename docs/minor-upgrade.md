@@ -30,15 +30,14 @@ Run **all** commands as root or via **sudo**:
 
 1. Stop the `postgresql` service.
 
-
-    === "On Debian / Ubuntu"
+    === ":material-debian: On Debian / Ubuntu"
 
          ```{.bash data-promp="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux and derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux and derivatives"
 
          ```{.bash data-promp="$"}
          $ sudo systemctl stop postgresql-13
@@ -51,16 +50,16 @@ Run **all** commands as root or via **sudo**:
 3. Restart the `postgresql` service.
 
 
-    === "On Debian / Ubuntu"
+    === ":material-debian: On Debian / Ubuntu"
 
-         ```{.bash data-promp="$"}
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux and derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux and derivatives"
 
-         ```{.bash data-promp="$"}
+         ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-13
          ```
 
