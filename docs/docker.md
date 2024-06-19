@@ -1,12 +1,12 @@
 # Run Percona Distribution for PostgreSQL in a Docker container
 
-Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub](https://hub.docker.com/r/percona/percona-distribution-postgresql/).
+Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/).
 
-For more information about using Docker, see the [Docker Docs](https://docs.docker.com/).
+For more information about using Docker, see the [Docker Docs  :octicons-link-external-16:](https://docs.docker.com/).
 
 !!! note ""
 
-    Make sure that you are using the latest version of Docker. The ones provided via `apt` and `yum` may be outdated and cause errors.
+    Make sure that you are using [the latest version of Docker :octicons-link-external-16:](https://docs.docker.com/get-docker/). The ones provided via `apt` and `yum` may be outdated and cause errors.
 
     By default, Docker pulls the image from Docker Hub if it is not available locally.
 
@@ -28,7 +28,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
     | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
     | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
 
-## Start the container
+## Start the container {.power-number}
 
 1. Start a Percona Distribution for PostgreSQL container as follows:
 
@@ -40,7 +40,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     * `container-name` is the name you assign to your container
     * `POSTGRES_PASSWORD` is the superuser password 
-    `tag-multi` is the tag specifying the version you need. For example, `{{dockertag}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. See the [full list of tags](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).     
+    * `tag-multi` is the tag specifying the version you need. For example, `{{dockertag}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).     
     
 
     !!! tip     
@@ -95,7 +95,8 @@ Where:
 * `db-container-name` is the name of your database container
 * `container-name` is the name of your container that you will use to connect to the database container using the `psql` command line client
 * `tag-multi` is the tag specifying the version you need. For example, `{{dockertag}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. 
-* `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.   
+* `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.  
+ 
 ## Enable `pg_stat_monitor`
 
 To enable the `pg_stat_monitor` extension after launching the container, do the following:

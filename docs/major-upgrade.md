@@ -19,7 +19,7 @@ The in-place upgrade means installing a new version without removing the old ver
 
 !!! admonition "See also"
 
-    [`pg_upgrade` Documentation](https://www.postgresql.org/docs/14/pgupgrade.html)
+    [`pg_upgrade` Documentation :octicons-link-external-16:](https://www.postgresql.org/docs/14/pgupgrade.html)
 
 Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
 
@@ -55,15 +55,15 @@ The exact steps may differ depending on the package manager of your operating sy
 
 ## On Debian and Ubuntu using `apt`
 
-!!! important
-
-    Run **all** commands as root or via **sudo**.
-
+Run **all** commands as root or via **sudo**:
+{.power-number}
 
 1. Install Percona Distribution for PostgreSQL 14 packages.
 
 
-    * Enable Percona repository using the **percona-release** utility:
+    * [Install percona-release  :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
+    
+    * Enable Percona repository:
 
       ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg-14
@@ -212,15 +212,15 @@ The exact steps may differ depending on the package manager of your operating sy
 
 ## On Red Hat Enterprise Linux and derivatives using `yum`
 
-!!! important
-
-    Run **all** commands as root or via **sudo**.
-
+Run **all** commands as root or via **sudo**:
+{.power-number}
 
 1. Install Percona Distribution for PostgreSQL 14 packages
 
 
-    * Enable Percona repository using the **percona-release** utility:
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
+    
+    * Enable Percona repository:
 
        ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-14

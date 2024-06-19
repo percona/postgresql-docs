@@ -23,7 +23,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
 | [etcd](https://etcd.io/)| 3.5.13 | A distributed, reliable key-value store for setting up high available Patroni clusters |
-|[HAProxy](http://www.haproxy.org/) | 2.8.9 | a high-availability and load-balancing solution |
+|[HAProxy](https://www.haproxy.org/) | 2.8.9 | a high-availability and load-balancing solution |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.3.0 | a HA (High Availability) solution for PostgreSQL |
 | [PgAudit](https://www.pgaudit.org/)             | 1.6.2   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|

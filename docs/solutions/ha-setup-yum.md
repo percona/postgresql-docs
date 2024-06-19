@@ -80,14 +80,14 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 1. Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from Percona repository:
 
-    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
     * Enable the repository:    
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg14
         ```    
 
-    * [Install Percona Distribution for PostgreSQL packages](../installing.md#on-red-hat-enterprise-linux-and-centos-using-yum).    
+    * [Install Percona Distribution for PostgreSQL packages](../yum.md).    
 
     !!! important    
 
@@ -118,7 +118,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is `etcd`. 
 
-This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
+This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
 
 The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add` command. 
 
