@@ -17,7 +17,7 @@ CREATE SCHEMA demo;
 To ensure all tables end up in your newly created schema, use the following statement ot set the schema:
 
 ```sql
-CREATE SCHEMA demo;
+SET SCHEMA demo;
 ```
 
 Replace the `demo` name with your value.
