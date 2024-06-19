@@ -10,7 +10,7 @@ The following document provides guidelines how to install PostGIS and how to run
 
 ## Install PostGIS
 
-=== "On Debian and Ubuntu"
+=== ":material-debian: On Debian and Ubuntu"
 
     1. Enable Percona repository
 
@@ -41,7 +41,7 @@ The following document provides guidelines how to install PostGIS and how to run
             $ sudo apt-get install libsfcgal1
             ```
 
-=== "On RHEL and derivatives"
+=== ":material-redhat: On RHEL and derivatives"
 
     1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
 

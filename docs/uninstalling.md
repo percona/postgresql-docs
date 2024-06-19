@@ -4,7 +4,7 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
 
 **NOTE**: Should you need the data files later, back up your data before uninstalling Percona Distribution for PostgreSQL.
 
-=== "On Debian and Ubuntu using `apt`"
+=== ":material-debian: On Debian and Ubuntu using `apt`"
 
      To uninstall Percona Distribution for PostgreSQL on platforms that use **apt** package manager such as Debian
      or Ubuntu, complete the following steps.
@@ -33,7 +33,7 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
          $ rm -rf /etc/postgresql/15/main
          ```
 
-=== "On Red Hat Enterprise Linux and derivatives using `yum`"
+=== ":material-redhat: On Red Hat Enterprise Linux and derivatives using `yum`"
 
      To uninstall Percona Distribution for PostgreSQL on platforms that use **yum** package manager such as
      Red Hat Enterprise Linux or CentOS, complete the following steps.

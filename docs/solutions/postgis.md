@@ -32,5 +32,5 @@ Despite its power and flexibility, PostGIS may not suit your needs if:
 
 ## Next steps:
 
-[Deployment](postgis-deploy.md)
+[Deployment](postgis-deploy.md){.md-button}
 
