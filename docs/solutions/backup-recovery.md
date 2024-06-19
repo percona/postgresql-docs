@@ -48,7 +48,7 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
 
 To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with [pgBackRest](#pgbackrest): a reliable, open-source backup and recovery solution for PostgreSQL.
 
-This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pg-backrestsetup.md) tutorial provides guidelines of how to set up and test this solution.
+This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pgbackrest-setup.md) tutorial provides guidelines of how to set up and test this solution.
 
 ### pgBackRest
 
@@ -68,7 +68,7 @@ Finally, `pgBackRest` also supports restoring PostgreSQL databases to a differen
 
 ## Setup overview
 
-This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pg-backrestsetup.md).
+This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](dr-pgbackrest-setup.md).
 
 ### System architecture
 

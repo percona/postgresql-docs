@@ -81,7 +81,7 @@ To install `pg_stat_monitor` from Percona repositories, you need to subscribe to
 
 To install `pg_stat_monitor`, run the following commands:
 
-=== "On Debian and Ubuntu"
+=== ":material-debian: On Debian and Ubuntu"
 
     1. Enable the repository
 
@@ -101,7 +101,7 @@ To install `pg_stat_monitor`, run the following commands:
         $ sudo apt-get install percona-pg-stat-monitor14
         ```
 
-=== "On Red Hat Enterprise Linux and derivatives"
+=== ":material-redhat: On Red Hat Enterprise Linux and derivatives"
 
     1. Enable the repository
 
@@ -121,7 +121,7 @@ To install `pg_stat_monitor`, run the following commands:
 
 1. Add `pg_stat_monitor` in the `shared_preload_libraries` configuration parameter.
 
-    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM] :octicons-link-external-16:(https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
+    The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM] :octicons-link-external-16:(https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
     ```sql
     ALTER SYSTEM SET shared_preload_libraries = 'pg_stat_monitor';
@@ -142,14 +142,14 @@ To install `pg_stat_monitor`, run the following commands:
 2. Start or restart the `postgresql` instance to enable `pg_stat_monitor`. Use the following command for restart:
 
 
-    === "On Debian and Ubuntu"
+    === ":material-debian: On Debian and Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl restart postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux and derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux and derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl restart postgresql-14

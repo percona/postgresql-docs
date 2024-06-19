@@ -22,13 +22,13 @@ $ sudo su -
 
 2. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
@@ -68,7 +68,7 @@ $ sudo su -
 
     Then use the following command to create a basic configuration file using the environment variables we created in a previous step:
 
-    === "Debian/Ubuntu"
+    === ":material-debian: Debian/Ubuntu"
 
         ```
         cat <<EOF > pgbackrest.conf
@@ -149,7 +149,7 @@ $ sudo su -
         EOF
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: RHEL/derivatives"
 
         ```
         cat <<EOF > pgbackrest.conf
@@ -309,13 +309,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 1. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
@@ -345,7 +345,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
    
 5. Edit or create the configuration file which, as explained above, can be either at the `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf` path:
 
-    === "Debian/Ubuntu"
+    === ":material-debian: Debian/Ubuntu"
 
         ```ini title="pgbackrest.conf"
         cat <<EOF > pgbackrest.conf
@@ -375,7 +375,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         ```
 
 
-    === "RHEL/derivatives"
+    === ":material-redhat: RHEL/derivatives"
 
         ```ini title="pgbackrest.conf"
         cat <<EOF > pgbackrest.conf
@@ -449,7 +449,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ patronictl -c /etc/patroni/patroni.yml edit-config
     ```
     
-    === "Debian/Ubuntu"
+    === ":material-debian: Debian/Ubuntu"
 
         ```yaml title="/etc/patroni/patroni.yml"
         postgresql:
@@ -464,7 +464,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
             (...)
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: RHEL/derivatives"
 
         ```yaml title="/etc/patroni/patroni.yml"
         postgresql:
@@ -513,4 +513,4 @@ Run the following commands on the **backup server**:
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 expire --set=<BACKUP_ID>
     ```
 
-[Test PostgreSQL cluster](ha-test.md){.md-button}
+[Test PostgreSQL cluster :material-arrow-right:](ha-test.md){.md-button}
