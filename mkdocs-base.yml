@@ -164,7 +164,49 @@ extra:
   postgresrecommended: 16
 
 nav:
-  - "Home": "index.md"
+  - 'Home': 'index.md'
+  - Get started: 
+      - Quickstart guide: installing.md
+      - 1. Install: 
+          - Via apt: apt.md
+          - Via yum: yum.md
+          - Run in Docker: docker.md
+          - enable-extensions.md
+          - repo-overview.md
+      - 2. Connect to PostgreSQL: connect.md
+      - 3. Manipulate data in PostgreSQL: crud.md  
+      - 4. What's next: whats-next.md 
+  - Extensions:
+      - 'Extensions': extensions.md
+      - contrib.md
+      - Percona-authored extensions:
+        - 'pg_stat_monitor': 'pg-stat-monitor.md'
+      - third-party.md
+  - Solutions:
+      - Overview: solutions.md
+      - High availability:
+          - "High availability": "solutions/high-availability.md"
+          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
+          - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
+          - solutions/pgbackrest.md
+          - solutions/ha-test.md
+      - Backup and disaster recovery:
+          - "Backup and disaster recovery": "solutions/backup-recovery.md"
+          - solutions/dr-pgbackrest-setup.md
+      - Spatial data handling:
+        - Overview: solutions/postgis.md
+        - Deployment: solutions/postgis-deploy.md
+        - Query spatial data: solutions/postgis-testing.md
+        - Upgrade spatial database: solutions/postgis-upgrade.md
+      - LDAP authentication:
+          - ldap.md
+  - Upgrade:
+      - "Major upgrade": major-upgrade.md
+      - minor-upgrade.md
+      - migration.md
+  - Troubleshooting guide: troubleshooting.md
+  - How to: how-to.md
+  - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
       - release-notes-v13.15.md
@@ -200,45 +242,8 @@ nav:
           - release-notes-v13.2.md
           - release-notes-v13.1.md
           - release-notes-v13.0.md
-  - Installation and Upgrade:
-      - Install Percona Distribution for PostgreSQL:
-        - "Overview": "installing.md"
-        - "Install via apt": "apt.md"
-        - "Install via yum": "yum.md"
-        - enable-extensions.md
-        - repo-overview.md
-      - "Run in Docker": docker.md
-      - migration.md
-      - major-upgrade.md
-      - minor-upgrade.md
-  - Extensions:
-      - 'Extensions': extensions.md
-      - contrib.md
-      - third-party.md
-      - Percona-authored extensions:
-        - 'pg_stat_monitor': 'pg-stat-monitor.md'
-  - Solutions:
-      #- solutions.md
-      - High availability:
-          - "High availability": "solutions/high-availability.md"
-          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
-          - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
-          - solutions/pgbackrest.md
-          - solutions/ha-test.md
-      - Backup and disaster recovery:
-          - "Backup and disaster recovery": "solutions/backup-recovery.md"
-          - solutions/dr-pgbackrest-setup.md
-      - Spatial data handling:
-        - Overview: solutions/postgis.md
-        - Deployment: solutions/postgis-deploy.md
-        - Query spatial data: solutions/postgis-testing.md
-        - Upgrade spatial database: solutions/postgis-upgrade.md
-      - LDAP authentication:
-          - ldap.md
-  - Telemetry: telemetry.md
-  - How to: how-to.md
-  - Uninstall: uninstalling.md
-  - Licensing: licensing.md
-  - Trademark policy:
-      - trademark-policy.md
-# - Version Selector: "../"
+  - Reference:
+      - Telemetry: telemetry.md
+      - Licensing: licensing.md
+      - Trademark policy: trademark-policy.md
+
