@@ -1,7 +1,6 @@
 # Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives
 
-
-This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
+This document describes how to install Percona Distribution for PostgreSQL from Percona repositories on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. [Read more about Percona repositories](repo-overview.md).
 
 ## Platform specific notes
 
@@ -104,7 +103,10 @@ The following commands provide instructions how to enable required repositories 
 
 For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the commands accordingly.
 
-=== "RHEL 9"     
+=== "RHEL 9"  
+
+    Run the following commands:
+    {.power-number}
 
     1. Install `epel` repository
 
@@ -125,6 +127,9 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         ```
 
 === "Rocky Linux 9"
+
+    Run the following commands:
+    {.power-number}
 
     1. Install `epel` repository
 
@@ -147,6 +152,9 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
 
 === "Oracle Linux 9"
 
+    Run the following commands:
+    {.power-number}
+
     1. Install `epel` repository
 
         ```{.bash data-prompt="$"}
@@ -166,6 +174,9 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         ```
 
 === "RHEL UBI 9"
+
+    Run the following commands:
+    {.power-number}
 
     1. Configure the Oracle-Linux repository. Create the `/etc/yum.repos.d/oracle-linux-ol9.repo` file to install the required dependencies: 
 
@@ -216,7 +227,7 @@ Install `curl` for [Telemetry](telemetry.md). We use it to better understand the
 $ sudo yum -y install curl
 ```
 
-### Configure the repository
+### Configure the repository {.power-number}
 
 1. Install the `percona-release` repository management tool to subscribe to Percona repositories:
 
@@ -243,6 +254,9 @@ $ sudo yum -y install curl
      ```
 
 === "Install packages individually"
+    
+    Run the following commands:
+    {.power-number}
 
      1. Install the PostgreSQL server package:
 
@@ -346,30 +360,10 @@ Start the PostgreSQL service:
 $ sudo systemctl start postgresql-{{pgversion}}
 ```
 
-### Connect to the PostgreSQL server
+Congratulations! Your Percona Distribution for PostgreSQL is up and running.
 
-By default, `postgres` user and `postgres` database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the `postgres` user.
+## Next steps
 
-```{.bash data-prompt="$"}
-$ sudo su postgres
-```
+[Enable extensions :material-arrow-right:](enable-extensions.md){.md-button}
 
-Open the PostgreSQL interactive terminal:
-
-```{.bash data-prompt="$"}
-$ psql
-```
-
-!!! hint
-
-    You can connect to `psql` as the `postgres` user in one go:
-
-    ```{.bash data-prompt="$"}
-    $ sudo su - postgres -c psql
-    ```
-
-To exit the `psql` terminal, use the following command:
-
-```{.bash data-prompt="$"}
-$ \q
-```
+[Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}
