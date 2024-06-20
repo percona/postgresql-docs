@@ -21,9 +21,9 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     <br>
     PostgreSQL offers multiple options for setting up database disaster recovery. 
 
-    - **[pg_dump](https://www.postgresql.org/docs/15/app-pgdump.html) or the [pg_dumpall](https://www.postgresql.org/docs/15/app-pg-dumpall.html) utilities**
+    - **[pg_dump :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pgdump.html) or the [pg_dumpall :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pg-dumpall.html) utilities**
 
-    This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the [pg_restore](https://www.postgresql.org/docs/15/app-pgrestore.html) command. 
+    This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the [pg_restore :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pgrestore.html) command. 
 
     | Advantages   | Disadvantages   |
     | ------------ | --------------- |
@@ -37,7 +37,7 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     | ------------ | --------------- |
     | Consistent snapshot of the data directory or the whole data disk volume | 1. Requires stopping PostgreSQL in order to copy the files. This is not practical for most production setups.<br> 2. No backup of individual databases or tables.|
 
-    - **PostgreSQL [pg_basebackup](https://www.postgresql.org/docs/15/app-pgbasebackup.html)**
+    - **PostgreSQL [pg_basebackup :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pgbasebackup.html)**
 
     This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. `pgasebackup` makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. 
 
@@ -52,7 +52,7 @@ This document focuses on the Disaster recovery solution in Percona Distribution 
 
 ### pgBackRest
 
-[pgBackRest](https://pgbackrest.org/) is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. `pgBackRest` supports the following backup types:
+[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. `pgBackRest` supports the following backup types:
 
 * full backup - a complete copy of your entire data set.
 * differential backup - includes all data that has changed since the last full backup. While this means the backup time is slightly higher, it enables a faster restore.
@@ -76,7 +76,7 @@ As the configuration example, we will use a three server architecture where `pgB
 
 !!! important
 
-    Passwordless SSH may not be an ideal solution for your environment. In this case, consider using other methods, for example, [TLS with client certificates](https://pgbackrest.org/user-guide-rhel.html#repo-host/config).
+    Passwordless SSH may not be an ideal solution for your environment. In this case, consider using other methods, for example, [TLS with client certificates :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host/config).
 
 The following diagram illustrates the architecture layout:
 
