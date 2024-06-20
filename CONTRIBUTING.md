@@ -32,6 +32,8 @@ Each version has a branch in the repository named accordingly:
 - 12
 - 13
 - 14
+- 15
+- 16
 
 The source .md files are in the ``docs`` directory. 
 
@@ -75,6 +77,7 @@ git remote add <your-repo-name> git@github.com:<your_name>/postgresql-docs.git
 git fetch origin
 git merge origin/<branch>
 ```
+
 Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``11`` branch, merge changes from ``origin/11``.
 
 5. Create a separate branch for your changes
@@ -102,7 +105,7 @@ Learn more about the documentation structure in the [Repository structure](#repo
 2. We use [this Docker image](https://github.com/Percona-Lab/percona-doc-docker) to build documentation. Run the following command:
 
 ```sh
-docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md -f mkdocs-netlify.yml
+docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md mkdocs build
 ```
    If Docker can't find the image locally, it first downloads the image, and then runs it to build the documentation.
 
@@ -110,7 +113,7 @@ docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md -f mkdocs-netlify.yml
 4. To view your changes as you make them, run the following command:
 
 ``` sh
-docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve -f mkdocs-netlify.yml -a 0.0.0.0:8000
+docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve -a 0.0.0.0:8000
 ```
 
 5. To create a PDF version of the documentation, run the following command:
@@ -128,13 +131,13 @@ The PDF document is in the ``site/pdf`` folder.
 3. While in the root directory of the doc project, run the following command to build the documentation:
 
 ```sh
-mkdocs build -f mkdocs-netlify.yml
+mkdocs build 
 ```
 4. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
 5. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
 
 ```sh
-mkdocs serve -f mkdocs-netlify.yml
+mkdocs serve 
 ```
 
 6. To build the PDF documentation, do the following:
@@ -153,7 +156,6 @@ The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
 - `mkdocs.yml` - configuration file. Contains the settings for building the docs on Percona website
-- `mkdocs-netlify.yml` - configuration file. Contains the settings for building the docs with Material theme.
 - `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF docs.
 - `docs`:
   - `*.md` - Source markdown files.
