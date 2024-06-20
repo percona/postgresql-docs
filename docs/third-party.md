@@ -5,6 +5,7 @@ Percona Distribution for PostgreSQL is supplied with the set of third-party open
 
 | Name | Superuser privileges | Description |
 |------|---------------------|-------------|
+| [etcd](https://etcd.io/)| Required | A distributed, reliable key-value store for setting up high available Patroni clusters |
 | [HAProxy](http://www.haproxy.org/) | Required | A high-availability and load-balancing solution |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | Required | An HA (High Availability) solution for PostgreSQL |
 | [pgAudit](https://www.pgaudit.org/) | Required | Provides detailed session or object audit logging via the standard PostgreSQL logging facility |

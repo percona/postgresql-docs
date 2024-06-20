@@ -22,7 +22,7 @@ Unlike traditional encryption methods that require significant changes to databa
 
 This section provides instructions how to install `pg_tde` from Percona repositories using the package manager of your operating system. For other installation methods, refer to the [`pg_tde` documentation :octicons-link-external-16:](https://percona-lab.github.io/pg_tde/main/install.html#procedure).
 
-=== ":material-debian: On Debian and Ubuntu"
+=== ":material-debian: :material-debian: On Debian and Ubuntu"
 
     `pg_tde` packages are available for the following Linux distributions:
 
@@ -107,7 +107,7 @@ The setup of the Vault server is out of scope of this document. We're assuming y
 
 1. Add `pg_tde` to `shared_preload_libraries`. 
 
-   The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM :octicons-external-link-16:](https://www.postgresql.org/docs/15/sql-altersystem.html) command. [Connect to psql](installing.md#connect-to-the-server) and use the following command:
+   The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM :octicons-external-link-16:](https://www.postgresql.org/docs/15/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
     ```sql
     ALTER SYSTEM SET shared_preload_libraries = 'pg_tde';
@@ -116,14 +116,14 @@ The setup of the Vault server is out of scope of this document. We're assuming y
 2. Start or restart the `postgresql` instance to enable `pg_tde`. Use the following command for restart:
 
 
-    === "On Debian and Ubuntu"
+    === ":material-debian: On Debian and Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl restart postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux and derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux and derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl restart postgresql-{{pgversion}}

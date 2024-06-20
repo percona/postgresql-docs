@@ -5,23 +5,23 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 ## Considerations
 
-1. This is an example deployment where ETCD runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively ETCD can run on different set of nodes. 
+1. This is an example deployment where etcd runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively etcd can run on different set of nodes. 
 
-    If ETCD is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for ETCD and PostgreSQL is recommended due to performance reasons.
+    If etcd is deployed on the same host machine as Patroni and PostgreSQL, separate disk system for etcd and PostgreSQL is recommended due to performance reasons.
     
 2. For this setup, we use the nodes running on Red Hat Enterprise Linux 8 as the base operating system:
 
     | Node name     | Application       | IP address
     |---------------|-------------------|--------------------
-    | node1         | Patroni, PostgreSQL, ETCD    | 10.104.0.1
-    | node2         | Patroni, PostgreSQL, ETCD    | 10.104.0.2
-    | node3         | Patroni, PostgreSQL, ETCD     | 10.104.0.3
+    | node1         | Patroni, PostgreSQL, etcd    | 10.104.0.1
+    | node2         | Patroni, PostgreSQL, etcd    | 10.104.0.2
+    | node3         | Patroni, PostgreSQL, etcd     | 10.104.0.3
     | HAProxy-demo  | HAProxy           | 10.104.0.6
 
 
 !!! note
 
-    We recommend not to expose the hosts/nodes where Patroni / ETCD / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack.   
+    We recommend not to expose the hosts/nodes where Patroni / etcd / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack.   
 
 ## Initial setup 
 
@@ -80,26 +80,26 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 1. Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from Percona repository:
 
-    * [Install `percona-release`](https://www.percona.com/doc/percona-repo-config/installing.html).
+    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
     * Enable the repository:    
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg16
         ```    
 
-    * [Install Percona Distribution for PostgreSQL packages](../installing.md#on-red-hat-enterprise-linux-and-centos-using-yum).    
+    * [Install Percona Distribution for PostgreSQL packages](../yum.md).    
 
     !!! important    
 
         **Don't** initialize the cluster and start the `postgresql` service. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
-2. Install some Python and auxiliary packages to help with Patroni and ETCD
+2. Install some Python and auxiliary packages to help with Patroni and etcd
     
     ```{.bash data-prompt="$"}
     $ sudo yum install python3-pip python3-devel binutils
     ```
 
-3. Install ETCD, Patroni, pgBackRest packages. Check [platform specific notes for Patroni](../yum.md#for-percona-patroni-package):
+3. Install etcd, Patroni, pgBackRest packages. Check [platform specific notes for Patroni](../yum.md#for-percona-patroni-package):
 
     ```{.bash data-prompt="$"}
     $ sudo yum install percona-patroni \
@@ -114,22 +114,22 @@ It's not necessary to have name resolution, but it makes the whole setup more re
     $ systemctl disable {etcd,patroni,postgresql}
     ```
 
-## Configure ETCD distributed store  
+## Configure etcd distributed store  
 
-The distributed configuration store provides a reliable way to store data that needs to be accessed by large scale distributed systems. The most popular implementation of the distributed configuration store is ETCD. ETCD is deployed as a cluster for fault-tolerance and requires an odd number of members (n/2+1) to agree on updates to the cluster state. An ETCD cluster helps establish a consensus among nodes during a failover and manages the configuration for the three PostgreSQL instances.
+The distributed configuration store provides a reliable way to store data that needs to be accessed by large scale distributed systems. The most popular implementation of the distributed configuration store is etcd. etcd is deployed as a cluster for fault-tolerance and requires an odd number of members (n/2+1) to agree on updates to the cluster state. An etcd cluster helps establish a consensus among nodes during a failover and manages the configuration for the three PostgreSQL instances.
 
-This document provides configuration for ETCD version 3.5.x. For how to configure ETCD cluster with earlier versions of ETCD, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
+This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
 
 The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. 
 
 !!! note
 
-    Users with deeper understanding of how ETCD works can configure and start all ETCD nodes at a time and bootstrap the cluster using one of the following methods:
+    Users with deeper understanding of how etcd works can configure and start all etcd nodes at a time and bootstrap the cluster using one of the following methods:
 
     * Static in the case when the IP addresses of the cluster nodes are known
     * Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.
 
-    See the [How to configure ETCD nodes simultaneously](../how-to.md#how-to-configure-etcd-nodes-simultaneously) section for details.
+    See the [How to configure etcd nodes simultaneously](../how-to.md#how-to-configure-etcd-nodes-simultaneously) section for details.
 
 ### Configure `node1`
 
@@ -177,9 +177,9 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
         ```{.text .no-copy}
         Added member named node2 with ID 10042578c504d052 to cluster
 
-        ETCD_NAME="node2"
-        ETCD_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
-        ETCD_INITIAL_CLUSTER_STATE="existing"
+        etcd_NAME="node2"
+        etcd_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
+        etcd_INITIAL_CLUSTER_STATE="existing"
         ```
 
 ### Configure `node2`

@@ -23,24 +23,22 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     For more information about Percona repositories, refer to [Installing Percona Distribution for PostgreSQL](installing.md).
 
-    Before the upgrade, [update the `percona-release`](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. 
+    Before the upgrade, [update the `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. 
 
-!!! important
-
-    Run all commands as root or via **sudo**.
-
+Run **all** commands as root or via **sudo**:
+{.power-number}
 
 1. Stop the `postgresql` service.
 
 
-    === "On Debian / Ubuntu"
+    === ":material-debian: On Debian / Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux / derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-16
@@ -48,20 +46,20 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
 
 
-2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md#installation-guidellines).
+2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
 
 
 3. Restart the `postgresql` service.
 
 
-    === "On Debian / Ubuntu"
+    === ":material-debian: On Debian / Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux / derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-16
