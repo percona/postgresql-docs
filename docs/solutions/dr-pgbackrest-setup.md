@@ -146,13 +146,13 @@ Install Percona Distribution for PostgreSQL in the primary and the secondary nod
 
 3. Install Percona Distribution for PostgreSQL packages
 
-    === "On Debian and Ubuntu"
+    === ":material-debian: On Debian and Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo apt install percona-postgresql-16 -y
          ```
    
-    === "On RedHat Enterprise Linux and derivatives"
+    === ":material-redhat: On RedHat Enterprise Linux and derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo yum install percona-postgresql16-server
@@ -164,7 +164,7 @@ At this step, configure the PostgreSQL instance on the `pg-primary` node for con
 
 !!! note
 
-       On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql/16/main/postgresql.conf`.
+       :material-debian: On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql/16/main/postgresql.conf`.
 
        On RHEL and CentOS, the path to the configuration file is `/var/lib/pgsql/16/data/`.
 
@@ -190,13 +190,13 @@ At this step, configure the PostgreSQL instance on the `pg-primary` node for con
 
 Install `pgBackRest` in all three instances from Percona repository. Use the following command:
 
-=== "On Debian / Ubuntu"
+=== ":material-debian: On Debian / Ubuntu"
   
      ```{.bash data-prompt="$"}
      $ sudo apt-get install percona-pgbackrest
      ```
 
-=== "On RHEL / derivatives"
+=== ":material-redhat: On RHEL / derivatives"
 
      ```{.bash data-prompt="$"}
      $ sudo yum install percona-pgbackrest

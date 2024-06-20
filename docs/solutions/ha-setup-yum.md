@@ -87,7 +87,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
         $ sudo percona-release setup ppg16
         ```    
 
-    * [Install Percona Distribution for PostgreSQL packages](../installing.md#on-red-hat-enterprise-linux-and-centos-using-yum).    
+    * [Install Percona Distribution for PostgreSQL packages](../yum.md).    
 
     !!! important    
 

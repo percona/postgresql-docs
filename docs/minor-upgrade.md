@@ -31,14 +31,14 @@ Run **all** commands as root or via **sudo**:
 1. Stop the `postgresql` service.
 
 
-    === "On Debian / Ubuntu"
+    === ":material-debian: On Debian / Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux / derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl stop postgresql-16
@@ -46,20 +46,20 @@ Run **all** commands as root or via **sudo**:
 
 
 
-2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md#installation-guidellines).
+2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
 
 
 3. Restart the `postgresql` service.
 
 
-    === "On Debian / Ubuntu"
+    === ":material-debian: On Debian / Ubuntu"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql.service
          ```
 
 
-    === "On Red Hat Enterprise Linux / derivatives"
+    === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start postgresql-16

@@ -22,13 +22,13 @@ $ sudo su -
 
 2. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
@@ -68,7 +68,7 @@ $ sudo su -
 
     Then use the following command to create a basic configuration file using the environment variables we created in a previous step:
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```
         cat <<EOF > pgbackrest.conf
@@ -149,7 +149,7 @@ $ sudo su -
         EOF
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```
         cat <<EOF > pgbackrest.conf
@@ -309,13 +309,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 1. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
@@ -344,7 +344,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
    
 5. Edit or create the configuration file which, as explained above, can be either at the `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf` path:
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```ini title="pgbackrest.conf"
         cat <<EOF > pgbackrest.conf
@@ -374,7 +374,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         ```
 
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```ini title="pgbackrest.conf"
         cat <<EOF > pgbackrest.conf
@@ -448,7 +448,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ patronictl -c /etc/patroni/patroni.yml edit-config
     ```
     
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```yaml title="/etc/patroni/patroni.yml"
         postgresql:
@@ -463,7 +463,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
             (...)
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```yaml title="/etc/patroni/patroni.yml"
         postgresql:
