@@ -20,6 +20,6 @@
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL installs PostgreSQL and complements it by a selection of extensions that enable solving essential practical tasks efficiently.
 
-This update of Percona Distribution for PostgreSQL includes the latest version of [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) 1.0.0-RC - the statistics collection tool for PostgreSQL.
+This update of Percona Distribution for PostgreSQL includes the latest version of [pg_stat_monitor :octicons-link-external-16:](https://github.com/percona/pg_stat_monitor) 1.0.0-RC - the statistics collection tool for PostgreSQL.
 
-We welcome your feedback on your experience with pg_stat_monitor in the [public JIRA project](https://jira.percona.com/projects/DISTPG).
+We welcome your feedback on your experience with pg_stat_monitor in the [public JIRA project :octicons-link-external-16:](https://jira.percona.com/projects/DISTPG).

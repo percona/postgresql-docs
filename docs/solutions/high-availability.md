@@ -1,6 +1,6 @@
 # High Availability in PostgreSQL with Patroni
 
-PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes or unexpected reboots. Such cluster is often a critical component of the enterprise application landscape, where [four nines of availability](https://en.wikipedia.org/wiki/High_availability#Percentage_calculation) is a minimum requirement. 
+PostgreSQL has been widely adopted as a modern, high-performance transactional database. A highly available PostgreSQL cluster can withstand failures caused by network outages, resource saturation, hardware failures, operating system crashes or unexpected reboots. Such cluster is often a critical component of the enterprise application landscape, where [four nines of availability :octicons-link-external-16:](https://en.wikipedia.org/wiki/High_availability#Percentage_calculation) is a minimum requirement. 
 
 There are several methods to achieve high availability in PostgreSQL. This solution document provides [Patroni](#patroni) - the open-source extension to facilitate and manage the deployment of high availability in PostgreSQL.
 
@@ -34,11 +34,11 @@ There are several methods to achieve high availability in PostgreSQL. This solut
 
     To address these shortcomings, there are a multitude of third-party, open-source extensions for PostgreSQL. The challenge for a database administrator here is to select the right utility for the current scenario. 
 
-    Percona Distribution for PostgreSQL solves this challenge by providing the [Patroni](https://patroni.readthedocs.io/en/latest/) extension for achieving PostgreSQL high availability.
+    Percona Distribution for PostgreSQL solves this challenge by providing the [Patroni  :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) extension for achieving PostgreSQL high availability.
 
 ## Patroni
 
-[Patroni](https://patroni.readthedocs.io/en/latest/) is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. 
+[Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. 
 
 ### Key benefits of Patroni:
 
@@ -63,7 +63,7 @@ The components in this architecture are:
 - PostgreSQL nodes 
 - Patroni - a template for configuring a highly available PostgreSQL cluster.
 
-- ETCD - a Distributed Configuration store that stores the state of the PostgreSQL cluster. 
+- etcd - a Distributed Configuration store that stores the state of the PostgreSQL cluster. 
 
 - HAProxy - the load balancer for the cluster and is the single point of entry to client applications. 
 
@@ -73,9 +73,9 @@ The components in this architecture are:
 
 ### How components work together
 
-Each PostgreSQL instance in the cluster maintains consistency with other members through streaming replication. Each instance hosts Patroni - a cluster manager that monitors the cluster health. Patroni relies on the operational ETCD cluster to store the cluster configuration and sensitive data about the cluster health there. 
+Each PostgreSQL instance in the cluster maintains consistency with other members through streaming replication. Each instance hosts Patroni - a cluster manager that monitors the cluster health. Patroni relies on the operational etcd cluster to store the cluster configuration and sensitive data about the cluster health there. 
 
-Patroni periodically sends heartbeat requests with the cluster status to ETCD. ETCD writes this information to disk and sends the response back to Patroni. If the current primary fails to renew its status as leader within the specified timeout, Patroni updates the state change in ETCD, which uses this information to elect the new primary and keep the cluster up and running.
+Patroni periodically sends heartbeat requests with the cluster status to etcd. etcd writes this information to disk and sends the response back to Patroni. If the current primary fails to renew its status as leader within the specified timeout, Patroni updates the state change in etcd, which uses this information to elect the new primary and keep the cluster up and running.
 
 The connections to the cluster do not happen directly to the database nodes but are routed via a connection proxy like HAProxy. This proxy determines the active node by querying the Patroni REST API.
 

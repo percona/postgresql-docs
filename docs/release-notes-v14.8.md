@@ -11,7 +11,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.8
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL components now include [PostGIS](http://postgis.net/) - the open source extension that allows storing and manipulating spatial data in PostgreSQL.
+* Percona Distribution for PostgreSQL components now include [PostGIS](https://postgis.net/) - the open source extension that allows storing and manipulating spatial data in PostgreSQL.
 
 ------------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
-|[HAProxy](http://www.haproxy.org/) | 2.6.13 | a high-availability and load-balancing solution |
+|[HAProxy](https://www.haproxy.org/) | 2.6.13 | a high-availability and load-balancing solution |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.0.2 | a HA (High Availability) solution for PostgreSQL |
 | [PgAudit](https://www.pgaudit.org/)             | 1.6.2   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
@@ -37,13 +37,13 @@ The following is the list of extensions available in Percona Distribution for Po
 Percona Distribution for PostgreSQL also includes the following packages:
 
 * `llvm` 12.0.1 packages for Red Hat Enterprise Linux 8 and derivatives. This fixes compatibility issues with LLVM from upstream.
-* supplemental `ETCD` packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:
+* supplemental `etcd` packages which can be used for setting up Patroni clusters. These packages are available for the following operating systems:
 
 |  Operating system  | Package              | Version | Description        |
 | ------------------ | ---------------------| --------| ------------------ |
-| RHEL 7              |`python3-python-etcd` | 0.4.3   | A Python client for ETCD     |
+| RHEL 7              |`python3-python-etcd` | 0.4.3   | A Python client for etcd     |
 | RHEL 8             | `etcd`               | 3.3.11  | A consistent, distributed key-value store |
-|                    | `python3-python-etcd`| 0.4.3   | A Python client for ETCD |
+|                    | `python3-python-etcd`| 0.4.3   | A Python client for etcd |
                                                       
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/14/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL

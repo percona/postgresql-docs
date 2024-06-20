@@ -5,16 +5,16 @@ The following document provides guidelines how to install PostGIS and how to run
 ## Considerations
 
 1. We assume that you have the basic knowledge of spatial data, GIS (Geographical Information System) and of shapefiles.
-2. For uploading the spatial data and querying the database, we use the same [data set](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial](http://postgis.net/workshops/postgis-intro/). 
+2. For uploading the spatial data and querying the database, we use the same [data set :octicons-link-external-16:](https://s3.amazonaws.com/s3.cleverelephant.ca/postgis-workshop-2020.zip) as is used in [PostGIS tutorial :octicons-link-external-16:](https://postgis.net/workshops/postgis-intro/). 
 
 
 ## Install PostGIS
 
-=== "On Debian and Ubuntu"
+=== ":material-debian: On Debian and Ubuntu"
 
     1. Enable Percona repository
 
-        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
+        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg{{pgversion}}
@@ -40,12 +40,12 @@ The following document provides guidelines how to install PostGIS and how to run
             $ sudo apt-get install libsfcgal1
             ```
 
-=== "On RHEL and derivatives"
+=== ":material-redhat: On RHEL and derivatives"
 
     1. Check the [Platform specific notes](../yum.md#for-postgis) and enable required repositories and modules for the dependencies relevant to your operating system.
     2. Enable Percona repository
 
-        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release`](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
+        As other components of Percona Distribution for PostgreSQL, PostGIS is available from Percona repositories. Use the [`percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html) repository management tool to enable the repository. 
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg{{pgversion}}
@@ -120,7 +120,7 @@ PostGIS provides the `shp2pgsql` command line utility that converts the binary d
 
     * `-D` flag instructs the command to generate the dump format
     * `-I` flag instructs to create the spatial index on the table upon the data load
-    * `-s` indicates the [spatial reference identifier](https://en.wikipedia.org/wiki/Spatial_reference_system) of the data. The data we load is in the Projected coordinate system for North America and has the value 26918.
+    * `-s` indicates the [spatial reference identifier :octicons-link-external-16:](https://en.wikipedia.org/wiki/Spatial_reference_system) of the data. The data we load is in the Projected coordinate system for North America and has the value 26918.
     * `nyc_streets.shp` is the source shapefile
     * `nyc_streets` is the table name to create in the database
     * `dbname=nyc` is the database name
