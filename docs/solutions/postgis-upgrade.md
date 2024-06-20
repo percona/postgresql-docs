@@ -13,13 +13,13 @@ The spatial database upgrade consists of two steps:
 
 ## Upgrade PostGIS
 
-Each version of PostGIS is compatible with several versions of PostgreSQL and vise versa. The best practice is to first upgrade the PostGIS extension on the source cluster to match the compatible version on the target cluster and then upgrade PostgreSQL. Please see the [PostGIS Support matrix](https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS#PostGISSupportMatrix) for version compatibility. 
+Each version of PostGIS is compatible with several versions of PostgreSQL and vise versa. The best practice is to first upgrade the PostGIS extension on the source cluster to match the compatible version on the target cluster and then upgrade PostgreSQL. Please see the [PostGIS Support matrix :octicons-link-external-16:](https://trac.osgeo.org/postgis/wiki/UsersWikiPostgreSQLPostGIS#PostGISSupportMatrix) for version compatibility. 
 
 PostGIS is enabled on the database level. This means that the upgrade is also done on the database level. 
 
 === "PostGIS 3 and above"
 
-     Connect to the database where it is enabled and run the [`PostGIS_Extensions_Upgrade()`](https://postgis.net/docs/PostGIS_Extensions_Upgrade.html) function:
+     Connect to the database where it is enabled and run the [`PostGIS_Extensions_Upgrade()` :octicons-link-external-16:](https://postgis.net/docs/PostGIS_Extensions_Upgrade.html) function:
 
      ```sql
      SELECT postgis_extensions_upgrade();
@@ -50,4 +50,4 @@ PostGIS is enabled on the database level. This means that the upgrade is also do
 
 Upgrade PostgreSQL either to the [latest minor](../minor-upgrade.md) or to the [major version](../major-upgrade.md). 
 
-If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, [contact Percona Managed Services](https://www.percona.com/services/managed-services) for an individual upgrade scenario development.
+If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, [contact Percona Managed Services :octicons-link-external-16:](https://www.percona.com/services/managed-services) for an individual upgrade scenario development.

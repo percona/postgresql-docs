@@ -1,6 +1,6 @@
 # pgBackRest setup
 
-[pgBackRest](https://pgbackrest.org/) is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. While it can be used for local backups, this procedure shows how to deploy a [pgBackRest server running on a dedicated host](https://pgbackrest.org/user-guide-rhel.html#repo-host) and how to configure PostgreSQL servers to use it for backups and archiving.
+[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. While it can be used for local backups, this procedure shows how to deploy a [pgBackRest server running on a dedicated host :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host) and how to configure PostgreSQL servers to use it for backups and archiving.
 
 You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. 
 
@@ -14,7 +14,7 @@ $ sudo su -
 
 ### Install pgBackRest
 
-1. Enable the repository with [percona-release](https://www.percona.com/doc/percona-repo-config/index.html)
+1. Enable the repository with [percona-release :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/index.html)
 
     ```{.bash data-prompt="$"}
     $ percona-release setup ppg-{{pgversion}}       
@@ -22,13 +22,13 @@ $ sudo su -
 
 2. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian andUbuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === " :material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
@@ -309,13 +309,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 1. Install pgBackRest package
 
-    === "Debian/Ubuntu"
+    === ":material-debian: On Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
         $ apt install percona-pgbackrest
         ```
 
-    === "RHEL/derivatives"
+    === ":material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest

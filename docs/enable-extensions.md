@@ -14,16 +14,17 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - [HAProxy](http://www.haproxy.org/).
 
+
 See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](solutions/ha-setup-yum.md). 
 
 
 !!! admonition "See also"
 
-    - [Patroni documentation](https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings)
+    - [Patroni documentation :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings)
 
     - Percona Blog: 
 
-        - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
+        - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
         
 ## pgBadger
 
@@ -41,7 +42,7 @@ log_autovacuum_min_duration = 0
 log_error_verbosity = default
 ```
 
-For details about each option, see [pdBadger documentation](https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION).
+For details about each option, see [pdBadger documentation :octicons-link-external-16:](https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION).
 
 ## pgaudit
 
@@ -69,7 +70,7 @@ CREATE EXTENSION pgaudit;
 
 ## pgaudit set-user
 
-Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/14/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
+Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM :octicons-link-external-16:](https://www.postgresql.org/docs/12/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
 ```sql
 ALTER SYSTEM SET shared_preload_libraries = 'set-user';
@@ -119,3 +120,7 @@ After the installation, enable the following option in `postgresql.conf` configu
 ```
 wal_level = logical
 ```
+
+## Next steps 
+
+[Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}
