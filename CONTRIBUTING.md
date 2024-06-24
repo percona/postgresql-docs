@@ -104,7 +104,7 @@ Learn more about the documentation structure in the [Repository structure](#repo
 2. We use [this Docker image](https://github.com/Percona-Lab/percona-doc-docker) to build documentation. Run the following command:
 
 ```sh
-docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md -f mkdocs-netlify.yml
+docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md  mkdocs build
 ```
    If Docker can't find the image locally, it first downloads the image, and then runs it to build the documentation.
 
@@ -112,13 +112,13 @@ docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md -f mkdocs-netlify.yml
 4. To view your changes as you make them, run the following command:
 
 ``` sh
-docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve -f mkdocs-netlify.yml -a 0.0.0.0:8000
+docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve  -a 0.0.0.0:8000
 ```
 
 5. To create a PDF version of the documentation, run the following command:
 
 ```sh
-docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md -f mkdocs-pdf.yml
+docker run --rm -v $(pwd):/docs -e ENABLE_PDF_EXPORT=1 perconalab/pmm-doc-md mkdocs build -f mkdocs-pdf.yml
 ```
 
 The PDF document is in the ``site/pdf`` folder.
