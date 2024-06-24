@@ -49,5 +49,34 @@ Learn about the releases and changes in the Distribution.
 </div>
 </div>
 
+* [Patroni](https://patroni.readthedocs.io/en/latest/) is an HA (High Availability) solution for PostgreSQL.
+
+* [pgaudit](https://www.pgaudit.org/) provides detailed session or object
+audit logging via the standard PostgreSQL logging facility
+
+* [pgaudit set_user](https://github.com/pgaudit/set_user) - The `set_user` part of `pgAudit` extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.
+
+* [pgBackRest](https://pgbackrest.org/) is a backup and restore solution for
+PostgreSQL
+
+* [pgBadger](https://github.com/darold/pgbadger) - a fast PostgreSQL Log Analyzer.
+
+* [PgBouncer](https://www.pgbouncer.org/) - a lightweight connection pooler for PostgreSQL
+
+* [pg_gather](https://github.com/jobinau/pg_gather) - an SQL script to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases.
+
+* [pgpool2](https://www.pgpool.net/mediawiki/index.php/Main_Page) - a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.
+
+* [pg_repack](https://github.com/reorg/pg_repack) rebuilds
+PostgreSQL database objects
+
+* [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) collects and aggregates statistics for PostgreSQL and provides histogram information.
+
+* [PostGIS](http://postgis.net/) allows storing and manipulating spacial data in PostgreSQL.
+
+* [wal2json](https://github.com/eulerto/wal2json) - a PostgreSQL logical decoding JSON output plugin.
+
+* A collection of [additional PostgreSQL contrib extensions](https://www.postgresql.org/docs/{{pgversion}}/contrib.html)
+
 
 
