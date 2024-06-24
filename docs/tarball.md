@@ -19,7 +19,7 @@ The tarballs include the following components:
 
 | Component | Description |
 |-----------|-------------|
-| percona-postgresql{{pgversion}}| A metapackage that installs the latest version of PostgreSQL. It also includes the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> -  the set of [contrib extensions](contrib.md)|
+| percona-postgresql{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> -  the set of [contrib extensions](contrib.md)|
 | percona-haproxy | A high-availability solution and load-balancing solution |
 | percona-patroni | A high-availability solution for PostgreSQL |
 | percona-pgbackrest| A backup and restore tool |
@@ -86,7 +86,7 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
     $ sudo tar -xfv percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz -C /opt/pgdistro/
     ```
 
-5. If you extracted the tarball somewhere else in your system, copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules. 
+5. If you extracted the tarball in a directory other than `/opt`, copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules. 
  
     ```{.bash data-prompt="$"}
     $ sudo cp <path_to>/percona-perl <path_to>/percona-python3 <path_to>/percona-tcl /opt/
