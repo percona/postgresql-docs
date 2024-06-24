@@ -39,7 +39,7 @@ This section provides instructions how to install `pg_tde` from Percona reposito
     2. Enable the repository:
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release enable-only ppg-{{dockertag}} testing
+        $ sudo percona-release enable-only ppg-16.2 testing
         ```     
     
     3. Install the package: 
@@ -82,7 +82,7 @@ This section provides instructions how to install `pg_tde` from Percona reposito
     3. Enable the repository:
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release enable-only ppg-{{dockertag}} testing
+        $ sudo percona-release enable-only ppg-16.2 testing
         ``` 
 
     4. Install the package:
