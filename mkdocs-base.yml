@@ -163,6 +163,7 @@ nav:
       - 1. Install: 
           - Via apt: apt.md
           - Via yum: yum.md
+          - From tarballs: tarball.md
           - Run in Docker: docker.md
           - enable-extensions.md
           - repo-overview.md
