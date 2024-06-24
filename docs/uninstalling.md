@@ -61,3 +61,26 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
          ```{.bash data-prompt="$"}
          $ rm -rf /var/lib/pgsql/15/data
          ```
+
+## Uninstall from tarballs
+
+If you [installed Percona Distribution for PostgreSQL from binary tarballs](tarball.md), stop the PostgreSQL server and remove the folder with the binary tarballs.
+
+1. Stop the `postgres` server:
+
+    ```{.bash data-prompt="$"}
+    $ /path/to/tarballs/percona-postgresql{{pgversion}}/bin/pg_ctl -D path/to/datadir -l logfile stop
+    ```
+
+    ??? example "Sample output"
+
+        ```{.text .no-copy}
+        waiting for server to shut down.... done
+        server stopped
+        ```
+
+2. Remove the directory with extracted tarballs
+
+    ```{.bash data-prompt="$"}
+    $ sudo rm -rf /path/to/tarballs/
+    ```
