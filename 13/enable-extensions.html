@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.">
+        <meta name="description" content="Some components require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.">
       
       
         <meta name="author" content="Percona LLC">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Enable Percona Distribution for PostgreSQL extensions - Percona Distribution for PostgreSQL</title>
+        <title>Enable Percona Distribution for PostgreSQL components - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -96,7 +96,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Enable Percona Distribution for PostgreSQL extensions" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Enable Percona Distribution for PostgreSQL components" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                </head>
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enable-percona-distribution-for-postgresql-extensions" class="md-skip">
+        <a href="#enable-percona-distribution-for-postgresql-components" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enable Percona Distribution for PostgreSQL extensions
+              Enable Percona Distribution for PostgreSQL components
             
           </span>
         </div>
@@ -543,6 +543,27 @@
   
   
     <li class="md-nav__item">
+      <a href="tarball.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From tarballs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="docker.html" class="md-nav__link">
         
   
@@ -577,7 +598,7 @@
           
   
   <span class="md-ellipsis">
-    Enable Percona Distribution for PostgreSQL extensions
+    Enable Percona Distribution for PostgreSQL components
   </span>
   
 
@@ -588,7 +609,7 @@
         
   
   <span class="md-ellipsis">
-    Enable Percona Distribution for PostgreSQL extensions
+    Enable Percona Distribution for PostgreSQL components
   </span>
   
 
@@ -610,6 +631,78 @@
       On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#patroni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patroni
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgbadger" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgBadger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgaudit" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgaudit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgaudit-set-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgaudit set-user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgbouncer" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgbouncer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgpool2" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgpool2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pg_stat_monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      pg_stat_monitor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wal2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      wal2json
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
@@ -2438,6 +2531,78 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#patroni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Patroni
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgbadger" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgBadger
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgaudit" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgaudit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgaudit-set-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgaudit set-user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgbouncer" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgbouncer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pgpool2" class="md-nav__link">
+    <span class="md-ellipsis">
+      pgpool2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pg_stat_monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      pg_stat_monitor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wal2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      wal2json
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Next steps
@@ -2488,9 +2653,9 @@
   
 
 
-<h1 id="enable-percona-distribution-for-postgresql-extensions">Enable Percona Distribution for PostgreSQL extensions<a class="headerlink" href="#enable-percona-distribution-for-postgresql-extensions" title="Permanent link">&para;</a></h1>
-<p>Some extensions require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
-<p><strong>Patroni</strong></p>
+<h1 id="enable-percona-distribution-for-postgresql-components">Enable Percona Distribution for PostgreSQL components<a class="headerlink" href="#enable-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h1>
+<p>Some components require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per extension.</p>
+<h2 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
 <p>Patroni is the third-party high availability solution for PostgreSQL. The <a href="solutions/high-availability.html">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
 <p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:</p>
 <ul>
@@ -2519,7 +2684,7 @@
 </li>
 </ul>
 </div>
-<p><strong>pgBadger</strong></p>
+<h2 id="pgbadger">pgBadger<a class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h2>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
 log_line_prefix = &#39;%t [%p]: &#39;
@@ -2532,13 +2697,45 @@ log_autovacuum_min_duration = 0
 log_error_verbosity = default
 </code></pre></div>
 <p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></a>.</p>
-<p><strong>pgAudit set-user</strong></p>
+<h2 id="pgaudit">pgaudit<a class="headerlink" href="#pgaudit" title="Permanent link">&para;</a></h2>
+<p>Add the <code>pgaudit</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/16/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pgaudit&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Start / restart the server to apply the configuration.</p>
+<p>To configure <code>pgaudit</code>, you must have the privileges of a superuser. You can specify the settings in one of these ways:</p>
+<ul>
+<li>globally (in postgresql.conf or using ALTER SYSTEM &hellip; SET), </li>
+<li>at the database level (using ALTER DATABASE &hellip; SET), </li>
+<li>at the role level (using ALTER ROLE &hellip; SET). Note that settings are not inherited through normal role inheritance and SET ROLE will not alter a user&rsquo;s pgAudit settings. This is a limitation of the roles system and not inherent to pgAudit. </li>
+</ul>
+<p>Refer to the <a href="https://github.com/pgaudit/pgaudit/blob/master/README.md#settings">pgaudit documentation</a> for details about available settings.</p>
+<p>To enable <code>pgaudit</code>, connect to psql and run the CREATE EXTENSION command:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pgaudit</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="pgaudit-set-user">pgaudit set-user<a class="headerlink" href="#pgaudit-set-user" title="Permanent link">&para;</a></h2>
 <p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/13/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="connect.html">Connect to psql</a> and use the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set-user&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
-<p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/></svg></span></a> supplied with the extension.</p>
-<p><strong>wal2json</strong></p>
+<p>Install the extension into your database:</p>
+<div class="highlight"><pre><span></span><code><span class="n">psql</span><span class="w"> </span><span class="o">&lt;</span><span class="k">database</span><span class="o">&gt;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">set_user</span><span class="p">;</span>
+</code></pre></div>
+<p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters</a> supplied with the extension.</p>
+<h2 id="pgbouncer">pgbouncer<a class="headerlink" href="#pgbouncer" title="Permanent link">&para;</a></h2>
+<p><code>pgbouncer</code> requires the <code>pgbouncer.ini</code> configuration file to start. The default path is <code>/etc/pgbouncer/pgbouncer.ini</code>. When installing <code>pgbouncer</code> from a <a href="tarball.html">tarball</a>, the path is <code>percona-pgbouncer/etc/pgbouncer.ini</code>.</p>
+<p>Find detailed information about configuration file options in the <a href="https://www.pgbouncer.org/config.html"><code>pgbouncer documentation</code></a>.</p>
+<h2 id="pgpool2">pgpool2<a class="headerlink" href="#pgpool2" title="Permanent link">&para;</a></h2>
+<p><code>pgpool-II</code> requires the configuration file to start. When you install pgpool from a package, the configuration file is automatically created for you at the path <code>/etc/pgpool2/pgpool.conf</code> on Debian and Ubuntu and <code>/etc/pgpool-II/pgpool.conf</code> on RHEL and derivatives.</p>
+<p>When you installed pgpool from tarballs, you can use the sample configuration file <code>&lt;tarballsdir&gt;/percona-pgpool-II/etc/pgpool2/pgpool.conf.sample</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>&lt;tarballsdir&gt;/percona-pgpool-II/etc/pgpool2/pgpool.conf.sample<span class="w"> </span>&lt;config-gile-path&gt;/pgpool.conf
+</code></pre></div>
+<p>Specify the path to it when starting pgpool:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgpool<span class="w"> </span>-f<span class="w"> </span>&lt;config-gile-path&gt;/pgpool.conf
+</code></pre></div>
+<h2 id="pg_stat_monitor">pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
+<p>Please refer to <a href="pg-stat-monitor.html#setup"><code>pg_stat_monitor</code></a> for setup steps.</p>
+<h2 id="wal2json">wal2json<a class="headerlink" href="#wal2json" title="Permanent link">&para;</a></h2>
 <p>After the installation, enable the following option in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>wal_level = logical
 </code></pre></div>
@@ -2575,7 +2772,7 @@ log_error_verbosity = default
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 24, 2024</span>
   </span>
 
     
