@@ -162,10 +162,13 @@ The steps below install the tarballs for OpenSSL 3.x. Use another tarball if you
    
 ### Start the components
 
-After you unpacked the tarball and added the location of the components' binaries to the $PATH variable, the components are available for use. You can invoke a component by running its command-line tool. For example, to check HAProxy version, type:
+After you unpacked the tarball and added the location of the components' binaries to the `$PATH` variable, the components are available for use. You can invoke a component by running its command-line tool.
+
+For example, to check HAProxy version, type:
 
 ```{.bash data-prompt="$"}
 $ haproxy version
 ```
 
 Some components require additional setup. Check the [Enabling extensions](enable-extensions.md) page for details.
+
