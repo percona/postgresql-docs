@@ -2,7 +2,7 @@
 
 !!! note
 
-    This is the Alpha 1 version of the extension and is not recommended for production use yet. Please use it in testing environments only. 
+    This is the Beta version of the extension and is not recommended for production use yet. Please use it in testing environments only. 
 
 ## Overview
 
@@ -39,7 +39,7 @@ This section provides instructions how to install `pg_tde` from Percona reposito
     2. Enable the repository:
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release enable-only ppg-16.2 testing
+        $ sudo percona-release enable-only ppg-16.3 testing
         ```     
     
     3. Install the package: 
@@ -82,7 +82,7 @@ This section provides instructions how to install `pg_tde` from Percona reposito
     3. Enable the repository:
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release enable-only ppg-16.2 testing
+        $ sudo percona-release enable-only ppg-16.3 testing
         ``` 
 
     4. Install the package:
