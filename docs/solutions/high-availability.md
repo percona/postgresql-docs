@@ -50,6 +50,15 @@ There are several methods to achieve high availability in PostgreSQL. This solut
 * Distributed consensus for every action and configuration.
 * Integration with Linux watchdog for avoiding split-brain syndrome.
 
+
+!!! admonition "See also"
+
+    - [Patroni documentation :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings)
+
+    - Percona Blog: 
+
+        - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
+
 ## Architecture layout
 
 The following diagram shows the architecture of a three-node PostgreSQL cluster with a single-leader node. 
