@@ -355,7 +355,7 @@ Run the following commands on all nodes. You can do this in parallel:
         cluster_name: cluster_1
         listen: 0.0.0.0:5432
         connect_address: ${NODE_IP}:5432
-        data_dir: ${DATADIR}
+        data_dir: ${DATA_DIR}
         bin_dir: ${PG_BIN_DIR}
         pgpass: /tmp/pgpass
         authentication:
