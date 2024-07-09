@@ -50,6 +50,15 @@ There are several methods to achieve high availability in PostgreSQL. This solut
 * Distributed consensus for every action and configuration.
 * Integration with Linux watchdog for avoiding split-brain syndrome.
 
+
+!!! admonition "See also"
+
+    - [Patroni documentation :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings)
+
+    - Percona Blog: 
+
+        - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
+
 ## Architecture layout
 
 The following diagram shows the architecture of a three-node PostgreSQL cluster with a single-leader node. 
@@ -78,7 +87,6 @@ Each PostgreSQL instance in the cluster maintains consistency with other members
 Patroni periodically sends heartbeat requests with the cluster status to etcd. etcd writes this information to disk and sends the response back to Patroni. If the current primary fails to renew its status as leader within the specified timeout, Patroni updates the state change in etcd, which uses this information to elect the new primary and keep the cluster up and running.
 
 The connections to the cluster do not happen directly to the database nodes but are routed via a connection proxy like HAProxy. This proxy determines the active node by querying the Patroni REST API.
-
 
 ## Next steps
 
