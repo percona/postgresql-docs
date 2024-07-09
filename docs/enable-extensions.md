@@ -16,15 +16,15 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](solutions/ha-setup-yum.md). 
 
+!!! important
 
-!!! admonition "See also"
+    To configure high-availability with [the software installed from the tarballs](tarball.md), install the Python client for `etcd` to resolve dependency issues. Use the following command:
 
-    - [Patroni documentation :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings)
+    ```{.bash data-prompt="$"}
+    $ /opt/percona-python3/bin/pip3 install python-etcd
+    ```
+    
 
-    - Percona Blog: 
-
-        - [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/) 
-        
 ## pgBadger
 
 Enable the following options in `postgresql.conf` configuration file before starting the service:

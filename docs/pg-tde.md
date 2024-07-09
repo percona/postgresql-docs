@@ -16,7 +16,7 @@ Unlike traditional encryption methods that require significant changes to databa
 * Storage of encryption keys in either a Hashicorp Vault server or a local keyring file (primarily for development purposes).
 * Configurable encryption settings per database: you can choose which tables to encrypt, achieving granular control over data protection.
 * Replication support.
-* Enhanced security through the ability to rotate master keys used for data encryption, reducing the risk of long-term exposure to potential attacks and aiding compliance with security standards like GDPR, HIPAA, and PCI DSS.
+* Enhanced security through the ability to rotate principal keys used for data encryption, reducing the risk of long-term exposure to potential attacks and aiding compliance with security standards like GDPR, HIPAA, and PCI DSS.
 
 ## Installation
 
@@ -162,10 +162,10 @@ The setup of the Vault server is out of scope of this document. We're assuming y
    * `secret_token` is an access token with read and write access to the above mount point
    * [optional] `ca_path` is the path of the CA file used for SSL verification
 
-2.  Add a master key
+2.  Add a principal key
 
     ```sql
-    SELECT pg_tde_set_master_key('name-of-the-master-key', 'provider-name');
+    SELECT pg_tde_set_principal_key('name-of-the-principal-key', 'provider-name');
     ```
 
 ## Usage
