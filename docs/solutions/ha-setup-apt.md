@@ -78,7 +78,7 @@ It’s not necessary to have name resolution, but it makes the whole setup more 
 
 ### Install the software
 
-Run the following commands on node1`, `node2` and `node3`:
+Run the following commands on `node1`, `node2` and `node3`:
 
 1. Install Percona Distribution for PostgreSQL
     
