@@ -11,3 +11,4 @@ mkdocs-section-index
 mkdocs-htmlproofer-plugin
 mkdocs-meta-descriptions-plugin
 mike
+Pillow > 10.1.0
