@@ -107,7 +107,7 @@ The setup of the Vault server is out of scope of this document. We're assuming y
 
 1. Add `pg_tde` to `shared_preload_libraries`. 
 
-   The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM :octicons-external-link-16:](https://www.postgresql.org/docs/15/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
+   The recommended way to modify PostgreSQL configuration file is using the [ALTER SYSTEM :octicons-external-link-16:](https://www.postgresql.org/docs/16/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
     ```sql
     ALTER SYSTEM SET shared_preload_libraries = 'pg_tde';
@@ -145,7 +145,7 @@ The setup of the Vault server is out of scope of this document. We're assuming y
         psql -d template1 -c 'CREATE EXTENSION pg_tde;'
         ```
 
-    After you enabled `pg_tde`, the [access method :octicons-external-link-16:](https://www.postgresql.org/docs/current/tableam.html) `pg_tde` is created for that database. 
+    After you enabled `pg_tde`, the [access method :octicons-external-link-16:](https://www.postgresql.org/docs/current/tableam.html) `pg_tde_basic` is created for that database. 
 
 ### Key configuration
 
@@ -172,13 +172,13 @@ The setup of the Vault server is out of scope of this document. We're assuming y
 
 To check if the data is encrypted, do the following:
 
-1. Create a table for the database where you have enabled `pg_tde` using the `pg_tde` access method:
+1. Create a table for the database where you have enabled `pg_tde` using the `pg_tde_basic` access method:
 
     ```sql
     CREATE TABLE my_encrypted_table (
     id SERIAL PRIMARY KEY,
     sensitive_data TEXT
-    ) USING pg_tde;
+    ) USING pg_tde_basic;
     ```
 
 2. Insert some data ito it:
@@ -195,3 +195,30 @@ To check if the data is encrypted, do the following:
     ```
 
     The function returns `t` if the table is encrypted and `f` - if not.
+
+## Upgrade considerations
+
+Note that you cannot upgrade to `pg_tde` Beta with the UPDATE TO statement for the ALTER EXTENSION command. If you have previously installed `pg_tde` Alpha1 and wish to use the Beta version, you need to drop the extension and reenable the new version of it.
+
+Note that dropping the extension deletes all tables where it is enabled!
+
+To proceed with the migration to the new version, do the following:
+
+1. Drop the Alpha1 version of pg_tde on the desired database(s):
+
+    ```sql
+    DROP EXTENSION pg_tde
+    ```
+
+    !!! warning
+
+        Dropping the extension deletes all tables where it is enabled.
+
+2. Install `pg_tde` Beta
+
+3. Recreate the `pg_tde` on the desired database(s)
+
+    ```sql
+    CREATE EXTENSION pg_tde;
+    ```
+
