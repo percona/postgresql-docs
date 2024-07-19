@@ -200,7 +200,7 @@ To check if the data is encrypted, do the following:
 
 Note that you cannot upgrade to `pg_tde` Beta with the UPDATE TO statement for the ALTER EXTENSION command. If you have previously installed `pg_tde` Alpha1 and wish to use the Beta version, you need to drop the extension and reenable the new version of it.
 
-Note that dropping the extension deletes all tables where it is enabled!
+<i warning>:material-alert: Warning:</i> Note that dropping the extension deletes all tables where it is enabled!
 
 To proceed with the migration to the new version, do the following:
 
@@ -210,9 +210,7 @@ To proceed with the migration to the new version, do the following:
     DROP EXTENSION pg_tde
     ```
 
-    !!! warning
-
-        Dropping the extension deletes all tables where it is enabled.
+    <i warning>:material-alert: Warning:</i>Dropping the extension deletes all tables where it is enabled.
 
 2. Install `pg_tde` Beta
 
