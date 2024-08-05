@@ -1,8 +1,8 @@
 # Extensions
 
-PostgreSQL extensions are add-ons that enhance the functionality of PostgreSQL databases. By installing these extensions, you can modify and extend your database system with new features, functions, and data types.
+Percona Distribution for PostgreSQL is not only the PostgreSQL server. It also includes extensions - the add-ons that enhance the functionality of PostgreSQL database. By installing these extensions, you can modify and extend your database server with new features, functions, and data types.
 
-Percona Distribution for PostgreSQL includes extensions that have been tested to work together. These extensions encompass the following:
+Percona Distribution for PostgreSQL includes the extensions that have been tested to work together. These extensions encompass the following:
 
 * [PostgreSQL contrib modules and utilities](contrib.md)
 * Extensions authored by Percona:
