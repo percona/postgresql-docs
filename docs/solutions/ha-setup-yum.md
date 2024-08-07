@@ -103,7 +103,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
     ```{.bash data-prompt="$"}
     $ sudo yum install percona-patroni \
-    etcd python3-python-etcd\
+    etcd python3-python-etcd \
     percona-pgbackrest
     ```
 
