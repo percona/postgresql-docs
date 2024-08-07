@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 15 Documentation
+# Percona Distribution for PostgreSQL 13 Documentation
 
  Percona Distribution for PostgreSQL is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL. It includes native PostgreSQL server, enhanced with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster's peak performance. 
  
