@@ -118,7 +118,9 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is `etcd`. 
 
-This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios :octicons-link-external-16:](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/)
+This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/).
+
+If you [installed the software from tarballs](../tarball.md), check how you [enable etcd](../enable-extensions.md#etcd).
 
 The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add` command. 
 
@@ -321,9 +323,6 @@ Run the following commands on all nodes. You can do this in parallel:
           loop_wait: 10
           retry_timeout: 10
           maximum_lag_on_failover: 1048576
-          slots:
-              percona_cluster_1:
-                type: physical
 
           postgresql:
               use_pg_rewind: true
@@ -336,6 +335,10 @@ Run the following commands on all nodes. You can do this in parallel:
                   max_replication_slots: 10
                   wal_log_hints: "on"
                   logging_collector: 'on'
+                  max_wal_size: '10GB'
+                  archive_mode: "on"
+                  archive_timeout: 600s
+                  archive_command: "cp -f %p /home/postgres/archived/%f"
 
       # some desired options for 'initdb'
       initdb: # Note: It needs to be a list (some options need values, others are switches)
@@ -367,7 +370,7 @@ Run the following commands on all nodes. You can do this in parallel:
         connect_address: ${NODE_IP}:5432
         data_dir: ${DATA_DIR}
         bin_dir: ${PG_BIN_DIR}
-        pgpass: /tmp/pgpass
+        pgpass: /tmp/pgpass0
         authentication:
             replication:
                 username: replicator
