@@ -168,9 +168,7 @@ nav:
   - Extensions:
       - 'Extensions': extensions.md
       - contrib.md
-      - Percona-authored extensions:
-        - 'pg_stat_monitor': 'pg-stat-monitor.md'
-        - 'pg_tde': 'pg-tde.md'
+      - Percona-authored extensions: percona-ext.md
       - third-party.md
   - Solutions:
       - Overview: solutions.md
