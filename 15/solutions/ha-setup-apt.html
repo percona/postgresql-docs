@@ -2380,6 +2380,7 @@ $<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"
 <h2 id="configure-etcd-distributed-store">Configure etcd distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
 <p>The distributed configuration store provides a reliable way to store data that needs to be accessed by large scale distributed systems. The most popular implementation of the distributed configuration store is etcd. etcd is deployed as a cluster for fault-tolerance and requires an odd number of members (n/2+1) to agree on updates to the cluster state. An etcd cluster helps establish a consensus among nodes during a failover and manages the configuration for the three PostgreSQL instances.</p>
 <p>This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by <em>Fernando Laudares Camargos</em> and <em>Jobin Augustine</em> <a href="https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/">PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios</a></p>
+<p>If you <a href="../tarball.html">installed the software from tarballs</a>, check how you <a href="../enable-extensions.html#etcd">enable etcd</a>.</p>
 <p>The <code>etcd</code> cluster is first started in one node and then the subsequent nodes are added to the first node using the <code>add</code>command. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2547,9 +2548,6 @@ c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://1
 <span class="s2">      loop_wait: 10</span>
 <span class="s2">      retry_timeout: 10</span>
 <span class="s2">      maximum_lag_on_failover: 1048576</span>
-<span class="s2">      slots:</span>
-<span class="s2">          percona_cluster_1:</span>
-<span class="s2">            type: physical</span>
 
 <span class="s2">      postgresql:</span>
 <span class="s2">          use_pg_rewind: true</span>
@@ -2562,6 +2560,10 @@ c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://1
 <span class="s2">              max_replication_slots: 10</span>
 <span class="s2">              wal_log_hints: &quot;</span>on<span class="s2">&quot;</span>
 <span class="s2">              logging_collector: &#39;on&#39;</span>
+<span class="s2">              max_wal_size: &#39;10GB&#39;</span>
+<span class="s2">              archive_mode: &quot;</span>on<span class="s2">&quot;</span>
+<span class="s2">              archive_timeout: 600s</span>
+<span class="s2">              archive_command: &quot;</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">&quot;</span>
 
 <span class="s2">  # some desired options for &#39;initdb&#39;</span>
 <span class="s2">  initdb: # Note: It needs to be a list (some options need values, others are switches)</span>
@@ -2593,7 +2595,7 @@ c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://1
 <span class="s2">    connect_address: </span><span class="si">${</span><span class="nv">NODE_IP</span><span class="si">}</span><span class="s2">:5432</span>
 <span class="s2">    data_dir: </span><span class="si">${</span><span class="nv">DATA_DIR</span><span class="si">}</span>
 <span class="s2">    bin_dir: </span><span class="si">${</span><span class="nv">PG_BIN_DIR</span><span class="si">}</span>
-<span class="s2">    pgpass: /tmp/pgpass</span>
+<span class="s2">    pgpass: /tmp/pgpass0</span>
 <span class="s2">    authentication:</span>
 <span class="s2">        replication:</span>
 <span class="s2">            username: replicator</span>
@@ -2804,7 +2806,7 @@ listen standbys
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 9, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
   </span>
 
     
