@@ -5,4 +5,8 @@
 release: 'release-notes-v15.7'
 pgversion: '15'
 dockertag: '15.7'
-pgsmversion: '2.0.4'
+pgsmversion: '2.1.0'
+
+
+date:
+  15_8: 2024-09-
