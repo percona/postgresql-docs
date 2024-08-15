@@ -10,21 +10,43 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 - Patroni installed on every ``postresql`` node. 
 
-- Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though [ETCD](https://etcd.io/) is the most popular one. ETCD is included in Percona distribution for PostgreSQL.
+- Distributed Configuration Store (DCS). Patroni supports such DCSs as etcd, zookeeper, Kubernetes though [etcd](https://etcd.io/) is the most popular one. ETCD is included in Percona distribution for PostgreSQL. 
+  
+- [HAProxy :octicons-link-external-16:](http://www.haproxy.org/).
 
-- [HAProxy](http://www.haproxy.org/).
-
+If you install the software fom packages, all required dependencies and service unit files are included. If you [install the software from the tarballs](tarball.md), you must first enable `etcd`. See the steps in the [etcd](#etcd) section if this document.
 
 See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](solutions/ha-setup-yum.md). 
 
-!!! important
+## etcd
 
-    To configure high-availability with [the software installed from the tarballs](tarball.md), install the Python client for `etcd` to resolve dependency issues. Use the following command:
+The following steps apply if you [installed etcd  from the tarballs](tarball.md).
+
+1. Install the Python client for `etcd` to resolve dependency issues. Use the following command:
 
     ```{.bash data-prompt="$"}
     $ /opt/percona-python3/bin/pip3 install python-etcd
     ```
-    
+
+2. Create the `etcd.service` file. This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. 
+
+    ```ini title="/etc/systemd/system/etcd.service"
+    [Unit]
+    After=network.target
+    Description=etcd - highly-available key value store
+
+    [Service]
+    LimitNOFILE=65536
+    Restart=on-failure
+    Type=notify
+    ExecStart=/usr/bin/etcd --config-file /etc/etcd/etcd.conf.yaml
+    User=etcd
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+  
 
 ## pgBadger
 
