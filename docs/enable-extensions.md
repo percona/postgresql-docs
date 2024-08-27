@@ -20,31 +20,23 @@ See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.
 
 ## etcd
 
-The following steps apply if you [installed etcd  from the tarballs](tarball.md).
+If you [installed etcd from binary tarballs](tarball.md), you need to create the `etcd.service` file. This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. 
 
-1. Install the Python client for `etcd` to resolve dependency issues. Use the following command:
+```ini title="/etc/systemd/system/etcd.service"
+[Unit]
+After=network.target
+Description=etcd - highly-available key value store
 
-    ```{.bash data-prompt="$"}
-    $ /opt/percona-python3/bin/pip3 install python-etcd
-    ```
+[Service]
+LimitNOFILE=65536
+Restart=on-failure
+Type=notify
+ExecStart=/usr/bin/etcd --config-file /etc/etcd/etcd.conf.yaml
+User=etcd
 
-2. Create the `etcd.service` file. This file allows `systemd` to start, stop, restart, and manage the `etcd` service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. 
-
-    ```ini title="/etc/systemd/system/etcd.service"
-    [Unit]
-    After=network.target
-    Description=etcd - highly-available key value store
-
-    [Service]
-    LimitNOFILE=65536
-    Restart=on-failure
-    Type=notify
-    ExecStart=/usr/bin/etcd --config-file /etc/etcd/etcd.conf.yaml
-    User=etcd
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
+[Install]
+WantedBy=multi-user.target
+```
 
   
 
