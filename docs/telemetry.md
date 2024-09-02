@@ -1,6 +1,6 @@
 # Telemetry and data collection
 
-Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. 
+Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. All collected data is anonymized so that it can't be traced back to any individual user.
 
 Currently, telemetry is added only to the Percona packages and to Docker images. 
 
@@ -18,7 +18,7 @@ Percona protects your privacy and doesn't collect any personal information about
 
 All collected data is anonymous, meaning it can't be traced back to any individual user. To learn more about how Percona handles your data, read the [Percona Privacy statement](https://www.percona.com/privacy-policy).
 
-You control whether to share this information. Participation in this program is completely voluntary. If don't want to share anonymous data, you can [disable telemetry](#disable-telemetry).
+You control whether to share this information. Participation in this program is completely voluntary. If don't want to share anonymous data, you can [disable telemetry](#disable-telemetry). 
 
 ## Why telemetry matters
 
@@ -33,7 +33,7 @@ Benefits for users in the long run:
 
 | Advantages                | Description                                                                                                         |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------|
-| Faster bug fixes          | With telemetry data, developers can pinpoint issues affecting specific users and prioritize fixing them quickly.  |
+| Faster bug fixes          | With telemetry data, developers can pinpoint issues affecting specific use cases and prioritize fixing them quickly.  |
 | Improved features           | Telemetry helps developers understand user needs and preferences. This allows them to focus on features that will be genuinely useful and improve your overall experience. |
 | Improved user experience  | By identifying and resolving issues early, telemetry helps create a more stable and reliable software experience for everyone. |
 
@@ -67,7 +67,9 @@ The telemetry also uses the Percona Platform with the following components:
 
 `percona_pg_telemetry` is an extension to collect telemetry data in PostgreSQL. It is added to Percona Distribution for PostgreSQL and is automatically loaded when you install a PostgreSQL server.
 
-`percona_pg_telemetry` collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the `percona_pg_telemetry` deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week's data is maintained.
+`percona_pg_telemetry` collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. You can find the Metrics File in its [location](#location) to inspect what data is collected. 
+
+Before generating a new file, the `percona_pg_telemetry` deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week's data is maintained.
 
 The `percona_pg_telemetry` extension creates a file in the local file system using a timestamp and a randomly generated token as the name with a `.json` extension.
 
