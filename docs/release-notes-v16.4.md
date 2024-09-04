@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 16.3 ({{date.16_4}})
+# Percona Distribution for PostgreSQL 16.4 ({{date.16_4}})
 
 [Installation](installing.md){.md-button}
 
@@ -8,7 +8,9 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.4
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL packages are now also available for ARM64 architectures. now includes the packages.  Thus, users can not only run Percona Distribution for PostgreSQL in Docker containers on ARM-based workstations but also install the packages on those workstations. The ARM64 packages are available for the following operating systems:
+* This release of Percona Distribution for PostgreSQL fixes security vulnerability [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348). 
+
+* Percona Distribution for PostgreSQL packages and tarballs are now also available for ARM64 architectures. Thus, users can not only run Percona Distribution for PostgreSQL in Docker containers on ARM-based workstations but also install the packages on those workstations. The ARM64 packages are available for the following operating systems:
 
     * Red Hat Enterprise Linux 8 and compatible derivatives
     * Red Hat Enterprise Linux 9 and compatible derivatives
@@ -19,7 +21,12 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.4
     * Debian 12
 
 * Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](telemetry.md)
-* Percona Distribution for PostgreSQL includes pg_stat_monitor 2.1.0 that provides the ability to [disable the application name tracking for a query](https://docs.percona.com/pg-stat-monitor/configuration.html#pg_stat_monitorpgsm_track_application_names). This way you can optimize query execution performance.  
+
+* Percona Distribution for PostgreSQL includes `pg_stat_monitor` 2.1.0 that provides the ability to [disable the application name tracking for a query](https://docs.percona.com/pg-stat-monitor/configuration.html#pg_stat_monitorpgsm_track_application_names). This way you can optimize query execution performance.  
+
+## Packaging Changes
+
+Percona Distribution for PostgreSQL is no longer supported on Debian 10 and Red Hat Enterprise Linux 7 and compatible derivatives.
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
