@@ -64,7 +64,7 @@ The tarballs include the following components:
 
 ## Procedure
 
-The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use another tarball if your operating system has OpenSSL version 1.x and / or of has ARM 64 architecture.
+The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use another tarball if your operating system has OpenSSL version 1.x and / or has the ARM64 architecture.
 
 1. Create the directory where you will store the binaries. For example, `/opt/pgdistro`
 
