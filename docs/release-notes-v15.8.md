@@ -8,7 +8,9 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.8
 
 ## Release Highlights
 
-* Percona Distribution for PostgreSQL packages are now also available for ARM64 architectures. now includes the packages.  Thus, users can not only run Percona Distribution for PostgreSQL in Docker containers on ARM-based workstations but also install the packages on those workstations. The ARM64 packages are available for the following operating systems:
+* This release of Percona Distribution for PostgreSQL fixes security vulnerability [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348). 
+
+* Percona Distribution for PostgreSQL packages and tarballs are now also available for ARM64 architectures. now includes the packages. Thus, users can not only run Percona Distribution for PostgreSQL in Docker containers on ARM-based workstations but also install the packages on those workstations. The ARM64 packages and tarballs are available for the following operating systems:
 
     * Red Hat Enterprise Linux 8 and compatible derivatives
     * Red Hat Enterprise Linux 9 and compatible derivatives
@@ -21,6 +23,9 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.8
 * Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](telemetry.md)
 * Percona Distribution for PostgreSQL includes pg_stat_monitor 2.1.0 that provides the ability to [disable the application name tracking for a query](https://docs.percona.com/pg-stat-monitor/configuration.html#pg_stat_monitorpgsm_track_application_names). This way you can optimize pg_stat_monitor's performance impact. 
 
+## Packaging Changes
+
+Percona Distribution for PostgreSQL is no longer supported on Debian 10 and Red Hat Enterprise Linux 7 and compatible derivatives.
 
 
 ------------------------------------------------------------------------------
@@ -31,7 +36,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | ------------------- | -------------- | ---------------------------- |
 | [etcd](https://etcd.io/)| 3.5.15 | A distributed, reliable key-value store for setting up high available Patroni clusters |
 | [HAProxy](http://www.haproxy.org/) | 2.8.10 | a high-availability and load-balancing solution |
-| [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.3.0 | a HA (High Availability) solution for PostgreSQL |
+| [Patroni](https://patroni.readthedocs.io/en/latest/) | 3.3.2 | a HA (High Availability) solution for PostgreSQL |
 | [pgaudit](https://www.pgaudit.org/)             | 1.7.0   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgaudit set_user](https://github.com/pgaudit/set_user)| 4.0.1 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/)           | 2.53    | a backup and restore solution for PostgreSQL       |
