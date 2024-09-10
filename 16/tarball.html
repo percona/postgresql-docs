@@ -1587,6 +1587,27 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v16.4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 16.4 (2024-09-10)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v16.3.html" class="md-nav__link">
         
   
@@ -1940,8 +1961,8 @@
 <p>You can find the binary tarballs on the <a href="https://www.percona.com/downloads">Percona website</a>. Select the desired version from a version dropdown and <em>All</em> from the Select Platform dropdown.</p>
 <p>There are the following tarballs available both for x86_64 and ARM64 architectures: </p>
 <ul>
-<li>percona-postgresql-16.3-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x</li>
-<li>percona-postgresql-16.3-ssl3-linux-<architecture>.tar.gz - for operating systems that run OpenSSL version 3.x</li>
+<li>percona-postgresql-16.4-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x</li>
+<li>percona-postgresql-16.4-ssl3-linux-<architecture>.tar.gz - for operating systems that run OpenSSL version 3.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -2041,12 +2062,12 @@
 </li>
 <li>
 <p>Fetch the binary tarball. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-16/16.3/binary/tarball/percona-postgresql-16.3-ssl3-linux-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-16/16.4/binary/tarball/percona-postgresql-16.4-ssl3-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xfv<span class="w"> </span>percona-postgresql-16.3-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xfv<span class="w"> </span>percona-postgresql-16.4-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
 </code></pre></div>
 </li>
 <li>
@@ -2101,7 +2122,7 @@ server started
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (16.3)
+<div class="no-copy highlight"><pre><span></span><code>psql (16.4)
 Type &quot;help&quot; for help.
 
 postgres=#
