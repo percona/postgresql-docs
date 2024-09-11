@@ -32,7 +32,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
       4. Enable the repository
 
            ```{.bash data-prompt="$"}
-           $ sudo percona-release setup ppg16
+           $ sudo percona-release setup ppg{{pgversion}}
            ```
 
       5. [Install Percona Distribution for PostgreSQL packages](apt.md)
@@ -60,7 +60,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
     1. Stop the `postgresql` server   
 
           ```{.bash data-prompt="$"}
-          $ sudo systemctl stop postgresql-16
+          $ sudo systemctl stop postgresql-{{pgversion}}
           ```
 
       2. Remove community packages
@@ -73,7 +73,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
       4. Enable the repository
 
            ```{.bash data-prompt="$"}
-           $ sudo percona-release setup ppg16
+           $ sudo percona-release setup ppg{{pgversion}}
            ```
 
       5. [Install Percona Distribution for PostgreSQL packages](yum.md)
@@ -81,7 +81,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
       7. Start the `postgresql` service
 
           ```{.bash data-prompt="$"}
-          $ sudo systemctl start postgresql-16
+          $ sudo systemctl start postgresql-{{pgversion}}
           ```
 
 
@@ -106,7 +106,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
     === ":material-redhat: On RHEL and derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl stop postgresql-16
+         $ sudo systemctl stop postgresql-{{pgversion}}
          ```
 
 3. Optionally, remove PostgreSQL Community packages 
@@ -118,7 +118,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
 2. Enable the repository
 
     ```{.bash data-prompt="$"}
-    $ sudo percona-release setup ppg16
+    $ sudo percona-release setup ppg{{pgversion}}
     ```
 
 3. [Install Percona Distribution for PostgreSQL packages](installing.md) on the target server.
@@ -134,5 +134,5 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
     === ":material-redhat: On RHEL and derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start postgresql-16
+         $ sudo systemctl start postgresql-{{pgversion}}
          ```

@@ -293,7 +293,7 @@ $ sudo yum -y install curl
         $ sudo yum install percona-patroni
         ```
 
-        [Install `pg_stat_monitor`](pg-stat-monitor.md):
+        [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
 
 
         Install `pgBouncer`:

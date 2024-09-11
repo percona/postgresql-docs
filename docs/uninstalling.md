@@ -22,14 +22,14 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
      2. Remove the **percona-postgresql** packages.
 
          ```{.bash data-prompt="$"}
-         $ sudo apt remove percona-postgresql-16* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
+         $ sudo apt remove percona-postgresql-{{pgversion}}* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
          ```
 
 
      3. Remove configuration and data files.
 
          ```{.bash data-prompt="$"}
-         $ rm -rf /etc/postgresql/16/main
+         $ rm -rf /etc/postgresql/{{pgversion}}/main
          ```
 
 === ":material-redhat: On Red Hat Enterprise Linux and derivatives using `yum`"
@@ -44,21 +44,21 @@ To uninstall Percona Distribution for PostgreSQL, remove all the installed packa
      1. Stop the Percona Distribution for PostgreSQL service.
         
          ```{.bash data-prompt="$"}
-         $ sudo systemctl stop postgresql-16
+         $ sudo systemctl stop postgresql-{{pgversion}}
          ```
 
 
      2. Remove the **percona-postgresql** packages
 
          ```{.bash data-prompt="$"}
-         $ sudo yum remove percona-postgresql16* percona-pgbadger
+         $ sudo yum remove percona-postgresql{{pgversion}}* percona-pgbadger
          ```
 
 
      3. Remove configuration and data files
 
          ```{.bash data-prompt="$"}
-         $ rm -rf /var/lib/pgsql/16/data
+         $ rm -rf /var/lib/pgsql/{{pgversion}}/data
          ```
 
 ## Uninstall from tarballs

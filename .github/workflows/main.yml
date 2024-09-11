@@ -1,8 +1,8 @@
-name: Build Percona Distribution PostgreSQL 16 docs
+name: Build Percona Distribution PostgreSQL 17 docs
 on:
   push:
     branches: 
-      - 16
+      - 17
      
 jobs:
   build:
@@ -42,9 +42,9 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 16 -b publish -p
-          mike set-default 16 -b publish -p
-          mike retitle 16 "16 (LATEST)" -b publish -p
+          mike deploy 17 -b publish -p
+          mike set-default 17 -b publish -p
+          mike retitle 17 "17 (LATEST)" -b publish -p
 
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2
