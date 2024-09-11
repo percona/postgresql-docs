@@ -3,7 +3,7 @@
 
 Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. All collected data is anonymized so that it can't be traced back to any individual user.
 
-Currently, telemetry is added only to the Percona packages and to Docker images. 
+Currently, telemetry is added only to the Percona packages and to Docker images. It is enabled by default so you must be running the latest version of `percona-release` to install Percona Distribution for PostgreSQL packages or update it to the latest version.
 
 ## What information is collected
 
