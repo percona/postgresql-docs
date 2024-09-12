@@ -2393,15 +2393,7 @@
 <p>If you install the software fom packages, all required dependencies and service unit files are included. If you <a href="tarball.html">install the software from the tarballs</a>, you must first enable <code>etcd</code>. See the steps in the <a href="#etcd">etcd</a> section if this document.</p>
 <p>See the configuration guidelines for <a href="solutions/ha-setup-apt.html">Debian and Ubuntu</a> and <a href="solutions/ha-setup-yum.html">RHEL and CentOS</a>. </p>
 <h2 id="etcd">etcd<a class="headerlink" href="#etcd" title="Permanent link">&para;</a></h2>
-<p>The following steps apply if you <a href="tarball.html">installed etcd  from the tarballs</a>.</p>
-<ol>
-<li>
-<p>Install the Python client for <code>etcd</code> to resolve dependency issues. Use the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/percona-python3/bin/pip3<span class="w"> </span>install<span class="w"> </span>python-etcd
-</code></pre></div>
-</li>
-<li>
-<p>Create the <code>etcd.service</code> file. This file allows <code>systemd</code> to start, stop, restart, and manage the <code>etcd</code> service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. </p>
+<p>If you <a href="tarball.html">installed etcd from binary tarballs</a>, you need to create the <code>etcd.service</code> file. This file allows <code>systemd</code> to start, stop, restart, and manage the <code>etcd</code> service. This includes handling dependencies, monitoring the service, and ensuring it runs as expected. </p>
 <div class="highlight"><span class="filename">/etc/systemd/system/etcd.service</span><pre><span></span><code><span class="k">[Unit]</span>
 <span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">etcd - highly-available key value store</span>
@@ -2416,8 +2408,6 @@
 <span class="k">[Install]</span>
 <span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
 </code></pre></div>
-</li>
-</ol>
 <h2 id="pgbadger">pgBadger<a class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h2>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
@@ -2507,7 +2497,7 @@ log_error_verbosity = default
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 12, 2024</span>
   </span>
 
     
