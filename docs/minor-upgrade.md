@@ -7,13 +7,13 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:
 
 
-1. Stopping the `postgresql` cluster;
+1. Stop the `postgresql` cluster;
 
+2. Update `percona-release`;
 
-2. Installing new version packages;
+3. Install new version packages;
 
-
-3. Restarting the `postgresql` cluster.
+4. Restart the `postgresql` cluster.
 
 !!! note
 
@@ -44,11 +44,13 @@ Run **all** commands as root or via **sudo**:
          $ sudo systemctl stop postgresql-12
          ```
 
+2. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
 
-2. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
+
+3. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
 
 
-3. Restart the `postgresql` service.
+4. Restart the `postgresql` service.
 
 
     === "On Debian / Ubuntu"
