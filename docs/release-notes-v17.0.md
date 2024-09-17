@@ -14,12 +14,50 @@ Both Percona Server for PostgreSQL 17 and PostgreSQL Community 17 function ident
 
 Percona Distribution for PostgreSQL 17 features a lot of new functionalities and enhancements to performance, replication, monitoring, developer experience and more. Among them are the following:
 
+### Incremental base backups
 
+Save time and storage space with the ability to back up only the changes since the last backup using [`pg_basebackup`](https://www.postgresql.org/docs/17/continuous-archiving.html#BACKUP-INCREMENTAL-BACKUP) with the `--incremental` option. The new [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) tool allows manipulation of base and incremental file system backups for recovery.
 
+Note that you still require a full backup to derive the increments from and to be used during recovery.
+
+This feature is especially beneficial for organizations with large data sets where a full backup is a time-consuming and resource-intensive operation.  
+
+### Performance improvements
+
+* Vacuum Process Enhancements: The VACUUM process, responsible for reclaiming storage, now has a new internal data structure, reducing memory usage by up to 20x and improving overall performance.
+* The new stream I/O interface can enhance performance during sequential scans and when running the `ANALYZE` command.
+* Added support for parallel index builds for `BRIN` indexes, which can significantly speed up index creation. Additionally, this release significantly improves execution time of queries that use the `IN` clause with a B-tree index.
+
+### Developer experience
+
+* Developers can now transform JSON objects into a standard database table and convert JSON values to different data types directly within SQL statements. This adds flexibility when working with multiple data formats.
+* Run bulk upload and export data from PostgreSQL up to 2x faster with improved `COPY` performance. In addition, use the `ON_ERROR` option to proceed with the copy  operation even if there is an error inserting a row.
+* The RETURN clause added to the MERGE command enables developers to retrieve and return the rows modified by the MERGE operation in a single step, reducing the need for additional queries and simplifying complex workflows.
+
+### Replication improvements
+
+* Gain more control for managing PostgreSQL databases in high availability environments with the ability to continue logical replication from a new primary node after the failover. 
+* Track inactive and invalid replication slots in the `pg_replication_slots` view. With the  `inactive_since` and `invalidation_reason` columns  added to this view, you can get insights when a slot became inactive as well as the reason for an invalid slot.
+
+### Security improvements
+
+* Enable users to perform maintenance operations such as ANALYZE, VACUUM, REINDEX, CLUSTER, REFRESH MATERIALIZED VIEW, and LOCK TABLE on all relations by assigning the new predefined `pg_maintain` role to them. In addition, the `search_path` is safe for maintenance operations like VACUUM, ANALYZE, CLUSTER, REFRESH MATERIALIZED VIEW and INDEX.
+
+### Monitoring improvements
+
+* Get deeper insights about query plans and execution with the new options for the EXPLAIN command: 
+
+   * SERIALIZE shows the amount of time it takes to convert data for network transmission
+   * MEMORY reports optimizer memory usage 
+
+* Learn about why an active session is waiting using the `pg_stat_activity` and new `pg_wait_events` views
 
 !!! admonition "See also"
 
     * [PostgreSQL 17 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html)
+    * Percona Blog: [The Powerful Features Released in PostgreSQL 17 Beta 2](https://www.percona.com/blog/the-powerful-features-released-in-postgresql-17-beta-2/)
+
+---------------------------------------------------------------------------------------------------
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
