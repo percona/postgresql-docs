@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 17.0 ({{date.17_0}})
+# Percona Distribution for PostgreSQL 17.0-1 ({{date.17_0}})
 
 [Installation](installing.md){.md-button}
 [Upgrade](major-upgrade.md){.md-button}
@@ -8,13 +8,20 @@ We are pleased to announce the launch of Percona Distribution for PostgreSQL 17.
 
 This release of Percona Distribution for PostgreSQL is based on **Percona Server for PostgreSQL 17** - a binary compatible drop in replacement of [PostgreSQL 17 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html). Percona Server for PostgreSQL 17 extends the Storage Manager API to hook in custom storage managers and introduce the encryption of indexes (experimental feature) as part of the Transparent Data Encryption (TDE) solution. 
 
-Both Percona Server for PostgreSQL 17 and PostgreSQL Community 17 function identically enabling you to migrate from one to another. However, index-level encryption is available only with Percona Server for PostgreSQL. So if you encrypted indexes, you cannot switch to the upstream PostgreSQL without losing this data.
+Both Percona Server for PostgreSQL 17 and PostgreSQL Community 17 function identically enabling you to migrate from one to another. However, index-level encryption is available only with Percona Server for PostgreSQL. So if you encrypted indexes and wish to migrate to the upstream PostgreSQL, you must first migrate data to the unencrypted table and then proceed with the migration. 
 
 ## Release Highlights
 
-Percona Distribution for PostgreSQL 17 features a lot of new functionalities and enhancements to performance, replication, monitoring, developer experience and more. Among them are the following:
+### Percona Server for PostgreSQL improvements
 
-### Incremental base backups
+* Exposed Storage Manager API to enable PostgreSQL extensions to hook in custom storage managers.
+* Extended Write-Ahead Log (WAL) API to hook into WAL read and write functions.
+
+### PostgreSQL Community improvements
+
+PostgreSQL Community 17 features a lot of new functionalities and enhancements to performance, replication, monitoring, developer experience and more. Among them are the following:
+
+#### Incremental base backups
 
 Save time and storage space with the ability to back up only the changes since the last backup using [`pg_basebackup`](https://www.postgresql.org/docs/17/continuous-archiving.html#BACKUP-INCREMENTAL-BACKUP) with the `--incremental` option. The new [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) tool allows manipulation of base and incremental file system backups for recovery.
 
@@ -22,28 +29,28 @@ Note that you still require a full backup to derive the increments from and to b
 
 This feature is especially beneficial for organizations with large data sets where a full backup is a time-consuming and resource-intensive operation.  
 
-### Performance improvements
+#### Performance improvements
 
 * Vacuum Process Enhancements: The VACUUM process, responsible for reclaiming storage, now has a new internal data structure, reducing memory usage by up to 20x and improving overall performance.
 * The new stream I/O interface can enhance performance during sequential scans and when running the `ANALYZE` command.
 * Added support for parallel index builds for `BRIN` indexes, which can significantly speed up index creation. Additionally, this release significantly improves execution time of queries that use the `IN` clause with a B-tree index.
 
-### Developer experience
+#### Developer experience
 
 * Developers can now transform JSON objects into a standard database table and convert JSON values to different data types directly within SQL statements. This adds flexibility when working with multiple data formats.
 * Run bulk upload and export data from PostgreSQL up to 2x faster with improved `COPY` performance. In addition, use the `ON_ERROR` option to proceed with the copy  operation even if there is an error inserting a row.
 * The RETURN clause added to the MERGE command enables developers to retrieve and return the rows modified by the MERGE operation in a single step, reducing the need for additional queries and simplifying complex workflows.
 
-### Replication improvements
+#### Replication improvements
 
 * Gain more control for managing PostgreSQL databases in high availability environments with the ability to continue logical replication from a new primary node after the failover. 
 * Track inactive and invalid replication slots in the `pg_replication_slots` view. With the  `inactive_since` and `invalidation_reason` columns  added to this view, you can get insights when a slot became inactive as well as the reason for an invalid slot.
 
-### Security improvements
+#### Security improvements
 
 * Enable users to perform maintenance operations such as ANALYZE, VACUUM, REINDEX, CLUSTER, REFRESH MATERIALIZED VIEW, and LOCK TABLE on all relations by assigning the new predefined `pg_maintain` role to them. In addition, the `search_path` is safe for maintenance operations like VACUUM, ANALYZE, CLUSTER, REFRESH MATERIALIZED VIEW and INDEX.
 
-### Monitoring improvements
+#### Monitoring improvements
 
 * Get deeper insights about query plans and execution with the new options for the EXPLAIN command: 
 
@@ -57,6 +64,9 @@ This feature is especially beneficial for organizations with large data sets whe
     * [PostgreSQL 17 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html)
     * Percona Blog: [The Powerful Features Released in PostgreSQL 17 Beta 2](https://www.percona.com/blog/the-powerful-features-released-in-postgresql-17-beta-2/)
 
+### Join Percona Squad
+
+Participate in monthly SWAG raffles, get an early access to new product features and invite-only “ask me anything” sessions with database performance experts. Interested? [Fill in the form](squad.percona.com/mongodb)
 ---------------------------------------------------------------------------------------------------
 
 
