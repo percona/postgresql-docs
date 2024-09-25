@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 17.0-1 ({{date.17_0}})
+# Percona Distribution for PostgreSQL 17.0.1 ({{date.17_0}})
 
 [Installation](installing.md){.md-button}
 [Upgrade](major-upgrade.md){.md-button}
@@ -39,12 +39,13 @@ This feature is especially beneficial for organizations with large data sets whe
 
 * Developers can now transform JSON objects into a standard database table and convert JSON values to different data types directly within SQL statements. This adds flexibility when working with multiple data formats.
 * Run bulk upload and export data from PostgreSQL up to 2x faster with improved `COPY` performance. In addition, use the `ON_ERROR` option to proceed with the copy  operation even if there is an error inserting a row.
-* The RETURN clause added to the MERGE command enables developers to retrieve and return the rows modified by the MERGE operation in a single step, reducing the need for additional queries and simplifying complex workflows.
+* The RETURNING clause added to the MERGE command enables developers to retrieve and return the rows modified by the MERGE operation in a single step, reducing the need for additional queries and simplifying complex workflows.
 
 #### Replication improvements
 
 * Gain more control for managing PostgreSQL databases in high availability environments with the ability to continue logical replication from a new primary node after the failover. 
 * Track inactive and invalid replication slots in the `pg_replication_slots` view. With the  `inactive_since` and `invalidation_reason` columns  added to this view, you can get insights when a slot became inactive as well as the reason for an invalid slot.
+* Convert a physical replica into a logical one using the new [`pg_createsubscriber`](https://www.postgresql.org/docs/17/app-pgcreatesubscriber.html) command-line tool
 
 #### Security improvements
 
@@ -61,13 +62,15 @@ This feature is especially beneficial for organizations with large data sets whe
 
 !!! admonition "See also"
 
+    * [PostgreSQL 17 release announcement :octicons-link-external-16:](https://www.postgresql.org/about/news/postgresql-17-released-2936/)
     * [PostgreSQL 17 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html)
     * Percona Blog: [The Powerful Features Released in PostgreSQL 17 Beta 2](https://www.percona.com/blog/the-powerful-features-released-in-postgresql-17-beta-2/)
 
 ### Join Percona Squad
 
-Participate in monthly SWAG raffles, get an early access to new product features and invite-only “ask me anything” sessions with database performance experts. Interested? [Fill in the form](squad.percona.com/mongodb)
----------------------------------------------------------------------------------------------------
+Participate in monthly SWAG raffles, get an early access to new product features and invite-only “ask me anything” sessions with database performance experts. Interested? [Fill in the form](https://squad.percona.com/pg)
+
+------------------------------------------------------------------------------
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.

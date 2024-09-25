@@ -152,7 +152,7 @@ extra:
 
 nav:
   - 'Home': 'index.md'
-  - 'Percona Server for PostgreSQL': postresql-server.md
+  - 'Percona Server for PostgreSQL': postgresql-server.md
   - Get started: 
       - Quickstart guide: installing.md
       - 1. Install: 
