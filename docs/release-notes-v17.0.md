@@ -6,7 +6,7 @@
 
 We are pleased to announce the launch of Percona Distribution for PostgreSQL 17.0.1 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.
 
-This release of Percona Distribution for PostgreSQL is based on **Percona Server for PostgreSQL 17.0.1** - a binary compatible drop in replacement of [PostgreSQL Community 17.0 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html). 
+This release of Percona Distribution for PostgreSQL is based on **Percona Server for PostgreSQL 17.0.1** - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.0 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html). 
 
 Both Percona Server for PostgreSQL and PostgreSQL Community function identically enabling you to migrate from one to another. 
 
