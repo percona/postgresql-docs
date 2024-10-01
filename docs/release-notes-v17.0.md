@@ -21,13 +21,13 @@ SELECT version();
 ??? example "Sample output"
 
     ```sql
-    PostgreSQL 17.0.1 (Percona Server for PostgreSQL)
+    PostgreSQL 17.0.1 (Percona Server for PostgreSQL) - Percona Distribution
     ```
 
-Alternatively, you can pass the `--with-extra-version` flag when you establish the `psql` session:
+Alternatively, you can pass the `--version` flag when you establish the `psql` session:
 
 ```{.bash data-prompt="$"}
-$ psql --with-extra-version
+$ psql --version
 ```
 
 ## Release Highlights

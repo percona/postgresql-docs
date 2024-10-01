@@ -366,13 +366,13 @@ $ sudo systemctl start postgresql-{{pgversion}}
 Check the Percona Distribution for PostgreSQL version:
 
 ```{.bash data-prompt="$"}
-$ psql --with-extra-version
+$ psql --version
 ```
 
 ??? example "Sample output"
 
     ```{.text .no-copy}
-    psql (PostgreSQL) {{dockertag}} - Percona Distribution {{pspgversion}}-1
+    psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) - Percona Distribution
     ```
     
 Congratulations! Your Percona Distribution for PostgreSQL is up and running.
