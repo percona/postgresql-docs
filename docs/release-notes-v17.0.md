@@ -90,6 +90,13 @@ This feature is especially beneficial for organizations with large data sets whe
 
 Participate in monthly SWAG raffles, get an early access to new product features and invite-only “ask me anything” sessions with database performance experts. Interested? [Fill in the form](https://squad.percona.com/pg)
 
+## Known Limitations
+
+Percona Monitoring and Management (PMM) 2.43.1 is not compatible with `pg_stat_monitor` 2.1.0 to monitor PostgreSQL 17. However, PMM is compatible with `pg_stat_monitor` 2.1.0 for monitoring of PostgreSQL 16 and previous versions. 
+
+The support for PostgreSQL 17 will be available in the future PMM release.
+
+
 ------------------------------------------------------------------------------
 
 
