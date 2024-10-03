@@ -4,8 +4,11 @@ You can find the binary tarballs on the [Percona website](https://www.percona.co
 
 There are the following tarballs available both for x86_64 and ARM64 architectures: 
 
-* percona-postgresql-{{dockertag}}-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x
-* percona-postgresql-{{dockertag}}-ssl3-linux-<architecture>.tar.gz - for operating systems that run OpenSSL version 3.x
+* percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz  - for operating systems on ARM64 architecture that run OpenSSL version 1.x
+* percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz  - for operating systems on x86_64 architecture that run OpenSSL version 1.x
+* percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz - for operating systems on ARM64 architecture that run OpenSSL version 3.x
+* percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz - for operating systems on x86_64 architecture that run OpenSSL version 3.x
+
 
 To check what OpenSSL version you have, run the following command: 
 
@@ -77,7 +80,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 3. Fetch the binary tarball. 
 
     ```{.bash data-prompt="$"}
-    $ wget https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz
+    $ wget https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz
     ```
 
 4. Extract the tarball to the directory for binaries that you created on step 1.
@@ -142,13 +145,13 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 9. Connect to `psql`
     
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/psql
+    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/psql -d postgres
     ```
 
     ??? example "Sample output"
        
         ```{.text .no-copy}
-        psql ({{dockertag}})
+        psql ({{pspgversion}} (Percona Server for PostgreSQL), server {{pspgversion}} (Percona Server for PostgreSQL))
         Type "help" for help.
 
         postgres=#

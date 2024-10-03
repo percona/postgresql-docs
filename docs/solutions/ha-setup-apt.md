@@ -87,7 +87,7 @@ Run the following commands on `node1`, `node2` and `node3`:
     * Enable the repository:
 
        ```{.bash data-prompt="$"}
-       $ sudo percona-release setup ppg16
+       $ sudo percona-release setup ppg{{pgversion}}
        ```
 
     * [Install Percona Distribution for PostgreSQL packages](../apt.md).
@@ -118,7 +118,7 @@ Run the following commands on `node1`, `node2` and `node3`:
 
    ```{.bash data-prompt="$"}
    $ sudo systemctl stop postgresql
-   $ sudo rm -rf /var/lib/postgresql/16/main
+   $ sudo rm -rf /var/lib/postgresql/{{pgversion}}/main
    ```
 
 ## Configure etcd distributed store  
@@ -226,17 +226,17 @@ The `etcd` cluster is first started in one node and then the subsequent nodes ar
 
 2. On `node3`, create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
 
-         ```yaml title="/etc/etcd/etcd.conf.yaml"
-         name: 'node1'
-         initial-cluster-token: PostgreSQL_HA_Cluster_1
-         initial-cluster-state: existing
-         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380
-         data-dir: /var/lib/etcd
-         initial-advertise-peer-urls: http://10.104.0.3:2380 
-         listen-peer-urls: http://10.104.0.3:2380
-         advertise-client-urls: http://10.104.0.3:2379
-         listen-client-urls: http://10.104.0.3:2379
-         ```
+    ```yaml title="/etc/etcd/etcd.conf.yaml"
+    name: 'node1'
+    initial-cluster-token: PostgreSQL_HA_Cluster_1
+    initial-cluster-state: existing
+    initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380
+    data-dir: /var/lib/etcd
+    initial-advertise-peer-urls: http://10.104.0.3:2380 
+    listen-peer-urls: http://10.104.0.3:2380
+    advertise-client-urls: http://10.104.0.3:2379
+    listen-client-urls: http://10.104.0.3:2379
+    ```
 
 3. Start the `etcd` service to apply the changes.
 
@@ -281,8 +281,8 @@ Run the following commands on all nodes. You can do this in parallel:
     * Create variables to store the PATH:
 
        ```bash
-       DATA_DIR="/var/lib/postgresql/16/main"
-       PG_BIN_DIR="/usr/lib/postgresql/16/bin"
+       DATA_DIR="/var/lib/postgresql/{{pgversion}}/main"
+       PG_BIN_DIR="/usr/lib/postgresql/{{pgversion}}/bin"
        ```
 
        **NOTE**: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.
@@ -397,7 +397,7 @@ Run the following commands on all nodes. You can do this in parallel:
 
 3. Check that the systemd unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
-   If it's **not created**, create it manually and specify the following contents within:
+    If it's **not created**, create it manually and specify the following contents within:
 
     ```ini title="/etc/systemd/system/patroni.service"
     [Unit]
@@ -442,7 +442,7 @@ Run the following commands on all nodes. You can do this in parallel:
     $ sudo systemctl restart patroni
     ```
    
-When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
+    When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
 6. Check the service to see if there are errors:
 
@@ -490,7 +490,7 @@ $ sudo psql -U postgres
 The command output is the following:
 
 ```
-psql (16.0)
+psql ({{dockertag}})
 Type "help" for help.
 
 postgres=#

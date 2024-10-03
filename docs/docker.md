@@ -96,6 +96,7 @@ Where:
 * `container-name` is the name of your container that you will use to connect to the database container using the `psql` command line client
 `tag-multi` is the tag specifying the version you need. For example, `{{dockertag}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. 
 * `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.   
+
 ## Enable `pg_stat_monitor`
 
 To enable the `pg_stat_monitor` extension after launching the container, do the following:

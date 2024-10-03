@@ -141,7 +141,7 @@ Install Percona Distribution for PostgreSQL in the primary and the secondary nod
 2. Enable the repository:
 
     ```{.bash data-prompt="$"}
-    $ sudo percona-release setup ppg16
+    $ sudo percona-release setup ppg{{pgversion}}
     ```
 
 3. Install Percona Distribution for PostgreSQL packages
@@ -149,13 +149,13 @@ Install Percona Distribution for PostgreSQL in the primary and the secondary nod
     === ":material-debian: On Debian and Ubuntu"
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-16 -y
+         $ sudo apt install percona-postgresql-{{pgversion}} -y
          ```
    
     === ":material-redhat: On RedHat Enterprise Linux and derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql16-server
+         $ sudo yum install percona-postgresql{{pgversion}}-server
          ```
 
 ### Configure PostgreSQL on the primary node for continuous backup
@@ -164,9 +164,9 @@ At this step, configure the PostgreSQL instance on the `pg-primary` node for con
 
 !!! note
 
-       :material-debian: On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql/16/main/postgresql.conf`.
+       :material-debian: On Debian and Ubuntu, the path to the configuration file is `/etc/postgresql{{pgversion}}/main/postgresql.conf`.
 
-       On RHEL and CentOS, the path to the configuration file is `/var/lib/pgsql/16/data/`.
+       On RHEL and CentOS, the path to the configuration file is `/var/lib/pgsql/{{pgversion}}/data/`.
 
 
 1. Edit the `postgresql.conf` configuration file to include the following changes:

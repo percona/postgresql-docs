@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 160 160"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="logo-postgresql.svg"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.475"
+     inkscape:cx="79.661017"
+     inkscape:cy="80"
+     inkscape:window-width="1312"
+     inkscape:window-height="449"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <path
+     d="M 83.003408,147.40605 154.01141,70.19623 118.0566,29.104346 68.298355,16.01475 44.447641,31.372696 6.1010095,70.229841 82.995028,147.40605 Z M 116.76017,33.910088 144.13038,65.348579 100.233,55.737239 97.942459,46.520671 112.4462,36.808494 l 4.32236,-2.89011 z M 71.10732,41.925044 93.127251,47.46168 94.899497,54.569383 71.10732,49.360434 Z M 68.724721,53.68716 96.170076,59.694231 104.0284,91.275604 18.105785,69.683745 Z m 32.795769,7.20854 v -0.03362 l 44.08094,9.64495 -36.59884,20.432587 -7.47373,-30.052363 z M 104.5049,36.203611 94.690503,42.782092 71.10732,36.858984 V 21.626908 l 40.1193,10.081913 -6.72172,4.503228 z M 66.392276,22.525866 V 35.665952 L 52.130353,32.078418 66.392276,22.517567 Z m -19.478355,13.324885 19.478355,4.889701 v 8.720819 L 18.222853,64.684768 Z M 82.225833,139.72721 17.411892,74.590182 103.82777,96.299755 Z m 9.605553,-8.30045 17.405894,-34.992551 31.21478,-18.138922 -48.629056,53.131473 z"
+     id="path1"
+     style="stroke-width:1.40168" />
+</svg>

@@ -84,7 +84,7 @@ It's not necessary to have name resolution, but it makes the whole setup more re
     * Enable the repository:    
 
         ```{.bash data-prompt="$"}
-        $ sudo percona-release setup ppg16
+        $ sudo percona-release setup ppg{{pgversion}}
         ```    
 
     * [Install Percona Distribution for PostgreSQL packages](../yum.md).    
@@ -272,7 +272,7 @@ Run the following commands on all nodes. You can do this in parallel:
 
        ```bash
        DATA_DIR="/var/lib/pgsql/data/"
-       PG_BIN_DIR="/usr/pgsql-16/bin"
+       PG_BIN_DIR="/usr/pgsql-{{pgversion}}/bin"
        ```
 
        **NOTE**: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.
@@ -457,7 +457,7 @@ Run the following commands on all nodes. You can do this in parallel:
     ```{.bash data-prompt="$"}
     $ sudo psql -U postgres
 
-    psql (16.0)
+    psql ({{dockertag}})
     Type "help" for help.
 
     postgres=#

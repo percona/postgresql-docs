@@ -7,7 +7,7 @@ copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its a
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
-edit_uri: edit/16/docs/
+edit_uri: edit/17/docs/
 
 use_directory_urls: false
 
@@ -128,10 +128,10 @@ plugins:
 #      glob:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-          output_path: '_pdf/PerconaDistributionPostgreSQL-16.pdf'
+          output_path: '_pdf/PerconaDistributionPostgreSQL-17.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 16.4 (September 10, 2024)
+          cover_subtitle: 17.0 (October 3, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -152,7 +152,7 @@ extra:
 
 nav:
   - 'Home': 'index.md'
-
+  - 'Percona Server for PostgreSQL': postgresql-server.md
   - Get started: 
       - Quickstart guide: installing.md
       - 1. Install: 
@@ -197,13 +197,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
-      - release-notes-v16.4.md
-      - release-notes-v16.3.md
-      - release-notes-v16.2.md
-      - release-notes-v16.1.upd.md
-      - release-notes-v16.1.md
-      - release-notes-v16.0.upd.md
-      - release-notes-v16.0.md
+      - release-notes-v17.0.md
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md

@@ -60,7 +60,7 @@ For details about each option, see [pdBadger documentation :octicons-link-extern
 
 ## pgaudit
 
-Add the `pgaudit` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/16/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
+Add the `pgaudit` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM](https://www.postgresql.org/docs/17/sql-altersystem.html) command. [Connect to psql](#connect-to-the-postgresql-server) and use the following command:
 
 ```sql
 ALTER SYSTEM SET shared_preload_libraries = 'pgaudit';
@@ -84,7 +84,7 @@ CREATE EXTENSION pgaudit;
 
 ## pgaudit set-user
 
-Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM :octicons-link-external-16:](https://www.postgresql.org/docs/16/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
+Add the `set-user` to `shared_preload_libraries` in `postgresql.conf`. The recommended way is to use the [ALTER SYSTEM :octicons-link-external-16:](https://www.postgresql.org/docs/17/sql-altersystem.html) command. [Connect to psql](connect.md) and use the following command:
 
 ```sql
 ALTER SYSTEM SET shared_preload_libraries = 'set-user';

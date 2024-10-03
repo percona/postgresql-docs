@@ -4,8 +4,13 @@ This document describes how to install Percona Server for PostgreSQL from Percon
 
 ## Preconditions
 
-1. Debian and other systems that use the `apt` package manager include the upstream PostgreSQL server package `postgresql-16` by default. The components of Percona Distribution for PostgreSQL 16 can only be installed together with the PostgreSQL server shipped by Percona (`percona-postgresql-16`). If you wish to use Percona Distribution for PostgreSQL, uninstall the `postgresql-16`  package provided by your distribution and then install the chosen components from Percona Distribution for PostgreSQL.
-2. Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
+1. Debian and other systems that use the `apt` package manager include the upstream PostgreSQL server package `postgresql-{{pgversion}}` by default. The components of Percona Distribution for PostgreSQL {{pgversion}} can only be installed together with Percona Server for PostgreSQL (`percona-postgresql-{{pgversion}}`). If you wish to use Percona Distribution for PostgreSQL, uninstall the `postgresql-{{pgversion}}`  package provided by your distribution and then install the chosen components from Percona Distribution for PostgreSQL.
+2. Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them. To install `curl`, run the following command:
+
+    ```{.bash data-prompt="$"}
+    $ sudo apt install curl
+    ```
+
 
 ## Procedure
 
@@ -88,7 +93,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           $ sudo apt install percona-patroni
           ```
 
-          [Install `pg_stat_monitor`](pg-stat-monitor.md)
+          [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
 
 
           Install `pgBouncer`:
@@ -149,6 +154,18 @@ The installation process automatically initializes and starts the default databa
 ```{.bash data-prompt="$"}
 $ sudo systemctl status postgresql.service
 ```
+
+Check the Percona Distribution for PostgreSQL version:
+
+```{.bash data-prompt="$"}
+$ psql --version
+```
+
+??? example "Sample output"
+
+    ```{.text .no-copy}
+    psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) {{pspgversion}}
+    ```
 
 Congratulations! Your Percona Distribution for PostgreSQL is up and running.
 

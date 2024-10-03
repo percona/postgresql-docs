@@ -1,8 +1,8 @@
 # Quickstart guide
 
-Percona Distribution for PostgreSQL is the PostgreSQL server with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. [Read more](index.md).
+Percona Distribution for PostgreSQL is the Percona server for PostgreSQL with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. [Read more](index.md).
 
-This document aims to guide database application developers and DevOps engineer in getting started with Percona Distribution for PostgreSQL. Upon completion of this guide, you’ll have Percona Distribution for PostgreSQL installed and operational, and you’ll be able to:
+This document aims to guide database application developers and DevOps engineers in getting started with Percona Distribution for PostgreSQL. Upon completion of this guide, you’ll have Percona Distribution for PostgreSQL installed and operational, and you’ll be able to:
 
 * Connect to PostgreSQL using the `psql` interactive terminal 
 * Interact with PostgreSQL with basic psql commands
