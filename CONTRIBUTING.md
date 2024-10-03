@@ -8,13 +8,12 @@ You can contribute to documentation in the following ways:
 
 1. **Request a doc change through a Jira issue**. If you’ve spotted a doc issue (a typo, broken links, inaccurate instructions, etc.) but don’t have time nor desire to fix it yourself - let us know about it.
 
-	- Click the **Submit DOC bug** link on the sidebar. This opens the [Jira issue tracker](https://jira.percona.com/projects/DISTPG/issues) for the doc project.
+	- Click the **Submit DOC bug** link on the sidebar. This opens the [Jira issue tracker](https://jira.percona.com/projects/PG/issues) for the doc project.
 	- Sign in (create a Jira account if you don’t have one) and click **Create** to create an issue.
 	- Describe the issue you have detected in the Summary, Description, Steps To Reproduce, Affects Version fields.
 
-2. **[Contribute to documentation yourself](#contribute-to-documentation-yourself)**. There is the **Edit this page** link that leads you to the source file of the page on GitHub. There you make changes, create a pull request that we review and add to the doc project. For details how to do it, read on.
+2. **[Contribute to documentation yourself](#contribute-to-documentation-yourself)**. Click the <img src="_resource/.icons/edit_page.png" style="width: 1em; height: 1em;"> **Edit this page** icon that leads you to the source file of the page on GitHub. There you make changes, create a pull request that we review and add to the doc project. For details how to do it, read on.
 
-![PPG links](docs/_images/PPG_links.png)
 
 ## Contribute to documentation yourself
 
@@ -28,18 +27,19 @@ There are several active versions of the documentation. Each version derives fro
 
 Each version has a branch in the repository named accordingly:
 
-- 11 
+- 11 (EOL)
 - 12
 - 13
 - 14
 - 15
 - 16
+- 17
 
 The source .md files are in the ``docs`` directory. 
 
 ### Edit documentation online via GitHub
 
-1. Click the **Edit this page** link on the sidebar. The Markdown file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+1. Click the <img src="_resource/.icons/edit_page.png" style="width: 1em; height: 1em;"> **Edit this page** icon next to the page title. The Markdown file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
 
 2. Edit the page. You can check your changes on the **Preview** tab.
 
@@ -77,7 +77,8 @@ git remote add <your-repo-name> git@github.com:<your_name>/postgresql-docs.git
 git fetch origin
 git merge origin/<branch>
 ```
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``11`` branch, merge changes from ``origin/11``.
+
+Make sure that your local branch and the branch you merge changes from are the same. So if you are on the ``17`` branch, merge changes from ``origin/17``.
 
 5. Create a separate branch for your changes
 
@@ -127,6 +128,12 @@ The PDF document is in the ``site/pdf`` folder.
 
 1. Install [pip](https://pip.pypa.io/en/stable/installing/)
 2. Install [MkDocs](https://www.mkdocs.org/getting-started/#installation).
+3. Install all the required dependencies:
+
+```
+pip install -r requirements.txt
+```
+
 3. While in the root directory of the doc project, run the following command to build the documentation:
 
 ```sh
@@ -164,9 +171,7 @@ The repository includes the following directories and files:
 - `_resource`:
    - `templates`:
      - ``styles.scss`` - Styling for PDF documents
-   - `theme`:
-      - `main.html` - The layout template for hosting the documentation on Percona website
-   - overrides - The folder with the template customization for Netlify builds
+   - overrides - The folder with the templates that contain customizations for hosting the documentation on Percona website
 - `.github`:
    - `workflows`:
       - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `netlify` branch)
