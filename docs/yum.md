@@ -372,7 +372,7 @@ $ psql --version
 ??? example "Sample output"
 
     ```{.text .no-copy}
-    psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) - Percona Distribution
+    psql (PostgreSQL) {{pspgversion}} (Percona Server for PostgreSQL) {{pspgversion}}
     ```
     
 Congratulations! Your Percona Distribution for PostgreSQL is up and running.

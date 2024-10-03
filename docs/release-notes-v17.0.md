@@ -21,7 +21,9 @@ SELECT version();
 ??? example "Sample output"
 
     ```sql
-    PostgreSQL 17.0.1 (Percona Server for PostgreSQL) - Percona Distribution
+     version
+    ----------------------------------------------------------------------------------------------------------------------------------------------
+     PostgreSQL 17.0 - Percona Server for PostgreSQL 17.0.1
     ```
 
 Alternatively, you can pass the `--version` flag when you establish the `psql` session:
@@ -30,6 +32,11 @@ Alternatively, you can pass the `--version` flag when you establish the `psql` s
 $ psql --version
 ```
 
+??? example "Sample output"
+
+    ```sql
+    psql (PostgreSQL) 17.0 - Percona Server for PostgreSQL 17.0.1
+    ```
 ## Release Highlights
 
 ### Percona Server for PostgreSQL improvements
@@ -108,7 +115,7 @@ The following is the list of extensions available in Percona Distribution for Po
 |[HAProxy :octicons-link-external-16:](http://www.haproxy.org/) | 2.8.11 | a high-availability and load-balancing solution |
 | [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) | 4.0.2 | a HA (High Availability) solution for PostgreSQL |
 | [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)             | 17.0   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
-| [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user)| 4.0.2 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
+| [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user)| 4.1.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/)           | 2.53.1    | a backup and restore solution for PostgreSQL       |
 |[pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger)   | 12.4     | a fast PostgreSQL Log Analyzer.|
 |[PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/)          |1.23.1    | a lightweight connection pooler for PostgreSQL|
