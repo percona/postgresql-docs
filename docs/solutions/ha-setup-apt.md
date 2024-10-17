@@ -285,7 +285,7 @@ Run the following commands on all nodes. You can do this in parallel:
        PG_BIN_DIR="/usr/lib/postgresql/{{pgversion}}/bin"
        ```
 
-       **NOTE**: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.
+       **NOTE**: Check the path to the `data` and `bin` folders on your operating system and change it for the variables accordingly.
 
     * Patroni information:
 
@@ -294,7 +294,7 @@ Run the following commands on all nodes. You can do this in parallel:
        SCOPE="cluster_1"
        ```
 
-2. Create the `/etc/patroni/patroni.yml` configuration file. Add the following configuration for `node1`:
+2. Create the `/etc/patroni/patroni.yml` configuration file and add the following configuration for `node1` :
 
     ```bash
     echo "

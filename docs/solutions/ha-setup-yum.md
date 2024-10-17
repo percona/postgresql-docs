@@ -301,7 +301,7 @@ Run the following commands on all nodes. You can do this in parallel:
      $ sudo chmod 700 /data/pgsql
      ```
 
-3. Create the `/etc/patroni/patroni.yml` configuration file. Add the following configuration:
+3. Create the `/etc/patroni/patroni.yml` configuration file and add the following configuration:
  
     ```bash
     echo "
