@@ -16,7 +16,7 @@ A query performance monitoring tool for PostgreSQL that brings more insight and 
 
 An open-source extension designed to enhance PostgreSQL’s security by encrypting data files on disk. The encryption is transparent for users allowing them to access and manipulate the data and not to worry about the encryption process.
 
-[pg_tde documentation :octicons-link-external-16:](https://percona-lab.github.io/pg_tde/main/){.md-button}
+[pg_tde documentation :octicons-link-external-16:](https://percona.github.io/pg_tde/main/index.html){.md-button}
 
 </div>
 </div>
