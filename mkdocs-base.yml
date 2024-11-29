@@ -193,7 +193,6 @@ nav:
       - minor-upgrade.md
       - migration.md
   - Troubleshooting guide: troubleshooting.md
-  - How to: how-to.md
   - Uninstall: uninstalling.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
