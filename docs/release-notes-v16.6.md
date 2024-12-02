@@ -14,6 +14,9 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.6
 
 *  Percona Distribution for PostgreSQL now statically links `llvmjit.so` library for Red Hat Enterprise Linux 8 and 9 and compatible derivatives. This resolves the conflict between the LLVM version required by Percona Distribution for PostgreSQL and the one supplied with the operating system. This also enables you to use the LLVM modules supplied with the operating system for other software you require.
 
+## Supplied third-party extensions
+
+Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
@@ -36,10 +39,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [PostgreSQL Commons](https://salsa.debian.org/postgresql/postgresql-common)| 266 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 | [wal2json](https://github.com/eulerto/wal2json)  |2.6       | a PostgreSQL logical decoding JSON output plugin|
 
-For Red Hat Enterprise Linux 8 and 9 and compatible derivatives, Percona Distribution for PostgreSQL also includes the following packages:
-
-* `llvm` 17.0.6 packages. This fixes compatibility issues with LLVM from upstream.
-* supplemental `python3-etcd` 0.4.5 packages, which can be used for setting up Patroni clusters. 
+For Red Hat Enterprise Linux 8 and 9 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters. 
                                                       
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/16/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
