@@ -37,11 +37,8 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common)| 266 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 |[wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)  |2.6       | a PostgreSQL logical decoding JSON output plugin|
 
-For Red Hat Enterprise Linux 8 and 9 and compatible derivatives, Percona Distribution for PostgreSQL also includes the following packages:
-
-* `llvm` 17.0.6 packages. This fixes compatibility issues with LLVM from upstream.
-* supplemental `python3-etcd` 0.4.5 packages, which can be used for setting up Patroni clusters. 
-
+For Red Hat Enterprise Linux 8 and 9 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters. 
+ 
                                                       
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/15/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
