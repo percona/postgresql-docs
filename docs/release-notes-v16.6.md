@@ -27,7 +27,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgBackRest](https://pgbackrest.org/)           | 2.54.0    | a backup and restore solution for PostgreSQL       |
 |[pgBadger](https://github.com/darold/pgbadger)   | 12.4     | a fast PostgreSQL Log Analyzer.|
 |[PgBouncer](https://www.pgbouncer.org/)          |1.23.1    | a lightweight connection pooler for PostgreSQL|
-| [pg_gather](https://github.com/jobinau/pg_gather)| v27     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
+| [pg_gather](https://github.com/jobinau/pg_gather)| v28     | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.5.4 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.|
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.5.1   | rebuilds PostgreSQL database objects           |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)|{{pgsmversion}} | collects and aggregates statistics for PostgreSQL and provides histogram information.|
