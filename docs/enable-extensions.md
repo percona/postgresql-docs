@@ -4,7 +4,7 @@ Some components require additional configuration before using them with Percona 
 
 ## Patroni
 
-Patroni is the third-party high availability solution for PostgreSQL. The [High Availability in PostgreSQL with Patroni](solutions/high-availability.md) chapter provides details about the solution overview and architecture deployment. 
+Patroni is the high availability solution for PostgreSQL. The [High Availability in PostgreSQL with Patroni](solutions/high-availability.md) chapter provides details about the solution overview and architecture deployment. 
 
 While setting up a high availability PostgreSQL cluster with Patroni, you will need the following components:
 
@@ -14,7 +14,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
   
 - [HAProxy :octicons-link-external-16:](http://www.haproxy.org/).
 
-If you install the software fom packages, all required dependencies and service unit files are included. If you [install the software from the tarballs](tarball.md), you must first enable `etcd`. See the steps in the [etcd](#etcd) section if this document.
+If you install the software fom packages, all required dependencies and service unit files are included. If you [install the software from the tarballs](tarball.md), you must first enable `etcd`. See the steps in the [etcd](#etcd) section in this document.
 
 See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](solutions/ha-setup-yum.md). 
 
@@ -125,7 +125,7 @@ $ pgpool -f <config-gile-path>/pgpool.conf
 
 ## pg_stat_monitor
 
-Please refer to [`pg_stat_monitor`](pg-stat-monitor.md#setup) for setup steps.
+Please refer to [`pg_stat_monitor`](https://docs.percona.com/pg-stat-monitor/setup.html) for setup steps.
 
 ## wal2json
 
@@ -136,6 +136,14 @@ wal_level = logical
 ```
 
 Start / restart the server to apply the changes.
+
+## pgvector
+
+To get started, enable the extension for the database where you want to use it:
+
+```sql
+CREATE EXTENSION vector;
+```
 
 ## Next steps 
 
