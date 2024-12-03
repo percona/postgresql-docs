@@ -18,4 +18,5 @@ Percona Distribution for PostgreSQL is supplied with the set of third-party open
 | [pg_repack](https://github.com/reorg/pg_repack) | Required | Rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | Required | Collects and aggregates statistics for PostgreSQL and provides histogram information |
 | [PostGIS](http://postgis.net/) | Required | Allows storing and manipulating spacial data in PostgreSQL |
+|[pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)| Required | An  extension that enables you to use PostgreSQL as a vector database|
 |[wal2json](https://github.com/eulerto/wal2json)|Required| A PostgreSQL logical decoding JSON output plugin.|

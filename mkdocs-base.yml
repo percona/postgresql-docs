@@ -131,7 +131,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-16.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 16.4 (September 10, 2024)
+          cover_subtitle: 16.6 (December 3, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -197,6 +197,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v16.6.md
       - release-notes-v16.4.md
       - release-notes-v16.3.md
       - release-notes-v16.2.md
