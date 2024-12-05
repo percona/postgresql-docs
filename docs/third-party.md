@@ -17,5 +17,6 @@ Percona Distribution for PostgreSQL is supplied with the set of third-party open
 | [pgpool2](https://www.pgpool.net/mediawiki/index.php/Main_Page) | Required | A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing |
 | [pg_repack](https://github.com/reorg/pg_repack) | Required | Rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | Required | Collects and aggregates statistics for PostgreSQL and provides histogram information |
+|[pgvector](https://github.com/pgvector/pgvector)| Required | An  extension that enables you to use PostgreSQL as a vector database|
 | [PostGIS](http://postgis.net/) | Required | Allows storing and manipulating spacial data in PostgreSQL |
 |[wal2json](https://github.com/eulerto/wal2json)|Required| A PostgreSQL logical decoding JSON output plugin.|
