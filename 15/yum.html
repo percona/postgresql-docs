@@ -2481,12 +2481,15 @@ enabled=1
 </code></pre></div>
 </li>
 </ol>
+<p>Install pgvector package suite:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgvector_15<span class="w"> </span>percona-pgvector_15-debuginfo<span class="w"> </span>percona-pgvector_15-debugsource<span class="w"> </span>percona-pgvector_15-llvmjit
+</code></pre></div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="enable-extensions.html">Enabling extensions</a>.</p>
 <h3 id="start-the-service">Start the service<a class="headerlink" href="#start-the-service" title="Permanent link">&para;</a></h3>
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-15/bin/postgresql-15-setup<span class="w"> </span>initdb
