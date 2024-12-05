@@ -135,9 +135,14 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
           Install `pg_gather`
 
-
           ```{.bash data-prompt="$"}
           $ sudo apt install percona-pg-gather
+          ```
+
+          Install `pgvector`
+
+          ```{.bash data-prompt="$"}
+          $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
           ```
 
           Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
