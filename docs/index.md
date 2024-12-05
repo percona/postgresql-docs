@@ -45,7 +45,7 @@ Our comprehensive resources will help you overcome challenges, from everyday iss
 
 Learn about the releases and changes in the Distribution.
 
-[Release notes :material-arrow-right:](release-notes.md){.md-button}
+[Release notes :material-arrow-right:]({{release}}.md){.md-button}
 </div>
 </div>
 

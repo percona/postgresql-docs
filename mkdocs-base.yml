@@ -131,7 +131,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaDistributionPostgreSQL-15.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
-          cover_subtitle: 15.8 (September 10, 2024)
+          cover_subtitle: 15.10 (December 5, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -195,6 +195,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v15.10.md
       - release-notes-v15.8.md
       - release-notes-v15.7.md
       - release-notes-v15.6.md
