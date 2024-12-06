@@ -1,59 +1,68 @@
 # High Availability in PostgreSQL with Patroni
 
-Regardless whether you are a small startup or a big enterprise, a downtime of your services may cause severe consequences like loss of customers, impact on your reputation, and penalties for not meeting the  Service Level Agreements (SLAs). That’s why ensuring that your deployment operates without disruption is crucial.
+Whether you are a small startup or a big enterprise, downtime of your services may cause severe consequences, such as loss of customers, impact on your reputation, and penalties for not meeting the Service Level Agreements (SLAs). That’s why ensuring a highly-available deployment is crucial.
 
-In this solution document you will find the following:
+But what does it mean, high availability? And how to achieve it? This document answers these questions. 
 
-* the [technical overview](#technical-overview) of high availability; 
-* the [reference architecture](ha-architecture.md) that we recommend to achieve high availability
-* the [step-by-step deployment guide](ha-setup-apt.md). The guide focuses on the minimalist approach to HA. It also gives instructions how to deploy additional components that you can add when your infrastructure grows.
-* The [testing guidelines](ha-test.md) on how to verify that your high availability works as expected, providing replication and failover.
+After reading this document, you will learn the following:
 
-## Technical overview
+* [what is high availability](#what-is-high-availability)
+* the recommended [reference architecture]((ha-architecture.md)) to achieve it
+* how to deploy it using our [step-by-step deployment guide](ha-setup-apt.md). The guide focuses on the minimalist approach to high availability. It also gives instructions how to deploy additional components that you can add when your infrastructure grows.
+* how to verify that your high availability deployment works as expected, providing replication and failover with the [testing guidelines](ha-test.md)
 
-High availability is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to fail over the services from a primary database node that is down to one of the standby nodes within a cluster. For the standby nodes to always be up to date with the primary, there must be a replication mechanism between them.
+## What is high availability
 
-To break it down, achieving high availability means to put these principles in practice:
+High availability is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the database node that is down to one of the remaining nodes. 
 
-* **Single point of failure (SPOF)** – Eliminate any single point of failure in the database environment, including the physical or virtual hardware the database system relies on and which would cause it to fail.
-* **Redundancy** – Ensure sufficient redundancy of all components within the database environment and reliable crossover to these components in the event of failure.
-* **Failure detection** – Monitor the entire database environment for failures.
+### How to achieve it? 
 
-??? information "Measuring high availability"
+A short answer is: add redundancy to your deployment, eliminate a single point of failure and have the mechanism to transfer the services from a failed member to the healthy one. 
 
-    The need for high availability is determined by the business requirements, potential risks, and operational limitations. The level of high availability depends on how much downtime you can bear without negatively impacting your users and how much data loss you can tolerate during the system outage.
+For a long answer, let's break it down into steps. 
 
-    The measurement of availability is done by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At Percona, we don’t consider a solution to be highly available if it is not at least 99% or two nines available.
+#### Step 1. Replication
 
-    The following table shows the amount of downtime for each level of availability from two to five nines.
+First, you should have more than one copy of your data. This means, you need to have several instances of your database where one is the primary instance that accepts reads and writes. Other instances are replicas – they must have an up-to-date copy of the data from the primary and remain in sync with it. They may also accept reads to offload your primary. 
 
-    | Availability %       | Downtime per year | Downtime per month | Downtime per week | Downtime per day  |
-    |----------------------|-------------------|--------------------|-------------------|-------------------|
-    | 99% (“two nines”)    | 3.65 days         | 7.31 hours         | 1.68 hours        | 14.40 minutes     |
-    | 99.5% (“two nines five”) | 1.83 days         | 3.65 hours         | 50.40 minutes     | 7.20 minutes      |
-    | 99.9% (“three nines”) | 8.77 hours        | 43.83 minutes      | 10.08 minutes     | 1.44 minutes      |
-    | 99.95% (“three nines five”) | 4.38 hours        | 21.92 minutes      | 5.04 minutes      | 43.20 seconds     |
-    | 99.99% (“four nines”) | 52.60 minutes     | 4.38 minutes       | 1.01 minutes      | 8.64 seconds      |
-    | 99.995% (“four nines five”) | 26.30 minutes     | 2.19 minutes       | 30.24 seconds     | 4.32 seconds      |
-    | 99.999% (“five nines”) | 5.26 minutes      | 26.30 seconds      | 6.05 seconds      | 864.00 milliseconds |
-    
+You typically deploy these instances on separate servers or nodes. An example of such a deployment is the three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism. 
 
-## Ways to achieve high availability in PostgreSQL
+PostgreSQL natively supports logical and streaming replication. For high availability we recommend streaming replication as it happens in real time, minimizing the delay between the primary and replica nodes.
 
-To achieve high availability you should have the following:
+#### Step 2. Failover
 
-* **Replication** to ensure the standby nodes continuously receive updates from the primary and are in sync with it. Consider using **streaming replication** where a standby node connects to its primary and continuously receives a stream of WAL records as they’re generated. The configuration of both primary and standbys must be the same. 
-* **Failover** to eliminate the single point of failure by promoting one of the standbys to become primary when the initial primary node is down. To minimize the time it takes to promote a new primary, the failover must be automatic. 
+Next, you may have a situation when a primary node is down or not responding. Reasons for that can be different – from hardware or network issues to software failures, power outages, and scheduled maintenance. In this case, you must have the way to know about it and to transfer the operation from the primary node to one of the secondaries. This process is called failover.  
 
-    The tool of choice for failover is **Patroni** as it monitors the state and health of the cluster and takes care of the failover procedure if there’s an outage. Patroni relies on the distributed configuration store (DCS) that stores the cluster configuration, health and status. We recommend and use etcd as the DCS for Patroni due to its simplicity, consistency and reliability. Etcd not only stores the cluster data, it also handles the election of a new primary node (a leader in ETCD terminology).
+You can do a manual failover. It suits for environments where downtime does not impact operations or revenue. However, this requires dedicated personnel and may lead to additional downtime. 
 
-* **Backup and recovery solution** to protect your environment against data loss and ensure quick service restoration. **pgBackRest** is a robust, reliable solution for Backup and Continuous WAL Archiving. 
-* **Monitoring** to ensure that each node and the whole PostgreSQL cluster perform effectively. We suggest
-using Percona Monitoring and Management (PMM), a fast, customizable, and reliable monitoring tool.
+Another option is automated failover, which significantly minimizes downtime and is less error-prone than manual one. Automated failover can be accomplished by adding an open-source failover tool to your deployment.
 
-In the [reference architecture](ha-architecture.md) section we give the recommended combination of open-source tools to achieve high availability in PostgreSQL. We focus on the minimalist deployment with three-node PostgreSQL cluster.
+#### Step 3. Load balancer
 
+Instead of a single node you now have a cluster. How to enable users to connect to the cluster and ensure they always connect to the correct node, especially when the primary node changes? One option is to configure a DNS resolution that resolves the IPs of all cluster nodes. A drawback here is that only the primary node accepts all requests. When your system grows, so does the load and it may lead to overloading the primary node and performance degradation.
 
+Another option is to use a load-balancing proxy. Instead of connecting directly to the IP address of the primary node, which can change during a failover, you use a proxy that acts as a single point of entry for the entire cluster. This proxy knows which node is currently the primary and directs all incoming write requests to it. At the same time, it can distribute read requests among the replicas to evenly spread the load and improve performance.
+
+#### Step 4. Backups 
+
+Even with replication and failover mechanisms in place, it’s crucial to have regular backups of your data. Backups provide a safety net for catastrophic failures that affect both the primary and replica nodes. While replication ensures data is synchronized across multiple nodes, it does not protect against data corruption, accidental deletions, or malicious attacks that can affect all nodes.
+
+Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss.
+
+As a result, you end up with the following components for a minimalistic highly-available deployment:
+
+* A three-node PostgreSQL cluster with the replication configured among nodes
+* A solution to manage the cluster and perform automatic failover when the primary node is down
+* A load-balancing proxy that provides a single point of entry to your cluster and distributes the load across cluster nodes
+* A backup and restore solution to protect data against loss and corruption.
+
+Optionally, you can add a monitoring tool to observe the health of your deployment, receive alerts about performance issues and timely react to them.
+
+The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested tools to ensure they work well together and help you achieve high availability. In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source tools, focusing on a minimalist three-node PostgreSQL cluster.
+
+### Additional reading
+
+[Measuring high availability](ha-measure.md){.md-button}
 
 ## Next steps
 
