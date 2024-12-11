@@ -1,8 +1,8 @@
-# Architecture layout
+# Architecture 
 
 As we discussed in the [overview of high availability](high-availability.md), the minimalist approach to a highly-available deployment is to have a three-node PostgreSQL cluster with the cluster management and failover mechanisms, load balancer and a backup / restore solution.
 
-The following diagram shows this architecture. 
+The following diagram shows this architecture with the tools we recommend to use. 
 
 ![Architecture of the three-node, single primary PostgreSQL cluster](../_images/diagrams/ha-architecture-patroni.png)
 

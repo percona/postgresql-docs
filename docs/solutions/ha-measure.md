@@ -1,6 +1,11 @@
 # Measuring high availability
 
-The need for high availability is determined by the business requirements, potential risks, and operational limitations. The level of high availability depends on how much downtime you can bear without negatively impacting your users and how much data loss you can tolerate during the system outage.
+The need for high availability is determined by the business requirements, potential risks, and operational limitations (e.g. the more components you add to your infrastructure, the more complex and time-consuming it is to maintain). 
+
+The level of high availability depends on the following:
+
+* how much downtime you can bear without negatively impacting your users and
+* how much data loss you can tolerate during the system outage.
 
 The measurement of availability is done by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At Percona, we don’t consider a solution to be highly available if it is not at least 99% or two nines available.
     

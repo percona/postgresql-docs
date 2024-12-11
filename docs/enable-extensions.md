@@ -137,6 +137,14 @@ wal_level = logical
 
 Start / restart the server to apply the changes.
 
+## pgvector
+
+To get started, enable the extension for the database where you want to use it:
+
+```sql
+CREATE EXTENSION vector;
+```
+
 ## Next steps 
 
 [Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}

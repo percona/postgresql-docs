@@ -15,24 +15,41 @@ Run the following commands on all nodes. You can do this in parallel:
        ```{.bash data-prompt="$"}
        $ export NODE_IP=`hostname -i | awk '{print $1}'`
        ```
-   
+
     * Create variables to store the PATH:
 
-       ```{.bash data-prompt="$"}
-       $ DATA_DIR="/var/lib/postgresql/{{pgversion}}/main"
-       $ PG_BIN_DIR="/usr/lib/postgresql/{{pgversion}}/bin"
+       ```bash
+       DATA_DIR="/var/lib/pgsql/data/"
+       PG_BIN_DIR="/usr/pgsql-{{pgversion}}/bin"
        ```
 
-        **NOTE**: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.
-
+       **NOTE**: Check the path to the data and bin folders on your operating system and change it for the variables accordingly.
+    
     * Patroni information:
 
-       ```{.bash data-prompt="$"}
-       $ NAMESPACE="percona_lab"
-       $ SCOPE="cluster_1"
+       ```bash
+       NAMESPACE="percona_lab"
+       SCOPE="cluster_1
        ```
 
-2. Use the following command to create the `/etc/patroni/patroni.yml` configuration file and add the following configuration for `node1`:
+2. Create the directories required by Patroni
+
+    * Create the directory to store the configuration file and make it owned by the `postgres` user.
+
+      ```{.bash data-prompt="$"}
+      $ sudo mkdir -p /etc/patroni/
+      $ sudo chown -R  postgres:postgres /etc/patroni/
+      ``` 
+
+    * Create the data directory to store PostgreSQL data. Change its ownership to the `postgres` user and restrict the access to it 
+
+     ```{.bash data-prompt="$"}
+     $ sudo mkdir /data/pgsql -p
+     $ sudo chown -R postgres:postgres /data/pgsql
+     $ sudo chmod 700 /data/pgsql
+     ```
+
+3. Use the following command to create the `/etc/patroni/patroni.yml` configuration file and add the following configuration for `node1`:
 
     ```bash
     echo "
@@ -124,16 +141,7 @@ Run the following commands on all nodes. You can do this in parallel:
     " | sudo tee -a /etc/patroni/patroni.yml
     ```
 
-    ??? admonition "Patroni configuration file"
-
-        Let's take a moment to understand the contents of the `patroni.yml` file. 
-
-        The first section provides the details of the node and its connection ports. After that, we have the `etcd` service and its port details.
-
-        Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once the database is initialized. The `pg_hba.conf` entries specify all the other nodes that can connect to this node and their authentication mechanism. 
-
-
-3. Check that the systemd unit file `percona-patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
+4. Check that the systemd unit file `percona-patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
     If it's **not created**, create it manually and specify the following contents within:
 
@@ -165,25 +173,25 @@ Run the following commands on all nodes. You can do this in parallel:
 
      [Install]
      WantedBy=multi-user.target
-    ```
+     ```
 
-4. Make systemd aware of the new service:
+5. Make `systemd` aware of the new service:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
     ```
 
-5. Repeat steps 1-4 on the remaining nodes. In the end you must have the configuration file and the systemd unit file created on every node. 
-6. Now it's time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
+6. Repeat steps 1-5 on the remaining nodes. In the end you must have the configuration file and the systemd unit file created on every node. 
+7. Now it's time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now patroni
     $ sudo systemctl restart patroni
     ```
-   
-    When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
-6. Check the service to see if there are errors:
+   When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
+
+8. Check the service to see if there are errors:
 
     ```{.bash data-prompt="$"}
     $ sudo journalctl -fu patroni
@@ -191,16 +199,25 @@ Run the following commands on all nodes. You can do this in parallel:
 
     A common error is Patroni complaining about the lack of proper entries in the pg_hba.conf file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.
 
-    Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted.
+    Changing the patroni.yml file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. 
 
-    Proceed with staring Patroni on the remaining nodes. 
+    If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
 
-7. Check the cluster. Run the following command on any node:
- 
     ```{.bash data-prompt="$"}
-    $ patronictl -c /etc/patroni/patroni.yml list $SCOPE
+    $ sudo psql -U postgres
+
+    psql ({{dockertag}})
+    Type "help" for help.
+
+    postgres=#
     ```
 
+9. When all nodes are up and running, you can check the cluster status using the following command:
+
+    ```{.bash data-prompt="$"}
+    $ sudo patronictl -c /etc/patroni/patroni.yml list
+    ```
+    
     The output resembles the following:
 
     ```{.text .no-copy}
@@ -212,18 +229,3 @@ Run the following commands on all nodes. You can do this in parallel:
     | node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
     +--------+------------+---------+-----------+----+-----------+
     ```
-
-If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:
-
-```{.bash data-prompt="$"}
-$ sudo psql -U postgres
-```
-
-The command output is the following:
-
-```
-psql ({{dockertag}})
-Type "help" for help.
-
-postgres=#
-```

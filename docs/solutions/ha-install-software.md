@@ -70,8 +70,8 @@ Run the following commands as root or with `sudo` privileges.
     3. Stop and disable all installed services:
     
         ```{.bash data-prompt="$"}
-        $ sudo systemctl stop {etcd,patroni,postgresql}
-        $ sudo systemctl disable {etcd,patroni,postgresql}
+        $ sudo systemctl stop {etcd,patroni,postgresql-{{pgversion}}}
+        $ sudo systemctl disable {etcd,patroni,postgresql-{{pgversion}}}
         ```
 
     4. Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance.

@@ -17,7 +17,7 @@ High availability is the ability of the system to operate continuously without t
 
 ### How to achieve it? 
 
-A short answer is: add redundancy to your deployment, eliminate a single point of failure and have the mechanism to transfer the services from a failed member to the healthy one. 
+A short answer is: add redundancy to your deployment, eliminate a single point of failure (SPOF) and have the mechanism to transfer the services from a failed member to the healthy one. 
 
 For a long answer, let's break it down into steps. 
 
@@ -27,11 +27,15 @@ First, you should have more than one copy of your data. This means, you need to 
 
 You typically deploy these instances on separate servers or nodes. An example of such a deployment is the three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism. 
 
+![Primary-replica setup](../_images/diagrams/ha-overview-replication.png)
+
 PostgreSQL natively supports logical and streaming replication. For high availability we recommend streaming replication as it happens in real time, minimizing the delay between the primary and replica nodes.
 
 #### Step 2. Failover
 
 Next, you may have a situation when a primary node is down or not responding. Reasons for that can be different – from hardware or network issues to software failures, power outages, and scheduled maintenance. In this case, you must have the way to know about it and to transfer the operation from the primary node to one of the secondaries. This process is called failover.  
+
+![Failover](../_images/diagrams/ha-overview-failover.png)
 
 You can do a manual failover. It suits for environments where downtime does not impact operations or revenue. However, this requires dedicated personnel and may lead to additional downtime. 
 
@@ -41,11 +45,16 @@ Another option is automated failover, which significantly minimizes downtime and
 
 Instead of a single node you now have a cluster. How to enable users to connect to the cluster and ensure they always connect to the correct node, especially when the primary node changes? One option is to configure a DNS resolution that resolves the IPs of all cluster nodes. A drawback here is that only the primary node accepts all requests. When your system grows, so does the load and it may lead to overloading the primary node and performance degradation.
 
+![Load-balancer](../_images/diagrams/ha-overview-load-balancer.png)
+
 Another option is to use a load-balancing proxy. Instead of connecting directly to the IP address of the primary node, which can change during a failover, you use a proxy that acts as a single point of entry for the entire cluster. This proxy knows which node is currently the primary and directs all incoming write requests to it. At the same time, it can distribute read requests among the replicas to evenly spread the load and improve performance.
+
 
 #### Step 4. Backups 
 
 Even with replication and failover mechanisms in place, it’s crucial to have regular backups of your data. Backups provide a safety net for catastrophic failures that affect both the primary and replica nodes. While replication ensures data is synchronized across multiple nodes, it does not protect against data corruption, accidental deletions, or malicious attacks that can affect all nodes.
+
+![Backup tool](../_images/diagrams/ha-overview-backup.png)
 
 Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss.
 
@@ -58,7 +67,9 @@ As a result, you end up with the following components for a minimalistic highly-
 
 Optionally, you can add a monitoring tool to observe the health of your deployment, receive alerts about performance issues and timely react to them.
 
-The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested tools to ensure they work well together and help you achieve high availability. In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source tools, focusing on a minimalist three-node PostgreSQL cluster.
+The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source tools, focusing on a minimalist three-node PostgreSQL cluster.
+
+Note that the tools are recommended but not mandatory. You can use your own solutions and alternatives if they better meet your business needs.
 
 ### Additional reading
 

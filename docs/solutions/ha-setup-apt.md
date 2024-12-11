@@ -28,7 +28,7 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 It’s not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we use a local name resolution by updating the file `/etc/hosts`. By resolving their hostnames to their IP addresses, we make the nodes aware of each other’s names and allow their seamless communication.
 
-1. Run the following command on each node. Change the node name to `node1`, `node2` and `node3` respectively:
+1. Run the following command on each node. Change the node name to `node1`, `node2`, `node3` and `HAProxy-demo` respectively:
 
     ```{.bash data-prompt="$"}
     $ sudo hostnamectl set-hostname node1

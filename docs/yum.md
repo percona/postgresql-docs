@@ -347,6 +347,12 @@ $ sudo yum -y install curl
             $ sudo yum install percona-pgpool-II-pg{{pgversion}}
             ```
 
+        Install pgvector package suite:
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-pgvector_{{pgversion}} percona-pgvector_{{pgversion}}-debuginfo percona-pgvector_{{pgversion}}-debugsource percona-pgvector_{{pgversion}}-llvmjit
+        ```
+
         Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
