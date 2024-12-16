@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
@@ -1062,27 +1062,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-node1" class="md-nav__link">
+  <a href="#method-1-modify-the-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure node1
+      Method 1. Modify the configuration file
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-node2" class="md-nav__link">
+  <a href="#method-2-start-etcd-nodes-with-command-line-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure node2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-node3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure node3
+      Method 2. Start etcd nodes with command line options
     </span>
   </a>
   
@@ -2140,27 +2131,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-node1" class="md-nav__link">
+  <a href="#method-1-modify-the-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure node1
+      Method 1. Modify the configuration file
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-node2" class="md-nav__link">
+  <a href="#method-2-start-etcd-nodes-with-command-line-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure node2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-node3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configure node3
+      Method 2. Start etcd nodes with command line options
     </span>
   </a>
   
@@ -2290,63 +2272,101 @@
 <h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h2>
 <h3 id="set-up-hostnames-in-the-etchosts-file">Set up hostnames in the <code>/etc/hosts</code> file<a class="headerlink" href="#set-up-hostnames-in-the-etchosts-file" title="Permanent link">&para;</a></h3>
 <p>It&rsquo;s not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we use a local name resolution by updating the file <code>/etc/hosts</code>. By resolving their hostnames to their IP addresses, we make the nodes aware of each other&rsquo;s names and allow their seamless communication. </p>
-<ol>
-<li>
-<p>Run the following command on each node. Change the node name to <code>node1</code>, <code>node2</code> and <code>node3</code> respectively:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>node-1
-</code></pre></div>
-</li>
-<li>
-<p>Modify the <code>/etc/hosts</code> file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the <code>/etc/hosts</code> file on all nodes:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">node1</label><label for="__tabbed_1_2">node2</label><label for="__tabbed_1_3">node3</label><label for="__tabbed_1_4">HAproxy-demo</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<ol>
+<li>
+<p>Set up the hostname for the node</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>node1
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/hosts</code> file to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the <code>/etc/hosts</code> file on all nodes:   </p>
 <div class="highlight"><pre><span></span><code># Cluster IP and names 
 10.104.0.1 node1 
 <span class="hll">10.104.0.2 node2 
 </span><span class="hll">10.104.0.3 node3
 </span></code></pre></div>
+</li>
+</ol>
 </div>
 <div class="tabbed-block">
+<ol>
+<li>
+<p>Set up the hostname for the node</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>node2
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/hosts</code> file to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the <code>/etc/hosts</code> file on all nodes:   </p>
 <div class="highlight"><pre><span></span><code># Cluster IP and names 
 <span class="hll">10.104.0.1 node1 
 </span>10.104.0.2 node2 
 <span class="hll">10.104.0.3 node3
 </span></code></pre></div>
+</li>
+</ol>
 </div>
 <div class="tabbed-block">
+<ol>
+<li>
+<p>Set up the hostname for the node</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>node3
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/hosts</code> file to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the <code>/etc/hosts</code> file on all nodes:   </p>
 <div class="highlight"><pre><span></span><code># Cluster IP and names 
 <span class="hll">10.104.0.1 node1 
 </span><span class="hll">10.104.0.2 node2 
 </span>10.104.0.3 node3
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>The HAProxy instance should have the name resolution for all the three nodes in its <code>/etc/hosts</code> file. Add the following lines at the end of the file:    </p>
-<div class="highlight"><pre><span></span><code># Cluster IP and names
-10.104.0.6 HAProxy-demo
-10.104.0.1 node1
-<span class="hll">10.104.0.2 node2
-</span><span class="hll">10.104.0.3 node3
-</span></code></pre></div>
-</div>
-</div>
-</div>
 </li>
 </ol>
-<h3 id="install-the-software">Install the software<a class="headerlink" href="#install-the-software" title="Permanent link">&para;</a></h3>
+</div>
+<div class="tabbed-block">
 <ol>
 <li>
-<p>Install Percona Distribution for PostgreSQL on <code>node1</code>, <code>node2</code> and <code>node3</code> from Percona repository:</p>
+<p>Set up the hostname for the node</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>HAProxy-demo
+</code></pre></div>
+</li>
+<li>
+<p>Modify the <code>/etc/hosts</code> file. The HAProxy instance should have the name resolution for all the three nodes in its <code>/etc/hosts</code> file. Add the following lines at the end of the file:    </p>
+<div class="highlight"><pre><span></span><code># Cluster IP and names
+10.104.0.6 HAProxy-demo
+<span class="hll">10.104.0.1 node1
+</span><span class="hll">10.104.0.2 node2
+</span><span class="hll">10.104.0.3 node3
+</span></code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<h3 id="install-the-software">Install the software<a class="headerlink" href="#install-the-software" title="Permanent link">&para;</a></h3>
+<p>Run the following commands on <code>node1</code>, <code>node2</code> and <code>node3</code>:</p>
+<ol>
+<li>
+<p>Install Percona Distribution for PostgreSQL:</p>
 <ul>
-<li><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+<li>Check the <a href="../yum.html#for-percona-distribution-for-postgresql-packages">platform specific notes</a> </li>
+<li>
+<p>Install the <code>percona-release</code> repository management tool</p>
+<p>Run the following command as the <code>root</code> user or with <code>sudo</code> privileges:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+</code></pre></div>
+</li>
 <li>
 <p>Enable the repository:    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg15
 </code></pre></div>
 </li>
 <li>
-<p><a href="../installing.html#on-red-hat-enterprise-linux-and-centos-using-yum">Install Percona Distribution for PostgreSQL packages</a>.    </p>
+<p>Install Percona Distribution for PostgreSQL package</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql15-server
+</code></pre></div>
 </li>
 </ul>
 <div class="admonition important">
@@ -2374,122 +2394,203 @@ $<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"
 </li>
 </ol>
 <h2 id="configure-etcd-distributed-store">Configure etcd distributed store<a class="headerlink" href="#configure-etcd-distributed-store" title="Permanent link">&para;</a></h2>
-<p>The distributed configuration store provides a reliable way to store data that needs to be accessed by large scale distributed systems. The most popular implementation of the distributed configuration store is etcd. etcd is deployed as a cluster for fault-tolerance and requires an odd number of members (n/2+1) to agree on updates to the cluster state. An etcd cluster helps establish a consensus among nodes during a failover and manages the configuration for the three PostgreSQL instances.</p>
-<p>This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by <em>Fernando Laudares Camargos</em> and <em>Jobin Augustine</em> <a href="https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/">PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios</a>.</p>
-<p>If you <a href="../tarball.html">installed the software from tarballs</a>, check how you <a href="../enable-extensions.html#etcd">enable etcd</a>.</p>
-<p>The <code>etcd</code> cluster is first started in one node and then the subsequent nodes are added to the first node using the <code>add</code>command. </p>
+<p>In our implementation we use etcd distributed configuration store. <a href="high-availability.html#etcd">Refresh your knowledge about etcd</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Users with deeper understanding of how etcd works can configure and start all etcd nodes at a time and bootstrap the cluster using one of the following methods:</p>
+<p>If you <a href="../tarball.html">installed the software from tarballs</a>, you must first <a href="../enable-extensions.html#etcd">enable etcd</a> before configuring it.</p>
+</div>
+<p>To get started with <code>etcd</code> cluster, you need to bootstrap it. This means setting up the initial configuration and starting the etcd nodes so they can form a cluster. There are the following bootstrapping mechanisms:  </p>
 <ul>
 <li>Static in the case when the IP addresses of the cluster nodes are known</li>
-<li>Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.</li>
+<li>Discovery service - for cases when the IP addresses of the cluster are not known ahead of time.</li>
 </ul>
-<p>See the <a href="../how-to.html#how-to-configure-etcd-nodes-simultaneously">How to configure etcd nodes simultaneously</a> section for details.</p>
-</div>
-<h3 id="configure-node1">Configure <code>node1</code><a class="headerlink" href="#configure-node1" title="Permanent link">&para;</a></h3>
+<p>Since we know the IP addresses of the nodes, we will use the static method. For using the discovery service, please refer to the <a href="https://etcd.io/docs/v3.5/op-guide/clustering/#etcd-discovery" target="_blank">etcd documentation :octicons-external-link-16:</a>.</p>
+<p>We will configure and start all etcd nodes in parallel. This can be done either by modifying each node&rsquo;s configuration or using the command line options. Use the method that you prefer more.</p>
+<h3 id="method-1-modify-the-configuration-file">Method 1. Modify the configuration file<a class="headerlink" href="#method-1-modify-the-configuration-file" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Create the configuration file. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node name and IP address with the actual name and IP address of your node.</p>
+<p>Create the etcd configuration file on every node. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">node1</label><label for="__tabbed_2_2">node2</label><label for="__tabbed_2_3">node3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node1&#39;</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
-<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380</span>
+<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380</span>
 <span class="nt">data-dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/etcd</span>
 <span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2380</span><span class="w"> </span>
 <span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2380</span>
 <span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2379</span>
 <span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.1:2379</span>
 </code></pre></div>
-</li>
-<li>
-<p>Start the <code>etcd</code> service to apply the changes on <code>node1</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
-$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>etcd
-</code></pre></div>
-</li>
-<li>
-<p>Check the etcd cluster members on <code>node1</code>.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>list
-</code></pre></div>
-<details class="example">
-<summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>21d50d7f768f153a: name=default peerURLs=http://10.104.0.5:2380 clientURLs=http://10.     104.0.5:2379 isLeader=true
-</code></pre></div>
-</details>
-</li>
-<li>
-<p>Add <code>node2</code> to the cluster. Run the following command on <code>node1</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>add<span class="w"> </span>node2<span class="w"> </span>http://10.104.0.2:2380
-</code></pre></div>
-<details class="example">
-<summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>Added member named node2 with ID 10042578c504d052 to cluster
-
-etcd_NAME=&quot;node2&quot;
-etcd_INITIAL_CLUSTER=&quot;node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380&quot;
-etcd_INITIAL_CLUSTER_STATE=&quot;existing&quot;
-</code></pre></div>
-</details>
-</li>
-</ol>
-<h3 id="configure-node2">Configure <code>node2</code><a class="headerlink" href="#configure-node2" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Create the configuration file. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.</p>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node2&#39;</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
-<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">existing</span>
-<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380</span>
+<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
+<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
 <span class="nt">data-dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/etcd</span>
 <span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2380</span><span class="w"> </span>
 <span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2380</span>
 <span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2379</span>
 <span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.2:2379</span>
 </code></pre></div>
-</li>
-<li>
-<p>Start the <code>etcd</code> service to apply the changes on <code>node2</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
-$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>etcd
-</code></pre></div>
-</li>
-</ol>
-<h3 id="configure-node3">Configure <code>node3</code><a class="headerlink" href="#configure-node3" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Add <code>node3</code> to the cluster. <strong>Run the following command on <code>node1</code></strong>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>add<span class="w"> </span>node3<span class="w"> </span>http://10.104.0.3:2380
-</code></pre></div>
-</li>
-<li>
-<p>On <code>node3</code>, create the configuration file. You can edit the sample configuration file <code>/etc/etcd/etcd.conf.yaml</code> or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:</p>
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node1&#39;</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node3&#39;</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
-<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">existing</span>
-<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380</span>
+<span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
+<span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
 <span class="nt">data-dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/etcd</span>
 <span class="nt">initial-advertise-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2380</span><span class="w"> </span>
 <span class="nt">listen-peer-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2380</span>
 <span class="nt">advertise-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2379</span>
 <span class="nt">listen-client-urls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://10.104.0.3:2379</span>
 </code></pre></div>
+</div>
+</div>
+</div>
 </li>
 <li>
-<p>Start the <code>etcd</code> service to apply the changes.</p>
+<p>Enable and start the <code>etcd</code> service on all nodes:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>etcd
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>etcd
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>etcd
+</code></pre></div>
+<p>During the node start, etcd searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the etcd cluster to be created.</p>
+</li>
+<li>
+<p>Check the etcd cluster members. Use <code>etcdctl</code> for this purpose. Ensure that <code>etcdctl</code> interacts with etcd using API version 3 and knows which nodes, or endpoints, to communicate with. For this, we will define the required information as environment variables. Run the following commands on one of the nodes:</p>
+<div class="highlight"><pre><span></span><code>export ETCDCTL_API=3
+HOST_1=10.104.0.1
+HOST_2=10.104.0.2
+HOST_3=10.104.0.3
+ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 </code></pre></div>
 </li>
 <li>
-<p>Check the etcd cluster members.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>member<span class="w"> </span>list
+<p>Now, list the cluster members and output the result as a table as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>--endpoints<span class="o">=</span><span class="nv">$ENDPOINTS</span><span class="w"> </span>-w<span class="w"> </span>table<span class="w"> </span>member<span class="w"> </span>list
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379     isLeader=false
-8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379     isLeader=false
-c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379     isLeader=true
+<div class="highlight"><pre><span></span><code>+------------------+---------+-------+------------------------+----------------------------+------------+
+|        ID        | STATUS  | NAME  |         PEER ADDRS     |        CLIENT ADDRS        | IS LEARNER |
++------------------+---------+-------+------------------------+----------------------------+------------+
+| 4788684035f976d3 | started | node2 | http://10.104.0.2:2380 | http://192.168.56.102:2379 |      false |
+| 67684e355c833ffa | started | node3 | http://10.104.0.3:2380 | http://192.168.56.103:2379 |      false |
+| 9d2e318af9306c67 | started | node1 | http://10.104.0.1:2380 | http://192.168.56.101:2379 |      false |
++------------------+---------+-------+------------------------+----------------------------+------------+
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>To check what node is currently the leader, use the following command</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>--endpoints<span class="o">=</span><span class="nv">$ENDPOINTS</span><span class="w"> </span>-w<span class="w"> </span>table<span class="w"> </span>endpoint<span class="w"> </span>status
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>+-----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+|      ENDPOINT   |        ID        | VERSION | DB SIZE | IS LEADER | IS LEARNER | RAFT TERM | RAFT INDEX | RAFT APPLIED INDEX | ERRORS |
++-----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+| 10.104.0.1:2379 | 9d2e318af9306c67 |  3.5.16 |   20 kB |      true |      false |         2 |         10 |                 10 |        |
+| 10.104.0.2:2379 | 4788684035f976d3 |  3.5.16 |   20 kB |     false |      false |         2 |         10 |                 10 |        |
+| 10.104.0.3:2379 | 67684e355c833ffa |  3.5.16 |   20 kB |     false |      false |         2 |         10 |                 10 |        |
++-----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+</code></pre></div>
+</details>
+</li>
+</ol>
+<h3 id="method-2-start-etcd-nodes-with-command-line-options">Method 2. Start etcd nodes with command line options<a class="headerlink" href="#method-2-start-etcd-nodes-with-command-line-options" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>On each etcd node, set the environment variables for the cluster members, the cluster token and state:</p>
+<div class="highlight"><pre><span></span><code>TOKEN=PostgreSQL_HA_Cluster_1
+CLUSTER_STATE=new
+NAME_1=node1
+NAME_2=node2
+NAME_3=node3
+HOST_1=10.104.0.1
+HOST_2=10.104.0.2
+HOST_3=10.104.0.3
+CLUSTER=${NAME_1}=http://${HOST_1}:2380,${NAME_2}=http://${HOST_2}:2380,${NAME_3}=http://${HOST_3}:2380
+</code></pre></div>
+</li>
+<li>
+<p>Start each etcd node in parallel using the following command:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">node1</label><label for="__tabbed_3_2">node2</label><label for="__tabbed_3_3">node3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nv">THIS_NAME</span><span class="o">=</span><span class="si">${</span><span class="nv">NAME_1</span><span class="si">}</span>
+<span class="nv">THIS_IP</span><span class="o">=</span><span class="si">${</span><span class="nv">HOST_1</span><span class="si">}</span>
+etcd<span class="w"> </span>--data-dir<span class="o">=</span>data.etcd<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">THIS_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-advertise-peer-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2380<span class="w"> </span>--listen-peer-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2380<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--advertise-client-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2379<span class="w"> </span>--listen-client-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2379<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-cluster<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-cluster-state<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER_STATE</span><span class="si">}</span><span class="w"> </span>--initial-cluster-token<span class="w"> </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nv">THIS_NAME</span><span class="o">=</span><span class="si">${</span><span class="nv">NAME_2</span><span class="si">}</span>
+<span class="nv">THIS_IP</span><span class="o">=</span><span class="si">${</span><span class="nv">HOST_2</span><span class="si">}</span>
+etcd<span class="w"> </span>--data-dir<span class="o">=</span>data.etcd<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">THIS_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-advertise-peer-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2380<span class="w"> </span>--listen-peer-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2380<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--advertise-client-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2379<span class="w"> </span>--listen-client-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2379<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-cluster<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-cluster-state<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER_STATE</span><span class="si">}</span><span class="w"> </span>--initial-cluster-token<span class="w"> </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nv">THIS_NAME</span><span class="o">=</span><span class="si">${</span><span class="nv">NAME_3</span><span class="si">}</span>
+<span class="nv">THIS_IP</span><span class="o">=</span><span class="si">${</span><span class="nv">HOST_3</span><span class="si">}</span>
+etcd<span class="w"> </span>--data-dir<span class="o">=</span>data.etcd<span class="w"> </span>--name<span class="w"> </span><span class="si">${</span><span class="nv">THIS_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-advertise-peer-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2380<span class="w"> </span>--listen-peer-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2380<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--advertise-client-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2379<span class="w"> </span>--listen-client-urls<span class="w"> </span>http://<span class="si">${</span><span class="nv">THIS_IP</span><span class="si">}</span>:2379<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-cluster<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--initial-cluster-state<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER_STATE</span><span class="si">}</span><span class="w"> </span>--initial-cluster-token<span class="w"> </span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Check the etcd cluster members. Use <code>etcdctl</code> for this purpose. Ensure that <code>etcdctl</code> interacts with etcd using API version 3 and knows which nodes, or endpoints, to communicate with. For this, we will define the required information as environment variables. Run the following commands on one of the nodes:</p>
+<div class="highlight"><pre><span></span><code>export ETCDCTL_API=3
+HOST_1=10.104.0.1
+HOST_2=10.104.0.2
+HOST_3=10.104.0.3
+ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
+</code></pre></div>
+</li>
+<li>
+<p>Now, list the cluster members and output the result as a table as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>--endpoints<span class="o">=</span><span class="nv">$ENDPOINTS</span><span class="w"> </span>-w<span class="w"> </span>table<span class="w"> </span>member<span class="w"> </span>list
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="highlight"><pre><span></span><code>+------------------+---------+-------+------------------------+----------------------------+------------+
+|        ID        | STATUS  | NAME  |         PEER ADDRS     |        CLIENT ADDRS        | IS LEARNER |
++------------------+---------+-------+------------------------+----------------------------+------------+
+| 4788684035f976d3 | started | node2 | http://10.104.0.2:2380 | http://192.168.56.102:2379 |      false |
+| 67684e355c833ffa | started | node3 | http://10.104.0.3:2380 | http://192.168.56.103:2379 |      false |
+| 9d2e318af9306c67 | started | node1 | http://10.104.0.1:2380 | http://192.168.56.101:2379 |      false |
++------------------+---------+-------+------------------------+----------------------------+------------+
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>To check what node is currently the leader, use the following command</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>etcdctl<span class="w"> </span>--endpoints<span class="o">=</span><span class="nv">$ENDPOINTS</span><span class="w"> </span>-w<span class="w"> </span>table<span class="w"> </span>endpoint<span class="w"> </span>status
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>+-----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+|      ENDPOINT   |        ID        | VERSION | DB SIZE | IS LEADER | IS LEARNER | RAFT TERM | RAFT INDEX | RAFT APPLIED INDEX | ERRORS |
++-----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+| 10.104.0.1:2379 | 9d2e318af9306c67 |  3.5.16 |   20 kB |      true |      false |         2 |         10 |                 10 |        |
+| 10.104.0.2:2379 | 4788684035f976d3 |  3.5.16 |   20 kB |     false |      false |         2 |         10 |                 10 |        |
+| 10.104.0.3:2379 | 67684e355c833ffa |  3.5.16 |   20 kB |     false |      false |         2 |         10 |                 10 |        |
++-----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
 </code></pre></div>
 </details>
 </li>
@@ -2540,7 +2641,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 </code></pre></div>
 </li>
 <li>
-<p>Create the <code>/etc/patroni/patroni.yml</code> configuration file. Add the following configuration:</p>
+<p>Use the following command to create the <code>/etc/patroni/patroni.yml</code> configuration file and add the following configuration for <code>node1</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span>
 <span class="s2">namespace: </span><span class="si">${</span><span class="nv">NAMESPACE</span><span class="si">}</span>
 <span class="s2">scope: </span><span class="si">${</span><span class="nv">SCOPE</span><span class="si">}</span>
@@ -2631,41 +2732,37 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 </code></pre></div>
 </li>
 <li>
-<p>Check that the systemd unit file <code>patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
-<p>If it&rsquo;s <strong>not</strong> created, create it manually and specify the following contents within:</p>
-<div class="highlight"><span class="filename">/etc/systemd/system/patroni.service</span><pre><span></span><code><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">Runners to orchestrate a high-availability PostgreSQL</span>
-<span class="na">After</span><span class="o">=</span><span class="s">syslog.target network.target</span><span class="w"> </span>
-
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w"> </span>
-
-<span class="na">User</span><span class="o">=</span><span class="s">postgres</span>
-<span class="na">Group</span><span class="o">=</span><span class="s">postgres</span><span class="w"> </span>
-
-<span class="c1"># Start the patroni process</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/patroni /etc/patroni/patroni.yml</span><span class="w"> </span>
-
-<span class="c1"># Send HUP to reload from patroni.yml</span>
-<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -s HUP $MAINPID</span><span class="w"> </span>
-
-<span class="c1"># only kill the patroni process, not its children, so it will gracefully stop postgres</span>
-<span class="na">KillMode</span><span class="o">=</span><span class="s">process</span><span class="w"> </span>
-
-<span class="c1"># Give a reasonable amount of time for the server to start up/shut down</span>
-<span class="na">TimeoutSec</span><span class="o">=</span><span class="s">30</span><span class="w"> </span>
-
-<span class="c1"># Do not restart the service if it crashes, we want to manually inspect database on failure</span>
-<span class="na">Restart</span><span class="o">=</span><span class="s">no</span><span class="w"> </span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
-</code></pre></div>
+<p>Check that the systemd unit file <code>percona-patroni.service</code> is created in <code>/etc/systemd/system</code>. If it is created, skip this step. </p>
+<p>If it&rsquo;s <strong>not created</strong>, create it manually and specify the following contents within:</p>
+<p>```ini title=&rdquo;/etc/systemd/system/percona-patroni.service&rdquo;
+ [Unit]
+ Description=Runners to orchestrate a high-availability PostgreSQL
+ After=syslog.target network.target </p>
+<p>[Service]
+ Type=simple </p>
+<p>User=postgres
+ Group=postgres </p>
+<p># Start the patroni process
+ ExecStart=/bin/patroni /etc/patroni/patroni.yml </p>
+<p># Send HUP to reload from patroni.yml
+ ExecReload=/bin/kill -s HUP $MAINPID </p>
+<p># only kill the patroni process, not its children, so it will gracefully stop postgres
+ KillMode=process </p>
+<p># Give a reasonable amount of time for the server to start up/shut down
+ TimeoutSec=30 </p>
+<p># Do not restart the service if it crashes, we want to manually inspect database on failure
+ Restart=no </p>
+<p>[Install]
+ WantedBy=multi-user.target
+ ```</p>
 </li>
 <li>
 <p>Make <code>systemd</code> aware of the new service:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 </code></pre></div>
+</li>
+<li>
+<p>Repeat steps 1-5 on the remaining nodes. In the end you must have the configuration file and the systemd unit file created on every node. </p>
 </li>
 <li>
 <p>Now it&rsquo;s time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the <code>node1</code> first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:</p>
@@ -2695,20 +2792,14 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 <p>When all nodes are up and running, you can check the cluster status using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
 </code></pre></div>
-<p>The output on <code>node1</code> resembles the following: </p>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 --+---------+---------+----+-----------+
-| Member | Host        | Role    | State   | TL | Lag in MB |
-+--------+-------------+---------+---------+----+-----------+
-| node-1 | 10.0.100.1  | Leader  | running |  1 |           |
-+--------+-------------+---------+---------+----+-----------+
-</code></pre></div>
-<p>On the remaining nodes:</p>
-<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 --+---------+---------+----+-----------+
-| Member | Host        | Role    | State   | TL | Lag in MB |
-+--------+-------------+---------+---------+----+-----------+
-| node-1 | 10.0.100.1  | Leader  | running |  1 |           |
-| node-2 | 10.0.100.2  | Replica | running |  1 |         0 |
-+--------+-------------+---------+---------+----+-----------+
+<p>The output resembles the following:</p>
+<div class="no-copy highlight"><pre><span></span><code>+ Cluster: cluster_1 (7440127629342136675) -----+----+-------+
+| Member | Host       | Role    | State     | TL | Lag in MB |
++--------+------------+---------+-----------+----+-----------+
+| node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+| node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
+| node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
++--------+------------+---------+-----------+----+-----------+
 </code></pre></div>
 </li>
 </ol>
@@ -2812,7 +2903,7 @@ listen standbys
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 15, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 16, 2024</span>
   </span>
 
     
@@ -2932,7 +3023,7 @@ listen standbys
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
