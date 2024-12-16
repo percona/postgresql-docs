@@ -29,15 +29,15 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
 
 It's not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we use a local name resolution by updating the file `/etc/hosts`. By resolving their hostnames to their IP addresses, we make the nodes aware of each other's names and allow their seamless communication. 
 
-1. Run the following command on each node. Change the node name to `node1`, `node2` and `node3` respectively:
+=== "node1"   
 
-    ```{.bash data-prompt="$"}
-    $ sudo hostnamectl set-hostname node1
-    ```
+    1. Set up the hostname for the node
 
-2. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:
+        ```{.bash data-prompt="$"}
+        $ sudo hostnamectl set-hostname node1
+        ```
 
-    === "node1"    
+    2. Modify the `/etc/hosts` file to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:   
 
         ```text hl_lines="3 4"
         # Cluster IP and names 
@@ -46,7 +46,15 @@ It's not necessary to have name resolution, but it makes the whole setup more re
         10.104.0.3 node3
         ```    
 
-    === "node2"    
+=== "node2"    
+
+    1. Set up the hostname for the node
+
+        ```{.bash data-prompt="$"}
+        $ sudo hostnamectl set-hostname node2
+        ```
+
+    2. Modify the `/etc/hosts` file to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:   
 
         ```text hl_lines="2 4"
         # Cluster IP and names 
@@ -55,7 +63,15 @@ It's not necessary to have name resolution, but it makes the whole setup more re
         10.104.0.3 node3
         ```    
 
-    === "node3"    
+=== "node3"    
+
+    1. Set up the hostname for the node
+
+        ```{.bash data-prompt="$"}
+        $ sudo hostnamectl set-hostname node3
+        ```
+
+    2. Modify the `/etc/hosts` file to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:   
 
         ```text hl_lines="2 3"
         # Cluster IP and names 
@@ -64,11 +80,17 @@ It's not necessary to have name resolution, but it makes the whole setup more re
         10.104.0.3 node3
         ```    
 
-    === "HAproxy-demo"    
+=== "HAproxy-demo"  
 
-        The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file. Add the following lines at the end of the file:    
+    1. Set up the hostname for the node
 
-        ```text hl_lines="4 5 6"
+        ```{.bash data-prompt="$"}
+        $ sudo hostnamectl set-hostname HAProxy-demo
+        ```
+
+    2. Modify the `/etc/hosts` file. The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file. Add the following lines at the end of the file:    
+
+        ```text hl_lines="3 4 5"
         # Cluster IP and names
         10.104.0.6 HAProxy-demo
         10.104.0.1 node1
@@ -78,16 +100,26 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 ### Install the software
 
-1. Install Percona Distribution for PostgreSQL on `node1`, `node2` and `node3` from Percona repository:
+Run the following commands on `node1`, `node2` and `node3`:
 
-    * [Install `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/installing.html).
+1. Install Percona Distribution for PostgreSQL:
+
+    * Check the [platform specific notes](../yum.md#for-percona-distribution-for-postgresql-packages) 
+    * Install the `percona-release` repository management tool
+
+        --8<-- "percona-release-yum.md"
+
     * Enable the repository:    
 
         ```{.bash data-prompt="$"}
         $ sudo percona-release setup ppg13
         ```    
 
-    * [Install Percona Distribution for PostgreSQL packages](../yum.md).    
+    * Install Percona Distribution for PostgreSQL package
+
+        ```{.bash data-prompt="$"}
+        $ sudo apt install percona-postgresql{{pgversion}}-server
+        ```
 
     !!! important    
 
@@ -116,145 +148,134 @@ It's not necessary to have name resolution, but it makes the whole setup more re
 
 ## Configure etcd distributed store  
 
-The distributed configuration store helps establish a consensus among nodes during a failover and will manage the configuration for the three PostgreSQL instances. Although Patroni can work with other distributed consensus stores (i.e., Zookeeper, Consul, etc.), the most commonly used one is `etcd`. 
-
-This document provides configuration for etcd version 3.5.x. For how to configure etcd cluster with earlier versions of etcd, read the blog post by _Fernando Laudares Camargos_ and _Jobin Augustine_ [PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios](https://www.percona.com/blog/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/).
-
-If you [installed the software from tarballs](../tarball.md), check how you [enable etcd](../enable-extensions.md#etcd).
-
-The `etcd` cluster is first started in one node and then the subsequent nodes are added to the first node using the `add `command. 
+In our implementation we use etcd distributed configuration store. [Refresh your knowledge about etcd](high-availability.md#etcd).
 
 !!! note
+    
+    If you [installed the software from tarballs](../tarball.md), you must first [enable etcd](../enable-extensions.md#etcd) before configuring it.
 
-    Users with deeper understanding of how etcd works can configure and start all etcd nodes at a time and bootstrap the cluster using one of the following methods:
+To get started with `etcd` cluster, you need to bootstrap it. This means setting up the initial configuration and starting the etcd nodes so they can form a cluster. There are the following bootstrapping mechanisms:  
 
-    * Static in the case when the IP addresses of the cluster nodes are known
-    * Discovery  service - for cases when the IP addresses of the cluster are not known ahead of time.
+* Static in the case when the IP addresses of the cluster nodes are known
+* Discovery service - for cases when the IP addresses of the cluster are not known ahead of time.
+    
+Since we know the IP addresses of the nodes, we will use the static method. For using the discovery service, please refer to the [etcd documentation :octicons-external-link-16:](https://etcd.io/docs/v3.5/op-guide/clustering/#etcd-discovery){:target="_blank"}.
 
-    See the [How to configure etcd nodes simultaneously](../how-to.md#how-to-configure-etcd-nodes-simultaneously) section for details.
+We will configure and start all etcd nodes in parallel. This can be done either by modifying each node's configuration or using the command line options. Use the method that you prefer more.
 
-### Configure `node1`
+### Method 1. Modify the configuration file
 
-1. Create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node name and IP address with the actual name and IP address of your node.
+1. Create the etcd configuration file on every node. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
 
-    ```yaml title="/etc/etcd/etcd.conf.yaml"
-    name: 'node1'
-    initial-cluster-token: PostgreSQL_HA_Cluster_1
-    initial-cluster-state: new
-    initial-cluster: node1=http://10.104.0.1:2380
-    data-dir: /var/lib/etcd
-    initial-advertise-peer-urls: http://10.104.0.1:2380 
-    listen-peer-urls: http://10.104.0.1:2380
-    advertise-client-urls: http://10.104.0.1:2379
-    listen-client-urls: http://10.104.0.1:2379
-    ```
+    === "node1"
 
-4.  Start the `etcd` service to apply the changes on `node1`:
+         ```yaml title="/etc/etcd/etcd.conf.yaml"
+         name: 'node1'
+         initial-cluster-token: PostgreSQL_HA_Cluster_1
+         initial-cluster-state: new
+         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380
+         data-dir: /var/lib/etcd
+         initial-advertise-peer-urls: http://10.104.0.1:2380 
+         listen-peer-urls: http://10.104.0.1:2380
+         advertise-client-urls: http://10.104.0.1:2379
+         listen-client-urls: http://10.104.0.1:2379
+         ```
+
+    === "node2"
+
+         ```yaml title="/etc/etcd/etcd.conf.yaml"
+         name: 'node2'
+         initial-cluster-token: PostgreSQL_HA_Cluster_1
+         initial-cluster-state: new
+         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         data-dir: /var/lib/etcd
+         initial-advertise-peer-urls: http://10.104.0.2:2380 
+         listen-peer-urls: http://10.104.0.2:2380
+         advertise-client-urls: http://10.104.0.2:2379
+         listen-client-urls: http://10.104.0.2:2379
+         ```
+
+    === "node3"
+
+         ```yaml title="/etc/etcd/etcd.conf.yaml"
+         name: 'node3'
+         initial-cluster-token: PostgreSQL_HA_Cluster_1
+         initial-cluster-state: new
+         initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380
+         data-dir: /var/lib/etcd
+         initial-advertise-peer-urls: http://10.104.0.3:2380 
+         listen-peer-urls: http://10.104.0.3:2380
+         advertise-client-urls: http://10.104.0.3:2379
+         listen-client-urls: http://10.104.0.3:2379
+         ```
+
+2. Enable and start the `etcd` service on all nodes:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
+    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 
-5. Check the etcd cluster members on `node1`:
-    
-    ```{.bash data-promp="$"}
-    $ sudo etcdctl member list
+    During the node start, etcd searches for other cluster nodes defined in the configuration. If the other nodes are not yet running, the start may fail by a quorum timeout. This is expected behavior. Try starting all nodes again at the same time for the etcd cluster to be created.
+
+--8<-- "check-etcd.md"
+
+### Method 2. Start etcd nodes with command line options
+
+1. On each etcd node, set the environment variables for the cluster members, the cluster token and state:
+
+    ```
+    TOKEN=PostgreSQL_HA_Cluster_1
+    CLUSTER_STATE=new
+    NAME_1=node1
+    NAME_2=node2
+    NAME_3=node3
+    HOST_1=10.104.0.1
+    HOST_2=10.104.0.2
+    HOST_3=10.104.0.3
+    CLUSTER=${NAME_1}=http://${HOST_1}:2380,${NAME_2}=http://${HOST_2}:2380,${NAME_3}=http://${HOST_3}:2380
     ```
 
-    ??? example "Sample output"
+2. Start each etcd node in parallel using the following command:
 
-        ```{.text .no-copy}
-        21d50d7f768f153a: name=default peerURLs=http://10.104.0.5:2380 clientURLs=http://10.     104.0.5:2379 isLeader=true
+    === "node1"
+
+        ```{.bash data-prompt="$"}
+        THIS_NAME=${NAME_1}
+        THIS_IP=${HOST_1}
+        etcd --data-dir=data.etcd --name ${THIS_NAME} \
+        	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+        	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+        	--initial-cluster ${CLUSTER} \
+        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
         ```
 
-6. Configure etcd on **node2** and **node3**:
+    === "node2"
 
-    This is important to note that even though the procedures are the same, only changing the hosts, each node needs to be individually fully configured before proceeding to the next node.
-
-    We need to add the node to the cluster executing below command on `Node1`:
-
-    ```{.bash data-promp="$"}
-    # Execute on Node1
-    $ sudo etcdctl member add node2 http://10.104.0.2:2380
-
-    ```
-
-    ??? example "Sample output"
-    
-        ```{.text .no-copy}
-        Added member named node2 with ID 10042578c504d052 to cluster
-
-        etcd_NAME="node2"
-        etcd_INITIAL_CLUSTER="node2=http://10.104.0.2:2380,node1=http://10.104.0.1:2380"
-        etcd_INITIAL_CLUSTER_STATE="existing"
+        ```{.bash data-prompt="$"}
+        THIS_NAME=${NAME_2}
+        THIS_IP=${HOST_2}
+        etcd --data-dir=data.etcd --name ${THIS_NAME} \
+        	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+        	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+        	--initial-cluster ${CLUSTER} \
+        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
         ```
 
-### Configure `node2`
+    === "node3"
 
-1. Create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes.
+        ```{.bash data-prompt="$"}
+        THIS_NAME=${NAME_3}
+        THIS_IP=${HOST_3}
+        etcd --data-dir=data.etcd --name ${THIS_NAME} \
+        	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
+        	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
+        	--initial-cluster ${CLUSTER} \
+        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+        ```
 
-    ```yaml title="/etc/etcd/etcd.conf.yaml"
-    name: 'node2'
-    initial-cluster-token: PostgreSQL_HA_Cluster_1
-    initial-cluster-state: existing
-    initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380
-    data-dir: /var/lib/etcd
-    initial-advertise-peer-urls: http://10.104.0.2:2380 
-    listen-peer-urls: http://10.104.0.2:2380
-    advertise-client-urls: http://10.104.0.2:2379
-    listen-client-urls: http://10.104.0.2:2379
-    ```
-
-2. Start the `etcd` service to apply the changes on `node2`:
-    
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now etcd
-    $ sudo systemctl status etcd
-    ```
-
-### Configure `node3`
-
-1. Add `node3` to the cluster. **Run the following command on `node1`**:
-    
-    ```{.bash data-prompt="$"}
-    $ sudo etcdctl member add node3 http://10.104.0.3:2380
-    ```
-
-2. On `node3`, create the configuration file. You can edit the sample configuration file `/etc/etcd/etcd.conf.yaml` or create your own one. Replace the node names and IP addresses with the actual names and IP addresses of your nodes:
-
-    ```yaml title="/etc/etcd/etcd.conf.yaml"
-    name: 'node1'
-    initial-cluster-token: PostgreSQL_HA_Cluster_1
-    initial-cluster-state: existing
-    initial-cluster: node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380
-    data-dir: /var/lib/etcd
-    initial-advertise-peer-urls: http://10.104.0.3:2380 
-    listen-peer-urls: http://10.104.0.3:2380
-    advertise-client-urls: http://10.104.0.3:2379
-    listen-client-urls: http://10.104.0.3:2379
-    ```
-
-3. Start the `etcd` service to apply the changes.
-
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now etcd
-    $ sudo systemctl status etcd
-    ```
-
-4. Check the etcd cluster members.
-    
-    ```{.bash data-prompt="$"}
-    $ sudo etcdctl member list
-    ```
-
-    ??? example "Sample output"
-
-        ```{.text .no-copy}
-        2d346bd3ae7f07c4: name=node2 peerURLs=http://10.104.0.2:2380 clientURLs=http://10.104.0.2:2379     isLeader=false
-        8bacb519ebdee8db: name=node3 peerURLs=http://10.104.0.3:2380 clientURLs=http://10.104.0.3:2379     isLeader=false
-        c5f52ea2ade25e1b: name=node1 peerURLs=http://10.104.0.1:2380 clientURLs=http://10.104.0.1:2379     isLeader=true
-        ``` 
+--8<-- "check-etcd.md"
 
     **Don't** initialize the cluster and start the `postgresql` service. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
 
@@ -309,8 +330,8 @@ Run the following commands on all nodes. You can do this in parallel:
      $ sudo chmod 700 /data/pgsql
      ```
 
-3. Create the `/etc/patroni/patroni.yml` configuration file. Add the following configuration:
- 
+3. Use the following command to create the `/etc/patroni/patroni.yml` configuration file and add the following configuration for `node1`:
+
     ```bash
     echo "
     namespace: ${NAMESPACE}
@@ -402,39 +423,39 @@ Run the following commands on all nodes. You can do this in parallel:
     " | sudo tee -a /etc/patroni/patroni.yml
     ```
 
-4. Check that the systemd unit file `patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
+4. Check that the systemd unit file `percona-patroni.service` is created in `/etc/systemd/system`. If it is created, skip this step. 
 
-    If it's **not** created, create it manually and specify the following contents within:
-    
-     ```ini title="/etc/systemd/system/patroni.service"
-     [Unit]
-     Description=Runners to orchestrate a high-availability PostgreSQL
-     After=syslog.target network.target 
+    If it's **not created**, create it manually and specify the following contents within:
 
-     [Service]
-     Type=simple 
+    ```ini title="/etc/systemd/system/percona-patroni.service"
+    [Unit]
+    Description=Runners to orchestrate a high-availability PostgreSQL
+    After=syslog.target network.target 
 
-     User=postgres
-     Group=postgres 
+    [Service]
+    Type=simple 
 
-     # Start the patroni process
-     ExecStart=/bin/patroni /etc/patroni/patroni.yml 
+    User=postgres
+    Group=postgres 
 
-     # Send HUP to reload from patroni.yml
-     ExecReload=/bin/kill -s HUP $MAINPID 
+    # Start the patroni process
+    ExecStart=/bin/patroni /etc/patroni/patroni.yml 
 
-     # only kill the patroni process, not its children, so it will gracefully stop postgres
-     KillMode=process 
+    # Send HUP to reload from patroni.yml
+    ExecReload=/bin/kill -s HUP $MAINPID 
 
-     # Give a reasonable amount of time for the server to start up/shut down
-     TimeoutSec=30 
+    # only kill the patroni process, not its children, so it will gracefully stop postgres
+    KillMode=process 
 
-     # Do not restart the service if it crashes, we want to manually inspect database on failure
-     Restart=no 
+    # Give a reasonable amount of time for the server to start up/shut down
+    TimeoutSec=30 
 
-     [Install]
-     WantedBy=multi-user.target
-     ```
+    # Do not restart the service if it crashes, we want to manually inspect database on failure
+    Restart=no 
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
 5. Make `systemd` aware of the new service:
 
@@ -442,7 +463,8 @@ Run the following commands on all nodes. You can do this in parallel:
     $ sudo systemctl daemon-reload
     ```
 
-6. Now it's time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
+6. Repeat steps 1-5 on the remaining nodes. In the end you must have the configuration file and the systemd unit file created on every node. 
+7. Now it's time to start Patroni. You need the following commands on all nodes but not in parallel. Start with the `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now patroni
@@ -451,7 +473,7 @@ Run the following commands on all nodes. You can do this in parallel:
 
     When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
 
-7. Check the service to see if there are errors:
+8. Check the service to see if there are errors:
 
     ```{.bash data-prompt="$"}
     $ sudo journalctl -fu patroni
@@ -472,32 +494,23 @@ Run the following commands on all nodes. You can do this in parallel:
     postgres=#
     ```
 
-8.  When all nodes are up and running, you can check the cluster status using the following command:
+9. When all nodes are up and running, you can check the cluster status using the following command:
 
-     ```{.bash data-prompt="$"}
-     $ sudo patronictl -c /etc/patroni/patroni.yml list
-     ```
-   
-     The output on `node1` resembles the following:
+    ```{.bash data-prompt="$"}
+    $ sudo patronictl -c /etc/patroni/patroni.yml list
+    ```
+    
+    The output resembles the following:
 
-     ```{.text .no-copy}
-     + Cluster: cluster_1 --+---------+---------+----+-----------+
-     | Member | Host        | Role    | State   | TL | Lag in MB |
-     +--------+-------------+---------+---------+----+-----------+
-     | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
-     +--------+-------------+---------+---------+----+-----------+
-     ```
-
-     On the remaining nodes:
-     
-     ```{.text .no-copy}
-     + Cluster: cluster_1 --+---------+---------+----+-----------+
-     | Member | Host        | Role    | State   | TL | Lag in MB |
-     +--------+-------------+---------+---------+----+-----------+
-     | node-1 | 10.0.100.1  | Leader  | running |  1 |           |
-     | node-2 | 10.0.100.2  | Replica | running |  1 |         0 |
-     +--------+-------------+---------+---------+----+-----------+
-     ```
+    ```{.text .no-copy}
+    + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
+    | Member | Host       | Role    | State     | TL | Lag in MB |
+    +--------+------------+---------+-----------+----+-----------+
+    | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+    | node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
+    | node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
+    +--------+------------+---------+-----------+----+-----------+
+    ```
 
 ## Configure HAProxy
 
