@@ -7,10 +7,10 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:
 
 
-1. Stop the `postgresql` cluster;
+1. Stop the `postgresql` cluster
 
 2. Update `percona-release`
-3. Install new version packages;
+3. Install new version packages
 
 4. Restart the `postgresql` cluster.
 
@@ -22,7 +22,11 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
     For more information about Percona repositories, refer to [Installing Percona Distribution for PostgreSQL](installing.md).
 
-    Before the upgrade, [update the `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. 
+## Before you start
+
+1. [Update the `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL. 
+
+2. Starting with version 17.2.1, `pg_tde` is part of the Percona Server for PostgreSQL package. If you installed `pg_tde` from its dedicated `percona-postgresql-17-pg-tde` package for Debian/Ubuntu or the `percona-pg_tde_17` package for RHEL and derivatives, uninstall this package to avoid conflicts during the upgrade. 
 
 Run **all** commands as root or via **sudo**:
 {.power-number}
