@@ -38,7 +38,7 @@ There are several methods to achieve high availability in PostgreSQL. This solut
 
 ## Patroni
 
-[Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) is a template for you to create your own customized, high-availability solution using Python and - for maximum accessibility - a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes. 
+[Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) is a Patroni is an open-source tool that helps to deploy, manage, and monitor highly available PostgreSQL clusters using physical streaming replication. Patroni relies on a distributed configuration store like ZooKeeper, etcd, Consul or Kubernetes to store the cluster configuration. 
 
 ### Key benefits of Patroni:
 
@@ -50,6 +50,21 @@ There are several methods to achieve high availability in PostgreSQL. This solut
 * Distributed consensus for every action and configuration.
 * Integration with Linux watchdog for avoiding split-brain syndrome.
 
+## etcd
+
+As stated before, Patroni uses a distributed configuration store to store the cluster configuration, health and status.The most popular implementation of the distributed configuration store is etcd due to its simplicity, consistency and reliability. Etcd not only stores the cluster data, it also handles the election of a new primary node (a leader in ETCD terminology).
+
+etcd is deployed as a cluster for fault-tolerance. An etcd cluster needs a majority of nodes, a quorum, to agree on updates to the cluster state. 
+
+The recommended approach is to deploy an odd-sized cluster (e.g. 3, 5 or 7 nodes). The odd number of nodes ensures that there is always a majority of nodes available to make decisions and keep the cluster running smoothly. This majority is crucial for maintaining consistency and availability, even if one node fails. For a cluster with n members, the majority is (n/2)+1. 
+
+To better illustrate this concept, let's take an example of clusters with 3 nodes and 4 nodes. 
+
+In a 3-node cluster, if one node fails, the remaining 2 nodes still form a majority (2 out of 3), and the cluster can continue to operate.
+
+In a 4-nodes cluster, if one node fails, there are only 3 nodes left, which is not enough to form a majority (3 out of 4). The cluster stops functioning.
+
+In this solution we use a 3-nodes etcd cluster that resides on the same hosts with PostgreSQL and Patroni. Though 
 
 !!! admonition "See also"
 
