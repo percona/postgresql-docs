@@ -2,12 +2,18 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.2.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.1](https://www.postgresql.org/docs/17/release-17-2.html). 
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.2.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.2](https://www.postgresql.org/docs/17/release-17-2.html). 
 
 ## Release Highlights
 
 * This release includes fixes for [CVE-2024-10978](https://www.postgresql.org/support/security/CVE-2024-10978/) and for certain PostgreSQL extensions that break because they depend on the modified Application Binary Interface (ABI). These regressions were introduced in PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, and 12.21. For this reason, the release of Percona Distribution for PostgreSQL 17.1.1 has been skipped. 
-* Percona Distribution for PostgreSQL includes [`pgvector` :octicons-link-external-16](https://github.com/pgvector/pgvector) - an open source extension that enables you to use PostgreSQL as a vector database. It brings vector data type and vector operations (mainly similarity search) to PosgreSQL. You can install pgvector from repositories, tarballs, and it is also available as a Docker image.
+* Percona Distribution for PostgreSQL includes [`pgvector` :octicons-link-external-16](https://github.com/pgvector/pgvector) - an open source extension that enables you to use PostgreSQL as a vector database. It brings vector data type and vector operations (mainly similarity search) to PostgreSQL. You can install `pgvector` from repositories, tarballs, and it is also available as a Docker image.
+* The new version of `pg_tde` extension features index encryption and the support of storing encryption keys in KMIP-compatible servers. These feature come with the Beta version of the `tde_heap` access method. Learn more in the [pg_tde release notes :octocins-link-external-16:](https://percona.github.io/pg_tde/main/release-notes/release-notes.html)
+* The `pg_tde` extension itself is now a part of the Percona Server for PostgreSQL server package. Therefore, if you installed the extension before, from its individual package, uninstall it first to avoid conflicts during the upgrade. See the [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md#preconditions) for details.
+
+    `pg_tde` is also included in the Percona Distribution for PostgreSQL Docker image starting with this release. The `perconalab/pg_tde` image includes only the PostgreSQL Community version of the extension with the `tde_heap_basic` access method. 
+
+*  Percona Distribution for PostgreSQL now statically links `llvmjit.so` library for Red Hat Enterprise Linux 8 and 9 and compatible derivatives. This resolves the conflict between the LLVM version required by Percona Distribution for PostgreSQL and the one supplied with the operating system. This also enables you to use the LLVM modules supplied with the operating system for other software you require.
 * Percona Monitoring and Management (PMM) 2.43.2 is now compatible with `pg_stat_monitor` 2.1.0 to monitor PostgreSQL 17. 
 
 ------------------------------------------------------------------------------
