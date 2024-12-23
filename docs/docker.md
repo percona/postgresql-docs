@@ -27,6 +27,7 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
     | `percona-pgaudit{{pgversion}}_set_user`| An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.|
     | `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
     | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
+    | `percona-pgvector`              |  A vector similarity search for PostgreSQL|
 
 ## Start the container {.power-number}
 
