@@ -81,4 +81,4 @@ Run **all** commands as root or via **sudo**:
          ```
 
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 15 to 16](major-upgrade.md).
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md).

@@ -131,7 +131,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-17.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 17.0 (October 3, 2024)
+          cover_subtitle: 17.2 (December 26, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -196,6 +196,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release Notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v17.2.md
       - release-notes-v17.0.md
   - Reference:
       - Telemetry: telemetry.md
