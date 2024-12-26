@@ -21,9 +21,9 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     <br>
     PostgreSQL offers multiple options for setting up database disaster recovery. 
 
-    - **[pg_dump :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pgdump.html) or the [pg_dumpall :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pg-dumpall.html) utilities**
+    - **[pg_dump :octicons-link-external-16:](https://www.postgresql.org/docs/16/app-pgdump.html) or the [pg_dumpall :octicons-link-external-16:](https://www.postgresql.org/docs/16/app-pg-dumpall.html) utilities**
 
-    This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the [pg_restore :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pgrestore.html) command. 
+    This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the [pg_restore :octicons-link-external-16:](https://www.postgresql.org/docs/16/app-pgrestore.html) command. 
 
     | Advantages   | Disadvantages   |
     | ------------ | --------------- |
@@ -37,7 +37,7 @@ A Disaster Recovery (DR) solution ensures that a system can be quickly restored 
     | ------------ | --------------- |
     | Consistent snapshot of the data directory or the whole data disk volume | 1. Requires stopping PostgreSQL in order to copy the files. This is not practical for most production setups.<br> 2. No backup of individual databases or tables.|
 
-    - **PostgreSQL [pg_basebackup :octicons-link-external-16:](https://www.postgresql.org/docs/15/app-pgbasebackup.html)**
+    - **PostgreSQL [pg_basebackup :octicons-link-external-16:](https://www.postgresql.org/docs/16/app-pgbasebackup.html)**
 
     This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. `pgasebackup` makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. 
 

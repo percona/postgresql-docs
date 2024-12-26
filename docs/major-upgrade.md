@@ -203,7 +203,7 @@ Run **all** commands as root or via **sudo**:
     
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
-    $ sudo rm -rf /etc/postgresql/15/main
+    $ sudo rm -rf /etc/postgresql/16/main
     $ #Logout
     $ exit
     ```
