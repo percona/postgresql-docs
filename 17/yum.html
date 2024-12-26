@@ -1665,6 +1665,27 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v17.2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 17.2.1 (2024-12-26)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v17.0.html" class="md-nav__link">
         
   
@@ -2001,8 +2022,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql<span class="w"> </span>llvm-toolset
+<p>Disable the <code>postgresql</code> module:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span>disable<span class="w"> </span>postgresql<span class="w"> </span>
 </code></pre></div>
 </div>
 </div>
@@ -2017,7 +2038,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 </div>
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
-$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
 $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
 </code></pre></div>
 </div>
@@ -2027,7 +2047,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </div>
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
-$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
 $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
 $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
 </code></pre></div>
@@ -2074,11 +2093,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </code></pre></div>
 </li>
 <li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
-</code></pre></div>
-</li>
-<li>
 <p>Enable the codeready builder repository to resolve dependencies conflict. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-x86_64-rpms
 </code></pre></div>
@@ -2091,11 +2105,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 <li>
 <p>Install <code>epel</code> repository</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
 </code></pre></div>
 </li>
 <li>
@@ -2112,11 +2121,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 <li>
 <p>Install <code>epel</code> repository</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-</code></pre></div>
-</li>
-<li>
-<p>Enable the <code>llvm-toolset dnf</code> module</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>module<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>llvm-toolset
 </code></pre></div>
 </li>
 <li>
@@ -2274,7 +2278,7 @@ enabled=1
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.0.1 (Percona Server for PostgreSQL) 17.0.1
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.2.1 (Percona Server for PostgreSQL) 17.2.1
 </code></pre></div>
 </details>
 <p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
