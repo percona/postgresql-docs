@@ -142,7 +142,7 @@ Run the following commands on `node1`, `node2` and `node3`:
     
     ```{.bash data-prompt="$"}
     $ sudo systemctl stop {etcd,patroni,postgresql}
-    $ systemctl disable {etcd,patroni,postgresql}
+    $ sudo systemctl disable {etcd,patroni,postgresql}
     ```
 
 5. Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance.

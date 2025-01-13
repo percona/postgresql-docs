@@ -118,7 +118,7 @@ Run the following commands on `node1`, `node2` and `node3`:
     * Install Percona Distribution for PostgreSQL package
 
         ```{.bash data-prompt="$"}
-        $ sudo apt install percona-postgresql{{pgversion}}-server
+        $ sudo yum install percona-postgresql{{pgversion}}-server
         ```
 
     !!! important    
@@ -142,8 +142,8 @@ Run the following commands on `node1`, `node2` and `node3`:
 4. Stop and disable all installed services:
     
     ```{.bash data-prompt="$"}
-    $ sudo systemctl stop {etcd,patroni,postgresql}
-    $ systemctl disable {etcd,patroni,postgresql}
+    $ sudo systemctl stop {etcd,patroni,postgresql-{{pgversion}}}
+    $ sudo systemctl disable {etcd,patroni,postgresql-{{pgversion}}}
     ```
 
 ## Configure etcd distributed store  
