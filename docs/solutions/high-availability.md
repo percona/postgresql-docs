@@ -47,8 +47,9 @@ Instead of a single node you now have a cluster. How to enable users to connect 
 
 ![Load-balancer](../_images/diagrams/ha-overview-load-balancer.png)
 
-Another option is to use a load-balancing proxy. Instead of connecting directly to the IP address of the primary node, which can change during a failover, you use a proxy that acts as a single point of entry for the entire cluster. This proxy knows which node is currently the primary and directs all incoming write requests to it. At the same time, it can distribute read requests among the replicas to evenly spread the load and improve performance.
+Another option is to use a load-balancing proxy. Instead of connecting directly to the IP address of the primary node, which can change during a failover, you use a proxy that acts as a single point of entry for the entire cluster. This proxy provides the IP address visible for user applications. It also knows which node is currently the primary and directs all incoming write requests to it. At the same time, it can distribute read requests among the replicas to evenly spread the load and improve performance.
 
+To eliminate a single point of failure for a load balancer, deploy at least two instances of it for redundancy. The instances share the public IP address so that it can "float" from one instance to another in the case of a failure. To control the load balancer's state and transfer the IP address to the active instance, you also need the failover solution for load balancers.
 
 #### Step 4. Backups 
 
@@ -62,14 +63,16 @@ As a result, you end up with the following components for a minimalistic highly-
 
 * A three-node PostgreSQL cluster with the replication configured among nodes
 * A solution to manage the cluster and perform automatic failover when the primary node is down
-* A load-balancing proxy that provides a single point of entry to your cluster and distributes the load across cluster nodes
+* A load-balancing proxy that provides a single point of entry to your cluster and distributes the load across cluster nodes. You need at least two instances of a load-balancing proxy and a failover tool to eliminate a single point of failure.
 * A backup and restore solution to protect data against loss and corruption.
 
 Optionally, you can add a monitoring tool to observe the health of your deployment, receive alerts about performance issues and timely react to them.
 
-The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source tools, focusing on a minimalist three-node PostgreSQL cluster.
+### What tools to use?
 
-Note that the tools are recommended but not mandatory. You can use your own solutions and alternatives if they better meet your business needs.
+The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source tools, focusing on a minimalistic three-node PostgreSQL cluster.
+
+Note that the tools are recommended but not mandatory. You can use your own solutions and alternatives if they better meet your business needs. However, in this case, we cannot guarantee their compatibility and smooth operation.
 
 ### Additional reading
 

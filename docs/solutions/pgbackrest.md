@@ -1,26 +1,16 @@
 # pgBackRest setup
 
-[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. While it can be used for local backups, this procedure shows how to deploy a [pgBackRest server running on a dedicated host :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host) and how to configure PostgreSQL servers to use it for backups and archiving.
+[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. 
+
+In our solution we deploy a [pgBackRest server on a dedicated host :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host) and also deploy pgBackRest on the PostgreSQL servers. Them we configure PostgreSQL servers to use it for backups and archiving.
 
 You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. 
 
-## Configure backup server
+## Preparation
 
-To make things easier when working with some templates, run the commands below  as the root user. Run the following command to switch to the root user:
-    
-```{.bash data-prompt="$"}
-$ sudo su -
-```
+## Install pgBackRest
 
-### Install pgBackRest
-
-1. Enable the repository with [percona-release :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/index.html)
-
-    ```{.bash data-prompt="$"}
-    $ percona-release setup ppg-{{pgversion}}       
-    ```
-
-2. Install pgBackRest package
+Install pgBackRest on the following nodes: `node1`, `node2`, `node3`, `backup`
 
     === ":material-debian: On Debian/Ubuntu"
 
@@ -33,6 +23,10 @@ $ sudo su -
         ```{.bash data-prompt="$"}
         $ yum install percona-pgbackrest
         ```
+
+## Configure a backup server
+
+Do the following steps on the `backup` node.
 
 ### Create the configuration file
 

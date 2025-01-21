@@ -2,7 +2,7 @@
 
 This guide provides instructions on how to set up a highly available PostgreSQL cluster with Patroni. This guide relies on the provided [architecture](ha-architecture.md) for high-availability.
 
-## Preconditions
+## Considerations
 
 1. This is an example deployment where etcd runs on the same host machines as the Patroni and PostgreSQL and there is a single dedicated HAProxy host. Alternatively etcd can run on different set of nodes. 
 
@@ -16,61 +16,62 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
     | node1         | 157.230.42.174    | 10.104.0.7
     | node2         | 68.183.177.183    | 10.104.0.2
     | node3         | 165.22.62.167     | 10.104.0.8
-    | HAProxy-demo  | 134.209.111.138   | 10.104.0.6
+    | HAProxy1      | 134.209.111.138   | 10.104.0.6
+    | HAProxy2      | 134.209.111.138   | 10.104.0.5
+    | backup        | 97.78.129.11      | 10.104.0.9
 
 
-!!! note
+!!! important
 
     We recommend not to expose the hosts/nodes where Patroni / etcd / PostgreSQL are running to public networks due to security risks.  Use Firewalls, Virtual networks, subnets or the like to protect the database hosts from any kind of attack. 
 
-## Initial setup 
+## Configure name resolution
 
 It’s not necessary to have name resolution, but it makes the whole setup more readable and less error prone. Here, instead of configuring a DNS, we use a local name resolution by updating the file `/etc/hosts`. By resolving their hostnames to their IP addresses, we make the nodes aware of each other’s names and allow their seamless communication.
 
-1. Set the hostname for nodes. Run the following command on each node. Change the node name to `node1`, `node2` and `node3` respectively:
+Run the following commands on each node.
+
+1. Set the hostname for nodes. Change the node name to `node1`, `node2`,  `node3`, `HAProxy1`, `HAProxy2` and `backup`, respectively:
 
     ```{.bash data-prompt="$"}
     $ sudo hostnamectl set-hostname node1
     ```
 
-2. Modify the `/etc/hosts` file of each PostgreSQL node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:
+2. Modify the `/etc/hosts` file of each node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:   
 
-    === "node1"    
-
-        ```text hl_lines="3 4"
-        # Cluster IP and names 
-        10.104.0.1 node1 
-        10.104.0.2 node2 
-        10.104.0.3 node3
-        ```    
-
-    === "node2"    
-
-        ```text hl_lines="2 4"
-        # Cluster IP and names 
-        10.104.0.1 node1 
-        10.104.0.2 node2 
-        10.104.0.3 node3
-        ```    
-
-    === "node3"    
-
-        ```text hl_lines="2 3"
-        # Cluster IP and names 
-        10.104.0.1 node1 
-        10.104.0.2 node2 
-        10.104.0.3 node3
-        ```    
-
-    === "HAproxy-demo"    
-
-        The HAProxy instance should have the name resolution for all the three nodes in its `/etc/hosts` file. Add the following lines at the end of the file:    
-
-        ```text hl_lines="4 5 6"
+        ```text 
         # Cluster IP and names
-        10.104.0.6 HAProxy-demo
-        10.104.0.1 node1
-        10.104.0.2 node2
-        10.104.0.3 node3
+
+        10.104.0.7 node1    
+        10.104.0.2 node2    
+        10.104.0.8 node3    
+        10.104.0.6 HAProxy1 
+        10.104.0.5 HAProxy2 
+        10.104.0.9 backup   
         ```
 
+## Configure Percona repository
+
+To install the software from Percona, you need to subscribe to Percona repositories. To do this, you require `percona-release` - the repository management tool. 
+
+Run the following commands on each node as the root user or with `sudo` privileges.
+
+1. Install `percona-release`
+
+    === ":material-debian: On Debian and Ubuntu"
+
+        --8<-- "percona-release-apt.md"
+
+    === ":material-redhat: On RHEL and derivatives"
+
+        --8<-- "percona-release-yum.md"
+
+2. Enable the repository:
+
+    ```{.bash data-prompt="$}
+    $ sudo percona-release enable ppg{{pgversion}}
+    ```
+
+## Next steps
+
+[Install Percona Distribution for PostgreSQL](ha-install-postgres.md){.md-button}

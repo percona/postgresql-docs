@@ -175,14 +175,14 @@ nav:
       - High availability:
           - 'Overview': 'solutions/high-availability.md'
           - solutions/ha-measure.md
-          - 'Architecture': 'solutions/ha-architecture.md'
+          - 'Architecture': solutions/ha-architecture.md
+          - solutions/ha-components.md
           - Deployment:
               - 'Initial setup': 'solutions/ha-init-setup.md'
-              - 'Install the software': 'solutions/ha-install-software.md'
-              - 'Configure etcd': 'solutions/ha-etcd.md'
-              - 'Configure Patroni': 'solutions/ha-patroni.md'
+              - 'etcd setup': 'solutions/ha-etcd.md'
+              - 'Patroni setup': 'solutions/ha-patroni.md'
               - solutions/pgbackrest.md
-              - 'Configure HAProxy': 'solutions/ha-haproxy.md'
+              - 'HAProxy setup': 'solutions/ha-haproxy.md'
           - solutions/ha-test.md
       - Backup and disaster recovery:
           - 'Overview': 'solutions/backup-recovery.md'

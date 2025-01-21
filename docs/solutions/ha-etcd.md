@@ -1,10 +1,48 @@
-# Configure etcd distributed store  
+# Etcd setup
 
-In our implementation we use etcd distributed configuration store. [Refresh your knowledge about etcd](high-availability.md#etcd).
+In our solutions, we use etcd distributed configuration store. [Refresh your knowledge about etcd](ha-components.md#etcd).
+
+## Install etcd
+
+Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
+
+=== "On Debian / Ubuntu"
+
+    1. Install etcd, Patroni, pgBackRest packages:    
+
+        ```{.bash data-prompt="$"}
+        $ sudo apt install etcd etcd-server etcd-client 
+        ```
+
+    3. Stop and disable etcd:
+    
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl stop etcd
+        $ sudo systemctl disable etcd
+        ```
+
+=== "On RHEL and derivatives"
+
+    
+    1. Install etcd. 
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install
+        etcd python3-python-etcd\
+        ```
+
+    3. Stop and disable etcd:
+    
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl stop etcd
+        $ systemctl disable etcd
+        ```
 
 !!! note
     
-    If you [installed the software from tarballs](../tarball.md), you must first [enable etcd](../enable-extensions.md#etcd) before configuring it.
+    If you [installed etcd from tarballs](../tarball.md), you must first [enable it](../enable-extensions.md#etcd) before configuring it.
+
+## Configure etcd
 
 To get started with `etcd` cluster, you need to bootstrap it. This means setting up the initial configuration and starting the etcd nodes so they can form a cluster. There are the following bootstrapping mechanisms:  
 

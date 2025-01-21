@@ -1,4 +1,79 @@
-# Configure Patroni
+# Patroni setup
+
+## Install Percona Distribution for PostgreSQL and Patroni
+
+Run the following commands as root or with `sudo` privileges on `node1`, `node2` and `node3`.
+
+=== "On Debian / Ubuntu"
+
+    1. Disable the upstream `postgresql-{{pgversion}}` package.
+
+    2. Install Percona Distribution for PostgreSQL package
+
+        ```{.bash data-prompt="$"}
+        $ sudo apt install percona-postgresql-{{pgversion}}
+        ```
+    
+    3. Install some Python and auxiliary packages to help with Patroni 
+    
+        ```{.bash data-prompt="$"}
+        $ sudo apt install python3-pip python3-dev binutils
+        ```
+
+    4. Install Patroni
+
+        ```{.bash data-prompt="$"}
+        $ sudo apt install percona-patroni
+        ```
+    
+    5. Stop and disable all installed services:
+    
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl stop {patroni,postgresql-{{pgversion}}}
+        $ sudo systemctl disable {patroni,postgresql-{{pgversion}}}
+        ```
+    
+    6. Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance.
+
+       ```{.bash data-prompt="$"}
+       $ sudo systemctl stop postgresql
+       $ sudo rm -rf /var/lib/postgresql/{{pgversion}}/main
+       ```
+
+=== "On RHEL and derivatives"
+
+    1. Install Percona Distribution for PostgreSQL package
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-postgresql{{pgversion}}-server
+        ```
+    
+    2. Check the [platform specific notes for Patroni](../yum.md#for-percona-distribution-for-postgresql-packages)
+    
+    3. Install some Python and auxiliary packages to help with Patroni and etcd
+    
+        ```{.bash data-prompt="$"}
+        $ sudo yum install python3-pip python3-devel binutils
+        ```
+    
+    4. Install Patroni
+
+        ```{.bash data-prompt="$"}
+        $ sudo yum install percona-patroni 
+        ```
+
+    3. Stop and disable all installed services:
+    
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl stop {patroni,postgresql}
+        $ systemctl disable {patroni,postgresql}
+        ```
+    
+    !!! important    
+
+        **Don't** initialize the cluster and start the `postgresql` service. The cluster initialization and setup are handled by Patroni during the bootsrapping stage.
+
+## Configure Patroni
 
 Run the following commands on all nodes. You can do this in parallel:
 
