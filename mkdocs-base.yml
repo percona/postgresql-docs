@@ -99,8 +99,8 @@ markdown_extensions:
   pymdownx.inlinehilite: {}
   pymdownx.snippets:
       base_path: ["snippets"]
-      auto_append:
-        - services-banner.md
+      #      auto_append:
+      #        - services-banner.md
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -146,12 +146,11 @@ plugins:
 extra:
   version:
     provider: mike
-  #homepage:
-  #  https://docs.percona.com
   postgresrecommended: 15
 
 nav:
   - 'Home': 'index.md'
+  - get-help.md
   - Get started: 
       - Quickstart guide: installing.md
       - 1. Install: 
