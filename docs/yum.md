@@ -32,7 +32,8 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
 === "RHEL8"
 
     ```{.bash data-prompt="$"}
-    $ sudo yum --enablerepo=codeready-builder-for-rhel-8-rhui-rpms install perl-IPC-Run -y
+    $ sudo yum --enablerepo=codeready-builder-for-rhel-8-rhui-rpms 
+    $ sudo dnf install perl-IPC-Run -y
     ```
 
 === "Rocky Linux 8"
@@ -45,7 +46,8 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
 === "Oracle Linux 8"
 
     ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol8_codeready_builder install perl-IPC-Run -y
+    $ sudo dnf config-manager --set-enabled ol8_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
     ```
 
 === "Rocky Linux 9"
@@ -59,7 +61,8 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
 === "Oracle Linux 9"
 
     ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
+    $ sudo dnf config-manager --set-enabled ol9_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
     ```
 
 === "Rocky Linux 8"
