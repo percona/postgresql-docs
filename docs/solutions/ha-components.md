@@ -24,13 +24,15 @@ Patroni uses not only `etcd` locking mechanism. It also uses `etcd` to store the
 
 Let's move to the etcd layer. It consists only of `etcd`. This is a crucial component so it's important to understand it.
 
-`etcd` is a distributed key-value store that helps you store and manage cluster configuration data and perform distributed coordination of a PostgreSQL cluster.
+`etcd` is a distributed key-value store that helps applications store and manage cluster configuration data and perform distributed coordination of a PostgreSQL cluster.
 
 `etcd` runs as a cluster of nodes that communicate with each other to maintain a consistent state. The primary node in the cluster is called the leader, and the remaining nodes are the followers.
 
 ### How `etcd` works
 
 Each node in the cluster stores data in a structured format and keeps a copy of the same data to ensure redundancy and fault tolerance. When you write data to `etcd`, the change is sent to the leader node, which then replicates it to the other nodes in the cluster. This ensures that all nodes remain synchronized and maintain data consistency.
+
+When a client wants to change data, it sends the request to the leader. The leader accepts the writes and proposes this change to the followers. The followers vote on the proposal. If a majority of followers agree (including the leader), the change is committed, ensuring consistency. The leader then confirms the change to the client.
 
 ### Leader election
 
@@ -46,7 +48,7 @@ To better illustrate this concept, take an example of clusters with 3 nodes and 
 
 The heart of `etcd`'s reliability is the Raft consensus algorithm. Raft ensures that all nodes in the cluster agree on the same data. This ensures a consistent view of the data, even if some nodes are unavailable or experiencing network issues. 
 
-A good example of the role of Raft in `etcd` is the situation when there is no majority. If a majority of nodes can't communicate (for example, due to network partitions), no new leader can be elected, and no new changes can be committed. This prevents the system from getting into an inconsistent state. The system waits for the network to heal and a majority to be re-established. This is crucial for data integrity.
+A good example of the role of Raft in `etcd` is the situation when there is no majority in the cluster. If a majority of nodes can't communicate (for example, due to network partitions), no new leader can be elected, and no new changes can be committed. This prevents the system from getting into an inconsistent state. The system waits for the network to heal and a majority to be re-established. This is crucial for data integrity.
 
 ### Deployment considerations
 

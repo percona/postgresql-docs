@@ -176,10 +176,15 @@ nav:
           - 'Overview': 'solutions/high-availability.md'
           - solutions/ha-measure.md
           - 'Architecture': solutions/ha-architecture.md
+          - Components:
+            - 'ETCD': 'solutions/etcd-info.md'
+            - 'Patroni': 'solutions/patroni-info.md'
+            - 'HAProxy': 'solutions/haproxy-info.md'
+            - 'pgBackRest': 'solutions/pgbackrest-info.md'
           - solutions/ha-components.md
           - Deployment:
               - 'Initial setup': 'solutions/ha-init-setup.md'
-              - 'etcd setup': 'solutions/ha-etcd.md'
+              - 'etcd setup': 'solutions/ha-etcd-config.md'
               - 'Patroni setup': 'solutions/ha-patroni.md'
               - solutions/pgbackrest.md
               - 'HAProxy setup': 'solutions/ha-haproxy.md'
