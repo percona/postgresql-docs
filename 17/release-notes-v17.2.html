@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -1858,7 +1858,7 @@
 <ul>
 <li>This release includes fixes for <a href="https://www.postgresql.org/support/security/CVE-2024-10978/">CVE-2024-10978</a> and for certain PostgreSQL extensions that break because they depend on the modified Application Binary Interface (ABI). These regressions were introduced in PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, and 12.21. For this reason, the release of Percona Distribution for PostgreSQL 17.1.1 has been skipped. </li>
 <li>Percona Distribution for PostgreSQL includes <a href="https://github.com/pgvector/pgvector"><code>pgvector</code> :octicons-link-external-16</a> - an open source extension that enables you to use PostgreSQL as a vector database. It brings vector data type and vector operations (mainly similarity search) to PostgreSQL. You can install <code>pgvector</code> from repositories, tarballs, and it is also available as a Docker image.</li>
-<li>The new version of <code>pg_tde</code> extension features index encryption and the support of storing encryption keys in KMIP-compatible servers. These feature come with the Beta version of the <code>tde_heap</code> access method. Learn more in the <a href="https://percona.github.io/pg_tde/main/release-notes/release-notes.html">pg_tde release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li>The new version of <code>pg_tde</code> extension features index encryption and the support of storing encryption keys in KMIP-compatible servers. These feature come with the Beta version of the <code>tde_heap</code> access method. Learn more in the <a href="https://docs.percona.com/pg-tde/release-notes/release-notes.html">pg_tde release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
 <li>The <code>pg_tde</code> extension itself is now a part of the Percona Server for PostgreSQL server package and a Docker image. If you installed the extension before, from its individual package, uninstall it first to avoid conflicts during the upgrade. See the <a href="minor-upgrade.html#preconditions">Minor Upgrade of Percona Distribution for PostgreSQL</a> for details.
 For how to run <code>pg_tde</code> in Docker, check the <a href="docker.html#enable-encryption">Enable encryption</a> section in the documentation.</li>
 <li>Percona Distribution for PostgreSQL now statically links <code>llvmjit.so</code> library for Red Hat Enterprise Linux 8 and 9 and compatible derivatives. This resolves the conflict between the LLVM version required by Percona Distribution for PostgreSQL and the one supplied with the operating system. This also enables you to use the LLVM modules supplied with the operating system for other software you require.</li>
@@ -1987,7 +1987,7 @@ backend server and to receive the results of these queries.&rdquo; </p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 26, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
@@ -2107,7 +2107,7 @@ backend server and to receive the results of these queries.&rdquo; </p>
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
