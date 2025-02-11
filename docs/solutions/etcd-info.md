@@ -2,7 +2,7 @@
 
 `etcd` is one of the key components in high availability architecture, therefore, it's important to understand it.
 
-`etcd` is a distributed key-value store that helps applications store and manage cluster configuration data and perform distributed coordination of a PostgreSQL cluster.
+`etcd` is a distributed key-value consensus store that helps applications store and manage cluster configuration data and perform distributed coordination of a PostgreSQL cluster.
 
 `etcd` runs as a cluster of nodes that communicate with each other to maintain a consistent state. The primary node in the cluster is called the "leader", and the remaining nodes are the "followers".
 
@@ -44,3 +44,6 @@ Communication between `etcd` nodes is critical. A slow or unreliable network can
 
 `etcd` provides a distributed locking mechanism, which helps applications coordinate actions across multiple nodes and access to shared resources preventing conflicts. Locks ensure that only one process can hold a resource at a time, avoiding race conditions and inconsistencies. Patroni is an example of an application that uses `etcd` locks for primary election control in the PostgreSQL cluster. 
 
+
+
+ 
