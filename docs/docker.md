@@ -141,7 +141,7 @@ Here's how to do this:
 
 4. Configure a key provider. In this sample configuration intended for testing and development purpose, we use a local keyring provider. 
 
-    For production use, set up an external key management store and configure an external key provider. Refer to the [Setup :octicons-link-external-16:](https://percona.github.io/pg_tde/main/setup.html#key-provider-configuration) chapter in the `pg_tde` documentation.
+    For production use, set up an external key management store and configure an external key provider. Refer to the [Setup :octicons-link-external-16:](https://docs.percona.com/pg-tde/setup.html#key-provider-configuration) chapter in the `pg_tde` documentation.
 
     <i warning>:material-information: Warning:</i> This example is for testing purposes only:
 
