@@ -39,16 +39,16 @@ Run the following commands on each node.
 
 2. Modify the `/etc/hosts` file of each node to include the hostnames and IP addresses of the remaining nodes. Add the following at the end of the `/etc/hosts` file on all nodes:   
 
-        ```text 
-        # Cluster IP and names
+    ```text 
+    # Cluster IP and names
 
-        10.104.0.7 node1    
-        10.104.0.2 node2    
-        10.104.0.8 node3    
-        10.104.0.6 HAProxy1 
-        10.104.0.5 HAProxy2 
-        10.104.0.9 backup   
-        ```
+    10.104.0.7 node1    
+    10.104.0.2 node2    
+    10.104.0.8 node3    
+    10.104.0.6 HAProxy1 
+    10.104.0.5 HAProxy2 
+    10.104.0.9 backup   
+    ```
 
 ## Configure Percona repository
 
@@ -68,8 +68,8 @@ Run the following commands on each node as the root user or with `sudo` privileg
 
 2. Enable the repository:
 
-    ```{.bash data-prompt="$}
-    $ sudo percona-release enable ppg{{pgversion}}
+    ```{.bash data-prompt="$"}
+    $ sudo percona-release enable ppg-{{pgversion}} release
     ```
 
 ## Next steps

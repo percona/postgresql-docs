@@ -49,7 +49,7 @@ To get started with `etcd` cluster, you need to bootstrap it. This means setting
 * Static in the case when the IP addresses of the cluster nodes are known
 * Discovery service - for cases when the IP addresses of the cluster are not known ahead of time.
     
-Since we know the IP addresses of the nodes, we will use the static method. For using the discovery service, please refer to the [etcd documentation :octicons-external-link-16:](https://etcd.io/docs/v3.5/op-guide/clustering/#etcd-discovery){:target="_blank"}.
+Since we know the IP addresses of the nodes, we will use the static method. For using the discovery service, please refer to the [etcd documentation :octicons-link-external-16:](https://etcd.io/docs/v3.5/op-guide/clustering/#etcd-discovery){:target="_blank"}.
 
 We will configure and start all etcd nodes in parallel. This can be done either by modifying each node's configuration or using the command line options. Use the method that you prefer more.
 
