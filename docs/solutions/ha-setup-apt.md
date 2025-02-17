@@ -404,32 +404,32 @@ Run the following commands on all nodes. You can do this in parallel:
 
     ```ini title="/etc/systemd/system/patroni.service"
     [Unit]
-     Description=Runners to orchestrate a high-availability PostgreSQL
-     After=syslog.target network.target 
+    Description=Runners to orchestrate a high-availability PostgreSQL
+    After=syslog.target network.target 
 
-     [Service]
-     Type=simple 
+    [Service]
+    Type=simple 
 
-     User=postgres
-     Group=postgres 
+    User=postgres
+    Group=postgres 
 
-     # Start the patroni process
-     ExecStart=/bin/patroni /etc/patroni/patroni.yml 
+    # Start the patroni process
+    ExecStart=/bin/patroni /etc/patroni/patroni.yml 
 
-     # Send HUP to reload from patroni.yml
-     ExecReload=/bin/kill -s HUP $MAINPID 
+    # Send HUP to reload from patroni.yml
+    ExecReload=/bin/kill -s HUP $MAINPID 
 
-     # only kill the patroni process, not its children, so it will gracefully stop postgres
-     KillMode=process 
+    # only kill the patroni process, not its children, so it will gracefully stop postgres
+    KillMode=process 
 
-     # Give a reasonable amount of time for the server to start up/shut down
-     TimeoutSec=30 
+    # Give a reasonable amount of time for the server to start up/shut down
+    TimeoutSec=30 
 
-     # Do not restart the service if it crashes, we want to manually inspect database on failure
-     Restart=no 
+    # Do not restart the service if it crashes, we want to manually inspect database on failure
+    Restart=no 
 
-     [Install]
-     WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
     ```
 
 4. Make systemd aware of the new service:

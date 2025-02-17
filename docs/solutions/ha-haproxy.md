@@ -4,6 +4,8 @@ HAproxy is the load balancer and the single point of entry to your PostgreSQL cl
 
 This way, a client application doesn’t know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
 
+## HAProxy setup
+
 1. Install HAProxy on the `HAProxy-demo` node:
 
     ```{.bash data-prompt="$"}
@@ -65,3 +67,6 @@ This way, a client application doesn’t know what node in the underlying cluste
     ```{.bash data-prompt="$"}
     $ sudo journalctl -u haproxy.service -n 100 -f
     ```
+
+## Keepalived setup
+

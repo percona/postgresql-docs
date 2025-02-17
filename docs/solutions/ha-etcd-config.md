@@ -6,9 +6,9 @@ In our solutions, we use etcd distributed configuration store. [Refresh your kno
 
 Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
 
-=== "On Debian / Ubuntu"
+=== ":material-debian: On Debian / Ubuntu"
 
-    1. Install etcd, Patroni, pgBackRest packages:    
+    1. Install etcd:    
 
         ```{.bash data-prompt="$"}
         $ sudo apt install etcd etcd-server etcd-client 
@@ -21,7 +21,7 @@ Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
         $ sudo systemctl disable etcd
         ```
 
-=== "On RHEL and derivatives"
+=== ":material-redhat: On RHEL and derivatives"
 
     
     1. Install etcd. 
@@ -138,7 +138,7 @@ We will configure and start all etcd nodes in parallel. This can be done either 
         	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
         	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
         	--initial-cluster ${CLUSTER} \
-        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN} &
         ```
 
     === "node2"
@@ -150,7 +150,7 @@ We will configure and start all etcd nodes in parallel. This can be done either 
         	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
         	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
         	--initial-cluster ${CLUSTER} \
-        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN} &
         ```
 
     === "node3"
@@ -162,7 +162,7 @@ We will configure and start all etcd nodes in parallel. This can be done either 
         	--initial-advertise-peer-urls http://${THIS_IP}:2380 --listen-peer-urls http://${THIS_IP}:2380 \
         	--advertise-client-urls http://${THIS_IP}:2379 --listen-client-urls http://${THIS_IP}:2379 \
         	--initial-cluster ${CLUSTER} \
-        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN}
+        	--initial-cluster-state ${CLUSTER_STATE} --initial-cluster-token ${TOKEN} &
         ```
 
 --8<-- "check-etcd.md"

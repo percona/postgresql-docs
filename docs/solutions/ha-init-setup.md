@@ -69,7 +69,7 @@ Run the following commands on each node as the root user or with `sudo` privileg
 2. Enable the repository:
 
     ```{.bash data-prompt="$"}
-    $ sudo percona-release enable ppg-{{pgversion}} release
+    $ sudo percona-release setup ppg{{pgversion}} 
     ```
 
 ## Next steps

@@ -77,7 +77,7 @@ Run the following commands as root or with `sudo` privileges on `node1`, `node2`
 
 Run the following commands on all nodes. You can do this in parallel:
 
-### Export and create environment variables 
+### Create environment variables 
 
 Environment variables simplify the config file creation:
 
@@ -116,9 +116,6 @@ Environment variables simplify the config file creation:
     === ":material-debian: Debian and Ubuntu"
 
         ```bash
-        CFG_DIR="/etc/patroni"
-        CFG_PATH="${CFG_DIR}/patroni.yaml"
-        PGPASS="${CFG_DIR}/pgpass"
         DATA_DIR="/var/lib/postgresql/{{pgversion}}/main"
         PG_BIN_DIR="/usr/lib/postgresql/{{pgversion}}/bin"
         ```
@@ -126,11 +123,8 @@ Environment variables simplify the config file creation:
     === ":material-redhat: RHEL and derivatives"
 
         ```bash
-        CFG_DIR="/etc/patroni"
-        CFG_PATH="${CFG_DIR}/patroni.yaml"
-        PGPASS="${CFG_DIR}/pgpass"
         DATA_DIR="/var/lib/pgsql/data/"
-        PG_BIN="/usr/pgsql-{{pgversion}}/bin"
+        PG_BIN_DIR="/usr/pgsql-{{pgversion}}/bin"
         ```
     
 4. Patroni information:
@@ -142,20 +136,12 @@ Environment variables simplify the config file creation:
 
 ### Create the directories required by Patroni
 
-1. Create the directory to store the configuration file and make it owned by the `postgres` user.
+Create the directory to store the configuration file and make it owned by the `postgres` user.
 
-    ```{.bash data-prompt="$"}
-    $ sudo mkdir -p /etc/patroni/
-    $ sudo chown -R  postgres:postgres /etc/patroni/
-    ``` 
-
-2. Create the data directory to store PostgreSQL data. Change its ownership to the `postgres` user and restrict the access to it 
-
-    ```{.bash data-prompt="$"}
-    $ sudo mkdir /data/pgsql -p
-    $ sudo chown -R postgres:postgres /data/pgsql
-    $ sudo chmod 700 /data/pgsql
-    ```
+```{.bash data-prompt="$"}
+$ sudo mkdir -p /etc/patroni/
+$ sudo chown -R  postgres:postgres /etc/patroni/
+``` 
 
 ### Patroni configuration file
 
@@ -228,7 +214,7 @@ postgresql:
     connect_address: ${NODE_IP}:5432
     data_dir: ${DATA_DIR}
     bin_dir: ${PG_BIN_DIR}
-    pgpass: ${PGPASS}
+    pgpass: /tmp/pgpass0
     authentication:
         replication:
             username: replicator
@@ -240,7 +226,6 @@ postgresql:
         unix_socket_directories: "/var/run/postgresql/"
     create_replica_methods:
         - basebackup
-
     basebackup:
         checkpoint: 'fast'
 
@@ -249,7 +234,7 @@ tags:
     noloadbalance: false
     clonefrom: false
     nosync: false
-" | sudo tee -a ${CFG_PATH}
+" | sudo tee -a /etc/patroni/patroni.yml
 ```
 
 ??? admonition "Patroni configuration file"
@@ -266,7 +251,7 @@ tags:
 
     If it's **not created**, create it manually and specify the following contents within:
 
-    ``` ini title="/etc/systemd/system/percona-patroni.service"
+    ```ini title="/etc/systemd/system/patroni.service"
     [Unit]
     Description=Runners to orchestrate a high-availability PostgreSQL
     After=syslog.target network.target 
@@ -346,12 +331,23 @@ Now it's time to start Patroni. You need the following commands on all nodes but
     
     The output resembles the following:
 
-    ```{.text .no-copy}
-    + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
-    | Member | Host       | Role    | State     | TL | Lag in MB |
-    +--------+------------+---------+-----------+----+-----------+
-    | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
-    | node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
-    | node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
-    +--------+------------+---------+-----------+----+-----------+
-    ```
+    ??? admonition "Sample output node1"
+
+        ```{.text .no-copy}
+        + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
+        | Member | Host       | Role    | State     | TL | Lag in MB |
+        +--------+------------+---------+-----------+----+-----------+
+        | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+        ```
+
+    ??? admonition "Sample output node3"
+
+        ```{.text .no-copy}
+        + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
+        | Member | Host       | Role    | State     | TL | Lag in MB |
+        +--------+------------+---------+-----------+----+-----------+
+        | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
+        | node2  | 10.0.100.2 | Replica | streaming |  1 |         0 |
+        | node3  | 10.0.100.3 | Replica | streaming |  1 |         0 |
+        +--------+------------+---------+-----------+----+-----------+
+        ```
