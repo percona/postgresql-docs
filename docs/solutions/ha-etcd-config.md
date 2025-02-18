@@ -103,7 +103,6 @@ We will configure and start all etcd nodes in parallel. This can be done either 
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now etcd
-    $ sudo systemctl start etcd
     $ sudo systemctl status etcd
     ```
 

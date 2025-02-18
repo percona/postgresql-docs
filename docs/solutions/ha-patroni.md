@@ -33,12 +33,12 @@ Run the following commands as root or with `sudo` privileges on `node1`, `node2`
         $ sudo systemctl disable {patroni,postgresql}
         ```
     
-    6. Even though Patroni can use an existing Postgres installation, remove the data directory to force it to initialize a new Postgres cluster instance.
+    6. Even though Patroni can use an existing Postgres installation, our recommendation for a **new cluster that has no data** is to remove the data directory. This forces Patroni to initialize a new Postgres cluster instance.
 
-       ```{.bash data-prompt="$"}
-       $ sudo systemctl stop postgresql
-       $ sudo rm -rf /var/lib/postgresql/{{pgversion}}/main
-       ```
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl stop postgresql
+        $ sudo rm -rf /var/lib/postgresql/{{pgversion}}/main
+        ```
 
 === "On RHEL and derivatives"
 
@@ -234,7 +234,7 @@ tags:
     noloadbalance: false
     clonefrom: false
     nosync: false
-" | sudo tee -a /etc/patroni/patroni.yml
+" | sudo tee /etc/patroni/patroni.yml
 ```
 
 ??? admonition "Patroni configuration file"
@@ -251,7 +251,7 @@ tags:
 
     If it's **not created**, create it manually and specify the following contents within:
 
-    ```ini title="/etc/systemd/system/patroni.service"
+    ```ini title="/etc/systemd/system/percona-patroni.service"
     [Unit]
     Description=Runners to orchestrate a high-availability PostgreSQL
     After=syslog.target network.target 
@@ -296,8 +296,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 1. Start Patroni on `node1` first, wait for the service to come to live, and then proceed with the other nodes one-by-one, always waiting for them to sync with the primary node:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now patroni
-    $ sudo systemctl restart patroni
+    $ sudo systemctl enable --now percona-patroni
     ```
 
     When Patroni starts, it initializes PostgreSQL (because the service is not currently running and the data directory is empty) following the directives in the bootstrap section of the configuration file. 
@@ -305,7 +304,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 2. Check the service to see if there are errors:
 
     ```{.bash data-prompt="$"}
-    $ sudo journalctl -fu patroni
+    $ sudo journalctl -fu percona-patroni
     ```
 
     A common error is Patroni complaining about the lack of proper entries in the `pg_hba.conf` file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.

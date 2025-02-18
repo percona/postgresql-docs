@@ -8,6 +8,8 @@ You also need a backup storage to store the backups. It can either be a remote s
 
 ## Preparation
 
+Make sure to complete the [initial setup](ha-init-setup.md) steps.
+
 ## Install pgBackRest
 
 Install pgBackRest on the following nodes: `node1`, `node2`, `node3`, `backup`
@@ -47,9 +49,9 @@ Do the following steps on the `backup` node.
     This directory is usually created during pgBackRest's installation process. If it's not there already, create it as follows:
 
     ```{.bash data-prompt="$"}
-    $ mkdir -p /var/lib/pgbackrest
-    $ chmod 750 /var/lib/pgbackrest
-    $ chown postgres:postgres /var/lib/pgbackrest
+    $ sudo mkdir -p /var/lib/pgbackrest
+    $ sudo chmod 750 /var/lib/pgbackrest
+    $ sudo chown postgres:postgres /var/lib/pgbackrest
     ```
 
 3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but some systems continue to use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. If the former is not present in your system, create the latter.
@@ -57,16 +59,15 @@ Do the following steps on the `backup` node.
     Access the file's parent directory (either `cd /etc/` or `cd /etc/pgbackrest/`), and make a backup copy of it:
 
     ```{.bash data-prompt="$"}
-    $ sudo cp pgbackrest.conf pgbackrest.conf.bak
+    $ sudo cp pgbackrest.conf pgbackrest.conf.orig
     ```
 
-    Then use the following command to create a basic configuration file using the environment variables we created in a previous step:
+4. Then use the following command to create a basic configuration file using the environment variables we created in a previous step. This example command adds the configuration file at the path `/etc/pgbackrest.conf`.  Make sure to specify the correct path for the configuration file on your system:
 
     === ":material-debian: On Debian/Ubuntu"
 
         ```
         echo "
-        # /etc/pgbackrest.conf
         [global] 
     
         # Server repo details
@@ -148,9 +149,7 @@ Do the following steps on the `backup` node.
     === ":material-redhat: On RHEL/derivatives"
 
         ```
-        ```
         echo "
-        # /etc/pgbackrest.conf
         [global] 
     
         # Server repo details
@@ -255,7 +254,7 @@ Run the following commands as a root user or with `sudo` privileges
 
 3. Create the certificate and keys for the backup server
 
-    ```{.bash data-prompt="$}
+    ```{.bash data-prompt="$"}
     $ sudo openssl req -new -nodes -out ${CA_PATH}/${SRV_NAME}.csr -keyout ${CA_PATH}/${SRV_NAME}.key -subj "/CN=${SRV_NAME}"
     ```
 
@@ -279,9 +278,9 @@ Run the following commands as a root user or with `sudo` privileges
 5. Remove temporary files, set ownership of the remaining files to the `postgres` user, and restrict their access:
 
     ```{.bash data-prompt="$"}
-    $ rm -f ${CA_PATH}/*.csr
-    $ chown postgres:postgres -R ${CA_PATH}
-    $ chmod 0600 ${CA_PATH}/*
+    $ sudo rm -f ${CA_PATH}/*.csr
+    $ sudo chown postgres:postgres -R ${CA_PATH}
+    $ sudo chmod 0600 ${CA_PATH}/*
     ``` 
 
 ### Create the `pgbackrest` daemon service
@@ -307,30 +306,35 @@ Run the following commands as a root user or with `sudo` privileges
     WantedBy=multi-user.target
     ```
     
-2. Reload, start, and enable the service
+2. Make `systemd` aware of the new service: 
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
-    $ sudo systemctl start pgbackrest.service
-    $ sudo systemctl enable pgbackrest.service
+    ```
+
+3. Enable `pgBackRest`:
+ 
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl enable --now pgbackrest.service
     ```
 
 ## Configure database servers
 
 Run the following commands on `node1`, `node2`, and `node3`.
 
-1. Install pgBackRest package
+1. Install `pgBackRest` package
 
     === ":material-debian: On Debian/Ubuntu"
 
         ```{.bash data-prompt="$"}
-        $ apt install percona-pgbackrest
+        $ sudo apt install percona-pgbackrest
         ```
 
     === ":material-redhat: On RHEL/derivatives"
 
         ```{.bash data-prompt="$"}
-        $ yum install percona-pgbackrest
+        $ sudo yum install percona-pgbackrest
+        ```
     
 2. Export environment variables to simplify the config file creation:
 
@@ -354,7 +358,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ sudo chmod 0600 ${CA_PATH}/* 
     ```
    
-5. Edit or create the configuration file which, as explained above, can be either at the `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf` path:
+5. Make a copy of the configuration file. The path to it can be either `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf`:
+
+   ```{.bash data-prompt="$"}
+    $ sudo cp pgbackrest.conf pgbackrest.conf.orig
+    ```
+
+6. Create the configuration file. This example command adds the configuration file at the path `/etc/pgbackrest.conf`. Make sure to specify the correct path for the configuration file on your system:
 
     === ":material-debian: On Debian/Ubuntu"
 
@@ -415,7 +425,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         " | sudo tee /etc/pgbackrest.conf
         ```
 
-6. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+7. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
 
     ```ini title="/etc/systemd/system/pgbackrest.service"
     [Unit]
@@ -436,40 +446,44 @@ Run the following commands on `node1`, `node2`, and `node3`.
     WantedBy=multi-user.target
     ```
 
-7. Reload, start, and enable the service
+8. Reload the `systemd`, the start the service
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
-    $ sudo systemctl start pgbackrest
-    $ sudo systemctl enable pgbackrest
+    $ sudo systemctl enable --now pgbackrest
     ```
 
     The pgBackRest daemon listens on port `8432` by default:
 
     ```{.bash data-prompt="$"}
-    $ netstat -taunp
-    Active Internet connections (servers and established)
-    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-    tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
-    tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
+    $ netstat -taunp | grep '8432'
     ```
 
-8. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`: 
+    ??? admonition "Sample output"
+
+        ```{text .no-copy}
+        Active Internet connections (servers and established)
+        Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+        tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
+        tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
+        ```
+
+9. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`: 
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml edit-config
     ```
 
-    This opens the `nano` editor for you.
+    This opens the editor for you.
 
-9. Change the configuration as follows:
+10. Change the configuration as follows:
 
     ```yaml title="/etc/patroni/patroni.yml"
     postgresql:
       parameters:
         archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/{{pgversion}}/main/pg_wal/%f
         archive_mode: true
-        archive_timeout: 1800s
+        archive_timeout: 600s
         hot_standby: true
         logging_collector: 'on'
         max_replication_slots: 10
@@ -491,11 +505,13 @@ Run the following commands on `node1`, `node2`, and `node3`.
     ```
 
    
-10. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
+11. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml reload cluster_1
     ```
+
+    It may take a while to reload the new configuration.
 
     <info>:material-information: Note:</i> When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
 
