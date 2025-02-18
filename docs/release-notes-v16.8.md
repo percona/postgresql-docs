@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 16.7 ({{date.16_7}})
+# Percona Distribution for PostgreSQL 16.8 ({{date.16_8}})
 
 [Installation](installing.md){.md-button}
 
@@ -10,9 +10,13 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.7
 
 ### Improved security and user experience for Docker images
 
+* This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/), which closed a vulnerability in the `libpq` PostgreSQL client library, introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 16.7 was skipped.
+
 * Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.
 
 * You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](docker.md) for how to get started.
+
+* [Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
 
 ### PostGIS is included into tarballs
  

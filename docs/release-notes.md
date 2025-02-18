@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL release notes 
 
-* [Percona Distribution for PostgreSQL 16.7](release-notes-v16.7.md) ({{date.16_7}})
+* [Percona Distribution for PostgreSQL 16.8](release-notes-v16.8.md) ({{date.16_8}})
 
 * [Percona Distribution for PostgreSQL 16.6](release-notes-v16.6.md) ({{date.16_6}})
 
