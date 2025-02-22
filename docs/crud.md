@@ -33,7 +33,7 @@ Populate the table with the sample data as follows:
 INSERT INTO customers (first_name, last_name, email)
 VALUES 
     ('John', 'Doe', 'john.doe@example.com'),  -- Insert a new row
-    ('Jane', 'Doe', 'jane.doe@example.com');
+    ('Jane', 'Doe', 'jane.doe@example.com'),  -- Insert another new row
     ('Alice', 'Smith', 'alice.smith@example.com');
 ```
 
