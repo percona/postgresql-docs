@@ -132,7 +132,7 @@ plugins:
           output_path: '_pdf/PerconaDistributionPostgreSQL-16.pdf'
           cover_title: 'Distribution for PostgreSQL Documentation'
 
-          cover_subtitle: 16.8 (February 2 , 2025)
+          cover_subtitle: 16.8 (February 27, 2025)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
