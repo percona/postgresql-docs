@@ -100,8 +100,14 @@ To eliminate a single point of failure for HAProxy, we use `keepalived` - the fa
 
     exit 1
     ```
-  
-3. The path to the `keepalived` configuration file is `/etc/keepalived/keepalived.conf`. Configure a primary and a secondary HAProxy nodes separately. 
+
+4. Make the script executable:
+
+    ```{.bash data-prompt="$"}
+    $ sudo chmod +x /path/to/chk_primary.sh
+    ```
+
+4. The path to the `keepalived` configuration file is `/etc/keepalived/keepalived.conf`. Configure a primary and a secondary HAProxy nodes separately. 
 
     Edit the `/etc/keepalived/keepalived.conf` configuration file. Specify the following information:
 
@@ -314,13 +320,13 @@ To eliminate a single point of failure for HAProxy, we use `keepalived` - the fa
         }
         ```
 
-4. Start `keepalived`:
+5. Start `keepalived`:
  
     ```{.bash data-prompt="$"}
     $ sudo systemctl start keepalived
     ```
 
-5. Check the `keepalived` status:
+6. Check the `keepalived` status:
  
     ```{.bash data-prompt="$"}
     $ sudo systemctl status keepalived
