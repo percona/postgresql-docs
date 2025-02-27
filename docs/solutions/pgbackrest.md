@@ -476,10 +476,10 @@ Run the following commands on `node1`, `node2`, and `node3`.
             (...)
         ```
    
-    Reload the changed configurations:
+    Reload the changed configurations. Specify either the cluster name or a node name for the following command:
 
     ```{.bash data-prompt="$"}
-    $ patronictl -c /etc/patroni/postgresql.yml reload
+    $ patronictl -c /etc/patroni/patroni.yml reload cluster_name node_name
     ```
 
     <info>:material-information: Note:</i> When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
