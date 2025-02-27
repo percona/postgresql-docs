@@ -476,7 +476,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
             (...)
         ```
    
-    Reload the changed configurations:
+    Reload the changed configurations. Specify either the cluster name or a node name for the following command:
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml reload cluster_name node_name
