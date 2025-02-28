@@ -236,7 +236,7 @@ $ sudo yum -y install curl
 
 ### Install packages
 
-=== "Install using meta-package"
+=== "Install using meta-package (deprecated)"
 
      The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      

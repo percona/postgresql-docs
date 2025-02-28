@@ -12,6 +12,11 @@ Percona Distribution for PostgreSQL provides individual packages for its compone
 
 Using a meta-package, you can install all components it contains in one go.
 
+!!! note
+
+    Meta-packages are deprecated and will be removed in future releases.
+
+
 ### `percona-ppg-server`
 
 === "Package name on Debian/Ubuntu"

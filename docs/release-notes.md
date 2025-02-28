@@ -1,6 +1,6 @@
 # Release notes index
 
-* [Percona  Distribution for PostgreSQL 14.16](release-notes-v14.16.md) ({{date.14_16}})
+* [Percona  Distribution for PostgreSQL 14.17](release-notes-v14.17.md) ({{date.14_17}})
 
 * [Percona  Distribution for PostgreSQL 14.15](release-notes-v14.15.md) ({{date.14_15}})
 
