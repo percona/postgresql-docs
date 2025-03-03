@@ -7,7 +7,7 @@ The set of extensions includes the following:
 * [PostgreSQL contrib modules and utilities](contrib.md)
 * Extensions authored by Percona:
   
-    * [`pg_stat_monitor`](pg-stat-monitor.md)
+    * [`pg_stat_monitor`](https://docs.percona.com/pg-stat-monitor/index.html.md)
 
 * [Third-party components](third-party.md)
 * Extra modules, not included in Percona Distribution for PostgreSQL but tested to work with it and supported by Percona.

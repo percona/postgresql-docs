@@ -35,7 +35,7 @@ Depending on your business requirements, you may migrate to Percona Distribution
            $ sudo percona-release setup ppg15
            ```
 
-      5. [Install Percona Distribution for PostgreSQL packages](installing.md#install-percona-distribution-for-postgresql-packages)
+      5. [Install Percona Distribution for PostgreSQL packages](installing.md#install-percona-distribution-for-postgresql)
       6. (Optional) Restore the data from the backup.
       7. Start the `postgresql` service. The installation process starts and initializes the default cluster automatically. You can check its status with: 
 
@@ -121,7 +121,7 @@ To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a
     $ sudo percona-release setup ppg15
     ```
 
-3. [Install Percona Distribution for PostgreSQL packages](installing.md#install-percona-distribution-for-postgresql-packages) on the target server.
+3. [Install Percona Distribution for PostgreSQL packages](installing.md#install-percona-distribution-for-postgresql) on the target server.
 4. Restore the data from the backup
 5. Start `postgresql` service
 

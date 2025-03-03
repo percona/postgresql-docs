@@ -136,8 +136,6 @@ After the installation, enable the following option in `postgresql.conf` configu
 wal_level = logical
 ```
 
-<<<<<<< HEAD
-=======
 Start / restart the server to apply the changes.
 
 ## pgvector
@@ -148,7 +146,6 @@ To get started, enable the extension for the database where you want to use it:
 CREATE EXTENSION vector;
 ```
 
->>>>>>> 7845a94c... PG-1214 Documented install and enable pgvector steps
 ## Next steps 
 
 [Connect to PostgreSQL :material-arrow-right:](connect.md){.md-button}
