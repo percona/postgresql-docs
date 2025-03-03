@@ -8,7 +8,6 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.1
 
 ## Release Highlights
 
-## Release Highlights
 
 This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/), which closed a vulnerability in the `libpq` PostgreSQL client library but introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 15.11 was skipped.
 
