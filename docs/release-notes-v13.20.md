@@ -1,12 +1,14 @@
-# Percona Distribution for PostgreSQL 13.19 ({{date.13_19}})
+# Percona Distribution for PostgreSQL 13.20 ({{date.13_20}})
 
 [Installation](installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.18](https://www.postgresql.org/docs/13/release-13-18.html).
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.19](https://www.postgresql.org/docs/13/release-13-19.html) and PostgreSQL 13.20.
 
 ## Release Highlights
+
+This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/), which closed a vulnerability in the `libpq` PostgreSQL client library but introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 13.19 was skipped.
 
 ### Improved security and user experience for Docker images
 
@@ -16,7 +18,12 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.1
 
 ### PostGIS is included into tarballs
 
-We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](postgis.md)
+We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](postgis.md). 
+
+### Deprecation of meta packages
+
+[Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
+
 
 ## Supplied third-party extensions
 
@@ -37,10 +44,10 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_gather](https://github.com/jobinau/pg_gather) | v29 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.5.5 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing. |
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.5.2 | rebuilds PostgreSQL database objects |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.1.0 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | {{pgsmversion}} | collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pgvector](https://github.com/pgvector/pgvector) | v0.8.0 | A vector similarity search for PostgreSQL |
 | [PostGIS](https://github.com/postgis/postgis) | 3.3.8 | a spatial extension for PostgreSQL. |
-| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common) | 270 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common) | 267 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
 | [wal2json](https://github.com/eulerto/wal2json) | 2.6 | a PostgreSQL logical decoding JSON output plugin |
 
 For Red Hat Enterprise Linux 8 and 9 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters. 
