@@ -43,7 +43,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 ### Install packages
 
-=== "Install using meta-package"
+=== "Install using meta-package (deprecated)"
 
     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
