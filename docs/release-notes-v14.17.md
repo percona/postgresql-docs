@@ -4,7 +4,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.16](https://www.postgresql.org/docs/14/release-14-16.html) and PostgreSQL 17. 
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.16](https://www.postgresql.org/docs/14/release-14-16.html) and PostgreSQL 14.17. 
 
 ## Release Highlights
 
