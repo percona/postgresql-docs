@@ -37,10 +37,6 @@
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
-         <loc>https://docs.percona.com/postgresql/15/how-to.html</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
          <loc>https://docs.percona.com/postgresql/15/installing.html</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
@@ -69,10 +65,6 @@
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
-         <loc>https://docs.percona.com/postgresql/15/pg-stat-monitor.html</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.0.html</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
@@ -82,6 +74,10 @@
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/15/release-notes-v15.10.html</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/15/release-notes-v15.12.html</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>

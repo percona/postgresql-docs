@@ -1617,6 +1617,28 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v15.12.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 15.12 (2025-03-03)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v15.10.html" class="md-nav__link">
         
   
@@ -1734,7 +1756,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_8" >
         
           
           
@@ -1751,14 +1773,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_7" id="__nav_9_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9_8" id="__nav_9_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_8">
             <span class="md-nav__icon md-icon"></span>
             2023 (versions 15.2 - 15.5)
           </label>
@@ -1874,7 +1896,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_9" >
         
           
           
@@ -1891,14 +1913,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_8" id="__nav_9_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9_9" id="__nav_9_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_9">
             <span class="md-nav__icon md-icon"></span>
             2022 (versions 15.0 - 15.1)
           </label>
@@ -2169,8 +2191,8 @@
 <p>You can find the binary tarballs on the <a href="https://www.percona.com/downloads">Percona website</a>. Select the desired version from a version dropdown and <em>All</em> from the Select Platform dropdown.</p>
 <p>There are the following tarballs available for both x86-64 and ARM64 architectures: </p>
 <ul>
-<li>percona-postgresql-15.10-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x</li>
-<li>percona-postgresql-15.10-ssl3-linux-<architecture>.tar.gz - for operating systems that run OpenSSL version 3.x</li>
+<li>percona-postgresql-15.12-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x</li>
+<li>percona-postgresql-15.12-ssl3-linux-<architecture>.tar.gz - for operating systems that run OpenSSL version 3.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -2270,12 +2292,12 @@
 </li>
 <li>
 <p>Fetch the binary tarball:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-15/15.10/binary/tarball/percona-postgresql-15.10-ssl3-linux-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-15/15.12/binary/tarball/percona-postgresql-15.12-ssl3-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xfv<span class="w"> </span>percona-postgresql-15.10-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xfv<span class="w"> </span>percona-postgresql-15.12-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
 </code></pre></div>
 </li>
 <li>
@@ -2335,7 +2357,7 @@ server started
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (15.10)
+<div class="no-copy highlight"><pre><span></span><code>psql (15.12)
 Type &quot;help&quot; for help.
 
 postgres=#
