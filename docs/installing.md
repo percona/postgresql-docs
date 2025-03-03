@@ -13,7 +13,7 @@ This document aims to guide database application developers and DevOps engineer 
 
 You can select from multiple easy-to-follow installation options, but **we recommend using a Package Manager** for a convenient and quick way to try the software first.
 
-=== ":simple-windowsterminal: Package manager"
+=== ":octicons-terminal-16: Package manager"
 
     Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms and versions on the [Percona Software and Platform Lifecycle page :octicons-link-external-16:](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
 
