@@ -4,12 +4,10 @@ Percona Distribution for PostgreSQL is not only the PostgreSQL server. It also i
 
 Percona Distribution for PostgreSQL includes the extensions that have been tested to work together. These extensions encompass the following:
 
-* [PostgreSQL contrib modules and utilities](contrib.md)
-* Extensions authored by Percona:
-  
-    * [`pg_stat_monitor`](pg-stat-monitor.md)
-    * [`pg_tde`](pg-tde.md) 
+Percona Distribution for PostgreSQL includes the extensions that have been tested to work together. These extensions encompass the following:
 
+* [PostgreSQL contrib modules and utilities](contrib.md)
+* [Extensions authored by Percona](percona-ext.md)
 * [Third-party components](third-party.md)
 
 Percona also supports [extra modules](https://repo.percona.com/ppg-16-extras/), not included in Percona Distribution for PostgreSQL but tested to work with it.
