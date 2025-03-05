@@ -5,9 +5,7 @@ Percona Distribution for PostgreSQL includes a set of extensions that have been 
 The set of extensions includes the following:
 
 * [PostgreSQL contrib modules and utilities](contrib.md)
-* Extensions authored by Percona:
-  
-    * [`pg_stat_monitor`](pg-stat-monitor.md)
+* [Extensions authored by Percona](percona-ext.md)
 
 * [Third-party components](third-party.md)
 
