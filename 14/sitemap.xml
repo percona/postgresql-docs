@@ -37,10 +37,6 @@
          <lastmod>2025-03-05</lastmod>
     </url>
     <url>
-         <loc>https://docs.percona.com/postgresql/14/how-to.html</loc>
-         <lastmod>2025-03-05</lastmod>
-    </url>
-    <url>
          <loc>https://docs.percona.com/postgresql/14/installing.html</loc>
          <lastmod>2025-03-05</lastmod>
     </url>
@@ -66,10 +62,6 @@
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/14/percona-ext.html</loc>
-         <lastmod>2025-03-05</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/14/pg-stat-monitor.html</loc>
          <lastmod>2025-03-05</lastmod>
     </url>
     <url>
