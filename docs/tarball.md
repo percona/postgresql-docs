@@ -19,7 +19,7 @@ The tarballs include the following components:
 
 | Component | Description |
 |-----------|-------------|
-| percona-postgresql{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> - `pgvector` <br> -  the set of [contrib extensions](contrib.md)|
+| percona-postgresql{{pgversion}}| The latest version of PostgreSQL server and the following extensions: <br> - `pgaudit` <br> - `pgAudit_set_user` <br> - `pg_repack` <br> - `pg_stat_monitor` <br> - `pg_gather` <br> - `wal2json` <br> - `PostGIS` <br> -  the set of [contrib extensions](contrib.md)|
 | percona-haproxy | A high-availability solution and load-balancing solution |
 | percona-patroni | A high-availability solution for PostgreSQL |
 | percona-pgbackrest| A backup and restore tool |
@@ -148,7 +148,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 12. Connect to `psql`
     
     ```{.bash data-prompt="$"}
-    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/psql
+    $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/psql -d postgres
     ```
 
     ??? example "Sample output"
@@ -160,7 +160,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
         postgres=#
         ```
    
-### Start the components
+## Start the components
 
 After you unpacked the tarball and added the location of the components' binaries to the `$PATH` variable, the components are available for use. You can invoke a component by running its command-line tool.
 
