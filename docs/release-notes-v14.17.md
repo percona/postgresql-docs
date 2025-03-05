@@ -19,7 +19,7 @@ This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/C
 
 ### PostGIS is included into tarballs
 
-We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](postgis.md). 
+We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](solutions/postgis.md). 
 
 ### Deprecation of meta packages
 
@@ -27,7 +27,7 @@ We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an 
 
 ## Supplied third-party extensions
 
-Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.
+Review each extension's release notes for What's new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
