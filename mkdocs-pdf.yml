@@ -1,17 +1,79 @@
 # MkDocs configuration for PDF builds
-# Usage: ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-pdf.yml
+# Usage: mkdocs build -f mkdocs-pdf.yml
 
 INHERIT: mkdocs-base.yml
 
-copyright: Percona LLC, &#169; 2024
+# Material theme features
+theme:
+  name: material
+  logo: _images/postgresql-mark.svg
+  favicon: _images/postgresql-fav.svg
+  custom_dir: _resourcepdf/overrides/
+  font:
+    text: Roboto  
+    code: Roboto Mono
+  icon:
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
 
-extra_css:
-  - https://unicons.iconscout.com/release/v3.0.3/css/line.css
-  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
-  - css/percona.css
-  - css/extra.css
-  - css/osano.css
 
-markdown_extensions:
-  pymdownx.tabbed: {}
-  admonition: {}
+nav:
+  - index.md
+  - get-help.md
+  - Get started: 
+      - installing.md
+      - 1. Install: 
+          - apt.md
+          - yum.md
+          - tarball.md
+          -  docker.md
+          - enable-extensions.md
+          - repo-overview.md
+      - 2. Connect to PostgreSQL: 
+          - connect.md
+      - 3. Manipulate data in PostgreSQL: 
+          - crud.md  
+      - 4. What's next: 
+          - whats-next.md 
+  - Extensions:
+      - extensions.md
+      - contrib.md
+      - percona-ext.md
+      - third-party.md
+  - Solutions:
+      - solutions.md
+      - High availability:
+          - solutions/high-availability.md
+          - solutions/ha-setup-apt.md
+          - solutions/ha-setup-yum.md
+          - solutions/pgbackrest.md
+          - solutions/ha-test.md
+      - Backup and disaster recovery:
+          - solutions/backup-recovery.md
+          - solutions/dr-pgbackrest-setup.md
+      - Spatial data handling:
+        - solutions/postgis.md
+        - solutions/postgis-deploy.md
+        - solutions/postgis-testing.md
+        - solutions/postgis-upgrade.md
+      - ldap.md
+  - Upgrade:
+      - major-upgrade.md
+      - minor-upgrade.md
+      - migration.md
+  - troubleshooting.md
+  - uninstalling.md
+  - release-notes.md
+  - release-notes-v16.8.md
+  - release-notes-v16.6.md
+  - release-notes-v16.4.md
+  - release-notes-v16.3.md
+  - release-notes-v16.2.md
+  - release-notes-v16.1.upd.md
+  - release-notes-v16.1.md
+  - release-notes-v16.0.upd.md
+  - release-notes-v16.0.md
+  - telemetry.md
+  - licensing.md
+  - trademark-policy.md
+
