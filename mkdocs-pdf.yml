@@ -1,10 +1,103 @@
 # MkDocs configuration for PDF builds
-# Usage: ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-pdf.yml
+# Usage: mkdocs build -f mkdocs-pdf.yml
 
 INHERIT: mkdocs-base.yml
 
-copyright: Percona LLC, &#169; 2025
+# Material theme features
+theme:
+  name: material
+  logo: _images/postgresql-mark.svg
+  favicon: _images/postgresql-fav.svg
+  custom_dir: _resourcepdf/overrides/
+  font:
+    text: Roboto  
+    code: Roboto Mono
+  icon:
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
 
-markdown_extensions:
-  pymdownx.tabbed: {}
-  admonition: {}
+
+nav:
+  - index.md
+  - get-help.md
+  - Get started: 
+      - installing.md
+      - 1. Install: 
+          - apt.md
+          - yum.md
+          - tarball.md
+          -  docker.md
+          - enable-extensions.md
+          - repo-overview.md
+      - 2. Connect to PostgreSQL: 
+          - connect.md
+      - 3. Manipulate data in PostgreSQL: 
+          - crud.md  
+      - 4. What's next: 
+          - whats-next.md 
+  - Extensions:
+      - extensions.md
+      - contrib.md
+      - percona-ext.md
+      - third-party.md
+  - Solutions:
+      - solutions.md
+      - High availability:
+          - solutions/high-availability.md
+          - solutions/ha-setup-apt.md
+          - solutions/ha-setup-yum.md
+          - solutions/pgbackrest.md
+          - solutions/ha-test.md
+      - Backup and disaster recovery:
+          - solutions/backup-recovery.md
+          - solutions/dr-pgbackrest-setup.md
+      - Spatial data handling:
+        - solutions/postgis.md
+        - solutions/postgis-deploy.md
+        - solutions/postgis-testing.md
+        - solutions/postgis-upgrade.md
+      - ldap.md
+  - Upgrade:
+      - major-upgrade.md
+      - minor-upgrade.md
+      - migration.md
+  - troubleshooting.md
+  - uninstalling.md
+  - release-notes.md
+  - release-notes-v13.20.md
+  - release-notes-v13.18.md
+  - release-notes-v13.16.md
+  - release-notes-v13.15.md
+  - release-notes-v13.14.md
+  - release-notes-v13.13.upd.md
+  - release-notes-v13.13.md
+  - release-notes-v13.12.md
+  - release-notes-v13.11.md
+  - release-notes-v13.10.upd.md
+  - release-notes-v13.10.md
+  - release-notes-v13.9.md
+  - release-notes-v13.8.md
+  - release-notes-v13.7.md
+  - release-notes-v13.6.upd2.md
+  - release-notes-v13.6.upd.md
+  - release-notes-v13.6.md
+  - release-notes-v13.5.upd2.md
+  - release-notes-v13.5.upd.md
+  - release-notes-v13.5.md
+  - release-notes-v13.4.upd.md
+  - release-notes-v13.4.md
+  - release-notes-v13.3.upd3.md
+  - release-notes-v13.3.upd2.md
+  - release-notes-v13.3.upd.md
+  - release-notes-v13.3.md
+  - release-notes-v13.2.upd4.md
+  - release-notes-v13.2.upd3.md
+  - release-notes-v13.2.upd2.md
+  - release-notes-v13.2.upd.md
+  - release-notes-v13.2.md
+  - release-notes-v13.1.md
+  - release-notes-v13.0.md
+  - telemetry.md
+  - licensing.md
+  - trademark-policy.md
+
