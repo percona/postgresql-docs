@@ -45,7 +45,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 ### Install packages
 
-=== "Install using meta-package"
+=== "Install using meta-package (deprecated)"
      
      ```{.bash data-prompt="$"}
      $ sudo apt install percona-ppg-server-{{pgversion}}

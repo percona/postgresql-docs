@@ -229,7 +229,7 @@ $ sudo yum -y install curl
 
 ### Install packages
 
-=== "Install using meta-package"
+=== "Install using meta-package (deprecated)"
      
      ```{.bash data-prompt="$"}
      $ sudo yum install percona-ppg-server{{pgversion}}

@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2024
+copyright: Percona LLC, &#169; 2025
 site_url: ""
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -125,6 +125,7 @@ plugins:
   section-index: {}
   search: 
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  open-in-new-tab: {}
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
@@ -143,7 +144,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
       output_path: '_pdf/PerconaDistributionPostgreSQL-13.pdf'
       cover_title: 'Distribution for PostgreSQL Documentation'
-      cover_subtitle: 13.16 (September 12, 2024)
+      cover_subtitle: 13.20 (March 6, 2025)
       author: 'Percona Technical Documentation Team'
       cover_logo: docs/_images/Percona_Logo_Color.png
       debug_html: false
@@ -210,6 +211,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v13.20.md
       - release-notes-v13.18.md
       - release-notes-v13.16.md
       - release-notes-v13.15.md
