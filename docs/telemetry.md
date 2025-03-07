@@ -67,7 +67,7 @@ The telemetry also uses the Percona Platform with the following components:
 
 `percona_pg_telemetry` is an extension to collect telemetry data in PostgreSQL. It is added to Percona Distribution for PostgreSQL and is automatically loaded when you install a PostgreSQL server.
 
-`percona_pg_telemetry` collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. You can find the Metrics File in its [location](#location) to inspect what data is collected. 
+`percona_pg_telemetry` collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. You can find the Metrics File in its [location](#locations) to inspect what data is collected.
 
 Before generating a new file, the `percona_pg_telemetry` deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week's data is maintained.
 
