@@ -24,4 +24,4 @@ We understand your challenges when managing complex database environments. That'
 | Expert Consulting          | Our experienced consultants provide guidance on database topics like architecture design, migration planning, performance optimization, and security best practices.  |
 | Comprehensive Training     | Our training programs help your team develop skills to manage databases effectively, offering virtual and in-person courses.                                          |
 
-We're here to help you every step of the way. Whether you need a quick fix or a long-term partnership, we're ready to provide your expertise and support.
+We're here to help you every step of the way. Whether you need a quick fix or a long-term partnership, we're ready to provide our expertise and support.
