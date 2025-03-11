@@ -47,8 +47,8 @@ Find the list of controb modules and extensions included in Percona Distribution
 |[tablefunc](https://www.postgresql.org/docs/{{pgversion}}/tablefunc.html) | |Includes various functions that return tables (that is, multiple rows). These functions are useful both in their own right and as examples of how to write C functions that return multiple rows. |
 |[tcn](https://www.postgresql.org/docs/{{pgversion}}/tcn.html) | | Provides a trigger function that notifies listeners of changes to any table on which it is attached. |
 |[test_decoding](https://www.postgresql.org/docs/{{pgversion}}/test-decoding.html) | Required | An SQL-based test/example module for WAL logical decoding|
-|[tsm_system_rows](https://www.postgresql.org/docs/16/tsm-system-rows.html) | |Provides the table sampling method SYSTEM_ROWS, which can be used in the TABLESAMPLE clause of a SELECT command. |
-|[tsm_system_time](https://www.postgresql.org/docs/16/tsm-system-time.html) | | Provides the table sampling method  SYSTEM_TIME, which can be used in the TABLESAMPLE clause of a SELECT command.|
-|[unaccent](https://www.postgresql.org/docs/16/unaccent.html) | |A text search dictionary that removes accents (diacritic signs) from lexemes. It's a filtering dictionary, which means its output is always passed to the next dictionary (if any). This allows accent-insensitive processing for full text search. |
-|[uuid-ossp](https://www.postgresql.org/docs/16/uuid-ossp.html) |Required | Provides functions to generate universally unique identifiers (UUIDs) using one of several standard algorithms |
+|[tsm_system_rows](https://www.postgresql.org/docs/{{pgversion}}/tsm-system-rows.html) | |Provides the table sampling method SYSTEM_ROWS, which can be used in the TABLESAMPLE clause of a SELECT command. |
+|[tsm_system_time](https://www.postgresql.org/docs/{{pgversion}}/tsm-system-time.html) | | Provides the table sampling method  SYSTEM_TIME, which can be used in the TABLESAMPLE clause of a SELECT command.|
+|[unaccent](https://www.postgresql.org/docs/{{pgversion}}/unaccent.html) | |A text search dictionary that removes accents (diacritic signs) from lexemes. It's a filtering dictionary, which means its output is always passed to the next dictionary (if any). This allows accent-insensitive processing for full text search. |
+|[uuid-ossp](https://www.postgresql.org/docs/{{pgversion}}/uuid-ossp.html) |Required | Provides functions to generate universally unique identifiers (UUIDs) using one of several standard algorithms |
 

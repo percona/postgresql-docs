@@ -1,6 +1,6 @@
 # Query spatial data
 
-After you [installed and set up PostGIS](postgis-install.md), let’s find answers to the following questions by querying the database:
+After you [installed and set up PostGIS](postgis-deploy.md), let’s find answers to the following questions by querying the database:
 
 ## *What is the population of the New York City?*
 
