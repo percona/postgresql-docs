@@ -1,12 +1,12 @@
-name: Build Percona Distribution PostgreSQL 17 docs
+name: Check spelling in Percona Distribution PostgreSQL 17 docs
 on:
-  push:
+  pull_request:
     branches: 
       - 17
-     
+
 jobs:
   build:
-    name: Deploy docs
+    name: Check spelling
     runs-on: ubuntu-latest
 
     steps: 
@@ -32,20 +32,17 @@ jobs:
           git config user.password "${ROBOT_TOKEN}"
           echo "GIT_USER=percona-platform-robot:${ROBOT_TOKEN}" >> $GITHUB_ENV
 
-      #Set up MkDocs
-      - name: Install MkDocs
+      - name: Install Node.js 14.x
+        uses: percona-platform/setup-node@v2
+        with:
+          node-version: "14"
+     
+      - name: Spelling
         run: |
-          python -m pip install --upgrade pip
-          pip install wheel
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          npx markdown-spellcheck --report --en-us --ignore-acronyms      --ignore-numbers "docs/**/*.md" || true
+          # Ignore errors, just inspect results
 
-     # Deploy docs
-      - name: Deploy docs
+      - name: Grammar
         run: |
-          mike deploy 17 -b publish -p
-          mike set-default 17 -b publish -p
-          mike retitle 17 "17 (LATEST)" -b publish -p
-
-      
-
-          
+          npx write-good --no-passive docs/**/*.md || true
+          # Ignore errors, just inspect results
