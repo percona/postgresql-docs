@@ -2337,7 +2337,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 </details>
 <p><br></p>
 <p>To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with <a href="#pgbackrest">pgBackRest</a>: a reliable, open-source backup and recovery solution for PostgreSQL.</p>
-<p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="dr-pg-backrestsetup.md">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
+<p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
 <h3 id="pgbackrest">pgBackRest<a class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h3>
 <p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. <code>pgBackRest</code> supports the following backup types:</p>
 <ul>
@@ -2350,7 +2350,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p><code>pgBackRest</code> can restore a database to a specific point in time in the past. This is the case where a database is not inaccessible but perhaps contains corrupted data. Using the point-in-time recovery, a database administrator can restore the database to the last known good state.  </p>
 <p>Finally, <code>pgBackRest</code> also supports restoring PostgreSQL databases to a different PostgreSQL instance or a separate data directory.</p>
 <h2 id="setup-overview">Setup overview<a class="headerlink" href="#setup-overview" title="Permanent link">&para;</a></h2>
-<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="dr-pg-backrestsetup.md">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
+<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
 <h3 id="system-architecture">System architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h3>
 <p>As the configuration example, we will use a three server architecture where <code>pgBackRest</code> resides on a dedicated remote host. The servers communicate with each other via passwordless SSH.</p>
 <div class="admonition important">
@@ -2394,7 +2394,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 20, 2024 07:45:05">June 20, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 11, 2025 19:50:36">March 11, 2025</span>
   </span>
 
     
