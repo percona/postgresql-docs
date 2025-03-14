@@ -44,6 +44,17 @@ Communication between `etcd` nodes is critical. A slow or unreliable network can
 
 `etcd` provides a distributed locking mechanism, which helps applications coordinate actions across multiple nodes and access to shared resources preventing conflicts. Locks ensure that only one process can hold a resource at a time, avoiding race conditions and inconsistencies. Patroni is an example of an application that uses `etcd` locks for primary election control in the PostgreSQL cluster. 
 
+### Deployment considerations
+
+We recommend to deploy `ectd` on separate hosts. The reasons for that are the following:
+
+* Both PostgreSQL and `etcd` are highly dependant on I/O. And running them on the same host may cause performance issues.
+
+* A higher resilience. If one or even two PostgreSQL node crash, the `etcd` cluster remains healthy and can trigger a new primary election. 
+
+* Scalability and better performance. You can scale the `etcd` cluster separately from PostgreSQL based on the load and thus achieve better performance.
+
+Note that separate deployment increases the complexity of the infrastructure and requires additional effort on maintenance. Also, pay close attention to network configuration to eliminate the latency that might occur due to the communication between `etcd` and Patroni nodes over the network.
 
 
  

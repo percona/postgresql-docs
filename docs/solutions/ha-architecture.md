@@ -11,21 +11,32 @@ The following diagram shows this architecture with the tools we recommend to use
 
 The components in this architecture are:
 
+### Database layer
+
 - PostgreSQL nodes bearing the user data. 
+
+- Patroni - an automatic failover system. Patroni requires and uses the Distributed Configuration Store to store the cluster configuration, health and status.
+
+- watchdog - a mechanism that will reset the whole system when they do not get a keepalive heartbeat within a specified timeframe. This adds an additional layer of fail safe in case usual Patroni split-brain protection mechanisms fail.
+
+### DCS layer
 
 - etcd - a Distributed Configuration Store.  It stores the state of the PostgreSQL cluster and handles the election of a new primary. 
 
-- Patroni - an automatic failover system. Patroni requires and uses the Distributed Configuration Store to store the cluster configuration, health and status.
+### Load balancing layer
 
 - HAProxy - the load balancer and the single point of entry to the cluster for client applications. 
 
 - keepalived - a high-availability and failover solution for HAProxy. It provides a virtual IP (VIP) address for HAProxy and prevents its single point of failure by failing over the services to the operational instance
 
+- (Optional) pgbouncer - a connection pooler for PostgreSQL. The aim of pgbouncer is to lower the performance impact of opening new connections to PostgreSQL.
+
+### Services layer
+
 - pgBackRest - the backup and restore solution for PostgreSQL
 
-- Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster 
+- (Optional) Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster 
 
-- (Optional) pgbouncer - a connection pooler for PostgreSQL. The aim of pgbouncer is to lower the performance impact of opening new connections to PostgreSQL.
 
 ## Additional reading
 
