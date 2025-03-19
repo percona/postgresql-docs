@@ -8,7 +8,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/), which closed a vulnerability in the `libpq` PostgreSQL client library but introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 17.3 was skipped.
 
-### Updated version of `pg_tde`
+### A new version of `pg_tde`
 
 Percona Distribution for PostgreSQL includes the Release Candidate of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is the redesigned WAL encryption, single-tenancy support, ability to change key provider configuration and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc.html).  
 
@@ -34,11 +34,11 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
 | [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.18    | A distributed, reliable key-value store for setting up high available Patroni clusters                              |
 | [HAProxy :octicons-link-external-16:](http://www.haproxy.org/)                       | 2.8.13    | A high-availability and load-balancing solution                                                                     |
-| [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/)     | 4.0.4     | A HA (High Availability) solution for PostgreSQL                                                                    |
-| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)                      | 17.0      | Provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
+| [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/)     | 4.0.5     | A HA (High Availability) solution for PostgreSQL                                                                    |
+| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)                      | 17.1      | Provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user)  | 4.1.0     | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance.     |
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/)                    | 2.54.2    | A backup and restore solution for PostgreSQL                                                                        |
-| [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger)           | 13.0      | A fast PostgreSQL Log Analyzer                                                                                      |
+| [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger)           | 13.1      | A fast PostgreSQL Log Analyzer                                                                                      |
 | [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/)                  | 1.24.0    | A lightweight connection pooler for PostgreSQL                                                                      |
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather)        | v29       | An SQL script for running the diagnostics of the health of a PostgreSQL cluster                                     |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.5.5 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing      |
