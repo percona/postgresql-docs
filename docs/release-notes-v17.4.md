@@ -10,7 +10,7 @@ This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/C
 
 ### A new version of `pg_tde`
 
-Percona Distribution for PostgreSQL includes the Release Candidate of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is the redesigned WAL encryption, single-tenancy support, ability to change key provider configuration and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc.html).  
+Percona Distribution for PostgreSQL includes the Release Candidate of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is the redesigned WAL encryption, simplified configuration for single-tenant environments, the ability to change key provider configuration offline, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc.html).  
 
 ### Improved security and user experience for Docker images
 
