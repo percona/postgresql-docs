@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -54,6 +54,10 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="css/print-site.css">
+    
+      <link rel="stylesheet" href="css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
@@ -88,20 +92,6 @@
     
     
     
-               
-                 
-                 
-                 
-                 
-                 <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Via apt" />
-                 <meta property="og:image" content="https://docs.percona.com/postgresql/16/_images/postgresql.png">
-                 <meta property="og:url" content="https://docs.percona.com/postgresql/">
-                </head>
-                <body>
-                </body>
-              </html>
-  
   </head>
   
   
@@ -1819,7 +1809,7 @@
 </nav>
                     <br>
                     <label class="md-nav__title" for="__drawer">
-    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-17" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
+    <a href="https://learn.percona.com/download-manual-percona-distribution-for-postgresql-13" onclick="_gaq.push(['b._trackEvent', 'Percona Distribution for PostgreSQL', 'Download', 'Download Manual Distribution for PostgreSQL']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
       Download PDF
     </a>
   </label> 
@@ -1920,7 +1910,7 @@
 
     <div class="actions">
 
-    <a href="https://docs.percona.com/postgresql/17/get-help.html" style="color: var(--md-typeset-a-color);">Get help from Percona</a>
+    <a href="https://docs.percona.com/postgresql/16/get-help.html" style="color: var(--md-typeset-a-color);">Get help from Percona</a>
     </div>
     </div>
                   </div>
@@ -2164,11 +2154,25 @@
 
                 
 
-          <script>
-                  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-                  posthog.init('phc_7unoI9J6Fm0SMrfDp35xNOpCRTkOAibbffQwdGWbHnL',{api_host:'https://eu.posthog.com'})
-          </script>
 
+<script>
+  window.addEventListener('beforeprint', (event) => { 
+    for (const detailEl of document.querySelectorAll('details')) {
+      if (detailEl.getAttribute('open') == null) {
+        detailEl.setAttribute('data-was-closed', 'true')
+      }
+      detailEl.setAttribute('open', '')
+    }
+  })
+  window.addEventListener('afterprint', (event) => {
+     for (const detailEl of document.querySelectorAll('details')) {
+       if (detailEl.getAttribute('data-was-closed') != null) {
+         detailEl.removeAttribute('data-was-closed')
+         detailEl.removeAttribute('open')
+       }
+     }
+  })
+  </script>
           
               </article>
             </div>
@@ -2216,9 +2220,9 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-<script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
-
       <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="js/print-site.js"></script>
       
         <script src="js/version-select.js"></script>
       
@@ -2227,6 +2231,5 @@
         <script src="js/consent.css"></script>
       
     
-
   </body>
 </html>
