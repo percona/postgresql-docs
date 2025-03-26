@@ -7,7 +7,7 @@ But what does it mean, high availability? And how to achieve it? This document a
 After reading this document, you will learn the following:
 
 * [what is high availability](#what-is-high-availability)
-* the recommended [reference architecture]((ha-architecture.md)) to achieve it
+* the recommended [reference architecture](ha-architecture.md) to achieve it
 * how to deploy it using our step-by-step deployment guides for each component. The deployment instructions focus on the minimalistic approach to high availability that we recommend. It also gives instructions how to deploy additional components that you can add when your infrastructure grows.
 * how to verify that your high availability deployment works as expected, providing replication and failover with the [testing guidelines](ha-test.md)
 

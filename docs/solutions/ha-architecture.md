@@ -34,7 +34,7 @@ The components in this architecture are:
 
 ### Services layer
 
-- pgBackRest - the backup and restore solution for PostgreSQL
+- pgBackRest - the backup and restore solution for PostgreSQL. It should also be redundant to eliminate a single point of failure.
 
 - (Optional) Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster 
 
@@ -46,10 +46,10 @@ There may be constraints to use the [recommended reference architecture](#archit
 
 Using such architecture has the following limitations:
 
-* This setup only protects against a one node failure, either a database or a etcd node. Losing one node results in the read-only database.
+* This setup only protects against a one node failure, either a database or a etcd node. Losing more than one node results in the read-only database.
 * The application must be able to connect to multiple database nodes and fail over to the new primary in the case of outage.
 * The application must act as the load-balancer. It must be able to determine read/write and read-only requests and distribute them across the cluster. 
-* The `pbBackRest` component is optional but highly-recommended for disaster recovery.
+* The `pbBackRest` component is optional but highly-recommended for disaster recovery. To eliminate a single point of failure, it should also be redundant but we're not discussing redundancy in this solution. [Contact us](https://www.percona.com/about/contact) to discuss it if this is the requirement for you.
 
 ## Additional reading
 
