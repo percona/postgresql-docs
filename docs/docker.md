@@ -108,7 +108,7 @@ Here's how to do this:
 1. Start the container with the `ENABLE_PG_TDE=1` environment variable:
 
     ```{.bash data-prompt="$"}
-    $ docker run --name container-name -e ENABLE_PG_TDE=1 -e POSTGRES_PASSWORD=sUpers3cRet  -d percona/percona-distribution-postgresql:{{dockertag}}-multi
+    $ docker run --name container-name -e ENABLE_PG_TDE=1 -e POSTGRES_PASSWORD=sUpers3cRet  -d percona/percona-distribution-postgresql:{{dockertag}}
     ```
 
     where:
