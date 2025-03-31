@@ -129,27 +129,36 @@ plugins:
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
-  with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-          output_path: '_pdf/PerconaDistributionPostgreSQL-14.pdf'
-          cover_title: 'Percona Distribution for PostgreSQL Documentation'
-          cover_subtitle: 14.17 (March 5, 2025)
-          author: 'Percona Technical Documentation Team'
-          cover_logo: docs/_images/Percona_Logo_Color.png
-          debug_html: false
-          custom_template_path: _resource/templates
-          enabled_if_env: ENABLE_PDF_EXPORT
   mike:
       version_selector: true
       css_dir: css
       javascript_dir: js
       canonical_version: null
+  print-site:
+    add_to_navigation: false
+    print_page_title: 'Percona Distribution for PostgreSQL documentation'
+    add_print_site_banner: false
+    # Table of contents
+    add_table_of_contents: true
+    toc_title: 'Table of Contents'
+    toc_depth: 2
+    # Content-related
+    add_full_urls: false
+    enumerate_headings: false
+    enumerate_headings_depth: 1
+    enumerate_figures: true
+    add_cover_page: true
+    cover_page_template: "docs/templates/pdf_cover_page.tpl"
+    path_to_pdf: ""
+    include_css: true
+    enabled: true
 
 extra:
   version:
     provider: mike
   #homepage:
   #  https://docs.percona.com
-  postgresrecommended: 16
+  postgresrecommended: 14
 
 nav:
   - 'Home': 'index.md'
