@@ -30,7 +30,6 @@ extra:
 
 nav:
   - 'Home': 'index.md'
-  - 'Percona Server for PostgreSQL': postgresql-server.md
   - get-help.md
   - Get started: 
       - Quickstart guide: installing.md
