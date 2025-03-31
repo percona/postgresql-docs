@@ -5,6 +5,9 @@ INHERIT: mkdocs-base.yml
 
 site_url: "https://docs.percona.com/postgresql/"
 
+theme:
+  name: material
+  custom_dir: _resourcepdf/overrides/
 
 extra:
   analytics:
@@ -25,9 +28,5 @@ extra:
             Thank you for your feedback! Help us improve by using our 
             <a href="https://docs.google.com/forms/d/1bkWACehjqlwA0AKf-qTJcXvYbOSYgze8iTPXjntqmNo/edit" target="_blank" rel="noopener">
             feedback form</a>.
-
-#markdown_extensions:
-#  - pymdownx.tabbed:
-#      alternate_style: true 
 
 
