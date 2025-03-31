@@ -41,11 +41,16 @@ There are several active versions of the documentation. Each version derives fro
 
 Each version has a branch in the repository named accordingly:
 
-- 11
-- 12
+- 11 (EOL)
+- 12 (EOL)
 - 13
 - 14
 - 15
+<<<<<<< HEAD
+=======
+- 16
+- 17
+>>>>>>> 5059c6e7... Tested a new PDF generation plugin
 
 The source .md files are in the ``docs`` directory. 
 
@@ -159,34 +164,38 @@ mkdocs serve
 ```
 
 6. To build the PDF documentation, do the following:
-   - Install [mkdocs-with-pdf plugin :octicons-link-external-16: :octicons-link-external-16:](httpss://pypi.org/project/mkdocs-with-pdf/)
+   - Install [mkdocs-print-site-plugin](https://timvink.github.io/mkdocs-print-site-plugin/index.html)
    - Run the following command
 
    ```sh
-   mkdocs build -f mkdocs-pdf.yml
+   mkdocs build
    ```
 
-The PDF document is in the ``site/pdf`` folder.
+   This creates a single HTML page for the whole doc project. You can find the page at `site/print_page.html`. 
+
+7. Open the `site/print_page.html` in your browser and save as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
+
+
 
 ## Repository structure
 
 The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
-- `mkdocs.yml` - configuration file. Contains the settings for building the docs with Material theme.
-- `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF docs.
+- `mkdocs.yml` - configuration file. Contains the settings for building the docs on Percona website
 - `docs`:
   - `*.md` - Source markdown files.
   - `_images` - Images, logos and favicons
   - `css` - Styles
   - `js` - Javascript files
+  - `templates` - the PDF cover page template
 - `_resource`:
-   - `templates`:
-     - ``styles.scss`` - Styling for PDF documents
-   - `theme`:
+   - `overrides` - The directory with customized templates for HTML output
       - `main.html` - The layout template for hosting the documentation on Percona website
-   - overrides - The folder with the Material theme template customization for builds
+- `_resourcepdf`:
+   - `overrides` - The directory with customized layout templates for PDF
 - `.github`:
    - `workflows`:
       - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `publish` branch)
 - `site` - This is where the output HTML files are put after the build
+- `snippets` - The folder with pieces of documentation used in multiple places

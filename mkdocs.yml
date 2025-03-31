@@ -7,7 +7,7 @@ site_url: "https://docs.percona.com/postgresql/"
 
 theme:
   name: material
-  custom_dir: _resource/overrides/
+  custom_dir: _resourcepdf/overrides/
 
 
 extra:
