@@ -16,3 +16,4 @@ mkdocs-meta-descriptions-plugin
 mike
 Pillow > 10.1.0
 mkdocs-open-in-new-tab
+mkdocs-print-site-plugin
