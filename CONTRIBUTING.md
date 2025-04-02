@@ -28,8 +28,8 @@ There are several active versions of the documentation. Each version derives fro
 Each version has a branch in the repository named accordingly:
 
 - 11 (EOL)
-- 12
-- 13
+- 12 (EOL)
+- 13 
 - 14
 - 15
 - 16
@@ -147,14 +147,16 @@ mkdocs serve
 ```
 
 6. To build the PDF documentation, do the following:
-   - Install [mkdocs-with-pdf plugin](https://pypi.org/project/mkdocs-with-pdf/)
+   - Install [mkdocs-print-site-plugin](https://timvink.github.io/mkdocs-print-site-plugin/index.html)
    - Run the following command
 
    ```sh
-   ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-pdf.yml
+    mkdocs build
    ```
 
-The PDF document is in the ``site/pdf`` folder.
+This creates a single HTML page for the whole doc project. You can find the page at `site/print_page.html`. 
+
+7. Open the `site/print_page.html` in your browser and save as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
 
 ## Repository structure
 
@@ -168,11 +170,12 @@ The repository includes the following directories and files:
   - `_images` - Images, logos and favicons
   - `css` - Styles
   - `js` - Javascript files
-- `_resource`:
-   - `templates`:
-     - ``styles.scss`` - Styling for PDF documents
-   - overrides - The folder with the templates that contain customizations for hosting the documentation on Percona website
+  - `templates`:
+     - `pdf_cover_page.tpl` - The PDF cover page template
+- `_resourcepdf`:
+   - `overrides` - The directory with customized layout templates for PDF
 - `.github`:
    - `workflows`:
-      - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `netlify` branch)
+      - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `publish` branch)
+- `snippets` - The folder with pieces of documentation used in multiple places
 - `site` - This is where the output HTML files are put after the build
