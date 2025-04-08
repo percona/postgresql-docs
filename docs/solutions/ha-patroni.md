@@ -183,30 +183,20 @@ bootstrap:
               archive_mode: "on"
               archive_timeout: 600s
               archive_command: "cp -f %p /home/postgres/archived/%f"
+    
+      pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
+      - host replication replicator 127.0.0.1/32 trust
+      - host replication replicator 0.0.0.0/0 md5
+      - host all all 0.0.0.0/0 md5
+      - host all all ::0/0 md5
+      recovery_conf:
+            restore_command: cp /home/postgres/archived/%f %p
 
   # some desired options for 'initdb'
   initdb: # Note: It needs to be a list (some options need values, others are switches)
       - encoding: UTF8
       - data-checksums
 
-  pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
-      - host replication replicator 127.0.0.1/32 trust
-      - host replication replicator 0.0.0.0/0 md5
-      - host all all 0.0.0.0/0 md5
-      - host all all ::0/0 md5
-
-  # Some additional users which needs to be created after initializing new cluster
-  users:
-      admin:
-          password: qaz123
-          options:
-              - createrole
-              - createdb
-      percona:
-          password: qaz123
-          options:
-              - createrole
-              - createdb 
     
 postgresql:
     cluster_name: cluster_1
@@ -228,6 +218,11 @@ postgresql:
         - basebackup
     basebackup:
         checkpoint: 'fast'
+
+    watchdog:
+      mode: required # Allowed values: off, automatic, required
+      device: /dev/watchdog
+      safety_margin: 5
 
 tags:
     nofailover: false
