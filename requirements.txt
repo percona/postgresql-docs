@@ -1,4 +1,5 @@
-# This file is used to install the required packages for the project in Windows and Linux.
+# This file is used to install the required packages for the doc project.
+# Ensure you are in the same location/root that the requirements.txt file is in. 
 # It is recommended to use Windows Powershell in Administrator mode or Linux Terminal to run the commands.
 # You can install the required packages using the following command:
 # pip install -r requirements.txt
