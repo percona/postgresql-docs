@@ -1,4 +1,13 @@
-
+# This file is used to install the required packages for the doc project.
+# Ensure you are in the same location/root that the requirements.txt file is in. 
+# It is recommended to use Windows Powershell in Administrator mode or Linux Terminal to run the commands.
+# You can install the required packages using the following command:
+# pip install -r requirements.txt
+# This will install all the packages listed in this file.
+# To update the packages, run the following command:
+# pip install --upgrade -r requirements.txt
+# To check for outdated packages, run the following command:
+# pip list --outdated
 Markdown
 mkdocs
 mkdocs-versioning
