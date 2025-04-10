@@ -4,6 +4,10 @@
 # pip install -r requirements.txt
 # Ensure you are in the same location/root that the requirements.txt file is in. 
 # This will install all the packages listed in this file.
+# To update the packages, run the following command:
+# pip install --upgrade -r requirements.txt
+# To check for outdated packages, run the following command:
+# pip list --outdated
 Markdown
 mkdocs
 mkdocs-versioning
@@ -22,7 +26,3 @@ mike
 Pillow > 10.1.0
 mkdocs-open-in-new-tab
 mkdocs-print-site-plugin
-# To update the packages, run the following command:
-# pip install --upgrade -r requirements.txt
-# To check for outdated packages, run the following command:
-# pip list --outdated
