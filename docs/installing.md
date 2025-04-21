@@ -43,9 +43,9 @@ You can select from multiple easy-to-follow installation options, but **we recom
 
 === ":octicons-download-16: Manual download"
 
-    If you need to install Percona Distribution for PostgreSQL offline or as a non-superuser, check out the link below for a step-by-step guide and get access to the downloads directory.
+    If the package installation, which is the recommended method for safe, secure and reliable installations, is not an option, Check out the link below for a step-by-step guide and get access to the downloads directory.
 
-    Note that for this scenario you must make sure that all dependencies are satisfied.
+    Note that for this scenario you must make sure that all dependencies are satisfied. Otherwise, errors and crashes are expected. Please avoid using this method for any mission-critical purposes.
 
     [Install from tarballs :material-arrow-right:](tarball.md){.md-button}
 
