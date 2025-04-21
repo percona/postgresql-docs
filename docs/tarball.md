@@ -2,6 +2,9 @@
 
 You can find the binary tarballs on the [Percona website](https://www.percona.com/downloads). Select the desired version from a version dropdown and _All_ from the Select Platform dropdown.
 
+> **NOTE:**   
+Unlike package managers, A tarball installation don't have the facility to make sure that all dependancies are resolved to the right version of libraries. There is no method to ensure that libraries are present and not getting removed. Broken dependancies could result in errors, crashes or even corruption. So tarball installation is not suggestable for any safe, secure, reliable and mission critical uses.
+
 There are the following tarballs available both for x86_64 and ARM64 architectures: 
 
 * percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz  - for operating systems on ARM64 architecture that run OpenSSL version 1.x
