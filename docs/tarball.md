@@ -83,7 +83,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 4. Extract the tarball to the directory for binaries that you created on step 1.
 
     ```{.bash data-prompt="$"}
-    $ sudo tar -xfv percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz -C /opt/pgdistro/
+    $ sudo tar -xvf percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz -C /opt/pgdistro/
     ```
 
 5. If you extracted the tarball in a directory other than `/opt`, copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules. 
