@@ -4,14 +4,14 @@ Percona Distribution for PostgreSQL is the solution with the collection of tools
 
 This document aims to guide database application developers and DevOps engineer in getting started with Percona Distribution for PostgreSQL. Upon completion of this guide, you’ll have Percona Distribution for PostgreSQL installed and operational, and you’ll be able to:
 
-* Connect to PostgreSQL using the `psql` interactive terminal
+* Connect to PostgreSQL using the `psql` interactive terminal 
 * Interact with PostgreSQL with basic psql commands
-* Manipulate data in PostgreSQL
+* Manipulate data in PostgreSQL 
 * Understand the next steps you can take as a database application developer or administrator to expand your knowledge of Percona Distribution for PostgreSQL
 
 ## Install Percona Distribution for PostgreSQL
 
-You can select from multiple easy-to-follow installation options, however **we strongly recommend using a Package Manager** for a convenient and quick way to try the software first.
+You can select from multiple easy-to-follow installation options, but **we recommend using a Package Manager** for a convenient and quick way to try the software first.
 
 === ":octicons-terminal-16: Package manager"
 
@@ -23,6 +23,7 @@ You can select from multiple easy-to-follow installation options, however **we s
 
     [Install via apt :material-arrow-right:](apt.md){.md-button}
     [Install via yum :material-arrow-right:](yum.md){.md-button}
+
 
 === ":simple-docker: Docker"
 
@@ -40,13 +41,15 @@ You can select from multiple easy-to-follow installation options, however **we s
 
     [Get started with Percona Operator :octicons-link-external-16:](https://docs.percona.com/percona-operator-for-postgresql/2.0/quickstart.html){.md-button}
 
-=== ":octicons-download-16: Tar download (not recommended)"
+=== ":octicons-download-16: Manual download"
 
-    If installing the package (the **recommended** method for a safe, secure, and reliable setup) is not an option, refer to the link below for step-by-step instructions on installing from tarballs using the provided download links.
+    If you need to install Percona Distribution for PostgreSQL offline or as a non-superuser, check out the link below for a step-by-step guide and get access to the downloads directory.
 
-    In this scenario, you must ensure that all dependencies are met. Failure to do so may result in errors or crashes.
-    
-    !!! note 
+    Note that for this scenario you must make sure that all dependencies are satisfied.
 
-        This method is **not recommended** for mission-critical environments.
     [Install from tarballs :material-arrow-right:](tarball.md){.md-button}
+
+
+
+
+

@@ -1,21 +1,13 @@
-# Install Percona Distribution for PostgreSQL from binary tarballs
+# Install Percona Distribiution for PostgreSQL from binary tarballs
 
-You can download the tarballs using the links below.
+You can find the binary tarballs on the [Percona website](https://www.percona.com/downloads). Select the desired version from a version dropdown and _All_ from the Select Platform dropdown.
 
-!!! note
+There are the following tarballs available for both x86-64 and ARM64 architectures: 
 
-    Unlike package managers, a tarball installation does **not** provide mechanisms to ensure that all dependencies are resolved to the correct library versions. There is no built-in method to verify that required libraries are present or to prevent them from being removed. As a result, unresolved or broken dependencies may lead to errors, crashes, or even data corruption.
-    
-    For this reason, tarball installations are **not recommended** for environments where safety, security, reliability, or mission-critical stability are required.
+* percona-postgresql-{{dockertag}}-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x
+* percona-postgresql-{{dockertag}}-ssl3-linux-<architecture>.tar.gz - for operating systems that run OpenSSL version 3.x
 
-The following tarballs are available for the x86_64 and ARM64 architectures:
-
-* [percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz) - for operating systems on ARM64 architecture that run OpenSSL version 1.x
-* [percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz) - for operating systems on x86_64 architecture that run OpenSSL version 1.x
-* [percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz) - for operating systems on ARM64 architecture that run OpenSSL version 3.x
-* [percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz) - for operating systems on x86_64 architecture that run OpenSSL version 3.x
-
-To check what OpenSSL version you have, run the following command:
+To check what OpenSSL version you have, run the following command: 
 
 ```{.bash data-prompt="$"}
 $ openssl version
@@ -43,7 +35,7 @@ The tarballs include the following components:
 
 === "Debian and Ubuntu"
 
-    1. Uninstall the upstream PostgreSQL package.
+    1. Uninstall the upstream PostgreSQL package. 
     2. Create the user to own the PostgreSQL process. For example, `mypguser`. Run the following command:
 
         ```{.bash data-prompt="$"}
@@ -58,7 +50,7 @@ The tarballs include the following components:
     
 === "RHEL and derivatives"
 
-    Create the user to own the PostgreSQL process. For example, `mypguser`, Run the following command:
+    Create the user to own the PostgreSQL process. For example, `mypguser`, Run the following command: 
         
     ```{.bash data-prompt="$"}
     $ sudo useradd mypguser -m 
@@ -82,7 +74,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
     $ sudo chown mypguser:mypguser /opt/pgdistro/
     ```
 
-3. Fetch the binary tarball.
+3. Fetch the binary tarball:
 
     ```{.bash data-prompt="$"}
     $ wget https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{dockertag}}/binary/tarball/percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz
@@ -94,12 +86,12 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
     $ sudo tar -xvf percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz -C /opt/pgdistro/
     ```
 
-5. If you extracted the tarball in a directory other than `/opt`, copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules.
-
+5. If you extracted the tarball in a directory other than `/opt`, copy `percona-python3`, `percona-tcl` and `percona-perl` to the `/opt` directory. This is required for the correct run of libraries that require those modules. 
+ 
     ```{.bash data-prompt="$"}
     $ sudo cp <path_to>/percona-perl <path_to>/percona-python3 <path_to>/percona-tcl /opt/
     ```
-
+    
 6. Add the location of the binaries to the PATH variable:
 
     ```{.bash data-prompt="$"}
@@ -120,7 +112,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
     ```
 
 9. Initiate the PostgreSQL data directory:
-
+   
     ```{.bash data-prompt="$"}
     $ /opt/pgdistro/percona-postgresql{{pgversion}}/bin/initdb -D /usr/local/pgsql/data
     ```
@@ -140,7 +132,7 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
     ```
 
     ??? example "Sample output"
-
+       
         ```{.text .no-copy}
         waiting for server to start.... done
         server started
@@ -159,15 +151,15 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
     ```
 
     ??? example "Sample output"
-
+       
         ```{.text .no-copy}
         psql ({{dockertag}})
         Type "help" for help.
 
         postgres=#
         ```
-
-### Start the components
+   
+## Start the components
 
 After you unpacked the tarball and added the location of the components' binaries to the `$PATH` variable, the components are available for use. You can invoke a component by running its command-line tool.
 
@@ -178,3 +170,4 @@ $ haproxy version
 ```
 
 Some components require additional setup. Check the [Enabling extensions](enable-extensions.md) page for details.
+
