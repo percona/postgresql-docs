@@ -4650,30 +4650,18 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 <span class="s2">              archive_mode: &quot;</span>on<span class="s2">&quot;</span>
 <span class="s2">              archive_timeout: 600s</span>
 <span class="s2">              archive_command: &quot;</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">&quot;</span>
+<span class="s2">      pg_hba:</span>
+<span class="s2">      - local all all          peer</span>
+<span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
+<span class="s2">      - host replication replicator 192.0.0.0/8 scram-sha-256</span>
+<span class="s2">      - host all all 0.0.0.0/0 scram-sha-256</span>
+<span class="s2">      recovery_conf:</span>
+<span class="s2">        restore_command: cp /home/postgres/archived/%f %p</span>
 
 <span class="s2">  # some desired options for &#39;initdb&#39;</span>
 <span class="s2">  initdb: # Note: It needs to be a list (some options need values, others are switches)</span>
 <span class="s2">      - encoding: UTF8</span>
 <span class="s2">      - data-checksums</span>
-
-<span class="s2">  pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
-<span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
-<span class="s2">      - host replication replicator 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all ::0/0 md5</span>
-
-<span class="s2">  # Some additional users which needs to be created after initializing new cluster</span>
-<span class="s2">  users:</span>
-<span class="s2">      admin:</span>
-<span class="s2">          password: qaz123</span>
-<span class="s2">          options:</span>
-<span class="s2">              - createrole</span>
-<span class="s2">              - createdb</span>
-<span class="s2">      percona:</span>
-<span class="s2">          password: qaz123</span>
-<span class="s2">          options:</span>
-<span class="s2">              - createrole</span>
-<span class="s2">              - createdb </span>
 
 <span class="s2">postgresql:</span>
 <span class="s2">    cluster_name: cluster_1</span>
@@ -4695,6 +4683,12 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 <span class="s2">        - basebackup</span>
 <span class="s2">    basebackup:</span>
 <span class="s2">        checkpoint: &#39;fast&#39;</span>
+
+<span class="s2">watchdog:</span>
+<span class="s2">  mode: required # Allowed values: off, automatic, required</span>
+<span class="s2">  device: /dev/watchdog</span>
+<span class="s2">  safety_margin: 5</span>
+
 
 <span class="s2">tags:</span>
 <span class="s2">    nofailover: false</span>
@@ -5305,30 +5299,18 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <span class="s2">              archive_mode: &quot;</span>on<span class="s2">&quot;</span>
 <span class="s2">              archive_timeout: 600s</span>
 <span class="s2">              archive_command: &quot;</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">&quot;</span>
+<span class="s2">      pg_hba:</span>
+<span class="s2">      - local all all          peer</span>
+<span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
+<span class="s2">      - host replication replicator 192.0.0.0/8 scram-sha-256</span>
+<span class="s2">      - host all all 0.0.0.0/0 scram-sha-256</span>
+<span class="s2">      recovery_conf:</span>
+<span class="s2">        restore_command: cp /home/postgres/archived/%f %p</span>
 
 <span class="s2">  # some desired options for &#39;initdb&#39;</span>
 <span class="s2">  initdb: # Note: It needs to be a list (some options need values, others are switches)</span>
 <span class="s2">      - encoding: UTF8</span>
 <span class="s2">      - data-checksums</span>
-
-<span class="s2">  pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
-<span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
-<span class="s2">      - host replication replicator 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all ::0/0 md5</span>
-
-<span class="s2">  # Some additional users which needs to be created after initializing new cluster</span>
-<span class="s2">  users:</span>
-<span class="s2">      admin:</span>
-<span class="s2">          password: qaz123</span>
-<span class="s2">          options:</span>
-<span class="s2">              - createrole</span>
-<span class="s2">              - createdb</span>
-<span class="s2">      percona:</span>
-<span class="s2">          password: qaz123</span>
-<span class="s2">          options:</span>
-<span class="s2">              - createrole</span>
-<span class="s2">              - createdb </span>
 
 <span class="s2">postgresql:</span>
 <span class="s2">    cluster_name: cluster_1</span>
@@ -5350,6 +5332,12 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <span class="s2">        - basebackup</span>
 <span class="s2">    basebackup:</span>
 <span class="s2">        checkpoint: &#39;fast&#39;</span>
+
+<span class="s2">watchdog:</span>
+<span class="s2">  mode: required # Allowed values: off, automatic, required</span>
+<span class="s2">  device: /dev/watchdog</span>
+<span class="s2">  safety_margin: 5</span>
+
 
 <span class="s2">tags:</span>
 <span class="s2">    nofailover: false</span>
