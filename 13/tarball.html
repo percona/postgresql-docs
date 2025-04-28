@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="You can find the binary tarballs on the Percona website. Select the desired version from a version dropdown and All from the Select Platform dropdown.">
+        <meta name="description" content="You can download the tarballs using the links below.">
       
       
         <meta name="author" content="Percona LLC">
@@ -113,7 +113,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-percona-distribiution-for-postgresql-from-binary-tarballs" class="md-skip">
+        <a href="#install-percona-distribution-for-postgresql-from-binary-tarballs" class="md-skip">
           Skip to content
         </a>
       
@@ -2694,14 +2694,21 @@
   
 
 
-<h1 id="install-percona-distribiution-for-postgresql-from-binary-tarballs">Install Percona Distribiution for PostgreSQL from binary tarballs<a class="headerlink" href="#install-percona-distribiution-for-postgresql-from-binary-tarballs" title="Permanent link">&para;</a></h1>
-<p>You can find the binary tarballs on the <a href="https://www.percona.com/downloads">Percona website</a>. Select the desired version from a version dropdown and <em>All</em> from the Select Platform dropdown.</p>
-<p>There are the following tarballs available for both x86_64 and ARM64 architectures: </p>
+<h1 id="install-percona-distribution-for-postgresql-from-binary-tarballs">Install Percona Distribution for PostgreSQL from binary tarballs<a class="headerlink" href="#install-percona-distribution-for-postgresql-from-binary-tarballs" title="Permanent link">&para;</a></h1>
+<p>You can download the tarballs using the links below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike package managers, a tarball installation does <strong>not</strong> provide mechanisms to ensure that all dependencies are resolved to the correct library versions. There is no built-in method to verify that required libraries are present or to prevent them from being removed. As a result, unresolved or broken dependencies may lead to errors, crashes, or even data corruption.</p>
+<p>For this reason, tarball installations are <strong>not recommended</strong> for environments where safety, security, reliability, or mission-critical stability are required.</p>
+</div>
+<p>The following tarballs are available for the x86_64 and ARM64 architectures:</p>
 <ul>
-<li>percona-postgresql-13.20-ssl1.1-linux-<architecture>.tar.gz  - for operating systems that run OpenSSL version 1.x</li>
-<li>percona-postgresql-13.20-ssl3-linux-<architecture>.tar.gz - for for operating systems that run OpenSSL version 3.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-13/13.20/binary/tarball/percona-postgresql-13.20-ssl1.1-linux-aarch64.tar.gz">percona-postgresql-13.20-ssl1.1-linux-aarch64.tar.gz</a>  - for operating systems on ARM64 architecture that run OpenSSL version 1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-13/13.20/binary/tarball/percona-postgresql-13.20-ssl1.1-linux-x86_64.tar.gz">percona-postgresql-13.20-ssl1.1-linux-x86_64.tar.gz</a>  - for operating systems on x86_64 architecture that run OpenSSL version 1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-13/13.20/binary/tarball/percona-postgresql-13.20-ssl3-linux-aarch64.tar.gz">percona-postgresql-13.20-ssl3-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-13/13.20/binary/tarball/percona-postgresql-13.20-ssl3-linux-x86_64.tar.gz">percona-postgresql-13.20-ssl3-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.x</li>
 </ul>
-<p>To check what OpenSSL version you have, run the following command: </p>
+<p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
 </code></pre></div>
 <h2 id="tarball-contents">Tarball contents<a class="headerlink" href="#tarball-contents" title="Permanent link">&para;</a></h2>
@@ -2765,7 +2772,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Uninstall the upstream PostgreSQL package. </li>
+<li>Uninstall the upstream PostgreSQL package.</li>
 <li>
 <p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>. Run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>mypguser
@@ -2777,7 +2784,7 @@
 </ol>
 </div>
 <div class="tabbed-block">
-<p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>, Run the following command: </p>
+<p>Create the user to own the PostgreSQL process. For example, <code>mypguser</code>, Run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>mypguser<span class="w"> </span>-m<span class="w"> </span>
 </code></pre></div>
 <p>Set the password for the user:</p>
@@ -2798,7 +2805,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>Fetch the binary tarball:</p>
+<p>Fetch the binary tarball.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-13/13.20/binary/tarball/percona-postgresql-13.20-ssl3-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
@@ -2808,7 +2815,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>If you extracted the tarball in a directory other than <code>/opt</code>, copy <code>percona-python3</code>, <code>percona-tcl</code> and <code>percona-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules. </p>
+<p>If you extracted the tarball in a directory other than <code>/opt</code>, copy <code>percona-python3</code>, <code>percona-tcl</code> and <code>percona-perl</code> to the <code>/opt</code> directory. This is required for the correct run of libraries that require those modules.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>&lt;path_to&gt;/percona-perl<span class="w"> </span>&lt;path_to&gt;/percona-python3<span class="w"> </span>&lt;path_to&gt;/percona-tcl<span class="w"> </span>/opt/
 </code></pre></div>
 </li>
@@ -2900,7 +2907,7 @@ postgres=#
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 08:59:18">April 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 28, 2025 07:54:43">April 28, 2025</span>
   </span>
 
     
