@@ -1,8 +1,8 @@
-# Percona Distribution for PostgreSQL 17.4.1 ({{date.17_4}})
+# Percona Distribution for PostgreSQL 17.5.1 ({{date.17_5}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.4.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.4](https://www.postgresql.org/docs/17/release-17-4.html). 
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
 
 ## Release Highlights
 
@@ -49,9 +49,8 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 267 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
 | [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)          | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
 
-
-For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters. 
+For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/17/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."
