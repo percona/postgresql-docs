@@ -1,10 +1,10 @@
-# Percona Distribution for PostgreSQL 16.8 ({{date.16_8}})
+# Percona Distribution for PostgreSQL 16.9 ({{date.16_9}})
 
 [Installation](installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.7](https://www.postgresql.org/docs/16/release-16-7.html) and PostgreSQL 16.8. 
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.7](https://www.postgresql.org/docs/16/release-16-7.html) and PostgreSQL 16.8.
 
 ## Release Highlights
 
@@ -17,7 +17,7 @@ This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/C
 * You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](docker.md) for how to get started.
 
 ### PostGIS is included into tarballs
- 
+
 We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](solutions/postgis.md)
 
 ### Deprecation of meta packages
@@ -32,26 +32,24 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension           | Version        | Description                  |
 | ------------------- | -------------- | ---------------------------- |
-| [etcd](https://etcd.io/)| 3.5.18 | A distributed, reliable key-value store for setting up high available Patroni clusters |
-| [HAProxy](http://www.haproxy.org/) | 2.8.13 | a high-availability and load-balancing solution |
-| [Patroni](https://patroni.readthedocs.io/en/latest/) | 4.0.4 | a HA (High Availability) solution for PostgreSQL |
-| [PgAudit](https://www.pgaudit.org/) | 16   | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
+| [etcd](https://etcd.io/)| 3.5.21 | A distributed, reliable key-value store for setting up high available Patroni clusters |
+| [HAProxy](http://www.haproxy.org/) | 2.8.15 | a high-availability and load-balancing solution |
+| [Patroni](https://patroni.readthedocs.io/en/latest/) | 4.0.5 | a HA (High Availability) solution for PostgreSQL |
+| [PgAudit](https://www.pgaudit.org/) | 16.1 | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.1.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
-| [pgBackRest](https://pgbackrest.org/) | 2.54.2 | a backup and restore solution for PostgreSQL |
-| [pgBadger](https://github.com/darold/pgbadger) | 13.0 | a fast PostgreSQL Log Analyzer. |
-| [PgBouncer](https://www.pgbouncer.org/) | 1.24.0 | a lightweight connection pooler for PostgreSQL |
-| [pg_gather](https://github.com/jobinau/pg_gather) | v29 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
-| [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.5.5 | a middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing. |
+| [pgBackRest](https://pgbackrest.org/) | 2.55.0 | a backup and restore solution for PostgreSQL |
+| [pgBadger](https://github.com/darold/pgbadger) | 13.1 | a fast PostgreSQL Log Analyzer. |
+| [PgBouncer](https://www.pgbouncer.org/) | 1.24.1 | a lightweight connection pooler for PostgreSQL |
+| [pg_gather](https://github.com/jobinau/pg_gather) | v30 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
+| [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.0 | a middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing. |
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.5.2 | rebuilds PostgreSQL database objects |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | {{pgsmversion}} | collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pgvector](https://github.com/pgvector/pgvector) | v0.8.0 | A vector similarity search for PostgreSQL |
 | [PostGIS](https://github.com/postgis/postgis) | 3.3.8 | a spatial extension for PostgreSQL. |
-| [PostgreSQL Commons](https://salsa.debian.org/postgresql/postgresql-common) | 267 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
+| [PostgreSQL Commons](https://salsa.debian.org/postgresql/postgresql-common) | 277 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
 | [wal2json](https://github.com/eulerto/wal2json) | 2.6 | a PostgreSQL logical decoding JSON output plugin |
 
+For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
-For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters. 
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/16/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."
