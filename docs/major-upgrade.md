@@ -234,107 +234,126 @@ Run **all** commands as root or via **sudo**:
 
 2. Set up Percona Distribution for PostgreSQL 16 cluster
 
-   * Log is as the postgres user
+    * Log is as the postgres user
 
-      ```{.bash data-prompt="$"}
-      $ sudo su postgres
-      ```
+        ```{.bash data-prompt="$"}
+        $ sudo su postgres
+        ```
 
-   * Set up locale settings
+    * Check if you can upgrade Percona Distribution for PostgreSQL from 15 to 16:
 
-      ```
-      export LC_ALL="en_US.UTF-8"
-      export LC_CTYPE="en_US.UTF-8"
-      ```
+        ```bash
+        $ pg_upgradecluster 15 main --check
+        # Sample output: pg_upgradecluster pre-upgrade checks ok
+        ```
 
-   * Initialize cluster with the new data directory
+        !!! note
+            The --check flag here instructs `pg_upgrade` to only check the upgrade without changing any data.
 
-      ```{.bash data-prompt="$"}
-      $ /usr/pgsql-16/bin/initdb -D /var/lib/pgsql/16/data
-      ```
+    * Upgrade the Percona Distribution for PostgreSQL:
 
+        ```bash
+        $ pg_upgradecluster 15 main
+        ```
 
-3. Stop the `postgresql` 15 service
+        <details>
+          <summary>Sample output (click to expand)</summary>
+          ```bash
+          Upgrading cluster 15/main to 16/main ...
+          Stopping old cluster...
+          Restarting old cluster with restricted connections...
+          ...
+          Success. Please check that the upgraded cluster works. If it does,
+          you can remove the old cluster with:
+              pg_dropcluster 15 main
 
-    ```{.bash data-prompt="$"}
-    $ systemctl stop postgresql-15
-    ```
+          Ver Cluster Port Status Owner    Data directory              Log file
+          16  main    5432 online postgres /var/lib/postgresql/16/main /var/log/postgresql/postgresql-16-main.log
 
+          Sample output:
+          Upgrading cluster 15/main to 16/main ...
+          Stopping old cluster...
+          Restarting old cluster with restricted connections...
+          Notice: extra pg_ctl/postgres options given, bypassing systemctl for start operation
+          Creating new PostgreSQL cluster 16/main ...
+          /usr/lib/postgresql/16/bin/initdb -D /var/lib/postgresql/16/main --auth-local peer --auth-host scram-sha-256 --no-instructions --encoding UTF8 --lc-collate C.UTF-8 --lc-ctype C.UTF-8 --locale-provider libc
+          The files belonging to this database system will be owned by user "postgres".
+          This user must also own the server process.
 
-4. Run the database upgrade.
+          The database cluster will be initialized with locale "C.UTF-8".
+          The default text search configuration will be set to "english".
 
+          Data page checksums are disabled.
 
-    * Log in as the `postgres` user
+          fixing permissions on existing directory /var/lib/postgresql/16/main ... ok
+          creating subdirectories ... ok
+          selecting dynamic shared memory implementation ... posix
+          selecting default max_connections ... 100
+          selecting default shared_buffers ... 128MB
+          selecting default time zone ... Etc/UTC
+          creating configuration files ... ok
+          running bootstrap script ... ok
+          performing post-bootstrap initialization ... ok
+          syncing data to disk ... ok
 
-       ```{.bash data-prompt="$"}
-       $ sudo su postgres
-       ```
+          Copying old configuration files...
+          Copying old start.conf...
+          Copying old pg_ctl.conf...
+          Starting new cluster...
+          Notice: extra pg_ctl/postgres options given, bypassing systemctl for start operation
+          Running init phase upgrade hook scripts ...
 
+          Roles, databases, schemas, ACLs...
+          set_config
+          ------------
 
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:
+          (1 row)
 
-       ```{.bash data-prompt="$"}
-       $ /usr/pgsql-16/bin/pg_upgrade \
-       --old-bindir /usr/pgsql-15/bin \
-       --new-bindir /usr/pgsql-16/bin  \
-       --old-datadir /var/lib/pgsql/15/data \
-       --new-datadir /var/lib/pgsql/16/data \
-       --check
-       ```
+          set_config
+          ------------
 
-       The `--check` flag here instructs `pg_upgrade` to only check the upgrade without changing any data.
+          (1 row)
 
-       **Sample output**
+          Fixing hardcoded library paths for stored procedures...
+          Upgrading database template1...
+          Fixing hardcoded library paths for stored procedures...
+          Upgrading database postgres...
+          Stopping target cluster...
+          Stopping old cluster...
+          Disabling automatic startup of old cluster...
+          Starting upgraded cluster on port 5432...
+          Running finish phase upgrade hook scripts ...
+          vacuumdb: processing database "postgres": Generating minimal optimizer statistics (1 target)
+          vacuumdb: processing database "template1": Generating minimal optimizer statistics (1 target)
+          vacuumdb: processing database "postgres": Generating medium optimizer statistics (10 targets)
+          vacuumdb: processing database "template1": Generating medium optimizer statistics (10 targets)
+          vacuumdb: processing database "postgres": Generating default (full) optimizer statistics
+          vacuumdb: processing database "template1": Generating default (full) optimizer statistics
 
-       ```
-       Performing Consistency Checks
-       -----------------------------
-       Checking cluster versions                                   ok
-       Checking database user is the install user                  ok
-       Checking database connection settings                       ok
-       Checking for prepared transactions                          ok
-       Checking for reg* data types in user tables                 ok
-       Checking for contrib/isn with bigint-passing mismatch       ok
-       Checking for tables WITH OIDS                               ok
-       Checking for invalid "sql_identifier" user columns          ok
-       Checking for presence of required libraries                 ok
-       Checking database user is the install user                  ok
-       Checking for prepared transactions                          ok
+          Success. Please check that the upgraded cluster works. If it does,
+          you can remove the old cluster with
+              pg_dropcluster 15 main
 
-       *Clusters are compatible*
-       ```
+          Ver Cluster Port Status Owner    Data directory              Log file
+          15  main    5433 down   postgres /var/lib/postgresql/15/main /var/log/postgresql/postgresql-15-main.log
+          Ver Cluster Port Status Owner    Data directory              Log file
+          16  main    5432 online postgres /var/lib/postgresql/16/main /var/log/postgresql/postgresql-16-main.log
+          ```
+        </details>
 
-
-    * Upgrade the Percona Distribution for PostgreSQL
-
-       ```{.bash data-prompt="$"}
-       $ /usr/pgsql-16/bin/pg_upgrade \
-       --old-bindir /usr/pgsql-15/bin \
-       --new-bindir /usr/pgsql-16/bin  \
-       --old-datadir /var/lib/pgsql/15/data \
-       --new-datadir /var/lib/pgsql/16/data \
-       --link 
-       ```
-
-       The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
-       If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
-
-
-5. Start the `postgresql` 16 service.
+3. Start the `postgresql` 16 service:
 
     ```{.bash data-prompt="$"}
     $ systemctl start postgresql-16
     ```
 
-6. Check postgresql status
+4. Check `postgresql` status:
 
     ```{.bash data-prompt="$"}
     $ systemctl status postgresql-16
     ```
 
-
-7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
-
+5. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
 
     * Log in as the postgres user
 
@@ -348,16 +367,17 @@ Run **all** commands as root or via **sudo**:
        $ /usr/pgsql-16/bin/vacuumdb --all --analyze-in-stages
        ```
 
-
-8. Delete Percona Distribution for PostgreSQL 15 configuration files
+6. Delete Percona Distribution for PostgreSQL 15 configuration files
 
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
     ```
 
+7. Delete the old cluster's data files:
 
-9. Delete Percona Distribution old data files
+    !!! note
+        Before deleting old cluster, please make sure new upgraded cluster is working fine. Leaving old cluster as it is will have no impact on your new upgraded cluster
 
-       ```{.bash data-prompt="$"}
-       $ rm -rf /var/lib/pgsql/15/data
-       ```
+      ```{.bash data-prompt="$"}
+      $ pg_dropcluster 15 main
+      ```
