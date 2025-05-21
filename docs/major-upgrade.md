@@ -60,7 +60,7 @@ Run **all** commands as root or via **sudo**:
 
 
     * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html). If you have installed it before, [update it to the latest version](https://docs.percona.com/percona-software-repositories/updating.html)
-    
+
     * Enable Percona repository:
 
       ```{.bash data-prompt="$"}
