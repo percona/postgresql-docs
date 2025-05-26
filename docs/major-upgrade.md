@@ -226,7 +226,6 @@ Run **all** commands as root or via **sudo**:
 
 1. Install Percona Distribution for PostgreSQL 16 packages
 
-
     * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
     
     * Enable Percona repository:
@@ -234,7 +233,6 @@ Run **all** commands as root or via **sudo**:
        ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-16
        ```
-
 
     * Install Percona Distribution for PostgreSQL 16:
 
@@ -263,23 +261,19 @@ Run **all** commands as root or via **sudo**:
       $ /usr/pgsql-16/bin/initdb -D /var/lib/pgsql/16/data
       ```
 
-
 3. Stop the `postgresql` 15 service
 
     ```{.bash data-prompt="$"}
     $ systemctl stop postgresql-15
     ```
 
-
 4. Run the database upgrade.
-
 
     * Log in as the `postgres` user
 
        ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
-
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 15 to 16:
 
@@ -314,7 +308,6 @@ Run **all** commands as root or via **sudo**:
        *Clusters are compatible*
        ```
 
-
     * Upgrade the Percona Distribution for PostgreSQL
 
        ```{.bash data-prompt="$"}
@@ -329,7 +322,6 @@ Run **all** commands as root or via **sudo**:
        The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
        If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
 
-
 5. Start the `postgresql` 16 service.
 
     ```{.bash data-prompt="$"}
@@ -342,9 +334,7 @@ Run **all** commands as root or via **sudo**:
     $ systemctl status postgresql-16
     ```
 
-
 7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
-
 
     * Log in as the postgres user
 
@@ -358,13 +348,11 @@ Run **all** commands as root or via **sudo**:
        $ /usr/pgsql-16/bin/vacuumdb --all --analyze-in-stages
        ```
 
-
 8. Delete Percona Distribution for PostgreSQL 15 configuration files
 
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
     ```
-
 
 9. Delete Percona Distribution old data files
 
