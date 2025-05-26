@@ -35,7 +35,7 @@ Do the following steps on the `backup` node.
 1. Create environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
-    export SRV_NAME="bkp-srv"
+    export SRV_NAME="backup"
     export NODE1_NAME="node1"
     export NODE2_NAME="node2"
     export NODE3_NAME="node3"
@@ -56,7 +56,7 @@ Do the following steps on the `backup` node.
 
 3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but some systems continue to use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. If the former is not present in your system, create the latter.
 
-    Access the file's parent directory (either `cd /etc/` or `cd /etc/pgbackrest/`), and make a backup copy of it:
+    Go to the file's parent directory (either `cd /etc/` or `cd /etc/pgbackrest/`), and make a backup copy of it:
 
     ```{.bash data-prompt="$"}
     $ sudo cp pgbackrest.conf pgbackrest.conf.orig
@@ -92,7 +92,7 @@ Do the following steps on the `backup` node.
         repo1-retention-full=4 
     
         # Server general options
-        process-max=12
+        process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
         log-level-console=info
         #log-level-file=debug
         log-level-file=info
@@ -174,7 +174,7 @@ Do the following steps on the `backup` node.
         repo1-retention-full=4 
     
         # Server general options
-        process-max=12
+        process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
         log-level-console=info
         #log-level-file=debug
         log-level-file=info
@@ -340,7 +340,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
     ```{.bash data-prompt="$"}
     $ export NODE_NAME=`hostname -f`
-    $ export SRV_NAME="bkp-srv"
+    $ export SRV_NAME="backup"
     $ export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
     
@@ -379,7 +379,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         repo1-host-ca-file=${CA_PATH}/ca.crt
     
         # general options
-        process-max=16
+        process-max=6
         log-level-console=info
         log-level-file=debug
     
@@ -409,7 +409,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         repo1-host-ca-file=${CA_PATH}/ca.crt
     
         # general options
-        process-max=16
+        process-max=6
         log-level-console=info
         log-level-file=debug
     
@@ -508,7 +508,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
 11. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
 
     ```{.bash data-prompt="$"}
-    $ patronictl -c /etc/patroni/patroni.yml reload cluster_1
+    $ patronictl -c /etc/patroni/patroni.yml restart cluster_1
     ```
 
     It may take a while to reload the new configuration.
