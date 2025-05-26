@@ -3,17 +3,15 @@
 This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade`
 tool.
 
-!!! important
+To ensure a smooth upgrade path, follow these steps:
 
+* Upgrade to the latest minor version within your current major version (e.g., from 13.20 to 13.21).
+* Then, perform the major upgrade to your desired version (e.g., from 13.21 to 14.18).
+
+!!! note
     When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
 
     Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. 
-
-    To ensure a smooth upgrade path, follow these steps:
-
-    * Upgrade to the latest minor version within your current major version (e.g., from 13.14 to 13.15).
-    * Then, perform the major upgrade to your desired version (e.g., from 13.15 to 14.12).
-
 
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
@@ -29,25 +27,18 @@ Similar to installing, we recommend you to upgrade Percona Distribution for Post
 
 The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:
 
-
 1. Install Percona Distribution for PostgreSQL 14 packages.
-
 
 2. Stop the PostgreSQL service.
 
-
 3. Check the upgrade without modifying the data.
-
 
 4. Upgrade Percona Distribution for PostgreSQL.
 
-
 5. Start PostgreSQL service.
-
 
 6. Execute the  **analyze_new_cluster.sh** script to generate statistics
 so the system is usable.
-
 
 7. Delete old packages and configuration files.
 
@@ -60,16 +51,18 @@ Run **all** commands as root or via **sudo**:
 
 1. Install Percona Distribution for PostgreSQL 14 packages.
 
+    !!! note
+        When installing version 14, if prompted via a pop-up to upgrade to the latest available version, select **No**.
 
-    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html). If you have installed it before, [update it to the latest version](https://docs.percona.com/percona-software-repositories/updating.html)
-    
-    * Enable Percona repository:
+    * [Install percona-release :octicons-link-external-14:](https://docs.percona.com/percona-software-repositories/installing.html). If you have installed it before, [update it to the latest version](https://docs.percona.com/percona-software-repositories/updating.html)
+
+    * Enable Percona repository
 
       ```{.bash data-prompt="$"}
       $ sudo percona-release setup ppg-14
       ```
 
-    * Install Percona Distribution for PostgreSQL 14 package:
+    * Install Percona Distribution for PostgreSQL 14 package
 
       ```{.bash data-prompt="$"}
       $ sudo apt install percona-postgresql-14
@@ -83,95 +76,113 @@ Run **all** commands as root or via **sudo**:
 
     This stops both Percona Distribution for PostgreSQL 13 and 14.
 
-
 3. Run the database upgrade.
 
+    * Log in as the `postgres` user
 
-    * Log in as the `postgres` user.
+    ```{.bash data-prompt="$"}
+    $ sudo su postgres
+    ```
 
-      ```{.bash data-prompt="$"}
-      $ sudo su postgres
-      ```
+    * Check if you can upgrade Percona Distribution for PostgreSQL from 13 to 14
 
+    ```bash
+    $ pg_upgradecluster 13 main --check
+    # Sample output: pg_upgradecluster pre-upgrade checks ok
+    ```
 
-    * Change the current directory to the `tmp` directory where logs and some scripts will be recorded:
-
-      ```{.bash data-prompt="$"}
-      $ cd tmp/
-      ```
-
-
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:
-
-      ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/14/bin/pg_upgrade \
-      --old-datadir=/var/lib/postgresql/13/main \
-      --new-datadir=/var/lib/postgresql/14/main  \
-      --old-bindir=/usr/lib/postgresql/13/bin  \
-      --new-bindir=/usr/lib/postgresql/14/bin  \
-      --old-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
-      --new-options '-c config_file=/etc/postgresql/14/main/postgresql.conf' \
-      --check
-      ```
-
-      The `--check` flag here instructs `pg_upgrade` to only check the upgrade without changing any data.
-
-      **Sample output**
-
-      ```
-      Performing Consistency Checks
-      -----------------------------
-      Checking cluster versions                                   ok
-      Checking database user is the install user                  ok
-      Checking database connection settings                       ok
-      Checking for prepared transactions                          ok
-      Checking for reg* data types in user tables                 ok
-      Checking for contrib/isn with bigint-passing mismatch       ok
-      Checking for tables WITH OIDS                               ok
-      Checking for invalid "sql_identifier" user columns          ok
-      Checking for presence of required libraries                 ok
-      Checking database user is the install user                  ok
-      Checking for prepared transactions                          ok
-
-      *Clusters are compatible*
-      ```
-
+    The `--check` flag here instructs `pg_upgrade` to only check the upgrade without changing any data.
 
     * Upgrade the Percona Distribution for PostgreSQL
 
-      ```{.bash data-prompt="$"}
-      $ /usr/lib/postgresql/14/bin/pg_upgrade
-      --old-datadir=/var/lib/postgresql/13/main \
-      --new-datadir=/var/lib/postgresql/14/main  \
-      --old-bindir=/usr/lib/postgresql/13/bin  \
-      --new-bindir=/usr/lib/postgresql/14/bin  \
-      --old-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
-      --new-options '-c config_file=/etc/postgresql/14/main/postgresql.conf' \
-      --link
-      ```
+    ```bash
+    $ pg_upgradecluster 13 main
+    ```
 
-      The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
+      <details>
+        <summary>Sample output (click to expand)</summary>
+        ```bash
+        Upgrading cluster 13/main to 14/main ...
+        Stopping old cluster...
+        Restarting old cluster with restricted connections...
+        ...
+        Success. Please check that the upgraded cluster works. If it does,
+        you can remove the old cluster with:
+            pg_dropcluster 13 main
 
-      If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
+        Ver Cluster Port Status Owner    Data directory              Log file
+        14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log
 
+        Sample output:
+        Upgrading cluster 13/main to 14/main ...
+        Stopping old cluster...
+        Restarting old cluster with restricted connections...
+        Notice: extra pg_ctl/postgres options given, bypassing systemctl for start operation
+        Creating new PostgreSQL cluster 14/main ...
+        /usr/lib/postgresql/14/bin/initdb -D /var/lib/postgresql/14/main --auth-local peer --auth-host scram-sha-256 --no-instructions --encoding UTF8 --lc-collate C.UTF-8 --lc-ctype C.UTF-8 --locale-provider libc
+        The files belonging to this database system will be owned by user "postgres".
+        This user must also own the server process.
 
-    * Go back to the regular user:
+        The database cluster will be initialized with locale "C.UTF-8".
+        The default text search configuration will be set to "english".
 
+        Data page checksums are disabled.
 
-      ```{.bash data-prompt="$"}
-      $ exit
-      ```
+        fixing permissions on existing directory /var/lib/postgresql/14/main ... ok
+        creating subdirectories ... ok
+        selecting dynamic shared memory implementation ... posix
+        selecting default max_connections ... 100
+        selecting default shared_buffers ... 128MB
+        selecting default time zone ... Etc/UTC
+        creating configuration files ... ok
+        running bootstrap script ... ok
+        performing post-bootstrap initialization ... ok
+        syncing data to disk ... ok
 
+        Copying old configuration files...
+        Copying old start.conf...
+        Copying old pg_ctl.conf...
+        Starting new cluster...
+        Notice: extra pg_ctl/postgres options given, bypassing systemctl for start operation
+        Running init phase upgrade hook scripts ...
 
-    * The Percona Distribution for PostgreSQL 13 uses the `5432` port while the Percona Distribution for PostgreSQL 14 is set up to use the `5433` port by default. To start the Percona Distribution for PostgreSQL 14, swap ports in the configuration files of both versions.
+        Roles, databases, schemas, ACLs...
+        set_config
+        ------------
 
-      ```{.bash data-prompt="$"}
-      $ sudo vim /etc/postgresql/14/main/postgresql.conf
-      $ port = 5433 # Change to 5432 here
-      $ sudo vim /etc/postgresql/13/main/postgresql.conf
-      $ port = 5432 # Change to 5433 here
-      ```
+        (1 row)
 
+        set_config
+        ------------
+
+        (1 row)
+
+        Fixing hardcoded library paths for stored procedures...
+        Upgrading database template1...
+        Fixing hardcoded library paths for stored procedures...
+        Upgrading database postgres...
+        Stopping target cluster...
+        Stopping old cluster...
+        Disabling automatic startup of old cluster...
+        Starting upgraded cluster on port 5432...
+        Running finish phase upgrade hook scripts ...
+        vacuumdb: processing database "postgres": Generating minimal optimizer statistics (1 target)
+        vacuumdb: processing database "template1": Generating minimal optimizer statistics (1 target)
+        vacuumdb: processing database "postgres": Generating medium optimizer statistics (10 targets)
+        vacuumdb: processing database "template1": Generating medium optimizer statistics (10 targets)
+        vacuumdb: processing database "postgres": Generating default (full) optimizer statistics
+        vacuumdb: processing database "template1": Generating default (full) optimizer statistics
+
+        Success. Please check that the upgraded cluster works. If it does,
+        you can remove the old cluster with
+            pg_dropcluster 13 main
+
+        Ver Cluster Port Status Owner    Data directory              Log file
+        13  main    5433 down   postgres /var/lib/postgresql/13/main /var/log/postgresql/postgresql-13-main.log
+        Ver Cluster Port Status Owner    Data directory              Log file
+        14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log
+        ```
+      </details>
 
 4. Start the `postgreqsl` service.
 
@@ -179,35 +190,27 @@ Run **all** commands as root or via **sudo**:
     $ sudo systemctl start postgresql.service
     ```
 
-
 5. Check the `postgresql` version.
 
     * Log in as a postgres user
- 
+
        ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
 
     * Check the database version
-    
+
        ```{.bash data-prompt="$"}
        $ psql -c "SELECT version();"
        ```
 
+6. Delete the old cluster's data files.
 
-6. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
+    !!! note
+        Before deleting the old cluster, verify that the newly upgraded cluster is fully operational. Keeping the old cluster does not negatively affect the functionality or performance of your upgraded cluster.
 
     ```{.bash data-prompt="$"}
-    $ /usr/lib/postgresql/14/bin/vacuumdb --all --analyze-in-stages
-    ```
-
-7. Delete the old cluster's data files:
-    
-    ```{.bash data-prompt="$"}
-    $ ./delete_old_cluster.sh
-    $ sudo rm -rf /etc/postgresql/13/main
-    $ #Logout
-    $ exit
+    $ pg_dropcluster 13 main
     ```
 
 ## On Red Hat Enterprise Linux and derivatives using `yum`
@@ -217,15 +220,13 @@ Run **all** commands as root or via **sudo**:
 
 1. Install Percona Distribution for PostgreSQL 14 packages
 
-
     * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
-    
+
     * Enable Percona repository:
 
        ```{.bash data-prompt="$"}
        $ sudo percona-release setup ppg-14
        ```
-
 
     * Install Percona Distribution for PostgreSQL 14:
 
@@ -262,13 +263,11 @@ Run **all** commands as root or via **sudo**:
 
 4. Run the database upgrade.
 
-
     * Log in as the `postgres` user
 
        ```{.bash data-prompt="$"}
        $ sudo su postgres
        ```
-
 
     * Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:
 
@@ -303,7 +302,6 @@ Run **all** commands as root or via **sudo**:
        *Clusters are compatible*
        ```
 
-
     * Upgrade the Percona Distribution for PostgreSQL
 
        ```{.bash data-prompt="$"}
@@ -318,7 +316,6 @@ Run **all** commands as root or via **sudo**:
        The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
        If you don’t wish to use the `--link` option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.
 
-
 5. Start the `postgresql` 14 service.
 
     ```{.bash data-prompt="$"}
@@ -331,9 +328,7 @@ Run **all** commands as root or via **sudo**:
     $ systemctl status postgresql-14
     ```
 
-
 7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
-
 
     * Log in as the postgres user
 
@@ -347,13 +342,11 @@ Run **all** commands as root or via **sudo**:
        $ /usr/pgsql-14/bin/vacuumdb --all --analyze-in-stages
        ```
 
-
 8. Delete Percona Distribution for PostgreSQL 13 configuration files
 
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
     ```
-
 
 9. Delete Percona Distribution old data files
     

@@ -4,7 +4,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.16](https://www.postgresql.org/docs/14/release-14-16.html) and PostgreSQL 14.17.
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.17](https://www.postgresql.org/docs/14/release-14-17.html) and [PostgreSQL 14.18](https://www.postgresql.org/docs/14/release-14-18.html).
 
 ## Release Highlights
 
@@ -23,6 +23,10 @@ We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an 
 ### Deprecation of meta packages
 
 [Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
+
+### Updated Major upgrade topic in documentation
+
+The [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
 
 ## Supplied third-party extensions
 
