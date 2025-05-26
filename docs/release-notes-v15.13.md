@@ -4,7 +4,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.11](https://www.postgresql.org/docs/current/release-15-11.html) and [PostgreSQL 15.12](https://www.postgresql.org/docs/current/release-15-12.html).
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.12](https://www.postgresql.org/docs/current/release-15-12.html) and [PostgreSQL 15.13](https://www.postgresql.org/docs/current/release-15-13.html).
 
 ## Release Highlights
 
@@ -19,6 +19,10 @@ This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/C
 ### PostGIS is included into tarballs
 
 We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](solutions/postgis.md).
+
+### Updated Major upgrade topic in documentation
+
+The [Upgrading Percona Distribution for PostgreSQL from 14 to 15](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
 
 ## Deprecation of meta packages
 
