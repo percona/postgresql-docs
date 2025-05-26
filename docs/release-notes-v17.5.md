@@ -28,7 +28,7 @@ We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an 
 
 ### Updated Major upgrade topic in documentation
 
-The [Upgrading Percona Distribution for PostgreSQL from 15 to 16](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
 
 ## Supplied third-party extensions
 
