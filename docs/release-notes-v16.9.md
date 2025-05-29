@@ -8,8 +8,6 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.9
 
 ## Release Highlights
 
-This release is based on and extends the functionality of [Percona Distribution for PostgreSQL 16.9](https://docs.percona.com/postgresql/16/release-notes-v16.9.html).
-
 ### Updated Major upgrade topic in documentation
 
 The [Upgrading Percona Distribution for PostgreSQL from 15 to 16](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
