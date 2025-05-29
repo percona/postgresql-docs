@@ -1672,33 +1672,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#improved-security-and-user-experience-for-docker-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      Improved security and user experience for Docker images
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#postgis-is-included-into-tarballs" class="md-nav__link">
-    <span class="md-ellipsis">
-      PostGIS is included into tarballs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deprecation-of-meta-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deprecation of meta packages
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#updated-major-upgrade-topic-in-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Updated Major upgrade topic in documentation
@@ -1709,15 +1682,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supplied-third-party-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supplied third-party extensions
-    </span>
-  </a>
   
 </li>
       
@@ -1974,33 +1938,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#improved-security-and-user-experience-for-docker-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      Improved security and user experience for Docker images
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#postgis-is-included-into-tarballs" class="md-nav__link">
-    <span class="md-ellipsis">
-      PostGIS is included into tarballs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deprecation-of-meta-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deprecation of meta packages
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#updated-major-upgrade-topic-in-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       Updated Major upgrade topic in documentation
@@ -2011,15 +1948,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supplied-third-party-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supplied third-party extensions
-    </span>
-  </a>
   
 </li>
       
@@ -2073,26 +2001,10 @@
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/17/release-17-5.html">PostgreSQL Community 17.5</a>.</p>
 <h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<p>This release fixes <a href="https://www.postgresql.org/support/security/CVE-2025-1094/">CVE-2025-1094</a>, which closed a vulnerability in the <code>libpq</code> PostgreSQL client library but introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 17.3 was skipped.</p>
 <h3 id="a-new-version-of-pg_tde">A new version of <code>pg_tde</code><a class="headerlink" href="#a-new-version-of-pg_tde" title="Permanent link">&para;</a></h3>
 <p>Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of <code>pg_tde</code> extension that brings in Transparent Data Encryption. This version of <code>pg_tde</code> provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the <a href="https://docs.percona.com/pg-tde/release-notes/rc2.html"><code>pg_tde</code> release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.  </p>
-<h3 id="improved-security-and-user-experience-for-docker-images">Improved security and user experience for Docker images<a class="headerlink" href="#improved-security-and-user-experience-for-docker-images" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.</p>
-</li>
-<li>
-<p>You no longer have to specify the <code>17.5-multi</code> tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the <code>percona/percona-distribution-postgresql:17.5</code>. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to <a href="docker.html">Run in Docker</a> for how to get started.</p>
-</li>
-</ul>
-<h3 id="postgis-is-included-into-tarballs">PostGIS is included into tarballs<a class="headerlink" href="#postgis-is-included-into-tarballs" title="Permanent link">&para;</a></h3>
-<p>We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about <a href="tarball.html">installing from tarballs</a> and <a href="solutions/postgis.html">Spacial data manipulation</a>.</p>
-<h3 id="deprecation-of-meta-packages">Deprecation of meta packages<a class="headerlink" href="#deprecation-of-meta-packages" title="Permanent link">&para;</a></h3>
-<p><a href="repo-overview.html#repository-contents">Meta-packages for Percona Distribution for PostgreSQL</a> are deprecated and will be removed in future releases.</p>
 <h3 id="updated-major-upgrade-topic-in-documentation">Updated Major upgrade topic in documentation<a class="headerlink" href="#updated-major-upgrade-topic-in-documentation" title="Permanent link">&para;</a></h3>
 <p>The <a href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL from 16 to 17</a> guide has been updated with revised steps for the <a href="major-upgrade.html#on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code></a> section, improving clarity and reliability of the upgrade process.</p>
-<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
-<p>Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>
 <thead>
 <tr>
@@ -2205,7 +2117,7 @@ backend server and to receive the results of these queries.&rdquo;</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 29, 2025 07:12:53 UTC">May 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 29, 2025 10:35:20 UTC">May 29, 2025</span>
   </span>
 
     
