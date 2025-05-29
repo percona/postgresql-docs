@@ -6,7 +6,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ## Release Highlights
 
-This release is based on the previous [Percona Distribution for PostgreSQL 17.4.1](https://docs.percona.com/postgresql/17/release-notes-v17.4.html).
+This release is based on and extends the functionality of [Percona Distribution for PostgreSQL 17.4.1](https://docs.percona.com/postgresql/17/release-notes-v17.4.html).
 
 ### A new version of `pg_tde`
 
