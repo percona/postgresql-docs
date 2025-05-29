@@ -88,9 +88,6 @@ The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use
 
 Before step 1 please perform the following steps:
 
-x
-y as a sudo user
-
 1. Create the directory where you will store the binaries. For example, `/opt/pgdistro`
 
 2. Grant access to this directory for the `mypguser` user.
