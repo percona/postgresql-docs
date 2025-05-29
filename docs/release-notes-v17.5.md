@@ -6,33 +6,13 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ## Release Highlights
 
-This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/), which closed a vulnerability in the `libpq` PostgreSQL client library but introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 17.3 was skipped.
-
 ### A new version of `pg_tde`
 
 Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc2.html).  
 
-### Improved security and user experience for Docker images
-
-* Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.
-
-* You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](docker.md) for how to get started.
-
-### PostGIS is included into tarballs
-
-We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](solutions/postgis.md).
-
-### Deprecation of meta packages
-
-[Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
-
 ### Updated Major upgrade topic in documentation
 
 The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
-
-## Supplied third-party extensions
-
-Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
