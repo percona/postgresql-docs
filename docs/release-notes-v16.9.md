@@ -4,11 +4,9 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.8](https://www.postgresql.org/docs/16/release-16-8.html) and [PostgreSQL 16.9](https://www.postgresql.org/docs/16/release-16-9.html).
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.9](https://www.postgresql.org/docs/16/release-16-9.html).
 
 ## Release Highlights
-
-This release is based on and extends the functionality of [Percona Distribution for PostgreSQL 16.8](https://docs.percona.com/postgresql/16/release-notes-v16.8.html).
 
 ### Updated Major upgrade topic in documentation
 
@@ -25,7 +23,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [etcd](https://etcd.io/)| 3.5.21 | A distributed, reliable key-value store for setting up high available Patroni clusters |
 | [HAProxy](http://www.haproxy.org/) | 2.8.15 | a high-availability and load-balancing solution |
 | [Patroni](https://patroni.readthedocs.io/en/latest/) | 4.0.5 | a HA (High Availability) solution for PostgreSQL |
-| [PgAudit](https://www.pgaudit.org/) | 16.1 | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
+| [PgAudit](https://www.pgaudit.org/) | 16.0 | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL                |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.1.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/) | 2.55.0 | a backup and restore solution for PostgreSQL |
 | [pgBadger](https://github.com/darold/pgbadger) | 13.1 | a fast PostgreSQL Log Analyzer. |
