@@ -1,13 +1,14 @@
 # PG Variables set for HTML output
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
-release: 'release-notes-v16.8'
-dockertag: '16.8'
+release: 'release-notes-v16.9'
+dockertag: '16.9'
 pgversion: '16'
 pgsmversion: '2.1.1'
 
 
 date:
+  16_9: 2025-05-29
   16_8: 2025-02-27
   16_6: 2024-12-03
   16_4: 2024-09-10
