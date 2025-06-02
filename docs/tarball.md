@@ -39,13 +39,17 @@ The tarballs include the following components:
 | percona-tcl | Tcl development libraries required to create the `pltcl` extension - a loadable procedural language for the PostgreSQL database system that enables the creation of functions and trigger procedures in the Tcl language |
 | percona-etcd | A key-value distributed store that stores the state of the PostgreSQL cluster|
 
-
 ## Preconditions
 
 === "Debian and Ubuntu"
 
     1. Uninstall the upstream PostgreSQL package.
-    2. Create the user to own the PostgreSQL process. For example, `mypguser`. Run the following command:
+    2. Ensure that the `libreadline` is present on the system, as it is **required** for tarballs to work correctly:
+
+        ```{.bash data-prompt="$"}
+        $ sudo apt install -y libreadline-dev
+        ```
+    3. Create the user to own the PostgreSQL process. For example, `mypguser`. Run the following command:
 
         ```{.bash data-prompt="$"}
         $ sudo useradd -m mypguser
@@ -58,6 +62,12 @@ The tarballs include the following components:
         ```
     
 === "RHEL and derivatives"
+
+    Ensure that the `libreadline` is present on the system, as it is **required** for tarballs to work correctly:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install -y readline-devel
+    ```
 
     Create the user to own the PostgreSQL process. For example, `mypguser`, Run the following command:
         
