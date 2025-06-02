@@ -1,4 +1,6 @@
-# Percona Distribution for PostgreSQL release notes 
+# Percona Distribution for PostgreSQL release notes
+
+* [Percona Distribution for PostgreSQL 15.13](release-notes-v15.13.md) ({{date.15_13}})
 
 * [Percona Distribution for PostgreSQL 15.12](release-notes-v15.12.md) ({{date.15_12}})
 
@@ -25,4 +27,3 @@
 * [Percona Distribution for PostgreSQL 15.1](release-notes-v15.1.md) (2022-11-21)
 
 * [Percona Distribution for PostgreSQL 15](release-notes-v15.0.md) (2022-10-24)
-
