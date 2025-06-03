@@ -26,7 +26,7 @@ tool.">
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -34,7 +34,7 @@ tool.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -1642,6 +1642,29 @@ tool.">
   
   
     <li class="md-nav__item">
+      <a href="release-notes-v14.18.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Percona Distribution for PostgreSQL 14.18 (2025-06-03)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes-v14.17.html" class="md-nav__link">
         
   
@@ -1788,7 +1811,7 @@ tool.">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1805,14 +1828,14 @@ tool.">
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_8" id="__nav_9_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9_9" id="__nav_9_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_9">
             <span class="md-nav__icon md-icon"></span>
             2023 (versions 14.7 - 14.10)
           </label>
@@ -1933,7 +1956,7 @@ tool.">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_10" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1950,14 +1973,14 @@ tool.">
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_9" id="__nav_9_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9_10" id="__nav_9_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_10">
             <span class="md-nav__icon md-icon"></span>
             2022 (versions 14.2 - 14.6)
           </label>
@@ -2078,7 +2101,7 @@ tool.">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_11" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2095,14 +2118,14 @@ tool.">
             </a>
             
               
-              <label class="md-nav__link " for="__nav_9_10" id="__nav_9_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9_11" id="__nav_9_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_11">
             <span class="md-nav__icon md-icon"></span>
             2021 (versions 14.1 - 14.2)
           </label>
@@ -2429,15 +2452,15 @@ tool.">
 <h1 id="upgrading-percona-distribution-for-postgresql-from-13-to-14">Upgrading Percona Distribution for PostgreSQL from 13 to 14<a class="headerlink" href="#upgrading-percona-distribution-for-postgresql-from-13-to-14" title="Permanent link">&para;</a></h1>
 <p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code>
 tool.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
-<p>Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. </p>
 <p>To ensure a smooth upgrade path, follow these steps:</p>
 <ul>
-<li>Upgrade to the latest minor version within your current major version (e.g., from 13.14 to 13.15).</li>
-<li>Then, perform the major upgrade to your desired version (e.g., from 13.15 to 14.12).</li>
+<li>Upgrade to the latest minor version within your current major version (e.g., from 13.20 to 13.21).</li>
+<li>Then, perform the major upgrade to your desired version (e.g., from 13.21 to 14.18).</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
+<p>Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include <code>llvm</code> packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include <code>llvm</code> 12.0.1. Since <code>llvm</code> libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. </p>
 </div>
 <p>The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
 <div class="admonition admonition">
@@ -2480,18 +2503,22 @@ so the system is usable.</p>
 <ol>
 <li>
 <p>Install Percona Distribution for PostgreSQL 14 packages.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When installing version 14, if prompted via a pop-up to upgrade to the latest available version, select <strong>No</strong>.</p>
+</div>
 <ul>
 <li>
-<p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. If you have installed it before, <a href="https://docs.percona.com/percona-software-repositories/updating.html">update it to the latest version</a></p>
+<p><a href="https://docs.percona.com/percona-software-repositories/installing.html">Install percona-release :octicons-link-external-14:</a>. If you have installed it before, <a href="https://docs.percona.com/percona-software-repositories/updating.html">update it to the latest version</a></p>
 </li>
 <li>
-<p>Enable Percona repository:</p>
+<p>Enable Percona repository</p>
 </li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-14
 </code></pre></div>
 <ul>
-<li>Install Percona Distribution for PostgreSQL 14 package:</li>
+<li>Install Percona Distribution for PostgreSQL 14 package</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-14
 </code></pre></div>
@@ -2505,72 +2532,105 @@ so the system is usable.</p>
 <li>
 <p>Run the database upgrade.</p>
 <ul>
-<li>Log in as the <code>postgres</code> user.</li>
+<li>Log in as the <code>postgres</code> user</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>postgres
 </code></pre></div>
 <ul>
-<li>Change the current directory to the <code>tmp</code> directory where logs and some scripts will be recorded:</li>
+<li>Check if you can upgrade Percona Distribution for PostgreSQL from 13 to 14</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>tmp/
-</code></pre></div>
-<ul>
-<li>Check the ability to upgrade Percona Distribution for PostgreSQL from 13 to 14:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/14/bin/pg_upgrade<span class="w"> </span><span class="se">\</span>
---old-datadir<span class="o">=</span>/var/lib/postgresql/13/main<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="o">=</span>/var/lib/postgresql/14/main<span class="w">  </span><span class="se">\</span>
---old-bindir<span class="o">=</span>/usr/lib/postgresql/13/bin<span class="w">  </span><span class="se">\</span>
---new-bindir<span class="o">=</span>/usr/lib/postgresql/14/bin<span class="w">  </span><span class="se">\</span>
---old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---check
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">13</span><span class="w"> </span>main<span class="w"> </span>--check
+<span class="c1"># Sample output: pg_upgradecluster pre-upgrade checks ok</span>
 </code></pre></div>
 <p>The <code>--check</code> flag here instructs <code>pg_upgrade</code> to only check the upgrade without changing any data.</p>
-<p><strong>Sample output</strong></p>
-<div class="highlight"><pre><span></span><code>Performing Consistency Checks
------------------------------
-Checking cluster versions                                   ok
-Checking database user is the install user                  ok
-Checking database connection settings                       ok
-Checking for prepared transactions                          ok
-Checking for reg* data types in user tables                 ok
-Checking for contrib/isn with bigint-passing mismatch       ok
-Checking for tables WITH OIDS                               ok
-Checking for invalid &quot;sql_identifier&quot; user columns          ok
-Checking for presence of required libraries                 ok
-Checking database user is the install user                  ok
-Checking for prepared transactions                          ok
-
-*Clusters are compatible*
-</code></pre></div>
 <ul>
 <li>Upgrade the Percona Distribution for PostgreSQL</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/14/bin/pg_upgrade
---old-datadir<span class="o">=</span>/var/lib/postgresql/13/main<span class="w"> </span><span class="se">\</span>
---new-datadir<span class="o">=</span>/var/lib/postgresql/14/main<span class="w">  </span><span class="se">\</span>
---old-bindir<span class="o">=</span>/usr/lib/postgresql/13/bin<span class="w">  </span><span class="se">\</span>
---new-bindir<span class="o">=</span>/usr/lib/postgresql/14/bin<span class="w">  </span><span class="se">\</span>
---old-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/13/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---new-options<span class="w"> </span><span class="s1">&#39;-c config_file=/etc/postgresql/14/main/postgresql.conf&#39;</span><span class="w"> </span><span class="se">\</span>
---link
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>pg_upgradecluster<span class="w"> </span><span class="m">13</span><span class="w"> </span>main
 </code></pre></div>
-<p>The  <code>--link</code> flag creates hard links to the files on the old version cluster so you don’t need to copy data.</p>
-<p>If you don’t wish to use the <code>--link</code> option, make sure that you have enough disk space to store 2 copies of files for both old version and new version clusters.</p>
-<ul>
-<li>Go back to the regular user:</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">exit</span>
+<p><details>
+    <summary>Sample output (click to expand)</summary>
+    <div class="highlight"><pre><span></span><code>Upgrading<span class="w"> </span>cluster<span class="w"> </span><span class="m">13</span>/main<span class="w"> </span>to<span class="w"> </span><span class="m">14</span>/main<span class="w"> </span>...
+Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
+Restarting<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with<span class="w"> </span>restricted<span class="w"> </span>connections...
+...
+Success.<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>works.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>does,
+you<span class="w"> </span>can<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with:
+<span class="w">    </span>pg_dropcluster<span class="w"> </span><span class="m">13</span><span class="w"> </span>main
+
+Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> </span>Status<span class="w"> </span>Owner<span class="w">    </span>Data<span class="w"> </span>directory<span class="w">              </span>Log<span class="w"> </span>file
+<span class="m">14</span><span class="w">  </span>main<span class="w">    </span><span class="m">5432</span><span class="w"> </span>online<span class="w"> </span>postgres<span class="w"> </span>/var/lib/postgresql/14/main<span class="w"> </span>/var/log/postgresql/postgresql-14-main.log
+
+Sample<span class="w"> </span>output:
+Upgrading<span class="w"> </span>cluster<span class="w"> </span><span class="m">13</span>/main<span class="w"> </span>to<span class="w"> </span><span class="m">14</span>/main<span class="w"> </span>...
+Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
+Restarting<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with<span class="w"> </span>restricted<span class="w"> </span>connections...
+Notice:<span class="w"> </span>extra<span class="w"> </span>pg_ctl/postgres<span class="w"> </span>options<span class="w"> </span>given,<span class="w"> </span>bypassing<span class="w"> </span>systemctl<span class="w"> </span><span class="k">for</span><span class="w"> </span>start<span class="w"> </span>operation
+Creating<span class="w"> </span>new<span class="w"> </span>PostgreSQL<span class="w"> </span>cluster<span class="w"> </span><span class="m">14</span>/main<span class="w"> </span>...
+/usr/lib/postgresql/14/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/postgresql/14/main<span class="w"> </span>--auth-local<span class="w"> </span>peer<span class="w"> </span>--auth-host<span class="w"> </span>scram-sha-256<span class="w"> </span>--no-instructions<span class="w"> </span>--encoding<span class="w"> </span>UTF8<span class="w"> </span>--lc-collate<span class="w"> </span>C.UTF-8<span class="w"> </span>--lc-ctype<span class="w"> </span>C.UTF-8<span class="w"> </span>--locale-provider<span class="w"> </span>libc
+The<span class="w"> </span>files<span class="w"> </span>belonging<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>owned<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>.
+This<span class="w"> </span>user<span class="w"> </span>must<span class="w"> </span>also<span class="w"> </span>own<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>process.
+
+The<span class="w"> </span>database<span class="w"> </span>cluster<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span>locale<span class="w"> </span><span class="s2">&quot;C.UTF-8&quot;</span>.
+The<span class="w"> </span>default<span class="w"> </span>text<span class="w"> </span>search<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;english&quot;</span>.
+
+Data<span class="w"> </span>page<span class="w"> </span>checksums<span class="w"> </span>are<span class="w"> </span>disabled.
+
+fixing<span class="w"> </span>permissions<span class="w"> </span>on<span class="w"> </span>existing<span class="w"> </span>directory<span class="w"> </span>/var/lib/postgresql/14/main<span class="w"> </span>...<span class="w"> </span>ok
+creating<span class="w"> </span>subdirectories<span class="w"> </span>...<span class="w"> </span>ok
+selecting<span class="w"> </span>dynamic<span class="w"> </span>shared<span class="w"> </span>memory<span class="w"> </span>implementation<span class="w"> </span>...<span class="w"> </span>posix
+selecting<span class="w"> </span>default<span class="w"> </span>max_connections<span class="w"> </span>...<span class="w"> </span><span class="m">100</span>
+selecting<span class="w"> </span>default<span class="w"> </span>shared_buffers<span class="w"> </span>...<span class="w"> </span>128MB
+selecting<span class="w"> </span>default<span class="w"> </span><span class="nb">time</span><span class="w"> </span>zone<span class="w"> </span>...<span class="w"> </span>Etc/UTC
+creating<span class="w"> </span>configuration<span class="w"> </span>files<span class="w"> </span>...<span class="w"> </span>ok
+running<span class="w"> </span>bootstrap<span class="w"> </span>script<span class="w"> </span>...<span class="w"> </span>ok
+performing<span class="w"> </span>post-bootstrap<span class="w"> </span>initialization<span class="w"> </span>...<span class="w"> </span>ok
+syncing<span class="w"> </span>data<span class="w"> </span>to<span class="w"> </span>disk<span class="w"> </span>...<span class="w"> </span>ok
+
+Copying<span class="w"> </span>old<span class="w"> </span>configuration<span class="w"> </span>files...
+Copying<span class="w"> </span>old<span class="w"> </span>start.conf...
+Copying<span class="w"> </span>old<span class="w"> </span>pg_ctl.conf...
+Starting<span class="w"> </span>new<span class="w"> </span>cluster...
+Notice:<span class="w"> </span>extra<span class="w"> </span>pg_ctl/postgres<span class="w"> </span>options<span class="w"> </span>given,<span class="w"> </span>bypassing<span class="w"> </span>systemctl<span class="w"> </span><span class="k">for</span><span class="w"> </span>start<span class="w"> </span>operation
+Running<span class="w"> </span>init<span class="w"> </span>phase<span class="w"> </span>upgrade<span class="w"> </span>hook<span class="w"> </span>scripts<span class="w"> </span>...
+
+Roles,<span class="w"> </span>databases,<span class="w"> </span>schemas,<span class="w"> </span>ACLs...
+set_config
+------------
+
+<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
+
+set_config
+------------
+
+<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
+
+Fixing<span class="w"> </span>hardcoded<span class="w"> </span>library<span class="w"> </span>paths<span class="w"> </span><span class="k">for</span><span class="w"> </span>stored<span class="w"> </span>procedures...
+Upgrading<span class="w"> </span>database<span class="w"> </span>template1...
+Fixing<span class="w"> </span>hardcoded<span class="w"> </span>library<span class="w"> </span>paths<span class="w"> </span><span class="k">for</span><span class="w"> </span>stored<span class="w"> </span>procedures...
+Upgrading<span class="w"> </span>database<span class="w"> </span>postgres...
+Stopping<span class="w"> </span>target<span class="w"> </span>cluster...
+Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
+Disabling<span class="w"> </span>automatic<span class="w"> </span>startup<span class="w"> </span>of<span class="w"> </span>old<span class="w"> </span>cluster...
+Starting<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>on<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span>...
+Running<span class="w"> </span>finish<span class="w"> </span>phase<span class="w"> </span>upgrade<span class="w"> </span>hook<span class="w"> </span>scripts<span class="w"> </span>...
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
+
+Success.<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>works.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>does,
+you<span class="w"> </span>can<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with
+<span class="w">    </span>pg_dropcluster<span class="w"> </span><span class="m">13</span><span class="w"> </span>main
+
+Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> </span>Status<span class="w"> </span>Owner<span class="w">    </span>Data<span class="w"> </span>directory<span class="w">              </span>Log<span class="w"> </span>file
+<span class="m">13</span><span class="w">  </span>main<span class="w">    </span><span class="m">5433</span><span class="w"> </span>down<span class="w">   </span>postgres<span class="w"> </span>/var/lib/postgresql/13/main<span class="w"> </span>/var/log/postgresql/postgresql-13-main.log
+Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> </span>Status<span class="w"> </span>Owner<span class="w">    </span>Data<span class="w"> </span>directory<span class="w">              </span>Log<span class="w"> </span>file
+<span class="m">14</span><span class="w">  </span>main<span class="w">    </span><span class="m">5432</span><span class="w"> </span>online<span class="w"> </span>postgres<span class="w"> </span>/var/lib/postgresql/14/main<span class="w"> </span>/var/log/postgresql/postgresql-14-main.log
 </code></pre></div>
-<ul>
-<li>The Percona Distribution for PostgreSQL 13 uses the <code>5432</code> port while the Percona Distribution for PostgreSQL 14 is set up to use the <code>5433</code> port by default. To start the Percona Distribution for PostgreSQL 14, swap ports in the configuration files of both versions.</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/14/main/postgresql.conf
-$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5433</span><span class="w"> </span><span class="c1"># Change to 5432 here</span>
-$<span class="w"> </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/postgresql/13/main/postgresql.conf
-$<span class="w"> </span><span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5432</span><span class="w"> </span><span class="c1"># Change to 5433 here</span>
-</code></pre></div>
+  </details></p>
 </li>
 <li>
 <p>Start the <code>postgreqsl</code> service.</p>
@@ -2591,16 +2651,12 @@ $<span class="w"> </span><span class="nv">port</span><span class="w"> </span><sp
 </code></pre></div>
 </li>
 <li>
-<p>After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the <code>vaccumdb</code> command to analyze the new cluster:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/lib/postgresql/14/bin/vacuumdb<span class="w"> </span>--all<span class="w"> </span>--analyze-in-stages
-</code></pre></div>
-</li>
-<li>
-<p>Delete the old cluster&rsquo;s data files:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>./delete_old_cluster.sh
-$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc/postgresql/13/main
-$<span class="w"> </span><span class="c1">#Logout</span>
-$<span class="w"> </span><span class="nb">exit</span>
+<p>Delete the old cluster&rsquo;s data files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before deleting the old cluster, verify that the newly upgraded cluster is fully operational. Keeping the old cluster does not negatively affect the functionality or performance of your upgraded cluster.</p>
+</div>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pg_dropcluster<span class="w"> </span><span class="m">13</span><span class="w"> </span>main
 </code></pre></div>
 </li>
 </ol>
@@ -2753,7 +2809,7 @@ Checking for prepared transactions                          ok
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 12, 2024 11:40:25">September 12, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 3, 2025 17:25:17 UTC">June 3, 2025</span>
   </span>
 
     
@@ -2763,7 +2819,7 @@ Checking for prepared transactions                          ok
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2021 05:24:16">June 4, 2021</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2021 05:24:16 UTC">June 4, 2021</span>
   </span>
 
     
@@ -2894,10 +2950,10 @@ Checking for prepared transactions                          ok
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
