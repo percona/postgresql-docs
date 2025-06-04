@@ -21,6 +21,8 @@ This guide provides instructions on how to set up a highly available PostgreSQL 
     | HAProxy3      | 134.60.204.27     | 10.104.0.3
     | backup        | 97.78.129.11      | 10.104.0.9
 
+    We also need a virtual IP address for HAProxy: `203.0.113.1`
+
 
 !!! important
 

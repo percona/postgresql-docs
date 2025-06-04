@@ -38,14 +38,38 @@ HAProxy monitors the health of PostgreSQL nodes using Patroni's API and routes t
 
 ## Redundancy for HAProxy
 
-Using a single HAProxy node in your deployment opens a risk for single point of failure: when HAProxy is down, clinents lose connection to the cluster. To eliminate this risk, add redundancy to HAProxy. To achieve this, you can set up multiple HAProxy instances with a failover mechanism. This ensures that if one HAProxy instance fails, another takes over, maintaining high availability.
+A single HAProxy node creates a single point of failure. If HAProxy goes down, clients lose connection to the cluster. To prevent this, set up multiple HAProxy instances with a failover mechanism. This way, if one instance fails, another takes over automatically.
 
-To make this happen, you need the following:
+To implement HAProxy redundancy:
 
-1. Configure a virtual IP address that can be moved between HAProxy instances.
+1. Set up a virtual IP address that can move between HAProxy instances.
 
-2. Install and configure Keepalived - a failover mechanism for HAProxy. Keepalived monitors the health of HAProxy instances.
-If the primary HAProxy instance fails, Keepalived moves the virtual IP address to a backup instance. 
+2. Install and configure a failover mechanism to monitor HAProxy instances and move the virtual IP to a backup if the primary fails.
 
-3. Ensure that HAProxy configurations are synchronized across all instances to maintain consistency.
+3. Keep HAProxy configurations synchronized across all instances.
+
+!!! note
+
+    In this reference architecture we focus on the on-premises deployment and use Keepalived as the failover mechanism. 
+
+    If you use a cloud infrastructure, it may be easier to use the load balancer provided by the cloud provider to achieve high-availability for HAProxy. 
+
+### How Keepalived works
+
+Keepalived manages failover by moving the virtual IP to a backup HAProxy node when the primary fails.
+
+No matter how many HAProxy nodes you have, only one of them can be a primary and have the MASTER state. All other nodes are BACKUP nodes. They monitor the MASTER state and take over when it is down. 
+
+To determine the MASTER, Keepalived uses the `priority` setting. Every node must have a different priority.
+
+The node with the highest priority becomes the MASTER. Keepalived periodically checks every node's health.
+
+When the MASTER node is down or unavailable, it's priority is lowered so that the next highest priority node becomes the new MASTER and takes over. The priority is adjusted by the value you define in the `weight` setting. 
+
+You must carefully define the `priority` and `weight` values in the configuration. When a primary node is down, its priority must be adjusted to be lower than the active node with the lowest priority by at least 1. 
+
+For example, your nodes have priority 110 and 100. The node with priority 110 is MASTER. When it is down, its priority must be lower than the priority of the remaining node (100). 
+
+When a failed node restores, its priority adjusts again. If it is the highest one among the nodes, this node restores its MASTER state, holds the virtual IP address and handles the client connections.
+
 
