@@ -1,18 +1,22 @@
-# Percona Distribution for PostgreSQL 17.5.1 ({{date.17_5}})
+# Percona Distribution for PostgreSQL 17.5.2 ({{date.17_5}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.2 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
 
 ## Release Highlights
 
-### A new version of `pg_tde`
+### Official release of Percona's Transparent Data Encryption for PostgreSQL 1.0
 
-Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc2.html).  
+Percona Distribution for PostgreSQL now includes the 1.0 General Availability release of Percona's Transparent Data Encryption for PostgreSQL (`pg_tde`) extension. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/release-notes-v1.0.html).  
 
-### Updated Major upgrade topic in documentation
+### Updated documentation
 
-The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+The `pg_tde` documentation has received significant updates, which include:
+
+- New KMS Configurations for Fortanix, Vault, KMIP and OpenBAO
+- Updates to the Architecture, GUC and Functions topics, including new and updated parameters
+- And more, check out the documentation [here](https://docs.percona.com/pg-tde/index.html).
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
