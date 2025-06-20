@@ -6,7 +6,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ## Release Highlights
 
-### A new version of `pg_tde`
+### A new version of `pg_tde` 
 
 Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc2.html).  
 

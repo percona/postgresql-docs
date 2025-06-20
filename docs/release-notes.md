@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL release notes
+# Percona Distribution for PostgreSQL release notes 
 
 * [Percona Distribution for PostgreSQL 17.5.1](release-notes-v17.5.md) ({{date.17_5}})
 * [Percona Distribution for PostgreSQL 17.4.1](release-notes-v17.4.md) ({{date.17_4}})
