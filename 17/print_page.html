@@ -1626,7 +1626,7 @@
   
   
   <span class="md-ellipsis">
-    Percona Distribution for PostgreSQL 17.5.2 (2025-06-30)
+    Percona Distribution for PostgreSQL 17.5.1 (2025-05-28)
     
   </span>
   
@@ -2325,7 +2325,7 @@
           <li class="md-nav__item">
   <a href="#release-notes-v17.5" class="md-nav__link">
     <span class="md-ellipsis">
-      Percona Distribution for PostgreSQL 17.5.2 (2025-06-30)
+      Percona Distribution for PostgreSQL 17.5.1 (2025-05-28)
     </span>
   </a>
   
@@ -2701,7 +2701,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.2 (Percona Server for PostgreSQL) 17.5.2
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.1 (Percona Server for PostgreSQL) 17.5.1
 </code></pre></div>
 </details>
 <p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
@@ -2980,7 +2980,7 @@ enabled=1
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.2 (Percona Server for PostgreSQL) 17.5.2
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.1 (Percona Server for PostgreSQL) 17.5.1
 </code></pre></div>
 </details>
 <p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
@@ -3166,7 +3166,7 @@ server started
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (17.5.2 (Percona Server for PostgreSQL), server 17.5.2 (Percona Server for PostgreSQL))
+<div class="no-copy highlight"><pre><span></span><code>psql (17.5.1 (Percona Server for PostgreSQL), server 17.5.1 (Percona Server for PostgreSQL))
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -7619,24 +7619,19 @@ server stopped
                         </h1>
                     <section class="print-page" id="release-notes" heading-number="10.1"><h1 id="release-notes-percona-distribution-for-postgresql-release-notes">Percona Distribution for PostgreSQL release notes<a class="headerlink" href="#release-notes-percona-distribution-for-postgresql-release-notes" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="#release-notes-v17.5">Percona Distribution for PostgreSQL 17.5.2</a> (2025-06-30)</li>
+<li><a href="#release-notes-v17.5">Percona Distribution for PostgreSQL 17.5.1</a> (2025-05-28)</li>
 <li><a href="#release-notes-v17.4">Percona Distribution for PostgreSQL 17.4.1</a> (2025-03-27)</li>
 <li><a href="#release-notes-v17.2">Percona Distribution for PostgreSQL 17.2.1</a> (2024-12-26)</li>
 <li><a href="#release-notes-v17.0">Percona Distribution for PostgreSQL 17.0.1</a> (2024-10-03)</li>
-</ul></section><section class="print-page" id="release-notes-v17.5" heading-number="10.2"><h1 id="release-notes-v17.5-percona-distribution-for-postgresql-1752-2025-06-30">Percona Distribution for PostgreSQL 17.5.2 (2025-06-30)<a class="headerlink" href="#release-notes-v17.5-percona-distribution-for-postgresql-1752-2025-06-30" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release-notes-v17.5" heading-number="10.2"><h1 id="release-notes-v17.5-percona-distribution-for-postgresql-1751-2025-05-28">Percona Distribution for PostgreSQL 17.5.1 (2025-05-28)<a class="headerlink" href="#release-notes-v17.5-percona-distribution-for-postgresql-1751-2025-05-28" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.2 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/17/release-17-5.html">PostgreSQL Community 17.5</a>.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/17/release-17-5.html">PostgreSQL Community 17.5</a>.</p>
 <h2 id="release-notes-v17.5-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-v17.5-release-highlights" title="Permanent link">&para;</a></h2>
-<h3 id="release-notes-v17.5-official-release-of-perconas-transparent-data-encryption-for-postgresql-10">Official release of Percona&rsquo;s Transparent Data Encryption for PostgreSQL 1.0<a class="headerlink" href="#release-notes-v17.5-official-release-of-perconas-transparent-data-encryption-for-postgresql-10" title="Permanent link">&para;</a></h3>
-<p>Percona Distribution for PostgreSQL now includes the 1.0 General Availability release of Percona&rsquo;s Transparent Data Encryption for PostgreSQL (<code>pg_tde</code>) extension. This version of <code>pg_tde</code> provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the <a href="https://docs.percona.com/pg-tde/release-notes/release-notes-v1.0.html"><code>pg_tde</code> release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.  </p>
-<h3 id="release-notes-v17.5-updated-documentation">Updated documentation<a class="headerlink" href="#release-notes-v17.5-updated-documentation" title="Permanent link">&para;</a></h3>
-<p>The <code>pg_tde</code> documentation has received significant updates, which include:</p>
-<ul>
-<li>New KMS Configurations for Fortanix, Vault, KMIP and OpenBAO</li>
-<li>Updates to the Architecture, GUC and Functions topics, including new and updated parameters</li>
-<li>And more, check out the documentation <a href="https://docs.percona.com/pg-tde/index.html">here</a>.</li>
-</ul>
+<h3 id="release-notes-v17.5-a-new-version-of-pg_tde">A new version of <code>pg_tde</code><a class="headerlink" href="#release-notes-v17.5-a-new-version-of-pg_tde" title="Permanent link">&para;</a></h3>
+<p>Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of <code>pg_tde</code> extension that brings in Transparent Data Encryption. This version of <code>pg_tde</code> provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the <a href="https://docs.percona.com/pg-tde/release-notes/rc2.html"><code>pg_tde</code> release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.  </p>
+<h3 id="release-notes-v17.5-updated-major-upgrade-topic-in-documentation">Updated Major upgrade topic in documentation<a class="headerlink" href="#release-notes-v17.5-updated-major-upgrade-topic-in-documentation" title="Permanent link">&para;</a></h3>
+<p>The <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL from 16 to 17</a> guide has been updated with revised steps for the <a href="#major-upgrade-on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code></a> section, improving clarity and reliability of the upgrade process.</p>
 <table>
 <thead>
 <tr>
