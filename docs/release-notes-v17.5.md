@@ -6,17 +6,25 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ## Release Highlights
 
-### Official release of Percona's Transparent Data Encryption for PostgreSQL 1.0
+### General Availability (GA) of pg_tde 1.0
 
-Percona Distribution for PostgreSQL now includes the 1.0 General Availability release of Percona's Transparent Data Encryption for PostgreSQL (`pg_tde`) extension. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/release-notes-v1.0.html).  
+Percona Distribution for PostgreSQL now includes the 1.0 GA release of Percona's Transparent Data Encryption for PostgreSQL. This release introduces several major improvements:
+
+- 
+- 
+- 
+
+Learn more in the [`pg_tde` 1.0 release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/release-notes-v1.0.html).  
 
 ### Major documentation update
 
 The `pg_tde` documentation has received significant updates, which include:Add commentMore actions
 
-- New KMS Configurations for Fortanix, Vault, KMIP and OpenBAO
-- Updates to the Architecture, GUC and Functions topics, including new and updated parameters
-- And more, check out the [official documentation](https://docs.percona.com/pg-tde/index.html).
+- New KMS configuration guides for Fortanix, Vault, KMIP and OpenBAO
+- Reorganized and expanded topics for Architecture, GUC, Functions and FAQ
+- Extensive and numerous refinements and clarifications across the entire site
+
+Explore the full documentation [in the official `pg_tde` documentations](https://docs.percona.com/pg-tde/index.html).
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
