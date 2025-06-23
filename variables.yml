@@ -5,6 +5,7 @@ release: 'release-notes-v17.5'
 dockertag: '17.5'
 pgversion: '17'
 pspgversion: '17.5.2'
+pgsmversion: '2.1.1'
 
 
 
