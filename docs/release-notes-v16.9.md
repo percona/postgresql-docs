@@ -14,7 +14,7 @@ The [Upgrading Percona Distribution for PostgreSQL from 15 to 16](major-upgrade.
 
 ## Supplied third-party extensions
 
-Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.
+Review each extension’s release notes for What’s new, improvements, or bug fixes.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
