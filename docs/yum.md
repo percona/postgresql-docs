@@ -19,10 +19,10 @@ Depending on what operating system you are using, you may need to enable or disa
 
 === "RHEL8/Oracle Linux 8/Rocky Linux 8"
 
-    Disable the ``postgresql``  and ``llvm-toolset``modules:    
+    Disable the ``postgresql`` module:    
 
     ```{.bash data-prompt="$"}
-    $ sudo dnf module disable postgresql llvm-toolset
+    $ sudo dnf module disable postgresql 
     ```
 
 ### For `percona-postgresql{{pgversion}}-devel` package
@@ -32,28 +32,28 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
 === "RHEL8"
 
     ```{.bash data-prompt="$"}
-    $ sudo yum --enablerepo=codeready-builder-for-rhel-8-rhui-rpms install perl-IPC-Run -y
+    $ sudo yum --enablerepo=codeready-builder-for-rhel-8-rhui-rpms 
+    $ sudo dnf install perl-IPC-Run -y
     ```
 
 === "Rocky Linux 8"
 
     ```{.bash data-prompt="$"}
     $ sudo dnf install dnf-plugins-core
-    $ sudo dnf module enable llvm-toolset
     $ sudo dnf config-manager --set-enabled powertools
     ```
 
 === "Oracle Linux 8"
 
     ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol8_codeready_builder install perl-IPC-Run -y
+    $ sudo dnf config-manager --set-enabled ol8_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
     ```
 
 === "Rocky Linux 9"
 
     ```{.bash data-prompt="$"}
     $ sudo dnf install dnf-plugins-core
-    $ sudo dnf module enable llvm-toolset
     $ sudo dnf config-manager --set-enabled crb
     $ sudo dnf install perl-IPC-Run -y
     ```
@@ -61,7 +61,8 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
 === "Oracle Linux 9"
 
     ```{.bash data-prompt="$"}
-    $ sudo dnf config-manager --set-enabled ol9_codeready_builder install perl-IPC-Run -y
+    $ sudo dnf config-manager --set-enabled ol9_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
     ```
 
 ### For `percona-patroni` package
@@ -111,13 +112,7 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         $ sudo yum install epel-release
         ```
 
-    2. Enable the `llvm-toolset dnf` module
-
-          ```{.bash data-prompt="$"}
-          $ sudo dnf module enable llvm-toolset
-          ```
-
-    3. Enable the codeready builder repository to resolve dependencies conflict. 
+    2. Enable the codeready builder repository to resolve dependencies conflict. 
 
         ```{.bash data-prompt="$"}
         $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
@@ -134,13 +129,7 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         $ sudo yum install epel-release
         ```
 
-    2. Enable the `llvm-toolset dnf` module
-
-        ```{.bash data-prompt="$"}
-        $ sudo dnf module enable llvm-toolset
-        ```
-
-    3. Enable the codeready builder repository to resolve dependencies conflict.
+    2. Enable the codeready builder repository to resolve dependencies conflict.
 
         ```{.bash data-prompt="$"}
         $ sudo dnf install dnf-plugins-core
@@ -158,13 +147,7 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
         $ sudo yum install epel-release
         ```
 
-    2. Enable the `llvm-toolset dnf` module
-
-        ```{.bash data-prompt="$"}
-        $ sudo dnf module enable llvm-toolset
-        ```
-
-    3. Enable the codeready builder repository to resolve dependencies conflict.
+    2. Enable the codeready builder repository to resolve dependencies conflict.
 
         ```{.bash data-prompt="$"}
         $ sudo dnf config-manager --set-enabled ol9_codeready_builder

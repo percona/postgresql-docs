@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2024 — <a href="#__consent">Cookie Consent</a>
+copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2025 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -99,8 +99,8 @@ markdown_extensions:
   pymdownx.inlinehilite: {}
   pymdownx.snippets:
       base_path: ["snippets"]
-      auto_append:
-        - services-banner.md
+      #      auto_append:
+      #        - services-banner.md
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -125,54 +125,81 @@ plugins:
   macros:
       include_yaml:
         - 'variables.yml' # Use in markdown as '{{ VAR }}'
-# exclude: # Don't process these files
-#      glob:
-#         - file.md
-  with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-          output_path: '_pdf/PerconaDistributionPostgreSQL-17.pdf'
-          cover_title: 'Distribution for PostgreSQL Documentation'
-
-          cover_subtitle: 17.0 (October 3, 2024)
-          author: 'Percona Technical Documentation Team'
-          cover_logo: docs/_images/Percona_Logo_Color.png
-          debug_html: false
-          custom_template_path: _resource/templates
-          enabled_if_env: ENABLE_PDF_EXPORT
   mike:
       version_selector: true
       css_dir: css
       javascript_dir: js
       canonical_version: null
+  print-site:
+    add_to_navigation: false
+    print_page_title: 'Percona Distribution for PostgreSQL documentation'
+    add_print_site_banner: false
+    # Table of contents
+    add_table_of_contents: true
+    toc_title: 'Table of Contents'
+    toc_depth: 2
+    # Content-related
+    add_full_urls: false
+    enumerate_headings: false
+    enumerate_headings_depth: 1
+    enumerate_figures: true
+    add_cover_page: true
+    cover_page_template: "docs/templates/pdf_cover_page.tpl"
+    path_to_pdf: ""
+    include_css: true
+    enabled: true
 
 extra:
   version:
     provider: mike
   #homepage:
   #  https://docs.percona.com
-  postgresrecommended: 16
+  postgresrecommended: 17
+# Google Analytics configuration
+  analytics:
+    provider: google
+    property: G-J4J70BNH0G
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thank you for your feedback! Help us improve by using our 
+            <a href="https://docs.google.com/forms/d/1bkWACehjqlwA0AKf-qTJcXvYbOSYgze8iTPXjntqmNo/edit" target="_blank" rel="noopener">
+            feedback form</a>.
 
 nav:
-  - 'Home': 'index.md'
-  - 'Percona Server for PostgreSQL': postgresql-server.md
+  - index.md
+  - get-help.md
   - Get started: 
-      - Quickstart guide: installing.md
+      - installing.md
       - 1. Install: 
-          - Via apt: apt.md
-          - Via yum: yum.md
-          - From tarballs: tarball.md
-          - Run in Docker: docker.md
+          - apt.md
+          - yum.md
+          - tarball.md
+          -  docker.md
           - enable-extensions.md
           - repo-overview.md
-      - 2. Connect to PostgreSQL: connect.md
-      - 3. Manipulate data in PostgreSQL: crud.md  
-      - 4. What's next: whats-next.md 
+      - 2. Connect to PostgreSQL: 
+          - connect.md
+      - 3. Manipulate data in PostgreSQL: 
+          - crud.md  
+      - 4. What's next: 
+          - whats-next.md 
   - Extensions:
-      - 'Extensions': extensions.md
+      - extensions.md
       - contrib.md
-      - Percona-authored extensions: percona-ext.md
+      - percona-ext.md
       - third-party.md
   - Solutions:
-      - Overview: solutions.md
+      - solutions.md
       - High availability:
           - 'Overview': 'solutions/high-availability.md'
           - solutions/ha-measure.md
@@ -191,27 +218,28 @@ nav:
               - 'HAProxy setup': 'solutions/ha-haproxy.md'
           - solutions/ha-test.md
       - Backup and disaster recovery:
-          - 'Overview': 'solutions/backup-recovery.md'
+          - solutions/backup-recovery.md
           - solutions/dr-pgbackrest-setup.md
       - Spatial data handling:
-        - Overview: solutions/postgis.md
-        - Deployment: solutions/postgis-deploy.md
-        - Query spatial data: solutions/postgis-testing.md
-        - Upgrade spatial database: solutions/postgis-upgrade.md
-      - LDAP authentication:
-          - ldap.md
+        - solutions/postgis.md
+        - solutions/postgis-deploy.md
+        - solutions/postgis-testing.md
+        - solutions/postgis-upgrade.md
+      - ldap.md
   - Upgrade:
-      - "Major upgrade": major-upgrade.md
+      - major-upgrade.md
       - minor-upgrade.md
       - migration.md
-  - Troubleshooting guide: troubleshooting.md
-  - How to: how-to.md
-  - Uninstall: uninstalling.md
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v17.0.md
-  - Reference:
-      - Telemetry: telemetry.md
-      - Licensing: licensing.md
-      - Trademark policy: trademark-policy.md
+  - troubleshooting.md
+  - uninstalling.md
+  - release-notes.md
+  - release-notes-v17.5.md
+  - release-notes-v17.4.md
+  - release-notes-v17.2.md
+  - release-notes-v17.0.md
+  - telemetry.md
+  - licensing.md
+  - trademark-policy.md
+
+
 

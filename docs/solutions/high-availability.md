@@ -64,7 +64,7 @@ You can do a manual failover when automatic remediation fails, for example, due 
 
 The high-availability framework allows a human operator / administrator to take control and do a manual failover.
 
-#### Step 3. Load balancer
+#### Step 3. Connection routing and load balancing
 
 Instead of a single node you now have a cluster. How to enable users to connect to the cluster and ensure they always connect to the correct node, especially when the primary node changes? 
 
@@ -76,9 +76,11 @@ You can write your application to send read/write requests to the primary and re
 
 Another option is to use a load-balancing proxy. Instead of connecting directly to the IP address of the primary node, which can change during a failover, you use a proxy that acts as a single point of entry for the entire cluster. This proxy provides the IP address visible for user applications. It also knows which node is currently the primary and directs all incoming write requests to it. At the same time, it can distribute read requests among the replicas to evenly spread the load and improve performance.
 
-To eliminate a single point of failure for a load balancer, deploy minimum two instances of it for redundancy. The instances share the public IP address so that it can "float" from one instance to another in the case of a failure. To control the load balancer's state and transfer the IP address to the active instance, you also need the failover solution for load balancers.
+To eliminate a single point of failure for a load balancer, we recommend to deploy multiple connection routers/proxies for redundancy. Each application server can have its own connection router whose task is to identify the cluster topology and route the traffic to the current primary node. 
 
-The use of a load balancer is optional, if your application implements this logic, but is highly-recommended. 
+Alternatively you can deploy a redundant load balancer for the whole cluster. The load balancer instances share the public IP address so that it can "float" from one instance to another in the case of a failure. To control the load balancer's state and transfer the IP address to the active instance, you also need the failover solution for load balancers.
+
+The use of a load balancer is optional. If your application implements the logic of connection routing and load-balancing, it is a highly-recommended approach.
 
 #### Step 4. Backups 
 
@@ -88,14 +90,14 @@ Even with replication and failover mechanisms in place, it’s crucial to have r
 
 Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss. 
 
-The backup tool is optional but highly-recommended for data corruption recovery.
+The backup tool is optional but highly-recommended for data corruption recovery. Additionally, backups protect against human error, when a user can accidentally drop a table or make another mistake.
 
 As a result, you end up with the following components for a minimalistic highly-available deployment:
 
 * A minimum two-node PostgreSQL cluster with the replication configured among nodes. The recommended minimalistic cluster is a three-node one.
 * A solution to manage the cluster and perform automatic failover when the primary node is down.
 * (Optional but recommended) A load-balancing proxy that provides a single point of entry to your cluster and distributes the load across cluster nodes. You need at least two instances of a load-balancing proxy and a failover tool to eliminate a single point of failure.
-* (Optional but recommended) A backup and restore solution to protect data against loss and corruption.
+* (Optional but recommended) A backup and restore solution to protect data against loss, corruption and human error.
 
 Optionally, you can add a monitoring tool to observe the health of your deployment, receive alerts about performance issues and timely react to them.
 

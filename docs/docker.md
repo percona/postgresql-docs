@@ -4,7 +4,7 @@ Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Doc
 
 For more information about using Docker, see the [Docker Docs :octicons-link-external-16:](https://docs.docker.com/).
 
-!!! note ""
+!!! note
 
     Make sure that you are using [the latest version of Docker :octicons-link-external-16:](https://docs.docker.com/get-docker/). The ones provided via `apt` and `yum` may be outdated and cause errors.
 
@@ -34,53 +34,51 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
 1. Start a Percona Distribution for PostgreSQL container as follows:
 
     ```{.bash data-prompt="$"}
-    $ docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:<tag>-multi
-    ```    
+    docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:{{dockertag}}
+    ```
 
-    Where:    
+    Where:
 
     * `container-name` is the name you assign to your container
     * `POSTGRES_PASSWORD` is the superuser password 
-    * `tag-multi` is the tag specifying the version you need. For example, `{{dockertag}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).     
-    
+    * `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
 
-    !!! tip     
+    !!! tip
 
         You can secure the password by exporting it to the environment file and using that to start the container.    
 
         1. Export the password to the environment file:    
 
             ```{.bash data-prompt="$"}
-            $ echo "POSTGRES_PASSWORD=secret" > .my-pg.env
+            echo "POSTGRES_PASSWORD=secret" > .my-pg.env
             ```     
 
         2. Start the container:       
 
             ```{.bash data-prompt="$"}
-            $ docker run --name container-name --env-file ./.my-pg.env -d percona/percona-distribution-postgresql:<tag>-multi
+            docker run --name container-name --env-file ./.my-pg.env -d percona/percona-distribution-postgresql:{{dockertag}}
             ```
 
-2. Connect to the container's interactive terminal: 
+2. Connect to the container's interactive terminal:
 
     ```{.bash data-prompt="$"}
-    $ docker exec -it container-name bash
+    docker exec -it container-name bash
     ```
 
     The `container-name` is the name of the container that you started in the previous step.
-
 
 ## Connect to Percona Distribution for PostgreSQL from an application in another Docker container
 
 This image exposes the standard PostgreSQL port (`5432`), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:
 
 ```{.bash data-prompt="$"}
-$ docker run --name app-container-name --network container:container-name -d app-that-uses-postgresql 
+docker run --name app-container-name --network container:container-name -d app-that-uses-postgresql 
 ```
 
 where:
 
-* `app-container-name` is the name of the container where your application is running, 
-* `container name` is the name of your Percona Distribution for PostgreSQL container, and 
+* `app-container-name` is the name of the container where your application is running,
+* `container name` is the name of your Percona Distribution for PostgreSQL container, and
 * `app-that-uses-postgresql` is the name of your PostgreSQL client.
 
 ## Connect to Percona Distribution for PostgreSQL from the `psql` command line client
@@ -88,15 +86,79 @@ where:
 The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
 
 ```{.bash data-prompt="$"}
-$ docker run -it --network container:db-container-name --name container-name percona/percona-distribution-postgresql:<tag>-multi psql -h address -U postgres
+docker run -it --network container:db-container-name --name container-name percona/percona-distribution-postgresql:{{dockertag}} psql -h address -U postgres
 ```
 
 Where:
 
 * `db-container-name` is the name of your database container
 * `container-name` is the name of your container that you will use to connect to the database container using the `psql` command line client
-`tag-multi` is the tag specifying the version you need. For example, `{{dockertag}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. 
-* `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.   
+* `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.
+* `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.
+
+## Enable encryption
+
+Percona Distribution for PostgreSQL Docker image includes the `pg_tde` extension to provide data encryption. You must explicitly enable it when you start the container. For more information, see the [pg_tde documentation](https://docs.percona.com/pg-tde/index.html).
+
+Follow these steps to enable `pg_tde`:
+
+1. Start the container with the `ENABLE_PG_TDE=1` environment variable:
+
+    ```{.bash data-prompt="$"}
+    docker run --name container-name -e ENABLE_PG_TDE=1 -e POSTGRES_PASSWORD=sUpers3cRet  -d percona/percona-distribution-postgresql:{{dockertag}}
+    ```
+
+    where:
+
+    * `container-name` is the name you assign to your container
+    * `ENABLE_PG_TDE=1` adds the `pg_tde` to the `shared_preload_libraries` and enables the custom storage manager
+    * `POSTGRES_PASSWORD` is the superuser password
+
+2. Connect to the container and start the interactive `psql` session:
+
+    ```{.bash data-prompt="$"}
+    docker exec -it container-name psql
+    ```
+
+    ??? example "Sample output"
+
+        ```{.text .no-copy}
+        psql ({{dockertag}} - Percona Server for PostgreSQL {{dockertag}}.1)
+        Type "help" for help.
+
+        postgres=#
+        ```
+
+3. Create the extension in the database where you want to encrypt data. This requires superuser privileges.
+
+    ```sql
+    CREATE EXTENSION pg_tde;
+    ```
+
+4. Configure a key provider with a keyring file. This setup is intended for development and stores the keys unencrypted in the specified data file. The below sample configuration is intended for testing and development purposes.
+
+    !!! note
+         For production use, we **strongly recommend** setting up an external key management store and configure an external key provider. Refer to the [Setup :octicons-link-external-16:](https://docs.percona.com/pg-tde/setup.html#key-provider-configuration) topic in the `pg_tde` documentation.
+
+    <i warning>:material-information: Warning:</i> This example is for testing purposes only:
+
+	```sql
+	SELECT pg_tde_add_database_key_provider_file('file-vault', '/tmp/pg_tde_test_001_basic.per');
+    ```
+
+5. Set the principal key:
+
+    ```sql
+    SELECT pg_tde_set_key_using_database_key_provider('test-db-key', 'file-vault');
+    ```
+
+    The key is auto-generated. You are ready to use data encryption.
+
+6. Create a table with encryption enabled. Pass the `USING tde_heap` clause to the `CREATE TABLE` command:
+
+    ```sql
+    CREATE TABLE <table_name> (<field> <datatype>) USING tde_heap;
+    ```
 
 ## Enable encryption
 
@@ -167,7 +229,7 @@ Here's how to do this:
 
 To enable the `pg_stat_monitor` extension after launching the container, do the following:
 
-* connect to the server, 
+* connect to the server,
 * select the desired database and enable the `pg_stat_monitor` view for that database:
 
    ```sql
@@ -180,7 +242,7 @@ To enable the `pg_stat_monitor` extension after launching the container, do the 
    \d pg_stat_monitor;
    ```
 
-??? example "Output"   
+??? example "Output"
 
     ```
                              View "public.pg_stat_monitor"
@@ -228,6 +290,5 @@ To enable the `pg_stat_monitor` extension after launching the container, do the 
     wait_event_type     | text                     |           |          |
     ```
 
-Note that the `pg_stat_monitor` view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.
-
-
+!!! note
+     The `pg_stat_monitor` view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.

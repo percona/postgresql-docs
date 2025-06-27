@@ -48,7 +48,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 ### Install packages
 
-=== "Install using meta-package"
+=== "Install using meta-package (deprecated)"
 
     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
      
@@ -147,10 +147,10 @@ Run all the commands in the following sections as root or using the `sudo` comma
           Install `pgvector`
 
           ```{.bash data-prompt="$"}
--         $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
+          $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
           ```
 
-        Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+          Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
 

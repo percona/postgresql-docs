@@ -12,6 +12,8 @@ Each node in the cluster stores data in a structured format and keeps a copy of 
 
 When a client wants to change data, it sends the request to the leader. The leader accepts the writes and proposes this change to the followers. The followers vote on the proposal. If a majority of followers agree (including the leader), the change is committed, ensuring consistency. The leader then confirms the change to the client.
 
+This flow corresponds to the Raft consensus algorithm, based on which `etcd` works. Read morea bout it the [`ectd` Raft consensus](#etcd-raft-consensus) section.
+
 ## Leader election
 
 An `etcd` cluster can have only one leader node at a time. The leader is responsible for receiving client requests, proposing changes, and ensuring they are replicated to the followers. When an `etcd` cluster starts, or if the current leader fails, the nodes hold an election to choose a new leader. Each node waits for a random amount of time before sending a vote request to other nodes, and the first node to get a majority of votes becomes the new leader. The cluster remains available as long as a majority of nodes (quorum) are still running.
@@ -28,7 +30,9 @@ The heart of `etcd`'s reliability is the Raft consensus algorithm. Raft ensures 
 
 An example of the Raft's role in `etcd` is the situation when there is no majority in the cluster. If a majority of nodes can't communicate (for example, due to network partitions), no new leader can be elected, and no new changes can be committed. This prevents the system from getting into an inconsistent state. The system waits for the network to heal and a majority to be re-established. This is crucial for data integrity.
 
-## etcd logs and performance considerations
+You can also check [this resource :octicons-link-external-17:](https://thesecretlivesofdata.com/raft/) to learn more about Raft and understand it better.
+
+## `etcd` logs and performance considerations
 
 `etcd` keeps a detailed log of every change made to the data. These logs are essential for several reasons, including the ensurance of consistency, fault tolerance, leader elections, auditing, and others, maintaining a consistent state across nodes. For example, if a node fails, it can use the logs to catch up with the other nodes and restore its data. The logs also provide a history of all changes, which can be useful for debugging and security analysis if needed.
 
@@ -46,11 +50,11 @@ Communication between `etcd` nodes is critical. A slow or unreliable network can
 
 ### Deployment considerations
 
-We recommend to deploy `ectd` on separate hosts. The reasons for that are the following:
+Running `etcd` on separate hosts has the following benefits:
 
-* Both PostgreSQL and `etcd` are highly dependant on I/O. And running them on the same host may cause performance issues.
+* Both PostgreSQL and `etcd` are highly dependant on I/O. And running them on the separate hosts improves performance.
 
-* A higher resilience. If one or even two PostgreSQL node crash, the `etcd` cluster remains healthy and can trigger a new primary election. 
+* Higher resilience. If one or even two PostgreSQL node crash, the `etcd` cluster remains healthy and can trigger a new primary election. 
 
 * Scalability and better performance. You can scale the `etcd` cluster separately from PostgreSQL based on the load and thus achieve better performance.
 

@@ -66,6 +66,10 @@ The following document provides guidelines how to install PostGIS and how to run
     FROM pg_available_extensions WHERE name LIKE 'postgis%' or name LIKE 'address%';
     ```
 
+=== ":octicons-download-16: From tarballs"
+
+    PostGIS is included into binary tarball and is a part of the `percona-postgresql{{pgversion}}` binary. Use the [install from tarballs](../tarball.md) tutorial to install it. 
+
 
 ## Enable PostGIS extension
 
