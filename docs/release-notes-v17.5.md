@@ -17,7 +17,7 @@ Learn more in the [`pg_tde` 1.0 release notes :octicons-link-external-16:](https
 The `pg_tde` documentation has received significant updates, which include:
 
 - New KMS configuration guides for Fortanix, Vault, KMIP and OpenBAO
-- Reorganized and expanded topics for Architecture, GUC, Functions and FAQ
+- Reorganized and expanded topics for Architecture, GUC, Functions, TDE Operations and FAQ
 - Extensive and numerous refinements and clarifications across the entire site
 
 Explore the full documentation [in the official `pg_tde` documentations](https://docs.percona.com/pg-tde/index.html).
