@@ -10,10 +10,18 @@ After reading this document, you will learn the following:
 * the recommended [reference architecture](ha-architecture.md) to achieve it
 * how to deploy it using our step-by-step deployment guides for each component. The deployment instructions focus on the minimalistic approach to high availability that we recommend. It also gives instructions how to deploy additional components that you can add when your infrastructure grows.
 * how to verify that your high availability deployment works as expected, providing replication and failover with the [testing guidelines](ha-test.md)
+* additional components that you can add to address existing limitations on to your infrastructure. An example of such limitations can be the ones on application driver/connectors, or the lack of the connection pooler at the application framework.
 
 ## What is high availability
 
-High availability is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the database node that is down to one of the remaining nodes. 
+High availability is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the failed component to the healthy ones so that they can take over its responsibility. The system must have sufficient automation to perform this transfer without the need of human intervention,  minimizing disruption and avoiding the need for human intervention.
+
+Overall, High availability is about:
+
+1. Reducing the chance of failures
+2. Elimination of single-point-of-failure (SPOF)
+3. Automatic detection of failures 
+4. Automatic action to reduce the impact
 
 ### How to achieve it? 
 
@@ -25,23 +33,36 @@ For a long answer, let's break it down into steps.
 
 First, you should have more than one copy of your data. This means, you need to have several instances of your database where one is the primary instance that accepts reads and writes. Other instances are replicas – they must have an up-to-date copy of the data from the primary and remain in sync with it. They may also accept reads to offload your primary. 
 
-You typically deploy these instances on separate servers or nodes. The minimum number of database nodes is two: one primary and one replica. 
+You must deploy these instances on separate hardware (servers or nodes) and use a separate storage for storing the data. This way you eliminate a single point of failure for your database.
+
+The minimum number of database nodes is two: one primary and one replica. 
 
 The recommended deployment is a three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism. 
 
 ![Primary-replica setup](../_images/diagrams/ha-overview-replication.svg)
 
-PostgreSQL natively supports logical and streaming replication. For high availability we recommend streaming replication as it happens in real time, minimizing the delay between the primary and replica nodes.
+PostgreSQL natively supports logical and streaming replication. To achieve high availability, use streaming replication to ensure an exact copy of data is maintained and is ready to take over, while reducing the delay between primary and replica nodes to prevent data loss.
 
-#### Step 2. Failover
+#### Step 2. Switchover and Failover
 
-Next, you may have a situation when a primary node is down or not responding. Reasons for that can be different – from hardware or network issues to software failures, power outages, and scheduled maintenance. In this case, you must have the way to know about it and to transfer the operation from the primary node to one of the secondaries. This process is called failover.  
+You may want to transfer the primary role from one machine to another. This action is called a **manual switchover**. A reason for that could be the following:
+
+* a planned maintenance on the OS level, like applying quarterly security updates or replacing some of the end-of-life components from the server
+* troubleshooting some of the problems, like high network latency.
+
+Switchover is a manual action performed when you decide to transfer the primary role to another node. The high-availability framework makes this process easier and helps minimize downtime during maintenance, thereby improving overall availability.
+
+There could be an unexpected situation where a primary node is down or not responding. Reasons for that can be different, from hardware or network issues to software failures, power outages and the like. In such situations, the high-availability solution should automatically detect the problem, find out a suitable candidate from the remaining nodes and transfer the primary role to the best candidate (promote a new node to become a primary). Such automatic remediation is called **Failover**.
 
 ![Failover](../_images/diagrams/ha-overview-failover.svg)
 
-You can do a manual failover. It suits for environments where downtime does not impact operations or revenue. However, this requires dedicated personnel and may lead to additional downtime. 
+You can do a manual failover when automatic remediation fails, for example, due to:
 
-Another option is automated failover, which significantly minimizes downtime and is less error-prone than manual one. Automated failover can be accomplished by adding an open-source failover tool to your deployment.
+* a complete network partitioning 
+* high-availability framework not being able to find a good candidate 
+* the insufficient number of nodes remaining for a new primary election.
+
+The high-availability framework allows a human operator / administrator to take control and do a manual failover.
 
 #### Step 3. Load balancer
 
