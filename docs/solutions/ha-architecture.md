@@ -4,7 +4,7 @@ In the [overview of high availability](high-availability.md), we discussed the r
 
 Our recommended minimalistic approach to a highly-available deployment is to have a three-node PostgreSQL cluster with the cluster management and failover mechanisms, load balancer and a backup / restore solution.
 
-The following diagram shows this architecture with the tools we recommend to use. If the cost and the number of nodes is a constraint, refer to the [Bare-minimum architecture](#bare-minimum-architecture) section.
+The following diagram shows this architecture, including all additional components. If you are considering a simple and cost-effective setup, refer to the [Bare-minimum architecture](#bare-minimum-architecture) section.
 
 ![Architecture of the three-node, single primary PostgreSQL cluster](../_images/diagrams/ha-recommended.svg)
 
@@ -40,7 +40,7 @@ The components in this architecture are:
 
 ## Bare-minimum architecture
 
-There may be constraints to use the [recommended reference architecture](#architecture), like the number of available servers or the cost for additional hardware. You can still achieve high-availability with the minimum two database nodes and three `etcd` instances. The following diagram shows this architecture:
+There may be constraints to use the [reference architecture with all additional components](#architecture), like the number of available servers or the cost for additional hardware. You can still achieve high-availability with the minimum two database nodes and three `etcd` instances. The following diagram shows this architecture:
 
 ![Bare-minimum architecture of the PostgreSQL cluster](../_images/diagrams/HA-basic.svg)
 
@@ -49,7 +49,7 @@ Using such architecture has the following limitations:
 * This setup only protects against a one node failure, either a database or a etcd node. Losing more than one node results in the read-only database.
 * The application must be able to connect to multiple database nodes and fail over to the new primary in the case of outage.
 * The application must act as the load-balancer. It must be able to determine read/write and read-only requests and distribute them across the cluster. 
-* The `pbBackRest` component is optional but highly-recommended for disaster recovery. To eliminate a single point of failure, it should also be redundant but we're not discussing redundancy in this solution. [Contact us](https://www.percona.com/about/contact) to discuss it if this is the requirement for you.
+* The `pbBackRest` component is optional as it doesn't server the purpose of high-availability. But it is highly-recommended for disaster recovery and is a must fo production environments. To eliminate a single point of failure, it should also be redundant but we're not discussing redundancy in this solution. [Contact us](https://www.percona.com/about/contact) to discuss it if this is the requirement for you.
 
 ## Additional reading
 

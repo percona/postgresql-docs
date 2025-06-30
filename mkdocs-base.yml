@@ -202,7 +202,7 @@ nav:
       - solutions.md
       - High availability:
           - 'Overview': 'solutions/high-availability.md'
-          - solutions/ha-measure.md
+          - 'Measuring high availability': solutions/ha-measure.md
           - 'Architecture': solutions/ha-architecture.md
           - Components:
             - 'ETCD': 'solutions/etcd-info.md'
