@@ -1,18 +1,28 @@
-# Percona Distribution for PostgreSQL 17.5.1 ({{date.17_5}})
+# Percona Distribution for PostgreSQL 17.5.2 ({{date.17_5}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.2 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
 
 ## Release Highlights
 
-### A new version of `pg_tde` 
+### General Availability (GA) of pg_tde
 
-Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc2.html).  
+Percona Distribution for PostgreSQL now includes the 1.0 GA release of Percona's Transparent Data Encryption for PostgreSQL.
 
-### Updated Major upgrade topic in documentation
+Learn more in the [`pg_tde` 1.0 release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/release-notes-v1.0.html).  
 
-The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+### Major documentation update
+
+The `pg_tde` documentation has received significant updates, which include:
+
+- New KMS configuration guides for Fortanix, Vault, KMIP and OpenBAO
+- Reorganized and expanded topics for Architecture, GUC, Functions, TDE Operations and FAQ
+- Extensive and numerous refinements and clarifications across the entire site
+
+Explore the full documentation [in the official `pg_tde` documentations](https://docs.percona.com/pg-tde/index.html).
+
+The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
@@ -27,6 +37,7 @@ The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather)        | v30       | An SQL script for running the diagnostics of the health of a PostgreSQL cluster                                     |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.0 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing      |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack)          | 1.5.2     | Rebuilds PostgreSQL database objects                                                                                |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.2.0 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)         | v0.8.0    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis)            | 3.3.8     | A spatial extension for PostgreSQL                                                                                  |
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 277 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
