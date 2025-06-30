@@ -1626,7 +1626,7 @@
   
   
   <span class="md-ellipsis">
-    Percona Distribution for PostgreSQL 17.5.1 (2025-05-28)
+    Percona Distribution for PostgreSQL 17.5.2 (2025-06-30)
     
   </span>
   
@@ -2325,7 +2325,7 @@
           <li class="md-nav__item">
   <a href="#release-notes-v17.5" class="md-nav__link">
     <span class="md-ellipsis">
-      Percona Distribution for PostgreSQL 17.5.1 (2025-05-28)
+      Percona Distribution for PostgreSQL 17.5.2 (2025-06-30)
     </span>
   </a>
   
@@ -2445,7 +2445,7 @@
 
 <h1>Documentation</h1>
  
-<h2>17.5.1 (May 28, 2025)</h2>
+<h2>17.5.2 (June 30, 2025)</h2>
 <!--<h3>Percona Technical Documentation Team</h3>-->
 
         </section>
@@ -2701,7 +2701,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.1 (Percona Server for PostgreSQL) 17.5.1
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.2 (Percona Server for PostgreSQL) 17.5.2
 </code></pre></div>
 </details>
 <p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
@@ -2980,7 +2980,7 @@ enabled=1
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.1 (Percona Server for PostgreSQL) 17.5.1
+<div class="no-copy highlight"><pre><span></span><code>psql (PostgreSQL) 17.5.2 (Percona Server for PostgreSQL) 17.5.2
 </code></pre></div>
 </details>
 <p>Congratulations! Your Percona Distribution for PostgreSQL is up and running.</p>
@@ -2995,10 +2995,10 @@ enabled=1
 </div>
 <p>The following tarballs are available for the x86_64 and ARM64 architectures:</p>
 <ul>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5/binary/tarball/percona-postgresql-17.5-ssl1.1-linux-aarch64.tar.gz">percona-postgresql-17.5-ssl1.1-linux-aarch64.tar.gz</a>  - for operating systems on ARM64 architecture that run OpenSSL version 1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5/binary/tarball/percona-postgresql-17.5-ssl1.1-linux-x86_64.tar.gz">percona-postgresql-17.5-ssl1.1-linux-x86_64.tar.gz</a>  - for operating systems on x86_64 architecture that run OpenSSL version 1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5/binary/tarball/percona-postgresql-17.5-ssl3-linux-aarch64.tar.gz">percona-postgresql-17.5-ssl3-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5/binary/tarball/percona-postgresql-17.5-ssl3-linux-x86_64.tar.gz">percona-postgresql-17.5-ssl3-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5-2/binary/tarball/percona-postgresql-17.5-ssl1.1-linux-aarch64.tar.gz">percona-postgresql-17.5-2-ssl1.1-linux-aarch64.tar.gz</a>  - for operating systems on ARM64 architecture that run OpenSSL version 1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5-2/binary/tarball/percona-postgresql-17.5-ssl1.1-linux-x86_64.tar.gz">percona-postgresql-17.5-2-ssl1.1-linux-x86_64.tar.gz</a>  - for operating systems on x86_64 architecture that run OpenSSL version 1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5-2/binary/tarball/percona-postgresql-17.5-ssl3-linux-aarch64.tar.gz">percona-postgresql-17.5-2-ssl3-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-17/17.5-2/binary/tarball/percona-postgresql-17.5-ssl3-linux-x86_64.tar.gz">percona-postgresql-17.5-2-ssl3-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -3106,12 +3106,12 @@ enabled=1
 </li>
 <li>
 <p>Fetch the binary tarball.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-17/17.5/binary/tarball/percona-postgresql-17.5-ssl3-linux-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-17/17.5-2/binary/tarball/percona-postgresql-17.5-2-ssl3-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>percona-postgresql-17.5-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>percona-postgresql-17.5-2-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
 </code></pre></div>
 </li>
 <li>
@@ -3166,7 +3166,7 @@ server started
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (17.5.1 (Percona Server for PostgreSQL), server 17.5.1 (Percona Server for PostgreSQL))
+<div class="no-copy highlight"><pre><span></span><code>psql (17.5.2 (Percona Server for PostgreSQL), server 17.5.2 (Percona Server for PostgreSQL))
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -3253,13 +3253,13 @@ postgres=#
 <ol>
 <li>
 <p>Start a Percona Distribution for PostgreSQL container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5-2
 </code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>container-name</code> is the name you assign to your container</li>
 <li><code>POSTGRES_PASSWORD</code> is the superuser password </li>
-<li><code>17.5</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+<li><code>17.5-2</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3272,7 +3272,7 @@ postgres=#
 </li>
 <li>
 <p>Start the container:       </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5-2
 </code></pre></div>
 </li>
 </ol>
@@ -3297,13 +3297,13 @@ postgres=#
 </ul>
 <h2 id="docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:17.5<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:17.5-2<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>db-container-name</code> is the name of your database container</li>
 <li><code>container-name</code> is the name of your container that you will use to connect to the database container using the <code>psql</code> command line client</li>
-<li><code>17.5</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
+<li><code>17.5-2</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
 <h2 id="docker-enable-encryption">Enable encryption<a class="headerlink" href="#docker-enable-encryption" title="Permanent link">&para;</a></h2>
@@ -3312,7 +3312,7 @@ postgres=#
 <ol>
 <li>
 <p>Start the container with the <code>ENABLE_PG_TDE=1</code> environment variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENABLE_PG_TDE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w">  </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENABLE_PG_TDE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w">  </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5-2
 </code></pre></div>
 <p>where:</p>
 <ul>
@@ -3327,7 +3327,7 @@ postgres=#
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (17.5 - Percona Server for PostgreSQL 17.5.1)
+<div class="no-copy highlight"><pre><span></span><code>psql (17.5-2 - Percona Server for PostgreSQL 17.5-2.1)
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -3531,7 +3531,7 @@ log_error_verbosity = default
 <tbody>
 <tr>
 <td><em>Major Release repository</em> (<code>ppg-17</code>) it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona. <br><br> We recommend installing Percona Distribution for PostgreSQL from the <em>Major Release repository</em></td>
-<td><em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-17.5</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories. <br> <br> The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</td>
+<td><em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-17.5-2</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories. <br> <br> The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</td>
 </tr>
 </tbody>
 </table>
@@ -4844,7 +4844,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
 <p>The command output is the following:</p>
-<div class="highlight"><pre><span></span><code>psql (17.5)
+<div class="highlight"><pre><span></span><code>psql (17.5-2)
 Type &quot;help&quot; for help.
 
 postgres=#
@@ -5465,7 +5465,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 
-psql<span class="w"> </span><span class="o">(</span><span class="m">17</span>.5<span class="o">)</span>
+psql<span class="w"> </span><span class="o">(</span><span class="m">17</span>.5-2<span class="o">)</span>
 Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
 
 <span class="nv">postgres</span><span class="o">=</span><span class="c1">#</span>
@@ -7619,19 +7619,27 @@ server stopped
                         </h1>
                     <section class="print-page" id="release-notes" heading-number="10.1"><h1 id="release-notes-percona-distribution-for-postgresql-release-notes">Percona Distribution for PostgreSQL release notes<a class="headerlink" href="#release-notes-percona-distribution-for-postgresql-release-notes" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="#release-notes-v17.5">Percona Distribution for PostgreSQL 17.5.1</a> (2025-05-28)</li>
+<li><a href="#release-notes-v17.5">Percona Distribution for PostgreSQL 17.5.2</a> (2025-06-30)</li>
 <li><a href="#release-notes-v17.4">Percona Distribution for PostgreSQL 17.4.1</a> (2025-03-27)</li>
 <li><a href="#release-notes-v17.2">Percona Distribution for PostgreSQL 17.2.1</a> (2024-12-26)</li>
 <li><a href="#release-notes-v17.0">Percona Distribution for PostgreSQL 17.0.1</a> (2024-10-03)</li>
-</ul></section><section class="print-page" id="release-notes-v17.5" heading-number="10.2"><h1 id="release-notes-v17.5-percona-distribution-for-postgresql-1751-2025-05-28">Percona Distribution for PostgreSQL 17.5.1 (2025-05-28)<a class="headerlink" href="#release-notes-v17.5-percona-distribution-for-postgresql-1751-2025-05-28" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release-notes-v17.5" heading-number="10.2"><h1 id="release-notes-v17.5-percona-distribution-for-postgresql-1752-2025-06-30">Percona Distribution for PostgreSQL 17.5.2 (2025-06-30)<a class="headerlink" href="#release-notes-v17.5-percona-distribution-for-postgresql-1752-2025-06-30" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/17/release-17-5.html">PostgreSQL Community 17.5</a>.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.2 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/17/release-17-5.html">PostgreSQL Community 17.5</a>.</p>
 <h2 id="release-notes-v17.5-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-v17.5-release-highlights" title="Permanent link">&para;</a></h2>
-<h3 id="release-notes-v17.5-a-new-version-of-pg_tde">A new version of <code>pg_tde</code><a class="headerlink" href="#release-notes-v17.5-a-new-version-of-pg_tde" title="Permanent link">&para;</a></h3>
-<p>Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of <code>pg_tde</code> extension that brings in Transparent Data Encryption. This version of <code>pg_tde</code> provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the <a href="https://docs.percona.com/pg-tde/release-notes/rc2.html"><code>pg_tde</code> release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.  </p>
-<h3 id="release-notes-v17.5-updated-major-upgrade-topic-in-documentation">Updated Major upgrade topic in documentation<a class="headerlink" href="#release-notes-v17.5-updated-major-upgrade-topic-in-documentation" title="Permanent link">&para;</a></h3>
-<p>The <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL from 16 to 17</a> guide has been updated with revised steps for the <a href="#major-upgrade-on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code></a> section, improving clarity and reliability of the upgrade process.</p>
+<h3 id="release-notes-v17.5-general-availability-ga-of-pg_tde">General Availability (GA) of pg_tde<a class="headerlink" href="#release-notes-v17.5-general-availability-ga-of-pg_tde" title="Permanent link">&para;</a></h3>
+<p>Percona Distribution for PostgreSQL now includes the 1.0 GA release of Percona&rsquo;s Transparent Data Encryption for PostgreSQL.</p>
+<p>Learn more in the <a href="https://docs.percona.com/pg-tde/release-notes/release-notes-v1.0.html"><code>pg_tde</code> 1.0 release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.  </p>
+<h3 id="release-notes-v17.5-major-documentation-update">Major documentation update<a class="headerlink" href="#release-notes-v17.5-major-documentation-update" title="Permanent link">&para;</a></h3>
+<p>The <code>pg_tde</code> documentation has received significant updates, which include:</p>
+<ul>
+<li>New KMS configuration guides for Fortanix, Vault, KMIP and OpenBAO</li>
+<li>Reorganized and expanded topics for Architecture, GUC, Functions, TDE Operations and FAQ</li>
+<li>Extensive and numerous refinements and clarifications across the entire site</li>
+</ul>
+<p>Explore the full documentation <a href="https://docs.percona.com/pg-tde/index.html">in the official <code>pg_tde</code> documentations</a>.</p>
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>
 <thead>
 <tr>
@@ -7697,6 +7705,11 @@ server stopped
 <td>Rebuilds PostgreSQL database objects</td>
 </tr>
 <tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.2.0</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
 <td><a href="https://github.com/pgvector/pgvector">pgvector <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
 <td>v0.8.0</td>
 <td>A vector similarity search for PostgreSQL</td>
@@ -7735,11 +7748,11 @@ backend server and to receive the results of these queries.&rdquo;</p></section>
 <p>Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.</p>
 </li>
 <li>
-<p>You no longer have to specify the <code>17.5-multi</code> tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the <code>percona/percona-distribution-postgresql:17.5</code>. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to <a href="#docker">Run in Docker</a> for how to get started.</p>
+<p>You no longer have to specify the <code>17.5-2-multi</code> tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the <code>percona/percona-distribution-postgresql:17.5-2</code>. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to <a href="#docker">Run in Docker</a> for how to get started.</p>
 </li>
 </ul>
 <h3 id="release-notes-v17.4-postgis-is-included-into-tarballs">PostGIS is included into tarballs<a class="headerlink" href="#release-notes-v17.4-postgis-is-included-into-tarballs" title="Permanent link">&para;</a></h3>
-<p>We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about <a href="#tarball">installing from tarballs</a> and <a href="#solutions-postgis">Spacial data manipulation</a>. </p>
+<p>We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spatial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about <a href="#tarball">installing from tarballs</a> and <a href="#solutions-postgis">Spatial data manipulation</a>. </p>
 <h3 id="release-notes-v17.4-deprecation-of-meta-packages">Deprecation of meta packages<a class="headerlink" href="#release-notes-v17.4-deprecation-of-meta-packages" title="Permanent link">&para;</a></h3>
 <p><a href="#repo-overview-repository-contents">Meta-packages for Percona Distribution for PostgreSQL</a> are deprecated and will be removed in future releases.</p>
 <h2 id="release-notes-v17.4-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-v17.4-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
@@ -7810,7 +7823,7 @@ backend server and to receive the results of these queries.&rdquo;</p></section>
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>{{ pgsmversion }}</td>
+<td>2.1.1</td>
 <td>Collects and aggregates statistics for PostgreSQL and provides histogram information</td>
 </tr>
 <tr>
@@ -7920,7 +7933,7 @@ For how to run <code>pg_tde</code> in Docker, check the <a href="#docker-enable-
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>{{ pgsmversion }}</td>
+<td>2.1.1</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
 <tr>
@@ -8107,7 +8120,7 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>{{ pgsmversion }}</td>
+<td>2.1.1</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
 <tr>
@@ -8495,7 +8508,7 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 <li><code>--name pg</code> - Assigns the name &ldquo;pg&rdquo; to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Distribution for PostgreSQL.</li>
-<li><code>percona/percona-distribution-postgresql:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>17.5-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-distribution-postgresql:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>17.5-2-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
 </ul>
 </div>
 </div>
