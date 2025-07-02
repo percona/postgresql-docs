@@ -1,10 +1,12 @@
 # Configure HAProxy
 
-HAproxy is the load balancer and the single point of entry to your PostgreSQL cluster for client applications. A client application accesses the HAPoxy URL and sends its read/write requests there. Behind-the-scene, HAProxy routes write requests to the primary node and read requests - to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded. To make this happen, provide different ports in the HAProxy configuration file. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
+HAproxy is the connection router and acts as a single point of entry to your PostgreSQL cluster for client applications. Additionally, HAProxy provides load-balancing for read-only connections. 
 
-This way, a client application doesn't know what node in the underlying cluster is the current primary. HAProxy sends connections to a healthy node (as long as there is at least one healthy node available) and ensures that client application requests are never rejected. 
+A client application connects to HAProxy and sends its read/write requests there. You can provide different ports in the HAProxy configuration file so that the client application can explicitly choose between read-write (primary) connection or read-only (replica) connection using the right port number to connect. In this deployment, writes are routed to port 5000 and reads  - to port 5001.
 
-To eliminate a single point of failure for HAProxy, you need the failover tool for it. 
+The client application doesn't know what node in the underlying cluster is the current primary. But it must connect to the HAProxy read-write connection to send all write requests. This ensures that HAProxy correctly routes all write load to the current primary node. Read requests are routed to the secondaries in a round-robin fashion so that no secondary instance is unnecessarily loaded.
+
+When you deploy HAProxy outside the application layer, you must deploy multiple instances of it and have the automatic failover mechanism to eliminate a single point of failure for HAProxy.
 
 For this document we focus on deployment on premises and we use `keepalived`. It monitors HAProxy state and manages the virtual IP for HAProxy.
 

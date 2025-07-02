@@ -2,7 +2,7 @@
 
 Whether you are a small startup or a big enterprise, downtime of your services may cause severe consequences, such as loss of customers, impact on your reputation, and penalties for not meeting the Service Level Agreements (SLAs). That’s why ensuring a highly-available deployment is crucial.
 
-But what does it mean, high availability? And how to achieve it? This document answers these questions. 
+But what does it mean, high availability (HA)? And how to achieve it? This document answers these questions. 
 
 After reading this document, you will learn the following:
 
@@ -14,7 +14,7 @@ After reading this document, you will learn the following:
 
 ## What is high availability
 
-High availability is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the failed component to the healthy ones so that they can take over its responsibility. The system must have sufficient automation to perform this transfer without the need of human intervention,  minimizing disruption and avoiding the need for human intervention.
+High availability (HA) is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the failed component to the healthy ones so that they can take over its responsibility. The system must have sufficient automation to perform this transfer without the need of human intervention,  minimizing disruption and avoiding the need for human intervention.
 
 Overall, High availability is about:
 
