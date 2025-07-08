@@ -26,7 +26,9 @@
 
 ## How `pgBackRest` works
 
-For making backups and restores you need a backup server and the `pgBackRest` agents running on the database nodes. The backup server has the information about a PostgreSQL cluster, where it is located, how to back it up and where to store backup files. This information is defined within a configuration section called a *stanza*. 
+`pgBackRest` supports a backup server (or a dedicated repository host in `pgBackRest` terminology). This repository host acts as the centralized backup storage. Multiple PostgreSQL clusters can use the same repository host.
+
+In addition to a repository host with `pgBackRest` installed, you also need `pgBackRest` agents running on the database nodes. The backup server has the information about a PostgreSQL cluster, where it is located, how to back it up and where to store backup files. This information is defined within a configuration section called a *stanza*. 
 
 The storage location where `pgBackRest` stores backup data and WAL archives is called the repository. It can be a local directory, a remote server, or a cloud storage service like AWS S3, S3-compatible storages or Azure blob storage. `pgBackRest` supports up to 4 repositories, allowing for redundancy and flexibility in backup storage. 
 
