@@ -267,4 +267,4 @@ Congratulations! You have successfully configured your HAProxy solution.  Now yo
 
 ## Next steps
 
-[Test Patroni PostgreSQL cluster](ha-test.md){.md-button}
+[Test Patroni PostgreSQL cluster :material-arrow-right:](ha-test.md){.md-button}

@@ -352,16 +352,20 @@ An example of such an error is `No pg_hba.conf entry for replication connection 
 
 ```
 pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
-      - host replication replicator 127.0.0.1/32 trust
-      - host replication replicator 0.0.0.0/0 md5
-      - host replication replicator 10.0.100.2/32 trust
-      - host replication replicator 10.0.100.3/32 trust
-      - host all all 0.0.0.0/0 md5
-      - host all all ::0/0 md5
-      recovery_conf:
-            restore_command: cp /home/postgres/archived/%f %p
+- host replication replicator 127.0.0.1/32 trust
+- host replication replicator 0.0.0.0/0 md5
+- host replication replicator 10.0.100.2/32 trust
+- host replication replicator 10.0.100.3/32 trust
+- host all all 0.0.0.0/0 md5
+- host all all ::0/0 md5
+recovery_conf:
+      restore_command: cp /home/postgres/archived/%f %p
 ```
 
 For production use, we recommend adding nodes individually as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to as the trusted one to bypass passwords use during authentication. Then all nodes from this network can connect to Patroni cluster. 
 
 Changing the `patroni.yml` file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. 
+
+## Next steps
+
+[pgBackRest setup :material-arrow-right:](pgbackrest.md){.md-button}

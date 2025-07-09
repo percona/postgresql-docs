@@ -48,3 +48,6 @@ Finally, the services layer is represented by `pgBackRest` and PMM.
 
 The monitoring solution is optional but nice to have. It enables you to monitor the health of your high-availability architecture, receive timely alerts should performance issues occur and proactively react to them.
 
+## Next steps
+
+[Deployment - initial setup :material-arrow-right:](ha-init-setup.md){.md-button}

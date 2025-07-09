@@ -61,4 +61,7 @@ Running `etcd` on separate hosts has the following benefits:
 Note that separate deployment increases the complexity of the infrastructure and requires additional effort on maintenance. Also, pay close attention to network configuration to eliminate the latency that might occur due to the communication between `etcd` and Patroni nodes over the network.
 
 If a separate dedicated host for 1 is not a viable option, you can use the same host machines used for Patroni and PostgreSQL.
- 
+
+## Next step
+
+[Patroni](patroni-info.md){.md-button}

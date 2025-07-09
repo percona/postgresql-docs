@@ -165,3 +165,7 @@ We will configure and start all etcd nodes in parallel. This can be done either 
         ```
 
 --8<-- "check-etcd.md"
+
+## Next steps
+
+[Patroni setup :material-arrow-right:](ha-patroni.md){.md-button}

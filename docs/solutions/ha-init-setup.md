@@ -78,4 +78,4 @@ Run the following commands on each node as the root user or with `sudo` privileg
 
 ## Next steps
 
-[Install Percona Distribution for PostgreSQL](ha-install-postgres.md){.md-button}
+[Set up etcd :material-arrow-right:](ha-etcd-config.md){.md-button}

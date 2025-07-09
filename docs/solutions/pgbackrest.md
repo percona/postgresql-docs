@@ -360,7 +360,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
    
 5. Make a copy of the configuration file. The path to it can be either `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf`:
 
-   ```{.bash data-prompt="$"}
+    ```{.bash data-prompt="$"}
     $ sudo cp pgbackrest.conf pgbackrest.conf.orig
     ```
 
@@ -513,7 +513,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
     It may take a while to reload the new configuration.
 
-    <info>:material-information: Note:</i> When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
+    *NOTE*: When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
 
 ## Create backups
 
@@ -543,4 +543,6 @@ Run the following commands on the **backup server**:
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 expire --set=<BACKUP_ID>
     ```
 
-[Test PostgreSQL cluster](ha-test.md){.md-button}
+## Next steps
+
+[Configure HAProxy :material-arrow-right:](ha-haproxy.md){.md-button}

@@ -115,6 +115,6 @@ Note that the tools are recommended but not mandatory. You can use your own solu
 
 ## Next steps
 
-[Architecture](ha-architecture.md){.md-button}
+[Architecture :material-arrow-right:](ha-architecture.md){.md-button}
 
 

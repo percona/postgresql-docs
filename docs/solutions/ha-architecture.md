@@ -16,17 +16,17 @@ The components in this architecture are:
 
 - PostgreSQL nodes bearing the user data. 
 
-- Patroni - an automatic failover system. Patroni requires and uses the Distributed Configuration Store to store the cluster configuration, health and status.
+- [Patroni](patroni-info.md) - an automatic failover system. Patroni requires and uses the Distributed Configuration Store to store the cluster configuration, health and status.
 
 - watchdog - a mechanism that will reset the whole system when they do not get a keepalive heartbeat within a specified timeframe. This adds an additional layer of fail safe in case usual Patroni split-brain protection mechanisms fail.
 
 ### DCS layer
 
-- etcd - a Distributed Configuration Store. It stores the state of the PostgreSQL cluster and handles the election of a new primary. The odd number of nodes (minimum three) is required to always have the majority to agree on updates to the cluster state.  
+- [etcd](etcd-info.md) - a Distributed Configuration Store. It stores the state of the PostgreSQL cluster and handles the election of a new primary. The odd number of nodes (minimum three) is required to always have the majority to agree on updates to the cluster state.  
 
 ### Load balancing layer
 
-- HAProxy - the load balancer and the single point of entry to the cluster for client applications. Minimum two instances are required for redundancy.
+- [HAProxy](haproxy-info.md) - the load balancer and the single point of entry to the cluster for client applications. Minimum two instances are required for redundancy.
 
 - keepalived - a high-availability and failover solution for HAProxy. It provides a virtual IP (VIP) address for HAProxy and prevents its single point of failure by failing over the services to the operational instance
 
@@ -34,7 +34,7 @@ The components in this architecture are:
 
 ### Services layer
 
-- pgBackRest - the backup and restore solution for PostgreSQL. It should also be redundant to eliminate a single point of failure.
+- [pgBackRest](pgbackrest-info.md) - the backup and restore solution for PostgreSQL. It should also be redundant to eliminate a single point of failure.
 
 - (Optional) Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster 
 
@@ -57,4 +57,4 @@ Using such architecture has the following limitations:
 
 ## Next steps 
 
-[Deployment - initial setup](ha-init-setup.md){.md-button}
+[Deployment - initial setup :material-arrow-right:](ha-init-setup.md){.md-button}

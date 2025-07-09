@@ -1,4 +1,4 @@
-# PgBackRest
+# pgBackRest
 
 `pgBackRest` is an advanced backup and restore tool designed specifically for PostgreSQL databases. `pgBackRest` emphasizes simplicity, speed, and scalability. Its architecture is focused on minimizing the time and resources required for both backup and restoration processes.
 
@@ -35,3 +35,7 @@ The storage location where `pgBackRest` stores backup data and WAL archives is c
 When you create a stanza, it initializes the repository and prepares it for storing backups. During the backup process, `pgBackRest` reads the data from the PostgreSQL cluster and writes it to the repository. It also performs integrity checks and compresses the data if configured.
 
 Similarly, during the restore process, `pgBackRest` reads the backup data from the repository and writes it to the PostgreSQL data directory. It also verifies the integrity of the restored data.
+
+## Next step
+
+[How components work together :material-arrow-right:](ha-components.md){.md-button}

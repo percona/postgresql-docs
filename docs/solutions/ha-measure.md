@@ -38,3 +38,6 @@ MTBF gives you a picture of how reliable your infrastructure really is. In well-
 
 Recovery speed matters too. For example, a typical Patroni-based cluster can fail over to a new primary node within 30 to 50 seconds. However, note that database availability metrics typically don't consider the application's ability to detect the failover and reconnect. Some applications recover seamlessly, while others may require a restart. 
 
+## Next steps
+
+[Architecture :material-arrow-right:](ha-architecture.md){.md-button}
