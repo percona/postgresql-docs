@@ -239,7 +239,11 @@ log-level-console=info
 log-level-file=debug
 
 [prod_backup]
+<<<<<<< HEAD
 pg1-path=/var/lib/postgresql/13/main
+=======
+pg1-path=/var/lib/postgresql/{{pgversion}}/main
+>>>>>>> 704ff6d0... PG-1127 Rewamp HA solution (15)
 ```
 
 
