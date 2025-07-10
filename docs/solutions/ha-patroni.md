@@ -4,7 +4,7 @@
 
 Run the following commands as root or with `sudo` privileges on `node1`, `node2` and `node3`.
 
-=== "On Debian / Ubuntu"
+=== ":material-debian: On Debian / Ubuntu"
 
     1. Disable the upstream `postgresql-{{pgversion}}` package.
 
@@ -40,7 +40,7 @@ Run the following commands as root or with `sudo` privileges on `node1`, `node2`
         $ sudo rm -rf /var/lib/postgresql/{{pgversion}}/main
         ```
 
-=== "On RHEL and derivatives"
+=== ":material-redhat: On RHEL and derivatives"
 
     1. Install Percona Distribution for PostgreSQL package
 
@@ -99,7 +99,7 @@ Environment variables simplify the config file creation:
        $ echo $NODE_IP
        ```
 
-    ??? admonition "Sample output `node1`"
+    ??? example "Sample output `node1`"
 
            ```{text .no-copy}
            10.104.0.7
@@ -323,7 +323,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 
     The output resembles the following:
 
-    ??? admonition "Sample output node1"
+    ??? example "Sample output node1"
 
         ```{.text .no-copy}
         + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
@@ -332,7 +332,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
         | node1  | 10.0.100.1 | Leader  | running   |  1 |           |
         ```
 
-    ??? admonition "Sample output node3"
+    ??? example "Sample output node3"
 
         ```{.text .no-copy}
         + Cluster: cluster_1 (7440127629342136675) -----+----+-------+
