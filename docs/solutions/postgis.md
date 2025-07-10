@@ -1,7 +1,5 @@
 # Spatial data manipulation
 
-!!! admonition "Version added: 15.3"
-
 Organizations dealing with spatial data need to store it somewhere and manipulate it. PostGIS is the open source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:
 
 * Geographical data like points, lines, polygons, GPS coordinates that can be mapped on a sphere.

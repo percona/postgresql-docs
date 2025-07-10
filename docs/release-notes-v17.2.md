@@ -10,7 +10,9 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 * Percona Distribution for PostgreSQL includes [`pgvector` :octicons-link-external-16:](https://github.com/pgvector/pgvector) - an open source extension that enables you to use PostgreSQL as a vector database. It brings vector data type and vector operations (mainly similarity search) to PostgreSQL. You can install `pgvector` from repositories, tarballs, and it is also available as a Docker image.
 * The new version of `pg_tde` extension features index encryption and the support of storing encryption keys in KMIP-compatible servers. These feature come with the Beta version of the `tde_heap` access method. Learn more in the [pg_tde release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/beta2.html)
 * The `pg_tde` extension itself is now a part of the Percona Server for PostgreSQL server package and a Docker image. If you installed the extension before, from its individual package, uninstall it first to avoid conflicts during the upgrade. See the [Minor Upgrade of Percona Distribution for PostgreSQL](minor-upgrade.md#before-you-start) for details.
-For how to run `pg_tde` in Docker, check the [Enable encryption](docker.md#enable-encryption) section in the documentation.
+
+   For how to run `pg_tde` in Docker, check the [Enable encryption](docker.md#enable-encryption) section in the documentation.
+   
 *  Percona Distribution for PostgreSQL now statically links `llvmjit.so` library for Red Hat Enterprise Linux 8 and 9 and compatible derivatives. This resolves the conflict between the LLVM version required by Percona Distribution for PostgreSQL and the one supplied with the operating system. This also enables you to use the LLVM modules supplied with the operating system for other software you require.
 * Percona Monitoring and Management (PMM) 2.43.2 is now compatible with `pg_stat_monitor` 2.1.0 to monitor PostgreSQL 17. 
 
