@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="pgBackRest  is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. While it can be used for local backups, this procedure shows how to deploy a pgBackRest server running on a dedicated host  and how to configure PostgreSQL servers to use it for backups and archiving.">
+        <meta name="description" content="pgBackRest  is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery.">
       
       
         <meta name="author" content="Percona LLC">
@@ -18,14 +18,14 @@
         <link rel="canonical" href="https://docs.percona.com/postgresql/17/solutions/pgbackrest.html">
       
       
-        <link rel="prev" href="ha-setup-yum.html">
+        <link rel="prev" href="ha-patroni.html">
       
       
-        <link rel="next" href="ha-test.html">
+        <link rel="next" href="ha-haproxy.html">
       
       
       <link rel="icon" href="../_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -54,10 +54,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="../css/print-site.css">
-    
-      <link rel="stylesheet" href="../css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
@@ -1020,7 +1016,7 @@
   
   
   <span class="md-ellipsis">
-    High availability
+    Overview
     
   </span>
   
@@ -1038,12 +1034,12 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-apt.html" class="md-nav__link">
+      <a href="ha-measure.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Deploying on Debian or Ubuntu
+    Measuring high availability
     
   </span>
   
@@ -1061,12 +1057,282 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-setup-yum.html" class="md-nav__link">
+      <a href="ha-architecture.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Deploying on RHEL or derivatives
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Components
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="etcd-info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ETCD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="patroni-info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patroni
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="haproxy-info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HAProxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pgbackrest-info.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pgBackRest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-components.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How components work together
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_6" id="__nav_6_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-init-setup.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Initial setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-etcd-config.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    etcd setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-patroni.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patroni setup
     
   </span>
   
@@ -1136,16 +1402,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configure-backup-server" class="md-nav__link">
+  <a href="#preparation" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure backup server
+      Preparation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configure backup server">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-pgbackrest" class="md-nav__link">
     <span class="md-ellipsis">
       Install pgBackRest
@@ -1153,6 +1418,16 @@
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-a-backup-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure a backup server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure a backup server">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#create-the-configuration-file" class="md-nav__link">
@@ -1204,9 +1479,49 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ha-haproxy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HAProxy setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1971,16 +2286,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configure-backup-server" class="md-nav__link">
+  <a href="#preparation" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure backup server
+      Preparation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configure backup server">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#install-pgbackrest" class="md-nav__link">
     <span class="md-ellipsis">
       Install pgBackRest
@@ -1988,6 +2302,16 @@
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-a-backup-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure a backup server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure a backup server">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#create-the-configuration-file" class="md-nav__link">
@@ -2039,6 +2363,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2068,7 +2401,7 @@
 
 
   
-    <a href="https://github.com/percona/postgresql-docs/edit/17/docs/solutions/pgbackrest.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/edit/17/docs/solutions/pgbackrest.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2085,43 +2418,35 @@
 
 
 <h1 id="pgbackrest-setup">pgBackRest setup<a class="headerlink" href="#pgbackrest-setup" title="Permanent link">&para;</a></h1>
-<p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. While it can be used for local backups, this procedure shows how to deploy a <a href="https://pgbackrest.org/user-guide-rhel.html#repo-host">pgBackRest server running on a dedicated host <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and how to configure PostgreSQL servers to use it for backups and archiving.</p>
+<p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. </p>
+<p>In our solution we deploy a <a href="https://pgbackrest.org/user-guide-rhel.html#repo-host">pgBackRest server on a dedicated host <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and also deploy pgBackRest on the PostgreSQL servers. Them we configure PostgreSQL servers to use it for backups and archiving.</p>
 <p>You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. </p>
-<h2 id="configure-backup-server">Configure backup server<a class="headerlink" href="#configure-backup-server" title="Permanent link">&para;</a></h2>
-<p>To make things easier when working with some templates, run the commands below  as the root user. Run the following command to switch to the root user:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-
-</code></pre></div>
-<h3 id="install-pgbackrest">Install pgBackRest<a class="headerlink" href="#install-pgbackrest" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Enable the repository with <a href="https://www.percona.com/doc/percona-repo-config/index.html">percona-release <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-17<span class="w">       </span>
-</code></pre></div>
-</li>
-<li>
-<p>Install pgBackRest package</p>
+<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h2>
+<p>Make sure to complete the <a href="ha-init-setup.html">initial setup</a> steps.</p>
+<h2 id="install-pgbackrest">Install pgBackRest<a class="headerlink" href="#install-pgbackrest" title="Permanent link">&para;</a></h2>
+<p>Install pgBackRest on the following nodes: <code>node1</code>, <code>node2</code>, <code>node3</code>, <code>backup</code></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
 </div>
 </div>
 </div>
-</li>
-</ol>
+<h2 id="configure-a-backup-server">Configure a backup server<a class="headerlink" href="#configure-a-backup-server" title="Permanent link">&para;</a></h2>
+<p>Do the following steps on the <code>backup</code> node.</p>
 <h3 id="create-the-configuration-file">Create the configuration file<a class="headerlink" href="#create-the-configuration-file" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Create environment variables to simplify the config file creation:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;bkp-srv&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NODE1_NAME</span><span class="o">=</span><span class="s2">&quot;node-1&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NODE2_NAME</span><span class="o">=</span><span class="s2">&quot;node-2&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NODE3_NAME</span><span class="o">=</span><span class="s2">&quot;node-3&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;backup&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE1_NAME</span><span class="o">=</span><span class="s2">&quot;node1&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE2_NAME</span><span class="o">=</span><span class="s2">&quot;node2&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE3_NAME</span><span class="o">=</span><span class="s2">&quot;node3&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/etc/ssl/certs/pg_ha&quot;</span>
 </code></pre></div>
 </li>
@@ -2129,21 +2454,23 @@
 <p>Create the <code>pgBackRest</code> repository, <em>if necessary</em></p>
 <p>A repository is where <code>pgBackRest</code> stores backups. In this example, the backups will be saved to <code>/var/lib/pgbackrest</code>.</p>
 <p>This directory is usually created during pgBackRest&rsquo;s installation process. If it&rsquo;s not there already, create it as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/pgbackrest
-$<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/lib/pgbackrest
-$<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/lib/pgbackrest
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/pgbackrest
 </code></pre></div>
 </li>
 <li>
 <p>The default <code>pgBackRest</code> configuration file location is <code>/etc/pgbackrest/pgbackrest.conf</code>, but some systems continue to use the old path, <code>/etc/pgbackrest.conf</code>, which remains a valid alternative. If the former is not present in your system, create the latter.</p>
-<p>Access the file&rsquo;s parent directory (either <code>cd /etc/</code> or <code>cd /etc/pgbackrest/</code>), and make a backup copy of it:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>pgbackrest.conf<span class="w"> </span>pgbackrest.conf.bak
+<p>Go to the file&rsquo;s parent directory (either <code>cd /etc/</code> or <code>cd /etc/pgbackrest/</code>), and make a backup copy of it:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>pgbackrest.conf<span class="w"> </span>pgbackrest.conf.orig
 </code></pre></div>
-<p>Then use the following command to create a basic configuration file using the environment variables we created in a previous step:</p>
+</li>
+<li>
+<p>Then use the following command to create a basic configuration file using the environment variables we created in a previous step. This example command adds the configuration file at the path <code>/etc/pgbackrest.conf</code>.  Make sure to specify the correct path for the configuration file on your system:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>cat &lt;&lt;EOF &gt; pgbackrest.conf
+<div class="highlight"><pre><span></span><code>echo &quot;
 [global] 
 
 # Server repo details
@@ -2168,7 +2495,7 @@ repo1-retention-archive-type=full
 repo1-retention-full=4 
 
 # Server general options
-process-max=12
+process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
 log-level-console=info
 #log-level-file=debug
 log-level-file=info
@@ -2218,11 +2545,12 @@ pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
 pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
 pg3-host-ca-file=${CA_PATH}/ca.crt
 pg3-socket-path=/var/run/postgresql
-EOF
+
+&quot; | sudo tee /etc/pgbackrest.conf
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>cat &lt;&lt;EOF &gt; pgbackrest.conf
+<div class="highlight"><pre><span></span><code>echo &quot;
 [global] 
 
 # Server repo details
@@ -2247,7 +2575,7 @@ repo1-retention-archive-type=full
 repo1-retention-full=4 
 
 # Server general options
-process-max=12
+process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
 log-level-console=info
 #log-level-file=debug
 log-level-file=info
@@ -2271,7 +2599,7 @@ tls-server-auth=${NODE3_NAME}=cluster_1
 pg1-host=${NODE1_NAME}
 pg1-host-port=8432
 pg1-port=5432
-pg1-path=/var/lib/pgsql/17/data
+pg1-path=/var/lib/postgresql/17/main
 pg1-host-type=tls
 pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
 pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -2281,7 +2609,7 @@ pg1-socket-path=/var/run/postgresql
 pg2-host=${NODE2_NAME}
 pg2-host-port=8432
 pg2-port=5432
-pg2-path=/var/lib/pgsql/17/data
+pg2-path=/var/lib/postgresql/17/main
 pg2-host-type=tls
 pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
 pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -2291,13 +2619,14 @@ pg2-socket-path=/var/run/postgresql
 pg3-host=${NODE3_NAME}
 pg3-host-port=8432
 pg3-port=5432
-pg3-path=/var/lib/pgsql/17/data
+pg3-path=/var/lib/postgresql/17/main
 pg3-host-type=tls
 pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
 pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
 pg3-host-ca-file=${CA_PATH}/ca.crt
 pg3-socket-path=/var/run/postgresql
-EOF
+
+&quot; | sudo tee /etc/pgbackrest.conf
 </code></pre></div>
 </div>
 </div>
@@ -2306,38 +2635,48 @@ EOF
 </li>
 </ol>
 <h3 id="create-the-certificate-files">Create the certificate files<a class="headerlink" href="#create-the-certificate-files" title="Permanent link">&para;</a></h3>
+<p>Run the following commands as a root user or with <code>sudo</code> privileges</p>
 <ol>
 <li>
 <p>Create the folder to store the certificates:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/ssl/certs/pg_ha
 </code></pre></div>
 </li>
 <li>
-<p>Create the certificates and keys</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=root-ca&quot;</span>
+<p>Create the environment variable to simplify further configuration</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/etc/ssl/certs/pg_ha&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>Create the certificate for the backup and the PostgreSQL servers</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="k">for</span><span class="w"> </span>node<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>
-<span class="k">do</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="nv">$node</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="nv">$node</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="nv">$node</span><span class="s2">&quot;</span><span class="p">;</span>
-<span class="k">done</span>
+<p>Create the CA certificates and keys</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=root-ca&quot;</span>
 </code></pre></div>
 </li>
 <li>
-<p>Sign the certificates with the <code>root-ca</code> key</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="k">for</span><span class="w"> </span>node<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>
-<span class="k">do</span>
-openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="nv">$node</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="nv">$node</span>.crt<span class="p">;</span>
-<span class="k">done</span>
+<p>Create the certificate and keys for the backup server</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the certificates and keys for each PostgreSQL node</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Sign all certificates with the <code>root-ca</code> key</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.crt
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-CA<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-CAkey<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.crt
 </code></pre></div>
 </li>
 <li>
 <p>Remove temporary files, set ownership of the remaining files to the <code>postgres</code> user, and restrict their access:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*.csr
-$<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>-R<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
-$<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span><span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*.csr
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>-R<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span><span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*
 </code></pre></div>
 </li>
 </ol>
@@ -2364,10 +2703,13 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span
 </code></pre></div>
 </li>
 <li>
-<p>Reload, start, and enable the service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>pgbackrest.service
-$<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>pgbackrest.service
+<p>Make <code>systemd</code> aware of the new service: </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</code></pre></div>
+</li>
+<li>
+<p>Enable <code>pgBackRest</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest.service
 </code></pre></div>
 </li>
 </ol>
@@ -2375,16 +2717,16 @@ $<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enabl
 <p>Run the following commands on <code>node1</code>, <code>node2</code>, and <code>node3</code>.</p>
 <ol>
 <li>
-<p>Install pgBackRest package</p>
+<p>Install <code>pgBackRest</code> package</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="__tabbed_3_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>```{.bash data-prompt=&rdquo;$&rdquo;}
-$ yum install percona-pgbackrest</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -2392,28 +2734,33 @@ $ yum install percona-pgbackrest</p>
 <li>
 <p>Export environment variables to simplify the config file creation:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;bkp-srv&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;backup&quot;</span>
 $<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/etc/ssl/certs/pg_ha&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create the certificates folder:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
 </code></pre></div>
 </li>
 <li>
 <p>Copy the <code>.crt</code>, <code>.key</code> certificate files and the <code>ca.crt</code> file from the backup server where they were created to every respective node. Then change the ownership to the <code>postgres</code> user and restrict their access. Use the following commands to achieve this:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>scp<span class="w"> </span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>:<span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="o">{</span><span class="nv">$NODE_NAME</span>.crt,<span class="nv">$NODE_NAME</span>.key,ca.crt<span class="o">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/
-$<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>-R<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
-$<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span><span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*<span class="w"> </span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>scp<span class="w"> </span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>:<span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="o">{</span><span class="nv">$NODE_NAME</span>.crt,<span class="nv">$NODE_NAME</span>.key,ca.crt<span class="o">}</span><span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>-R<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>
+$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span><span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/*<span class="w"> </span>
 </code></pre></div>
 </li>
 <li>
-<p>Edit or create the configuration file which, as explained above, can be either at the <code>/etc/pgbackrest/pgbackrest.conf</code> or <code>/etc/pgbackrest.conf</code> path:</p>
+<p>Make a copy of the configuration file. The path to it can be either <code>/etc/pgbackrest/pgbackrest.conf</code> or <code>/etc/pgbackrest.conf</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>pgbackrest.conf<span class="w"> </span>pgbackrest.conf.orig
+</code></pre></div>
+</li>
+<li>
+<p>Create the configuration file. This example command adds the configuration file at the path <code>/etc/pgbackrest.conf</code>. Make sure to specify the correct path for the configuration file on your system:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">cat &lt;&lt;EOF &gt; pgbackrest.conf</span>
+<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">echo &quot;</span>
 <span class="k">[global]</span>
 <span class="na">repo1-host</span><span class="o">=</span><span class="s">${SRV_NAME}</span>
 <span class="na">repo1-host-user</span><span class="o">=</span><span class="s">postgres</span>
@@ -2423,7 +2770,7 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span
 <span class="na">repo1-host-ca-file</span><span class="o">=</span><span class="s">${CA_PATH}/ca.crt</span>
 
 <span class="c1"># general options</span>
-<span class="na">process-max</span><span class="o">=</span><span class="s">16</span>
+<span class="na">process-max</span><span class="o">=</span><span class="s">6</span>
 <span class="na">log-level-console</span><span class="o">=</span><span class="s">info</span>
 <span class="na">log-level-file</span><span class="o">=</span><span class="s">debug</span>
 
@@ -2436,11 +2783,11 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span
 
 <span class="k">[cluster_1]</span>
 <span class="na">pg1-path</span><span class="o">=</span><span class="s">/var/lib/postgresql/17/main</span>
-<span class="na">EOF</span>
+<span class="na">&quot; | sudo tee /etc/pgbackrest.conf</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">cat &lt;&lt;EOF &gt; pgbackrest.conf</span>
+<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">echo &quot;</span>
 <span class="k">[global]</span>
 <span class="na">repo1-host</span><span class="o">=</span><span class="s">${SRV_NAME}</span>
 <span class="na">repo1-host-user</span><span class="o">=</span><span class="s">postgres</span>
@@ -2450,7 +2797,7 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span
 <span class="na">repo1-host-ca-file</span><span class="o">=</span><span class="s">${CA_PATH}/ca.crt</span>
 
 <span class="c1"># general options</span>
-<span class="na">process-max</span><span class="o">=</span><span class="s">16</span>
+<span class="na">process-max</span><span class="o">=</span><span class="s">6</span>
 <span class="na">log-level-console</span><span class="o">=</span><span class="s">info</span>
 <span class="na">log-level-file</span><span class="o">=</span><span class="s">debug</span>
 
@@ -2463,7 +2810,7 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span
 
 <span class="k">[cluster_1]</span>
 <span class="na">pg1-path</span><span class="o">=</span><span class="s">/var/lib/pgsql/17/data</span>
-<span class="na">EOF</span>
+<span class="na">&quot; | sudo tee /etc/pgbackrest.conf</span>
 </code></pre></div>
 </div>
 </div>
@@ -2490,55 +2837,61 @@ $<span class="w"> </span>chmod<span class="w"> </span><span class="m">0600</span
 </code></pre></div>
 </li>
 <li>
-<p>Reload, start, and enable the service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>pgbackrest
-$<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>pgbackrest
+<p>Reload the <code>systemd</code>, the start the service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest
 </code></pre></div>
 <p>The pgBackRest daemon listens on port <code>8432</code> by default:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>netstat<span class="w"> </span>-taunp
-Active<span class="w"> </span>Internet<span class="w"> </span>connections<span class="w"> </span><span class="o">(</span>servers<span class="w"> </span>and<span class="w"> </span>established<span class="o">)</span>
-Proto<span class="w"> </span>Recv-Q<span class="w"> </span>Send-Q<span class="w"> </span>Local<span class="w"> </span>Address<span class="w">           </span>Foreign<span class="w"> </span>Address<span class="w">         </span>State<span class="w">       </span>PID/Program<span class="w"> </span>name<span class="w">    </span>
-tcp<span class="w">        </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.0.0.0:111<span class="w">             </span><span class="m">0</span>.0.0.0:*<span class="w">               </span>LISTEN<span class="w">      </span><span class="m">1</span>/systemd<span class="w">           </span>
-tcp<span class="w">        </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.0.0.0:8432<span class="w">            </span><span class="m">0</span>.0.0.0:*<span class="w">               </span>LISTEN<span class="w">      </span><span class="m">40224</span>/pgbackrest
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>netstat<span class="w"> </span>-taunp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;8432&#39;</span>
 </code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="highlight"><pre><span></span><code>Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
+tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
+</code></pre></div>
+</details>
 </li>
 <li>
 <p>If you are using Patroni, change its configuration to use <code>pgBackRest</code> for archiving and restoring WAL files. Run this command only on one node, for example, on <code>node1</code>: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>edit-config
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="__tabbed_5_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<p>This opens the editor for you.</p>
+</li>
+<li>
+<p>Change the configuration as follows:</p>
 <div class="highlight"><span class="filename">/etc/patroni/patroni.yml</span><pre><span></span><code><span class="nt">postgresql</span><span class="p">:</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">archive_command</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/17/main/pg_wal/%f</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">archive_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/17/main/pg_wal/%f</span>
+<span class="w">    </span><span class="nt">archive_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">archive_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600s</span>
+<span class="w">    </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+<span class="w">    </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">max_wal_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10GB</span>
+<span class="w">    </span><span class="nt">wal_keep_segments</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logical</span>
+<span class="w">    </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">recovery_conf</span><span class="p">:</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">restore_command</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f %p</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+<span class="w">    </span><span class="nt">recovery_target_timeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f &quot;%p&quot;</span>
+<span class="w">  </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">percona_cluster_1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">physical</span>
+<span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/patroni/patroni.yml</span><pre><span></span><code><span class="nt">postgresql</span><span class="p">:</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">parameters</span><span class="p p-Indicator">:</span>
-<span class="w">    </span><span class="nt">archive_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --stanza=cluster_1 archive-push /var/lib/pgsql/17/data/pg_wal/%f</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
-<span class="w">  </span><span class="nt">recovery_conf</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f %p</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+</li>
+<li>
+<p>Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the <code>cluster_1</code> cluster name:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>restart<span class="w"> </span>cluster_1
 </code></pre></div>
-</div>
-</div>
-</div>
-<p>Reload the changed configurations:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/postgresql.yml<span class="w"> </span>reload
-</code></pre></div>
-<p><info><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg></span> Note:</i> When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the <code>pgBackRest</code> server, edit the server&rsquo;s main configuration file directly and adjust the <code>archive_command</code> and <code>restore_command</code> variables as shown above.</p>
+<p>It may take a while to reload the new configuration.</p>
+<p><em>NOTE</em>: When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the <code>pgBackRest</code> server, edit the server&rsquo;s main configuration file directly and adjust the <code>archive_command</code> and <code>restore_command</code> variables as shown above.</p>
 </li>
 </ol>
 <h2 id="create-backups">Create backups<a class="headerlink" href="#create-backups" title="Permanent link">&para;</a></h2>
@@ -2565,7 +2918,8 @@ tcp<span class="w">        </span><span class="m">0</span><span class="w">      
 </code></pre></div>
 </li>
 </ol>
-<p><a class="md-button" href="ha-test.html">Test PostgreSQL cluster</a></p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="ha-haproxy.html">Configure HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 
 
@@ -2588,7 +2942,7 @@ tcp<span class="w">        </span><span class="m">0</span><span class="w">      
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2024 13:07:56 UTC">October 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 10, 2025 13:53:56 UTC">July 10, 2025</span>
   </span>
 
     
@@ -2734,14 +3088,12 @@ tcp<span class="w">        </span><span class="m">0</span><span class="w">      
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
-      
-        <script src="../js/print-site.js"></script>
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
