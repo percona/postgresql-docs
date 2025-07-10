@@ -80,6 +80,6 @@ Patroni integrates well with other tools to create a comprehensive high-availabi
 
 Patroni provides hooks that allow you to customize its behavior. You can use hooks to execute custom scripts or commands at various stages of Patroni lifecycle, such as before and after failover, or when a new instance joins the cluster. Thereby you can integrate Patroni with other systems and automate various tasks. For example, use a hook to update the monitoring system when a failover occurs.
 
-## Next step
+## Next steps
 
 [HAProxy](haproxy-info.md){.md-button}

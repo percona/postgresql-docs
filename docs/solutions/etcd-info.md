@@ -62,6 +62,6 @@ Note that separate deployment increases the complexity of the infrastructure and
 
 If a separate dedicated host for 1 is not a viable option, you can use the same host machines used for Patroni and PostgreSQL.
 
-## Next step
+## Next steps
 
 [Patroni](patroni-info.md){.md-button}

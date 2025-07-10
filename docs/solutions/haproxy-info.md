@@ -72,7 +72,6 @@ For example, your nodes have priority 110 and 100. The node with priority 110 is
 
 When a failed node restores, its priority adjusts again. If it is the highest one among the nodes, this node restores its MASTER state, holds the virtual IP address and handles the client connections.
 
-
-## Next step
+## Next steps
 
 [pgBackRest](pgbackrest-info.md){.md-button}

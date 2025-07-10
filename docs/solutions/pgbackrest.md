@@ -459,7 +459,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ netstat -taunp | grep '8432'
     ```
 
-    ??? admonition "Sample output"
+    ??? example "Sample output"
 
         ```{text .no-copy}
         Active Internet connections (servers and established)

@@ -36,6 +36,6 @@ When you create a stanza, it initializes the repository and prepares it for stor
 
 Similarly, during the restore process, `pgBackRest` reads the backup data from the repository and writes it to the PostgreSQL data directory. It also verifies the integrity of the restored data.
 
-## Next step
+## Next steps
 
 [How components work together :material-arrow-right:](ha-components.md){.md-button}
