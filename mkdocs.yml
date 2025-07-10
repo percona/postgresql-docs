@@ -51,11 +51,22 @@ nav:
   - Solutions:
       - Overview: solutions.md
       - High availability:
-          - 'High availability': 'solutions/high-availability.md'
-          - 'Deploying on Debian or Ubuntu': 'solutions/ha-setup-apt.md'
-          - 'Deploying on RHEL or derivatives': 'solutions/ha-setup-yum.md'
-          - solutions/pgbackrest.md
-          - solutions/ha-test.md
+          - 'Overview': 'solutions/high-availability.md'
+          - solutions/ha-measure.md
+          - 'Architecture': solutions/ha-architecture.md
+          - Components:
+            - 'ETCD': 'solutions/etcd-info.md'
+            - 'Patroni': 'solutions/patroni-info.md'
+            - 'HAProxy': 'solutions/haproxy-info.md'
+            - 'pgBackRest': 'solutions/pgbackrest-info.md'
+          - solutions/ha-components.md
+          - Deployment:
+              - 'Initial setup': 'solutions/ha-init-setup.md'
+              - 'etcd setup': 'solutions/ha-etcd-config.md'
+              - 'Patroni setup': 'solutions/ha-patroni.md'
+              - solutions/pgbackrest.md
+              - 'HAProxy setup': 'solutions/ha-haproxy.md'
+          - 'Testing': solutions/ha-test.md
       - Backup and disaster recovery:
           - 'Overview': 'solutions/backup-recovery.md'
           - solutions/dr-pgbackrest-setup.md
