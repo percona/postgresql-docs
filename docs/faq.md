@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-This FAQ answers common questions about using Percona Distribution for PostgreSQL 17.
+This FAQ answers common questions about using Percona Server for PostgreSQL 17.
 
 If you're looking for help with errors or runtime issues, see the [Troubleshooting guide](troubleshooting.md).
 
