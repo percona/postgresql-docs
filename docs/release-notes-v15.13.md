@@ -31,7 +31,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v30 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.0 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing. |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.2 | rebuilds PostgreSQL database objects |
-| [pg_stat_monitor :octicons-link-external-16:](https://github.com/percona/pg_stat_monitor) | 2.2.0 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
+| [pg_stat_monitor :octicons-link-external-16:](https://github.com/percona/pg_stat_monitor) | 2.1.1 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis) | 3.3.8 | a spatial extension for PostgreSQL. |
 | [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector) | v0.8.0 | A vector similarity search for PostgreSQL |
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 277 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
