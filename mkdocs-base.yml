@@ -206,6 +206,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": "release-notes.md"
+      - release-notes-v14.18.upd.md
       - release-notes-v14.18.md
       - release-notes-v14.17.md
       - release-notes-v14.15.md
