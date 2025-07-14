@@ -94,4 +94,5 @@ nav:
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
+      - Versioning: versioning.md
       - Trademark policy: trademark-policy.md

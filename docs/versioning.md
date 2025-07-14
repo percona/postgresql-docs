@@ -19,3 +19,5 @@ Where:
 
 !!! note
     The **third digit** is **always** Percona’s build number, never an upstream patch. If you see it go from …1 → …2 this means a Percona-specific update was shipped.
+
+    If you're looking for more information, check the [FAQ](faq.md#does-minor-cover-both-upstream-feature-and-patch-releases).
