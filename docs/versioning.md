@@ -1,5 +1,8 @@
 # Percona Server for PostgreSQL: Version Numbering
 
+!!! important
+    The below versioning is only applicable to PSP's 17.x.x releases. Only the first 2 digits scheme is used for PPG versions 13 to 16.
+
 Our version strings use the following format:
 
 `MAJOR.MINOR.PATCH`
