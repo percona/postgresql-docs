@@ -82,9 +82,10 @@ nav:
       - "Major upgrade": major-upgrade.md
       - minor-upgrade.md
       - migration.md
+  - FAQ: faq.md  
   - Troubleshooting guide: troubleshooting.md
   - Uninstall: uninstalling.md
-  - Release Notes:
+  - Release notes:
       - "Release notes index": "release-notes.md"
       - release-notes-v17.5.md
       - release-notes-v17.4.md
