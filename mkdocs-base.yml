@@ -215,7 +215,8 @@ nav:
   - How to: how-to.md
   - Uninstall: uninstalling.md
   - Release notes:
-      - "Release notes index": "release-notes.md"
+      - "Release notes index": release-notes.md
+      - release-notes-v13.21.upd.md
       - release-notes-v13.21.md
       - release-notes-v13.20.md
       - release-notes-v13.18.md
