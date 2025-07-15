@@ -213,25 +213,27 @@ nav:
       - migration.md
   - Troubleshooting guide: troubleshooting.md
   - Uninstall: uninstalling.md
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v15.13.upd.md
-      - release-notes-v15.13.md
-      - release-notes-v15.12.md
-      - release-notes-v15.10.md
-      - release-notes-v15.8.md
-      - release-notes-v15.7.md
-      - release-notes-v15.6.md
-      - release-notes-v15.5.upd.md
-      - 2023 (versions 15.2 - 15.5):
-        - release-notes-v15.5.md
-        - release-notes-v15.4.md
-        - release-notes-v15.3.md
-        - release-notes-v15.2.upd.md
-        - release-notes-v15.2.md
-      - 2022 (versions 15.0 - 15.1):
-        - release-notes-v15.1.md
-        - release-notes-v15.0.md
+  - Release notes:
+    - "Release notes index": release-notes.md
+    - "2025":
+        - "15.13 Update": release-notes-v15.13.upd.md
+        - "15.13": release-notes-v15.13.md
+        - "15.12": release-notes-v15.12.md
+    - "2024 (versions 15.5 Update – 15.10)":
+        - "15.10": release-notes-v15.10.md
+        - "15.8": release-notes-v15.8.md
+        - "15.7": release-notes-v15.7.md
+        - "15.6": release-notes-v15.6.md
+        - "15.5 Update": release-notes-v15.5.upd.md
+    - "2023 (versions 15.2 – 15.5)":
+        - "15.5": release-notes-v15.5.md
+        - "15.4": release-notes-v15.4.md
+        - "15.3": release-notes-v15.3.md
+        - "15.2 Update": release-notes-v15.2.upd.md
+        - "15.2": release-notes-v15.2.md
+    - "2022 (versions 15.0 – 15.1)":
+        - "15.1": release-notes-v15.1.md
+        - "15.0": release-notes-v15.0.md
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
