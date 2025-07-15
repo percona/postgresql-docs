@@ -83,22 +83,19 @@ nav:
       - migration.md
   - Troubleshooting guide: troubleshooting.md
   - Uninstall: uninstalling.md
-  - Release notes:
-      - "Release notes index": release-notes/release-notes.md
-      - "2025":
-        - "16.9 Update": release-notes/release-notes-v16.9.upd.md
-        - "16.9": release-notes/release-notes-v16.9.md
-        - "16.8": release-notes/release-notes-v16.8.md
-      - "2024 (versions 16.6 - 16.1 Update)":
-        - "16.6": release-notes/release-notes-v16.6.md
-        - "16.4": release-notes/release-notes-v16.4.md
-        - "16.3": release-notes/release-notes-v16.3.md
-        - "16.2": release-notes/release-notes-v16.2.md
-        - "16.1 Update": release-notes/release-notes-v16.1.upd.md
-      - "2023 (versions 16.1 - 16.0)":
-        - "16.1": release-notes/release-notes-v16.1.md
-        - "16.0 Update": release-notes/release-notes-v16.0.upd.md
-        - "16.0": release-notes/release-notes-v16.0.md
+  - Release Notes:
+      - "Release notes index": "release-notes.md"
+      - release-notes-v16.9.upd.md
+      - release-notes-v16.9.md
+      - release-notes-v16.8.md
+      - release-notes-v16.6.md
+      - release-notes-v16.4.md
+      - release-notes-v16.3.md
+      - release-notes-v16.2.md
+      - release-notes-v16.1.upd.md
+      - release-notes-v16.1.md
+      - release-notes-v16.0.upd.md
+      - release-notes-v16.0.md
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
