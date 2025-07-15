@@ -14,7 +14,7 @@ The [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.
 
 ## Supplied third-party extensions
 
-Review each extension's release notes for What's new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.
+Review each extension's release notes for What's new, improvements, or bug fixes.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
@@ -31,6 +31,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_gather](https://github.com/jobinau/pg_gather)                                      | v30       | An SQL script for running the diagnostics of the health of PostgreSQL cluster                                       |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary)                  | 4.6.0     | A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.      |
 | [pg_repack](https://github.com/reorg/pg_repack)                                        | 1.5.2     | Rebuilds PostgreSQL database objects                                                                                |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.2.0 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pgvector](https://github.com/pgvector/pgvector)                                       | v0.8.0    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS](https://github.com/postgis/postgis)                                          | 3.3.8     | A spatial extension for PostgreSQL.                                                                                  |
 | [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)             | 277       | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters may be maintained at one time. |
