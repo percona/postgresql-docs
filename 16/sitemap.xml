@@ -65,54 +65,6 @@
          <lastmod>2025-07-15</lastmod>
     </url>
     <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.0.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.0.upd.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.1.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.1.upd.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.2.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.3.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.4.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.6.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.8.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.9.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes-v16.9.upd.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/16/release-notes.html</loc>
-         <lastmod>2025-07-15</lastmod>
-    </url>
-    <url>
          <loc>https://docs.percona.com/postgresql/16/repo-overview.html</loc>
          <lastmod>2025-07-15</lastmod>
     </url>
@@ -150,6 +102,54 @@
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/16/yum.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.0.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.0.upd.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.1.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.1.upd.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.2.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.3.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.4.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.6.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.8.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.9.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes-v16.9.upd.html</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/16/release-notes/release-notes.html</loc>
          <lastmod>2025-07-15</lastmod>
     </url>
     <url>
