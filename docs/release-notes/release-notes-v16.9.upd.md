@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 16.9 Update ({{date.16_9_1}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 

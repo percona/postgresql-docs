@@ -1,7 +1,7 @@
 # Percona Distribution for PostgreSQL 16.0 (2023-09-19)
 
-[Installation](installing.md){.md-button}
-[Upgrade](major-upgrade.md){.md-button}
+[Installation](../installing.md){.md-button}
+[Upgrade](../major-upgrade.md){.md-button}
  
 
 We are pleased to announce the launch of Percona Distribution for PostgreSQL 16.0 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.

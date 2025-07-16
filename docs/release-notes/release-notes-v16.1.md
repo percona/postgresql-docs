@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 16.1 (2023-11-29)
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
@@ -8,7 +8,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 
 ## Release Highlights
 
-* Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [Telemetry on Percona Distribution for PostgreSQL](telemetry.md) document.
+* Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [Telemetry on Percona Distribution for PostgreSQL](../telemetry.md) document.
 * The `percona-postgis33` and `percona-pgaudit` packages on YUM-based operating systems are renamed `percona-postgis33_{{pgversion}}` and `percona-pgaudit{{pgversion}}` respectively
 
 
@@ -41,8 +41,6 @@ Percona Distribution for PostgreSQL also includes the following packages:
 | RHEL 8            | `etcd`               | 3.3.11  | A consistent, distributed key-value store|
 |                     | `python3-etcd`| 0.4.5   | A Python client for etcd     |
 
-
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq :octicons-link-external-16:](https://www.postgresql.org/docs/16/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."
