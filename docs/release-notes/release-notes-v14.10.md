@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 14.10 (2023-11-05)
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.
 
@@ -9,8 +9,8 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.1
 
 ## Release Highlights
 
-* Docker images are now available for x86_64 architectures. Their inclusion in the distribution aims to simplify the developers' experience with the Distribution. Refer to the [Docker guide](docker.md) for how to run Percona Distribution for PostgreSQL in Docker.
-* Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [on Percona Distribution for PostgreSQL](telemetry.md) document.
+* Docker images are now available for x86_64 architectures. Their inclusion in the distribution aims to simplify the developers' experience with the Distribution. Refer to the [Docker guide](../docker.md) for how to run Percona Distribution for PostgreSQL in Docker.
+* Telemetry is now enabled in Percona Distribution for PostgreSQL to fill in the gaps in our understanding of how you use it and help us improve our products. Participation in the anonymous program is optional. You can opt-out if you prefer not to share this information. Find more information in the [on Percona Distribution for PostgreSQL](../telemetry.md) document.
 
 ------------------------------------------------------------------------------
 

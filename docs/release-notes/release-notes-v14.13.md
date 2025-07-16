@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 14.13 ({{date.14_13}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.
 
@@ -19,7 +19,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.1
     * Debian 11
     * Debian 12
 
-* Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](telemetry.md)
+* Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](../telemetry.md)
 * Percona Distribution for PostgreSQL includes pg_stat_monitor 2.1.0 that provides the ability to [disable the application name tracking for a query](https://docs.percona.com/pg-stat-monitor/configuration.html#pg_stat_monitorpgsm_track_application_names). This way you can optimize pg_stat_monitor's performance impact. 
 
 ## Packaging Changes
