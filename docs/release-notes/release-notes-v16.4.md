@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 16.4 ({{date.16_4}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
@@ -20,7 +20,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.4
     * Debian 11
     * Debian 12
 
-* Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](telemetry.md)
+* Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](../telemetry.md)
 
 * Percona Distribution for PostgreSQL includes `pg_stat_monitor` 2.1.0 that provides the ability to [disable the application name tracking for a query](https://docs.percona.com/pg-stat-monitor/configuration.html#pg_stat_monitorpgsm_track_application_names). This way you can optimize query execution performance.  
 
