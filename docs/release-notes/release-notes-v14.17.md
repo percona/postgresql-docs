@@ -23,7 +23,7 @@ We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an 
 
 ### Deprecation of meta packages
 
-[Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
+[Meta-packages for Percona Distribution for PostgreSQL](../repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
 
 ## Supplied third-party extensions
 
