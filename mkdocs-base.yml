@@ -217,29 +217,29 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - 2025 (versions 14.17 - 14.18 Update):
+      - "2025":
         - "14.18 Update": release-notes/release-notes-v14.18.upd.md
         - "14.18": release-notes/release-notes-v14.18.md
         - "14.17": release-notes/release-notes-v14.17.md
-      - 2024 (versions 14.10 Update - 14.15):
+      - "2024 (versions 14.10 Update - 14.15)":
         - "14.15": release-notes/release-notes-v14.15.md
         - "14.13": release-notes/release-notes-v14.13.md
         - "14.12": release-notes/release-notes-v14.12.md
         - "14.11": release-notes/release-notes-v14.11.md
         - "14.10 Update": release-notes/release-notes-v14.10.upd.md
-      - 2023 (versions 14.7 - 14.10):
+      - "2023 (versions 14.7 - 14.10)":
         - "14.10": release-notes/release-notes-v14.10.md
         - "14.9": release-notes/release-notes-v14.9.md
         - "14.8": release-notes/release-notes-v14.8.md
         - "14.7 Update": release-notes/release-notes-v14.7.upd.md
         - "14.7": release-notes/release-notes-v14.7.md
-      - 2022 (versions 14.2 Update 2 - 14.6):
+      - "2022 (versions 14.2 Update 2 - 14.6)":
         - "14.6": release-notes/release-notes-v14.6.md
         - "14.5": release-notes/release-notes-v14.5.md
         - "14.4": release-notes/release-notes-v14.4.md
         - "14.3": release-notes/release-notes-v14.3.md
         - "14.2 Update 2": release-notes/release-notes-v14.2.upd2.md
-      - 2021 (versions 14.1 - 14.2 Update):
+      - "2021 (versions 14.1 - 14.2 Update)":
         - "14.2 Update": release-notes/release-notes-v14.2.upd.md
         - "14.2": release-notes/release-notes-v14.2.md
         - "14.1 Update 2": release-notes/release-notes-v14.1.upd2.md
