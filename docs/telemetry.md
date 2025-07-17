@@ -284,7 +284,7 @@ If you decide not to send usage data to Percona when you install the software, y
     ```{.bash data-prompt="$"}
     $ docker run -d --name pg --restart always \
       -e PERCONA_TELEMETRY_DISABLE=1 \
-      percona/percona-distribution-postgresql:<TAG>-multi
+      docker pull percona/percona-distribution-postgresql:<TAG>-multi
     ```
 
     The command does the following:
