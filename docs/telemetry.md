@@ -355,16 +355,18 @@ To disable the Metrics File creation, stop and drop the `percona_pg_telemetry` e
           (1 row)
         ```
 
-2. Remove the `percona_pg_telemetry` extension from the `postgresql.conf` file:
-
-    ```
-    sudo nano /path/to/postgresql.conf
-    ```
-
-3. Remove `percona_pg_telemetry` from the `shared_preload_libraries` configuration parameter:
+2. Remove the `percona_pg_telemetry` extension from the database:
 
     ```sql
-    ALTER SYSTEM SET shared_preload_libraries = '';
+    DROP EXTENSION percona_pg_telemetry;
+    ```
+  
+3. Clear `percona_pg_telemetry` from the `shared_preload_libraries` configuration parameter in the `postgresql.conf` file:
+
+    ```bash
+    #...
+    shared_preload_libraries = ''
+    #...
     ```
 
     !!! important  
@@ -389,6 +391,6 @@ To disable the Metrics File creation, stop and drop the `percona_pg_telemetry` e
 
     If you wish to re-enable the Telemetry Subsystem, complete the above steps in the reverse order:
     
-    1. Add the `percona_pg_telemetry` to the `shared_preload_libraries`, 
+    1. Add the `percona_pg_telemetry` to the `shared_preload_libraries` in the `postgresql.conf` file, 
     2. Set `percona_pg_telemetry.enabled` to `1`, and 
     3. Restart the PostgreSQL server.
