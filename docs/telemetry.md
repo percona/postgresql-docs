@@ -363,7 +363,7 @@ To disable the Metrics File creation, stop and drop the `percona_pg_telemetry` e
   
 3. Clear `percona_pg_telemetry` from the `shared_preload_libraries` configuration parameter in the `postgresql.conf` file and the `postgresql.auto.conf` file (if it exists):
 
-    ```bash
+    ```conf
     #...
     shared_preload_libraries = ''
     #...
