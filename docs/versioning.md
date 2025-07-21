@@ -1,8 +1,5 @@
 # Percona Server for PostgreSQL: Version Numbering
 
-!!! important
-    The below versioning is only applicable to PSP's 17.x.x releases. Only the first 2 digits scheme is used for PPG versions 13 to 16.
-
 Our version strings use the following format:
 
 `MAJOR.MINOR.PATCH`
@@ -20,7 +17,9 @@ Where:
 | **Upstream patch/feature** | 17.1.1 | Upstream release → MINOR bump to 1, PATCH reset to 1 |
 | **Next Percona build** | 17.1.2 | Build #2 on upstream 17.1 |
 
-!!! note
-    The **third digit** is **always** Percona’s build number, never an upstream patch. If you see it go from …1 → …2 this means a Percona-specific update was shipped.
+The above versioning is only applicable to PSP 17.x.x as it is the only Percona forked server. The **third digit** is **always** PSP’s build number, never an upstream patch. If you see it go from …1 → …2 this means a PSP-specific update was shipped.
 
+Since PPG 13 to 16 are pure community versions, only the first 2 digits scheme is used.
+
+!!! note
     If you're looking for more information, check the [FAQ](faq.md#does-minor-cover-both-upstream-feature-and-patch-releases).
