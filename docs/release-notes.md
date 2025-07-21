@@ -10,11 +10,11 @@ This page lists all release notes for Percona Distribution for PostgreSQL 15, or
 
 * [15.12](release-notes-v15.12.md) ({{date.15_12}})
 
+## 2024
+
 * [15.10](release-notes-v15.10.md) ({{date.15_10}})
 
 * [15.8](release-notes-v15.8.md) ({{date.15_8}})
-
-## 2024
 
 * [15.7](release-notes-v15.7.md) (2024-06-06)
 
