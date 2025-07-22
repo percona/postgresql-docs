@@ -98,7 +98,7 @@ Where:
 
 ## Enable encryption
 
-Percona Distribution for PostgreSQL Docker image includes the `pg_tde` extension to provide data encryption. You must explicitly enable it when you start the container. For more information, see the [pg_tde documentation](https://docs.percona.com/pg-tde/index.html).
+Percona Distribution for PostgreSQL Docker image includes the `pg_tde` extension to provide data encryption. You must explicitly enable it when you start the container. For more information, see the [pg_tde documentation :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html).
 
 Follow these steps to enable `pg_tde`:
 {.power-number}
