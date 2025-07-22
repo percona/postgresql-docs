@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 13.21 Update ({{date.13_21_1}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 

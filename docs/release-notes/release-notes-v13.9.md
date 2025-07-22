@@ -2,7 +2,7 @@
 
 | Release date:     | November 24, 2022      |
 |:------------------|:----------------------|
-| **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
+| **Installation**: | [Installing Percona Distribution for PostgreSQL](../installing.md) |
 
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
@@ -11,7 +11,7 @@ enable solving essential practical tasks efficiently.
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.9](https://www.postgresql.org/docs/13/release-13-9.html).
 
-Percona Distribution for PostgreSQL now includes the [meta-packages](repo-overview.md#repository-contents) that simplify its installation. The `percona-ppg-server` meta-package installs PostgreSQL and the extensions, while `percona-ppg-server-ha` package installs high-availability components that are recommended by Percona.
+Percona Distribution for PostgreSQL now includes the [meta-packages](../repo-overview.md#repository-contents) that simplify its installation. The `percona-ppg-server` meta-package installs PostgreSQL and the extensions, while `percona-ppg-server-ha` package installs high-availability components that are recommended by Percona.
 
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.

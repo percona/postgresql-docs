@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 13.14 (2024-03-07)
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Spatial data handling, Observability, Performance and Scalability and others that enterprises are facing.
 
@@ -41,8 +41,6 @@ Percona Distribution for PostgreSQL also includes the following packages:
 | RHEL 8              | `etcd`               | 3.5.12  | A consistent, distributed key-value store|
 |                     | `python3-python-etcd`| 0.4.5   | A Python client for etcd     |
 
-
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/13/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."

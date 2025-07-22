@@ -2,7 +2,7 @@
 
 | Release date:     | June 2, 2022                                                    |
 |:--------------|:----------------------------------------------------------------|
-| **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
+| **Installation**: | [Installing Percona Distribution for PostgreSQL](../installing.md) |
 
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
@@ -46,7 +46,6 @@ Percona Distribution for PostgreSQL also includes the following packages:
 | Debian 9 ('stretch')| `etcd`               | 3.3.11  |A consistent, distributed key-value store|
 |                     | `python3-etcd`       | 0.4.3   | A Python client for etcd     |
 
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/13/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."
