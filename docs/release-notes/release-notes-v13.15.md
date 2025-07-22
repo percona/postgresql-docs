@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 13.15 (2024-06-10)
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Spatial data handling, Observability, Performance and Scalability and others that enterprises are facing.
 
@@ -40,9 +40,8 @@ The following is the list of extensions available in Percona Distribution for Po
 Percona Distribution for PostgreSQL on Red Hat Enterprise Linux 8 and compatible derivatives also includes the following packages:
 
 * `llvm` 16.0.6 packages. This fixes compatibility issues with LLVM from upstream.
-* supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters. 
+* supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters.
 
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/13/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."

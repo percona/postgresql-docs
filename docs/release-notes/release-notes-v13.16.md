@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 13.16 ({{date.13_16}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Spatial data handling, Observability, Performance and Scalability and others that enterprises are facing.
 
@@ -20,7 +20,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.1
     * Debian 11
     * Debian 12
 
-* Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](telemetry.md)
+* Percona Distribution for PostgreSQL includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in [Telemetry and data collection](../telemetry.md)
 * Percona Distribution for PostgreSQL includes pg_stat_monitor 2.1.0 that provides the ability to [disable the application name tracking for a query](https://docs.percona.com/pg-stat-monitor/configuration.html#pg_stat_monitorpgsm_track_application_names). This way you can optimize pg_stat_monitor's performance impact. 
 
 
@@ -51,7 +51,6 @@ Percona Distribution for PostgreSQL on Red Hat Enterprise Linux 8 and compatible
 * `llvm` 17.0.6 packages. This fixes compatibility issues with LLVM from upstream.
 * supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters. 
 
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/13/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
 backend server and to receive the results of these queries." 
