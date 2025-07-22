@@ -84,13 +84,15 @@ nav:
       - migration.md
   - Troubleshooting guide: troubleshooting.md
   - Uninstall: uninstalling.md
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v17.5.md
-      - release-notes-v17.5.1.md
-      - release-notes-v17.4.md
-      - release-notes-v17.2.md
-      - release-notes-v17.0.md
+  - Release notes:
+      - "Release notes index": release-notes/release-notes.md
+      - 2025:
+        - "17.5.2": release-notes/release-notes-v17.5.md
+        - "17.5.1": release-notes/release-notes-v17.5.1.md
+        - "17.4.1": release-notes/release-notes-v17.4.md
+      - 2024 (versions 17.0 - 17.2):
+        - "17.2.1": release-notes/release-notes-v17.2.md
+        - "17.0.1": release-notes/release-notes-v17.0.md
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
