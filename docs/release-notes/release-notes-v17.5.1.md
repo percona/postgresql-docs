@@ -12,7 +12,7 @@ Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of `p
 
 ### Updated Major upgrade topic in documentation
 
-The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](../major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](../major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|

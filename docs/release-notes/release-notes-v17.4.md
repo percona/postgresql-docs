@@ -2,7 +2,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.4.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.4](https://www.postgresql.org/docs/17/release-17-4.html). 
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.4.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.4](https://www.postgresql.org/docs/17/release-17-4.html).
 
 ## Release Highlights
 
@@ -16,15 +16,15 @@ Percona Distribution for PostgreSQL includes the Release Candidate of `pg_tde` e
 
 * Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.
 
-* You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](docker.md) for how to get started.
+* You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](../docker.md) for how to get started.
 
 ### PostGIS is included into tarballs
 
-We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spatial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spatial data manipulation](solutions/postgis.md). 
+We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spatial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](../tarball.md) and [Spatial data manipulation](../solutions/postgis.md).
 
 ### Deprecation of meta packages
 
-[Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
+[Meta-packages for Percona Distribution for PostgreSQL](../repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
 
 ## Supplied third-party extensions
 
@@ -49,9 +49,8 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 267 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
 | [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)          | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
 
-
-For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters. 
+For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/17/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."
