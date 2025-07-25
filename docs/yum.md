@@ -97,45 +97,95 @@ The following are commands for Red Hat Enterprise Linux 9 and derivatives. For R
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder
     ```
 
-### For PostGIS 
+### For PostGIS
 
-The following commands provide instructions how to enable required repositories and modules on Red Hat Enterprise Linux 9 and derivatives.
+For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the following commands accordingly.
 
-For Red Hat Enterprise Linux 8 and derivatives, replace the operating system version in the commands accordingly.
+=== "RHEL 8"  
+
+    Run the following commands:
+    {.power-number}
+
+    1. Install DNF plugin utilities
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install dnf-plugins-core
+        ```
+
+    2. Install the EPEL repository 
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+        ```
+    
+    3. Enable the CodeReady Builder repository to resolve dependency conflicts
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
+        ```
+    
+    4. Disable the default PostgreSQL module
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf module disable postgresql
+        ```
 
 === "RHEL 9"  
 
     Run the following commands:
     {.power-number}
 
-    1. Install `epel` repository
+    1. Install DNF plugin utilities
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install epel-release
+        $ sudo dnf install dnf-plugins-core
         ```
 
-    2. Enable the codeready builder repository to resolve dependencies conflict. 
+    2. Install the EPEL repository 
 
         ```{.bash data-prompt="$"}
-        $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+        $ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+        ```
+    
+    3. Enable the CodeReady Builder repository to resolve dependency conflicts
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
         ```
 
-=== "Rocky Linux 9"
+=== "Oracle Linux 8"
 
     Run the following commands:
     {.power-number}
 
-    1. Install `epel` repository
+    1. Install the EPEL repository
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install epel-release
+        $ sudo dnf install -y epel-release
         ```
 
-    2. Enable the codeready builder repository to resolve dependencies conflict.
+    2. Install DNF plugin utilities
 
         ```{.bash data-prompt="$"}
         $ sudo dnf install dnf-plugins-core
-        $ sudo dnf config-manager --set-enabled crb
+        ```
+    
+    3. Enable the CodeReady Builder repository to resolve dependency conflicts
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled ol8_codeready_builder
+        ```
+    
+    4. (Alternative) Install the latest EPEL release
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+        ```
+
+    5. Disable the default PostgreSQL module
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf module disable postgresql
         ```
 
 === "Oracle Linux 9"
@@ -143,16 +193,74 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
     Run the following commands:
     {.power-number}
 
-    1. Install `epel` repository
+    1. Install the EPEL repository
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install epel-release
+        $ sudo dnf install -y epel-release
         ```
 
-    2. Enable the codeready builder repository to resolve dependencies conflict.
+    2. Install DNF plugin utilities
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install dnf-plugins-core
+        ```
+
+    3. Enable the CodeReady Builder repository to resolve dependency conflicts
 
         ```{.bash data-prompt="$"}
         $ sudo dnf config-manager --set-enabled ol9_codeready_builder
+        ```
+
+=== "Rocky Linux 8"
+
+    Run the following commands:
+    {.power-number}
+
+    1. Install the EPEL release package
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install -y epel-release
+        ```
+
+    2. Install DNF plugin utilities
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install dnf-plugins-core
+        ```
+
+    3. Enable the PowerTools repository
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled powertools
+        ```
+
+    4. Disable the default PostgreSQL module
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf module disable postgresql
+        ```
+
+=== "Rocky Linux 9"
+
+    Run the following commands:
+    {.power-number}
+
+    1. Install the EPEL repository
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install -y epel-release
+        ```
+
+    2. Install DNF plugin utilities
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf install dnf-plugins-core
+        ```
+    
+    3. Enable the CodeReady Builder repository to resolve dependency conflicts
+
+        ```{.bash data-prompt="$"}
+        $ sudo dnf config-manager --set-enabled crb
         ```
 
 === "RHEL UBI 9"
