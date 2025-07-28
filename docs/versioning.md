@@ -1,4 +1,4 @@
-# Percona Server for PostgreSQL: Version Numbering
+# Version Numbering
 
 Starting with PostgreSQL {{pgversion}}, Percona uses the following format:
 
