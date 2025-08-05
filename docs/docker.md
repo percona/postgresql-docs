@@ -1,5 +1,7 @@
 # Run Percona Distribution for PostgreSQL in a Docker container
 
+This guide covers running a single-node PostgreSQL instance in Docker, which is suitable for development or testing.
+
 Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Docker Hub :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/).
 
 For more information about using Docker, see the [Docker Docs :octicons-link-external-16:](https://docs.docker.com/).
@@ -292,3 +294,17 @@ To enable the `pg_stat_monitor` extension after launching the container, do the 
 
 !!! note
      The `pg_stat_monitor` view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.
+
+## Next steps
+
+To continue setting up your environment, we recommend enabling additional PostgreSQL extensions included with Percona Distribution:
+
+[Enable Percona Distribution for PostgreSQL components :material-arrow-right:](enable-extensions.md){.md-button}
+
+If you're planning a production deployment and need high availability (HA), Percona provides official guides for setting up PostgreSQL with Patroni:
+
+[Set up PostgreSQL with Patroni for High Availability :material-arrow-right:](solutions/high-availability.md){.md-button}
+
+!!! note
+
+    This guide covers HA deployments using Debian/Ubuntu and RHEL-based systems. A Docker-native HA deployment guide is not currently available, but the same concepts may be adapted for containerized environments.
