@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 14.17 ({{date.14_17}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
@@ -15,15 +15,15 @@ This release fixes [CVE-2025-1094](https://www.postgresql.org/support/security/C
 
 * Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.
 
-* You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](docker.md) for how to get started.
+* You no longer have to specify the `{{dockertag}}-multi` tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the `percona/percona-distribution-postgresql:{{dockertag}}`. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to [Run in Docker](../docker.md) for how to get started.
 
 ### PostGIS is included into tarballs
 
-We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](tarball.md) and [Spacial data manipulation](solutions/postgis.md). 
+We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about [installing from tarballs](../tarball.md) and [Spacial data manipulation](../solutions/postgis.md). 
 
 ### Deprecation of meta packages
 
-[Meta-packages for Percona Distribution for PostgreSQL](repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
+[Meta-packages for Percona Distribution for PostgreSQL](../repo-overview.md#repository-contents) are deprecated and will be removed in future releases.
 
 ## Supplied third-party extensions
 

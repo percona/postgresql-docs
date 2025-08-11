@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 14.18 ({{date.14_18}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
@@ -10,7 +10,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.1
 
 ### Updated Major upgrade topic in documentation
 
-The [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+The [Upgrading Percona Distribution for PostgreSQL from 13 to 14](../major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](../major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
 
 ## Supplied third-party extensions
 
