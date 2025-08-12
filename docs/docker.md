@@ -304,7 +304,3 @@ To continue setting up your environment, we recommend enabling additional Postgr
 If you're planning a production deployment and need high availability (HA), Percona provides official guides for setting up PostgreSQL with Patroni:
 
 [Set up PostgreSQL with Patroni for High Availability :material-arrow-right:](solutions/high-availability.md){.md-button}
-
-!!! note
-
-    This guide covers HA deployments using Debian/Ubuntu and RHEL-based systems. A Docker-native HA deployment guide is not currently available, but the same concepts may be adapted for containerized environments.
