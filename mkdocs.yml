@@ -88,6 +88,7 @@ nav:
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
       - 2025:
+        - "17.5.3": release-notes/release-notes-v17.5.3.md
         - "17.5.2": release-notes/release-notes-v17.5.md
         - "17.5.1": release-notes/release-notes-v17.5.1.md
         - "17.4.1": release-notes/release-notes-v17.4.md
