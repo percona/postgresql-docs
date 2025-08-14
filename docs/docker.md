@@ -165,6 +165,17 @@ Follow these steps to enable `pg_tde`:
     CREATE TABLE <table_name> (<field> <datatype>) USING tde_heap;
     ```
 
+    ??? example "CREATE TABLE example"
+
+        ```{.sql .no-copy}
+        CREATE TABLE test_users (
+            user_id INT,
+            username VARCHAR(50),
+            email VARCHAR(100),
+            signup_date DATE
+        ) USING tde_heap;
+        ```
+
 7. (Optional) To verify that the encrypted table was created, run:
 
     ```sql
