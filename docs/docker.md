@@ -176,22 +176,6 @@ Follow these steps to enable `pg_tde`:
         ) USING tde_heap;
         ```
 
-7. (Optional) To verify that the encrypted table was created, run:
-
-    ```sql
-    \dt
-    ```
-
-    ??? example "Sample output"
-
-        ```{.text .no-copy}
-        postgres=# \dt
-                        List of relations
-            Schema |      Name      | Type  |  Owner
-            --------+----------------+-------+----------
-            public | test_encrypted | table | postgres
-        ```
-
 ## Enable `pg_stat_monitor`
 
 To enable the `pg_stat_monitor` extension after launching the container, do the following:
