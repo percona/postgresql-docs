@@ -39,11 +39,13 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
     docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:{{dockertag}}
     ```
 
-    Where:
+    Where the above options are:
 
-    * `container-name` is the name you assign to your container
-    * `POSTGRES_PASSWORD` is the superuser password 
-    * `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
+    * `--name container-name` assigns a name to the container. If not specified, Docker assigns a random name.
+    * `-e POSTGRES_PASSWORD=secret` sets the `POSTGRES_PASSWORD` environment variable inside the container. 
+    This value is required for the superuser account.
+    * `-d` runs the container in detached mode (in the background).
+    * `percona/percona-distribution-postgresql:{{dockertag}}` specifies the image and version tag. Replace `{{dockertag}}` with the version you need. Docker detects the architecture (x86_64 or ARM64) and pulls the correct image. See the [full list of tags here :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
 
     !!! tip
 
@@ -67,6 +69,8 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
     docker exec -it container-name bash
     ```
 
+!!! tip
+
     The `container-name` is the name of the container that you started in the previous step.
 
 ## Connect to Percona Distribution for PostgreSQL from an application in another Docker container
@@ -77,26 +81,28 @@ This image exposes the standard PostgreSQL port (`5432`), so container linking m
 docker run --name app-container-name --network container:container-name -d app-that-uses-postgresql 
 ```
 
-where:
+Where the above options are:
 
-* `app-container-name` is the name of the container where your application is running,
-* `container name` is the name of your Percona Distribution for PostgreSQL container, and
-* `app-that-uses-postgresql` is the name of your PostgreSQL client.
+* `--name app-container-name` assigns a name to the application container.
+* `--network container:container-name` makes the application container share the network stack of the PostgreSQL container (`container-name`). This allows it to connect directly to PostgreSQL on `localhost:5432`.
+* `-d` runs the container in detached mode (in the background).
+* `app-that-uses-postgresql` is the image of your application or client that connects to PostgreSQL.
 
 ## Connect to Percona Distribution for PostgreSQL from the `psql` command line client
 
 The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
 
 ```{.bash data-prompt="$"}
-docker run -it --network container:db-container-name --name container-name percona/percona-distribution-postgresql:{{dockertag}} psql -h address -U postgres
+docker run -it --network container:db-container --name psql-client percona/percona-distribution-postgresql:{{dockertag}} psql -h localhost -U postgres
 ```
 
-Where:
+Where the above options are:
 
-* `db-container-name` is the name of your database container
-* `container-name` is the name of your container that you will use to connect to the database container using the `psql` command line client
-* `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.
-* `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.
+* `-it` runs the container in interactive mode with a terminal.
+* `--network container:db-container` shares the network stack of the PostgreSQL container (`db-container`). This allows `psql` to connect to it on `localhost:5432`.
+* `--name psql-client` assigns a name to this new container (the one running `psql`).
+* `percona/percona-distribution-postgresql:{{dockertag}}` specifies the image and version tag for the client. Docker detects the architecture (x86_64 or ARM64) and pulls the respective image.
+* `-h localhost -U postgres` tells `psql` to connect to the PostgreSQL instance on `localhost`, as the postgres user.
 
 ## Enable encryption
 
@@ -140,7 +146,7 @@ Follow these steps to enable `pg_tde`:
 4. Configure a key provider with a keyring file. This setup is intended for development and stores the keys unencrypted in the specified data file. The below sample configuration is intended for testing and development purposes.
 
     !!! note
-         For production use, we **strongly recommend** setting up an external key management store and configure an external key provider. Refer to the [Setup :octicons-link-external-16:](https://docs.percona.com/pg-tde/setup.html#key-provider-configuration) topic in the `pg_tde` documentation.
+         For production use, we **strongly recommend** setting up an external key management store and configure an external key provider. Refer to the [Configure Key Management (KMS) :octicons-link-external-16:](https://docs.percona.com/pg-tde/global-key-provider-configuration/index.html) topic in the `pg_tde` documentation.
 
     <i warning>:material-information: Warning:</i> This example is for testing purposes only:
 
