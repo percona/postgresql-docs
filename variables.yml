@@ -2,11 +2,12 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 
-release: 'release-notes-v14.18'
+release: 'release-notes-v14.19'
 pgversion: '14'
-dockertag: '14.18'
+dockertag: '14.19'
 
 date:
+  14_19: 2025-08-30
   14_18_1: 2025-07-15
   14_18: 2025-06-30
   14_17: 2025-03-05
