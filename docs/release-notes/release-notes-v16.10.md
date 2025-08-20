@@ -8,9 +8,10 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 
 ## Release Highlights
 
-### Updated Major upgrade topic in documentation
+### Major documentation updates
 
-The [Upgrading Percona Distribution for PostgreSQL from 15 to 16](../major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](../major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+* Expanded and improved the [High Availability](../solutions/high-availability.md) topic with more information and example deployments.
+* Updated the [PostGIS installation commands via yum](../yum.md#for-postgis) topic.
 
 ## Supplied third-party extensions
 
