@@ -23,10 +23,11 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.21    | A distributed, reliable key-value store for setting up high available Patroni clusters                              |
+| [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.21    | A distributed, reliable key-value store for setting up highly available Patroni clusters
+| [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/)                       | 0.4.5    | A Python client library for interacting with etcd                                 |
 | [HAProxy :octicons-link-external-16:](http://www.haproxy.org/)                       | 2.8.15    | A high-availability and load-balancing solution                                                                     |
 | [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/)     | 4.0.5     | A HA (High Availability) solution for PostgreSQL                                                                    |
-| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)                      | 17.1      | Provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
+| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)                      | 17.1      | A detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user)  | 4.1.0     | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance.     |
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/)                    | 2.55.0    | A backup and restore solution for PostgreSQL                                                                        |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger)           | 13.1      | A fast PostgreSQL Log Analyzer                                                                                      |
@@ -36,7 +37,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack)          | 1.5.2     | Rebuilds PostgreSQL database objects                                                                                |
 | [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)         | v0.8.0    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis)            | 3.3.8     | A spatial extension for PostgreSQL                                                                                  |
-| [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 277 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
+| [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 280 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
 | [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)          | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
