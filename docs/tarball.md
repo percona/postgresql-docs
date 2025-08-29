@@ -44,7 +44,7 @@ The tarballs include the following components:
 === "Debian and Ubuntu"
 
     1. Uninstall the upstream PostgreSQL package.
-    2. Ensure that the `libreadline` is present on the system, as it is **required** for tarballs to work correctly:
+    2. Ensure that the `libreadline` is installed on the system, as it is **required** for tarballs to work correctly:
 
         ```{.bash data-prompt="$"}
         $ sudo apt install -y libreadline-dev
@@ -64,13 +64,19 @@ The tarballs include the following components:
     
 === "RHEL and derivatives"
 
-    Ensure that the `libreadline` is present on the system, as it is **required** for tarballs to work correctly:
+    On RHEL, Rocky Linux, or Oracle Linux 10, install the `acl` package. This package is **required** for correct permission handling when using tarball-based installations:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y acl
+    ```
+
+    Ensure that the `libreadline` is installed on the system, as it is **required** for tarballs to work correctly:
 
     ```{.bash data-prompt="$"}
     $ sudo yum install -y readline-devel
     ```
 
-    Create the user to own the PostgreSQL process. For example, `mypguser`, Run the following command:
+    Create the user to own the PostgreSQL process. For example, `mypguser`. Run the following command:
         
     ```{.bash data-prompt="$"}
     $ sudo useradd mypguser -m 
