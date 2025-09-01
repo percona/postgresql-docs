@@ -3,16 +3,17 @@
 
 
 release: 'release-notes-v17.5'
-dockertag: '17.5-2'
+dockertag: '17.5-3'
 pgsubversion: '17.5'
 pgversion: '17'
-pspgversion: '17.5.2'
+pspgversion: '17.5.3'
 pgsmversion: '2.1.1'
 
 
 
 date:
 
+  17_5_3: 2025-09-01
   17_5: 2025-06-30
   17_5_1: 2025-05-28
   17_4: 2025-03-27
