@@ -37,7 +37,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack)          | 1.5.2     | Rebuilds PostgreSQL database objects                                                                                |
 | [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)         | v0.8.0    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis)            | 3.3.8     | A spatial extension for PostgreSQL                                                                                  |
-| [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 280 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
+| [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 277 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
 | [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)          | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
