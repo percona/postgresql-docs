@@ -12,6 +12,12 @@ Percona now provides Software Bill of Materials (SBOMs) to support compliance an
 
 See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
 
+### Tarball updates
+
+The binary tarballs for x86_64 and ARM64 architectures have been updated in this release.
+
+See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
