@@ -2,7 +2,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.6.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-6.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.6.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.6](https://www.postgresql.org/docs/17/release-17-6.html).
 
 ## Release Highlights
 
