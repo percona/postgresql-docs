@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -763,6 +763,29 @@
   
   <span class="md-ellipsis">
     Repositories overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sboms.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software Bill of Materials (SBOMs)
     
   </span>
   
@@ -2023,6 +2046,29 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes/release-notes-v17.6.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    17.6.1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes/release-notes-v17.5.3.html" class="md-nav__link">
         
   
@@ -2123,10 +2169,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_7" >
         
           
-          <label class="md-nav__link" for="__nav_11_6" id="__nav_11_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_11_7" id="__nav_11_7_label" tabindex="0">
             
   
   
@@ -2139,8 +2185,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_7">
             <span class="md-nav__icon md-icon"></span>
             2024 (versions 17.0.1 - 17.2.1)
           </label>
@@ -2542,13 +2588,13 @@
 <ol>
 <li>
 <p>Start a Percona Distribution for PostgreSQL container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5-3
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.6
 </code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>container-name</code> is the name you assign to your container</li>
 <li><code>POSTGRES_PASSWORD</code> is the superuser password </li>
-<li><code>17.5-3</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+<li><code>17.6</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2561,7 +2607,7 @@
 </li>
 <li>
 <p>Start the container:       </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5-3
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.6
 </code></pre></div>
 </li>
 </ol>
@@ -2586,13 +2632,13 @@
 </ul>
 <h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:17.5-3<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:17.6<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>db-container-name</code> is the name of your database container</li>
 <li><code>container-name</code> is the name of your container that you will use to connect to the database container using the <code>psql</code> command line client</li>
-<li><code>17.5-3</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
+<li><code>17.6</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
 <h2 id="enable-encryption">Enable encryption<a class="headerlink" href="#enable-encryption" title="Permanent link">&para;</a></h2>
@@ -2601,7 +2647,7 @@
 <ol>
 <li>
 <p>Start the container with the <code>ENABLE_PG_TDE=1</code> environment variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENABLE_PG_TDE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w">  </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.5-3
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENABLE_PG_TDE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w">  </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.6
 </code></pre></div>
 <p>where:</p>
 <ul>
@@ -2616,7 +2662,7 @@
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (17.5 - Percona Server for PostgreSQL 17.5-3)
+<div class="no-copy highlight"><pre><span></span><code>psql (17.6 - Percona Server for PostgreSQL 17.6)
 Type &quot;help&quot; for help.
 
 postgres=#
