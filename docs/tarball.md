@@ -197,7 +197,7 @@ Percona provides Software Bill of Materials (SBOMs), these files can help with c
 
 SBOMs are available for:
 
-- [Linux x86_64 (OpenSSL 1.1)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl1.1-linux-x86_64.tar.gz) – 
+- [Linux x86_64 (OpenSSL 1.1)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl1.1-linux-x86_64.tar.gz) 
 - [Linux aarch64 (OpenSSL 1.1)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl1.1-linux-aarch64.tar.gz) 
-- [Linux x86_64 (OpenSSL 3)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl3-linux-x86_64.tar.gz) – For 
-- [Linux aarch64 (OpenSSL 3)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl3-linux-aarch64.tar.gz) – 
+- [Linux x86_64 (OpenSSL 3)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl3-linux-x86_64.tar.gz) 
+- [Linux aarch64 (OpenSSL 3)](https://downloads.percona.com/downloads/postgresql-distribution-17/17.6/binary/tarball/percona-postgresql-17.6-ssl3-linux-aarch64.tar.gz) 
