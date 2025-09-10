@@ -84,7 +84,7 @@ Run **all** commands as root or via **sudo**:
     file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
     ```
 
-    To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with a newer version.
+    To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
     
 
 If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md).
