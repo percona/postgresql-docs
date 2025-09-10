@@ -17,6 +17,20 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 
 Review each extension’s release notes for What’s new, improvements, or bug fixes.
 
+## Known Issue
+
+### For minor & major upgrades (RHEL only)
+
+During an upgrade on RHEL, you may encounter the following error:
+
+```
+Unknown Error occurred: Transaction test error:
+  file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+  file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+```
+
+To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
+
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension           | Version        | Description                  |
