@@ -32,7 +32,7 @@ This release includes important security measures that address the following CVE
 
 ## Known Issue
 
-### For minor upgrades (RHEL only)
+### For minor & major upgrades (RHEL only)
 
 During a minor upgrade on RHEL, you may encounter the following error:
 
