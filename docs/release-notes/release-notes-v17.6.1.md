@@ -10,7 +10,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.
 
-See [Software Bill of Materials (SBOMs)](../tarball.md#software-bill-of-materials-sboms) for the full list.
+See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
