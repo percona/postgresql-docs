@@ -3,7 +3,7 @@
 
 
 release: 'release-notes-v17.6.1'
-dockertag: '17.6-1'
+dockertag: '17.6'
 pgsubversion: '17.6'
 pgversion: '17'
 pspgversion: '17.6.1'
