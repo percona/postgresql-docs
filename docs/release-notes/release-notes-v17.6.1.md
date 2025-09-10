@@ -26,9 +26,23 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
-## Addressed CVEs
+### Addressed CVEs
 
 This release includes important security measures that address the following CVEs: CVE-2012-0868, CVE-2017-7484, and CVE-2025-8715. For more details, see the [PostgreSQL 17.6 release notes](https://www.postgresql.org/docs/release/17.6/).
+
+## Known Issue
+
+### For minor upgrades (RHEL only)
+
+During a minor upgrade on RHEL, you may encounter the following error:
+
+```
+Unknown Error occurred: Transaction test error:
+  file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+  file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+```
+
+To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with a newer version.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
