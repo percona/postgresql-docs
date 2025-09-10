@@ -34,7 +34,7 @@ This release includes important security measures that address the following CVE
 
 ### For minor & major upgrades (RHEL only)
 
-During a minor upgrade on RHEL, you may encounter the following error:
+During an upgrade on RHEL, you may encounter the following error:
 
 ```
 Unknown Error occurred: Transaction test error:
