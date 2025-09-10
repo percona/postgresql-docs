@@ -42,7 +42,7 @@ Unknown Error occurred: Transaction test error:
   file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
 ```
 
-To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with a newer version.
+To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
