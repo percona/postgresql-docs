@@ -4,6 +4,14 @@
 
 This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.6.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-6.html).
 
+## Release Highlights
+
+### SBOMs available for download
+
+Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.
+
+See [Software Bill of Materials (SBOMs)](../tarball.md#software-bill-of-materials-sboms) for the full list.
+
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
