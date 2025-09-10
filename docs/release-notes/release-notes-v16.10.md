@@ -13,10 +13,6 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 * Expanded and improved the [High Availability](../solutions/high-availability.md) topic with more information and example deployments.
 * Updated the [PostGIS installation commands via yum](../yum.md#for-postgis) topic.
 
-## Supplied third-party extensions
-
-Review each extension’s release notes for What’s new, improvements, or bug fixes.
-
 ## Known Issue
 
 ### For minor & major upgrades (RHEL only)
@@ -30,6 +26,10 @@ Unknown Error occurred: Transaction test error:
 ```
 
 To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
+
+## Supplied third-party extensions
+
+Review each extension’s release notes for What’s new, improvements, or bug fixes.
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
