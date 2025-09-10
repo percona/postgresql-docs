@@ -14,9 +14,21 @@ See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
 
 ### Tarball updates
 
-The binary tarballs for x86_64 and ARM64 architectures have been updated in this release.
+The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
+
+- LIBXSLT: 1.1.43
+- LUA: 5.3.6
+- LIBTIFF: 4.7.0
+- EXPAT: 2.5.0
+- PGPOOL: 4.6.2
+- PGBACKREST: 2.56.0
+- PATRONI: 4.0.6
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+
+## CVE fixes
+
+This release includes important security fixes for the following CVEs: CVE-2012-0868, CVE-2017-7484, and CVE-2025-8715. For more details, see the [PostgreSQL 17.6 release notes](https://www.postgresql.org/docs/release/17.6/).
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
