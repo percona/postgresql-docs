@@ -13,6 +13,30 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 * Expanded and improved the [High Availability](../solutions/high-availability.md) topic with more information and example deployments.
 * Updated the [PostGIS installation commands via yum](../yum.md#for-postgis) topic.
 
+### SBOMs available for download
+
+Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.
+
+See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
+
+### Tarball updates
+
+The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
+
+- LIBXSLT: 1.1.43
+- LUA: 5.3.6
+- LIBTIFF: 4.7.0
+- EXPAT: 2.5.0
+- PGPOOL: 4.6.2
+- PGBACKREST: 2.56.0
+- PATRONI: 4.0.6
+
+See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+
+### Addressed CVEs
+
+This release includes important security measures that address the following CVEs: CVE-2025-8713, CVE-2025-8714, CVE-2025-8715. For more details, see the [PostgreSQL 16.10 release notes](https://www.postgresql.org/docs/release/16.10/).
+
 ## Known Issue
 
 ### For minor & major upgrades (RHEL only)
