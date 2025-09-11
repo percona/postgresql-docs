@@ -26,26 +26,13 @@ Similar to installing, we recommend you to upgrade Percona Distribution for Post
 
 The general in-place upgrade flow for Percona Distribution for PostgreSQL is the following:
 
-
 1. Install new version of Percona Distribution for PostgreSQL packages.
-
-
 2. Stop the PostgreSQL service.
-
-
 3. Check the upgrade without modifying the data.
-
-
 4. Upgrade Percona Distribution for PostgreSQL.
-
-
 5. Start PostgreSQL service.
-
-
 6. Execute the  **analyze_new_cluster.sh** script to generate statistics
 so the system is usable.
-
-
 7. Delete old packages and configuration files.
 
 The exact steps may differ depending on the package manager of your operating system.
@@ -359,3 +346,15 @@ Run **all** commands as root or via **sudo**:
        ```{.bash data-prompt="$"}
        $ rm -rf /var/lib/pgsql/15/data
        ```
+
+!!! note "For major upgrades (RHEL only)"
+
+     During a major upgrade on RHEL, you may encounter the following error:
+
+     ```
+     Unknown Error occurred: Transaction test error:
+     file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+     file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+     ```
+     
+     To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
