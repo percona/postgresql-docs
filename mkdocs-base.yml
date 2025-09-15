@@ -170,6 +170,7 @@ nav:
           - Run in Docker: docker.md
           - enable-extensions.md
           - repo-overview.md
+          - sboms.md
       - 2. Connect to PostgreSQL: connect.md
       - 3. Manipulate data in PostgreSQL: crud.md  
       - 4. What's next: whats-next.md 
@@ -215,10 +216,10 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
     - "Release notes index": release-notes.md
-    - "2025":
-        - "15.13 Update": release-notes-v15.13.upd.md
-        - "15.13": release-notes-v15.13.md
-        - "15.12": release-notes-v15.12.md
+    - "15.14": release-notes-v15.14.md
+    - "15.13 Update": release-notes-v15.13.upd.md
+    - "15.13": release-notes-v15.13.md
+    - "15.12": release-notes-v15.12.md
     - "2024 (versions 15.5 Update – 15.10)":
         - "15.10": release-notes-v15.10.md
         - "15.8": release-notes-v15.8.md
