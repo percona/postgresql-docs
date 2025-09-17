@@ -8,9 +8,47 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.2
 
 ## Release Highlights
 
-### Updated tarball installation preconditions
+### Tarball updates
 
 The [installation preconditions for tarballs](../tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
+
+The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
+
+- LIBXSLT: 1.1.43
+- LUA: 5.3.6
+- LIBTIFF: 4.7.0
+- EXPAT: 2.5.0
+- PGPOOL: 4.6.2
+- PGBACKREST: 2.56.0
+- PATRONI: 4.0.6
+
+See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+
+The [installation preconditions for tarballs](../tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
+
+### SBOMs available for download
+
+Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.
+
+See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
+
+### Addressed CVEs
+
+This release includes important security measures that address the following CVEs: CVE-2025-8713, CVE-2025-8714, and CVE-2025-8715. For more details, see the [PostgreSQL 13.22 release notes](https://www.postgresql.org/docs/release/13.22/).
+
+## Known Issue
+
+### For minor & major upgrades (RHEL only)
+
+During an upgrade on RHEL, you may encounter the following error:
+
+```
+Unknown Error occurred: Transaction test error:
+  file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+  file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+```
+
+To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
 ## Supplied third-party extensions
 
