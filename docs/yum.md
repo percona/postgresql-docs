@@ -79,6 +79,35 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf install perl-IPC-Run -y
     ```
 
+=== "RHEL10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-10-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Rocky Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install dnf-plugins-core
+    $ sudo dnf config-manager --set-enabled crb
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Oracle Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol10_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
 ### For `percona-patroni` package
 
 To install Patroni on Red Hat Enterprise Linux 9 and compatible derivatives, enable the `epel` repository
