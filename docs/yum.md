@@ -50,6 +50,20 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf install perl-IPC-Run -y
     ```
 
+=== "RHEL9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
 === "Rocky Linux 9"
 
     ```{.bash data-prompt="$"}
@@ -62,6 +76,35 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
 
     ```{.bash data-prompt="$"}
     $ sudo dnf config-manager --set-enabled ol9_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "RHEL10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-10-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Rocky Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install dnf-plugins-core
+    $ sudo dnf config-manager --set-enabled crb
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Oracle Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol10_codeready_builder 
     $ sudo dnf install perl-IPC-Run -y
     ```
 
@@ -327,9 +370,9 @@ $ sudo yum -y install curl
 
 2. Enable the repository
 
-   Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. 
+   Percona provides [two repositories](repo-overview.md) for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates.
 
-   To enable a repository, we recommend using the `setup` command: 
+   To enable a repository, we recommend using the `setup` command:
 
    ```{.bash data-prompt="$"}
    $ sudo percona-release setup ppg{{pgversion}}
@@ -338,13 +381,13 @@ $ sudo yum -y install curl
 ### Install packages
 
 === "Install using meta-package (deprecated)"
-     
+
      ```{.bash data-prompt="$"}
      $ sudo yum install percona-ppg-server{{pgversion}}
      ```
 
 === "Install packages individually"
-    
+
     Run the following commands:
     {.power-number}
 
@@ -413,19 +456,19 @@ $ sudo yum -y install curl
         $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
-        Install HAProxy
+        Install HAProxy:
         
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
         ```
         
-        Install `pg_gather`
+        Install `pg_gather`:
 
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-pg_gather
         ```
 
-        Install pgpool2
+        Install pgpool2:
 
         1. Check the [platform specific notes](#for-pgpool2-extension)
         2. Install the extension
