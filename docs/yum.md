@@ -462,7 +462,7 @@ $ sudo yum -y install curl
         $ sudo yum install percona-postgresql{{pgversion}}-contrib
         ```
 
-        Install HAProxy
+        Install HAProxy:
         
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-haproxy
