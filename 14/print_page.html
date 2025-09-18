@@ -4001,7 +4001,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>
 </div>
 <h3 id="yum-for-percona-postgresql14-devel-package">For <code>percona-postgresql14-devel</code> package<a class="headerlink" href="#yum-for-percona-postgresql14-devel-package" title="Permanent link">&para;</a></h3>
 <p>You may need to install the <code>percona-postgresql14-devel</code> package when working with some extensions or creating programs that interface with PostgreSQL database. This package requires dependencies that are not part of the Distribution, but can be installed from the specific repositories:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="yum-__tabbed_2_1" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_2" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_3" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_4" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_5" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_6" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_7" name="yum-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="yum-__tabbed_2_1">RHEL8</label><label for="yum-__tabbed_2_2">Rocky Linux 8</label><label for="yum-__tabbed_2_3">Oracle Linux 8</label><label for="yum-__tabbed_2_4">Rocky Linux 9</label><label for="yum-__tabbed_2_5">Oracle Linux 9</label><label for="yum-__tabbed_2_6">Rocky Linux 8</label><label for="yum-__tabbed_2_7">Oracle Linux 8</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:9"><input checked="checked" id="yum-__tabbed_2_1" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_2" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_3" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_4" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_5" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_6" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_7" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_8" name="yum-__tabbed_2" type="radio" /><input id="yum-__tabbed_2_9" name="yum-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="yum-__tabbed_2_1">RHEL8</label><label for="yum-__tabbed_2_2">Rocky Linux 8</label><label for="yum-__tabbed_2_3">Oracle Linux 8</label><label for="yum-__tabbed_2_4">RHEL9</label><label for="yum-__tabbed_2_5">Rocky Linux 9</label><label for="yum-__tabbed_2_6">Oracle Linux 9</label><label for="yum-__tabbed_2_7">RHEL10</label><label for="yum-__tabbed_2_8">Rocky Linux 10</label><label for="yum-__tabbed_2_9">Oracle Linux 10</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>--enablerepo<span class="o">=</span>codeready-builder-for-rhel-8-rhui-rpms<span class="w"> </span>
@@ -4019,6 +4019,15 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-9-rhui-rpms
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+<p>If the required packages are not available in RHEL repos, install EPEL:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
 $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
 $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
@@ -4030,11 +4039,23 @@ $<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>codeready-builder-for-rhel-10-rhui-rpms
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+<p>If the required packages are not available in RHEL repos, install EPEL:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol9_codeready_builder<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>crb
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>ol10_codeready_builder<span class="w"> </span>
+$<span class="w"> </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>perl-IPC-Run<span class="w"> </span>-y
 </code></pre></div>
 </div>
 </div>
@@ -4313,13 +4334,13 @@ enabled=1
 <p>Install PostgreSQL contrib extensions:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql14-contrib
 </code></pre></div>
-<p>Install HAProxy</p>
+<p>Install HAProxy:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-haproxy
 </code></pre></div>
-<p>Install <code>pg_gather</code></p>
+<p>Install <code>pg_gather</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg_gather
 </code></pre></div>
-<p>Install pgpool2</p>
+<p>Install pgpool2:</p>
 <ol>
 <li>Check the <a href="#yum-for-pgpool2-extension">platform specific notes</a></li>
 <li>
