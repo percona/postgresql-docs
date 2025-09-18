@@ -4,7 +4,7 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 
 ## Platform specific notes
 
-Depending on what operating system you are using, you may need to enable or disable specific modules to install Percona Distribution for PostgreSQL packages and to resolve dependencies conflicts for its specific components. 
+Depending on what operating system you are using, you may need to enable or disable specific modules to install Percona Distribution for PostgreSQL packages and to resolve dependencies conflicts for its specific components.
 
 ### For Percona Distribution for PostgreSQL packages
 
@@ -50,6 +50,20 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf install perl-IPC-Run -y
     ```
 
+=== "RHEL9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
 === "Rocky Linux 9"
 
     ```{.bash data-prompt="$"}
@@ -65,6 +79,35 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf install perl-IPC-Run -y
     ```
 
+=== "RHEL10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-10-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Rocky Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install dnf-plugins-core
+    $ sudo dnf config-manager --set-enabled crb
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Oracle Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol10_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
 ### For `percona-patroni` package
 
 To install Patroni on Red Hat Enterprise Linux 9 and compatible derivatives, enable the `epel` repository
@@ -77,7 +120,7 @@ $ sudo yum install epel-release
 
 To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`.
 
-The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly. 
+The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
 
 === "RHEL 9"
 
@@ -350,7 +393,7 @@ $ sudo yum -y install curl
      ```
 
 === "Install packages individually"
-    
+
     Run the following commands:
     {.power-number}
 
@@ -425,13 +468,13 @@ $ sudo yum -y install curl
         $ sudo yum install percona-haproxy
         ```
         
-        Install `pg_gather`
+        Install `pg_gather`:
 
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-pg_gather
         ```
 
-        Install pgpool2
+        Install pgpool2:
 
         1. Check the [platform specific notes](#for-pgpool2-extension)
         2. Install the extension
