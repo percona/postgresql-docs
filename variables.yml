@@ -4,7 +4,7 @@
 release: 'release-notes-v13.22'
 pgversion: '13'
 dockertag: '13.22'
-sbomtag: '13.22'
+sbomtag: '13'
 
 date:
   13_22: 2025-09-18
