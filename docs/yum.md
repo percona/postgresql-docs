@@ -382,114 +382,104 @@ $ sudo yum -y install curl
    $ sudo percona-release setup ppg{{pgversion}}
    ```
 
-### Install packages
+### Install packages individually
 
-=== "Install using meta-package"
+Run the following commands:
+{.power-number}
 
-     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
-     
-     ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server{{pgversion}}
-     ```
-
-=== "Install packages individually"
-
-    Run the following commands:
-    {.power-number}
-
-     1. Install the PostgreSQL server package:
-
-         ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql{{pgversion}}-server
-         ```
-
-     2. Install the components:
-
-        Install `pg_repack`:
+    1. Install the PostgreSQL server package:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_repack{{pgversion}}
+        $ sudo yum install percona-postgresql{{pgversion}}-server
         ```
 
-        Install `pgaudit`:
+    2. Install the components:
+
+    Install `pg_repack`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pg_repack{{pgversion}}
+    ```
+
+    Install `pgaudit`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgaudit{{pgversion}}
+    ```
+
+    Install `pgBackRest`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgbackrest
+    ```
+
+    Install `Patroni`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-patroni
+    ```
+
+    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
+
+
+    Install `pgBouncer`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgbouncer
+    ```
+
+    Install `pgAudit-set_user`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgaudit{{pgversion}}_set_user
+    ```
+
+    Install `pgBadger`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgbadger
+    ```
+
+    Install `wal2json`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-wal2json{{pgversion}}
+    ```
+
+    Install PostgreSQL contrib extensions:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-postgresql{{pgversion}}-contrib
+    ```
+
+    Install HAProxy:
+    
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-haproxy
+    ```
+    
+    Install `pg_gather`:
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pg_gather
+    ```
+
+    Install pgpool2:
+
+    1. Check the [platform specific notes](#for-pgpool2-extension)
+    2. Install the extension
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit{{pgversion}}
+        $ sudo yum install percona-pgpool-II-pg{{pgversion}}
         ```
 
-        Install `pgBackRest`:
+    Install pgvector package suite:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
-        ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgvector_{{pgversion}} percona-pgvector_{{pgversion}}-debuginfo percona-pgvector_{{pgversion}}-debugsource percona-pgvector_{{pgversion}}-llvmjit
+    ```
 
-        Install `Patroni`:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-patroni
-        ```
-
-        [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
-
-
-        Install `pgBouncer`:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbouncer
-        ```
-
-        Install `pgAudit-set_user`:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
-        ```
-
-        Install `pgBadger`:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbadger
-        ```
-
-        Install `wal2json`:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-wal2json{{pgversion}}
-        ```
-
-        Install PostgreSQL contrib extensions:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql{{pgversion}}-contrib
-        ```
-
-        Install HAProxy:
-        
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-haproxy
-        ```
-        
-        Install `pg_gather`:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_gather
-        ```
-
-        Install pgpool2:
-
-        1. Check the [platform specific notes](#for-pgpool2-extension)
-        2. Install the extension
-
-            ```{.bash data-prompt="$"}
-            $ sudo yum install percona-pgpool-II-pg{{pgversion}}
-            ```
-
-        Install pgvector package suite:
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgvector_{{pgversion}} percona-pgvector_{{pgversion}}-debuginfo percona-pgvector_{{pgversion}}-debugsource percona-pgvector_{{pgversion}}-llvmjit
-        ```
-
-        Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+    Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enable Percona Distribution for PostgreSQL components](enable-extensions.md).
 
 ### Start the service
 

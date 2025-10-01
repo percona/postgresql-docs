@@ -8,9 +8,7 @@ Percona provides two repositories for Percona Distribution for PostgreSQL.
 
 ## Repository contents
 
-Percona Distribution for PostgreSQL provides individual packages for its components. It also includes two meta-packages: `percona-ppg-server` and `percona-ppg-server-ha`.
-
-Using a meta-package, you can install all components it contains in one go.
+Percona Distribution for PostgreSQL provides individual packages for its components. These are:
 
 ### `percona-ppg-server`
 
@@ -22,19 +20,6 @@ Using a meta-package, you can install all components it contains in one go.
 
      `percona-ppg-server{{pgversion}}`
 
-The `percona-ppg-server` meta-package installs the PostgreSQL server with the following packages:
-
-| Package contents | Description                             |  
-| ---------------- | --------------------------------------- | 
-| `percona-postgresql{{pgversion}}-server` | The PostgreSQL server package. |
-| `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
-| `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
-| `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
-| `percona-pgaudit{{pgversion}}` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
-| `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
-| `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
-
-
 ### `percona-ppg-server-ha`
 
 === "Package name on Debian/Ubuntu"
@@ -44,12 +29,3 @@ The `percona-ppg-server` meta-package installs the PostgreSQL server with the fo
 === "Package name on RHEL/derivatives"
 
      `percona-ppg-server-{{pgversion}}`
-
-The `percona-ppg-server-ha` meta-package installs high-availability components that are recommended by Percona:
-
-| Package contents | Description                             |  
-| ---------------- | --------------------------------------- | 
-| `percona-patroni`| A high-availability solution for PostgreSQL. | 
-| `percona-haproxy`| A high-availability and load-balancing solution |
-| `etcd`           | A consistent, distributed key-value store | 
-| `python3-python-etcd` | A Python client for etcd |
