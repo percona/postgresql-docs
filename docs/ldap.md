@@ -21,11 +21,7 @@ Follow these steps to set up LDAP authentication for your PostgreSQL database.
 
 3. Restart your PostgreSQL service to apply the changes.
 
-4. Connect to your database as a superuser and create the roles that correspond to groups or users in your LDAP directory. For example:
-
-    ```sql
-    CREATE ROLE important_users WITH LOGIN;
-    ```
+4. Connect to your database as a superuser and create the roles that correspond to groups or users in your LDAP directory.
 
 5. Grant appropriate permissions to these roles using [standard SQL GRANT statements :octicons-link-external-16:](https://www.postgresql.org/docs/18/sql-grant.html).
 
