@@ -387,13 +387,13 @@ $ sudo yum -y install curl
 Run the following commands:
 {.power-number}
 
-    1. Install the PostgreSQL server package:
+1. Install the PostgreSQL server package:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql{{pgversion}}-server
-        ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-postgresql{{pgversion}}-server
+    ```
 
-    2. Install the components:
+2. Install the following components:
 
     Install `pg_repack`:
 
@@ -419,8 +419,7 @@ Run the following commands:
     $ sudo yum install percona-patroni
     ```
 
-    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
-
+    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1).
 
     Install `pgBouncer`:
 
@@ -453,11 +452,11 @@ Run the following commands:
     ```
 
     Install HAProxy:
-    
+
     ```{.bash data-prompt="$"}
     $ sudo yum install percona-haproxy
     ```
-    
+
     Install `pg_gather`:
 
     ```{.bash data-prompt="$"}
@@ -466,12 +465,12 @@ Run the following commands:
 
     Install pgpool2:
 
-    1. Check the [platform specific notes](#for-pgpool2-extension)
-    2. Install the extension
+    1. Check the [platform specific notes](#for-pgpool2-extension).
+    2. Install the extension:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgpool-II-pg{{pgversion}}
-        ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgpool-II-pg{{pgversion}}
+    ```
 
     Install pgvector package suite:
 
