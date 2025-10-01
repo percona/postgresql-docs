@@ -10,10 +10,10 @@ You can download the tarballs using the links below.
 
 The following tarballs are available for the x86_64 and ARM64 architectures:
 
-* [percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.5-ssl1.1-linux-aarch64.tar.gz)  - for operating systems on ARM64 architecture that run OpenSSL version 1.x
-* [percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.5-ssl1.1-linux-x86_64.tar.gz)  - for operating systems on x86_64 architecture that run OpenSSL version 1.x
-* [percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.5-ssl3-linux-aarch64.tar.gz) - for operating systems on ARM64 architecture that run OpenSSL version 3.x
-* [percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.5-ssl3-linux-x86_64.tar.gz) - for operating systems on x86_64 architecture that run OpenSSL version 3.x
+* [percona-postgresql-{{dockertag}}-ssl1.1-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.6-ssl1.1-linux-aarch64.tar.gz)  - for operating systems on ARM64 architecture that run OpenSSL version 1.x
+* [percona-postgresql-{{dockertag}}-ssl1.1-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.6-ssl1.1-linux-x86_64.tar.gz)  - for operating systems on x86_64 architecture that run OpenSSL version 1.x
+* [percona-postgresql-{{dockertag}}-ssl3-linux-aarch64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.6-ssl3-linux-aarch64.tar.gz) - for operating systems on ARM64 architecture that run OpenSSL version 3.x
+* [percona-postgresql-{{dockertag}}-ssl3-linux-x86_64.tar.gz](https://downloads.percona.com/downloads/postgresql-distribution-17/{{dockertag}}/binary/tarball/percona-postgresql-17.6-ssl3-linux-x86_64.tar.gz) - for operating systems on x86_64 architecture that run OpenSSL version 3.x
 
 To check what OpenSSL version you have, run the following command:
 
@@ -44,7 +44,7 @@ The tarballs include the following components:
 === "Debian and Ubuntu"
 
     1. Uninstall the upstream PostgreSQL package.
-    2. Ensure that the `libreadline` is present on the system, as it is **required** for tarballs to work correctly:
+    2. Ensure that the `libreadline` is installed on the system, as it is **required** for tarballs to work correctly:
 
         ```{.bash data-prompt="$"}
         $ sudo apt install -y libreadline-dev
@@ -64,13 +64,19 @@ The tarballs include the following components:
     
 === "RHEL and derivatives"
 
-    Ensure that the `libreadline` is present on the system, as it is **required** for tarballs to work correctly:
+    On RHEL, Rocky Linux, or Oracle Linux 10, install the `acl` package. This package is **required** for correct permission handling when using tarball-based installations:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y acl
+    ```
+
+    Ensure that the `libreadline` is installed on the system, as it is **required** for tarballs to work correctly:
 
     ```{.bash data-prompt="$"}
     $ sudo yum install -y readline-devel
     ```
 
-    Create the user to own the PostgreSQL process. For example, `mypguser`, Run the following command:
+    Create the user to own the PostgreSQL process. For example, `mypguser`. Run the following command:
         
     ```{.bash data-prompt="$"}
     $ sudo useradd mypguser -m 

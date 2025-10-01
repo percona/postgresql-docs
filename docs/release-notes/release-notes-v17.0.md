@@ -1,16 +1,15 @@
 # Percona Distribution for PostgreSQL 17.0.1 ({{date.17_0}})
 
-[Installation](installing.md){.md-button}
-[Upgrade](major-upgrade.md){.md-button}
- 
+[Installation](../installing.md){.md-button}
+[Upgrade](../major-upgrade.md){.md-button}
 
 We are pleased to announce the launch of Percona Distribution for PostgreSQL 17.0.1 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.
 
-This release of Percona Distribution for PostgreSQL is based on **Percona Server for PostgreSQL 17.0.1** - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.0 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html). 
+This release of Percona Distribution for PostgreSQL is based on **Percona Server for PostgreSQL 17.0.1** - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.0 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17.html).
 
-Both Percona Server for PostgreSQL and PostgreSQL Community function identically enabling you to migrate from one to another. 
+Both Percona Server for PostgreSQL and PostgreSQL Community function identically enabling you to migrate from one to another.
 
-Percona Server for PostgreSQL 17.0.1 has the extra digit in version which represents Percona version number. 
+Percona Server for PostgreSQL 17.0.1 has the extra digit in version which represents Percona version number.
 
 To check what software you're running, run the following SQL query:
 
@@ -70,7 +69,7 @@ This feature is especially beneficial for organizations with large data sets whe
 
 #### Replication improvements
 
-* Gain more control for managing PostgreSQL databases in high availability environments with the ability to continue logical replication from a new primary node after the failover. 
+* Gain more control for managing PostgreSQL databases in high availability environments with the ability to continue logical replication from a new primary node after the failover.
 * Track inactive and invalid replication slots in the `pg_replication_slots` view. With the  `inactive_since` and `invalidation_reason` columns  added to this view, you can get insights when a slot became inactive as well as the reason for an invalid slot.
 * Convert a physical replica into a logical one using the new [`pg_createsubscriber`](https://www.postgresql.org/docs/17/app-pgcreatesubscriber.html) command-line tool
 
@@ -80,10 +79,10 @@ This feature is especially beneficial for organizations with large data sets whe
 
 #### Monitoring improvements
 
-* Get deeper insights about query plans and execution with the new options for the EXPLAIN command: 
+* Get deeper insights about query plans and execution with the new options for the EXPLAIN command:
 
    * SERIALIZE shows the amount of time it takes to convert data for network transmission
-   * MEMORY reports optimizer memory usage 
+   * MEMORY reports optimizer memory usage
 
 * Learn about why an active session is waiting using the `pg_stat_activity` and new `pg_wait_events` views
 
@@ -99,13 +98,11 @@ Participate in monthly SWAG raffles, get an early access to new product features
 
 ## Known Limitations
 
-Percona Monitoring and Management (PMM) 2.43.1 is not compatible with `pg_stat_monitor` 2.1.0 to monitor PostgreSQL 17. However, PMM is compatible with `pg_stat_monitor` 2.1.0 for monitoring of PostgreSQL 16 and previous versions. 
+Percona Monitoring and Management (PMM) 2.43.1 is not compatible with `pg_stat_monitor` 2.1.0 to monitor PostgreSQL 17. However, PMM is compatible with `pg_stat_monitor` 2.1.0 for monitoring of PostgreSQL 16 and previous versions.
 
 The support for PostgreSQL 17 will be available in the future PMM release.
 
-
 ------------------------------------------------------------------------------
-
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
@@ -130,8 +127,8 @@ The following is the list of extensions available in Percona Distribution for Po
 Percona Distribution for PostgreSQL on Red Hat Enterprise Linux 8 and compatible derivatives also includes the following packages:
 
 * `llvm` 17.0.6 packages. This fixes compatibility issues with LLVM from upstream.
-* supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters. 
+* supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters.
 
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/17/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."

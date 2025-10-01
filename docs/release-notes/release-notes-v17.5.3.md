@@ -1,25 +1,33 @@
-# Percona Distribution for PostgreSQL 17.5.1 ({{date.17_5_1}})
+# Percona Distribution for PostgreSQL 17.5.3 ({{date.17_5_3}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.5.3 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.5](https://www.postgresql.org/docs/17/release-17-5.html).
 
 ## Release Highlights
 
-### A new version of `pg_tde`
+### `pg_tde` 2.0 - WAL encryption now generally available
 
-Percona Distribution for PostgreSQL includes the Release Candidate 2 (RC2) of `pg_tde` extension that brings in Transparent Data Encryption. This version of `pg_tde` provides a bunch of improvements, among which is WAL encryption now supporting Vault, automatic WAL internal key generation at server startup, new visibility and verification functions for default principal keys, and more. Learn about these features in the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/rc2.html).  
+Percona Distribution for PostgreSQL includes the 2.0 release of `pg_tde`.
+This version introduces several enhancements, most notably the general availability of WAL encryption.
+See the [`pg_tde` release notes :octicons-link-external-16:](https://docs.percona.com/pg-tde/release-notes/release-notes-v2.0.html) for more details.
 
-### Updated Major upgrade topic in documentation
+### Major documentation update in Percona Distribution for PostgreSQL
 
-The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md) guide has been updated with revised steps for the [On Debian and Ubuntu using `apt`](major-upgrade.md/#on-debian-and-ubuntu-using-apt) section, improving clarity and reliability of the upgrade process.
+* Expanded and improved the [High Availability](../solutions/high-availability.md) topic with more information and example deployments.
+* Updated the [PostGIS installation commands via yum](../yum.md#for-postgis) topic.
+* Updated the [Telemetry](../telemetry.md) topic with revised steps and commands.
+* Added new [FAQ](../faq.md) and [Versioning](../versioning.md) topics.
+
+The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.21    | A distributed, reliable key-value store for setting up high available Patroni clusters                              |
+| [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.21    | A distributed, reliable key-value store for setting up highly available Patroni clusters
+| [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/)                       | 0.4.5    | A Python client library for interacting with etcd                                 |
 | [HAProxy :octicons-link-external-16:](http://www.haproxy.org/)                       | 2.8.15    | A high-availability and load-balancing solution                                                                     |
 | [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/)     | 4.0.5     | A HA (High Availability) solution for PostgreSQL                                                                    |
-| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)                      | 17.1      | Provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
+| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/)                      | 17.1      | A detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user)  | 4.1.0     | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance.     |
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/)                    | 2.55.0    | A backup and restore solution for PostgreSQL                                                                        |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger)           | 13.1      | A fast PostgreSQL Log Analyzer                                                                                      |
@@ -34,6 +42,4 @@ The [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
-Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/17/libpq.html) library. It contains "a set of
-library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries."
+Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/17/libpq.html) library. It contains "a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries."
