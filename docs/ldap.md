@@ -7,6 +7,7 @@ The LDAP authentication method in Percona Distribution for PortgreSQL is functio
 ## Set up LDAP authentication
 
 Follow these steps to set up LDAP authentication for your PostgreSQL database.
+{.power-number}
 
 1. Add in the `pg_hba.conf` file (usually located in `/data/db/...`) the `ldap` authentication method. For example:
 
