@@ -51,7 +51,7 @@ theme:
     - navigation.top
     - navigation.tracking 
     - content.tabs.link
-    - content.action.edit
+#    - content.action.edit
     - content.action.view
     - content.code.copy 
     - content.tooltips 
