@@ -203,6 +203,8 @@ nav:
       - Backup and disaster recovery:
           - 'Overview': 'solutions/backup-recovery.md'
           - solutions/dr-pgbackrest-setup.md
+      - Data encryption:
+          - 'TDE compatibility with tools and extensions': solutions/tde-tools-compatibility.md
       - Spatial data handling:
         - Overview: solutions/postgis.md
         - Deployment: solutions/postgis-deploy.md
