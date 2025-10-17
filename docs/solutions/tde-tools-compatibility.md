@@ -8,22 +8,24 @@ This page describes how TDE interacts with each component included in the Percon
 
 | Component | Affected by TDE | Notes |
 |------------|----------------|-------|
-| **etcd** | ❌ No | Stores configuration data, not PostgreSQL data. |
-| **HAProxy** | ❌ No | Operates at network level; unaffected by TDE. |
-| **Patroni** | ⚙️ Partial | Cluster replication requires consistent keys. |
-| **pgAudit** | ❌ No | Logs SQL activity; no interaction with encrypted files. |
-| **pgAudit set_user** | ❌ No | Session role tracking unaffected by encryption. |
-| **pgBackRest** | ✅ Yes | Backs up encrypted data and WAL; requires key for restore. |
-| **pgBadger** | ❌ No | Processes plaintext PostgreSQL logs; not impacted. |
-| **pgBouncer** | ❌ No | Connection pooling; no access to storage layer. |
-| **pg_gather** | ❌ No | Collects performance stats; queries decrypted data in memory. |
-| **pgpool2** | ❌ No | Middleware routing connections; not affected by TDE. |
-| **pg_repack** | ✅ Yes | Rewrites data files; requires access to decrypted in-memory data. |
-| **pg_stat_monitor** | ❌ No | Operates at query-level statistics; no WAL interaction. |
-| **pgvector** | ❌ No | Works on in-memory and SQL-level data; encryption transparent. |
-| **PostGIS** | ❌ No | Spatial extensions operate on decrypted in-memory data. |
-| **wal2json** | ⚠️ Limited | Logical decoding may fail on encrypted WAL. |
-| **PostgreSQL Commons and Contrib Modules** | ❌ No | Core modules function normally with TDE enabled. |
+| [**etcd**](#etcd) | ❌ No | Stores configuration data, not PostgreSQL data. |
+| [**HAProxy**](#haproxy) | ❌ No | Operates at network level; unaffected by TDE. |
+| [**Patroni**](#patroni) | ⚙️ Partial | Cluster replication requires consistent keys. |
+| [**pgAudit**](#pgaudit) | ❌ No | Logs SQL activity; no interaction with encrypted files. |
+| [**pgAudit set_user**](#pgaudit-set_user) | ❌ No | Session role tracking unaffected by encryption. |
+| [**pgBackRest**](#pgbackrest) | ✅ Yes | Backs up encrypted data and WAL; requires key for restore. |
+| [**pgBadger**](#pgbadger) | ❌ No | Processes plaintext PostgreSQL logs; not impacted. |
+| [**pgBouncer**](#pgbouncer) | ❌ No | Connection pooling; no access to storage layer. |
+| [**pg_gather**](#pg_gather) | ❌ No | Collects performance stats; queries decrypted data in memory. |
+| [**pgpool2**](#pgpool2) | ❌ No | Middleware routing connections; not affected by TDE. |
+| [**pg_repack**](#pg_repack) | ✅ Yes | Rewrites data files; requires access to decrypted in-memory data. |
+| [**pg_stat_monitor**](#pg_stat_monitor) | ❌ No | Operates at query-level statistics; no WAL interaction. |
+| [**pgvector**](#pgvector) | ❌ No | Works on in-memory and SQL-level data; encryption transparent. |
+| [**PostGIS**](#postgis) | ❌ No | Spatial extensions operate on decrypted in-memory data. |
+| [**wal2json**](#wal2json) | ⚠️ Limited | Logical decoding may fail on encrypted WAL. |
+| [**PostgreSQL Commons and Contrib Modules**](#postgresql-commons-and-contrib-modules) | ❌ No | Core modules function normally with TDE enabled. |
+
+
 
 ## etcd
 
@@ -49,18 +51,12 @@ It is not directly impacted by TDE, but the following considerations apply:
 - Each cluster node must share the same TDE key provider and key ID.  
 - A key mismatch will prevent replicas from starting or replaying WAL.
 
-!!! note
-    Ensure identical `pg_tde.conf` configuration and key management setup across all nodes.
-
 ## pgAudit
 
 `pgAudit` logs SQL statements for auditing purposes.
 
 - TDE does not affect audit logging because SQL is captured before disk encryption.
 - Logs are written as plaintext files.
-
-!!! tip
-    For confidentiality, consider applying filesystem-level encryption to PostgreSQL log directories.
 
 ## pgAudit set_user
 
@@ -81,7 +77,7 @@ It fully supports encrypted databases.
     Restoring without the correct key makes the backup unusable.
 
 !!! tip
-    Use a global key provider (such as HashiCorp Vault) and ensure policies allow restore operations.
+    Use a [global key provider :octicons-link-external-16:](https://docs.percona.com/pg-tde/global-key-provider-configuration/overview.html) and ensure policies allow restore operations.
 
 ## pgBadger
 
@@ -179,6 +175,4 @@ operate at the SQL and memory level.
 
 ## See also
 
-- [Percona pg_tde documentation](https://docs.percona.com/postgresql/pg_tde)
-- [Using HashiCorp Vault with pg_tde](https://docs.percona.com/postgresql/pg_tde/vault.html)
-- [pgBackRest configuration guide](https://docs.percona.com/postgresql/pgbackrest.html)
+- [Percona `pg_tde` documentation](https://docs.percona.com/postgresql/pg_tde)
