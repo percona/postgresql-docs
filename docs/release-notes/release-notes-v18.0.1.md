@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 18.0.1 ({date.18_0_1})
+# Percona Distribution for PostgreSQL 18.0.1 ({{date.18_0_1}})
 
 --8<-- "release-notes-intro.md"
 
