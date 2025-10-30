@@ -1,8 +1,8 @@
-# Percona Distribution for PostgreSQL 18.0.1 ({{date.18_0_1}})
+# Percona Distribution for PostgreSQL 18.1.1 ({{date.18_1_1}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.0.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.0](https://www.postgresql.org/docs/18/release-18.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.1](https://www.postgresql.org/docs/18/release-18.html).
 
 ## Release Highlights
 
