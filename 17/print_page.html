@@ -3396,16 +3396,8 @@
 <p>Percona provides <a href="#repo-overview">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-17
 </code></pre></div>
-<h3 id="apt-install-packages">Install packages<a class="headerlink" href="#apt-install-packages" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="apt-__tabbed_1_1" name="apt-__tabbed_1" type="radio" /><input id="apt-__tabbed_1_2" name="apt-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="apt-__tabbed_1_1">Install using meta-package (deprecated)</label><label for="apt-__tabbed_1_2">Install packages individually</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The <a href="#repo-overview-percona-ppg-server" target="”_blank”">meta package</a> enables you to install several components of the distribution in one go.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-ppg-server-17
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p class="power-number">Run the following commands:</p>
+<h3 id="apt-install-packages-individually">Install packages individually<a class="headerlink" href="#apt-install-packages-individually" title="Permanent link">&para;</a></h3>
+<p>Run the following commands:</p>
 <ol>
 <li>
 <p>Install the PostgreSQL server package:</p>
@@ -3457,9 +3449,6 @@
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
 </li>
 </ol>
-</div>
-</div>
-</div>
 <h3 id="apt-start-the-service">Start the service<a class="headerlink" href="#apt-start-the-service" title="Permanent link">&para;</a></h3>
 <p>The installation process automatically initializes and starts the default database. You can check the database status using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql.service
@@ -3789,15 +3778,7 @@ enabled=1
 <p>Percona provides <a href="#repo-overview">two repositories</a> for Percona Distribution for PostgreSQL. We recommend enabling the Major release repository to timely receive the latest updates. </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg17
 </code></pre></div>
-<h3 id="yum-install-packages">Install packages<a class="headerlink" href="#yum-install-packages" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="yum-__tabbed_5_1" name="yum-__tabbed_5" type="radio" /><input id="yum-__tabbed_5_2" name="yum-__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="yum-__tabbed_5_1">Install using meta-package</label><label for="yum-__tabbed_5_2">Install packages individually</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The <a href="#repo-overview-percona-ppg-server" target="”_blank”">meta package</a> enables you to install several components of the distribution in one go.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-ppg-server17
-</code></pre></div>
-</div>
-<div class="tabbed-block">
+<h3 id="yum-install-packages-individually">Install packages individually<a class="headerlink" href="#yum-install-packages-individually" title="Permanent link">&para;</a></h3>
 <p class="power-number">Run the following commands:</p>
 <ol>
 <li>
@@ -3806,7 +3787,7 @@ enabled=1
 </code></pre></div>
 </li>
 <li>
-<p>Install the components:</p>
+<p>Install the following components:</p>
 <p>Install <code>pg_repack</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pg_repack17
 </code></pre></div>
@@ -3819,7 +3800,7 @@ enabled=1
 <p>Install <code>Patroni</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-patroni
 </code></pre></div>
-<p><a href="https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1">Install <code>pg_stat_monitor</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
+<p><a href="https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1">Install <code>pg_stat_monitor</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>Install <code>pgBouncer</code>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgbouncer
 </code></pre></div>
@@ -3843,22 +3824,17 @@ enabled=1
 </code></pre></div>
 <p>Install pgpool2:</p>
 <ol>
-<li>Check the <a href="#yum-for-pgpool2-extension">platform specific notes</a></li>
-<li>
-<p>Install the extension</p>
+<li>Check the <a href="#yum-for-pgpool2-extension">platform specific notes</a>.</li>
+<li>Install the extension:</li>
+</ol>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgpool-II-pg17
 </code></pre></div>
-</li>
-</ol>
 <p>Install pgvector package suite:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-pgvector_17<span class="w"> </span>percona-pgvector_17-debuginfo<span class="w"> </span>percona-pgvector_17-debugsource<span class="w"> </span>percona-pgvector_17-llvmjit
 </code></pre></div>
-<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enable-extensions">Enabling extensions</a>.</p>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enable-extensions">Enable Percona Distribution for PostgreSQL components</a>.</p>
 </li>
 </ol>
-</div>
-</div>
-</div>
 <h3 id="yum-start-the-service">Start the service<a class="headerlink" href="#yum-start-the-service" title="Permanent link">&para;</a></h3>
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/usr/pgsql-17/bin/postgresql-17-setup<span class="w"> </span>initdb
@@ -4093,10 +4069,6 @@ postgres=#
 </thead>
 <tbody>
 <tr>
-<td><code>percona-postgresql17</code></td>
-<td>A metapackage that installs the latest version of PostgreSQL</td>
-</tr>
-<tr>
 <td><code>percona-postgresql17-server</code></td>
 <td>The PostgreSQL server package.</td>
 </tr>
@@ -4157,7 +4129,7 @@ postgres=#
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can secure the password by exporting it to the environment file and using that to start the container.    </p>
+<p>You can secure the password by exporting it to the environment file and using that to start the container.</p>
 <ol>
 <li>
 <p>Export the password to the environment file:    </p>
@@ -4440,97 +4412,6 @@ log_error_verbosity = default
 <tr>
 <td><em>Major Release repository</em> (<code>ppg-17</code>) it includes the latest version packages. Whenever a package is updated, the package manager of your operating system detects that and prompts you to update. As long as you update all Distribution packages at the same time, you can ensure that the packages you’re using have been tested and verified by Percona. <br><br> We recommend installing Percona Distribution for PostgreSQL from the <em>Major Release repository</em></td>
 <td><em>Minor Release repository</em> includes a particular minor release of the database and all of the packages that were tested and verified to work with that minor release (e.g. <code>ppg-17.6</code>). You may choose to install Percona Distribution for PostgreSQL from the Minor Release repository if you have decided to standardize on a particular release which has passed rigorous testing procedures and which has been verified to work with your applications. This allows you to deploy to a new host and ensure that you’ll be using the same version of all the Distribution packages, even if newer releases exist in other repositories. <br> <br> The disadvantage of using a Minor Release repository is that you are locked in this particular release. When potentially critical fixes are released in a later minor version of the database, you will not be prompted for an upgrade by the package manager of your operating system. You would need to change the configured repository in order to install the upgrade.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="repo-overview-repository-contents">Repository contents<a class="headerlink" href="#repo-overview-repository-contents" title="Permanent link">&para;</a></h2>
-<p>Percona Distribution for PostgreSQL provides individual packages for its components. It also includes two meta-packages: <code>percona-ppg-server</code> and <code>percona-ppg-server-ha</code>.</p>
-<p>Using a meta-package, you can install all components it contains in one go.</p>
-<h3 id="repo-overview-percona-ppg-server"><code>percona-ppg-server</code><a class="headerlink" href="#repo-overview-percona-ppg-server" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="repo-overview-__tabbed_1_1" name="repo-overview-__tabbed_1" type="radio" /><input id="repo-overview-__tabbed_1_2" name="repo-overview-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="repo-overview-__tabbed_1_1">Package name on Debian/Ubuntu</label><label for="repo-overview-__tabbed_1_2">Package name on RHEL/derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><code>percona-ppg-server-17</code></p>
-</div>
-<div class="tabbed-block">
-<p><code>percona-ppg-server17</code></p>
-</div>
-</div>
-</div>
-<p>The <code>percona-ppg-server</code> meta-package installs the PostgreSQL server with the following packages:</p>
-<table>
-<thead>
-<tr>
-<th>Package contents</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>percona-postgresql17-server</code></td>
-<td>The PostgreSQL server package.</td>
-</tr>
-<tr>
-<td><code>percona-postgresql-common</code></td>
-<td>PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.</td>
-</tr>
-<tr>
-<td><code>percona-postgresql17-contrib</code></td>
-<td>A collection of additional PostgreSQLcontrib extensions</td>
-</tr>
-<tr>
-<td><code>percona-pg-stat-monitor17</code></td>
-<td>A Query Performance Monitoring tool for PostgreSQL.</td>
-</tr>
-<tr>
-<td><code>percona-pgaudit17</code></td>
-<td>Provides detailed session or object audit logging via the standard PostgreSQL logging facility.</td>
-</tr>
-<tr>
-<td><code>percona-pg_repack17</code></td>
-<td>rebuilds PostgreSQL database objects.</td>
-</tr>
-<tr>
-<td><code>percona-wal2json17</code></td>
-<td>a PostgreSQL logical decoding JSON output plugin.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="repo-overview-percona-ppg-server-ha"><code>percona-ppg-server-ha</code><a class="headerlink" href="#repo-overview-percona-ppg-server-ha" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="repo-overview-__tabbed_2_1" name="repo-overview-__tabbed_2" type="radio" /><input id="repo-overview-__tabbed_2_2" name="repo-overview-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="repo-overview-__tabbed_2_1">Package name on Debian/Ubuntu</label><label for="repo-overview-__tabbed_2_2">Package name on RHEL/derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><code>percona-ppg-server-ha-17</code></p>
-</div>
-<div class="tabbed-block">
-<p><code>percona-ppg-server-17</code></p>
-</div>
-</div>
-</div>
-<p>The <code>percona-ppg-server-ha</code> meta-package installs high-availability components that are recommended by Percona:</p>
-<table>
-<thead>
-<tr>
-<th>Package contents</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>percona-patroni</code></td>
-<td>A high-availability solution for PostgreSQL.</td>
-</tr>
-<tr>
-<td><code>percona-haproxy</code></td>
-<td>A high-availability and load-balancing solution</td>
-</tr>
-<tr>
-<td><code>etcd</code></td>
-<td>A consistent, distributed key-value store</td>
-</tr>
-<tr>
-<td><code>python3-python-etcd</code></td>
-<td>A Python client for etcd</td>
 </tr>
 </tbody>
 </table></section><section class="print-page" id="sboms" heading-number="4.2.7"><h1 id="sboms-software-bill-of-materials-sboms">Software Bill of Materials (SBOMs)<a class="headerlink" href="#sboms-software-bill-of-materials-sboms" title="Permanent link">&para;</a></h1>
