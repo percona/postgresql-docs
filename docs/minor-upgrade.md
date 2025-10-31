@@ -53,7 +53,7 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl stop postgresql-16
+         $ sudo systemctl stop postgresql-17
          ```
 
 2. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
@@ -71,7 +71,7 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start postgresql-16
+         $ sudo systemctl start postgresql-17
          ```
 
 !!! note "For minor upgrades (RHEL only)"
@@ -85,6 +85,5 @@ Run **all** commands as root or via **sudo**:
     ```
 
     To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
-    
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 16 to 17](major-upgrade.md).
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 17 to 18](major-upgrade.md).
