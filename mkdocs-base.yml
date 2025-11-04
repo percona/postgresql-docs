@@ -162,8 +162,8 @@ extra:
 
 nav:
   - 'Home': 'index.md'
-  - get-help.md
   - 'Percona Server for PostgreSQL': postgresql-server.md
+  - get-help.md
   - Get started: 
       - Quickstart guide: installing.md
       - 1. Install: 
@@ -173,6 +173,7 @@ nav:
           - Run in Docker: docker.md
           - enable-extensions.md
           - repo-overview.md
+          - sboms.md
       - 2. Connect to PostgreSQL: connect.md
       - 3. Manipulate data in PostgreSQL: crud.md  
       - 4. What's next: whats-next.md 
@@ -214,17 +215,15 @@ nav:
       - "Major upgrade": major-upgrade.md
       - minor-upgrade.md
       - migration.md
+  - FAQ: faq.md  
   - Troubleshooting guide: troubleshooting.md
-  - How to: how-to.md
   - Uninstall: uninstalling.md
-  - Release Notes:
-      - "Release notes index": "release-notes.md"
-      - release-notes-v17.0.md
-      - release-notes-v17.2.md
-      - release-notes-v17.4.md
-      - release-notes-v17.5.md
+  - Release notes:
+      - "Release notes index": release-notes/release-notes.md
+      - "18.1.1": release-notes/release-notes-v18.1.1.md
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
+      - Versioning: versioning.md
       - Trademark policy: trademark-policy.md
 

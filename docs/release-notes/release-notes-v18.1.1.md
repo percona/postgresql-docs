@@ -1,8 +1,8 @@
-# Percona Distribution for PostgreSQL 17.6.1 ({{date.17_6_1}})
+# Percona Distribution for PostgreSQL 18.1.1 ({{date.18_1_1}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.6.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.6](https://www.postgresql.org/docs/17/release-17-6.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.1](https://www.postgresql.org/docs/18/release-18.html).
 
 ## Release Highlights
 
@@ -28,7 +28,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2012-0868, CVE-2017-7484, and CVE-2025-8715. For more details, see the [PostgreSQL 17.6 release notes](https://www.postgresql.org/docs/release/17.6/).
+This release includes important security measures that address the following CVEs: TBA. For more details, see the [PostgreSQL 18.1 release notes](https://www.postgresql.org/docs/release/18.0/).
 
 ## Known Issue
 
@@ -36,7 +36,7 @@ This release includes important security measures that address the following CVE
 
 During an upgrade on RHEL, you may encounter the following error:
 
-```
+```bash
 Unknown Error occurred: Transaction test error:
   file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
   file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
@@ -48,7 +48,7 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension                                                                            | Version   | Description                                                                                                          |
 |--------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.21    | A distributed, reliable key-value store for setting up highly available Patroni clusters
+| [etcd :octicons-link-external-16:](https://etcd.io/)                                                             | 3.5.21    | A distributed, reliable key-value store for setting up highly available Patroni clusters    |
 | [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/)                       | 0.4.5    | A Python client library for interacting with etcd                                 |
 | [HAProxy :octicons-link-external-16:](http://www.haproxy.org/)                       | 2.8.15    | A high-availability and load-balancing solution                                                                     |
 | [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/)     | 4.0.6     | A HA (High Availability) solution for PostgreSQL                                                                    |
@@ -67,4 +67,4 @@ The following is the list of extensions available in Percona Distribution for Po
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
-Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/17/libpq.html) library. It contains "a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries."
+Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/18/libpq.html) library. It contains "a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries."
