@@ -1,6 +1,6 @@
 # Troubleshooting guide
 
-This guide helps you identify and resolve common issues when installing, configuring, or running Percona Server for PostgreSQL 17.
+This guide helps you identify and resolve common issues when installing, configuring, or running Percona Server for PostgreSQL {{pgversion}}.
 
 If you're looking for general information or usage tips, check the [FAQ](faq.md).
 
