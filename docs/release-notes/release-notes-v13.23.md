@@ -4,13 +4,15 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.23](https://www.postgresql.org/docs/13/release-13-23.html).
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.22](https://www.postgresql.org/docs/13/release-13-22.html).
 
 ## Release Highlights
 
-### Tarball updates
+### End-of-life
 
-The [installation preconditions for tarballs](../tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
+This is the last release of Percona Distribution for PostgreSQL 13.x as it enters end-of-life.
+
+### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
@@ -25,16 +27,6 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 The [installation preconditions for tarballs](../tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
-
-### SBOMs available for download
-
-Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.
-
-See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
-
-### Addressed CVEs
-
-This release includes important security measures that address the following CVEs: CVE-2025-8713, CVE-2025-8714, and CVE-2025-8715. For more details, see the [PostgreSQL 13.23 release notes](https://www.postgresql.org/docs/release/13.23/).
 
 ## Known Issue
 
