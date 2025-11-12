@@ -16,7 +16,7 @@ These features make PostgreSQL 18 a major step forward in scalability, observabi
 
 ## Release Highlights
 
-This release continues to deliver Percona’s open source value-add components for enterprise use cases, including `pg_stat_monitor` 2.3.0 for advanced query-level observability, `pg_tde` 2.1 for Transparent Data Encryption and more. See the full component list below for details.
+This release continues to deliver Percona’s open source value-add components for enterprise use cases, including `pg_stat_monitor` 2.3.1 for advanced query-level observability, `pg_tde` 2.1 for Transparent Data Encryption and more. See the full component list below for details.
 
 Added support for asynchronous I/O (AIO) with PostgreSQL 18.1.1.
 
@@ -67,7 +67,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather)        | v31       | An SQL script for running the diagnostics of the health of a PostgreSQL cluster                                     |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.3 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing      |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack)          | 1.5.3     | Rebuilds PostgreSQL database objects                                                                                |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                          | 2.3.0     | Collects and aggregates statistics for PostgreSQL and provides histogram information.                                |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                          | 2.3.1     | Collects and aggregates statistics for PostgreSQL and provides histogram information.                                |
 | [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)         | v0.8.1    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis)            | 3.5.4     | A spatial extension for PostgreSQL                                                                                  |
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 286 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
