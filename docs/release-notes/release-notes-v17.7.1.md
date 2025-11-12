@@ -34,6 +34,10 @@ Unknown Error occurred: Transaction test error:
 
 To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
+## Supplied third-party extensions
+
+Review each extension’s release notes for What’s new, improvements, or bug fixes.
+
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
 | Extension                                                                            | Version   | Description                                                                                                          |
