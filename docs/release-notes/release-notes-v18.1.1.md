@@ -18,6 +18,8 @@ These features make PostgreSQL 18 a major step forward in scalability, observabi
 
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, including `pg_stat_monitor` 2.3.0 for advanced query-level observability, `pg_tde` 2.1 for Transparent Data Encryption and more. See the full component list below for details.
 
+Added support for asynchronous I/O (AIO) with PostgreSQL 18.1.1.
+
 !!! note
   To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](major-upgrade.md).
 
