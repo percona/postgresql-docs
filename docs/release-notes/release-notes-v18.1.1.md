@@ -52,7 +52,7 @@ To resolve this, remove the `percona-postgresql-common-dev` package and reinstal
 
 ## MD5 Authentication Deprecated
 
-The md5 password authentication is now deprecated and will be removed in future releases.
+The md5 password authentication is deprecated now and will be removed in a future release.
 
 ## Supplied third-party extensions
 
