@@ -54,14 +54,14 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgAudit set_user](https://github.com/pgaudit/set_user)| 4.2.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks.|
 | [pgBackRest](https://pgbackrest.org/) | 2.57.0 | a backup and restore solution for PostgreSQL |
 | [pgBadger](https://github.com/darold/pgbadger) | 13.1 | a fast PostgreSQL Log Analyzer. |
-| [PgBouncer](https://www.pgbouncer.org/) | 1.24.1 | a lightweight connection pooler for PostgreSQL |
+| [PgBouncer](https://www.pgbouncer.org/) | 1.25.0 | a lightweight connection pooler for PostgreSQL |
 | [pg_gather](https://github.com/jobinau/pg_gather) | v31 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.3 | a middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing. |
 | [pg_repack](https://github.com/reorg/pg_repack) | 1.5.3 | rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.1 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pg_vector](https://github.com/pgvector/pgvector) | v0.8.1 | A vector similarity search for PostgreSQL |
 | [PostGIS](https://github.com/postgis/postgis) | 3.5.4 | a spatial extension for PostgreSQL. |
-| [PostgreSQL Commons](https://salsa.debian.org/postgresql/postgresql-common) | 286 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
+| [PostgreSQL Commons](https://salsa.debian.org/postgresql/postgresql-common) | 287 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
 | [wal2json](https://github.com/eulerto/wal2json) | 2.6 | a PostgreSQL logical decoding JSON output plugin |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
