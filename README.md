@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL documentation.
+# Percona Distribution for PostgreSQL documentation
 
 Welcome to Percona Distribution for PostgreSQL documentation!
 
@@ -12,12 +12,12 @@ Percona Server for PostgreSQL is an open source binary-compatible drop-in replac
 * WAL Read/Write API Exposure to hook into WAL read and write functions.
 
 Percona Server and upstream PostgreSQL function identically enabling you to migrate from one to another. 
- 
-This repository contains the source files for [Percona Distribution for PostgreSQL documentation](https://www.percona.com/doc/postgresql/18/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/). 
+
+This repository contains the source files for [Percona Distribution for PostgreSQL documentation](https://www.percona.com/doc/postgresql/18/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/) markup language and is created using [MkDocs Documentation Generator](https://www.mkdocs.org/).
 
 ## Contributing
 
-We welcome all contributions and are always looking for new members that are as dedicated to serving the community as we are. You can reach out to us using our [forums ](https://forums.percona.com/c/postgresql/25) and [Jira issue tracker ](https://jira.percona.com/projects/DISTPG/issues/DISTPG-16?filter=allopenissues). 
+We welcome all contributions and are always looking for new members that are as dedicated to serving the community as we are. You can reach out to us using our [forums](https://forums.percona.com/c/postgresql/25) and [Jira issue tracker](https://jira.percona.com/projects/DISTPG/issues/DISTPG-16?filter=allopenissues).
 
 For how to contribute to documentation, read the [Contributing guide ](https://github.com/percona/postgresql-docs/blob/18/CONTRIBUTING.md).
 

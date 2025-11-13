@@ -3,11 +3,11 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2024 — <a href="#__consent">Cookie Consent</a>
+copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2025 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
-edit_uri: edit/17/docs/
+edit_uri: edit/18/docs/
 
 use_directory_urls: false
 
@@ -130,7 +130,7 @@ plugins:
 #         - file.md
   print-site:
     add_to_navigation: false
-    print_page_title: 'Percona Distribution for PostgreSQL 17 documentation'
+    print_page_title: 'Percona Distribution for PostgreSQL 18 documentation'
     add_print_site_banner: false
     # Table of contents
     add_table_of_contents: true
