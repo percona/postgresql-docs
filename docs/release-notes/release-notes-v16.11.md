@@ -26,7 +26,7 @@ The [installation preconditions for tarballs](../tarball.md) now include an extr
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [16.10 release notes](https://www.postgresql.org/docs/17/release-16-11.html).
+This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [16.11 release notes](https://www.postgresql.org/docs/17/release-16-11.html).
 
 ## Known Issue
 
