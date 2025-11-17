@@ -2,7 +2,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.7.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.6](https://www.postgresql.org/docs/17/release-17-6.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.7.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.7](https://www.postgresql.org/docs/17/release-17-7.html).
 
 ## Release Highlights
 
@@ -19,6 +19,10 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - PATRONI: 4.0.6
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+
+### Addressed CVEs
+
+This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [17.7 release notes](https://www.postgresql.org/docs/17/release-17-7.html).
 
 ## Known Issue
 
