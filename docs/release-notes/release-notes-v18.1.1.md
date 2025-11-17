@@ -58,6 +58,12 @@ To resolve this, remove the `percona-postgresql-common-dev` package and reinstal
 
 The md5 password authentication is deprecated now and will be removed in a future release.
 
+## Percona Telemetry Extension for PostgreSQL Deprecated
+
+The `percona_pg_telemetry` has been deprecated and replaced with a backwards compatibility stub.
+
+No telemetry data will be gathered, it will not be maintained going forward and it should not be used in new deployments.
+
 ## Supplied third-party extensions
 
 Review each extension’s release notes for What’s new, improvements, or bug fixes.
