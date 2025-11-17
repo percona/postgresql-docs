@@ -4,7 +4,7 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.10](https://www.postgresql.org/docs/16/release-16-10.html).
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.11](https://www.postgresql.org/docs/16/release-16-11.html).
 
 ## Release Highlights
 
@@ -23,6 +23,10 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 The [installation preconditions for tarballs](../tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
+
+### Addressed CVEs
+
+This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [16.10 release notes](https://www.postgresql.org/docs/17/release-16-11.html).
 
 ## Known Issue
 
