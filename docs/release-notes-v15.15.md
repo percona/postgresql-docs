@@ -8,6 +8,12 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.1
 
 ## Release Highlights
 
+### Percona Telemetry Extension for PostgreSQL Deprecated
+
+The `percona_pg_telemetry` extension has been deprecated and replaced with a backwards compatibility stub to avoid breaking existing installations.
+
+No telemetry data will be gathered, it will not be maintained going forward and it should not be used in new deployments.
+
 ### Tarball updates
 
 The [installation preconditions for tarballs](tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
