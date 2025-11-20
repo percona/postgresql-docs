@@ -8,7 +8,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ### Percona Telemetry Extension for PostgreSQL Deprecated
 
-The `percona_pg_telemetry` has been deprecated and replaced with a backwards compatibility stub.
+The `percona_pg_telemetry` extension has been deprecated and replaced with a backwards compatibility stub to avoid breaking existing installations.
 
 No telemetry data will be gathered, it will not be maintained going forward and it should not be used in new deployments.
 
