@@ -12,6 +12,12 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.2
 
 This is the last release of Percona Distribution for PostgreSQL 13.x as it enters end-of-life.
 
+### Percona Telemetry Extension for PostgreSQL Deprecated
+
+The `percona_pg_telemetry` extension has been deprecated and replaced with a backwards compatibility stub to avoid breaking existing installations.
+
+No telemetry data will be gathered, it will not be maintained going forward and it should not be used in new deployments.
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
