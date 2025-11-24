@@ -28,7 +28,7 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - PGBACKREST: 2.56.0
 - PATRONI: 4.0.6
 
-See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.md) for the download links.
 
 The [installation preconditions for tarballs](tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
 

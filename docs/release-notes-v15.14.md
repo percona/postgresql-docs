@@ -22,13 +22,13 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - PGBACKREST: 2.56.0
 - PATRONI: 4.0.6
 
-See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.md) for the download links.
 
 ### SBOMs available for download
 
 Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.
 
-See [Software Bill of Materials (SBOMs)](../sboms.md) for the full list.
+See [Software Bill of Materials (SBOMs)](sboms.md) for the full list.
 
 ### Addressed CVEs
 
