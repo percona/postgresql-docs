@@ -2,9 +2,21 @@
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.7.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.7](https://www.postgresql.org/docs/17/release-17-7.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.7.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.7 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-7.html).
 
 ## Release Highlights
+
+### `pg_tde` is now a standalone package
+
+Starting with this release, `pg_tde` is no longer bundled with Percona Server for PostgreSQL for this.
+
+If you use Transparent Data Encryption (TDE), install the package manually.
+
+For more information on installing `pg_tde`, see [Install pg_tde :octicons-link-external-16:](https://docs.percona.com/pg-tde/install.html).
+
+!!! warning
+
+  Minor upgrades will not automatically install this dependency. If the server uses TDE and the package is missing, PostgreSQL will fail to start.
 
 ### Percona Telemetry Extension for PostgreSQL Deprecated
 
@@ -16,19 +28,24 @@ No telemetry data will be gathered, it will not be maintained going forward and 
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
-- LIBXSLT: 1.1.43
-- LUA: 5.3.6
-- LIBTIFF: 4.7.0
-- EXPAT: 2.5.0
-- PGPOOL: 4.6.2
-- PGBACKREST: 2.56.0
-- PATRONI: 4.0.6
+- pgbouncer: 1.25.0
+- pgpool2: 4.6.3
+- etcd: 3.5.24
+- PostGIS: 3.5.4
+- set_user: 4.2.0
+- pg_repack: 1.5.3
+- pg_stat_monitor: 2.3.1
+- pgBackRest: 2.57.0
+- Patroni: 4.1.0
+- HAProxy: 2.8.16
+- pgvector: 0.8.1
+- libxml2: 2.12.10
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [17.7 release notes](https://www.postgresql.org/docs/17/release-17-7.html).
+This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [17.7 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-7.html).
 
 ## Known Issue
 
