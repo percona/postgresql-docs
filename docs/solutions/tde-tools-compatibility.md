@@ -153,6 +153,4 @@ operate at the SQL and memory level.
 - TDE does not change their functionality.
 - No additional configuration is required.
 
-## See also
-
-- [Percona `pg_tde` documentation](https://docs.percona.com/postgresql/pg_tde)
+For more information see the [`pg_tde` documentation](https://docs.percona.com/pg-tde/index.html).
