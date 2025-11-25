@@ -43,6 +43,11 @@ so the system is usable.
 
 The exact steps may differ depending on the package manager of your operating system.
 
+!!! note
+    `pg_tde` is not a dependency in PostgreSQL 18. If your PostgreSQL 17 cluster uses `pg_tde`, install the `pg_tde` package **before** starting the upgraded server.
+
+    Failing to install it prevents PostgreSQL 18 from starting, because the `pg_tde` shared library will be missing.
+
 ## On Debian and Ubuntu using `apt`
 
 Run **all** commands as root or via **sudo**:
