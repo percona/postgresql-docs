@@ -13,6 +13,6 @@ Percona Server and the upstream PostgreSQL operate identically, making migration
 
 !!! note
 
-    The PostgreSQL Compatibility Index (PCI)[https://pgscorecard.com/] test suite reported **100% compatibility**. PCI validates behavioral equivalence by running a suite of compatibility checks against upstream PostgreSQL.
+    The PostgreSQL Compatibility Index [(PCI)](https://pgscorecard.com/) test suite reported **100% compatibility**. PCI validates behavioral equivalence by running a suite of compatibility checks against upstream PostgreSQL.
 
     These results were obtained using [Percona Server for PostgreSQL 17.6.1 :octicons-link-external-16:](https://docs.percona.com/postgresql/17/index.html). [View the PCI test results here :octicons-link-external-16:](https://github.com/secp256k1-sha256/postgres-compatibility-index/blob/main/postgres-compatibility-index/outputs/Percona.json).
