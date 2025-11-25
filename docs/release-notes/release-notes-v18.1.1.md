@@ -22,6 +22,12 @@ This release continues to deliver Percona’s open source value-add components f
 !!! note
   To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
 
+### `pg_tde` is now a standalone package
+
+Starting with PostgreSQL 18, `pg_tde` is no longer shipped with the server package. If your cluster relies on `pg_tde`, you must install the package manually.
+
+For more information on installing `pg_tde`, see [Install pg_tde :octicons-link-external-16:](https://docs.percona.com/pg-tde/install.html).
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
