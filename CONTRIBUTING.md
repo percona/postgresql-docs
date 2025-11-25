@@ -29,13 +29,14 @@ Each version has a branch in the repository named accordingly:
 
 - 11 (EOL)
 - 12 (EOL)
-- 13 
+- 13 (EOL)
 - 14
 - 15
 - 16
 - 17
+- 18
 
-The source .md files are in the ``docs`` directory. 
+The source .md files are in the ``docs`` directory.
 
 ### Edit documentation online via GitHub
 
@@ -71,14 +72,14 @@ git clone git@github.com:percona/postgresql-docs.git
 git remote add <your-repo-name> git@github.com:<your_name>/postgresql-docs.git
 ```
 
-4. Pull the latest changes 
+4. Pull the latest changes
 
 ```sh
 git fetch origin
 git merge origin/<branch>
 ```
 
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on the ``17`` branch, merge changes from ``origin/17``.
+Make sure that your local branch and the branch you merge changes from are the same. So if you are on the ``18`` branch, merge changes from ``origin/18``.
 
 5. Create a separate branch for your changes
 

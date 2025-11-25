@@ -1,8 +1,8 @@
-name: Check spelling in Percona Distribution PostgreSQL 17 docs
+name: Check spelling in Percona Distribution PostgreSQL 18 docs
 on:
   pull_request:
     branches: 
-      - 17
+      - 18
 
 jobs:
   build:

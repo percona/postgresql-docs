@@ -1,8 +1,8 @@
-name: Build Percona Distribution PostgreSQL 17 docs
+name: Build Percona Distribution PostgreSQL 18 docs
 on:
   push:
     branches: 
-      - 17
+      - 18
      
 jobs:
   build:
@@ -42,9 +42,9 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 17 -b publish -p
-          mike set-default 17 -b publish -p
-          mike retitle 17 "17 (LATEST)" -b publish -p
+          mike deploy 18 -b publish -p
+          mike set-default 18 -b publish -p
+          mike retitle 18 "18 (LATEST)" -b publish -p
 
       
 
