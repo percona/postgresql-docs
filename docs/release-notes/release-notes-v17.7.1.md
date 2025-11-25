@@ -8,7 +8,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ### `pg_tde` is now a standalone package
 
-Starting with this release, `pg_tde` is no longer shipped with Percona Server for PostgreSQL. If you use Transparent Data Encryption (TDE), install the `pg_tde` package manually.
+Starting with this release, `pg_tde` is no longer shipped with Percona Server for PostgreSQL. However, pg_tde is installed automatically as a hard dependency. This ensures that minor updates do not break clusters that use Transparent Data Encryption (TDE).
 
 For more information on installing `pg_tde`, see [Install pg_tde :octicons-link-external-16:](https://docs.percona.com/pg-tde/install.html).
 
@@ -16,8 +16,8 @@ Clusters that already have `pg_tde` in `shared_preload_libraries` will continue 
 
 No user action is required.
 
-!!! warning
-    Minor upgrades do not automatically install `pg_tde`. If your clusters use `pg_tde` and the package is missing, PostgreSQL will fail to start.
+!!! note
+    Although `pg_tde` is installed automatically, when upgrading to PostgreSQL 18 it will not install it as a dependency. If your cluster uses TDE, you must install `pg_tde` manually before starting PostgreSQL 18.
 
 ### Percona Telemetry Extension for PostgreSQL Deprecated
 
