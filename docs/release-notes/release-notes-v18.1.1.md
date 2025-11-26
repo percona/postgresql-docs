@@ -10,7 +10,7 @@ It introduces several major enhancements, such as:
 - **Faster in-place upgrades** via `pg_upgrade` performance improvements
 - **Enhanced monitoring** with new statistics views for `pg_stat_io` and background writer activity
 - **Security improvements**, including expanded SSL/TLS configuration options
-- **Performance optimizations** for query execution and index management
+- **Performance optimizations** for query execution and index management 
 - Added support for **asynchronous I/O (AIO)** with PostgreSQL 18.1.1 which is now the default I/O mechanism.
 
 These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency.
