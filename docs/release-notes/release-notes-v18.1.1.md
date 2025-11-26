@@ -4,7 +4,7 @@
 
 This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.1](https://www.postgresql.org/docs/18/release-18-1.html).
 
-It introduces several major enhancements, such as:
+It introduces several major enhancements, such as: 
 
 - **Parallel logical replication** for improved throughput during initial data synchronization
 - **Faster in-place upgrades** via `pg_upgrade` performance improvements
