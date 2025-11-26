@@ -44,6 +44,7 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - HAProxy: 2.8.16
 - pgvector: 0.8.1
 - libxml2: 2.12.10
+- pg_tde: 2.1.0
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
@@ -86,7 +87,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/)                    | 2.57.0    | A backup and restore solution for PostgreSQL                                                                        |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger)           | 13.1      | A fast PostgreSQL Log Analyzer                                                                                      |
 | [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/)                  | 1.25.0    | A lightweight connection pooler for PostgreSQL                                                                      |
-| [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather)        | v31       | An SQL script for running the diagnostics of the health of a PostgreSQL cluster                                     |
+| [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather)        | v32       | An SQL script for running the diagnostics of the health of a PostgreSQL cluster                                     |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.3 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing      |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack)          | 1.5.3     | Rebuilds PostgreSQL database objects                                                                                |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                          | 2.3.1     | Collects and aggregates statistics for PostgreSQL and provides histogram information.                                |
@@ -94,7 +95,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis)            | 3.5.4     | A spatial extension for PostgreSQL                                                                                  |
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 287 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
 | [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)          | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
-| [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde)          | v2.1       | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest                                                                    |
+| [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde)          | v2.1.0       | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest                                                                    |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
