@@ -20,13 +20,18 @@ The [installation preconditions for tarballs](tarball.md) now include an extra s
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
-- LIBXSLT: 1.1.43
-- LUA: 5.3.6
-- LIBTIFF: 4.7.0
-- EXPAT: 2.5.0
-- PGPOOL: 4.6.2
-- PGBACKREST: 2.56.0
-- PATRONI: 4.0.6
+- pgbouncer: 1.25.0
+- pgpool2: 4.6.3
+- etcd: 3.5.24
+- PostGIS: 3.5.4
+- set_user: 4.2.0
+- pg_repack: 1.5.3
+- pg_stat_monitor: 2.3.1
+- pgBackRest: 2.57.0
+- Patroni: 4.1.0
+- HAProxy: 2.8.16
+- pgvector: 0.8.1
+- libxml2: 2.12.10
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.md) for the download links.
 
@@ -67,7 +72,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.57.0 | a backup and restore solution for PostgreSQL |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger) | 13.1 | a fast PostgreSQL Log Analyzer. |
 | [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.25.0 | a lightweight connection pooler for PostgreSQL |
-| [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v31 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
+| [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v32 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.6.3 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing. |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | rebuilds PostgreSQL database objects |
 | [pg_stat_monitor :octicons-link-external-16:](https://github.com/percona/pg_stat_monitor) | 2.3.1 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
