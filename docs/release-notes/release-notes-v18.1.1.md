@@ -13,7 +13,7 @@ It introduces several major enhancements, such as:
 - **Performance optimizations** for query execution and index management
 - Added support for **asynchronous I/O (AIO)** with PostgreSQL 18.1.1 which is now the default I/O mechanism.
 
-These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency.
+These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency. 
 
 ## Release Highlights
 
