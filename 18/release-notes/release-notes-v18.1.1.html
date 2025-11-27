@@ -32,7 +32,7 @@
     
     
       
-        <title>18.0.1 - Percona Distribution for PostgreSQL</title>
+        <title>18.1.1 - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -100,7 +100,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - 18.0.1" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - 18.1.1" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -224,7 +224,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              18.0.1
+              18.1.1
             
           </span>
         </div>
@@ -2311,7 +2311,7 @@
   <span class="md-ellipsis">
     
   
-    18.0.1
+    18.1.1
   
 
     
@@ -2329,7 +2329,7 @@
   <span class="md-ellipsis">
     
   
-    18.0.1
+    18.1.1
   
 
     
@@ -2369,10 +2369,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sboms-available-for-download" class="md-nav__link">
+  <a href="#pg_tde-is-now-a-standalone-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SBOMs available for download
+        pg_tde is now a standalone package
       
     </span>
   </a>
@@ -2407,15 +2407,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issue" class="md-nav__link">
+  <a href="#known-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Known Issue
+        Known Issues
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Known Issue">
+    <nav class="md-nav" aria-label="Known Issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2431,6 +2431,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#md5-authentication-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MD5 Authentication Deprecated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supplied-third-party-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplied third-party extensions
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2687,10 +2709,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sboms-available-for-download" class="md-nav__link">
+  <a href="#pg_tde-is-now-a-standalone-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SBOMs available for download
+        pg_tde is now a standalone package
       
     </span>
   </a>
@@ -2725,15 +2747,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issue" class="md-nav__link">
+  <a href="#known-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Known Issue
+        Known Issues
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Known Issue">
+    <nav class="md-nav" aria-label="Known Issues">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2749,6 +2771,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#md5-authentication-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MD5 Authentication Deprecated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supplied-third-party-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplied third-party extensions
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2785,26 +2829,47 @@
 <h1 id="percona-distribution-for-postgresql-1811-2025-10-15">Percona Distribution for PostgreSQL 18.1.1 (2025-10-15)<a class="headerlink" href="#percona-distribution-for-postgresql-1811-2025-10-15" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
-<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18.html">PostgreSQL Community 18.1</a>.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL Community 18.1</a>.</p>
+<p>It introduces several major enhancements, such as: </p>
+<ul>
+<li><strong>Parallel logical replication</strong> for improved throughput during initial data synchronization</li>
+<li><strong>Faster in-place upgrades</strong> via <code>pg_upgrade</code> performance improvements</li>
+<li><strong>Enhanced monitoring</strong> with new statistics views for <code>pg_stat_io</code> and background writer activity</li>
+<li><strong>Security improvements</strong>, including expanded SSL/TLS configuration options</li>
+<li><strong>Performance optimizations</strong> for query execution and index management </li>
+<li>Added support for <strong>asynchronous I/O (AIO)</strong> with PostgreSQL 18.1.1 which is now the default I/O mechanism.</li>
+</ul>
+<p>These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency.</p>
 <h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<h3 id="sboms-available-for-download">SBOMs available for download<a class="headerlink" href="#sboms-available-for-download" title="Permanent link">&para;</a></h3>
-<p>Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.</p>
-<p>See <a href="../sboms.html">Software Bill of Materials (SBOMs)</a> for the full list.</p>
+<p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, including <code>pg_stat_monitor</code> 2.3.1 for advanced query-level observability, <code>pg_tde</code> 2.1 for Transparent Data Encryption and more. See the full component list below for details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in <a href="../major-upgrade.html">Upgrading Percona Distribution for PostgreSQL</a>.</p>
+<h3 id="pg_tde-is-now-a-standalone-package"><code>pg_tde</code> is now a standalone package<a class="headerlink" href="#pg_tde-is-now-a-standalone-package" title="Permanent link">&para;</a></h3>
+<p>Starting with PostgreSQL 18, <code>pg_tde</code> is no longer shipped with the server package. If your cluster relies on <code>pg_tde</code>, you must install the package manually.</p>
+<p>For more information on installing <code>pg_tde</code>, see <a href="https://docs.percona.com/pg-tde/install.html">Install pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <h3 id="tarball-updates">Tarball updates<a class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
 <ul>
-<li>LIBXSLT: 1.1.43</li>
-<li>LUA: 5.3.6</li>
-<li>LIBTIFF: 4.7.0</li>
-<li>EXPAT: 2.5.0</li>
-<li>PGPOOL: 4.6.2</li>
-<li>PGBACKREST: 2.56.0</li>
-<li>PATRONI: 4.0.6</li>
+<li>pgbouncer: 1.25.0</li>
+<li>pgpool2: 4.6.3</li>
+<li>etcd: 3.5.24</li>
+<li>PostGIS: 3.5.4</li>
+<li>set_user: 4.2.0</li>
+<li>pg_repack: 1.5.3</li>
+<li>pg_stat_monitor: 2.3.1</li>
+<li>pgBackRest: 2.57.0</li>
+<li>Patroni: 4.1.0</li>
+<li>HAProxy: 2.8.16</li>
+<li>pgvector: 0.8.1</li>
+<li>libxml2: 2.12.10</li>
+<li>pg_tde: 2.1.0</li>
 </ul>
 <p>See <a href="../tarball.html">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
 <h3 id="addressed-cves">Addressed CVEs<a class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
-<p>This release includes important security measures that address the following CVEs: TBA. For more details, see the <a href="https://www.postgresql.org/docs/release/18.0/">PostgreSQL 18.1 release notes</a>.</p>
-<h2 id="known-issue">Known Issue<a class="headerlink" href="#known-issue" title="Permanent link">&para;</a></h2>
+<p>This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL 18.1 release notes</a>.</p>
+<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
 <h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
 <p>During an upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
@@ -2812,6 +2877,10 @@
 <span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
+<h2 id="md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
+<p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
+<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>
 <thead>
@@ -2824,7 +2893,7 @@
 <tbody>
 <tr>
 <td><a href="https://etcd.io/">etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>3.5.21</td>
+<td>3.5.24</td>
 <td>A distributed, reliable key-value store for setting up highly available Patroni clusters</td>
 </tr>
 <tr>
@@ -2834,27 +2903,27 @@
 </tr>
 <tr>
 <td><a href="http://www.haproxy.org/">HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.8.15</td>
+<td>2.8.16</td>
 <td>A high-availability and load-balancing solution</td>
 </tr>
 <tr>
 <td><a href="https://patroni.readthedocs.io/en/latest/">Patroni <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.0.6</td>
+<td>4.1.0</td>
 <td>A HA (High Availability) solution for PostgreSQL</td>
 </tr>
 <tr>
 <td><a href="https://www.pgaudit.org/">PgAudit <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>17.1</td>
+<td>18.0</td>
 <td>A detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
 </tr>
 <tr>
 <td><a href="https://github.com/pgaudit/set_user">pgAudit set_user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.1.0</td>
+<td>4.2.0</td>
 <td>Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance.</td>
 </tr>
 <tr>
 <td><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.56.0</td>
+<td>2.57.0</td>
 <td>A backup and restore solution for PostgreSQL</td>
 </tr>
 <tr>
@@ -2864,43 +2933,53 @@
 </tr>
 <tr>
 <td><a href="https://www.pgbouncer.org/">PgBouncer <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.24.1</td>
+<td>1.25.0</td>
 <td>A lightweight connection pooler for PostgreSQL</td>
 </tr>
 <tr>
 <td><a href="https://github.com/jobinau/pg_gather">pg_gather <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v31</td>
+<td>v32</td>
 <td>An SQL script for running the diagnostics of the health of a PostgreSQL cluster</td>
 </tr>
 <tr>
 <td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.6.2</td>
+<td>4.6.3</td>
 <td>A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing</td>
 </tr>
 <tr>
 <td><a href="https://github.com/reorg/pg_repack">pg_repack <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.5.2</td>
+<td>1.5.3</td>
 <td>Rebuilds PostgreSQL database objects</td>
 </tr>
 <tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.3.1</td>
+<td>Collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
 <td><a href="https://github.com/pgvector/pgvector">pgvector <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>v0.8.0</td>
+<td>v0.8.1</td>
 <td>A vector similarity search for PostgreSQL</td>
 </tr>
 <tr>
 <td><a href="https://github.com/postgis/postgis">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>3.3.8</td>
+<td>3.5.4</td>
 <td>A spatial extension for PostgreSQL</td>
 </tr>
 <tr>
 <td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Common <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>280</td>
+<td>287</td>
 <td>PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eulerto/wal2json">wal2json <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
 <td>2.6</td>
 <td>A PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_tde">pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>v2.1.0</td>
+<td>A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest</td>
 </tr>
 </tbody>
 </table>
@@ -2928,7 +3007,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 10, 2025 14:22:30 UTC">September 10, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 21:51:24 UTC">November 27, 2025</span>
   </span>
 
     
