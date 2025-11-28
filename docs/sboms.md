@@ -10,6 +10,8 @@ SBOMs are available for:
     - [Debian 11 (Bullseye, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-bullseye-aarch64.json)
     - [Debian 12 (Bookworm, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-bookworm-x86_64.json)
     - [Debian 12 (Bookworm, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-bookworm-aarch64.json)
+    - [Debian 13 (Trixie, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-trixie-x86_64.json)
+    - [Debian 13 (Trixie, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-trixie-aarch64.json)
 
 === "Ubuntu"
     - [Ubuntu 22.04 (Jammy, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-16/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-jammy-x86_64.json)
