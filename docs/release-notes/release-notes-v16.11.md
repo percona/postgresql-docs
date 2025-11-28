@@ -39,6 +39,16 @@ The [installation preconditions for tarballs](../tarball.md) now include an extr
 
 This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [16.11 release notes](https://www.postgresql.org/docs/17/release-16-11.html).
 
+## Bug Fixes
+
+This release includes several stability fixes introduced in the community PostgreSQL 16.11 update:
+
+- Fix logic related to caching result-relation metadata for triggers when partitions do not share identical physical column sets with their parent tables.
+- Fix EvalPlanQual handling for foreign or custom joins where no alternative local join plan exists.
+- Fix a use-after-free condition in the relation synchronization cache used by the `pgoutput` logical decoding plugin.
+- Fix incorrect message formatting when checking for Windows administrator privilege.
+- Fix crash scenarios triggered when PostgreSQL is tested using certain `libsanitizer` options.
+
 ## Known Issue
 
 ### For minor & major upgrades (RHEL only)
