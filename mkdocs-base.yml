@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2024 — <a href="#__consent">Cookie Consent</a>
+copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2025 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -65,11 +65,13 @@ extra_css:
   - css/osano.css
   - css/landing.css
   - css/postgresql.css
+  - css/rating.css
 
 extra_javascript:
   - js/version-select.js
   - js/promptremover.js
-  - js/consent.css
+  - js/consent.js
+  - js/rating.js
 
 markdown_extensions:
   attr_list: {}
@@ -108,7 +110,6 @@ markdown_extensions:
         custom_icons:
           - _resource/.icons
 
-
 plugins:
   section-index: {}
   search: 
@@ -116,6 +117,10 @@ plugins:
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  git-committers:
+    enabled: !ENV [CI, false]
+    repository: percona/postgresql-docs
+    branch: "17"
   meta-descriptions:
     export_csv: false
     quiet: false
