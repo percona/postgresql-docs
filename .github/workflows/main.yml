@@ -43,7 +43,7 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 17 -b publish -p
-          mike retitle 17 "17.6" -b publish -p
+          mike retitle 17 "17.7" -b publish -p
 
       
 
