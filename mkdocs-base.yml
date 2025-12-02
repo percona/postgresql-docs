@@ -65,11 +65,13 @@ extra_css:
   - css/osano.css
   - css/landing.css
   - css/postgresql.css
+  - css/rating.css
 
 extra_javascript:
   - js/version-select.js
   - js/promptremover.js
   - js/consent.js
+  - js/rating.js
 
 markdown_extensions:
   attr_list: {}
@@ -117,6 +119,10 @@ plugins:
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  git-committers:
+    enabled: !ENV [CI, false]
+    repository: percona/postgresql-docs
+    branch: "14"
   meta-descriptions:
     export_csv: false
     quiet: false
