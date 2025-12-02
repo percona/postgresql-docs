@@ -24,8 +24,11 @@
         <link rel="next" href="ha-etcd-config.html">
       
       
+        
+      
+      
       <link rel="icon" href="../_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -33,10 +36,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -75,6 +78,8 @@
     
       <link rel="stylesheet" href="../css/postgresql.css">
     
+      <link rel="stylesheet" href="../css/rating.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -89,7 +94,6 @@
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
-    
     
     
                
@@ -324,7 +328,7 @@
         <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     percona/postgresql-docs
@@ -371,7 +375,7 @@
       <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     percona/postgresql-docs
@@ -393,9 +397,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -415,9 +424,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Get help from Percona
+  
+
     
   </span>
+  
   
 
       </a>
@@ -448,9 +462,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Get started
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -459,7 +478,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Get started
+            
+  
+    Get started
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -475,9 +498,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Quickstart guide
+  
+
     
   </span>
+  
   
 
       </a>
@@ -509,9 +537,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     1. Install
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -520,7 +553,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            1. Install
+            
+  
+    1. Install
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -536,9 +573,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Via apt
+  
+
     
   </span>
+  
   
 
       </a>
@@ -559,9 +601,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Via yum
+  
+
     
   </span>
+  
   
 
       </a>
@@ -582,9 +629,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     From tarballs
+  
+
     
   </span>
+  
   
 
       </a>
@@ -605,9 +657,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Run in Docker
+  
+
     
   </span>
+  
   
 
       </a>
@@ -628,9 +685,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Enable Percona Distribution for PostgreSQL components
+  
+
     
   </span>
+  
   
 
       </a>
@@ -651,9 +713,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Repositories overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -674,9 +741,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Software Bill of Materials (SBOMs)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -705,9 +777,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2. Connect to PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -728,9 +805,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     3. Manipulate data in PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -751,9 +833,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     4. What's next
+  
+
     
   </span>
+  
   
 
       </a>
@@ -792,9 +879,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Extensions
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -803,7 +895,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Extensions
+            
+  
+    Extensions
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -819,9 +915,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Extensions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -842,9 +943,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     PostgreSQL contrib modules and utilities
+  
+
     
   </span>
+  
   
 
       </a>
@@ -865,9 +971,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Percona-authored extensions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -888,9 +999,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Third-party components
+  
+
     
   </span>
+  
   
 
       </a>
@@ -931,9 +1047,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Solutions
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -942,7 +1063,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Solutions
+            
+  
+    Solutions
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -958,9 +1083,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -994,9 +1124,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     High availability
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1005,7 +1140,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            High availability
+            
+  
+    High availability
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1021,9 +1160,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1044,9 +1188,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Measuring high availability
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1067,9 +1216,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Architecture
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1101,9 +1255,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Components
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1112,7 +1271,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4">
             <span class="md-nav__icon md-icon"></span>
-            Components
+            
+  
+    Components
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1128,9 +1291,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ETCD
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1151,9 +1319,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Patroni
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1174,9 +1347,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     HAProxy
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1197,9 +1375,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     pgBackRest
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1228,9 +1411,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     How components work together
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1264,9 +1452,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1275,7 +1468,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2_6">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1300,9 +1497,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Initial setup
+  
+
     
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -1313,9 +1515,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Initial setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1340,7 +1547,9 @@
         <li class="md-nav__item">
   <a href="#considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      Considerations
+      
+        Considerations
+      
     </span>
   </a>
   
@@ -1349,7 +1558,9 @@
         <li class="md-nav__item">
   <a href="#configure-name-resolution" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure name resolution
+      
+        Configure name resolution
+      
     </span>
   </a>
   
@@ -1358,7 +1569,9 @@
         <li class="md-nav__item">
   <a href="#configure-percona-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure Percona repository
+      
+        Configure Percona repository
+      
     </span>
   </a>
   
@@ -1367,7 +1580,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next steps
+      
+        Next steps
+      
     </span>
   </a>
   
@@ -1394,9 +1609,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     etcd setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1417,9 +1637,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Patroni setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1440,9 +1665,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     pgBackRest setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1463,9 +1693,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     HAProxy setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1494,9 +1729,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Testing
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1536,9 +1776,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Backup and disaster recovery
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1547,7 +1792,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            Backup and disaster recovery
+            
+  
+    Backup and disaster recovery
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1563,9 +1812,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Backup and disaster recovery
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1586,9 +1840,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1628,9 +1887,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Spatial data handling
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1639,7 +1903,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
-            Spatial data handling
+            
+  
+    Spatial data handling
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1655,9 +1923,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1678,9 +1951,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1701,9 +1979,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Query spatial data
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1724,9 +2007,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Upgrade spatial database
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1755,9 +2043,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     LDAP authentication
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1796,9 +2089,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Upgrade
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1807,7 +2105,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Upgrade
+            
+  
+    Upgrade
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1823,9 +2125,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Major upgrade
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1846,9 +2153,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Minor Upgrade of Percona Distribution for PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1869,9 +2181,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1899,9 +2216,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Troubleshooting guide
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1921,9 +2243,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Uninstall
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1954,9 +2281,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Release notes
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1965,7 +2297,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            Release notes
+            
+  
+    Release notes
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1981,9 +2317,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Release notes index
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2004,9 +2345,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.19
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2027,9 +2373,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.18 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2050,9 +2401,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.18
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2073,9 +2429,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.17
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2107,9 +2468,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2024 (versions 14.10 Update - 14.15)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2118,7 +2484,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_6">
             <span class="md-nav__icon md-icon"></span>
-            2024 (versions 14.10 Update - 14.15)
+            
+  
+    2024 (versions 14.10 Update - 14.15)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2134,9 +2504,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.15
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2157,9 +2532,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.13
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2180,9 +2560,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.12
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2203,9 +2588,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.11
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2226,9 +2616,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.10 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2268,9 +2663,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2023 (versions 14.7 - 14.10)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2279,7 +2679,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_7">
             <span class="md-nav__icon md-icon"></span>
-            2023 (versions 14.7 - 14.10)
+            
+  
+    2023 (versions 14.7 - 14.10)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2295,9 +2699,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.10
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2318,9 +2727,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.9
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2341,9 +2755,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.8
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2364,9 +2783,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.7 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2387,9 +2811,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.7
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2429,9 +2858,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2022 (versions 14.2 Update 2 - 14.6)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2440,7 +2874,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_8">
             <span class="md-nav__icon md-icon"></span>
-            2022 (versions 14.2 Update 2 - 14.6)
+            
+  
+    2022 (versions 14.2 Update 2 - 14.6)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2456,9 +2894,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.6
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2479,9 +2922,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.5
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2502,9 +2950,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.4
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2525,9 +2978,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2548,9 +3006,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.2 Update 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2590,9 +3053,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2021 (versions 14.1 - 14.2 Update)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2601,7 +3069,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_9">
             <span class="md-nav__icon md-icon"></span>
-            2021 (versions 14.1 - 14.2 Update)
+            
+  
+    2021 (versions 14.1 - 14.2 Update)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2617,9 +3089,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.2 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2640,9 +3117,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2663,9 +3145,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.1 Update 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2686,9 +3173,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.1 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2709,9 +3201,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     14.1
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2758,9 +3255,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2769,7 +3271,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2785,9 +3291,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Telemetry
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2808,9 +3319,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Licensing
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2831,9 +3347,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Trademark policy
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2865,6 +3386,227 @@
                 
                 <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                   <div class="md-sidebar__scrollwrap">
+                    <div class="md-sidebar__inner">
+                      <!-- Feedback Widget -->
+<div class="rating-widget" style="
+  background: var(--md-default-bg-color);
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  padding: 10px 15px;
+  border-radius: 0.2rem;
+  margin-bottom: 16px;
+  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.2s ease-out;
+">
+
+  <div class="rating-title" style="
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    /* Removed inline color to use CSS */
+  ">
+    Rate this page
+  </div>
+
+  <div class="rating-stars" style="display: inline-block;">
+    
+      <span class="star" data-rating="1" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="2" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="3" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="4" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="5" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+  </div>
+
+  <div id="feedback-notification" style="
+    display: none;
+    margin-top: 10px;
+    color: var(--md-typeset-a-color);
+    font-weight: 500;
+    font-size: 14px;
+  ">Thanks for your feedback</div>
+
+<div id="feedback-submit-notification" style="
+display: none;
+margin-top: 10px;
+color: var(--md-typeset-a-color);
+font-weight: 500;
+font-size: 14px;
+">Thank you! The feedback has been submitted.</div>
+
+  <div id="feedback-form" style="
+    display: none;
+    margin-top: 12px;
+    text-align: left;
+    position: relative;
+    border: 0.05rem solid var(--md-default-fg-color--lightest);
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--md-default-bg-color);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-out;
+  ">
+<button id="close-feedback" title="Close" style="
+position: absolute;
+top: -10px;
+right: -10px;
+background: var(--md-default-bg-color);
+border: 0.05rem solid var(--md-default-fg-color--lightest);
+border-radius: 50%;
+width: 24px;
+height: 24px;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+color: var(--md-default-fg-color--light);
+line-height: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+">
+×
+</button>
+
+    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
+      width: 100%;
+      font-size: 14px;
+      padding: 6px;
+      margin-bottom: 12px;
+      resize: vertical;
+      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+      color: var(--md-default-fg-color);
+      background: var(--md-default-bg-color);
+      border: 0.05rem solid var(--md-default-fg-color--lightest);
+    "></textarea>
+
+    <label for="feedback-email" style="
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    ">
+      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
+    </label>
+
+    <input type="email" id="feedback-email" placeholder="you@example.com" style="
+      width: 100%;
+      font-size: 14px;
+      padding: 6px;
+      margin-bottom: 12px;
+      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+      color: var(--md-default-fg-color);
+      background: var(--md-default-bg-color);
+      border: 0.05rem solid var(--md-default-fg-color--lightest);
+    " />
+
+<button id="submit-feedback" style="
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: var(--md-typeset-a-color);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+">
+  Send
+</button>
+
+    <div id="feedback-status" style="
+      margin-top: 8px;
+      font-size: 13px;
+    "></div>
+  </div>
+</div>
+
+<style>
+  /* Hover shadow like data-banner */
+  .rating-widget:hover,
+  #feedback-form:hover {
+    box-shadow:
+      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
+  }
+
+  /* Default star colors */
+  .rating-stars .star {
+    color: var(--md-default-fg-color);
+    transition: color 0.2s ease-out;
+  }
+
+  /* Active/hovered stars */
+  .rating-stars .star.active,
+  .rating-stars .star.hovered {
+    color: var(--md-typeset-a-color, #0E5FB5);
+  }
+
+  /* Rate this page text color matches stars in light mode */
+  .rating-widget .rating-title {
+    color: var(--md-typeset-a-color, #0E5FB5);
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    /* Rate this page text */
+    .rating-widget .rating-title {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+    }
+    /* Stars active and hovered fill color */
+    .rating-stars .star.active,
+    .rating-stars .star.hovered {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+    }
+
+    /* Feedback form text */
+    #feedback-form,
+    #feedback-form textarea,
+    #feedback-form input,
+    #feedback-form label,
+    #feedback-form button,
+    #feedback-form div {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+      border-color: #666 !important;
+      background: var(--md-default-bg-color) !important;
+    }
+
+    /* Close button color */
+    #close-feedback {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+    }
+  }
+</style>
+                    </div>
                     <div class="md-sidebar__inner">
                       <div data-banner="data-banner">
   <div class="actions">
@@ -2910,7 +3652,9 @@
         <li class="md-nav__item">
   <a href="#considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      Considerations
+      
+        Considerations
+      
     </span>
   </a>
   
@@ -2919,7 +3663,9 @@
         <li class="md-nav__item">
   <a href="#configure-name-resolution" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure name resolution
+      
+        Configure name resolution
+      
     </span>
   </a>
   
@@ -2928,7 +3674,9 @@
         <li class="md-nav__item">
   <a href="#configure-percona-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure Percona repository
+      
+        Configure Percona repository
+      
     </span>
   </a>
   
@@ -2937,7 +3685,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next steps
+      
+        Next steps
+      
     </span>
   </a>
   
@@ -2953,6 +3703,7 @@
             
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
   
@@ -3152,56 +3903,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
-    <fieldset>
-      <legend class="md-feedback__title">
-        Was this page helpful?
-      </legend>
-      <div class="md-feedback__inner">
-        <div class="md-feedback__list">
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
-            </button>
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
-            </button>
-          
-        </div>
-        <div class="md-feedback__note">
-          
-            <div data-md-value="1" hidden>
-              
-              
-                
-              
-              
-              
-                
-                
-              
-              Thanks for your feedback!
-            </div>
-          
-            <div data-md-value="0" hidden>
-              
-              
-                
-              
-              
-              
-                
-                
-              
-              Thanks for your feedback! Want to improve this page? Click  <strong>Edit this page on GitHub</strong> above to submit a pull request.
-            </div>
-          
-        </div>
-      </div>
-    </fieldset>
-  </form>
-
 
                 
   
@@ -3275,12 +3976,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
@@ -3289,6 +3991,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>
         <script src="../js/promptremover.js"></script>
       
         <script src="../js/consent.js"></script>
+      
+        <script src="../js/rating.js"></script>
       
         <script src="../js/open_in_new_tab.js"></script>
       
