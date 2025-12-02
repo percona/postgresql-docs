@@ -88,6 +88,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
+      - "17.7.1": release-notes/release-notes-v17.7.1.md
       - "17.6.1": release-notes/release-notes-v17.6.1.md
       - "17.5.3": release-notes/release-notes-v17.5.3.md
       - "17.5.2": release-notes/release-notes-v17.5.md

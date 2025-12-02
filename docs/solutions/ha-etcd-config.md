@@ -1,6 +1,6 @@
 # Etcd setup
 
-In our solutions, we use etcd distributed configuration store. [Refresh your knowledge about etcd](ha-components.md#etcd).
+In our solutions, we use etcd distributed configuration store. [Refresh your knowledge about etcd](ha-components.md#database-and-dsc-layers).
 
 ## Install etcd
 
