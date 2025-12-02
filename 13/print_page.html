@@ -20,8 +20,11 @@
       
       
       
+        
+      
+      
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -29,10 +32,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.2a3383ac.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -73,6 +76,8 @@
     
       <link rel="stylesheet" href="css/postgresql.css">
     
+      <link rel="stylesheet" href="css/rating.css">
+    
     <script>__md_scope=new URL("/postgresql/13",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -87,7 +92,6 @@
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
-    
     
     
                
@@ -149,28 +153,86 @@
       </div>
     
     
-      
+      <!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine classes -->
+
 
   
 
+
+<!-- Header -->
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Percona Distribution for PostgreSQL" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+
+  <!-- Super Nav -->
+  <div class="superNav">
+    <div class="md-header__inner md-grid">
+      <a href="https://docs.percona.com/percona-for-postgresql/" title="Percona Documentation home page">
+        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <path d="M0 0h24v24H0z"/>
+          </mask>
+          <g mask="url(#a)">
+            <path d="m7.825 13 5.6 5.6L12 20l-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825Z"/>
+          </g>
+        </svg>
+        <span>Percona Software for PostgreSQL Documentation</span>
+      </a>
+    </div>
+  </div>
+
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <!-- Link to home -->
+    <a
+      href="index.html"
+      title="Percona Distribution for PostgreSQL"
+      class="md-header__button md-logo"
+      aria-label="Percona Distribution for PostgreSQL"
+      data-md-component="logo"
+    >
       
   <img src="_images/postgresql-mark.svg" alt="logo">
 
     </a>
+
+    <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
-    <div class="md-header__title" data-md-component="header-title">
+
+    <!-- Header title -->
+    <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <div class="md-header__topic">
+        <a href="index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Distribution for PostgreSQL
           </span>
-        </div>
+        </a>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
@@ -180,6 +242,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Color palette toggle -->
     
       
         <form class="md-header__option" data-md-component="palette">
@@ -217,18 +281,24 @@
 </form>
       
     
+
+    <!-- User preference: color palette -->
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+
+    <!-- Site language selector -->
     
+
+    <!-- Button to open search modal -->
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -260,14 +330,15 @@
     </div>
   </div>
 </div>
-      
     
+
+    <!-- Repository information -->
     
       <div class="md-header__source">
         <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     percona/postgresql-docs
@@ -276,6 +347,8 @@
       </div>
     
   </nav>
+
+  <!-- Navigation tabs (sticky) -->
   
 </header>
     
@@ -312,7 +385,7 @@
       <a href="https://github.com/percona/postgresql-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     percona/postgresql-docs
@@ -334,9 +407,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -356,9 +434,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Get help from Percona
+  
+
     
   </span>
+  
   
 
       </a>
@@ -389,9 +472,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Get started
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -400,7 +488,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Get started
+            
+  
+    Get started
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -416,9 +508,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Quickstart guide
+  
+
     
   </span>
+  
   
 
       </a>
@@ -450,9 +547,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     1. Install
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -461,7 +563,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            1. Install
+            
+  
+    1. Install
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -477,9 +583,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Via apt
+  
+
     
   </span>
+  
   
 
       </a>
@@ -500,9 +611,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Via yum
+  
+
     
   </span>
+  
   
 
       </a>
@@ -523,9 +639,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     From tarballs
+  
+
     
   </span>
+  
   
 
       </a>
@@ -546,9 +667,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Run in Docker
+  
+
     
   </span>
+  
   
 
       </a>
@@ -569,9 +695,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Enable Percona Distribution for PostgreSQL components
+  
+
     
   </span>
+  
   
 
       </a>
@@ -592,9 +723,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Repositories overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -615,9 +751,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Software Bill of Materials (SBOMs)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -646,9 +787,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2. Connect to PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -669,9 +815,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     3. Manipulate data in PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -692,9 +843,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     4. What's next
+  
+
     
   </span>
+  
   
 
       </a>
@@ -733,9 +889,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Extensions
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -744,7 +905,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Extensions
+            
+  
+    Extensions
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -760,9 +925,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Extensions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -783,9 +953,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     PostgreSQL contrib modules and utilities
+  
+
     
   </span>
+  
   
 
       </a>
@@ -806,9 +981,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Percona-authored extensions
+  
+
     
   </span>
+  
   
 
       </a>
@@ -829,9 +1009,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Third-party components
+  
+
     
   </span>
+  
   
 
       </a>
@@ -870,9 +1055,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Solutions
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -881,7 +1071,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Solutions
+            
+  
+    Solutions
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -897,9 +1091,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -931,9 +1130,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     High availability
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -942,7 +1146,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            High availability
+            
+  
+    High availability
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -958,9 +1166,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -981,9 +1194,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Measuring high availability
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1004,9 +1222,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Architecture
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1038,9 +1261,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Components
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1049,7 +1277,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4">
             <span class="md-nav__icon md-icon"></span>
-            Components
+            
+  
+    Components
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1065,9 +1297,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ETCD
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1088,9 +1325,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Patroni
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1111,9 +1353,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     HAProxy
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1134,9 +1381,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     pgBackRest
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1165,9 +1417,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     How components work together
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1199,9 +1456,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1210,7 +1472,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_6">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1226,9 +1492,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Initial setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1249,9 +1520,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     etcd setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1272,9 +1548,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Patroni setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1295,9 +1576,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     pgBackRest setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1318,9 +1604,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     HAProxy setup
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1349,9 +1640,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Testing
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1391,9 +1687,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Backup and disaster recovery
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1402,7 +1703,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            Backup and disaster recovery
+            
+  
+    Backup and disaster recovery
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1418,9 +1723,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Backup and disaster recovery
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1441,9 +1751,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1483,9 +1798,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Spatial data handling
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1494,7 +1814,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
-            Spatial data handling
+            
+  
+    Spatial data handling
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1510,9 +1834,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1533,9 +1862,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1556,9 +1890,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Query spatial data
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1579,9 +1918,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Upgrade spatial database
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1610,9 +1954,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     LDAP authentication
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1651,9 +2000,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Upgrade
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1662,7 +2016,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Upgrade
+            
+  
+    Upgrade
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1678,9 +2036,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Major upgrade
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1701,9 +2064,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Minor Upgrade of Percona Distribution for PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1724,9 +2092,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1754,9 +2127,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Troubleshooting guide
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1776,9 +2154,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     How to
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1798,9 +2181,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Uninstall
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1831,9 +2219,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Release notes
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1842,7 +2235,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
-            Release notes
+            
+  
+    Release notes
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1858,9 +2255,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Release notes index
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1881,9 +2283,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.22
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1904,9 +2311,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.21 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1927,9 +2339,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.21
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1950,9 +2367,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.20
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1984,9 +2406,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2024 (versions 13.13 Update - 13.18)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1995,7 +2422,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10_6">
             <span class="md-nav__icon md-icon"></span>
-            2024 (versions 13.13 Update - 13.18)
+            
+  
+    2024 (versions 13.13 Update - 13.18)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2011,9 +2442,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.18
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2034,9 +2470,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.16
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2057,9 +2498,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.15
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2080,9 +2526,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.14
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2103,9 +2554,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.13 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2145,9 +2601,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2023 (versions 13.10 - 13.13)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2156,7 +2617,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10_7">
             <span class="md-nav__icon md-icon"></span>
-            2023 (versions 13.10 - 13.13)
+            
+  
+    2023 (versions 13.10 - 13.13)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2172,9 +2637,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.13
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2195,9 +2665,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.12
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2218,9 +2693,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.11
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2241,9 +2721,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.10 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2264,9 +2749,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.10
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2306,9 +2796,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2022 (versions 13.6 - 13.9)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2317,7 +2812,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10_8">
             <span class="md-nav__icon md-icon"></span>
-            2022 (versions 13.6 - 13.9)
+            
+  
+    2022 (versions 13.6 - 13.9)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2333,9 +2832,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.9
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2356,9 +2860,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.8
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2379,9 +2888,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.7
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2402,9 +2916,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.6 Update 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2425,9 +2944,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.6 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2448,9 +2972,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.6
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2490,9 +3019,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2021 (versions 13.2 Update 2 - 13.5 Update 2)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2501,7 +3035,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10_9">
             <span class="md-nav__icon md-icon"></span>
-            2021 (versions 13.2 Update 2 - 13.5 Update 2)
+            
+  
+    2021 (versions 13.2 Update 2 - 13.5 Update 2)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2517,9 +3055,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.5 Update 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2540,9 +3083,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.5 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2563,9 +3111,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.5
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2586,9 +3139,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.4 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2609,9 +3167,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.4
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2632,9 +3195,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.3 Update 3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2655,9 +3223,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.3 Update 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2678,9 +3251,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.3 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2701,9 +3279,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2724,9 +3307,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.2 Update 4
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2747,9 +3335,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.2 Update 3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2770,9 +3363,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.2 Update 2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2812,9 +3410,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     2020 (versions 13.0 - 13.2 Update)
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2823,7 +3426,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10_10">
             <span class="md-nav__icon md-icon"></span>
-            2020 (versions 13.0 - 13.2 Update)
+            
+  
+    2020 (versions 13.0 - 13.2 Update)
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2839,9 +3446,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.2 Update
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2862,9 +3474,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2885,9 +3502,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.1
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2908,9 +3530,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     13.0
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2957,9 +3584,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2968,7 +3600,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2984,9 +3620,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Telemetry
+  
+
     
   </span>
+  
   
 
       </a>
@@ -3007,9 +3648,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Licensing
+  
+
     
   </span>
+  
   
 
       </a>
@@ -3030,9 +3676,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Trademark policy
+  
+
     
   </span>
+  
   
 
       </a>
@@ -3064,6 +3715,227 @@
               
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!-- Feedback Widget -->
+<div class="rating-widget" style="
+  background: var(--md-default-bg-color);
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  padding: 10px 15px;
+  border-radius: 0.2rem;
+  margin-bottom: 16px;
+  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.2s ease-out;
+">
+
+  <div class="rating-title" style="
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    /* Removed inline color to use CSS */
+  ">
+    Rate this page
+  </div>
+
+  <div class="rating-stars" style="display: inline-block;">
+    
+      <span class="star" data-rating="1" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="2" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="3" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="4" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+      <span class="star" data-rating="5" style="
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 2px;
+        display: inline-block;
+      ">☆</span>
+    
+  </div>
+
+  <div id="feedback-notification" style="
+    display: none;
+    margin-top: 10px;
+    color: var(--md-typeset-a-color);
+    font-weight: 500;
+    font-size: 14px;
+  ">Thanks for your feedback</div>
+
+<div id="feedback-submit-notification" style="
+display: none;
+margin-top: 10px;
+color: var(--md-typeset-a-color);
+font-weight: 500;
+font-size: 14px;
+">Thank you! The feedback has been submitted.</div>
+
+  <div id="feedback-form" style="
+    display: none;
+    margin-top: 12px;
+    text-align: left;
+    position: relative;
+    border: 0.05rem solid var(--md-default-fg-color--lightest);
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--md-default-bg-color);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-out;
+  ">
+<button id="close-feedback" title="Close" style="
+position: absolute;
+top: -10px;
+right: -10px;
+background: var(--md-default-bg-color);
+border: 0.05rem solid var(--md-default-fg-color--lightest);
+border-radius: 50%;
+width: 24px;
+height: 24px;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+color: var(--md-default-fg-color--light);
+line-height: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+">
+×
+</button>
+
+    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." style="
+      width: 100%;
+      font-size: 14px;
+      padding: 6px;
+      margin-bottom: 12px;
+      resize: vertical;
+      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+      color: var(--md-default-fg-color);
+      background: var(--md-default-bg-color);
+      border: 0.05rem solid var(--md-default-fg-color--lightest);
+    "></textarea>
+
+    <label for="feedback-email" style="
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    ">
+      Email <span style="color: var(--md-default-fg-color--light);">(optional)</span>
+    </label>
+
+    <input type="email" id="feedback-email" placeholder="you@example.com" style="
+      width: 100%;
+      font-size: 14px;
+      padding: 6px;
+      margin-bottom: 12px;
+      font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+      color: var(--md-default-fg-color);
+      background: var(--md-default-bg-color);
+      border: 0.05rem solid var(--md-default-fg-color--lightest);
+    " />
+
+<button id="submit-feedback" style="
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: var(--md-typeset-a-color);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'Poppins','Roboto',Arial,Helvetica,sans-serif;
+">
+  Send
+</button>
+
+    <div id="feedback-status" style="
+      margin-top: 8px;
+      font-size: 13px;
+    "></div>
+  </div>
+</div>
+
+<style>
+  /* Hover shadow like data-banner */
+  .rating-widget:hover,
+  #feedback-form:hover {
+    box-shadow:
+      0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+      0px 2px 4px -1px rgba(0, 0, 0, 0.20);
+  }
+
+  /* Default star colors */
+  .rating-stars .star {
+    color: var(--md-default-fg-color);
+    transition: color 0.2s ease-out;
+  }
+
+  /* Active/hovered stars */
+  .rating-stars .star.active,
+  .rating-stars .star.hovered {
+    color: var(--md-typeset-a-color, #0E5FB5);
+  }
+
+  /* Rate this page text color matches stars in light mode */
+  .rating-widget .rating-title {
+    color: var(--md-typeset-a-color, #0E5FB5);
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    /* Rate this page text */
+    .rating-widget .rating-title {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+    }
+    /* Stars active and hovered fill color */
+    .rating-stars .star.active,
+    .rating-stars .star.hovered {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+    }
+
+    /* Feedback form text */
+    #feedback-form,
+    #feedback-form textarea,
+    #feedback-form input,
+    #feedback-form label,
+    #feedback-form button,
+    #feedback-form div {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+      border-color: #666 !important;
+      background: var(--md-default-bg-color) !important;
+    }
+
+    /* Close button color */
+    #close-feedback {
+      color: var(--md-typeset-a-color, #93C7FF) !important;
+    }
+  }
+</style>
+                  </div>
                   <div class="md-sidebar__inner">
                     <div data-banner="data-banner">
   <div class="actions">
@@ -3107,7 +3979,9 @@
         <li class="md-nav__item">
   <a href="#index" class="md-nav__link">
     <span class="md-ellipsis">
-      Home
+      
+        Home
+      
     </span>
   </a>
   
@@ -3116,7 +3990,9 @@
         <li class="md-nav__item">
   <a href="#get-help" class="md-nav__link">
     <span class="md-ellipsis">
-      Get help from Percona
+      
+        Get help from Percona
+      
     </span>
   </a>
   
@@ -3125,7 +4001,9 @@
         <li class="md-nav__item">
   <a href="#section-3" class="md-nav__link">
     <span class="md-ellipsis">
-      Get started
+      
+        Get started
+      
     </span>
   </a>
   
@@ -3135,7 +4013,9 @@
           <li class="md-nav__item">
   <a href="#installing" class="md-nav__link">
     <span class="md-ellipsis">
-      Quickstart guide
+      
+        Quickstart guide
+      
     </span>
   </a>
   
@@ -3144,7 +4024,9 @@
           <li class="md-nav__item">
   <a href="#section-3-2" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Install
+      
+        1. Install
+      
     </span>
   </a>
   
@@ -3154,7 +4036,9 @@
           <li class="md-nav__item">
   <a href="#apt" class="md-nav__link">
     <span class="md-ellipsis">
-      Via apt
+      
+        Via apt
+      
     </span>
   </a>
   
@@ -3163,7 +4047,9 @@
           <li class="md-nav__item">
   <a href="#yum" class="md-nav__link">
     <span class="md-ellipsis">
-      Via yum
+      
+        Via yum
+      
     </span>
   </a>
   
@@ -3172,7 +4058,9 @@
           <li class="md-nav__item">
   <a href="#tarball" class="md-nav__link">
     <span class="md-ellipsis">
-      From tarballs
+      
+        From tarballs
+      
     </span>
   </a>
   
@@ -3181,7 +4069,9 @@
           <li class="md-nav__item">
   <a href="#docker" class="md-nav__link">
     <span class="md-ellipsis">
-      Run in Docker
+      
+        Run in Docker
+      
     </span>
   </a>
   
@@ -3190,7 +4080,9 @@
           <li class="md-nav__item">
   <a href="#enable-extensions" class="md-nav__link">
     <span class="md-ellipsis">
-      Enable Percona Distribution for PostgreSQL components
+      
+        Enable Percona Distribution for PostgreSQL components
+      
     </span>
   </a>
   
@@ -3199,7 +4091,9 @@
           <li class="md-nav__item">
   <a href="#repo-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Repositories overview
+      
+        Repositories overview
+      
     </span>
   </a>
   
@@ -3208,7 +4102,9 @@
           <li class="md-nav__item">
   <a href="#sboms" class="md-nav__link">
     <span class="md-ellipsis">
-      Software Bill of Materials (SBOMs)
+      
+        Software Bill of Materials (SBOMs)
+      
     </span>
   </a>
   
@@ -3222,7 +4118,9 @@
           <li class="md-nav__item">
   <a href="#connect" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Connect to PostgreSQL
+      
+        2. Connect to PostgreSQL
+      
     </span>
   </a>
   
@@ -3231,7 +4129,9 @@
           <li class="md-nav__item">
   <a href="#crud" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Manipulate data in PostgreSQL
+      
+        3. Manipulate data in PostgreSQL
+      
     </span>
   </a>
   
@@ -3240,7 +4140,9 @@
           <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
-      4. What's next
+      
+        4. What's next
+      
     </span>
   </a>
   
@@ -3254,7 +4156,9 @@
         <li class="md-nav__item">
   <a href="#section-4" class="md-nav__link">
     <span class="md-ellipsis">
-      Extensions
+      
+        Extensions
+      
     </span>
   </a>
   
@@ -3264,7 +4168,9 @@
           <li class="md-nav__item">
   <a href="#extensions" class="md-nav__link">
     <span class="md-ellipsis">
-      Extensions
+      
+        Extensions
+      
     </span>
   </a>
   
@@ -3273,7 +4179,9 @@
           <li class="md-nav__item">
   <a href="#contrib" class="md-nav__link">
     <span class="md-ellipsis">
-      PostgreSQL contrib modules and utilities
+      
+        PostgreSQL contrib modules and utilities
+      
     </span>
   </a>
   
@@ -3282,7 +4190,9 @@
           <li class="md-nav__item">
   <a href="#percona-ext" class="md-nav__link">
     <span class="md-ellipsis">
-      Percona-authored extensions
+      
+        Percona-authored extensions
+      
     </span>
   </a>
   
@@ -3291,7 +4201,9 @@
           <li class="md-nav__item">
   <a href="#third-party" class="md-nav__link">
     <span class="md-ellipsis">
-      Third-party components
+      
+        Third-party components
+      
     </span>
   </a>
   
@@ -3305,7 +4217,9 @@
         <li class="md-nav__item">
   <a href="#section-5" class="md-nav__link">
     <span class="md-ellipsis">
-      Solutions
+      
+        Solutions
+      
     </span>
   </a>
   
@@ -3315,7 +4229,9 @@
           <li class="md-nav__item">
   <a href="#solutions" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      
+        Overview
+      
     </span>
   </a>
   
@@ -3324,7 +4240,9 @@
           <li class="md-nav__item">
   <a href="#section-5-2" class="md-nav__link">
     <span class="md-ellipsis">
-      High availability
+      
+        High availability
+      
     </span>
   </a>
   
@@ -3334,7 +4252,9 @@
           <li class="md-nav__item">
   <a href="#solutions-high-availability" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      
+        Overview
+      
     </span>
   </a>
   
@@ -3343,7 +4263,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-measure" class="md-nav__link">
     <span class="md-ellipsis">
-      Measuring high availability
+      
+        Measuring high availability
+      
     </span>
   </a>
   
@@ -3352,7 +4274,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
+      
+        Architecture
+      
     </span>
   </a>
   
@@ -3361,7 +4285,9 @@
           <li class="md-nav__item">
   <a href="#section-5-2-4" class="md-nav__link">
     <span class="md-ellipsis">
-      Components
+      
+        Components
+      
     </span>
   </a>
   
@@ -3371,7 +4297,9 @@
           <li class="md-nav__item">
   <a href="#solutions-etcd-info" class="md-nav__link">
     <span class="md-ellipsis">
-      ETCD
+      
+        ETCD
+      
     </span>
   </a>
   
@@ -3380,7 +4308,9 @@
           <li class="md-nav__item">
   <a href="#solutions-patroni-info" class="md-nav__link">
     <span class="md-ellipsis">
-      Patroni
+      
+        Patroni
+      
     </span>
   </a>
   
@@ -3389,7 +4319,9 @@
           <li class="md-nav__item">
   <a href="#solutions-haproxy-info" class="md-nav__link">
     <span class="md-ellipsis">
-      HAProxy
+      
+        HAProxy
+      
     </span>
   </a>
   
@@ -3398,7 +4330,9 @@
           <li class="md-nav__item">
   <a href="#solutions-pgbackrest-info" class="md-nav__link">
     <span class="md-ellipsis">
-      pgBackRest
+      
+        pgBackRest
+      
     </span>
   </a>
   
@@ -3412,7 +4346,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-components" class="md-nav__link">
     <span class="md-ellipsis">
-      How components work together
+      
+        How components work together
+      
     </span>
   </a>
   
@@ -3421,7 +4357,9 @@
           <li class="md-nav__item">
   <a href="#section-5-2-6" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment
+      
+        Deployment
+      
     </span>
   </a>
   
@@ -3431,7 +4369,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-init-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Initial setup
+      
+        Initial setup
+      
     </span>
   </a>
   
@@ -3440,7 +4380,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-etcd-config" class="md-nav__link">
     <span class="md-ellipsis">
-      etcd setup
+      
+        etcd setup
+      
     </span>
   </a>
   
@@ -3449,7 +4391,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-patroni" class="md-nav__link">
     <span class="md-ellipsis">
-      Patroni setup
+      
+        Patroni setup
+      
     </span>
   </a>
   
@@ -3458,7 +4402,9 @@
           <li class="md-nav__item">
   <a href="#solutions-pgbackrest" class="md-nav__link">
     <span class="md-ellipsis">
-      pgBackRest setup
+      
+        pgBackRest setup
+      
     </span>
   </a>
   
@@ -3467,7 +4413,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-haproxy" class="md-nav__link">
     <span class="md-ellipsis">
-      HAProxy setup
+      
+        HAProxy setup
+      
     </span>
   </a>
   
@@ -3481,7 +4429,9 @@
           <li class="md-nav__item">
   <a href="#solutions-ha-test" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing
+      
+        Testing
+      
     </span>
   </a>
   
@@ -3495,7 +4445,9 @@
           <li class="md-nav__item">
   <a href="#section-5-3" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup and disaster recovery
+      
+        Backup and disaster recovery
+      
     </span>
   </a>
   
@@ -3505,7 +4457,9 @@
           <li class="md-nav__item">
   <a href="#solutions-backup-recovery" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup and disaster recovery
+      
+        Backup and disaster recovery
+      
     </span>
   </a>
   
@@ -3514,7 +4468,9 @@
           <li class="md-nav__item">
   <a href="#solutions-dr-pgbackrest-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+      
+        Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
+      
     </span>
   </a>
   
@@ -3528,7 +4484,9 @@
           <li class="md-nav__item">
   <a href="#section-5-4" class="md-nav__link">
     <span class="md-ellipsis">
-      Spatial data handling
+      
+        Spatial data handling
+      
     </span>
   </a>
   
@@ -3538,7 +4496,9 @@
           <li class="md-nav__item">
   <a href="#solutions-postgis" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      
+        Overview
+      
     </span>
   </a>
   
@@ -3547,7 +4507,9 @@
           <li class="md-nav__item">
   <a href="#solutions-postgis-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment
+      
+        Deployment
+      
     </span>
   </a>
   
@@ -3556,7 +4518,9 @@
           <li class="md-nav__item">
   <a href="#solutions-postgis-testing" class="md-nav__link">
     <span class="md-ellipsis">
-      Query spatial data
+      
+        Query spatial data
+      
     </span>
   </a>
   
@@ -3565,7 +4529,9 @@
           <li class="md-nav__item">
   <a href="#solutions-postgis-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
-      Upgrade spatial database
+      
+        Upgrade spatial database
+      
     </span>
   </a>
   
@@ -3579,7 +4545,9 @@
           <li class="md-nav__item">
   <a href="#ldap" class="md-nav__link">
     <span class="md-ellipsis">
-      LDAP authentication
+      
+        LDAP authentication
+      
     </span>
   </a>
   
@@ -3588,7 +4556,9 @@
           <li class="md-nav__item">
   <a href="#section-5-5" class="md-nav__link">
     <span class="md-ellipsis">
-      LDAP authentication
+      
+        LDAP authentication
+      
     </span>
   </a>
   
@@ -3602,7 +4572,9 @@
         <li class="md-nav__item">
   <a href="#section-6" class="md-nav__link">
     <span class="md-ellipsis">
-      Upgrade
+      
+        Upgrade
+      
     </span>
   </a>
   
@@ -3612,7 +4584,9 @@
           <li class="md-nav__item">
   <a href="#major-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
-      Major upgrade
+      
+        Major upgrade
+      
     </span>
   </a>
   
@@ -3621,7 +4595,9 @@
           <li class="md-nav__item">
   <a href="#minor-upgrade" class="md-nav__link">
     <span class="md-ellipsis">
-      Minor Upgrade of Percona Distribution for PostgreSQL
+      
+        Minor Upgrade of Percona Distribution for PostgreSQL
+      
     </span>
   </a>
   
@@ -3630,7 +4606,9 @@
           <li class="md-nav__item">
   <a href="#migration" class="md-nav__link">
     <span class="md-ellipsis">
-      Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+      
+        Migrate from PostgreSQL to Percona Distribution for PostgreSQL
+      
     </span>
   </a>
   
@@ -3644,7 +4622,9 @@
         <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting guide
+      
+        Troubleshooting guide
+      
     </span>
   </a>
   
@@ -3653,7 +4633,9 @@
         <li class="md-nav__item">
   <a href="#how-to" class="md-nav__link">
     <span class="md-ellipsis">
-      How to
+      
+        How to
+      
     </span>
   </a>
   
@@ -3662,7 +4644,9 @@
         <li class="md-nav__item">
   <a href="#uninstalling" class="md-nav__link">
     <span class="md-ellipsis">
-      Uninstall
+      
+        Uninstall
+      
     </span>
   </a>
   
@@ -3671,7 +4655,9 @@
         <li class="md-nav__item">
   <a href="#section-10" class="md-nav__link">
     <span class="md-ellipsis">
-      Release notes
+      
+        Release notes
+      
     </span>
   </a>
   
@@ -3681,7 +4667,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      Release notes index
+      
+        Release notes index
+      
     </span>
   </a>
   
@@ -3690,7 +4678,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.22" class="md-nav__link">
     <span class="md-ellipsis">
-      13.22
+      
+        13.22
+      
     </span>
   </a>
   
@@ -3699,7 +4689,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.21.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.21 Update
+      
+        13.21 Update
+      
     </span>
   </a>
   
@@ -3708,7 +4700,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.21" class="md-nav__link">
     <span class="md-ellipsis">
-      13.21
+      
+        13.21
+      
     </span>
   </a>
   
@@ -3717,7 +4711,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.20" class="md-nav__link">
     <span class="md-ellipsis">
-      13.20
+      
+        13.20
+      
     </span>
   </a>
   
@@ -3726,7 +4722,9 @@
           <li class="md-nav__item">
   <a href="#section-10-6" class="md-nav__link">
     <span class="md-ellipsis">
-      2024 (versions 13.13 Update - 13.18)
+      
+        2024 (versions 13.13 Update - 13.18)
+      
     </span>
   </a>
   
@@ -3736,7 +4734,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.18" class="md-nav__link">
     <span class="md-ellipsis">
-      13.18
+      
+        13.18
+      
     </span>
   </a>
   
@@ -3745,7 +4745,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.16" class="md-nav__link">
     <span class="md-ellipsis">
-      13.16
+      
+        13.16
+      
     </span>
   </a>
   
@@ -3754,7 +4756,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.15" class="md-nav__link">
     <span class="md-ellipsis">
-      13.15
+      
+        13.15
+      
     </span>
   </a>
   
@@ -3763,7 +4767,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.14" class="md-nav__link">
     <span class="md-ellipsis">
-      13.14
+      
+        13.14
+      
     </span>
   </a>
   
@@ -3772,7 +4778,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.13.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.13 Update
+      
+        13.13 Update
+      
     </span>
   </a>
   
@@ -3786,7 +4794,9 @@
           <li class="md-nav__item">
   <a href="#section-10-7" class="md-nav__link">
     <span class="md-ellipsis">
-      2023 (versions 13.10 - 13.13)
+      
+        2023 (versions 13.10 - 13.13)
+      
     </span>
   </a>
   
@@ -3796,7 +4806,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.13" class="md-nav__link">
     <span class="md-ellipsis">
-      13.13
+      
+        13.13
+      
     </span>
   </a>
   
@@ -3805,7 +4817,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.12" class="md-nav__link">
     <span class="md-ellipsis">
-      13.12
+      
+        13.12
+      
     </span>
   </a>
   
@@ -3814,7 +4828,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.11" class="md-nav__link">
     <span class="md-ellipsis">
-      13.11
+      
+        13.11
+      
     </span>
   </a>
   
@@ -3823,7 +4839,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.10.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.10 Update
+      
+        13.10 Update
+      
     </span>
   </a>
   
@@ -3832,7 +4850,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.10" class="md-nav__link">
     <span class="md-ellipsis">
-      13.10
+      
+        13.10
+      
     </span>
   </a>
   
@@ -3846,7 +4866,9 @@
           <li class="md-nav__item">
   <a href="#section-10-8" class="md-nav__link">
     <span class="md-ellipsis">
-      2022 (versions 13.6 - 13.9)
+      
+        2022 (versions 13.6 - 13.9)
+      
     </span>
   </a>
   
@@ -3856,7 +4878,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.9" class="md-nav__link">
     <span class="md-ellipsis">
-      13.9
+      
+        13.9
+      
     </span>
   </a>
   
@@ -3865,7 +4889,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.8" class="md-nav__link">
     <span class="md-ellipsis">
-      13.8
+      
+        13.8
+      
     </span>
   </a>
   
@@ -3874,7 +4900,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.7" class="md-nav__link">
     <span class="md-ellipsis">
-      13.7
+      
+        13.7
+      
     </span>
   </a>
   
@@ -3883,7 +4911,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.6.upd2" class="md-nav__link">
     <span class="md-ellipsis">
-      13.6 Update 2
+      
+        13.6 Update 2
+      
     </span>
   </a>
   
@@ -3892,7 +4922,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.6.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.6 Update
+      
+        13.6 Update
+      
     </span>
   </a>
   
@@ -3901,7 +4933,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.6" class="md-nav__link">
     <span class="md-ellipsis">
-      13.6
+      
+        13.6
+      
     </span>
   </a>
   
@@ -3915,7 +4949,9 @@
           <li class="md-nav__item">
   <a href="#section-10-9" class="md-nav__link">
     <span class="md-ellipsis">
-      2021 (versions 13.2 Update 2 - 13.5 Update 2)
+      
+        2021 (versions 13.2 Update 2 - 13.5 Update 2)
+      
     </span>
   </a>
   
@@ -3925,7 +4961,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.5.upd2" class="md-nav__link">
     <span class="md-ellipsis">
-      13.5 Update 2
+      
+        13.5 Update 2
+      
     </span>
   </a>
   
@@ -3934,7 +4972,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.5.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.5 Update
+      
+        13.5 Update
+      
     </span>
   </a>
   
@@ -3943,7 +4983,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.5" class="md-nav__link">
     <span class="md-ellipsis">
-      13.5
+      
+        13.5
+      
     </span>
   </a>
   
@@ -3952,7 +4994,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.4.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.4 Update
+      
+        13.4 Update
+      
     </span>
   </a>
   
@@ -3961,7 +5005,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.4" class="md-nav__link">
     <span class="md-ellipsis">
-      13.4
+      
+        13.4
+      
     </span>
   </a>
   
@@ -3970,7 +5016,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.3.upd3" class="md-nav__link">
     <span class="md-ellipsis">
-      13.3 Update 3
+      
+        13.3 Update 3
+      
     </span>
   </a>
   
@@ -3979,7 +5027,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.3.upd2" class="md-nav__link">
     <span class="md-ellipsis">
-      13.3 Update 2
+      
+        13.3 Update 2
+      
     </span>
   </a>
   
@@ -3988,7 +5038,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.3.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.3 Update
+      
+        13.3 Update
+      
     </span>
   </a>
   
@@ -3997,7 +5049,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.3" class="md-nav__link">
     <span class="md-ellipsis">
-      13.3
+      
+        13.3
+      
     </span>
   </a>
   
@@ -4006,7 +5060,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.2.upd4" class="md-nav__link">
     <span class="md-ellipsis">
-      13.2 Update 4
+      
+        13.2 Update 4
+      
     </span>
   </a>
   
@@ -4015,7 +5071,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.2.upd3" class="md-nav__link">
     <span class="md-ellipsis">
-      13.2 Update 3
+      
+        13.2 Update 3
+      
     </span>
   </a>
   
@@ -4024,7 +5082,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.2.upd2" class="md-nav__link">
     <span class="md-ellipsis">
-      13.2 Update 2
+      
+        13.2 Update 2
+      
     </span>
   </a>
   
@@ -4038,7 +5098,9 @@
           <li class="md-nav__item">
   <a href="#section-10-10" class="md-nav__link">
     <span class="md-ellipsis">
-      2020 (versions 13.0 - 13.2 Update)
+      
+        2020 (versions 13.0 - 13.2 Update)
+      
     </span>
   </a>
   
@@ -4048,7 +5110,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.2.upd" class="md-nav__link">
     <span class="md-ellipsis">
-      13.2 Update
+      
+        13.2 Update
+      
     </span>
   </a>
   
@@ -4057,7 +5121,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.2" class="md-nav__link">
     <span class="md-ellipsis">
-      13.2
+      
+        13.2
+      
     </span>
   </a>
   
@@ -4066,7 +5132,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.1" class="md-nav__link">
     <span class="md-ellipsis">
-      13.1
+      
+        13.1
+      
     </span>
   </a>
   
@@ -4075,7 +5143,9 @@
           <li class="md-nav__item">
   <a href="#release-notes-release-notes-v13.0" class="md-nav__link">
     <span class="md-ellipsis">
-      13.0
+      
+        13.0
+      
     </span>
   </a>
   
@@ -4094,7 +5164,9 @@
         <li class="md-nav__item">
   <a href="#section-11" class="md-nav__link">
     <span class="md-ellipsis">
-      Reference
+      
+        Reference
+      
     </span>
   </a>
   
@@ -4104,7 +5176,9 @@
           <li class="md-nav__item">
   <a href="#telemetry" class="md-nav__link">
     <span class="md-ellipsis">
-      Telemetry
+      
+        Telemetry
+      
     </span>
   </a>
   
@@ -4113,7 +5187,9 @@
           <li class="md-nav__item">
   <a href="#licensing" class="md-nav__link">
     <span class="md-ellipsis">
-      Licensing
+      
+        Licensing
+      
     </span>
   </a>
   
@@ -4122,7 +5198,9 @@
           <li class="md-nav__item">
   <a href="#trademark-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Trademark policy
+      
+        Trademark policy
+      
     </span>
   </a>
   
@@ -4143,6 +5221,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
 
@@ -4194,7 +5273,7 @@
 <p><a class="md-button" href="#installing">Quickstart guides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h3 class="title" id="index-solutions"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8l18.6 37.6c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7s2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2L288.6 382c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7zM448.4 340a44 44 0 1 0 .1 88 44 44 0 1 0-.1-88M224.9-45.5l26.2 7c12.1 3.3 20.3 14.7 19.5 27.2l-2.7 41.8c8.3 6.4 15.6 13.8 21.9 22l42-2.7c12.5-.8 23.9 7.4 27.2 19.5l7 26.2c3.2 12.1-2.5 24.9-13.8 30.5l-37.7 18.6c-.7 5.1-1.7 10.2-3 15.2s-3.1 10-5 14.7l23.3 35c7 10.5 5.6 24.4-3.3 33.3L307.3 262c-8.9 8.9-22.8 10.3-33.3 3.3L239 242c-9.5 3.9-19.6 6.7-29.9 8.1l-18.6 37.6c-5.6 11.3-18.4 17-30.5 13.8l-26.2-7c-12.2-3.3-20.3-14.7-19.5-27.2l2.7-41.9c-8.3-6.4-15.6-13.8-21.9-22l-42 2.7c-12.5.8-23.9-7.4-27.2-19.5l-7-26.2c-3.2-12.1 2.5-24.9 13.8-30.5l37.7-18.6c.7-5.1 1.7-10.1 3-15.2 1.4-5.1 3-10 5-14.7L55.1 46.5c-7-10.5-5.6-24.4 3.3-33.3L77.6-6c8.9-8.9 22.8-10.3 33.3-3.3l35 23.3c9.5-3.9 19.6-6.7 29.9-8.1l18.6-37.6c5.6-11.3 18.3-17 30.5-13.8M192.4 84a44 44 0 1 0 0 88 44 44 0 1 0 0-88"/></svg></span> Solutions<a class="headerlink" href="#index-solutions" title="Permanent link">&para;</a></h3>
+<h3 class="title" id="index-solutions"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8l18.6 37.6c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7s2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2L288.6 382c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7zM448.4 340a44 44 0 1 0 .1 88 44 44 0 1 0-.1-88M224.9-45.5l26.2 7c12.1 3.3 20.3 14.7 19.5 27.2l-2.7 41.8c8.3 6.4 15.6 13.8 21.9 22l42-2.7c12.5-.8 23.9 7.4 27.2 19.5l7 26.2c3.2 12.1-2.5 24.9-13.8 30.5l-37.7 18.6c-.7 5.1-1.7 10.2-3 15.2s-3.1 10-5 14.7l23.3 35c7 10.5 5.6 24.4-3.3 33.3L307.3 262c-8.9 8.9-22.8 10.3-33.3 3.3L239 242c-9.5 3.9-19.6 6.7-29.9 8.1l-18.6 37.6c-5.6 11.3-18.4 17-30.5 13.8l-26.2-7c-12.2-3.3-20.3-14.7-19.5-27.2l2.7-41.9c-8.3-6.4-15.6-13.8-21.9-22l-42 2.7c-12.5.8-23.9-7.4-27.2-19.5l-7-26.2c-3.2-12.1 2.5-24.9 13.8-30.5l37.7-18.6c.7-5.1 1.7-10.1 3-15.2 1.4-5.1 3-10 5-14.7L55.1 46.5c-7-10.5-5.6-24.4 3.3-33.3L77.6-6c8.9-8.9 22.8-10.3 33.3-3.3l35 23.3c9.5-3.9 19.6-6.7 29.9-8.1l18.6-37.6c5.6-11.3 18.3-17 30.5-13.8M192.4 84a44 44 0 1 0 0 88 44 44 0 1 0 0-88"/></svg></span> Solutions<a class="headerlink" href="#index-solutions" title="Permanent link">&para;</a></h3>
 <p>Check our solutions to build the database infrastructure that meets the requirements of your organization - be it high-availability, disaster recovery or spatial data handling.</p>
 <p><a class="md-button" href="#solutions">Solutions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
@@ -12082,7 +13161,7 @@ enable solving essential practical tasks efficiently.</p>
 <td>a HA (High Availability) solution for PostgreSQL</td>
 </tr>
 <tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#release-notes-release-notes-v13.3-fn:1">2</a></sup>)</td>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#release-notes-release-notes-v13.3-fn:1">1</a></sup>)</td>
 <td>0.9.1</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
@@ -12110,16 +13189,16 @@ enable solving essential practical tasks efficiently.</p>
 </table>
 <p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/13/libpq.html">libpq</a> library. It contains “a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” <sup id="release-notes-release-notes-v13.3-fnref:2"><a class="footnote-ref" href="#release-notes-release-notes-v13.3-fn:2">1</a></sup></p>
+backend server and to receive the results of these queries.” <sup id="release-notes-release-notes-v13.3-fnref:2"><a class="footnote-ref" href="#release-notes-release-notes-v13.3-fn:2">2</a></sup></p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/release/13.3/">PostgreSQL 13.3</a>.</p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="release-notes-release-notes-v13.3-fn:2">
-<p>https://www.postgresql.org/docs/13/libpq.html&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.3-fnref:2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="release-notes-release-notes-v13.3-fn:1">
-<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.3-fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.3-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="release-notes-release-notes-v13.3-fn:2">
+<p>https://www.postgresql.org/docs/13/libpq.html&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.3-fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="release-notes-release-notes-v13.2.upd4" heading-number="10.9.10"><h1 id="release-notes-release-notes-v13.2.upd4-percona-distribution-for-postgresql-132-fourth-update-2021-06-10">Percona Distribution for PostgreSQL 13.2 Fourth Update (2021-06-10)<a class="headerlink" href="#release-notes-release-notes-v13.2.upd4-percona-distribution-for-postgresql-132-fourth-update-2021-06-10" title="Permanent link">&para;</a></h1>
@@ -12265,7 +13344,7 @@ enable solving essential practical tasks efficiently.</p>
 <td>a HA (High Availability) solution for PostgreSQL</td>
 </tr>
 <tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#release-notes-release-notes-v13.2-fn:1">2</a></sup>)</td>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#release-notes-release-notes-v13.2-fn:1">1</a></sup>)</td>
 <td>0.6.0</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
@@ -12278,16 +13357,16 @@ enable solving essential practical tasks efficiently.</p>
 </table>
 <p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/13/libpq.html">libpq</a> library. It contains “a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” <sup id="release-notes-release-notes-v13.2-fnref:2"><a class="footnote-ref" href="#release-notes-release-notes-v13.2-fn:2">1</a></sup></p>
+backend server and to receive the results of these queries.” <sup id="release-notes-release-notes-v13.2-fnref:2"><a class="footnote-ref" href="#release-notes-release-notes-v13.2-fn:2">2</a></sup></p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/release/13.2/">PostgreSQL 13.2</a>.</p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="release-notes-release-notes-v13.2-fn:2">
-<p>https://www.postgresql.org/docs/13/libpq.html&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.2-fnref:2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="release-notes-release-notes-v13.2-fn:1">
-<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.2-fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.2-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="release-notes-release-notes-v13.2-fn:2">
+<p>https://www.postgresql.org/docs/13/libpq.html&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.2-fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="release-notes-release-notes-v13.1" heading-number="10.10.3"><h1 id="release-notes-release-notes-v13.1-percona-distribution-for-postgresql-131-2020-12-02">Percona Distribution for PostgreSQL 13.1 (2020-12-02)<a class="headerlink" href="#release-notes-release-notes-v13.1-percona-distribution-for-postgresql-131-2020-12-02" title="Permanent link">&para;</a></h1>
@@ -12342,7 +13421,7 @@ enable solving essential practical tasks efficiently.</p>
 <td>a HA (High Availability) solution for PostgreSQL</td>
 </tr>
 <tr>
-<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#release-notes-release-notes-v13.1-fn:1">2</a></sup>)</td>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#release-notes-release-notes-v13.1-fn:1">1</a></sup>)</td>
 <td>0.6.0</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
@@ -12355,16 +13434,16 @@ enable solving essential practical tasks efficiently.</p>
 </table>
 <p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/13/libpq.html">libpq</a> library. It contains “a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” <sup id="release-notes-release-notes-v13.1-fnref:2"><a class="footnote-ref" href="#release-notes-release-notes-v13.1-fn:2">1</a></sup></p>
+backend server and to receive the results of these queries.” <sup id="release-notes-release-notes-v13.1-fnref:2"><a class="footnote-ref" href="#release-notes-release-notes-v13.1-fn:2">2</a></sup></p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/release/13.1/">PostgreSQL 13.1</a>.</p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="release-notes-release-notes-v13.1-fn:2">
-<p>https://www.postgresql.org/docs/13/libpq.html&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.1-fnref:2" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
 <li id="release-notes-release-notes-v13.1-fn:1">
-<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.1-fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA (General Availability) release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.1-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="release-notes-release-notes-v13.1-fn:2">
+<p>https://www.postgresql.org/docs/13/libpq.html&#160;<a class="footnote-backref" href="#release-notes-release-notes-v13.1-fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="release-notes-release-notes-v13.0" heading-number="10.10.4"><h1 id="release-notes-release-notes-v13.0-percona-distribution-for-postgresql-130-2020-10-16">Percona Distribution for PostgreSQL 13.0 (2020-10-16)<a class="headerlink" href="#release-notes-release-notes-v13.0-percona-distribution-for-postgresql-130-2020-10-16" title="Permanent link">&para;</a></h1>
@@ -13154,56 +14233,6 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 
 
-  <form class="md-feedback" name="feedback" hidden>
-    <fieldset>
-      <legend class="md-feedback__title">
-        Was this page helpful?
-      </legend>
-      <div class="md-feedback__inner">
-        <div class="md-feedback__list">
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
-            </button>
-          
-            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
-            </button>
-          
-        </div>
-        <div class="md-feedback__note">
-          
-            <div data-md-value="1" hidden>
-              
-              
-                
-              
-              
-              
-                
-                
-              
-              Thanks for your feedback!
-            </div>
-          
-            <div data-md-value="0" hidden>
-              
-              
-                
-              
-              
-              
-                
-                
-              
-              Thanks for your feedback! Want to improve this page? Click  <strong>Edit this page on GitHub</strong> above to submit a pull request.
-            </div>
-          
-        </div>
-      </div>
-    </fieldset>
-  </form>
-
 
                 
 
@@ -13277,12 +14306,13 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
     
     
       
-      <script id="__config" type="application/json">{"base": "/postgresql/13", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "/postgresql/13", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
@@ -13291,6 +14321,8 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
         <script src="js/promptremover.js"></script>
       
         <script src="js/consent.js"></script>
+      
+        <script src="js/rating.js"></script>
       
         <script src="js/open_in_new_tab.js"></script>
       
