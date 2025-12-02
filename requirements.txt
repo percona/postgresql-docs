@@ -26,3 +26,5 @@ mike
 Pillow > 10.1.0
 mkdocs-open-in-new-tab
 mkdocs-print-site-plugin
+mkdocs-git-revision-date-localized-plugin
+mkdocs-git-committers-plugin-2
