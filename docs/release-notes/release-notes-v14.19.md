@@ -10,7 +10,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.1
 
 ### Tarball updates
 
-The [installation preconditions for tarballs](tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
+The [installation preconditions for tarballs](../tarball.md) now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the `acl` package.
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
