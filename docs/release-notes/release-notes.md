@@ -4,6 +4,8 @@ This page lists all release notes for Percona Distribution for PostgreSQL 13, or
 
 ## 2025
 
+* [13.23](release-notes-v13.23.md) ({{date.13_23}})
+
 * [13.22](release-notes-v13.22.md) ({{date.13_22}})
 
 * [13.21 Update](release-notes-v13.21.upd.md) ({{date.13_21_1}})
