@@ -4,13 +4,23 @@
 
 This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.1](https://www.postgresql.org/docs/18/release-18-1.html).
 
-It introduces several major enhancements, such as: 
+!!! important PostgreSQL RPMs rebuilt to disable debug assertions
+
+    The Percona Server for PostgreSQL (PSP) and Percona Distribution for PostgreSQL (PPG) RPM packages for **PostgreSQL versions 13 through 18 released as part of the Q3 and Q4 quarterly release** were built with debug assertions enabled (`--enable-cassert`).
+
+    If you installed or updated PostgreSQL RPMs within the last four months, you may suffer performance degradation: 18.1, 17.6, 17.7, 16.10, 16.11, 15.14, 15.15, 14.19, 14.20, 13.22, 13.23.
+
+    These packages have been rebuilt, and all users running RPM-based installations of the affected releases are **strongly advised** to update to the latest available packages.
+
+    To verify, run `pg_config --configure`. If the output includes `--enable-cassert`, then your installation is affected.
+
+This release introduces several major enhancements, such as:
 
 - **Parallel logical replication** for improved throughput during initial data synchronization
 - **Faster in-place upgrades** via `pg_upgrade` performance improvements
 - **Enhanced monitoring** with new statistics views for `pg_stat_io` and background writer activity
 - **Security improvements**, including expanded SSL/TLS configuration options
-- **Performance optimizations** for query execution and index management 
+- **Performance optimizations** for query execution and index management
 - Added support for **asynchronous I/O (AIO)** with PostgreSQL 18.1.1 which is now the default I/O mechanism.
 
 These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency.
