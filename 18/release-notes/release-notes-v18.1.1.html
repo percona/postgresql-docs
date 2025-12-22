@@ -28,7 +28,7 @@
       
       
       <link rel="icon" href="../_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -36,7 +36,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3053,13 +3053,20 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL Community 18.1</a>.</p>
-<p>It introduces several major enhancements, such as: </p>
+<div class="admonition important postgresql rpms rebuilt to disable debug assertions">
+<p class="admonition-title">Important</p>
+<p>The Percona Server for PostgreSQL (PSP) and Percona Distribution for PostgreSQL (PPG) RPM packages for <strong>PostgreSQL versions 13 through 18 released as part of the Q3 and Q4 quarterly release</strong> were built with debug assertions enabled (<code>--enable-cassert</code>).</p>
+<p>If you installed or updated PostgreSQL RPMs within the last four months, you may suffer performance degradation: 18.1, 17.6, 17.7, 16.10, 16.11, 15.14, 15.15, 14.19, 14.20, 13.22, 13.23.</p>
+<p>These packages have been rebuilt, and all users running RPM-based installations of the affected releases are <strong>strongly advised</strong> to update to the latest available packages.</p>
+<p>To verify, run <code>pg_config --configure</code>. If the output includes <code>--enable-cassert</code>, then your installation is affected.</p>
+</div>
+<p>This release introduces several major enhancements, such as:</p>
 <ul>
 <li><strong>Parallel logical replication</strong> for improved throughput during initial data synchronization</li>
 <li><strong>Faster in-place upgrades</strong> via <code>pg_upgrade</code> performance improvements</li>
 <li><strong>Enhanced monitoring</strong> with new statistics views for <code>pg_stat_io</code> and background writer activity</li>
 <li><strong>Security improvements</strong>, including expanded SSL/TLS configuration options</li>
-<li><strong>Performance optimizations</strong> for query execution and index management </li>
+<li><strong>Performance optimizations</strong> for query execution and index management</li>
 <li>Added support for <strong>asynchronous I/O (AIO)</strong> with PostgreSQL 18.1.1 which is now the default I/O mechanism.</li>
 </ul>
 <p>These features make PostgreSQL 18 a major step forward in scalability, observability, and operational efficiency.</p>
@@ -3230,7 +3237,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2025 21:51:24 UTC">November 27, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 22, 2025 13:39:16 UTC">December 22, 2025</span>
   </span>
 
     
@@ -3355,12 +3362,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
