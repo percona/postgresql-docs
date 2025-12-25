@@ -6,6 +6,16 @@
 
 This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 13.23](https://www.postgresql.org/docs/13/release-13-23.html).
 
+!!! important PostgreSQL RPMs rebuilt to disable debug assertions
+
+    The Percona Server for PostgreSQL (PSP) and Percona Distribution for PostgreSQL (PPG) RPM packages for **PostgreSQL versions 13 through 18 released as part of the Q3 and Q4 quarterly release** were built with debug assertions enabled (`--enable-cassert`).
+
+    If you installed or updated PostgreSQL RPMs within the last four months, you may suffer performance degradation: 18.1, 17.6, 17.7, 16.10, 16.11, 15.14, 15.15, 14.19, 14.20, 13.22, 13.23.
+
+    These packages have been rebuilt, and all users running RPM-based installations of the affected releases are **strongly advised** to update to the latest available packages.
+
+    To verify, run `pg_config --configure`. If the output includes `--enable-cassert`, then your installation is affected.
+
 ## Release Highlights
 
 ### End-of-life
