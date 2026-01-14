@@ -11,8 +11,9 @@ You can contribute to documentation in the following ways:
 1. Request documentation changes through Jira:
 
 - Open the [Jira issue tracker](https://jira.percona.com/projects/PG/issues) for the project.
+- Sign in (create a Jira account if you don’t have one).
+- Click **Create** to create an issue.
 - (Optional but recommended) Search if the issue you want to report is already reported.
-- Sign in (create a Jira account if you don’t have one) and click **Create** to create an issue.
 - Select **PostgreSQL PG** in the Project dropdown and the work type.
 - Describe the issue in the Summary and Description fields. Optionally, you can also fill in the Steps To Reproduce and Affects Version fields.
 
@@ -134,7 +135,6 @@ The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
 - `mkdocs.yml` - configuration file. Contains the settings for building the documentation on Percona website
-- `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF documentation.
 - `docs`:
   - `*.md` - Source markdown files.
   - `_images` - Images, logos and favicons
