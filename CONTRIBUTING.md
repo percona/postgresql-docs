@@ -90,7 +90,7 @@ git checkout -b <PG-123>-short-description upstream/<target-branch>
 
 ```sh
 git add .
-git commit -m "<my_fixes>"
+git commit -m "PG-123-<my_fixes>"
 git push -u origin <my_branch_name>
 ```
 
