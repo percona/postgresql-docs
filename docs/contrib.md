@@ -1,9 +1,9 @@
 # PostgreSQL contrib modules and utilities
 
-Find the list of controb modules and extensions included in Percona Distribution for PostgtreSQL.
+Find the list of contrib modules and extensions included in Percona Distribution for PostgreSQL.
 
 | Name     | Database superuser | Description   |
-| ---------| -------------------- | ------------- | 
+| ---------| -------------------- | ------------- |
 | [adminpack](https://www.postgresql.org/docs/{{pgversion}}/adminpack.html) | Required | Support toolpack for pgAdmin to provide additional functionality like remote management of server log files. |
 | [amcheck](https://www.postgresql.org/docs/{{pgversion}}/amcheck.html) | Required | Provides functions to verify the logical consistency of the structure of indexes, such as B-trees. It's useful for detecting system catalog corruption and index corruption.|
 | [auth_delay](https://www.postgresql.org/docs/{{pgversion}}/auth-delay.html)| Required | Causes the server to pause briefly before reporting authentication failure, to make brute-force attacks on database passwords more difficult. |
