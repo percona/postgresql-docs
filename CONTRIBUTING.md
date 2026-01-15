@@ -35,7 +35,7 @@ The source .md files are in the ``postgresql-docs/docs`` directory.
 
 To start contributing:
 
-1. Click the **Edit this file** icon.
+1. Select **Edit this file**.
 
 > **NOTE**
 > If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
@@ -54,9 +54,7 @@ To start contributing:
 
 ### Edit documentation locally
 
-This option is for users who prefer to work from their computer and / or have the full control over the documentation process.
-
-The steps are the following:
+If you want to work on your computer locally, follow these steps:
 
 1. Fork this repository
 2. Clone the repository on your machine:
@@ -66,7 +64,7 @@ git clone git@github.com:<my_name>/postgresql-docs.git
 cd postgresql-docs
 ```
 
-3. Change the directory to ``postgresql-docs`` and add your local repository:
+3. Add the upstream (Percona) repository as a remote:
 
 ```sh
 git remote add upstream git@github.com:percona/postgresql-docs.git
@@ -126,6 +124,18 @@ mkdocs build
 ```sh
 mkdocs serve 
 ```
+
+7. To build the PDF documentation, do the following:
+   - Install [mkdocs-print-site-plugin](https://timvink.github.io/mkdocs-print-site-plugin/index.html)
+   - Run the following command
+
+   ```sh
+    mkdocs build
+   ```
+
+This creates a single HTML page for the whole doc project. You can find the page at `site/print_page.html`.
+
+8. Open the `site/print_page.html` in your browser and save as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
 
 You can also view the site at <http://127.0.0.1:8000>.
 
