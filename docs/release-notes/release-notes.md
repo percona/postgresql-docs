@@ -2,6 +2,10 @@
 
 This page lists all release notes for Percona Distribution for PostgreSQL 14, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.
 
+## 2026
+
+* [14.21](release-notes-v14.21.md) ({{date.14_21}})
+
 ## 2025
 
 * [14.20](release-notes-v14.20.md) ({{date.14_20}})

@@ -224,11 +224,13 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - "14.20": release-notes/release-notes-v14.20.md
-      - "14.19": release-notes/release-notes-v14.19.md
-      - "14.18 Update": release-notes/release-notes-v14.18.upd.md
-      - "14.18": release-notes/release-notes-v14.18.md
-      - "14.17": release-notes/release-notes-v14.17.md
+      - "14.21": release-notes/release-notes-v14.21.md
+      - "2025 (versions 14.17 - 14.20)":
+        - "14.20": release-notes/release-notes-v14.20.md
+        - "14.19": release-notes/release-notes-v14.19.md
+        - "14.18 Update": release-notes/release-notes-v14.18.upd.md
+        - "14.18": release-notes/release-notes-v14.18.md
+        - "14.17": release-notes/release-notes-v14.17.md
       - "2024 (versions 14.10 Update - 14.15)":
         - "14.15": release-notes/release-notes-v14.15.md
         - "14.13": release-notes/release-notes-v14.13.md
