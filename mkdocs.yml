@@ -75,12 +75,14 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - "17.7.1": release-notes/release-notes-v17.7.1.md
-      - "17.6.1": release-notes/release-notes-v17.6.1.md
-      - "17.5.3": release-notes/release-notes-v17.5.3.md
-      - "17.5.2": release-notes/release-notes-v17.5.md
-      - "17.5.1": release-notes/release-notes-v17.5.1.md
-      - "17.4.1": release-notes/release-notes-v17.4.md
+      - "17.8.1": release-notes/release-notes-v17.8.1.md
+      - 2025 (versions 17.4.1 - 17.7.1):
+        - "17.7.1": release-notes/release-notes-v17.7.1.md
+        - "17.6.1": release-notes/release-notes-v17.6.1.md
+        - "17.5.3": release-notes/release-notes-v17.5.3.md
+        - "17.5.2": release-notes/release-notes-v17.5.md
+        - "17.5.1": release-notes/release-notes-v17.5.1.md
+        - "17.4.1": release-notes/release-notes-v17.4.md
       - 2024 (versions 17.0.1 - 17.2.1):
         - "17.2.1": release-notes/release-notes-v17.2.md
         - "17.0.1": release-notes/release-notes-v17.0.md

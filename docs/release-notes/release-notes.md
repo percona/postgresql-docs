@@ -2,6 +2,10 @@
 
 This page lists all release notes for Percona Server for PostgreSQL 17, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.
 
+## 2026
+
+* [17.8.1](release-notes-v17.8.1.md) ({{date.17_8_1}})
+
 ## 2025
 
 * [17.7.1](release-notes-v17.7.1.md) ({{date.17_7_1}})
