@@ -2,6 +2,10 @@
 
 This page lists all release notes for Percona Distribution for PostgreSQL 15, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.
 
+## 2026
+
+* [15.16](release-notes-v15.16.md) ({{date.15_16}})
+
 ## 2025
 
 * [15.15](release-notes-v15.15.md) ({{date.15_15}})
