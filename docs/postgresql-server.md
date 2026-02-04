@@ -1,12 +1,11 @@
 # Percona Server for PostgreSQL
 
-Percona Server for PostgreSQL is a binary-compatible, open source drop-in replacement for PostgreSQL {{pgversion}}. It introduces additional features to the upstream server, including:
+Percona Server for PostgreSQL is a binary-compatible, open source drop-in replacement for PostgreSQL {{pgversion}}. It functions identically to upstream PostgreSQL, allowing you to [migrate](migration.md) seamlessly between the two.
 
-* Storage Manager (SMGR) API Exposure: Allows PostgreSQL extensions to integrate custom storage managers. This change was inspired by the [patchset](https://www.postgresql.org/message-id/flat/CAJ7c6TOqqrzjYsU6LgDkcJ0yVgzdkx2juJjgAjzP2jPOpZ1qUA%40mail.gmail.com#8e68cfc57fcac14c8e24b00b41e61baf) introduced to the community.
-* WAL Read/Write API Exposure to hook into WAL read and write functions.
+It provides the foundation for additional capabilities, including data-at-rest encryption such as index-level and Write-Ahead Logging (WAL) encryption.
 
-These modifications have no impact on existing use cases and operation of PostgreSQL. They are required to enable additional encryption capabilities such as index-level and Write-Ahead Logging (WAL) encryption of indexes through the [`pg_tde` :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) extension. These encryption features provided by the `pg_tde` are still under active development and are planned for future releases.
+For more information on Percona Server for PostgreSQL extensions that enable such capabilities, see the [Percona-authored extensions topic](percona-ext.md).
 
-Percona Server and upstream PostgreSQL function identically enabling you to migrate from one to another. 
+For an overview of Percona Server for PostgreSQL solutions, such as high availability, backup and disaster recovery, spatial data handling, authentication, and data-at-rest encryption, see the [Percona Distribution for PostgreSQL solutions topic](solutions.md).
 
 [Get started :material-arrow-right:](installing.md){.md-button}
