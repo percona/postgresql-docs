@@ -125,6 +125,8 @@ mkdocs build
 mkdocs serve 
 ```
 
+You can also view the site at <http://127.0.0.1:8000>.
+
 7. To build the PDF documentation, do the following:
    - Install [mkdocs-print-site-plugin](https://timvink.github.io/mkdocs-print-site-plugin/index.html)
    - Run the following command
@@ -136,8 +138,6 @@ mkdocs serve
 This creates a single HTML page for the whole doc project. You can find the page at `site/print_page.html`.
 
 8. Open the `site/print_page.html` in your browser and save as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
-
-You can also view the site at <http://127.0.0.1:8000>.
 
 ## Repository structure
 
