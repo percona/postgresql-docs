@@ -5,11 +5,11 @@
 release: 'release-notes-v15.16'
 pgversion: '15'
 dockertag: '15.16'
-pgsmversion: '2.3.1'
+pgsmversion: '2.3.2'
 
 
 date:
-  15_16: 2025-02-15
+  15_16: 2026-02-15
   15_15: 2025-12-03
   15_14: 2025-09-15
   15_13_1: 2025-07-14
