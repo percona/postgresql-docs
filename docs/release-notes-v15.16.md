@@ -19,7 +19,8 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - postgresql-common: 289
 - pgbackrest: 2.58.0
 - pgpool2: 4.7.0
-- pgsm: 2.3.2
+- pg_stat_monitor: 2.3.2
+- postgis: 3.5.5
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.md) for the download links.
 
