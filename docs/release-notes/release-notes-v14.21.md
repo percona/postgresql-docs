@@ -19,7 +19,8 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - postgresql-common: 288
 - pgbackrest: 2.58.0
 - pgpool2: 4.7.0
-- pgsm: 2.3.2
+- pg_stat_monitor: 2.3.2
+- postgis: 3.5.5
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
@@ -61,7 +62,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_gather](https://github.com/jobinau/pg_gather)                                      | v32       | An SQL script for running the diagnostics of the health of PostgreSQL cluster                                       |
 | [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary)                  | 4.7.0     | A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.      |
 | [pg_repack](https://github.com/reorg/pg_repack)                                        | 1.5.3     | Rebuilds PostgreSQL database objects                                                                                |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pgvector](https://github.com/pgvector/pgvector)                                       | v0.8.1    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS](https://github.com/postgis/postgis)                                          | 3.5.5     | A spatial extension for PostgreSQL.                                                                                  |
 | [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)             | 289       | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters may be maintained at one time. |
