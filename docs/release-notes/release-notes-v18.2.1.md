@@ -27,12 +27,13 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - pg_tde: 2.1.2
 - postgis: 3.5.5
 - pg_oidc_validator: 1.0
+- ydiff: 1.4.2
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the [PostgreSQL 18.2 release notes](https://www.postgresql.org/docs/18/release-18-2.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the [PostgreSQL 18.2 release notes](https://www.postgresql.org/docs/18/release-18-2.html).
 
 ## Known Issues
 
