@@ -26,7 +26,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.m
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [15.16 release notes](https://www.postgresql.org/docs/15/release-15-16.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [15.16 release notes](https://www.postgresql.org/docs/15/release-15-16.html).
 
 ## Known Issue
 
