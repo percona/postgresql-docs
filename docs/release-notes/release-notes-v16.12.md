@@ -21,12 +21,13 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - pgpool2: 4.7.0
 - pg_stat_monitor: 2.3.2
 - postgis: 3.5.5
+- ydiff: 1.4.2
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [16.12 release notes](https://www.postgresql.org/docs/16/release-16-12.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [16.12 release notes](https://www.postgresql.org/docs/16/release-16-12.html).
 
 ## Known Issue
 
