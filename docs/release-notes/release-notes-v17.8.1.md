@@ -25,12 +25,13 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - HAProxy: 2.8.18
 - pgsm: 2.3.2
 - pg_tde: 2.1.2
+- ydiff: 1.4.2
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2025-12817, CVE-2025-12818. For more details, see the PostgreSQL [17.8 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-8.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [17.8 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-8.html).
 
 ## Known Issue
 
