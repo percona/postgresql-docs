@@ -21,6 +21,7 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - pgpool2: 4.7.0
 - pg_stat_monitor: 2.3.2
 - postgis: 3.5.5
+- ydiff: 1.4.2
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.md) for the download links.
 
