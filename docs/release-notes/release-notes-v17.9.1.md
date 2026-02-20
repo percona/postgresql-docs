@@ -1,8 +1,8 @@
-# Percona Distribution for PostgreSQL 17.8.1 ({{date.17_8_1}})
+# Percona Distribution for PostgreSQL 17.9.1 ({{date.17_9_1}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.8.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.8 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-8.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.9.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 17.9 :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-9.html).
 
 ## Release Highlights
 
@@ -31,7 +31,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [17.8 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-8.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [17.9 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-9.html).
 
 ## Known Issue
 
