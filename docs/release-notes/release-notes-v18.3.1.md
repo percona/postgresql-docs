@@ -1,8 +1,8 @@
-# Percona Distribution for PostgreSQL 18.2.1 ({{date.18_2_1}})
+# Percona Distribution for PostgreSQL 18.3.1 ({{date.18_3_1}})
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.2.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.2](https://www.postgresql.org/docs/18/release-18-2.html).
+This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of [PostgreSQL Community 18.3](https://www.postgresql.org/docs/18/release-18-3.html).
 
 ## Release Highlights
 
@@ -33,7 +33,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the [PostgreSQL 18.2 release notes](https://www.postgresql.org/docs/18/release-18-2.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the [PostgreSQL 18.3 release notes](https://www.postgresql.org/docs/18/release-18-3.html).
 
 ## Known Issues
 
