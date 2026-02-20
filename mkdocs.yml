@@ -71,7 +71,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - "16.12": release-notes/release-notes-v16.12.md
+      - "16.13": release-notes/release-notes-v16.13.md
       - "2025 (versions 16.8 - 16.11)":
         - "16.11": release-notes/release-notes-v16.11.md
         - "16.10": release-notes/release-notes-v16.10.md

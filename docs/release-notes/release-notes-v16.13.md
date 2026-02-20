@@ -1,10 +1,10 @@
-# Percona Distribution for PostgreSQL 16.12 ({{date.16_12}})
+# Percona Distribution for PostgreSQL 16.13 ({{date.16_13}})
 
 [Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
-This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.12](https://www.postgresql.org/docs/16/release-16-12.html).
+This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.13](https://www.postgresql.org/docs/16/release-16-13.html).
 
 ## Release Highlights
 
@@ -27,7 +27,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [16.12 release notes](https://www.postgresql.org/docs/16/release-16-12.html).
+This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [16.13 release notes](https://www.postgresql.org/docs/16/release-16-13.html).
 
 ## Known Issue
 
