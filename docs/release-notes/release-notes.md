@@ -4,7 +4,7 @@ This page lists all release notes for Percona Distribution for PostgreSQL 16, or
 
 ## 2026
 
-* [16.12](release-notes-v16.12.md) ({{date.16_12}})
+* [16.13](release-notes-v16.13.md) ({{date.16_13}})
 
 ## 2025
 
