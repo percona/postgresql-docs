@@ -9,7 +9,7 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, including `pg_stat_monitor` 2.3.2 for advanced query-level observability, `pg_tde` 2.1.2 for Transparent Data Encryption and more. See the full component list below for details.
 
 !!! note
-  To upgrade from earlier versions, follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+    To upgrade from earlier versions, follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
 
 ### Tarball updates
 
