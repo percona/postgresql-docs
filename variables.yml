@@ -6,8 +6,8 @@ dockertag: '18.3'
 pgsubversion: '18.3'
 pgversion: '18'
 pspgversion: '18.3.1'
-pgsmversion: '2.3.1'
+pgsmversion: '2.3.2'
 
 date:
-  18_3_1: 2026-02-29
+  18_3_1: 2026-02-28
   18_1_1: 2025-11-28
