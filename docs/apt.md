@@ -46,19 +46,9 @@ Run all the commands in the following sections as root or using the `sudo` comma
    $ sudo percona-release setup ppg-{{pgversion}}
    ```
 
-### Install packages
+### Install packages individually
 
-=== "Install using meta-package (deprecated)"
-
-    The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
-     
-     ```{.bash data-prompt="$"}
-     $ sudo apt install percona-ppg-server-{{pgversion}}
-     ```
-
-=== "Install packages individually"
-
-    Run the following commands:
+    To install packages individually, run the following commands:
     {.power-number}
 
      1. Install the PostgreSQL server package:

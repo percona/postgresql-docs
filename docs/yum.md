@@ -382,19 +382,9 @@ $ sudo yum -y install curl
    $ sudo percona-release setup ppg{{pgversion}}
    ```
 
-### Install packages
+### Install packages individually
 
-=== "Install using meta-package"
-
-     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
-     
-     ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server{{pgversion}}
-     ```
-
-=== "Install packages individually"
-
-    Run the following commands:
+    To install the packages individually, run the following commands:
     {.power-number}
 
      1. Install the PostgreSQL server package:
