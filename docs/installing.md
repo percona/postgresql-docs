@@ -1,13 +1,62 @@
 # Quickstart guide
 
-Percona Distribution for PostgreSQL is the Percona server for PostgreSQL with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. [Read more](index.md).
+In this guide you will learn to install Percona Distribution for PostgreSQL with tested open source extensions and tooling designed to work together reliably on Debian and RHEL. This guide quickly gets you up and running with:
 
-This document aims to guide database application developers and DevOps engineers in getting started with Percona Distribution for PostgreSQL. Upon completion of this guide, you’ll have Percona Distribution for PostgreSQL installed and operational, and you’ll be able to:
-
+* Install Percona Distribution for PostgreSQL using a Package Manager
 * Connect to PostgreSQL using the `psql` interactive terminal
-* Interact with PostgreSQL with basic psql commands
+* Interact with PostgreSQL with basic commands
 * Manipulate data in PostgreSQL
-* Understand the next steps you can take as a database application developer or administrator to expand your knowledge of Percona Distribution for PostgreSQL
+
+## Preconditions
+
+Install `curl` for [Telemetry](telemetry.md), this is optional.
+
+    ```{.bash data-prompt="$"}
+    $ sudo apt install curl
+    ```
+
+## Install on Debian / Ubuntu (APT) {.power-number}
+
+1. Fetch the `percona-release` package:
+
+    ```{.bash data-prompt="$"}
+    wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
+    sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+    ```
+
+2. Enable the repository and install the package:
+
+    ```{.bash data-prompt="$"}
+    sudo percona-release setup ppg-18
+    sudo apt install percona-postgresql-18
+    ```
+
+    The installation process automatically initializes and starts the default database.
+
+3. Switch to a postgres user and open the psql interactive terminal:
+
+    ```{.bash data-prompt="$"}
+    sudo su postgres
+    psql
+    ```
+
+4. Create a database and make a table in the database:
+
+    ```{.bash data-prompt="$"}
+    CREATE DATABASE test;
+    CREATE TABLE customers (first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(100));
+    ```
+
+5.  Insert data in the customers table and query the data insertion:
+
+    ```{.bash data-prompt="$"}
+    INSERT INTO customers (first_name, last_name, email) VALUES ('John', 'Doe', 'john.doe@example.com');
+    SELECT * FROM customers;
+    ```
+
+Congratulations! You have installed Percona Distribution for PostgreSQL and created your first database. For detailed installation steps and further instructions, see the [Install Percona Distribution for PostgreSQL on Debian and Ubuntu](apt.md).
+
+## Install on RHEL / Rocky / Alma (YUM)
 
 ## Install Percona Distribution for PostgreSQL
 
