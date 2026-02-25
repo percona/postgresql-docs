@@ -28,9 +28,7 @@ An open-source extension designed to enhance PostgreSQL security by encrypting d
 
 ## :material-file-key-outline: pg_oidc_validator
 
-An **experimental** OAuth validator library for PostgreSQL 18 that validates OpenID Connect (OIDC) JWT access tokens. It integrates with PostgreSQL’s OAuth framework to verify tokens issued by compliant OIDC providers.
-
-**NOTE:** This library is still experimental and not intended for production use.
+An OAuth validator library for PostgreSQL 18 that validates OpenID Connect (OIDC) JWT access tokens. It integrates with PostgreSQL’s OAuth framework to verify tokens issued by compliant OIDC providers.
 
 [Check the pg_oidc_validator GitHub repository :octicons-link-external-16:](https://github.com/Percona-Lab/pg_oidc_validator){.md-button}
 
