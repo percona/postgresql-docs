@@ -82,8 +82,7 @@ To install the packages individually, run the following commands:
           $ sudo apt install percona-patroni
           ```
 
-    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
-
+    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1).
 
     Install `pgBouncer`:
 
