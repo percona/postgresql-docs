@@ -108,19 +108,19 @@ To install the packages individually, run the following commands:
     $ sudo apt install percona-postgresql-{{pgversion}}-wal2json
     ```
 
-    Install PostgreSQL contrib extensions:
+    Install `PostgreSQL contrib` extensions:
 
     ```{.bash data-prompt="$"}
     $ sudo apt install percona-postgresql-contrib
     ```
 
-    Install HAProxy:
+    Install `HAProxy`:
 
     ```{.bash data-prompt="$"}
     $ sudo apt install percona-haproxy
     ```
           
-    Install pgpool2:
+    Install `pgpool2`:
 
     ```{.bash data-prompt="$"}
     $ sudo apt install percona-pgpool2
