@@ -119,7 +119,7 @@ To install the packages individually, run the following commands:
     ```{.bash data-prompt="$"}
     $ sudo apt install percona-haproxy
     ```
-          
+
     Install `pgpool2`:
 
     ```{.bash data-prompt="$"}
