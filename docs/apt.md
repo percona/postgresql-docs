@@ -47,16 +47,16 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 ### Install packages individually
 
-    To install the packages individually, run the following commands:
-    {.power-number}
+To install the packages individually, run the following commands:
+{.power-number}
 
-     1. Install the PostgreSQL server package:
+    1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
          $ sudo apt install percona-postgresql-{{pgversion}}
          ```
 
-     2. Install the components:
+    2. Install the components:
 
         Install `pg_repack`:
 
@@ -139,7 +139,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
           $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
           ```
 
-          Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+        Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
 
