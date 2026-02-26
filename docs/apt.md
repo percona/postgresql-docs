@@ -50,13 +50,13 @@ Run all the commands in the following sections as root or using the `sudo` comma
     To install the packages individually, run the following commands:
     {.power-number}
 
-    1. Install the PostgreSQL server package:
+        1. Install the PostgreSQL server package:
 
          ```{.bash data-prompt="$"}
          $ sudo apt install percona-postgresql-{{pgversion}}
          ```
 
-    2. Install the components:
+        2. Install the components:
 
         Install `pg_repack`:
 
