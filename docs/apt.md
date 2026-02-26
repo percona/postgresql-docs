@@ -11,7 +11,6 @@ This document describes how to install Percona Server for PostgreSQL from Percon
     $ sudo apt install curl
     ```
 
-
 ## Procedure
 
 Run all the commands in the following sections as root or using the `sudo` command:
@@ -19,7 +18,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 ### Configure Percona repository {.power-number}
 
 1. Install the `percona-release` repository management tool to subscribe to Percona repositories:
- 
+
      * Fetch `percona-release` packages from Percona web:
 
         ```{.bash data-prompt="$"}
@@ -48,7 +47,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 ### Install packages individually
 
-To install packages individually, run the following commands:
+    To install packages individually, run the following commands:
     {.power-number}
 
      1. Install the PostgreSQL server package:
