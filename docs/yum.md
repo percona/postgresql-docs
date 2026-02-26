@@ -465,8 +465,8 @@ To install the packages individually, run the following commands:
 
     Install `pgpool2`:
 
-    1. Check the [platform specific notes](#for-pgpool2-extension)
-    2. Install the extension
+    1. Check the [platform specific notes](#for-pgpool2-extension).
+    2. Install the extension.
 
     ```{.bash data-prompt="$"}
     $ sudo yum install percona-pgpool-II-pg{{pgversion}}
