@@ -115,25 +115,25 @@ To install the packages individually, run the following commands:
           $ sudo apt install percona-postgresql-contrib
           ```
 
-    Install HAProxy
+    Install HAProxy:
 
           ```{.bash data-prompt="$"}
           $ sudo apt install percona-haproxy
           ```
           
-    Install pgpool2
+    Install pgpool2:
 
           ```{.bash data-prompt="$"}
           $ sudo apt install percona-pgpool2
           ```
 
-    Install `pg_gather`
+    Install `pg_gather`:
 
           ```{.bash data-prompt="$"}
           $ sudo apt install percona-pg-gather
           ```
 
-    Install `pgvector`
+    Install `pgvector`:
 
           ```{.bash data-prompt="$"}
           $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
