@@ -45,16 +45,15 @@ Run all the commands in the following sections as root or using the `sudo` comma
    $ sudo percona-release setup ppg-{{pgversion}}
    ```
 
-### Install packages individually
+### Install packages individually {.power-number}
 
 To install the packages individually, run the following commands:
-{.power-number}
 
     1. Install the PostgreSQL server package:
 
-         ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-{{pgversion}}
-         ```
+        ```{.bash data-prompt="$"}
+        $ sudo apt install percona-postgresql-{{pgversion}}
+        ```
 
     2. Install the components:
 
