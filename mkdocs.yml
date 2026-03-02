@@ -73,7 +73,9 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - "18.1.1": release-notes/release-notes-v18.1.1.md
+      - "18.3.1": release-notes/release-notes-v18.3.1.md
+      - "2025":
+        - "18.1.1": release-notes/release-notes-v18.1.1.md
   - Reference:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
