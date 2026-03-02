@@ -16,6 +16,7 @@ This release continues to deliver Percona’s open source value-add components f
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
 - pgbouncer: 1.25.1
+- pgvector: 0.8.2
 - pgpool2: 4.7.0
 - etcd: 3.5.26
 - PostGIS: 3.5.5
@@ -68,7 +69,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.7.0 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing      |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack)          | 1.5.3     | Rebuilds PostgreSQL database objects
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor)                          | 2.3.2     | Collects and aggregates statistics for PostgreSQL and provides histogram information.                                |
-| [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)         | v0.8.1    | A vector similarity search for PostgreSQL                                                                           |
+| [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector)         | v0.8.2    | A vector similarity search for PostgreSQL                                                                           |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis)            | 3.5.5     | A spatial extension for PostgreSQL                                                                                  |
 | [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 289 | PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously              |
 | [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json)          | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
