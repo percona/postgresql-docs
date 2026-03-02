@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Percona-authored extensions provide additional capabilities that go beyond upstream PostgreSQL, enabling advanced observability and data-at-rest encryption. These extensions are developed and maintained by Percona and are designed to integrate seamlessly with Percona Server for PostgreSQL and Percona Distribution for PostgreSQL.">
       
       
         <meta name="author" content="Percona LLC">
@@ -1072,6 +1072,17 @@
     <span class="md-ellipsis">
       
         pg_tde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pg_oidc_validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pg_oidc_validator
       
     </span>
   </a>
@@ -2876,6 +2887,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pg_oidc_validator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pg_oidc_validator
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2907,16 +2929,23 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
 
 <h1 id="percona-authored-extensions">Percona-authored extensions<a class="headerlink" href="#percona-authored-extensions" title="Permanent link">&para;</a></h1>
+<p>Percona-authored extensions provide additional capabilities that go beyond upstream PostgreSQL, enabling advanced observability and data-at-rest encryption. These extensions are developed and maintained by Percona and are designed to integrate seamlessly with Percona Server for PostgreSQL and Percona Distribution for PostgreSQL.</p>
+<p>This page provides a high-level overview of the available Percona-authored extensions and the problems they are intended to solve. For detailed configuration and usage instructions, follow the documentation links provided for each extension below.</p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
-<h3 id="pg_stat_monitor"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0m14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042"/></svg></span> pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h3>
-<p>A query performance monitoring tool for PostgreSQL that brings more insight and details around query performance, planning statistics and metadata. It improves observability, enabling users to debug and tune query performance with precision.</p>
-<p><a class="md-button" href="https://docs.percona.com/pg-stat-monitor/index.html">pg_stat_monitor documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
+<h2 id="pg_stat_monitor"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0m14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042"/></svg></span> pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
+<p>An open-source query performance monitoring tool for PostgreSQL that brings more insight and details around query performance, planning statistics and metadata. It improves observability, enabling users to debug and tune query performance with precision.</p>
+<p><a class="md-button" href="https://docs.percona.com/pg-stat-monitor/index.html">See the pg_stat_monitor documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h3 id="pg_tde"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_tde<a class="headerlink" href="#pg_tde" title="Permanent link">&para;</a></h3>
-<p>An open-source extension designed to enhance PostgreSQL’s security by encrypting data files on disk. The encryption is transparent for users allowing them to access and manipulate the data and not to worry about the encryption process.</p>
-<p><a class="md-button" href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
+<h2 id="pg_tde"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_tde<a class="headerlink" href="#pg_tde" title="Permanent link">&para;</a></h2>
+<p>An open-source extension designed to enhance PostgreSQL security by encrypting data files on disk. <code>pg_tde</code> protects data at rest by ensuring that database files cannot be read without the appropriate encryption keys. Encryption is transparent to applications and users at the SQL level, while key management is configured separately.</p>
+<p><a class="md-button" href="https://docs.percona.com/pg-tde/index.html">See the pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h2 id="pg_oidc_validator"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_oidc_validator<a class="headerlink" href="#pg_oidc_validator" title="Permanent link">&para;</a></h2>
+<p>An OAuth validator library for PostgreSQL 18 that validates OpenID Connect (OIDC) JWT access tokens. It integrates with PostgreSQL’s OAuth framework to verify tokens issued by compliant OIDC providers.</p>
+<p><a class="md-button" href="https://github.com/Percona-Lab/pg_oidc_validator">Check the pg_oidc_validator GitHub repository <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
 </div>
 
@@ -2941,7 +2970,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 11, 2025 13:34:11 UTC">February 11, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 2, 2026 10:09:51 UTC">March 2, 2026</span>
   </span>
 
     
@@ -2956,6 +2985,44 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
+          
+          <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
+        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+          
+          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
+        </a>
+      
+        <a href="https://github.com/barrettch" class="md-author" title="@barrettch">
+          
+          <img src="https://avatars.githubusercontent.com/u/43318843?v=4&size=72" alt="barrettch">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
