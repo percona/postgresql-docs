@@ -54,9 +54,11 @@ Install `curl` for [Telemetry](telemetry.md), this is optional.
     SELECT * FROM customers;
     ```
 
-Congratulations! You have installed Percona Distribution for PostgreSQL and created your first database. For detailed installation steps and further instructions, see the [Install Percona Distribution for PostgreSQL on Debian and Ubuntu](apt.md).
+Congratulations! You have installed Percona Distribution for PostgreSQL and created your first database.
 
-## Install on RHEL / Rocky / Alma (YUM)
+For detailed installation steps and further instructions on Debian and Ubuntu, see the [Install Percona Distribution for PostgreSQL on Debian and Ubuntu](apt.md).
+
+For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the [Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives](yum.md).
 
 ## Install Percona Distribution for PostgreSQL
 
