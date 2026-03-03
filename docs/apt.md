@@ -11,7 +11,6 @@ This document describes how to install Percona Server for PostgreSQL from Percon
     $ sudo apt install curl
     ```
 
-
 ## Procedure
 
 Run all the commands in the following sections as root or using the `sudo` command:
@@ -19,7 +18,7 @@ Run all the commands in the following sections as root or using the `sudo` comma
 ### Configure Percona repository {.power-number}
 
 1. Install the `percona-release` repository management tool to subscribe to Percona repositories:
- 
+
      * Fetch `percona-release` packages from Percona web:
 
         ```{.bash data-prompt="$"}
@@ -48,99 +47,98 @@ Run all the commands in the following sections as root or using the `sudo` comma
 
 ### Install packages individually
 
-    To install packages individually, run the following commands:
-    {.power-number}
+To install the packages individually, run the following commands:
+{.power-number}
 
-     1. Install the PostgreSQL server package:
+1. Install the PostgreSQL server package:
 
-         ```{.bash data-prompt="$"}
-         $ sudo apt install percona-postgresql-{{pgversion}}
-         ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-postgresql-{{pgversion}}
+    ```
 
-     2. Install the components:
+2. Install the components:
 
-          Install `pg_repack`:
+    Install `pg_repack`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-{{pgversion}}-repack
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-postgresql-{{pgversion}}-repack
+    ```
 
-          Install `pgAudit`:
+    Install `pgAudit`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-{{pgversion}}-pgaudit
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-postgresql-{{pgversion}}-pgaudit
+    ```
 
-          Install `pgBackRest`:
+    Install `pgBackRest`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgbackrest
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-pgbackrest
+    ```
 
-          Install `Patroni`:
+    Install `Patroni`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-patroni
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-patroni
+    ```
 
-          [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
+    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1).
 
+    Install `pgBouncer`:
 
-          Install `pgBouncer`:
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-pgbouncer
+    ```
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgbouncer
-          ```
+    Install `pgAudit-set_user`:
 
-          Install `pgAudit-set_user`:
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-pgaudit{{pgversion}}-set-user
+    ```
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgaudit{{pgversion}}-set-user
-          ```
+    Install `pgBadger`:
 
-          Install `pgBadger`:
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-pgbadger
+    ```
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgbadger
-          ```
+    Install `wal2json`:
 
-          Install `wal2json`:
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-postgresql-{{pgversion}}-wal2json
+    ```
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-{{pgversion}}-wal2json
-          ```
+    Install `PostgreSQL contrib` extensions:
 
-          Install PostgreSQL contrib extensions:
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-postgresql-contrib
+    ```
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-contrib
-          ```
+    Install `HAProxy`:
 
-          Install HAProxy
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-haproxy
+    ```
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-haproxy
-          ```
-          
-          Install pgpool2
+    Install `pgpool2`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pgpool2
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-pgpool2
+    ```
 
-          Install `pg_gather`
+    Install `pg_gather`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-pg-gather
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-pg-gather
+    ```
 
-          Install `pgvector`
+    Install `pgvector`:
 
-          ```{.bash data-prompt="$"}
-          $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
-          ```
+    ```{.bash data-prompt="$"}
+    $ sudo apt install percona-postgresql-{{pgversion}}-pgvector
+    ```
 
-          Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+    Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
 
 ### Start the service
 
