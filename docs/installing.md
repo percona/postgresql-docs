@@ -1,116 +1,51 @@
-# Quickstart guide
+# Installation overview
 
-This guide shows how to install and start Percona Distribution for PostgreSQL on Debian- and RHEL-based Linux systems. After completing this guide, you will have:
+Percona Distribution for PostgreSQL packages PostgreSQL together with a curated set of open source extensions and tools that are tested to work together reliably.
 
-- PostgreSQL running locally
-- A database named `test`
-- A table named `customers`
-- One inserted row you can query
+This section explains how to install Percona Distribution for PostgreSQL on supported platforms.
 
-## Fast path (2-minute install)
+Choose the installation method that best fits your environment:
 
-```{.bash data-prompt="$"}
-wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
-sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
-sudo percona-release setup ppg-18  
-sudo apt install percona-postgresql-18
-sudo -i -u postgres psql
-```
+- Package manager, **recommended** for most Linux systems  
+- Docker, for quick evaluations or development  
+- Kubernetes, for production Kubernetes environments  
+- Tarballs, manual installation for custom environments (**not recommended** for mission-critical environments)
 
-After psql starts, run the following SQL commands:
+=== ":octicons-terminal-16: Package manager"
 
-```sql
-CREATE DATABASE test;
-\c test
-CREATE TABLE customers (first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(100));
-INSERT INTO customers VALUES ('John','Doe','john.doe@example.com');
-SELECT * FROM customers;
-\q
-```
+    Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. See the [Percona Software and Platform Lifecycle page :octicons-link-external-16:](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql) for the full list of supported platforms and versions.
 
-For a step-by-step explanation, continue below.
+    If you are on Debian or Ubuntu, use `apt` for installation.
 
-## Install on Debian / Ubuntu (APT) {.power-number}
+    If you are on Red Hat Enterprise Linux or compatible derivatives, use `yum`.
 
-1. Fetch the `percona-release` package:
+    [Install via apt :material-arrow-right:](apt.md){.md-button}
+    [Install via yum :material-arrow-right:](yum.md){.md-button}
 
-     ```{.bash data-prompt="$"}
-     wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
-     sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
-     ```
+=== ":simple-docker: Docker"
 
-2. Enable the repository and install the package:
+    Run Percona Distribution for PostgreSQL in a Docker container for quick evaluation or development.
 
-     ```{.bash data-prompt="$"}
-     sudo percona-release setup ppg-18
-     sudo apt install percona-postgresql-18
-     ```
+    Check below to get access to a detailed step-by-step guide.
+    
+    [Run in Docker :material-arrow-right:](docker.md){.md-button}
 
-    The installation process automatically initializes and starts the default database.
+=== ":simple-kubernetes: Kubernetes"
 
-3. Switch to the `postgres` user and open the psql interactive terminal:
+    Use the Percona Operator for Kubernetes to deploy and manage PostgreSQL clusters on Kubernetes.
 
-     ```{.bash data-prompt="$"}
-     sudo -i -u postgres
-     psql
-     ```
+    Check below to get access to a detailed step-by-step guide.
 
-4. Create a database and make a table in the database:
+    [Get started with Percona Operator :octicons-link-external-16:](https://docs.percona.com/percona-operator-for-postgresql/2.0/quickstart.html){.md-button}
 
-     ```sql
-     CREATE DATABASE test;
-     \c test
-     CREATE TABLE customers (first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(100));
-     ```
+=== ":octicons-download-16: Tar download (not recommended)"
 
-5. Insert data in the customers table and query the data insertion:
+    If installing the package (the **recommended** method for a safe, secure, and reliable setup) is not an option, refer to the link below for step-by-step instructions on installing from tarballs using the provided download links.
 
-     ```sql
-     INSERT INTO customers (first_name, last_name, email) VALUES ('John', 'Doe', 'john.doe@example.com');
-     SELECT * FROM customers;
-     \q
-     ```
+    In this scenario, you must ensure that all dependencies are met. Failure to do so may result in errors or crashes.
+    
+    !!! note 
 
-Congratulations! Percona Distribution for PostgreSQL is now running and you have created your first database.
+        This method is **not recommended** for mission-critical environments.
 
-For detailed installation steps and further instructions on Debian and Ubuntu, see the [Install Percona Distribution for PostgreSQL on Debian and Ubuntu](apt.md).
-
-For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the [Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives](yum.md).
-
-## What's next
-
-Now that your PostgreSQL server is running, you can explore additional capabilities of Percona Distribution for PostgreSQL.
-
-<div data-grid markdown><div data-banner markdown>
-
-### Learn PostgreSQL basics { .title }
-
-Connect with `psql` and run SQL commands, manage users, roles, and configure authentication.
-
-[Manipulate data in PostgreSQL :material-arrow-right:](crud.md){ .md-button }
-
-</div><div data-banner markdown>
-
-### Enable extensions { .title }
-
-Percona Distribution for PostgreSQL includes tested open source extensions, such as `pg_stat_monitor` for query performance monitoring, `pg_tde` for protecting data at rest and more.
-
-[See Extensions :material-arrow-right:](extensions.md){ .md-button }
-
-</div><div data-banner markdown>
-
-### Configure backups { .title }
-
-For production deployments we recommend configuring backups.
-
-[See Backup and disaster recovery in Percona :material-arrow-right:](solutions/backup-recovery.md){.md-button}
-</div><div data-banner markdown>
-
-### Configure high availability with Patroni { .title }
-
-Deploy a highly available PostgreSQL cluster using Patroni to prevent service interruptions.
-
-[See High Availability in PostgreSQL :material-arrow-right:](solutions/high-availability.md){.md-button}
-
-</div>
-</div>
+     [Install from tarballs :material-arrow-right:](tarball.md){.md-button}

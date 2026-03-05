@@ -24,7 +24,7 @@ Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestr
 
 Get started quickly with these step-by-step installation instructions.
 
-[Quickstart guide :material-arrow-right:](installing.md){ .md-button }
+[Quickstart guide :material-arrow-right:](quick-start.md){ .md-button }
 
 </div><div data-banner markdown>
 
