@@ -17,8 +17,8 @@ nav:
   - 'Home': 'index.md'
   - 'Percona Server for PostgreSQL': postgresql-server.md
   - get-help.md
+  - Quickstart guide: installing.md
   - Get started: 
-      - Quickstart guide: installing.md
       - 1. Install: 
           - Via apt: apt.md
           - Via yum: yum.md
