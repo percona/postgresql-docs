@@ -58,7 +58,7 @@ Run **all** commands as root or via **sudo**:
     !!! note
         When installing version 18, if prompted via a pop-up to upgrade to the latest available version, select **No**.
 
-    * [Install percona-release :octicons-link-external-17:](https://docs.percona.com/percona-software-repositories/installing.html). If you have installed it before, [update it to the latest version](https://docs.percona.com/percona-software-repositories/updating.html)
+    * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html). If you have installed it before, [update it to the latest version](https://docs.percona.com/percona-software-repositories/updating.html)
 
     * Enable Percona repository
 

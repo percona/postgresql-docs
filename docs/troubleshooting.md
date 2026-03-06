@@ -10,7 +10,7 @@ Every database in PostgreSQL has a default schema called `public`. A schema stor
 
 When you create a table without specifying a schema name, it ends up in the `public` schema by default.
 
-Starting with PostgreSQL 15, non-database owners cannot access the `public` schema. Therefore, you can either grant privileges to the database for your user using the [GRANT](https://www.postgresql.org/docs/{{pgvesrion}}/sql-grant.html) command or create your own schema to insert the data.
+Starting with PostgreSQL 15, non-database owners cannot access the `public` schema. Therefore, you can either grant privileges to the database for your user using the [GRANT](https://www.postgresql.org/docs/{{pgversion}}/sql-grant.html) command or create your own schema to insert the data.
 
 To create a schema, use the following statement:
 
