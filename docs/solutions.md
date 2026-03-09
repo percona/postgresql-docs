@@ -34,7 +34,7 @@ Dealing with spatial data? Learn how you can store and manipulate it.
 
 Need centralized authentication? Learn how to integrate PostgreSQL with identity providers such as LDAP directories or OpenID Connect.
 
-[Authentication :material-arrow-right:](solutions/authentication/index.md){.md-button}
+[Authentication :material-arrow-right:](solutions/authentication/overview.md){.md-button}
 
 </div>
 </div>
