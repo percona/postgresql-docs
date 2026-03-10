@@ -10,10 +10,10 @@ Percona Distribution for PostgreSQL supports multiple authentication mechanisms 
 
 Use LDAP directories such as OpenLDAP or Active Directory to centrally manage database users.
 
-[LDAP authentication](ldap.md)
+[LDAP authentication :material-arrow-right:](ldap.md){.md-button}
 
 ### OIDC authentication
 
 Authenticate users using OpenID Connect identity providers such as Keycloak, Okta, or Microsoft Entra ID.
 
-[OIDC authentication](oidc.md)
+[OIDC authentication :material-arrow-right:](oidc.md){.md-button}

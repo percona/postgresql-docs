@@ -1,8 +1,15 @@
 # OIDC authentication
 
-OpenID Connect (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.
+[OpenID Connect :octicons-link-external-16:](https://openid.net/developers/how-connect-works/) (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.
 
-Percona Distribution for PostgreSQL supports OIDC authentication through the `pg_oidc_validator` library. This library validates OIDC tokens during the PostgreSQL authentication process.
+Percona Distribution for PostgreSQL supports OIDC authentication through the `pg_oidc_validator` library. This library validates OIDC tokens during PostgreSQL authentication.
+
+If you want to test PostgreSQL OAuth authentication using `pg_oidc_validator` with Keycloak using Docker containers, see the [PostgreSQL OIDC Authentication with pg_oidc_validator :octicons-link-external-16:](https://www.percona.com/blog/postgresql-oidc-authentication-with-pg_oidc_validator/) blog post.
+
+For additional configuration details and source code, see the [pg_oidc_validator project :octicons-link-external-16:](https://github.com/Percona-Lab/pg_oidc_validator).
+
+!!! important
+    OIDC authentication relies on [PostgreSQL OAuth authentication :octicons-link-external-16:](https://www.postgresql.org/docs/current/auth-oauth.html), introduced in PostgreSQL 18.
 
 ## When to use OIDC authentication
 
@@ -13,17 +20,24 @@ OIDC authentication is useful when you want to:
 * centralize identity management across applications and databases
 
 !!! tip
-     OIDC authentication simplifies access management for PostgreSQL when using an identity provider that supports OpenID Connect.
+    OIDC authentication simplifies access management for PostgreSQL when using an identity provider that supports OpenID Connect.
 
-## Authentication flow
+## OIDC authentication architecture
 
-The OIDC authentication works as follows:
+OIDC authentication works as follows:
 
 1. The client obtains an access token from an external identity provider
 2. The client connects to PostgreSQL using OAuth authentication
 3. PostgreSQL forwards the token to the `pg_oidc_validator` module
 4. The validator verifies the token signature and claims
 5. If validation succeeds, PostgreSQL allows the connection
+
+The following diagram shows how OIDC authentication works between the client, the identity provider, and PostgreSQL:
+
+![OIDC authentication flow](../../_images/diagrams/oidc-auth-flow.svg)
+
+!!! tip
+    Before configuring OIDC authentication, ensure that your PostgreSQL deployment can access the identity provider that issues OIDC tokens.
 
 ## Set up OIDC authentication
 
@@ -51,7 +65,7 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
     ```
 
     !!! note
-         This setting tells PostgreSQL to load the OIDC validator during startup.
+        This setting tells PostgreSQL to load the OIDC validator during startup.
 
 3. Add an OAuth authentication rule to `pg_hba.conf`:
 
@@ -67,9 +81,9 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
 
 4. Restart PostgreSQL for the changes to take effect:
 
-    ```ini
-    sudo systemctl restart postgresql
+    ```bash
+    sudo systemctl restart postgresql-{{pgversion}}
     ```
 
 !!! important
-     Percona Distribution for PostgreSQL does not issue OIDC tokens. You must obtain a valid access token from an external identity provider such as Keycloak, Okta, or Microsoft Entra ID before connecting.
+    PostgreSQL does not issue OIDC tokens. Clients must obtain an access token from an external identity provider such as Keycloak, Okta, or Microsoft Entra ID before connecting.
