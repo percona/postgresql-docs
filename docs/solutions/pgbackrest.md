@@ -1,10 +1,10 @@
 # pgBackRest setup
 
-[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a backup tool used to perform PostgreSQL database backup, archiving, restoration, and point-in-time recovery. 
+[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a tool used to perform PostgreSQL database backups, archiving, restoration, and point-in-time recovery.
 
-In our solution we deploy a [pgBackRest server on a dedicated host :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host) and also deploy pgBackRest on the PostgreSQL servers. Them we configure PostgreSQL servers to use it for backups and archiving.
+In this solution, a [pgBackRest server on a dedicated host :octicons-link-external-16:](https://pgbackrest.org/user-guide-rhel.html#repo-host) is deployed. pgBackRest is also installed and configured on the PostgreSQL servers to perform backups and manage WAL archiving.
 
-You also need a backup storage to store the backups. It can either be a remote storage such as AWS S3, S3-compatible storages or Azure blob storage, or a filesystem-based one. 
+A backup storage is required to store the backups. This can be remote storage such as AWS S3, S3-compatible storage, or Azure Blob Storage, or a filesystem-based storage.
 
 ## Preparation
 
@@ -42,7 +42,7 @@ Do the following steps on the `backup` node.
     export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
 
-2. Create the `pgBackRest` repository, *if necessary*
+2. Create the `pgBackRest` repository, *if necessary*.
 
     A repository is where `pgBackRest` stores backups. In this example, the backups will be saved to `/var/lib/pgbackrest`.
 
@@ -118,8 +118,8 @@ Do the following steps on the `backup` node.
         pg1-port=5432
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         pg1-host-type=tls
-        pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
+        pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
+        pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
         pg1-host-ca-file=${CA_PATH}/ca.crt
         pg1-socket-path=/var/run/postgresql 
      
@@ -128,8 +128,8 @@ Do the following steps on the `backup` node.
         pg2-port=5432
         pg2-path=/var/lib/postgresql/{{pgversion}}/main
         pg2-host-type=tls
-        pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
+        pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
+        pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
         pg2-host-ca-file=${CA_PATH}/ca.crt
         pg2-socket-path=/var/run/postgresql 
     
@@ -138,8 +138,8 @@ Do the following steps on the `backup` node.
         pg3-port=5432
         pg3-path=/var/lib/postgresql/{{pgversion}}/main
         pg3-host-type=tls
-        pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
+        pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
+        pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
         pg3-host-ca-file=${CA_PATH}/ca.crt
         pg3-socket-path=/var/run/postgresql
         
@@ -200,8 +200,8 @@ Do the following steps on the `backup` node.
         pg1-port=5432
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         pg1-host-type=tls
-        pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
+        pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
+        pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
         pg1-host-ca-file=${CA_PATH}/ca.crt
         pg1-socket-path=/var/run/postgresql 
      
@@ -210,8 +210,8 @@ Do the following steps on the `backup` node.
         pg2-port=5432
         pg2-path=/var/lib/postgresql/{{pgversion}}/main
         pg2-host-type=tls
-        pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
+        pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
+        pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
         pg2-host-ca-file=${CA_PATH}/ca.crt
         pg2-socket-path=/var/run/postgresql 
     
@@ -220,20 +220,38 @@ Do the following steps on the `backup` node.
         pg3-port=5432
         pg3-path=/var/lib/postgresql/{{pgversion}}/main
         pg3-host-type=tls
-        pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
-        pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
+        pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
+        pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
         pg3-host-ca-file=${CA_PATH}/ca.crt
         pg3-socket-path=/var/run/postgresql
         
         " | sudo tee /etc/pgbackrest.conf
         ```
 
-    *NOTE*: The option `backup-standby=y` above indicates the backups should be taken from a standby server. If you are operating with a primary only, or if your secondaries are not configured with `pgBackRest`, set this option to `n`.
+    Where, for clusters and nodes:
+
+    * `pg1-host`, `pg2-host`, `pg3-host` are hostnames of the PostgreSQL nodes in the cluster
+    * `pg1-host-port`, `pg2-host-port`, `pg3-host-port` is the port used by the pgBackRest server daemon on each node. By default, the pgBackRest server listens on port `8432`
+    * `pg1-port`, `pg2-port`, `pg3-port` is the PostgreSQL server port (default `5432`)
+    * `pg1-path`, `pg2-path`, `pg3-path` is the path to the PostgreSQL data directory on each node
+        The default path differs by distribution:
+            * Debian/Ubuntu: `/var/lib/postgresql/<version>/main`
+            * RHEL/derivatives: `/var/lib/pgsql/<version>/data`
+    * `pg1-host-type`, `pg2-host-type`, `pg3-host-type` is the connection type used by pgBackRest (`tls` in this example)
+    * `pg1-host-cert-file`, `pg2-host-cert-file`, `pg3-host-cert-file` is the TLS certificate file used to authenticate the PostgreSQL node
+    * `pg1-host-key-file`, `pg2-host-key-file`, `pg3-host-key-file` is the private key corresponding to the TLS certificate
+    * `pg1-host-ca-file`, `pg2-host-ca-file`, `pg3-host-ca-file` is the Certificate Authority file used to verify the TLS connection
+    * `pg1-socket-path`, `pg2-socket-path`, `pg3-socket-path` is the PostgreSQL Unix socket directory
+
+    The numbering (`pg1`, `pg2`, `pg3`) represents individual PostgreSQL nodes defined in the cluster stanza.
+
+    !!! note
+         The option `backup-standby=y` above indicates the backups should be taken from a standby server. If you are operating with a primary only, or if your secondaries are not configured with `pgBackRest`, set this option to `n`.
 
 ### Create the certificate files
 
 Run the following commands as a root user or with `sudo` privileges
-   
+
 1. Create the folder to store the certificates:
 
     ```{.bash data-prompt="$"}
@@ -281,7 +299,7 @@ Run the following commands as a root user or with `sudo` privileges
     $ sudo rm -f ${CA_PATH}/*.csr
     $ sudo chown postgres:postgres -R ${CA_PATH}
     $ sudo chmod 0600 ${CA_PATH}/*
-    ``` 
+    ```
 
 ### Create the `pgbackrest` daemon service
 
@@ -305,15 +323,15 @@ Run the following commands as a root user or with `sudo` privileges
     [Install]
     WantedBy=multi-user.target
     ```
-    
-2. Make `systemd` aware of the new service: 
+
+2. Make `systemd` aware of the new service:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl daemon-reload
     ```
 
 3. Enable `pgBackRest`:
- 
+
     ```{.bash data-prompt="$"}
     $ sudo systemctl enable --now pgbackrest.service
     ```
@@ -335,7 +353,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-pgbackrest
         ```
-    
+
 2. Export environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
@@ -343,7 +361,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ export SRV_NAME="backup"
     $ export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
-    
+
 3. Create the certificates folder:
 
     ```{.bash data-prompt="$"}
@@ -357,7 +375,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ sudo chown postgres:postgres -R ${CA_PATH}
     $ sudo chmod 0600 ${CA_PATH}/* 
     ```
-   
+
 5. Make a copy of the configuration file. The path to it can be either `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf`:
 
     ```{.bash data-prompt="$"}
@@ -394,7 +412,6 @@ Run the following commands on `node1`, `node2`, and `node3`.
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         " | sudo tee /etc/pgbackrest.conf
         ```
-
 
     === ":material-redhat: On RHEL/derivatives"
 
@@ -468,7 +485,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
         ```
 
-9. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`: 
+9. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`:
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml edit-config
@@ -504,7 +521,6 @@ Run the following commands on `node1`, `node2`, and `node3`.
     ttl: 30
     ```
 
-   
 11. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
 
     ```{.bash data-prompt="$"}
@@ -513,7 +529,8 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
     It may take a while to reload the new configuration.
 
-    *NOTE*: When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
+    !!! note
+         When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
 
 ## Create backups
 
@@ -532,7 +549,7 @@ Run the following commands on the **backup server**:
     ```
 
 3. Check backup info
-    
+
     ```{.bash data-prompt="$"}
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 info
     ```
@@ -543,6 +560,6 @@ Run the following commands on the **backup server**:
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 expire --set=<BACKUP_ID>
     ```
 
-## Next steps
+## Next step
 
 [Configure HAProxy :material-arrow-right:](ha-haproxy.md){.md-button}
