@@ -212,8 +212,4 @@
          <loc>https://docs.percona.com/postgresql/18/solutions/postgis.html</loc>
          <lastmod>2026-03-12</lastmod>
     </url>
-    <url>
-         <loc>https://docs.percona.com/postgresql/18/solutions/tde-tools-compatibility.html</loc>
-         <lastmod>2026-03-12</lastmod>
-    </url>
 </urlset>

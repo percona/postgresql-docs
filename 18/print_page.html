@@ -1825,7 +1825,7 @@
   <span class="md-ellipsis">
     
   
-    Data encryption
+    Spatial data handling
   
 
     
@@ -1838,89 +1838,6 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Data encryption
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="solutions/tde-tools-compatibility.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TDE compatibility with tools and extensions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Spatial data handling
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3473,34 +3390,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#section-6-4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data encryption
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Data encryption">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#solutions-tde-tools-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TDE compatibility with tools and extensions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#section-6-5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
         Spatial data handling
       
     </span>
@@ -3570,7 +3459,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-6-6" class="md-nav__link">
+  <a href="#section-6-5" class="md-nav__link">
     <span class="md-ellipsis">
       
         LDAP authentication
@@ -8231,222 +8120,9 @@ pg1-path=/var/lib/postgresql/14/main
 <span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
 </code></pre></div></section></section>
                     <section class='print-page md-section' id='section-6-4' heading-number='6.4'>
-                        <h1>Data encryption<a class='headerlink' href='#section-6-4' title='Permanent link'></a>
+                        <h1>Spatial data handling<a class='headerlink' href='#section-6-4' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="solutions-tde-tools-compatibility" heading-number="6.4.1"><h1 id="solutions-tde-tools-compatibility-tde-compatibility-with-tools-and-extensions">TDE compatibility with tools and extensions<a class="headerlink" href="#solutions-tde-tools-compatibility-tde-compatibility-with-tools-and-extensions" title="Permanent link">&para;</a></h1>
-<p>Transparent Data Encryption (TDE) protects PostgreSQL data files and Write-Ahead Logs (WAL) by encrypting them at rest.</p>
-<p>This page describes how TDE interacts with each component included in the Percona Distribution for PostgreSQL.</p>
-<h2 id="solutions-tde-tools-compatibility-compatibility-summary">Compatibility summary<a class="headerlink" href="#solutions-tde-tools-compatibility-compatibility-summary" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Affected by TDE</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-etcd"><strong>etcd</strong></a></td>
-<td>❌ No</td>
-<td>Stores configuration data, not PostgreSQL data.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-haproxy"><strong>HAProxy</strong></a></td>
-<td>❌ No</td>
-<td>Operates at network level; unaffected by TDE.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-patroni"><strong>Patroni</strong></a></td>
-<td>⚙️ Partial</td>
-<td>Cluster replication requires consistent keys.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgaudit"><strong>pgAudit</strong></a></td>
-<td>❌ No</td>
-<td>Logs SQL activity; no interaction with encrypted files.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgaudit-set_user"><strong>pgAudit set_user</strong></a></td>
-<td>❌ No</td>
-<td>Session role tracking unaffected by encryption.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgbackrest"><strong>pgBackRest</strong></a></td>
-<td>✅ Yes</td>
-<td>Backs up encrypted data and WAL; requires key for restore.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgbadger"><strong>pgBadger</strong></a></td>
-<td>❌ No</td>
-<td>Processes plaintext PostgreSQL logs; not impacted.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgbouncer"><strong>pgBouncer</strong></a></td>
-<td>❌ No</td>
-<td>Connection pooling; no access to storage layer.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pg_gather"><strong>pg_gather</strong></a></td>
-<td>❌ No</td>
-<td>Collects performance stats; queries decrypted data in memory.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgpool2"><strong>pgpool2</strong></a></td>
-<td>❌ No</td>
-<td>Middleware routing connections; not affected by TDE.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pg_repack"><strong>pg_repack</strong></a></td>
-<td>✅ Yes</td>
-<td>Rewrites data files; requires access to decrypted in-memory data.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pg_stat_monitor"><strong>pg_stat_monitor</strong></a></td>
-<td>❌ No</td>
-<td>Operates at query-level statistics; no WAL interaction.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-pgvector"><strong>pgvector</strong></a></td>
-<td>❌ No</td>
-<td>Works on in-memory and SQL-level data; encryption transparent.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-postgis"><strong>PostGIS</strong></a></td>
-<td>❌ No</td>
-<td>Spatial extensions operate on decrypted in-memory data.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-wal2json"><strong>wal2json</strong></a></td>
-<td>⚠️ Limited</td>
-<td>Logical decoding may fail on encrypted WAL.</td>
-</tr>
-<tr>
-<td><a href="#solutions-tde-tools-compatibility-postgresql-commons-and-contrib-modules"><strong>PostgreSQL Commons and Contrib Modules</strong></a></td>
-<td>❌ No</td>
-<td>Core modules function normally with TDE enabled.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="solutions-tde-tools-compatibility-etcd">etcd<a class="headerlink" href="#solutions-tde-tools-compatibility-etcd" title="Permanent link">&para;</a></h2>
-<p><code>etcd</code> is a distributed key-value store used by Patroni to maintain cluster state.<br />
-It does not store PostgreSQL data or WAL files.</p>
-<ul>
-<li>TDE does not impact etcd functionality.</li>
-<li>No special configuration is required.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-haproxy">HAProxy<a class="headerlink" href="#solutions-tde-tools-compatibility-haproxy" title="Permanent link">&para;</a></h2>
-<p><code>HAProxy</code> provides load balancing and connection routing.<br />
-Since it operates over TCP connections, not on data files:</p>
-<ul>
-<li>TDE does not affect its behavior.</li>
-<li>No configuration changes are needed.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-patroni">Patroni<a class="headerlink" href="#solutions-tde-tools-compatibility-patroni" title="Permanent link">&para;</a></h2>
-<p><code>Patroni</code> manages PostgreSQL high availability and replication.<br />
-It is not directly impacted by TDE, but the following considerations apply:</p>
-<ul>
-<li>Each cluster node must share the same TDE key provider and key ID.  </li>
-<li>A key mismatch will prevent replicas from starting or replaying WAL.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pgaudit">pgAudit<a class="headerlink" href="#solutions-tde-tools-compatibility-pgaudit" title="Permanent link">&para;</a></h2>
-<p><code>pgAudit</code> logs SQL statements for auditing purposes.</p>
-<ul>
-<li>TDE does not affect audit logging because SQL is captured before disk encryption.</li>
-<li>Logs are written as plaintext files.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pgaudit-set_user">pgAudit set_user<a class="headerlink" href="#solutions-tde-tools-compatibility-pgaudit-set_user" title="Permanent link">&para;</a></h2>
-<p><code>pgAudit set_user</code> provides controlled user switching.<br />
-It operates at the session level and is <strong>not affected</strong> by encryption of data files.</p>
-<ul>
-<li>No TDE-specific configuration is required.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pgbackrest">pgBackRest<a class="headerlink" href="#solutions-tde-tools-compatibility-pgbackrest" title="Permanent link">&para;</a></h2>
-<p><code>pgBackRest</code> performs physical backups and restores of PostgreSQL clusters.<br />
-It fully supports encrypted databases.</p>
-<ul>
-<li>Backups include encrypted data and WAL segments.</li>
-<li>Restores require the original TDE encryption key or Vault access.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Restoring without the correct key makes the backup unusable.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Use a <a href="https://docs.percona.com/pg-tde/global-key-provider-configuration/overview.html">global key provider <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
-</div>
-<h2 id="solutions-tde-tools-compatibility-pgbadger">pgBadger<a class="headerlink" href="#solutions-tde-tools-compatibility-pgbadger" title="Permanent link">&para;</a></h2>
-<p><code>pgBadger</code> analyzes PostgreSQL logs for activity and performance.</p>
-<ul>
-<li>Logs are not encrypted by TDE.</li>
-<li>No configuration or compatibility issues.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pgbouncer">pgBouncer<a class="headerlink" href="#solutions-tde-tools-compatibility-pgbouncer" title="Permanent link">&para;</a></h2>
-<p><code>pgBouncer</code> handles connection pooling at the network layer.<br />
-It has no interaction with encrypted data or WAL files.</p>
-<ul>
-<li>TDE does not affect pgBouncer.</li>
-<li>No configuration changes are needed.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pg_gather">pg_gather<a class="headerlink" href="#solutions-tde-tools-compatibility-pg_gather" title="Permanent link">&para;</a></h2>
-<p><code>pg_gather</code> collects system and query statistics from running databases.</p>
-<ul>
-<li>TDE is transparent; no configuration required.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pgpool2">pgpool2<a class="headerlink" href="#solutions-tde-tools-compatibility-pgpool2" title="Permanent link">&para;</a></h2>
-<p><code>pgpool2</code> manages load balancing and connection routing for PostgreSQL.</p>
-<ul>
-<li>Works on SQL sessions, not files.</li>
-<li>TDE encryption at rest has no impact.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pg_repack">pg_repack<a class="headerlink" href="#solutions-tde-tools-compatibility-pg_repack" title="Permanent link">&para;</a></h2>
-<p><code>pg_repack</code> rebuilds database objects to reclaim space or optimize performance.</p>
-<ul>
-<li>Works with decrypted data in memory.</li>
-<li>Can safely be used with TDE-enabled clusters.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pg_stat_monitor">pg_stat_monitor<a class="headerlink" href="#solutions-tde-tools-compatibility-pg_stat_monitor" title="Permanent link">&para;</a></h2>
-<p><code>pg_stat_monitor</code> collects detailed query statistics.</p>
-<ul>
-<li>Operates entirely at the SQL and memory level.</li>
-<li>TDE does not affect functionality.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-pgvector">pgvector<a class="headerlink" href="#solutions-tde-tools-compatibility-pgvector" title="Permanent link">&para;</a></h2>
-<p><code>pgvector</code> stores and searches vector embeddings.</p>
-<ul>
-<li>Operates at the SQL layer, reading decrypted in-memory data.</li>
-<li>TDE does not change its functionality.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-postgis">PostGIS<a class="headerlink" href="#solutions-tde-tools-compatibility-postgis" title="Permanent link">&para;</a></h2>
-<p><code>PostGIS</code> adds spatial data types and functions.</p>
-<ul>
-<li>Operates on decrypted data loaded into memory.</li>
-<li>TDE does not change its functionality.</li>
-</ul>
-<h2 id="solutions-tde-tools-compatibility-wal2json">wal2json<a class="headerlink" href="#solutions-tde-tools-compatibility-wal2json" title="Permanent link">&para;</a></h2>
-<p><code>wal2json</code> converts WAL records into JSON for logical replication.</p>
-<p>With TDE enabled:</p>
-<ul>
-<li>WAL files are encrypted on disk.</li>
-<li>Logical decoding may fail because it cannot access decrypted WAL.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>wal2json</code> is <strong>not compatible</strong> with encrypted WAL. Consider using logical replication with TDE disabled, or alternative decoding plugins.</p>
-</div>
-<h2 id="solutions-tde-tools-compatibility-postgresql-commons-and-contrib-modules">PostgreSQL Commons and Contrib Modules<a class="headerlink" href="#solutions-tde-tools-compatibility-postgresql-commons-and-contrib-modules" title="Permanent link">&para;</a></h2>
-<p>Common and contrib modules (such as <code>pg_stat_statements</code>, <code>pg_trgm</code>, and <code>hstore</code>)<br />
-operate at the SQL and memory level.</p>
-<ul>
-<li>TDE does not change their functionality.</li>
-<li>No additional configuration is required.</li>
-</ul>
-<p>For more information see the <a href="https://docs.percona.com/pg-tde/index.html"><code>pg_tde</code> documentation</a>.</p></section></section>
-                    <section class='print-page md-section' id='section-6-5' heading-number='6.5'>
-                        <h1>Spatial data handling<a class='headerlink' href='#section-6-5' title='Permanent link'></a>
-                        </h1>
-                    <section class="print-page" id="solutions-postgis" heading-number="6.5.1"><h1 id="solutions-postgis-spatial-data-manipulation">Spatial data manipulation<a class="headerlink" href="#solutions-postgis-spatial-data-manipulation" title="Permanent link">&para;</a></h1>
+                    <section class="print-page" id="solutions-postgis" heading-number="6.4.1"><h1 id="solutions-postgis-spatial-data-manipulation">Spatial data manipulation<a class="headerlink" href="#solutions-postgis-spatial-data-manipulation" title="Permanent link">&para;</a></h1>
 <p>Organizations dealing with spatial data need to store it somewhere and manipulate it. PostGIS is the open source extension for PostgreSQL that allows doing just that. It adds support for storing the spatial data types such as:</p>
 <ul>
 <li>Geographical data like points, lines, polygons, GPS coordinates that can be mapped on a sphere.</li>
@@ -8471,7 +8147,7 @@ operate at the SQL and memory level.</p>
 <li>You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.</li>
 </ul>
 <h2 id="solutions-postgis-next-steps">Next steps:<a class="headerlink" href="#solutions-postgis-next-steps" title="Permanent link">&para;</a></h2>
-<p><a class="md-button" href="#solutions-postgis-deploy">Deployment</a></p></section><section class="print-page" id="solutions-postgis-deploy" heading-number="6.5.2"><h1 id="solutions-postgis-deploy-deploy-spatial-data-with-postgresql">Deploy spatial data with PostgreSQL<a class="headerlink" href="#solutions-postgis-deploy-deploy-spatial-data-with-postgresql" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="#solutions-postgis-deploy">Deployment</a></p></section><section class="print-page" id="solutions-postgis-deploy" heading-number="6.4.2"><h1 id="solutions-postgis-deploy-deploy-spatial-data-with-postgresql">Deploy spatial data with PostgreSQL<a class="headerlink" href="#solutions-postgis-deploy-deploy-spatial-data-with-postgresql" title="Permanent link">&para;</a></h1>
 <p>The following document provides guidelines how to install PostGIS and how to run the basic queries. </p>
 <h2 id="solutions-postgis-deploy-considerations">Considerations<a class="headerlink" href="#solutions-postgis-deploy-considerations" title="Permanent link">&para;</a></h2>
 <ol>
@@ -8608,7 +8284,7 @@ operate at the SQL and memory level.</p>
 </code></pre></div>
 <ol>
 <li>Repeat the command to upload other shapefiles in the data set: <code>nyc_census_blocks</code>, <code>nyc_neighborhoods</code>, <code>nyc_subway_stations</code></li>
-</ol></section><section class="print-page" id="solutions-postgis-testing" heading-number="6.5.3"><h1 id="solutions-postgis-testing-query-spatial-data">Query spatial data<a class="headerlink" href="#solutions-postgis-testing-query-spatial-data" title="Permanent link">&para;</a></h1>
+</ol></section><section class="print-page" id="solutions-postgis-testing" heading-number="6.4.3"><h1 id="solutions-postgis-testing-query-spatial-data">Query spatial data<a class="headerlink" href="#solutions-postgis-testing-query-spatial-data" title="Permanent link">&para;</a></h1>
 <p>After you <a href="#solutions-postgis-deploy">installed and set up PostGIS</a>, let’s find answers to the following questions by querying the database:</p>
 <h2 id="solutions-postgis-testing-what-is-the-population-of-the-new-york-city"><em>What is the population of the New York City?</em><a class="headerlink" href="#solutions-postgis-testing-what-is-the-population-of-the-new-york-city" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">Sum</span><span class="p">(</span><span class="n">popn_total</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">population</span>
@@ -8643,7 +8319,7 @@ operate at the SQL and memory level.</p>
 <span class="c1">-------------------</span>
 <span class="w"> </span><span class="mi">308</span><span class="p">.</span><span class="mi">3419936909855</span>
 <span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
-</code></pre></div></section><section class="print-page" id="solutions-postgis-upgrade" heading-number="6.5.4"><h1 id="solutions-postgis-upgrade-spatial-database-upgrade">Spatial database upgrade<a class="headerlink" href="#solutions-postgis-upgrade-spatial-database-upgrade" title="Permanent link">&para;</a></h1>
+</code></pre></div></section><section class="print-page" id="solutions-postgis-upgrade" heading-number="6.4.4"><h1 id="solutions-postgis-upgrade-spatial-database-upgrade">Spatial database upgrade<a class="headerlink" href="#solutions-postgis-upgrade-spatial-database-upgrade" title="Permanent link">&para;</a></h1>
 <p>When using PostgreSQL and PostGIS for some time, you may eventually come to the decision to upgrade your spatial database. There can be different reasons for that: to receive improvements and/or bug fixes that come with a minor version of the database/extension, reaching the end of life of the currently used software and others.</p>
 <p>The spatial database upgrade consists of two steps:</p>
 <ul>
@@ -8680,7 +8356,7 @@ operate at the SQL and memory level.</p>
 </div>
 <h2 id="solutions-postgis-upgrade-upgrade-postgresql">Upgrade PostgreSQL<a class="headerlink" href="#solutions-postgis-upgrade-upgrade-postgresql" title="Permanent link">&para;</a></h2>
 <p>Upgrade PostgreSQL either to the <a href="#minor-upgrade">latest minor</a> or to the <a href="#major-upgrade">major version</a>.</p>
-<p>If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, <a href="https://www.percona.com/services/managed-services">contact Percona Managed Services <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for an individual upgrade scenario development.</p></section></section><section class="print-page" id="ldap" heading-number="6.6"><h1 id="ldap-ldap-authentication">LDAP authentication<a class="headerlink" href="#ldap-ldap-authentication" title="Permanent link">&para;</a></h1>
+<p>If you are using long deprecated views and functions and / or need the expertise in upgrading your spatial database, <a href="https://www.percona.com/services/managed-services">contact Percona Managed Services <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for an individual upgrade scenario development.</p></section></section><section class="print-page" id="ldap" heading-number="6.5"><h1 id="ldap-ldap-authentication">LDAP authentication<a class="headerlink" href="#ldap-ldap-authentication" title="Permanent link">&para;</a></h1>
 <p>Percona&rsquo;s PostgreSQL allows you to use LDAP, which uses a central authentication server for storing usernames, passwords and their resource permissions.</p>
 <p>The LDAP authentication method in Percona Distribution for PortgreSQL is functionally the same as upstream PostgreSQL, check the documentation <a href="https://www.postgresql.org/docs/18/auth-ldap.html">here <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for more information.</p>
 <h2 id="ldap-set-up-ldap-authentication">Set up LDAP authentication<a class="headerlink" href="#ldap-set-up-ldap-authentication" title="Permanent link">&para;</a></h2>
@@ -8709,8 +8385,8 @@ operate at the SQL and memory level.</p>
 </li>
 </ol>
 <p>By following these steps, you have successfully integrated LDAP authentication into your environment.</p></section>
-                    <section class='print-page md-section' id='section-6-6' heading-number='6.6'>
-                        <h1>LDAP authentication<a class='headerlink' href='#section-6-6' title='Permanent link'></a>
+                    <section class='print-page md-section' id='section-6-5' heading-number='6.5'>
+                        <h1>LDAP authentication<a class='headerlink' href='#section-6-5' title='Permanent link'></a>
                         </h1>
                     </section></section>
                     <section class='print-page md-section' id='section-7' heading-number='7'>
@@ -10356,20 +10032,17 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 .print-site-enumerate-headings #solutions-dr-pgbackrest-setup > h1:before { content: '6.3.2 ' }
 
 .print-site-enumerate-headings #section-6-4 > h1:before { content: '6.4 ' }
-.print-site-enumerate-headings #solutions-tde-tools-compatibility > h1:before { content: '6.4.1 ' }
+.print-site-enumerate-headings #solutions-postgis > h1:before { content: '6.4.1 ' }
+
+.print-site-enumerate-headings #solutions-postgis-deploy > h1:before { content: '6.4.2 ' }
+
+.print-site-enumerate-headings #solutions-postgis-testing > h1:before { content: '6.4.3 ' }
+
+.print-site-enumerate-headings #solutions-postgis-upgrade > h1:before { content: '6.4.4 ' }
+
+.print-site-enumerate-headings #ldap > h1:before { content: '6.5 ' }
 
 .print-site-enumerate-headings #section-6-5 > h1:before { content: '6.5 ' }
-.print-site-enumerate-headings #solutions-postgis > h1:before { content: '6.5.1 ' }
-
-.print-site-enumerate-headings #solutions-postgis-deploy > h1:before { content: '6.5.2 ' }
-
-.print-site-enumerate-headings #solutions-postgis-testing > h1:before { content: '6.5.3 ' }
-
-.print-site-enumerate-headings #solutions-postgis-upgrade > h1:before { content: '6.5.4 ' }
-
-.print-site-enumerate-headings #ldap > h1:before { content: '6.6 ' }
-
-.print-site-enumerate-headings #section-6-6 > h1:before { content: '6.6 ' }
 .print-site-enumerate-headings #section-7 > h1:before { content: '7 ' }
 .print-site-enumerate-headings #major-upgrade > h1:before { content: '7.1 ' }
 
