@@ -14,8 +14,7 @@ This document describes the in-place upgrade of Percona Distribution for Postgre
     It corrupts encryption metadata which results in:
     
     - Missing or empty key files in the `pg_tde/` directory
-    - Incomplete provider metadata
-    - Encrypted data becoming inaccessible
+    - Missing or incomplete provider metadata
 
 To ensure a smooth upgrade path, follow these steps:
 
