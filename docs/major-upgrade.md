@@ -16,9 +16,6 @@ This document describes the in-place upgrade of Percona Distribution for Postgre
     - Missing or empty key files in the `pg_tde/` directory
     - Incomplete provider metadata
     - Encrypted data becoming inaccessible
-    
-    **Workaround:**
-    If your cluster contains encrypted tables, stop here and use logical backup/restore instead.
 
 To ensure a smooth upgrade path, follow these steps:
 
