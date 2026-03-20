@@ -2,7 +2,8 @@
 
 To uninstall Percona Distribution for PostgreSQL, remove all the installed packages and data / configuration files.
 
-**NOTE**: Should you need the data files later, back up your data before uninstalling Percona Distribution for PostgreSQL.
+!!! note
+     Should you need the data files later, back up your data before uninstalling Percona Distribution for PostgreSQL.
 
 === ":material-debian: On Debian and Ubuntu using `apt`"
 

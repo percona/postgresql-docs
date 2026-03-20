@@ -23,7 +23,7 @@ CREATE TABLE customers (
 );
 ```
 
-<i info>:material-information: Hint:</i>Having issues with table creation? Check our [Troubleshooting guide](troubleshooting.md)
+<i info>:material-information: Hint:</i> Having issues with table creation? Check our [Troubleshooting guide](troubleshooting.md).
 
 ## Insert the data
 
@@ -74,7 +74,7 @@ Let's update John Doe's record with a new email address.
     SELECT * FROM customers WHERE first_name = 'John' AND last_name = 'Doe';
     ```
 
-    ??? example "Expected output"   
+    ??? example "Expected output"
 
         ```{.sql .no-copy}
          id | first_name | last_name |          email

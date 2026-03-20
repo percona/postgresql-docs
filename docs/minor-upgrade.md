@@ -23,7 +23,7 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 
 ## Before you start
 
-1. [Update the `percona-release` :octicons-link-external-16:](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL.
+1. [Update the `percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL.
 
 2. Starting with version 17.2.1, `pg_tde` is part of the Percona Server for PostgreSQL package. If you installed `pg_tde` from its dedicated package, do the following to avoid conflicts during the upgrade:
 

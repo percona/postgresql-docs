@@ -10,16 +10,13 @@ To become more confident and proficient in developing database applications, let
 - [Functions and Operators :octicons-link-external-16:](https://www.postgresql.org/docs/current/functions.html)
 - [Indexes :octicons-link-external-16:](https://www.postgresql.org/docs/current/indexes.html)
 
+To effectively solve database administration tasks, master these essential topics:
 
-To effectively solve database administration tasks, master these essential topics: 
-
-- [Backup and restore :octicons-link-external-16:](https://www.postgresql.org/docs/current/backup.html) 
+- [Backup and restore :octicons-link-external-16:](https://www.postgresql.org/docs/current/backup.html)
 - [Authentication :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/auth-methods.html) and role-based access control
 - [PostgreSQL contrib extensions and modules](contrib.md)
-- [Monitor PostgreSQL with Percona Monitoring and Management :octicons-link-external-16:](https://docs.percona.com/percona-monitoring-and-management/quickstart/index.html)
-
+- [Monitor PostgreSQL with Percona Monitoring and Management :octicons-link-external-16:](https://docs.percona.com/percona-monitoring-and-management/3/quickstart/quickstart.html)
 
 Also, check out our solutions to help you meet the requirements of your organization.
 
 [Solutions](solutions.md){.md-button}
-
