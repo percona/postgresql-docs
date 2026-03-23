@@ -48,6 +48,9 @@ For a step-by-step explanation, continue below.
 
     The installation process automatically initializes and starts the default database.
 
+    !!! note
+          On Debian and Ubuntu systems, the `postgresql` service may show as `active (exited)`. This is expected.
+
 3. Switch to the `postgres` user and open the psql interactive terminal:
 
      ```{.bash data-prompt="$"}
