@@ -13,4 +13,4 @@ These enhancements serve as the foundation for Percona-authored extensions, such
 
 For details about available extensions, see the [Percona-authored extensions topic](percona-ext.md).
 
-For a broader overview of integrated tooling and deployment guidance, start with the [Percona Distribution for PostgreSQL Quickstart guide](installing.md).
+For a broader overview of integrated tooling and deployment guidance, start with the [Percona Distribution for PostgreSQL Quickstart guide](quick-start.md).

@@ -20,11 +20,11 @@ Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestr
 
 <div data-grid markdown><div data-banner markdown>
 
-### :material-progress-download: Installation guides { .title }
+### :material-progress-download: Quickstart guide { .title }
 
-Get started quickly with the step-by-step installation instructions.
+Get started quickly with these step-by-step installation instructions.
 
-[Quickstart guides :material-arrow-right:](installing.md){ .md-button }
+[Quickstart guide :material-arrow-right:](quick-start.md){ .md-button }
 
 </div><div data-banner markdown>
 
