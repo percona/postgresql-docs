@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This FAQ answers common questions about using Percona Server for PostgreSQL 18.">
+        <meta name="description" content="This guide shows how to install and start Percona Distribution for PostgreSQL on Debian- and RHEL-based Linux systems. After completing this guide, you will have:">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/faq.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/18/quick-start.html">
       
       
-        <link rel="prev" href="migration.html">
+        <link rel="prev" href="get-help.html">
       
       
-        <link rel="next" href="troubleshooting.html">
+        <link rel="next" href="installing.html">
       
       
         
@@ -32,7 +32,7 @@
     
     
       
-        <title>FAQ - Percona Distribution for PostgreSQL</title>
+        <title>Quickstart guide - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -102,7 +102,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - FAQ" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Quickstart guide" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -129,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#frequently-asked-questions" class="md-skip">
+        <a href="#quickstart-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -226,7 +226,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FAQ
+              Quickstart guide
             
           </span>
         </div>
@@ -470,10 +470,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="quick-start.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="quick-start.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -489,6 +516,111 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fast-path-2-minute-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fast path (2-minute install)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-on-debian-ubuntu-apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install on Debian / Ubuntu (APT)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What&rsquo;s next
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What’s next">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-postgresql-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn PostgreSQL basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure backups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-high-availability-with-patroni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure high availability with Patroni
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2163,37 +2295,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FAQ
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="faq.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
         
   
   
@@ -2209,50 +2314,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#does-minor-cover-both-upstream-feature-and-patch-releases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Does MINOR cover both upstream feature and patch releases?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-upstream-bumps-minor-should-patch-always-reset-to-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When upstream bumps MINOR, should PATCH always reset to 1?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2911,7 +2972,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
-    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/faq.md" title="Edit this page on GitHub" class="edit-page-link">
+    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/quick-start.md" title="Edit this page on GitHub" class="edit-page-link">
       <span class="edit-page-icon">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
@@ -2963,10 +3024,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#does-minor-cover-both-upstream-feature-and-patch-releases" class="md-nav__link">
+  <a href="#fast-path-2-minute-install" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Does MINOR cover both upstream feature and patch releases?
+        Fast path (2-minute install)
       
     </span>
   </a>
@@ -2974,13 +3035,74 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-upstream-bumps-minor-should-patch-always-reset-to-1" class="md-nav__link">
+  <a href="#install-on-debian-ubuntu-apt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When upstream bumps MINOR, should PATCH always reset to 1?
+        Install on Debian / Ubuntu (APT)
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What&rsquo;s next
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What’s next">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learn-postgresql-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learn PostgreSQL basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable extensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure backups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-high-availability-with-patroni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure high availability with Patroni
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3007,24 +3129,103 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/faq.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/quick-start.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
-<p>This FAQ answers common questions about using Percona Server for PostgreSQL 18.</p>
-<p>If you&rsquo;re looking for help with errors or runtime issues, see the <a href="troubleshooting.html">Troubleshooting guide</a>.</p>
-<h2 id="does-minor-cover-both-upstream-feature-and-patch-releases">Does MINOR cover both upstream feature and patch releases?<a class="headerlink" href="#does-minor-cover-both-upstream-feature-and-patch-releases" title="Permanent link">&para;</a></h2>
-<p>Yes, if we ship a future minor of PG18+ this always includes the patch set from Percona as well.</p>
-<h2 id="when-upstream-bumps-minor-should-patch-always-reset-to-1">When upstream bumps MINOR, should PATCH always reset to 1?<a class="headerlink" href="#when-upstream-bumps-minor-should-patch-always-reset-to-1" title="Permanent link">&para;</a></h2>
-<p>The first release will always be <code>MAJOR.MINOR.1</code>.</p>
+<h1 id="quickstart-guide">Quickstart guide<a class="headerlink" href="#quickstart-guide" title="Permanent link">&para;</a></h1>
+<p>This guide shows how to install and start Percona Distribution for PostgreSQL on Debian- and RHEL-based Linux systems. After completing this guide, you will have:</p>
+<ul>
+<li>PostgreSQL running locally</li>
+<li>A database named <code>test</code></li>
+<li>A table named <code>customers</code></li>
+<li>One inserted row you can query</li>
+</ul>
+<h2 id="fast-path-2-minute-install">Fast path (2-minute install)<a class="headerlink" href="#fast-path-2-minute-install" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18<span class="w">  </span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
+sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
+</code></pre></div>
+<p>After psql starts, run the following SQL commands:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">test</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">);</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
+<span class="err">\</span><span class="n">q</span>
+</code></pre></div>
+<p>For a step-by-step explanation, continue below.</p>
+<h2 class="power-number" id="install-on-debian-ubuntu-apt">Install on Debian / Ubuntu (APT)<a class="headerlink" href="#install-on-debian-ubuntu-apt" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Fetch the <code>percona-release</code> package:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+</code></pre></div>
+</li>
+<li>
+<p>Enable the repository and install the package:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
+</code></pre></div>
+<p>The installation process automatically initializes and starts the default database.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Don’t see your question here? Feel free to click the link below to get free database assistance or contact our experts for personalized support.</p>
-<p><a href="get-help.html"><strong>Get help from Percona</strong></a></p>
+<p>On Debian and Ubuntu systems, the <code>postgresql</code> service may show as <code>active (exited)</code>. This is expected.</p>
+</div>
+</li>
+<li>
+<p>Switch to the <code>postgres</code> user and open the psql interactive terminal:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>postgres
+psql
+</code></pre></div>
+</li>
+<li>
+<p>Create a database and make a table in the database:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
+<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">test</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+</code></pre></div>
+</li>
+<li>
+<p>Insert data in the customers table and query the data insertion:</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">);</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
+<span class="err">\</span><span class="n">q</span>
+</code></pre></div>
+</li>
+</ol>
+<p>Congratulations! Percona Distribution for PostgreSQL is now running and you have created your first database.</p>
+<p>For detailed installation steps and further instructions on Debian and Ubuntu, see the <a href="apt.html">Install Percona Distribution for PostgreSQL on Debian and Ubuntu</a>.</p>
+<p>For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the <a href="yum.html">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives</a>.</p>
+<h2 id="whats-next">What&rsquo;s next<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
+<p>Now that your PostgreSQL server is running, you can explore additional capabilities of Percona Distribution for PostgreSQL.</p>
+<div data-grid="data-grid">
+<div data-banner="data-banner">
+<h3 class="title" id="learn-postgresql-basics">Learn PostgreSQL basics<a class="headerlink" href="#learn-postgresql-basics" title="Permanent link">&para;</a></h3>
+<p>Connect with <code>psql</code> and run SQL commands, manage users, roles, and configure authentication.</p>
+<p><a class="md-button" href="crud.html">Manipulate data in PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h3 class="title" id="enable-extensions">Enable extensions<a class="headerlink" href="#enable-extensions" title="Permanent link">&para;</a></h3>
+<p>Percona Distribution for PostgreSQL includes tested open source extensions, such as <code>pg_stat_monitor</code> for query performance monitoring, <code>pg_tde</code> for protecting data at rest and more.</p>
+<p><a class="md-button" href="extensions.html">See Extensions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h3 class="title" id="configure-backups">Configure backups<a class="headerlink" href="#configure-backups" title="Permanent link">&para;</a></h3>
+<p>For production deployments we recommend configuring backups.</p>
+<p><a class="md-button" href="solutions/backup-recovery.html">See Backup and disaster recovery in Percona <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h3 class="title" id="configure-high-availability-with-patroni">Configure high availability with Patroni<a class="headerlink" href="#configure-high-availability-with-patroni" title="Permanent link">&para;</a></h3>
+<p>Deploy a highly available PostgreSQL cluster using Patroni to prevent service interruptions.</p>
+<p><a class="md-button" href="solutions/high-availability.html">See High Availability in PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+</div>
 </div>
 
 
@@ -3048,7 +3249,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 5, 2025 13:15:22 UTC">November 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 23, 2026 15:09:05 UTC">March 23, 2026</span>
   </span>
 
     
@@ -3058,7 +3259,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:02:57 UTC">July 28, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 23, 2026 15:09:05 UTC">March 23, 2026</span>
   </span>
 
     
