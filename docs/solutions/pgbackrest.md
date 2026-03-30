@@ -498,7 +498,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
         max_replication_slots: 10
         max_wal_senders: 5
         max_wal_size: 10GB
-        wal_keep_segments: 10
+        wal_keep_size: 10
         wal_level: logical
         wal_log_hints: true
       recovery_conf:
