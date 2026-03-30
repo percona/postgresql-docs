@@ -220,7 +220,10 @@ nav:
       - "Major upgrade": major-upgrade.md
       - minor-upgrade.md
       - migration.md
-  - Troubleshooting guide: troubleshooting.md
+  - FAQ: faq.md
+  - Troubleshooting guide: 
+      - "Overview": troubleshooting.md
+      - "Repository 404 errors and removed versions": remove-repo-ver.md
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
