@@ -9,37 +9,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL installs PostgreSQL and complements it by a selection of extensions that enable solving essential practical tasks efficiently.">
+        <meta name="description" content="This FAQ answers common questions about using Percona Distribution for PostgreSQL 14.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.1.upd.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/14/faq.html">
       
       
-        <link rel="prev" href="release-notes-v14.1.upd2.html">
+        <link rel="prev" href="migration.html">
       
       
-        <link rel="next" href="release-notes-v14.1.html">
+        <link rel="next" href="troubleshooting.html">
       
       
         
       
       
-      <link rel="icon" href="../_images/postgresql-fav.svg">
+      <link rel="icon" href="_images/postgresql-fav.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>14.1 Update - Percona Distribution for PostgreSQL</title>
+        <title>FAQ - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -58,29 +58,29 @@
       
     
     
-      <link rel="stylesheet" href="../css/print-site.css">
+      <link rel="stylesheet" href="css/print-site.css">
     
-      <link rel="stylesheet" href="../css/print-site-material.css">
+      <link rel="stylesheet" href="css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="css/extra.css">
     
-      <link rel="stylesheet" href="../css/design.css">
+      <link rel="stylesheet" href="css/design.css">
     
-      <link rel="stylesheet" href="../css/osano.css">
+      <link rel="stylesheet" href="css/osano.css">
     
-      <link rel="stylesheet" href="../css/landing.css">
+      <link rel="stylesheet" href="css/landing.css">
     
-      <link rel="stylesheet" href="../css/postgresql.css">
+      <link rel="stylesheet" href="css/postgresql.css">
     
-      <link rel="stylesheet" href="../css/rating.css">
+      <link rel="stylesheet" href="css/rating.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -102,7 +102,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - 14.1 Update" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - FAQ" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -129,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-141-update-2021-12-02" class="md-skip">
+        <a href="#frequently-asked-questions" class="md-skip">
           Skip to content
         </a>
       
@@ -198,14 +198,14 @@
 
     <!-- Link to home -->
     <a
-      href="../index.html"
+      href="index.html"
       title="Percona Distribution for PostgreSQL"
       class="md-header__button md-logo"
       aria-label="Percona Distribution for PostgreSQL"
       data-md-component="logo"
     >
       
-  <img src="../_images/postgresql-mark.svg" alt="logo">
+  <img src="_images/postgresql-mark.svg" alt="logo">
 
     </a>
 
@@ -218,7 +218,7 @@
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="../index.html" class="md-header__topic">
+        <a href="index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Distribution for PostgreSQL
           </span>
@@ -226,7 +226,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              14.1 Update
+              FAQ
             
           </span>
         </div>
@@ -363,9 +363,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+    <a href="index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/postgresql-mark.svg" alt="logo">
+  <img src="_images/postgresql-mark.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -392,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -419,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-help.html" class="md-nav__link">
+      <a href="get-help.html" class="md-nav__link">
         
   
   
@@ -493,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installing.html" class="md-nav__link">
+      <a href="installing.html" class="md-nav__link">
         
   
   
@@ -568,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         
   
   
@@ -596,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         
   
   
@@ -624,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tarball.html" class="md-nav__link">
+      <a href="tarball.html" class="md-nav__link">
         
   
   
@@ -652,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         
   
   
@@ -680,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-extensions.html" class="md-nav__link">
+      <a href="enable-extensions.html" class="md-nav__link">
         
   
   
@@ -708,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../repo-overview.html" class="md-nav__link">
+      <a href="repo-overview.html" class="md-nav__link">
         
   
   
@@ -736,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sboms.html" class="md-nav__link">
+      <a href="sboms.html" class="md-nav__link">
         
   
   
@@ -772,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../connect.html" class="md-nav__link">
+      <a href="connect.html" class="md-nav__link">
         
   
   
@@ -800,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crud.html" class="md-nav__link">
+      <a href="crud.html" class="md-nav__link">
         
   
   
@@ -828,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../whats-next.html" class="md-nav__link">
+      <a href="whats-next.html" class="md-nav__link">
         
   
   
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensions.html" class="md-nav__link">
+      <a href="extensions.html" class="md-nav__link">
         
   
   
@@ -938,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contrib.html" class="md-nav__link">
+      <a href="contrib.html" class="md-nav__link">
         
   
   
@@ -966,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../percona-ext.html" class="md-nav__link">
+      <a href="percona-ext.html" class="md-nav__link">
         
   
   
@@ -994,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../third-party.html" class="md-nav__link">
+      <a href="third-party.html" class="md-nav__link">
         
   
   
@@ -1076,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions.html" class="md-nav__link">
+      <a href="solutions.html" class="md-nav__link">
         
   
   
@@ -1151,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/high-availability.html" class="md-nav__link">
+      <a href="solutions/high-availability.html" class="md-nav__link">
         
   
   
@@ -1179,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-measure.html" class="md-nav__link">
+      <a href="solutions/ha-measure.html" class="md-nav__link">
         
   
   
@@ -1207,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-architecture.html" class="md-nav__link">
+      <a href="solutions/ha-architecture.html" class="md-nav__link">
         
   
   
@@ -1282,7 +1282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/etcd-info.html" class="md-nav__link">
+      <a href="solutions/etcd-info.html" class="md-nav__link">
         
   
   
@@ -1310,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/patroni-info.html" class="md-nav__link">
+      <a href="solutions/patroni-info.html" class="md-nav__link">
         
   
   
@@ -1338,7 +1338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/haproxy-info.html" class="md-nav__link">
+      <a href="solutions/haproxy-info.html" class="md-nav__link">
         
   
   
@@ -1366,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/pgbackrest-info.html" class="md-nav__link">
+      <a href="solutions/pgbackrest-info.html" class="md-nav__link">
         
   
   
@@ -1402,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-components.html" class="md-nav__link">
+      <a href="solutions/ha-components.html" class="md-nav__link">
         
   
   
@@ -1477,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-init-setup.html" class="md-nav__link">
+      <a href="solutions/ha-init-setup.html" class="md-nav__link">
         
   
   
@@ -1505,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-etcd-config.html" class="md-nav__link">
+      <a href="solutions/ha-etcd-config.html" class="md-nav__link">
         
   
   
@@ -1533,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-patroni.html" class="md-nav__link">
+      <a href="solutions/ha-patroni.html" class="md-nav__link">
         
   
   
@@ -1561,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/pgbackrest.html" class="md-nav__link">
+      <a href="solutions/pgbackrest.html" class="md-nav__link">
         
   
   
@@ -1589,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-haproxy.html" class="md-nav__link">
+      <a href="solutions/ha-haproxy.html" class="md-nav__link">
         
   
   
@@ -1625,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/ha-test.html" class="md-nav__link">
+      <a href="solutions/ha-test.html" class="md-nav__link">
         
   
   
@@ -1708,7 +1708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/backup-recovery.html" class="md-nav__link">
+      <a href="solutions/backup-recovery.html" class="md-nav__link">
         
   
   
@@ -1736,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         
   
   
@@ -1819,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/postgis.html" class="md-nav__link">
+      <a href="solutions/postgis.html" class="md-nav__link">
         
   
   
@@ -1847,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/postgis-deploy.html" class="md-nav__link">
+      <a href="solutions/postgis-deploy.html" class="md-nav__link">
         
   
   
@@ -1875,7 +1875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/postgis-testing.html" class="md-nav__link">
+      <a href="solutions/postgis-testing.html" class="md-nav__link">
         
   
   
@@ -1903,7 +1903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions/postgis-upgrade.html" class="md-nav__link">
+      <a href="solutions/postgis-upgrade.html" class="md-nav__link">
         
   
   
@@ -1939,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap.html" class="md-nav__link">
+      <a href="ldap.html" class="md-nav__link">
         
   
   
@@ -2021,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../major-upgrade.html" class="md-nav__link">
+      <a href="major-upgrade.html" class="md-nav__link">
         
   
   
@@ -2049,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2077,7 +2077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration.html" class="md-nav__link">
+      <a href="migration.html" class="md-nav__link">
         
   
   
@@ -2109,10 +2109,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../faq.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="faq.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2128,6 +2155,50 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#does-minor-cover-both-upstream-feature-and-patch-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Does MINOR cover both upstream feature and patch releases?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-upstream-bumps-minor-should-patch-always-reset-to-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When upstream bumps MINOR, should PATCH always reset to 1?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2186,7 +2257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../troubleshooting.html" class="md-nav__link">
+      <a href="troubleshooting.html" class="md-nav__link">
         
   
   
@@ -2214,7 +2285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../remove-repo-ver.html" class="md-nav__link">
+      <a href="remove-repo-ver.html" class="md-nav__link">
         
   
   
@@ -2249,7 +2320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uninstalling.html" class="md-nav__link">
+      <a href="uninstalling.html" class="md-nav__link">
         
   
   
@@ -2273,20 +2344,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
           <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
@@ -2307,7 +2376,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2325,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes.html" class="md-nav__link">
+      <a href="release-notes/release-notes.html" class="md-nav__link">
         
   
   
@@ -2353,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.22.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.22.html" class="md-nav__link">
         
   
   
@@ -2428,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.20.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.20.html" class="md-nav__link">
         
   
   
@@ -2456,7 +2525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.19.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.19.html" class="md-nav__link">
         
   
   
@@ -2484,7 +2553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.18.upd.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.18.upd.html" class="md-nav__link">
         
   
   
@@ -2512,7 +2581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.18.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.18.html" class="md-nav__link">
         
   
   
@@ -2540,7 +2609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.17.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.17.html" class="md-nav__link">
         
   
   
@@ -2623,7 +2692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.15.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.15.html" class="md-nav__link">
         
   
   
@@ -2651,7 +2720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.13.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.13.html" class="md-nav__link">
         
   
   
@@ -2679,7 +2748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.12.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.12.html" class="md-nav__link">
         
   
   
@@ -2707,7 +2776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.11.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.11.html" class="md-nav__link">
         
   
   
@@ -2735,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.10.upd.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.10.upd.html" class="md-nav__link">
         
   
   
@@ -2818,7 +2887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.10.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.10.html" class="md-nav__link">
         
   
   
@@ -2846,7 +2915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.9.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.9.html" class="md-nav__link">
         
   
   
@@ -2874,7 +2943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.8.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.8.html" class="md-nav__link">
         
   
   
@@ -2902,7 +2971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.7.upd.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.7.upd.html" class="md-nav__link">
         
   
   
@@ -2930,7 +2999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.7.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.7.html" class="md-nav__link">
         
   
   
@@ -3013,7 +3082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.6.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.6.html" class="md-nav__link">
         
   
   
@@ -3041,7 +3110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.5.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.5.html" class="md-nav__link">
         
   
   
@@ -3069,7 +3138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.4.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.4.html" class="md-nav__link">
         
   
   
@@ -3097,7 +3166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.3.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.3.html" class="md-nav__link">
         
   
   
@@ -3125,7 +3194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.2.upd2.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.2.upd2.html" class="md-nav__link">
         
   
   
@@ -3158,20 +3227,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_7" >
         
           
           <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
@@ -3192,7 +3259,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3210,7 +3277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.2.upd.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.2.upd.html" class="md-nav__link">
         
   
   
@@ -3238,7 +3305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.2.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.2.html" class="md-nav__link">
         
   
   
@@ -3266,7 +3333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.1.upd2.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.1.upd2.html" class="md-nav__link">
         
   
   
@@ -3291,37 +3358,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    14.1 Update
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="release-notes-v14.1.upd.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes/release-notes-v14.1.upd.html" class="md-nav__link">
         
   
   
@@ -3337,39 +3377,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#bugs-fixed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bugs Fixed
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3382,7 +3389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.1.html" class="md-nav__link">
+      <a href="release-notes/release-notes-v14.1.html" class="md-nav__link">
         
   
   
@@ -3472,7 +3479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../telemetry.html" class="md-nav__link">
+      <a href="telemetry.html" class="md-nav__link">
         
   
   
@@ -3500,7 +3507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../licensing.html" class="md-nav__link">
+      <a href="licensing.html" class="md-nav__link">
         
   
   
@@ -3528,7 +3535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         
   
   
@@ -3797,7 +3804,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                       <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
-    <a href="https://github.com/percona/postgresql-docs/edit/14/docs/release-notes/release-notes-v14.1.upd.md" title="Edit this page on GitHub" class="edit-page-link">
+    <a href="https://github.com/percona/postgresql-docs/edit/14/docs/faq.md" title="Edit this page on GitHub" class="edit-page-link">
       <span class="edit-page-icon">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
@@ -3849,10 +3856,21 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bugs-fixed" class="md-nav__link">
+  <a href="#does-minor-cover-both-upstream-feature-and-patch-releases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bugs Fixed
+        Does MINOR cover both upstream feature and patch releases?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-upstream-bumps-minor-should-patch-always-reset-to-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When upstream bumps MINOR, should PATCH always reset to 1?
       
     </span>
   </a>
@@ -3882,38 +3900,25 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/14/docs/release-notes/release-notes-v14.1.upd.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/14/docs/faq.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="percona-distribution-for-postgresql-141-update-2021-12-02">Percona Distribution for PostgreSQL 14.1 Update (2021-12-02)<a class="headerlink" href="#percona-distribution-for-postgresql-141-update-2021-12-02" title="Permanent link">&para;</a></h1>
-<table class="docutils field-list" frame="void" rules="none">
-  <colgroup>
-    <col class="field-name">
-    <col class="field-body">
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field-odd field">
-      <th class="field-name">Date:</th>
-      <td class="field-body">December 2, 2021</td>
-    </tr>
-    <tr class="field-even field">
-      <th class="field-name">Installation:</th>
-      <td class="field-body">
-        <a class="reference external" href="https://www.percona.com/doc/postgresql/14/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL installs PostgreSQL and complements it by a selection of extensions that enable solving essential practical tasks efficiently.</p>
-<p>This update of Percona Distribution for PostgreSQL fixes the inability of a user to upgrade the <code>postgresql-common</code> package during the major upgrade to version 14.1 on DEB-based systems. </p>
-<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/DISTPG-358">DISTPG-358</a>: &ldquo;Device or resource busy&rdquo; error during the major upgrade of PostgreSQL on Ubuntu</li>
-</ul>
+<h1 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
+<p>This FAQ answers common questions about using Percona Distribution for PostgreSQL 14.</p>
+<p>If you&rsquo;re looking for help with errors or runtime issues, see the <a href="troubleshooting.html">Troubleshooting guide</a>.</p>
+<h2 id="does-minor-cover-both-upstream-feature-and-patch-releases">Does MINOR cover both upstream feature and patch releases?<a class="headerlink" href="#does-minor-cover-both-upstream-feature-and-patch-releases" title="Permanent link">&para;</a></h2>
+<p>Yes, if we ship a future minor of PG14+ this always includes the patchset from Percona as well.</p>
+<h2 id="when-upstream-bumps-minor-should-patch-always-reset-to-1">When upstream bumps MINOR, should PATCH always reset to 1?<a class="headerlink" href="#when-upstream-bumps-minor-should-patch-always-reset-to-1" title="Permanent link">&para;</a></h2>
+<p>The first release will always be <code>MAJOR.MINOR.1</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don’t see your question here? Feel free to click the link below to get free database assistance or contact our experts for personalized support.</p>
+<p><a href="get-help.html"><strong>Get help from Percona</strong></a></p>
+</div>
 
 
 
@@ -3936,7 +3941,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 1, 2022 17:27:39 UTC">June 1, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 2, 2026 14:11:41 UTC">April 2, 2026</span>
   </span>
 
     
@@ -3946,7 +3951,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2021 19:47:29 UTC">December 2, 2021</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 2, 2026 14:11:41 UTC">April 2, 2026</span>
   </span>
 
     
@@ -4061,24 +4066,24 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../js/print-site.js"></script>
+        <script src="js/print-site.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
-        <script src="../js/consent.js"></script>
+        <script src="js/consent.js"></script>
       
-        <script src="../js/rating.js"></script>
+        <script src="js/rating.js"></script>
       
-        <script src="../js/open_in_new_tab.js"></script>
+        <script src="js/open_in_new_tab.js"></script>
       
     
 
