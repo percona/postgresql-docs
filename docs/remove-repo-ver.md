@@ -11,9 +11,11 @@ The following versions are affected:
 
 ## Reason for removal
 
-To prevent unintended usage, these repositories were removed from distribution.
+These versions were part of a release that included known issues affecting stability and reliability.
 
-These versions are not recommended for production use.
+To prevent unintended usage, these repositories were removed from distribution. These versions are not recommended for production use.
+
+For additional details, see the [relevant release notes](release-notes/release-notes-v15.14.md).
 
 ## What should you do instead?
 
