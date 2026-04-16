@@ -43,8 +43,7 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 17 -b publish -p
-          mike set-default 17 -b publish -p
-          mike retitle 17 "17 (LATEST)" -b publish -p
+          mike retitle 17 "17.9" -b publish -p
 
       
 

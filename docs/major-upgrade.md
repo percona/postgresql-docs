@@ -2,6 +2,20 @@
 
 This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade` tool.
 
+!!! danger "pg_upgrade is not supported with encrypted tables (pg_tde)"
+
+    `pg_upgrade` is not supported for clusters with encrypted tables (`pg_tde`).
+
+    **You are affected if:**
+
+    - You are using `pg_tde`, or
+    - Your cluster contains encrypted tables
+
+    It corrupts encryption metadata which results in:
+    
+    - Missing or empty key files in the `pg_tde/` directory
+    - Missing or incomplete provider metadata
+
 To ensure a smooth upgrade path, follow these steps:
 
 * Upgrade to the latest minor version within your current major version (e.g., from 16.6 to 16.9).
@@ -12,13 +26,13 @@ To ensure a smooth upgrade path, follow these steps:
 
     Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. 
 
-The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
+An in-place upgrade installs a new version alongside the existing one while reusing the data directory.
 
 !!! admonition "See also"
 
     [`pg_upgrade` Documentation :octicons-link-external-16:](https://www.postgresql.org/docs/{{pgversion}}/pgupgrade.html)
 
-Similar to installing, we recommend you to upgrade Percona Distribution for PostgreSQL from Percona repositories.
+Similar to installation, we recommend upgrading Percona Distribution for PostgreSQL using Percona repositories.
 
 !!! important
 
@@ -183,7 +197,7 @@ Run **all** commands as root or via **sudo**:
         ```
       </details>
 
-4. Start the `postgreqsl` service.
+4. Start the `postgresql` service.
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl start postgresql.service
@@ -327,7 +341,7 @@ Run **all** commands as root or via **sudo**:
     $ systemctl status postgresql-{{pgversion}}
     ```
 
-7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vaccumdb` command to analyze the new cluster:
+7. After the upgrade, the Optimizer statistics are not transferred to the new cluster. Run the `vacuumdb` command to analyze the new cluster:
 
     * Log in as the postgres user
 

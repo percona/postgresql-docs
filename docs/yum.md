@@ -4,7 +4,7 @@ This document describes how to install Percona Distribution for PostgreSQL from 
 
 ## Platform specific notes
 
-Depending on what operating system you are using, you may need to enable or disable specific modules to install Percona Distribution for PostgreSQL packages and to resolve dependencies conflicts for its specific components. 
+Depending on what operating system you are using, you may need to enable or disable specific modules to install Percona Distribution for PostgreSQL packages and to resolve dependencies conflicts for its specific components.
 
 ### For Percona Distribution for PostgreSQL packages
 
@@ -50,6 +50,20 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf install perl-IPC-Run -y
     ```
 
+=== "RHEL9"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
 === "Rocky Linux 9"
 
     ```{.bash data-prompt="$"}
@@ -65,6 +79,35 @@ You may need to install the `percona-postgresql{{pgversion}}-devel` package when
     $ sudo dnf install perl-IPC-Run -y
     ```
 
+=== "RHEL10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled codeready-builder-for-rhel-10-rhui-rpms
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+    If the required packages are not available in RHEL repos, install EPEL:
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Rocky Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf install dnf-plugins-core
+    $ sudo dnf config-manager --set-enabled crb
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
+=== "Oracle Linux 10"
+
+    ```{.bash data-prompt="$"}
+    $ sudo dnf config-manager --set-enabled ol10_codeready_builder 
+    $ sudo dnf install perl-IPC-Run -y
+    ```
+
 ### For `percona-patroni` package
 
 To install Patroni on Red Hat Enterprise Linux 9 and compatible derivatives, enable the `epel` repository
@@ -77,7 +120,7 @@ $ sudo yum install epel-release
 
 To install `pgpool2` on Red Hat Enterprise Linux and compatible derivatives, enable the codeready builder repository first to resolve dependencies conflict for `pgpool2`.
 
-The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly. 
+The following are commands for Red Hat Enterprise Linux 9 and derivatives. For Red Hat Enterprise Linux 8, replace the operating system version in the commands accordingly.
 
 === "RHEL 9"
 
@@ -339,114 +382,103 @@ $ sudo yum -y install curl
    $ sudo percona-release setup ppg{{pgversion}}
    ```
 
-### Install packages
+### Install packages individually
 
-=== "Install using meta-package"
+Run the following commands:
+{.power-number}
 
-     The [meta package](repo-overview.md#percona-ppg-server){:target=”_blank”} enables you to install several components of the distribution in one go.
-     
-     ```{.bash data-prompt="$"}
-     $ sudo yum install percona-ppg-server{{pgversion}}
-     ```
+1. Install the PostgreSQL server package:
 
-=== "Install packages individually"
-    
-    Run the following commands:
-    {.power-number}
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-postgresql{{pgversion}}-server
+    ```
 
-     1. Install the PostgreSQL server package:
+2. Install the following components:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum install percona-postgresql{{pgversion}}-server
-         ```
+    Install `pg_repack`:
 
-     2. Install the components:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pg_repack{{pgversion}}
+    ```
 
-        Install `pg_repack`:
+    Install `pgaudit`:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_repack{{pgversion}}
-        ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgaudit{{pgversion}}
+    ```
 
-        Install `pgaudit`:
+    Install `pgBackRest`:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit{{pgversion}}
-        ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgbackrest
+    ```
 
-        Install `pgBackRest`:
+    Install `Patroni`:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
-        ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-patroni
+    ```
 
-        Install `Patroni`:
+    [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1).
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-patroni
-        ```
+    Install `pgBouncer`:
 
-        [Install `pg_stat_monitor` :octicons-link-external-16:](https://docs.percona.com/pg-stat-monitor/install.html#__tabbed_1_1)
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgbouncer
+    ```
 
+    Install `pgAudit-set_user`:
 
-        Install `pgBouncer`:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgaudit{{pgversion}}_set_user
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbouncer
-        ```
+    Install `pgBadger`:
 
-        Install `pgAudit-set_user`:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgbadger
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgaudit{{pgversion}}_set_user
-        ```
+    Install `wal2json`:
 
-        Install `pgBadger`:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-wal2json{{pgversion}}
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbadger
-        ```
+    Install PostgreSQL contrib extensions:
 
-        Install `wal2json`:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-postgresql{{pgversion}}-contrib
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-wal2json{{pgversion}}
-        ```
+    Install HAProxy:
 
-        Install PostgreSQL contrib extensions:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-haproxy
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-postgresql{{pgversion}}-contrib
-        ```
+    Install `pg_gather`:
 
-        Install HAProxy
-        
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-haproxy
-        ```
-        
-        Install `pg_gather`
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pg_gather
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pg_gather
-        ```
+    Install pgpool2:
 
-        Install pgpool2
+    1. Check the [platform specific notes](#for-pgpool2-extension).
+    2. Install the extension:
 
-        1. Check the [platform specific notes](#for-pgpool2-extension)
-        2. Install the extension
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgpool-II-pg{{pgversion}}
+    ```
 
-            ```{.bash data-prompt="$"}
-            $ sudo yum install percona-pgpool-II-pg{{pgversion}}
-            ```
+    Install pgvector package suite:
 
-        Install pgvector package suite:
+    ```{.bash data-prompt="$"}
+    $ sudo yum install percona-pgvector_{{pgversion}} percona-pgvector_{{pgversion}}-debuginfo percona-pgvector_{{pgversion}}-debugsource percona-pgvector_{{pgversion}}-llvmjit
+    ```
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgvector_{{pgversion}} percona-pgvector_{{pgversion}}-debuginfo percona-pgvector_{{pgversion}}-debugsource percona-pgvector_{{pgversion}}-llvmjit
-        ```
-
-        Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enabling extensions](enable-extensions.md).
+    Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to [Enable Percona Distribution for PostgreSQL components](enable-extensions.md).
 
 ### Start the service
 

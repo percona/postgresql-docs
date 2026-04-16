@@ -5,7 +5,6 @@ Docker images of Percona Distribution for PostgreSQL are hosted publicly on [Doc
 For more information about using Docker, see the [Docker Docs :octicons-link-external-16:](https://docs.docker.com/).
 
 !!! note
-
     Make sure that you are using [the latest version of Docker :octicons-link-external-16:](https://docs.docker.com/get-docker/). The ones provided via `apt` and `yum` may be outdated and cause errors.
 
     By default, Docker pulls the image from Docker Hub if it is not available locally.
@@ -16,8 +15,7 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
 
     | Component name                | Description                          |
     |-------------------------------|--------------------------------------|  
-    | `percona-postgresql{{pgversion}}`| A metapackage that installs the latest version of PostgreSQL|
-     | `percona-postgresql{{pgversion}}-server` | The PostgreSQL server package. |
+    | `percona-postgresql{{pgversion}}-server` | The PostgreSQL server package. |
     | `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
     | `percona-postgresql-client-common`| The manager for multiple PostgreSQL client versions.|
     | `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
@@ -44,8 +42,7 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
     * `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
 
     !!! tip
-
-        You can secure the password by exporting it to the environment file and using that to start the container.    
+        You can secure the password by exporting it to the environment file and using that to start the container.
 
         1. Export the password to the environment file:    
 

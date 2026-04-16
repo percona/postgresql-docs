@@ -3,7 +3,7 @@
 site_name: Percona Distribution for PostgreSQL
 site_description: Documentation
 site_author: Percona LLC
-copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2024 — <a href="#__consent">Cookie Consent</a>
+copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2026 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
@@ -51,7 +51,7 @@ theme:
     - navigation.top
     - navigation.tracking 
     - content.tabs.link
-    - content.action.edit
+#    - content.action.edit
     - content.action.view
     - content.code.copy 
     - content.tooltips 
@@ -65,11 +65,13 @@ extra_css:
   - css/osano.css
   - css/landing.css
   - css/postgresql.css
+  - css/rating.css
 
 extra_javascript:
   - js/version-select.js
   - js/promptremover.js
-  - js/consent.css
+  - js/consent.js
+  - js/rating.js
 
 markdown_extensions:
   attr_list: {}
@@ -108,7 +110,6 @@ markdown_extensions:
         custom_icons:
           - _resource/.icons
 
-
 plugins:
   section-index: {}
   search: 
@@ -116,6 +117,10 @@ plugins:
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  git-committers:
+    enabled: !ENV [CI, false]
+    repository: percona/postgresql-docs
+    branch: "17"
   meta-descriptions:
     export_csv: false
     quiet: false
@@ -128,16 +133,25 @@ plugins:
 # exclude: # Don't process these files
 #      glob:
 #         - file.md
-  with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-          output_path: '_pdf/PerconaDistributionPostgreSQL-17.pdf'
-          cover_title: 'Distribution for PostgreSQL Documentation'
-
-          cover_subtitle: 17.0 (October 3, 2024)
-          author: 'Percona Technical Documentation Team'
-          cover_logo: docs/_images/Percona_Logo_Color.png
-          debug_html: false
-          custom_template_path: _resource/templates
-          enabled_if_env: ENABLE_PDF_EXPORT
+  print-site:
+    add_to_navigation: false
+    print_page_title: 'Percona Distribution for PostgreSQL 17 documentation'
+    add_print_site_banner: false
+    # Table of contents
+    add_table_of_contents: true
+    toc_title: 'Table of Contents'
+    toc_depth: 2
+    # Content-related
+    add_full_urls: false
+    enumerate_headings: false
+    enumerate_headings_depth: 1
+    enumerate_figures: true
+    add_cover_page: true
+    cover_page_template: "docs/templates/pdf_cover_page.tpl"
+    path_to_pdf: ""
+    include_css: true
+    enabled: true
+    
   mike:
       version_selector: true
       css_dir: css
