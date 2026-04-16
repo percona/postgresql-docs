@@ -16,7 +16,7 @@ While setting up a high availability PostgreSQL cluster with Patroni, you will n
 
 If you install the software fom packages, all required dependencies and service unit files are included. If you [install the software from the tarballs](tarball.md), you must first enable `etcd`. See the steps in the [etcd](#etcd) section in this document.
 
-See the configuration guidelines for [Debian and Ubuntu](solutions/ha-setup-apt.md) and [RHEL and CentOS](solutions/ha-setup-yum.md). 
+See the configuration guidelines for [Patroni](solutions/ha-patroni.md) and [etcd](solutions/ha-etcd-config.md). 
 
 ## etcd
 

@@ -239,7 +239,7 @@ log-level-console=info
 log-level-file=debug
 
 [prod_backup]
-pg1-path=/var/lib/postgresql/14/main
+pg1-path=/var/lib/postgresql/{{pgversion}}/main
 ```
 
 
