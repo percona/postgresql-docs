@@ -353,3 +353,15 @@ Run **all** commands as root or via **sudo**:
     ```{.bash data-prompt="$"}
     $ rm -rf /var/lib/pgsql/13/data
     ```
+
+## For major upgrades (RHEL only)
+
+During a major upgrade on RHEL, you may encounter the following error:
+
+```
+Unknown Error occurred: Transaction test error:
+  file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+  file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+```
+
+To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.

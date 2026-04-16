@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 14.15 ({{date.14_15}})
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 

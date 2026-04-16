@@ -3,7 +3,7 @@
 
 | Release date:     | June 1, 2022                                                    |
 |:--------------|:----------------------------------------------------------------|
-| **Installation**: | [Installing Percona Distribution for PostgreSQL](installing.md) |
+| **Installation**: | [Installing Percona Distribution for PostgreSQL](../installing.md) |
 
 
 Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
