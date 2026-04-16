@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 16.3 (2024-06-06)
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
@@ -41,8 +41,6 @@ Percona Distribution for PostgreSQL Red Hat Enterprise Linux 8 and compatible de
 * `llvm` 16.0.6 packages. This fixes compatibility issues with LLVM from upstream.
 * supplemental `python3-etcd` packages, which can be used for setting up Patroni clusters. 
 
-
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/16/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."

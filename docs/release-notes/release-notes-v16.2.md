@@ -1,6 +1,6 @@
 # Percona Distribution for PostgreSQL 16.2 (2024-02-27)
 
-[Installation](installing.md){.md-button}
+[Installation](../installing.md){.md-button}
 
 --8<-- "release-notes-intro.md"
 
@@ -40,8 +40,6 @@ Percona Distribution for PostgreSQL also includes the following packages:
 | RHEL 8 and derivatives| `etcd`               | 3.5.12  | A consistent, distributed key-value store|
 |                       | `python3-etcd`| 0.4.5   | A Python client for etcd  |
 
-
-                                                      
 Percona Distribution for PostgreSQL is also shipped with the [libpq :octicons-link-external-16:](https://www.postgresql.org/docs/16/libpq.html) library. It contains "a set of
 library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries." 
+backend server and to receive the results of these queries."
