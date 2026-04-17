@@ -2,11 +2,11 @@
 
 [OpenID Connect :octicons-link-external-16:](https://openid.net/developers/how-connect-works/) (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.
 
-Percona Distribution for PostgreSQL supports OIDC authentication through the `pg_oidc_validator` library. This library validates OIDC tokens during PostgreSQL authentication.
+Percona Distribution for PostgreSQL integrates OIDC authentication using the pg_oidc_validator library, which validates OIDC tokens during client authentication.
 
-If you want to test PostgreSQL OAuth authentication using `pg_oidc_validator` with Keycloak using Docker containers, see the [PostgreSQL OIDC Authentication with pg_oidc_validator :octicons-link-external-16:](https://www.percona.com/blog/postgresql-oidc-authentication-with-pg_oidc_validator/) blog post.
+The library is compatible with standard OIDC providers.
 
-For additional configuration details and source code, see the [pg_oidc_validator project :octicons-link-external-16:](https://github.com/Percona-Lab/pg_oidc_validator).
+For configuration details and source code, see the [pg_oidc_validator project :octicons-link-external-16:](https://github.com/Percona-Lab/pg_oidc_validator).
 
 !!! important
     OIDC authentication relies on [PostgreSQL OAuth authentication :octicons-link-external-16:](https://www.postgresql.org/docs/current/auth-oauth.html), introduced in PostgreSQL 18.
