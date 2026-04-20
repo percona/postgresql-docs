@@ -2,9 +2,9 @@
 
 [OpenID Connect :octicons-link-external-16:](https://openid.net/developers/how-connect-works/) (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.
 
-Percona Distribution for PostgreSQL integrates OIDC authentication using the pg_oidc_validator library, which validates OIDC tokens during client authentication.
+Percona Distribution for PostgreSQL integrates OIDC authentication using the `pg_oidc_validator` library, which validates OIDC tokens during client authentication.
 
-The library is compatible with standard OIDC providers.
+The library is compatible with any identity provider that implements the OIDC standard.
 
 For configuration details and source code, see the [pg_oidc_validator project :octicons-link-external-16:](https://github.com/Percona-Lab/pg_oidc_validator).
 
@@ -34,7 +34,7 @@ OIDC authentication works as follows:
 
 The following diagram shows how OIDC authentication works between the client, the identity provider, and PostgreSQL:
 
-![OIDC authentication flow](../../_images/diagrams/oidc-auth-flow.svg)
+--8<-- "diagrams/oidc/auth-flow.md"
 
 !!! tip
     Before configuring OIDC authentication, ensure that your PostgreSQL deployment can access the identity provider that issues OIDC tokens.
@@ -44,19 +44,23 @@ The following diagram shows how OIDC authentication works between the client, th
 Follow these steps to set up OIDC authentication for your PostgreSQL database.
 {.power-number}
 
-1. Install the `pg_oidc_validator` package:
+1. Install the `pg_oidc_validator` package.
 
-    For Debian/Ubuntu:
+    Pre-built packages are not available in the default system repositories.
+
+    You can download pre-built packages from the `pg_oidc_validator` project (see the project releases page):
+
+    - Debian/Ubuntu: available for Ubuntu 24.04
+    - RHEL/Oracle Linux/Rocky Linux: RPM packages for OL8 and OL9
+
+    Alternatively, you can build the extension from source:
 
     ```bash
-    sudo apt install pg-oidc-validator-pgdg{{pgversion}}
+    make USE_PGXS=1 install -j
     ```
 
-    For RHEL/Oracle Linux/Rocky Linux:
-
-    ```bash
-    sudo dnf install pg-oidc-validator-pgdg{{pgversion}}
-    ```
+    !!! note
+        A C++23 compiler and standard library is required to build pg_oidc_validator.
 
 2. Edit `postgresql.conf` and add the validator library:
 
@@ -79,11 +83,5 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
     * `scope` is the required OIDC scope
     * `issuer` is the URL of the OIDC identity provider
 
-4. Restart PostgreSQL for the changes to take effect:
-
-    ```bash
-    sudo systemctl restart postgresql-{{pgversion}}
-    ```
-
 !!! important
-    PostgreSQL does not issue OIDC tokens. Clients must obtain an access token from an external identity provider such as Keycloak, Okta, or Microsoft Entra ID before connecting.
+    PostgreSQL does not issue OIDC tokens. Clients must obtain an access token from an external identity provider before connecting.
