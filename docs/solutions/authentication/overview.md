@@ -8,7 +8,7 @@ Percona Distribution for PostgreSQL supports multiple authentication mechanisms 
 
 ### OIDC authentication
 
-Authenticate users using OpenID Connect identity providers such as Keycloak, Okta, or Microsoft Entra ID.
+Authenticate users using OpenID Connect identity providers.
 
 [OIDC authentication :material-arrow-right:](oidc.md){.md-button}
 
