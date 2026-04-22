@@ -170,8 +170,8 @@ nav:
   - get-help.md
   - 'Percona Server for PostgreSQL': postgresql-server.md
   - Get started: 
-      - Quickstart guide: installing.md
-      - 1. Install: 
+      - 1. Install:
+          - Overview: installing.md 
           - Via apt: apt.md
           - Via yum: yum.md
           - From tarballs: tarball.md

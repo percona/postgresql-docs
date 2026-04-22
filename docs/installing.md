@@ -1,21 +1,19 @@
-# Quickstart guide
+# Installation overview
 
-Percona Distribution for PostgreSQL is the Percona server for PostgreSQL with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. [Read more](index.md).
+Percona Distribution for PostgreSQL packages PostgreSQL together with a curated set of open source extensions and tools that are tested to work together reliably.
 
-This document aims to guide database application developers and DevOps engineers in getting started with Percona Distribution for PostgreSQL. Upon completion of this guide, you’ll have Percona Distribution for PostgreSQL installed and operational, and you’ll be able to:
+This section explains how to install Percona Distribution for PostgreSQL on supported platforms.
 
-* Connect to PostgreSQL using the `psql` interactive terminal
-* Interact with PostgreSQL with basic psql commands
-* Manipulate data in PostgreSQL
-* Understand the next steps you can take as a database application developer or administrator to expand your knowledge of Percona Distribution for PostgreSQL
+Choose the installation method that best fits your environment:
 
-## Install Percona Distribution for PostgreSQL
-
-You can select from multiple easy-to-follow installation options, however **we strongly recommend using a Package Manager** for a convenient and quick way to try the software first.
+- Package manager, **recommended** for most Linux systems  
+- Docker, for quick evaluations or development  
+- Kubernetes, for production Kubernetes environments  
+- Tarballs, manual installation for custom environments (**not recommended** for mission-critical environments)
 
 === ":octicons-terminal-16: Package manager"
 
-    Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. Find the full list of supported platforms and versions on the [Percona Software and Platform Lifecycle page :octicons-link-external-16:](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql).
+    Percona provides installation packages in `DEB` and `RPM` format for 64-bit Linux distributions. See the [Percona Software and Platform Lifecycle page :octicons-link-external-16:](https://www.percona.com/services/policies/percona-software-support-lifecycle#pgsql) for the full list of supported platforms and versions.
 
     If you are on Debian or Ubuntu, use `apt` for installation.
 
@@ -26,7 +24,7 @@ You can select from multiple easy-to-follow installation options, however **we s
 
 === ":simple-docker: Docker"
 
-    Get our image from Docker Hub and spin up a cluster on a Docker container for quick evaluation.
+    Run Percona Distribution for PostgreSQL in a Docker container for quick evaluation or development.
 
     Check below to get access to a detailed step-by-step guide.
     
@@ -34,7 +32,7 @@ You can select from multiple easy-to-follow installation options, however **we s
 
 === ":simple-kubernetes: Kubernetes"
 
-    **Percona Operator for Kubernetes** is a controller introduced to simplify complex deployments that require meticulous and secure database expertise.
+    Use the Percona Operator for Kubernetes to deploy and manage PostgreSQL clusters on Kubernetes.
 
     Check below to get access to a detailed step-by-step guide.
 
@@ -47,6 +45,6 @@ You can select from multiple easy-to-follow installation options, however **we s
     In this scenario, you must ensure that all dependencies are met. Failure to do so may result in errors or crashes.
     
     !!! note 
+     This method is **not recommended** for mission-critical environments.
 
-        This method is **not recommended** for mission-critical environments.
-    [Install from tarballs :material-arrow-right:](tarball.md){.md-button}
+     [Install from tarballs :material-arrow-right:](tarball.md){.md-button}

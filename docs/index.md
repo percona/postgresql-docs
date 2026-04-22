@@ -1,9 +1,9 @@
 # Percona Distribution for PostgreSQL 17 Documentation
 
-Percona Distribution for PostgreSQL is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL. 
+Percona Distribution for PostgreSQL is a suite of open source software, tools and services required to deploy and maintain a reliable production cluster for PostgreSQL.
 
 Percona Distribution for PostgreSQL includes [Percona Server for PostgreSQL](postgresql-server.md) packaged with extensions from open source community that are certified and tested to work together for high availability, backups, security, and monitoring that help ensure the cluster's peak performance. 
- 
+
 Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestrate the cluster reliably and repeatably in Kubernetes.
 
 [What's included in Percona Distribution for PostgreSQL? :material-arrow-right:](extensions.md){.md-button}
@@ -20,11 +20,11 @@ Part of the solution, Percona Operator for PostgreSQL, makes it easy to orchestr
 
 <div data-grid markdown><div data-banner markdown>
 
-### :material-progress-download: Installation guides { .title }
+### :material-progress-download: Quickstart guide { .title }
 
-Get started quickly with the step-by-step installation instructions.
+Get started quickly with these step-by-step installation instructions.
 
-[Quickstart guides :material-arrow-right:](installing.md){ .md-button }
+[Quickstart guide :material-arrow-right:](quick-start.md){ .md-button }
 
 </div><div data-banner markdown>
 
