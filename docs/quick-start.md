@@ -12,8 +12,8 @@ This guide shows how to install and start Percona Distribution for PostgreSQL on
 ```{.bash data-prompt="$"}
 wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
 sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
-sudo percona-release setup ppg-18  
-sudo apt install percona-postgresql-18
+sudo percona-release setup ppg-{{pgversion}}  
+sudo apt install percona-postgresql-{{pgversion}}
 sudo -i -u postgres psql
 ```
 
@@ -42,8 +42,8 @@ For a step-by-step explanation, continue below.
 2. Enable the repository and install the package:
 
      ```{.bash data-prompt="$"}
-     sudo percona-release setup ppg-18
-     sudo apt install percona-postgresql-18
+     sudo percona-release setup ppg-{{pgversion}}
+     sudo apt install percona-postgresql-{{pgversion}}
      ```
 
     The installation process automatically initializes and starts the default database.

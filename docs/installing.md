@@ -45,6 +45,7 @@ Choose the installation method that best fits your environment:
     In this scenario, you must ensure that all dependencies are met. Failure to do so may result in errors or crashes.
     
     !!! note 
-     This method is **not recommended** for mission-critical environments.
+
+        This method is **not recommended** for mission-critical environments.
 
      [Install from tarballs :material-arrow-right:](tarball.md){.md-button}
