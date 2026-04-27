@@ -28,7 +28,7 @@ Choose the installation method that best fits your environment:
 
     Check below to get access to a detailed step-by-step guide.
     
-    [Run in Docker :material-arrow-right:](docker.md){.md-button}
+    [Run in Docker :material-arrow-right:](docker/docker.md){.md-button}
 
 === ":simple-kubernetes: Kubernetes"
 
