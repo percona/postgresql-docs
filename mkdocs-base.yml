@@ -168,7 +168,7 @@ nav:
   - Quickstart guide: quick-start.md
   - Get started: 
       - 1. Install: 
-          - 'Overview': install.md
+          - Overview: install.md
           - Via apt: apt.md
           - Via yum: yum.md
           - From tarballs: tarball.md
