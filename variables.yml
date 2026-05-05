@@ -5,7 +5,7 @@ release: 'release-notes-v18.3.1'
 dockertag: '18.3'
 pgsubversion: '18.3'
 pgversion: '18'
-pspgversion: '18.3.2' #change version for release note update
+pspgversion: '18.3.1' #change version for release note update
 pgsmversion: '2.3.2'
 
 # Dates are automatically updated by CI on release merge
