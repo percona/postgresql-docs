@@ -173,6 +173,7 @@ nav:
   - Get started: 
       - 1. Install: 
           - Overview: installing.md
+          - Via apt: apt.md
           - Via yum: yum.md
           - From tarballs: tarball.md
           - Run in Docker: docker.md
