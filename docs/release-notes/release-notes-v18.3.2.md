@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 18.3.2 ({{date.18_3_2}})
+# Percona Distribution for PostgreSQL 18.3.2 ({{date["18_3_2"]}})
 
 ## Test release 
 
