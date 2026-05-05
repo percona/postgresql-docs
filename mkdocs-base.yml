@@ -169,10 +169,10 @@ extra:
 nav:
   - 'Home': 'index.md'
   - get-help.md
+  - Quickstart guide: quick-start.md
   - Get started: 
-      - Quickstart guide: installing.md
       - 1. Install: 
-          - Via apt: apt.md
+          - Overview: installing.md
           - Via yum: yum.md
           - From tarballs: tarball.md
           - Run in Docker: docker.md
