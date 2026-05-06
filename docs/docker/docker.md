@@ -22,7 +22,7 @@ Where:
 
 * `container-name` is the name you assign to your container
 * `POSTGRES_PASSWORD` is the superuser password 
-* `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
+* `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (amd64 or arm64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
 
 !!! note
 
