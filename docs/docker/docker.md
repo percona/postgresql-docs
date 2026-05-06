@@ -24,10 +24,6 @@ Where:
 * `POSTGRES_PASSWORD` is the superuser password 
 * `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (amd64 or arm64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
 
-!!! note
-
-    Some extensions require server startup configuration and must be loaded via `shared_preload_libraries` before PostgreSQL starts.
-
 !!! tip
 
     You can secure the password by exporting it to the environment file and using that to start the container.
@@ -46,7 +42,7 @@ Where:
 
 ## 2. Enable extensions
 
-Extensions must be explicitly loaded when starting the container using the `shared_preload_libraries` parameter, then enabled per database:
+Some extensions require server startup configuration and must be loaded via `shared_preload_libraries` before PostgreSQL starts. You need to explicitly load the extensions when starting the container using the `shared_preload_libraries` parameter, then enabled per database:
 
 1. Start the container with the extensions you want to load:
 
@@ -57,7 +53,7 @@ Extensions must be explicitly loaded when starting the container using the `shar
 2. Connect to the container's interactive terminal:
 
 ```{.bash data-prompt="$"}
-docker exec -it container-name bash
+docker exec -it container-name psql -U postgres
 ```
 
     The `container-name` is the name of the container that you started in the previous step.
