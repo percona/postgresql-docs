@@ -46,12 +46,7 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
 
 1. Install the `pg_oidc_validator` package.
 
-    Pre-built packages are not available in the default system repositories.
-
-    You can download pre-built packages from the `pg_oidc_validator` project (see the project releases page):
-
-    - Debian/Ubuntu: available for Ubuntu 24.04
-    - RHEL/Oracle Linux/Rocky Linux: RPM packages for OL8 and OL9
+    For more information, see the [Quickstart guide](../../installing.md).
 
     Alternatively, you can build the extension from source:
 
@@ -60,7 +55,7 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
     ```
 
     !!! note
-        A C++23 compiler and standard library is required to build pg_oidc_validator.
+        A C++23 compiler and standard library is required to build `pg_oidc_validator`.
 
 2. Edit `postgresql.conf` and add the validator library:
 
@@ -74,7 +69,7 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
 3. Add an OAuth authentication rule to `pg_hba.conf`:
 
     ```ini
-    host all all 192.168.1.0/24 oauth scope="openid",issuer=https://your-oidc-provider
+    host all all 192.168.1.0/24 oauth scope="openid email",issuer=https://oidc.example.com
     ```
 
     Where:
@@ -82,6 +77,3 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
     * `oauth` enables OAuth authentication
     * `scope` is the required OIDC scope
     * `issuer` is the URL of the OIDC identity provider
-
-!!! important
-    PostgreSQL does not issue OIDC tokens. Clients must obtain an access token from an external identity provider before connecting.
