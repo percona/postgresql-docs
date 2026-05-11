@@ -169,9 +169,10 @@ extra:
 nav:
   - 'Home': 'index.md'
   - get-help.md
+  - Quickstart guide: quick-start.md
   - Get started: 
-      - Quickstart guide: installing.md
       - 1. Install: 
+          - Overview: installing.md
           - Via apt: apt.md
           - Via yum: yum.md
           - From tarballs: tarball.md
