@@ -53,9 +53,8 @@ For a step-by-step explanation, continue below.
 
 3. Switch to the `postgres` user and open the psql interactive terminal:
 
-     ```{.bash data-prompt="$"}
-     sudo -i -u postgres
-     psql
+     ```bash
+     sudo -i -u postgres psql
      ```
 
 4. Create a database and make a table in the database:
@@ -69,7 +68,7 @@ For a step-by-step explanation, continue below.
 5. Insert data in the customers table and query the data insertion:
 
      ```sql
-     INSERT INTO customers (first_name, last_name, email) VALUES ('John', 'Doe', 'john.doe@example.com');
+     INSERT INTO customers VALUES ('John','Doe','john.doe@example.com');
      SELECT * FROM customers;
      \q
      ```
