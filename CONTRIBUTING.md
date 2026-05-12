@@ -1,180 +1,161 @@
-# Contributing Guide
+# Documentation contributing guide
 
-Thank you for deciding to contribute and help us improve Percona Distribution for PostgreSQL documentation!
+This guide explains how to contribute to the Percona Distribution for PostgreSQL documentation.
 
-We welcome contributors from all users and community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
+We welcome contributors from all users and the community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
+
+If you want to contribute code, see the [Code contribution guide](https://github.com/percona/postgres/blob/PSP_REL_18_STABLE/.github/CONTRIBUTING.md).
 
 You can contribute to documentation in the following ways:
 
-1. **Request a doc change through a Jira issue**. If you’ve spotted a doc issue (a typo, broken links, inaccurate instructions, etc.) but don’t have time nor desire to fix it yourself - let us know about it.
+1. Request documentation changes through Jira:
 
-	- Click the **Submit DOC bug** link on the sidebar. This opens the [Jira issue tracker](https://jira.percona.com/projects/DISTPG/issues) for the doc project.
-	- Sign in (create a Jira account if you don’t have one) and click **Create** to create an issue.
-	- Describe the issue you have detected in the Summary, Description, Steps To Reproduce, Affects Version fields.
+- Open the [Jira issue tracker](https://jira.percona.com/projects/PG/issues) for the project.
+- Sign in (create a Jira account if you don’t have one).
+- Click **Create** to create an issue.
+- (Optional but recommended) Search if the issue you want to report is already reported.
+- Select **PostgreSQL PG** in the Project dropdown and the work type.
+- Describe the issue in the Summary and Description fields. Optionally, you can also fill in the Steps To Reproduce and Affects Version fields.
 
-2. **[Contribute to documentation yourself](#contribute-to-documentation-yourself)**. There is the **Edit this page** link that leads you to the source file of the page on GitHub. There you make changes, create a pull request that we review and add to the doc project. For details how to do it, read on.
+2. [Contribute to documentation on GitHub](#contribute-directly-on-github).
 
-![PPG links](docs/_images/PPG_links.png)
+To contribute to the documentation, basic familiarity with the following tools is useful:
 
-## Contribute to documentation yourself
-
-To contribute to the documentation, you should be familiar with the following technologies:
-- [Markdown](https://www.markdownguide.org/basic-syntax/) markup language. It is used to write the documentation.
+- [Markdown](https://www.markdownguide.org/basic-syntax/). The documentation is written in Markdown.
 - [MkDocs](https://www.mkdocs.org/getting-started/) documentation generator. We use it to convert source ``.md`` files to html and PDF documents.
 - [git](https://git-scm.com/) and [GitHub](https://guides.github.com/activities/hello-world/)
-- [Docker](https://docs.docker.com/get-docker/). It allows you to run MkDocs in a virtual environment instead of installing it and its dependencies on your machine.
 
-There are several active versions of the documentation. Each version derives from the major version of PostgreSQL, included in the distribution. 
+## Contribute directly on GitHub
 
-Each version has a branch in the repository named accordingly:
+There are several active versions of the documentation. Each version derives from the major version of PostgreSQL, included in the distribution.
 
-- 11 (EOL)
-- 12 (EOL)
-- 13 
-- 14
-- 15
-- 16
-- 17
+Each documentation branch is named after the PostgreSQL major version (for example: `11`(EOL), `12`(EOL), `13`(EOL), `14`, `15`, `16`, `17`, `18`).
 
-The source .md files are in the ``docs`` directory. 
+The source .md files are in the ``postgresql-docs/docs`` directory.
 
-### Edit documentation online via GitHub
+To start contributing:
 
-1. Click the **Edit this page** link on the sidebar. The Markdown file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+1. Select **Edit this file**.
 
-2. Edit the page. You can check your changes on the **Preview** tab.
+> **NOTE**
+> If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+
+2. Add your changes. You can see how your edit looks in the **Preview** tab.
 
 3. Commit your changes.
 
-	 - In the *Commit changes* section, describe your changes.
-	 - Select the **Create a new branch for this commit and start a pull request** option
-	 - Click **Propose changes**.
+- Describe the changes you have made
+- Select the **Create a new branch for this commit** and name your branch
+- Click **Propose changes** to create the pull request
 
-4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make a last-minute review. When you are ready, click the **Create pull request** button.
-5. Someone from our team reviews the pull request and if everything is correct, merges it into the documentation. Then it gets published on the site.
+4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make last-minute changes. When you are ready, click the **Create pull request** button.
+
+5. Your changes will be reviewed and merged into the documentation.
 
 ### Edit documentation locally
 
-This option is for users who prefer to work from their computer and / or have the full control over the documentation process.
-
-The steps are the following:
+If you want to work on your computer locally, follow these steps:
 
 1. Fork this repository
 2. Clone the repository on your machine:
 
 ```sh
-git clone git@github.com:percona/postgresql-docs.git
+git clone git@github.com:<my_name>/postgresql-docs.git
+cd postgresql-docs
 ```
 
-3. Change the directory to ``postgresql-docs`` and add your local repository:
+3. Add the upstream (Percona) repository as a remote:
 
 ```sh
-git remote add <your-repo-name> git@github.com:<your_name>/postgresql-docs.git
+git remote add upstream git@github.com:percona/postgresql-docs.git
 ```
 
-4. Pull the latest changes 
+4. Pull the latest changes
 
 ```sh
-git fetch origin
-git merge origin/<branch>
+git fetch upstream
+git merge upstream/<branch>
 ```
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``11`` branch, merge changes from ``origin/11``.
 
-5. Create a separate branch for your changes
+Make sure you merge changes from the same documentation branch you are working on. For example, if you are on branch ``16``, merge from ``upstream/16``.
+
+5. Create a separate branch for your changes. If you work on a Jira issue, please follow this pattern for a branch name: `<PG-123>-short-description`:
 
 ```sh
-git checkout -b <my_changes>
+git checkout -b <PG-123>-short-description upstream/<target-branch>
 ```
 
-6. Make changes
-7. Commit your changes
-8. Open a pull request to Percona
-
-### Building the documentation
-
-To verify how your changes look, generate the static site with the documentation. This process is called *building*. You can do it in these ways:
-- [use Docker](#use-docker)
-- [install MkDocs and build locally](#install-mkdocs-and-build-locally)
-
-Learn more about the documentation structure in the [Repository structure](#repository-stucture) section.
-
-
-#### Use Docker
-
-1. [Get Docker](https://docs.docker.com/get-docker/)
-2. We use [this Docker image](https://github.com/Percona-Lab/percona-doc-docker) to build documentation. Run the following command:
+6. Make a commit mentioning the Jira issue in the commit message if any:
 
 ```sh
-docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md  mkdocs build
-```
-   If Docker can't find the image locally, it first downloads the image, and then runs it to build the documentation.
-
-3. Go to the ``site`` directory and open the ``index.html`` file to see the documentation.
-4. To view your changes as you make them, run the following command:
-
-``` sh
-docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve  -a 0.0.0.0:8000
+git add .
+git commit -m "PG-123-<my_fixes>"
+git push -u origin <my_branch_name>
 ```
 
-5. To create a PDF version of the documentation, run the following command:
+7. Open a pull request to Percona
 
-```sh
-docker run --rm -v $(pwd):/docs -e ENABLE_PDF_EXPORT=1 perconalab/pmm-doc-md mkdocs build -f mkdocs-pdf.yml
-```
+### Building the documentation using MkDocs
 
-The PDF document is in the ``site/pdf`` folder.
+To verify how your changes look, generate the static site with the documentation. This process is called *building*.
 
-#### Install MkDocs and build locally
+> **NOTE**
+> Learn more about the documentation structure in the [Repository structure](#repository-structure) section.
+
+To verify how your changes look, you can generate a static site locally:
 
 1. Install [pip](https://pip.pypa.io/en/stable/installing/)
 2. Install [MkDocs](https://www.mkdocs.org/getting-started/#installation).
-3. While in the root directory of the doc project, run the following command to build the documentation:
+3. Install all the required dependencies:
+
+```sh
+pip install -r requirements.txt
+```
+
+4. While in the root directory of the documentation project, run the following command to build the documentation:
 
 ```sh
 mkdocs build 
 ```
-4. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
-5. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
+
+5. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
+6. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
 
 ```sh
 mkdocs serve 
 ```
 
-6. To build the PDF documentation, do the following:
+You can also view the site at <http://127.0.0.1:8000>.
+
+7. To build the PDF documentation, do the following:
    - Install [mkdocs-print-site-plugin](https://timvink.github.io/mkdocs-print-site-plugin/index.html)
    - Run the following command
 
    ```sh
-   ENABLE_PDF_EXPORT=1 mkdocs build -f mkdocs-pdf.yml
+    mkdocs build
    ```
 
-This creates a single HTML page for the whole doc project. You can find the page at `site/print_page.html`. 
+This creates a single HTML page for the whole doc project. You can find the page at `site/print_page.html`.
 
-7. Open the `site/print_page.html` in your browser and save as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
-
+8. Open the `site/print_page.html` in your browser and save as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
 
 ## Repository structure
 
 The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
-- `mkdocs.yml` - configuration file. Contains the settings for building the docs on Percona website
-- `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF docs.
+- `mkdocs.yml` - configuration file. Contains the settings for building the documentation on Percona website
 - `docs`:
   - `*.md` - Source markdown files.
   - `_images` - Images, logos and favicons
   - `css` - Styles
   - `js` - Javascript files
   - `templates`:
-     - ``styles.scss`` - Styling for PDF documents
      - `pdf_cover_page.tpl` - The PDF cover page template
-- `_resource`:
-   - `overrides` - The directory with customized templates for HTML output
-      - `main.html` - The layout template for hosting the documentation on Percona website
 - `_resourcepdf`:
    - `overrides` - The directory with customized layout templates for PDF
 - `.github`:
    - `workflows`:
-      - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `netlify` branch)
-- `site` - This is where the output HTML files are put after the build
+      - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `publish` branch)
 - `snippets` - The folder with pieces of documentation used in multiple places
+- `site` - This is where the output HTML files are put after the build
