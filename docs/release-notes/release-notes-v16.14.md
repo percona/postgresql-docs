@@ -8,6 +8,12 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 
 ## Release Highlights
 
+This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.
+
+### Ubuntu 26.04 LTS support added
+
+ Starting Q2 2026, Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
@@ -27,7 +33,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [16.13 release notes](https://www.postgresql.org/docs/16/release-16-13.html).
+This release includes important security measures that address the following CVEs: TBD. For more details, see the PostgreSQL [16.14 release notes](https://www.postgresql.org/docs/16/release-16-14.html).
 
 ## Known Issue
 
