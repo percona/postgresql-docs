@@ -7,12 +7,6 @@ by adding marketing-requested elements
 {% extends "base.html" %}
 
 {% block announce %}
-<div class="md-banner" style="background-color: #b71c1c; color: white;">
-  ⚠️ pg_upgrade is currently broken with encrypted tables (pg_tde). Do NOT use it for upgrades.
-</div>
-{% endblock %}
-
-{% block announce %}
   <div class="md-banner" style="text-align: center;">
     Where the open source database community meets:
     Use code <strong>PERCONA75</strong> and secure your spot for Percona Live.
@@ -36,6 +30,12 @@ by adding marketing-requested elements
       </span>
     </a>
   </div>
+{% endblock %}
+
+{% block announce %}
+<div class="md-banner" style="background-color: #b71c1c; color: white;">
+  ⚠️ pg_upgrade is currently broken with encrypted tables (pg_tde). Do NOT use it for upgrades.
+</div>
 {% endblock %}
 
 {% block scripts %}
