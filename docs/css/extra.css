@@ -60,3 +60,13 @@
   color: var(--md-typeset-a-color);
 }
  
+/* Percona live announcement banner */
+
+.md-banner {
+  text-align: center;
+}
+
+.md-banner,
+.md-banner * {
+  font-family: "Poppins", sans-serif !important;
+}
