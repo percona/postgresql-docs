@@ -8,6 +8,11 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 14.2
 
 ## Release Highlights
 
+This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.
+
+!!! note
+    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 13.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
@@ -27,7 +32,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the [PostgreSQL 14.22](https://www.postgresql.org/docs/14/release-14-22.html).
+This release includes important security measures that address the following CVEs: TBD. For more details, see the [PostgreSQL 14.23](https://www.postgresql.org/docs/14/release-14-23.html).
 
 ## Known Issue
 
