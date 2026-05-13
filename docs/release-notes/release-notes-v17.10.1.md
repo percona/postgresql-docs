@@ -11,6 +11,10 @@ This release continues to deliver Percona’s open source value-add components f
 !!! note
     To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
 
+### Ubuntu 26.04 LTS support added
+
+ Starting Q2 2026, Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
