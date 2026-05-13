@@ -10,6 +10,9 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 16.1
 
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.
 
+!!! note
+    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 15.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+
 ### Ubuntu 26.04 LTS support added
 
  Starting Q2 2026, Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
