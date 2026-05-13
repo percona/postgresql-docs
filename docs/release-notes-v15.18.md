@@ -8,6 +8,15 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.1
 
 ## Release Highlights
 
+This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.
+
+!!! note
+    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 14.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](major-upgrade.md).
+
+### Ubuntu 26.04 LTS support added
+
+Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
@@ -27,7 +36,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.m
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: CVE-2026-2003, CVE-2026-2004, CVE-2026-2005, CVE-2026-2006. For more details, see the PostgreSQL [15.17 release notes](https://www.postgresql.org/docs/15/release-15-17.html).
+This release includes important security measures that address the following CVEs: TBD. For more details, see the PostgreSQL [15.18 release notes](https://www.postgresql.org/docs/15/release-15-18.html).
 
 ## Known Issue
 
