@@ -62,26 +62,26 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
-| Extension           | Version        | Description                  |
-| ------------------- | -------------- | ---------------------------- |
-| [etcd :octicons-link-external-16:](https://etcd.io/) | 3.5.30 | A distributed, reliable key-value store for setting up high available Patroni clusters |
-| [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/)                       | 0.4.5    | A Python client library for interacting with etcd                                 |
-| [HAProxy :octicons-link-external-16:](http://www.haproxy.org/) | 2.8.23 | a high-availability and load-balancing solution |
-| [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) | 4.1.3 | a HA (High Availability) solution for PostgreSQL |
-| [pgaudit :octicons-link-external-16:](https://www.pgaudit.org/) | 1.7.1 | provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL |
-| [pgaudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user) | 4.2.0 | provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks. |
-| [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.58.0 | a backup and restore solution for PostgreSQL |
-| [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger) | 13.2 | a fast PostgreSQL Log Analyzer. |
-| [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.25.2 | a lightweight connection pooler for PostgreSQL |
-| [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v33 | an SQL script for running the diagnostics of the health of PostgreSQL cluster |
-| [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.7.1 | a middleware between PostgreSQL server and client for high availability, connection pooling and load balancing. |
-| [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | rebuilds PostgreSQL database objects |
-| [pg_stat_monitor :octicons-link-external-16:](https://github.com/percona/pg_stat_monitor) | 2.3.2 | collects and aggregates statistics for PostgreSQL and provides histogram information. |
-| [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis) | 3.5.6 | a spatial extension for PostgreSQL. |
-| [pgvector :octicons-link-external-16:](https://github.com/pgvector/pgvector) | v0.8.1 | A vector similarity search for PostgreSQL |
-| [PostgreSQL Common :octicons-link-external-16:](https://salsa.debian.org/postgresql/postgresql-common) | 290 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time. |
-| [wal2json :octicons-link-external-16:](https://github.com/eulerto/wal2json) | 2.6 | a PostgreSQL logical decoding JSON output plugin |
-| [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.7 | a simple cron-based job scheduler for PostgreSQL |
+| Extension | Version | Description |
+| --- | --- | --- |
+| [etcd](https://etcd.io/) | 3.5.30 | A distributed, reliable key-value store for setting up high available Patroni clusters |
+| [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/) | 0.4.5 | A Python client library for interacting with etcd |
+| [HAProxy](http://www.haproxy.org/) | 2.8.23 | A high-availability and load-balancing solution |
+| [Patroni](https://patroni.readthedocs.io/en/latest/) | 4.1.3 | A HA (High Availability) solution for PostgreSQL |
+| [PgAudit](https://www.pgaudit.org/) | 1.7.1 | Provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL |
+| [pgAudit set_user](https://github.com/pgaudit/set_user) | 4.2.0 | Provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks |
+| [pgBackRest](https://pgbackrest.org/) | 2.58.0 | A backup and restore solution for PostgreSQL |
+| [pgBadger](https://github.com/darold/pgbadger) | 13.2 | A fast PostgreSQL log analyzer |
+| [PgBouncer](https://www.pgbouncer.org/) | 1.25.2 | A lightweight connection pooler for PostgreSQL |
+| [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.7 | A simple cron-based job scheduler for PostgreSQL |
+| [pg_gather](https://github.com/jobinau/pg_gather) | v33 | An SQL script for running diagnostics on the health of a PostgreSQL cluster |
+| [pg_repack](https://github.com/reorg/pg_repack) | 1.5.3 | Rebuilds PostgreSQL database objects |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
+| [pg_vector](https://github.com/pgvector/pgvector) | v0.8.2 | A vector similarity search extension for PostgreSQL |
+| [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.7.1 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing |
+| [PostGIS](https://github.com/postgis/postgis) | 3.5.6 | A spatial extension for PostgreSQL |
+| [PostgreSQL Commons](https://salsa.debian.org/postgresql/postgresql-common) | 290 | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time |
+| [wal2json](https://github.com/eulerto/wal2json) | 2.6 | A PostgreSQL logical decoding JSON output plugin |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
