@@ -13,26 +13,34 @@ This release continues to deliver Percona’s open source value-add components f
 !!! note
     To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 13.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
 
+### Ubuntu 26.04 LTS support added
+
+ Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+
+### Added Quick Start guide
+
+Added a Quick Start Guide walking users through setting up Percona Distribution for PostgreSQL with minimal steps and linking to more advanced topics.
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
-- pgBouncer: 1.25.1
-- etcd: 3.5.26
-- haproxy: 2.8.18
-- pgBadger: 13.2
-- postgresql-common: 288
-- pgbackrest: 2.58.0
-- pgpool2: 4.7.0
-- pg_stat_monitor: 2.3.2
-- postgis: 3.5.5
-- ydiff: 1.4.2
+- postgres-common: 290
+- pgBouncer: 1.25.2
+- etcd: 3.5.30
+- pysyncobj: 0.3.15
+- haproxy: 2.8.23
+- patroni: 4.1.3
+- pgpool2: 4.7.1
+- postgis: 3.5.6
+- pg_gather: 33
+- pg_cron: 1.6.7
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: TBD. For more details, see the [PostgreSQL 14.23](https://www.postgresql.org/docs/14/release-14-23.html).
+This release includes important security measures that address the following CVEs: CVE-2026-6479, CVE-2026-6473, CVE-2026-6474, CVE-2026-6472, CVE-2026-6478, CVE-2026-6477, CVE-2026-6475, CVE-2026-6637. For more details, see the [PostgreSQL 14.23](https://www.postgresql.org/docs/14/release-14-23.html).
 
 ## Known Issue
 
@@ -56,23 +64,24 @@ The following is the list of extensions available in Percona Distribution for Po
 
 | Extension                                                                              | Version   | Description                                                                                                          |
 |----------------------------------------------------------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| [etcd](https://etcd.io/)                                                               | 3.5.26    | A distributed, reliable key-value store for setting up high available Patroni clusters                              |
+| [etcd](https://etcd.io/)                                                               | 3.5.30    | A distributed, reliable key-value store for setting up high available Patroni clusters                              |
 | [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/)                       | 0.4.5    | A Python client library for interacting with etcd                                 |
-| [HAProxy](https://www.haproxy.org/)                                                    | 2.8.18    | A high-availability and load-balancing solution                                                                     |
-| [Patroni](https://patroni.readthedocs.io/en/latest/)                                   | 4.1.0     | A HA (High Availability) solution for PostgreSQL                                                                    |
+| [HAProxy](https://www.haproxy.org/)                                                    | 2.8.23    | A high-availability and load-balancing solution                                                                     |
+| [Patroni](https://patroni.readthedocs.io/en/latest/)                                   | 4.1.3     | A HA (High Availability) solution for PostgreSQL                                                                    |
 | [PgAudit](https://www.pgaudit.org/)                                                    | 1.6.3     | Provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL          |
 | [pgAudit set_user](https://github.com/pgaudit/set_user)                                | 4.2.0     | Provides an additional layer of logging and control when unprivileged users must escalate themselves to superusers or object owner roles in order to perform needed maintenance tasks. |
 | [pgBackRest](https://pgbackrest.org/)                                                  | 2.58.0    | A backup and restore solution for PostgreSQL                                                                        |
 | [pgBadger](https://github.com/darold/pgbadger)                                         | 13.2      | A fast PostgreSQL Log Analyzer.                                                                                      |
-| [PgBouncer](https://www.pgbouncer.org/)                                                | 1.25.1    | A lightweight connection pooler for PostgreSQL                                                                      |
+| [PgBouncer](https://www.pgbouncer.org/)                                                | 1.25.2    | A lightweight connection pooler for PostgreSQL                                                                      |
 | [pg_gather](https://github.com/jobinau/pg_gather)                                      | v32       | An SQL script for running the diagnostics of the health of PostgreSQL cluster                                       |
-| [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary)                  | 4.7.0     | A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.      |
+| [pgpool2](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary)                  | 4.7.1     | A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing.      |
 | [pg_repack](https://github.com/reorg/pg_repack)                                        | 1.5.3     | Rebuilds PostgreSQL database objects                                                                                |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information. |
 | [pgvector](https://github.com/pgvector/pgvector)                                       | v0.8.1    | A vector similarity search for PostgreSQL                                                                           |
-| [PostGIS](https://github.com/postgis/postgis)                                          | 3.5.5     | A spatial extension for PostgreSQL.                                                                                  |
-| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)             | 289       | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters may be maintained at one time. |
+| [PostGIS](https://github.com/postgis/postgis)                                          | 3.5.6     | A spatial extension for PostgreSQL.                                                                                  |
+| [PostgreSQL Common](https://salsa.debian.org/postgresql/postgresql-common)             | 290       | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters may be maintained at one time. |
 | [wal2json](https://github.com/eulerto/wal2json)                                        | 2.6       | A PostgreSQL logical decoding JSON output plugin                                                                    |
+| [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.7 | a simple cron-based job scheduler for PostgreSQL |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
