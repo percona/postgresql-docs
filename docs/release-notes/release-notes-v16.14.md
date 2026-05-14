@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 16.14 ({{date["16_14"] | default("unreleased")}})
+# Percona Distribution for PostgreSQL 16.14 ({{date.16_14}})
 
 [Installation](../installing.md){.md-button}
 
