@@ -1,4 +1,4 @@
-# Percona Distribution for PostgreSQL 17.10.1 ({{date["17_10_1"] | default("unreleased")}})
+# Percona Distribution for PostgreSQL 17.10.1 ({{date.17_10_1}})
 
 --8<-- "release-notes-intro.md"
 
@@ -13,32 +13,33 @@ This release continues to deliver Percona’s open source value-add components f
 
 ### Ubuntu 26.04 LTS support added
 
- Starting Q2 2026, Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+
+### Added Quick Start guide
+
+Added a Quick Start Guide walking users through setting up Percona Distribution for PostgreSQL with minimal steps and linking to more advanced topics.
 
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
-- pgbouncer: 1.25.1
-- pgvector: 0.8.2
-- pgpool2: 4.7.0
-- etcd: 3.5.26
-- PostGIS: 3.5.5
-- pgBackRest: 2.58.0
-- postgresql-common: 289
-- pgBadger: 13.2
-- HAProxy: 2.8.18
-- pg_stat_monitor: 2.3.2
-- pg_tde: 2.1.2
-- postgis: 3.5.5
-- pg_oidc_validator: 1.0
-- ydiff: 1.4.2
+- postgres-common: 290
+- pgBouncer: 1.25.2
+- etcd: 3.5.30
+- pysyncobj: 0.3.15
+- haproxy: 2.8.23
+- patroni: 4.1.3
+- pgpool2: 4.7.1
+- postgis: 3.5.6
+- pg_gather: 33
+- pg_cron: 1.6.7
+- pg_tde: 2.2.0
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: TBD. For more details, see the PostgreSQL [17.10 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-10.html) and the PostgreSQL [17.9 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-9.html).
+This release includes important security measures that address the following CVEs: CVE-2026-6479, CVE-2026-6473, CVE-2026-6474, CVE-2026-6472, CVE-2026-6478, CVE-2026-6477, CVE-2026-6475, CVE-2026-6637. For more details, see the PostgreSQL [17.10 release notes :octicons-link-external-16:](https://www.postgresql.org/docs/17/release-17-10.html).
 
 ## Known Issues
 
