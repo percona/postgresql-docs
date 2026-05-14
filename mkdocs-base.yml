@@ -226,6 +226,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
     - "Release notes index": release-notes.md
+    - "15.18": release-notes-v15.18.md
     - "15.17": release-notes-v15.17.md
     - "2025 (versions 15.12 – 15.15)":
       - "15.15": release-notes-v15.15.md
