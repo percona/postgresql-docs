@@ -21,16 +21,16 @@ This release continues to deliver Percona’s open source value-add components f
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
 
-- pgBouncer: 1.25.1
-- etcd: 3.5.26
-- haproxy: 2.8.18
-- pgBadger: 13.2
-- postgresql-common: 289
-- pgbackrest: 2.58.0
-- pgpool2: 4.7.0
-- pg_stat_monitor: 2.3.2
-- postgis: 3.5.5
-- ydiff: 1.4.2
+- postgres-common: 290
+- pgBouncer: 1.25.2
+- etcd: 3.5.30
+- pysyncobj: 0.3.15
+- haproxy: 2.8.23
+- patroni: 4.1.3
+- pgpool2: 4.7.1
+- postgis: 3.5.6
+- pg_gather: 33
+- pg_cron: 1.6.7
 
 See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
 
