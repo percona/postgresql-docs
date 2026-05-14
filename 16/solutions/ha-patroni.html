@@ -3737,11 +3737,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Disable the upstream <code>postgresql-2026-05-14</code> package.</p>
+<p>Disable the upstream <code>postgresql-16</code> package.</p>
 </li>
 <li>
 <p>Install Percona Distribution for PostgreSQL package</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-2026-05-14
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-16
 </code></pre></div>
 </li>
 <li>
@@ -3763,7 +3763,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <li>
 <p>Even though Patroni can use an existing Postgres installation, our recommendation for a <strong>new cluster that has no data</strong> is to remove the data directory. This forces Patroni to initialize a new Postgres cluster instance.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql
-$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/postgresql/2026-05-14/main
+$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/postgresql/16/main
 </code></pre></div>
 </li>
 </ol>
@@ -3772,7 +3772,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 <ol>
 <li>
 <p>Install Percona Distribution for PostgreSQL package</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql2026-05-14-server
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-postgresql16-server
 </code></pre></div>
 </li>
 <li>
@@ -3790,8 +3790,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 </li>
 <li>
 <p>Stop and disable all installed services:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>patroni,postgresql-2026-05-14<span class="o">}</span>
-$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>patroni,postgresql-2026-05-14<span class="o">}</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span><span class="o">{</span>patroni,postgresql-16<span class="o">}</span>
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span><span class="o">{</span>patroni,postgresql-16<span class="o">}</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3835,13 +3835,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> Debian and Ubuntu</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/postgresql/2026-05-14/main&quot;</span>
-<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/lib/postgresql/2026-05-14/bin&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/postgresql/16/main&quot;</span>
+<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/lib/postgresql/16/bin&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/pgsql/data/&quot;</span>
-<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/pgsql-2026-05-14/bin&quot;</span>
+<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/pgsql-16/bin&quot;</span>
 </code></pre></div>
 </div>
 </div>
@@ -4010,7 +4010,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <p>If Patroni has started properly, you should be able to locally connect to a PostgreSQL node using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 
-psql<span class="w"> </span><span class="o">(</span><span class="m">2026</span>-05-14<span class="o">)</span>
+psql<span class="w"> </span><span class="o">(</span><span class="m">16</span>.14<span class="o">)</span>
 Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
 
 <span class="nv">postgres</span><span class="o">=</span><span class="c1">#</span>
@@ -4096,6 +4096,34 @@ recovery_conf:
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+          
+          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

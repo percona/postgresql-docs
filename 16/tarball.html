@@ -3626,12 +3626,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 <p>The following tarballs are available for the x86_64 and ARM64 architectures:</p>
 <ul>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl1.1-linux-aarch64.tar.gz">percona-postgresql-2026-05-14-ssl1.1-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl1.1-linux-x86_64.tar.gz">percona-postgresql-2026-05-14-ssl1.1-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl3-linux-aarch64.tar.gz">percona-postgresql-2026-05-14-ssl3-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl3-linux-x86_64.tar.gz">percona-postgresql-2026-05-14-ssl3-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.1.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl3.5-linux-aarch64.tar.gz">percona-postgresql-2026-05-14-ssl3.5-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.5.x</li>
-<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl3.5-linux-x86_64.tar.gz">percona-postgresql-2026-05-14-ssl3.5-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl1.1-linux-aarch64.tar.gz">percona-postgresql-16.14-ssl1.1-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl1.1-linux-x86_64.tar.gz">percona-postgresql-16.14-ssl1.1-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl3-linux-aarch64.tar.gz">percona-postgresql-16.14-ssl3-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl3-linux-x86_64.tar.gz">percona-postgresql-16.14-ssl3-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.1.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl3.5-linux-aarch64.tar.gz">percona-postgresql-16.14-ssl3.5-linux-aarch64.tar.gz</a> - for operating systems on ARM64 architecture that run OpenSSL version 3.5.x</li>
+<li><a href="https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl3.5-linux-x86_64.tar.gz">percona-postgresql-16.14-ssl3.5-linux-x86_64.tar.gz</a> - for operating systems on x86_64 architecture that run OpenSSL version 3.5.x</li>
 </ul>
 <p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
@@ -3647,7 +3647,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </thead>
 <tbody>
 <tr>
-<td>percona-postgresql2026-05-14</td>
+<td>percona-postgresql16</td>
 <td>The latest version of PostgreSQL server and the following extensions: <br> - <code>pgaudit</code> <br> - <code>pgAudit_set_user</code> <br> - <code>pg_repack</code> <br> - <code>pg_stat_monitor</code> <br> - <code>pg_gather</code> <br> - <code>wal2json</code> <br> - <code>postGIS</code> <br> - <code>pgvector</code> <br> -  the set of <a href="contrib.html">contrib extensions</a></td>
 </tr>
 <tr>
@@ -3743,12 +3743,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Fetch the binary tarball.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-16/2026-05-14/binary/tarball/percona-postgresql-2026-05-14-ssl3-linux-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://downloads.percona.com/downloads/postgresql-distribution-16/16.14/binary/tarball/percona-postgresql-16.14-ssl3-linux-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarball to the directory for binaries that you created on step 1.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>percona-postgresql-2026-05-14-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>percona-postgresql-16.14-ssl3-linux-x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/opt/pgdistro/
 </code></pre></div>
 </li>
 <li>
@@ -3758,7 +3758,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Add the location of the binaries to the PATH variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/pgdistro/percona-haproxy/sbin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql2026-05-14/bin/:/opt/pgdistro/percona-etcd/bin/:/opt/percona-perl/bin/:/opt/percona-tcl/bin/:/opt/percona-python3/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>:/opt/pgdistro/percona-haproxy/sbin/:/opt/pgdistro/percona-patroni/bin/:/opt/pgdistro/percona-pgbackrest/bin/:/opt/pgdistro/percona-pgbadger/:/opt/pgdistro/percona-pgbouncer/bin/:/opt/pgdistro/percona-pgpool-II/bin/:/opt/pgdistro/percona-postgresql16/bin/:/opt/pgdistro/percona-etcd/bin/:/opt/percona-perl/bin/:/opt/percona-tcl/bin/:/opt/percona-python3/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -3776,19 +3776,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Initiate the PostgreSQL data directory:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql2026-05-14/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql16/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Success. You can now start the database server using:
 
-/opt/pgdistro/percona-postgresql2026-05-14/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+/opt/pgdistro/percona-postgresql16/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
 </code></pre></div>
 </details>
 </li>
 <li>
 <p>Start the PostgreSQL server:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql2026-05-14/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql16/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/usr/local/pgsql/data<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -3799,11 +3799,11 @@ server started
 </li>
 <li>
 <p>Connect to <code>psql</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql2026-05-14/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>/opt/pgdistro/percona-postgresql16/bin/psql<span class="w"> </span>-d<span class="w"> </span>postgres
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (2026-05-14)
+<div class="no-copy highlight"><pre><span></span><code>psql (16.14)
 Type &quot;help&quot; for help.
 
 postgres=#
