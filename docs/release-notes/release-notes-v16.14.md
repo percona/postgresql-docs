@@ -15,7 +15,7 @@ This release continues to deliver Percona’s open source value-add components f
 
 ### Ubuntu 26.04 LTS support added
 
- Starting Q2 2026, Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
+ Percona Distribution for PostgreSQL is available on Ubuntu 26.04 LTS (Noble Numbat's successor). Packages are provided for AMD64 and ARM64 architectures.
 
 ### Tarball updates
 
