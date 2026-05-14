@@ -3480,217 +3480,217 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </thead>
 <tbody>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/adminpack.html">adminpack</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/adminpack.html">adminpack</a></td>
 <td>Required</td>
 <td>Support toolpack for pgAdmin to provide additional functionality like remote management of server log files.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/amcheck.html">amcheck</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/amcheck.html">amcheck</a></td>
 <td>Required</td>
 <td>Provides functions to verify the logical consistency of the structure of indexes, such as B-trees. It&rsquo;s useful for detecting system catalog corruption and index corruption.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/auth-delay.html">auth_delay</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/auth-delay.html">auth_delay</a></td>
 <td>Required</td>
 <td>Causes the server to pause briefly before reporting authentication failure, to make brute-force attacks on database passwords more difficult.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/auto-explain.html">auto_explain</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/auto-explain.html">auto_explain</a></td>
 <td>Required</td>
 <td>Automatically logs execution plans of slow SQL statements. It helps in performance analysis by tracking down un-optimized queries in large applications that exceed a specified time threshold.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/basebackup-to-shell.html">basebackup_to_shell</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/basebackup-to-shell.html">basebackup_to_shell</a></td>
 <td></td>
 <td>Adds a custom basebackup target called <code>shell</code>. This enables an administartor to make a base backup of a running PostgreSQL server to a shell archive.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/basic-archive.html">basic-archive</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/basic-archive.html">basic-archive</a></td>
 <td>Required</td>
 <td>An archive module that copies completed WAL segment files to the specified directory. Can be used as a starting point for developing own archive module.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/bloom.html">bloom</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/bloom.html">bloom</a></td>
 <td>Required</td>
 <td>Provides an index access method based on Bloom filters. <br> A Bloom filter is a space-efficient data structure that is used to test whether an element is a member of a set.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/btree-gin.html">btree_gin</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/btree-gin.html">btree_gin</a></td>
 <td>Required</td>
 <td>Provides GIN index operator classes with B-tree-like behavior. This allows you to use GIN indexes, which are typically used for full-text search, in situations where you might otherwise use a B-tree index, such as with integer or text data.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/btree-gist.html">btree_gist</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/btree-gist.html">btree_gist</a></td>
 <td>Required</td>
 <td>Provides GiST (Generalized Search Tree) index operator classes that implement B-tree-like behavior. This allows you to use GiST indexes, which are typically used for multidimensional and non-scalar data, in situations where you might otherwise use a B-tree index, such as with integer or text data.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/citext.html">citext</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/citext.html">citext</a></td>
 <td></td>
 <td>Provides a case-insensitive character string type, citext. Essentially, it internally calls <code>lower</code> when comparing values. Otherwise, it behaves almost exactly like <code>text</code>.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/cube.html">cube</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/cube.html">cube</a></td>
 <td></td>
 <td>Implements a data type cube for representing multidimensional cubes</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/dblink.html">dblink</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/dblink.html">dblink</a></td>
 <td>Required</td>
 <td>Provides functions to connect to other PostgreSQL databases from within a database session. This allows for queries to be run across multiple databases as if they were on the same server.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/dict-int.html">dict_int</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/dict-int.html">dict_int</a></td>
 <td></td>
 <td>An example of an add-on dictionary template for full-text search. It&rsquo;s used to demonstrate how to create custom dictionaries in PostgreSQL.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/dict-xsyn.html">dict_xsyn</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/dict-xsyn.html">dict_xsyn</a></td>
 <td>Required</td>
 <td>Example synonym full-text search dictionary. This dictionary type replaces words with groups of their synonyms, and so makes it possible to search for a word using any of its synonyms.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/earthdistance.html">earthdistance</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/earthdistance.html">earthdistance</a></td>
 <td>Required</td>
 <td>This module  provides two different approaches to calculating great circle distances on the surface of the Earth. The fisrt one depends on the <code>cube</code> module. The second one is based on the built-in <code>point</code> data type, using longitude and latitude for the coordinates.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/hstore.html">hstore</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/hstore.html">hstore</a></td>
 <td></td>
 <td>Implements the <code>hstore</code> data type for storing sets of key/value pairs within a single PostgreSQL value.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/intagg.html">intagg</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/intagg.html">intagg</a></td>
 <td></td>
 <td>Integer aggregator and enumerator.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/intarray.html">intarray</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/intarray.html">intarray</a></td>
 <td></td>
 <td>Provides a number of useful functions and operators for manipulating null-free arrays of integers.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/isn.html">isn</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/isn.html">isn</a></td>
 <td></td>
 <td>Provides data types for the following international product numbering standards: EAN13, UPC, ISBN (books), ISMN (music), and ISSN (serials).</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/lo.html">lo</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/lo.html">lo</a></td>
 <td></td>
 <td>Provides support for managing Large Objects (also called LOs or BLOBs). This includes a data type lo and a trigger lo_manage.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/ltree.html">ltree</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/ltree.html">ltree</a></td>
 <td></td>
 <td>Implements a data type <code>ltree</code> for representing labels of data stored in a hierarchical tree-like structure. Extensive facilities for searching through label trees are provided.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/oldsnapshot.html">oldsnapshot</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/oldsnapshot.html">oldsnapshot</a></td>
 <td>Required</td>
-<td>Allows inspection of the server state that is used to implement <a href="https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD">old_snapshot_threshold</a>.</td>
+<td>Allows inspection of the server state that is used to implement <a href="https://www.postgresql.org/docs/2026-05-14/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD">old_snapshot_threshold</a>.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pageinspect.html">pageinspect</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pageinspect.html">pageinspect</a></td>
 <td>Required</td>
 <td>Provides functions that allow you to inspect the contents of database pages at a low level, which is useful for debugging purposes.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/passwordcheck.html">passwordcheck</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/passwordcheck.html">passwordcheck</a></td>
 <td></td>
 <td>Checks users&rsquo; passwords whenever they are set with CREATE ROLE or ALTER ROLE. If a password is considered too weak, it will be rejected and the command will terminate with an error.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgbuffercache.html">pg_buffercache</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgbuffercache.html">pg_buffercache</a></td>
 <td>Required</td>
 <td>Provides the set of functions for examining what&rsquo;s happening in the shared buffer cache in real time.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgcrypto.html">pgcrypto</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgcrypto.html">pgcrypto</a></td>
 <td>Required</td>
 <td>Provides cryptographic functions for PostgreSQL.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgfreespacemap.html">pg_freespacemap</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgfreespacemap.html">pg_freespacemap</a></td>
 <td>Required</td>
 <td>Provides a means of examining the free space map (FSM), which PostgreSQL uses to track the locations of available space in tables and indexes. This can be useful for understanding space utilization and planning for maintenance operations.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgprewarm.html">pg_prewarm</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgprewarm.html">pg_prewarm</a></td>
 <td></td>
 <td>Provides a convenient way to load relation data into either the operating system buffer cache or the PostgreSQL buffer cache. This can be useful for reducing the time needed for a newly started database to reach its full performance potential by preloading frequently accessed data.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgrowlocks.html">pgrowlocks</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgrowlocks.html">pgrowlocks</a></td>
 <td>Required</td>
 <td>Provides a function to show row locking information for a specified table.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgstatstatements.html">pg_stat_statements</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgstatstatements.html">pg_stat_statements</a></td>
 <td>Required</td>
 <td>A module for tracking planning and execution statistics of all SQL statements executed by a server. Consider using an advanced version of <code>pg_stat_statements</code> - <a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgstattuple.html">pgstattuple</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgstattuple.html">pgstattuple</a></td>
 <td>Required</td>
 <td>Povides various functions to obtain tuple-level statistics. It offers detailed information about tables and indexes, such as the amount of free space and the number of live and dead tuples.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgsurgery.html">pg_surgery</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgsurgery.html">pg_surgery</a></td>
 <td>Required</td>
 <td>Provides various functions to perform surgery on a damaged relation. These functions are unsafe by design and using them may corrupt (or further corrupt) your database. Use them with caution and only as a last resort</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgtrgm.html">pg_trgm</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgtrgm.html">pg_trgm</a></td>
 <td></td>
 <td>Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. A trigram is a contiguous sequence of three characters. The extension can be used for text search and pattern matching operations.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgvisibility.html">pg_visibility</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgvisibility.html">pg_visibility</a></td>
 <td>Required</td>
 <td>Provides a way to examine the visibility map (VM) and the page-level visibility information of a table. It also provides functions to check the integrity of a visibility map and to force it to be rebuilt.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/pgwalinspect.html">pg_walinspect</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/pgwalinspect.html">pg_walinspect</a></td>
 <td>Required</td>
 <td>Provides SQL functions that allow you to inspect the contents of write-ahead log of a running PostgreSQL database cluster at a low level, which is useful for debugging, analytical, reporting or educational purposes.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/postgres-fdw.html">postgres_fdw</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/postgres-fdw.html">postgres_fdw</a></td>
 <td>Required</td>
 <td>Provides a Foreign Data Wrapper (FDW) for accessing data in remote PostgreSQL servers. It allows a PostgreSQL database to interact with remote tables as if they were local.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/seg.html">seg</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/seg.html">seg</a></td>
 <td></td>
 <td>Implements a data type <code>seg</code> for representing line segments, or floating point intervals. <code>seg</code> can represent uncertainty in the interval endpoints, making it especially useful for representing laboratory measurements.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/sepgsql.html">segpgsql</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/sepgsql.html">segpgsql</a></td>
 <td></td>
 <td>SELinux-, label-based mandatory access control (MAC) security module. It can only be used on Linux 2.6.28 or higher with SELinux enabled.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/contrib-spi.html">spi</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/contrib-spi.html">spi</a></td>
 <td>Required</td>
 <td>Provides several workable examples of using the Server Programming Interface (SPI) and triggers.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/sslinfo.html">sslinfo</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/sslinfo.html">sslinfo</a></td>
 <td>Reqjuired</td>
 <td>Provides information about the SSL certificate that the current client provided when connecting to PostgreSQL.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/tablefunc.html">tablefunc</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/tablefunc.html">tablefunc</a></td>
 <td></td>
 <td>Includes various functions that return tables (that is, multiple rows). These functions are useful both in their own right and as examples of how to write C functions that return multiple rows.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/tcn.html">tcn</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/tcn.html">tcn</a></td>
 <td></td>
 <td>Provides a trigger function that notifies listeners of changes to any table on which it is attached.</td>
 </tr>
 <tr>
-<td><a href="https://www.postgresql.org/docs/16/test-decoding.html">test_decoding</a></td>
+<td><a href="https://www.postgresql.org/docs/2026-05-14/test-decoding.html">test_decoding</a></td>
 <td>Required</td>
 <td>An SQL-based test/example module for WAL logical decoding</td>
 </tr>

@@ -3690,8 +3690,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h2 id="fast-path-2-minute-install">Fast path (2-minute install)<a class="headerlink" href="#fast-path-2-minute-install" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
-sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-16<span class="w">  </span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-16
+sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-2026-05-14<span class="w">  </span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-2026-05-14
 sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
 </code></pre></div>
 <p>After psql starts, run the following SQL commands:</p>
@@ -3713,8 +3713,8 @@ sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </spa
 </li>
 <li>
 <p>Enable the repository and install the package:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-16
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-16
+<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-2026-05-14
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-2026-05-14
 </code></pre></div>
 <p>The installation process automatically initializes and starts the default database.</p>
 <div class="admonition note">
