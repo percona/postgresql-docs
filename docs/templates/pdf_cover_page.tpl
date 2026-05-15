@@ -7,6 +7,6 @@
 {% if config.site_description %}
 <h1>{{ config.site_description }}</h1>
 {% endif %} 
-<h2>18.3.1 (March 02, 2026)</h2>
+<h2>18.4.1 (May 15, 2026)</h2>
 <!--<h3>Percona Technical Documentation Team</h3>-->
 
