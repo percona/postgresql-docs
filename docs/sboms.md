@@ -18,6 +18,8 @@ SBOMs are available for:
     - [Ubuntu 22.04 (Jammy, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-jammy-aarch64.json)
     - [Ubuntu 24.04 (Noble, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-noble-x86_64.json)
     - [Ubuntu 24.04 (Noble, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-noble-aarch64.json)
+    - [Ubuntu 26.04 (Resolute, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-resolute-x86_64.json)
+    - [Ubuntu 26.04 (Resolute, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-resolute-aarch64.json)
 
 === "Red Hat Enterprise Linux (RHEL) and derivatives"
     - [RHEL 8 (x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-{{pgversion}}/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-ol8-x86_64.json)
