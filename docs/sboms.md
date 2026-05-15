@@ -18,6 +18,8 @@ SBOMs are available for:
     - [Ubuntu 22.04 (Jammy, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-jammy-aarch64.json)
     - [Ubuntu 24.04 (Noble, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-noble-x86_64.json)
     - [Ubuntu 24.04 (Noble, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-noble-aarch64.json)
+    - [Ubuntu 26.04 (Resolute, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-resolute-x86_64.json)
+    - [Ubuntu 26.04 (Resolute, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-resolute-aarch64.json)
 
 === "Red Hat Enterprise Linux (RHEL) and derivatives"
     - [RHEL 8 (x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-15/{{dockertag}}/binary/tarball/sbom-percona-postgresql-{{dockertag}}-ol8-x86_64.json)
