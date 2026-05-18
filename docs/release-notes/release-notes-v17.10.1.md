@@ -8,8 +8,10 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, including `pg_tde` 2.2.0 for Transparent Data Encryption and more. See the full component list below for details.
 
+To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 16.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+
 !!! note
-    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 16.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+    Starting with this release, `shared_preload_libraries` is empty by default. Extensions such as `pg_tde` must be added manually.
 
 ### Ubuntu 26.04 LTS support added
 
