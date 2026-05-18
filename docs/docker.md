@@ -106,7 +106,7 @@ Follow these steps to enable `pg_tde`:
 1. Start the container with `pg_tde` added to `shared_preload_libraries`:
 
     ```{.bash data-prompt="$"}
-    docker run --name container-name -e POSTGRES_PASSWORD=sUpers3cRet -c 'shared_preload_libraries=pg_tde' -d percona/percona-distribution-postgresql:{{dockertag}}
+    docker run --name container-name -e POSTGRES_PASSWORD=sUpers3cRet -d percona/percona-distribution-postgresql:{{dockertag}} -c 'shared_preload_libraries=pg_tde'
     ```
 
     where:
