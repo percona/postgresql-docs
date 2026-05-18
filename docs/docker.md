@@ -116,7 +116,7 @@ Follow these steps to enable `pg_tde`:
     * `POSTGRES_PASSWORD` is the superuser password
 
     !!! note
-        Available starting with versions 18.3, 17.9, 16.13, 15.17, and 14.22. For earlier versions, use `-e ENABLE_PG_TDE=1` instead.
+        Available starting with version 18.3. For earlier versions, use `-e ENABLE_PG_TDE=1` instead.
 
 2. Connect to the container and start the interactive `psql` session:
 
