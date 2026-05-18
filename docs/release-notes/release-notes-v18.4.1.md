@@ -10,7 +10,7 @@ This release continues to deliver Percona’s open source value-add components f
 
 To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
 
-  !!! note
+!!! note
     Starting with this release, `shared_preload_libraries` is empty by default. Extensions such as `pg_tde` must be added manually.
 
 ### Ubuntu 26.04 LTS support added
