@@ -103,17 +103,20 @@ Percona Distribution for PostgreSQL Docker image includes the `pg_tde` extension
 Follow these steps to enable `pg_tde`:
 {.power-number}
 
-1. Start the container with the `ENABLE_PG_TDE=1` environment variable:
+1. Start the container with `pg_tde` added to `shared_preload_libraries`:
 
     ```{.bash data-prompt="$"}
-    docker run --name container-name -e ENABLE_PG_TDE=1 -e POSTGRES_PASSWORD=sUpers3cRet  -d percona/percona-distribution-postgresql:{{dockertag}}
+    docker run --name container-name -e POSTGRES_PASSWORD=sUpers3cRet -d percona/percona-distribution-postgresql:{{dockertag}} -c 'shared_preload_libraries=pg_tde'
     ```
 
     where:
 
     * `container-name` is the name you assign to your container
-    * `ENABLE_PG_TDE=1` adds the `pg_tde` to the `shared_preload_libraries` and enables the custom storage manager
+    * `shared_preload_libraries=pg_tde` enables the `pg_tde` extension and its custom storage manager
     * `POSTGRES_PASSWORD` is the superuser password
+
+    !!! note
+        Available starting with version 18.3. For earlier versions, use `-e ENABLE_PG_TDE=1` instead.
 
 2. Connect to the container and start the interactive `psql` session:
 
