@@ -5404,15 +5404,19 @@ postgres=#
 <p class="power-number">Follow these steps to enable <code>pg_tde</code>:</p>
 <ol>
 <li>
-<p>Start the container with the <code>ENABLE_PG_TDE=1</code> environment variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">ENABLE_PG_TDE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w">  </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.9
+<p>Start the container with <code>pg_tde</code> added to <code>shared_preload_libraries</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:17.9<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;shared_preload_libraries=pg_tde&#39;</span>
 </code></pre></div>
 <p>where:</p>
 <ul>
 <li><code>container-name</code> is the name you assign to your container</li>
-<li><code>ENABLE_PG_TDE=1</code> adds the <code>pg_tde</code> to the <code>shared_preload_libraries</code> and enables the custom storage manager</li>
+<li><code>shared_preload_libraries=pg_tde</code> enables the <code>pg_tde</code> extension and its custom storage manager</li>
 <li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available starting with version 17.9. For earlier versions, use <code>-e ENABLE_PG_TDE=1</code> instead.</p>
+</div>
 </li>
 <li>
 <p>Connect to the container and start the interactive <code>psql</code> session:</p>
