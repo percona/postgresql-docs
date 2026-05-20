@@ -8,7 +8,7 @@ To ensure a smooth upgrade path, follow these steps:
 * Then, perform the major upgrade to your desired version (e.g., from 16.9 to 17.5).
 
 !!! warning
-    If your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
+    When doing a major version upgrade from Percona Distribution for PostgreSQL 17, if your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
 
 !!! note
     When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
