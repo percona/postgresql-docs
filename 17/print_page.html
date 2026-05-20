@@ -9329,25 +9329,15 @@ operate at the SQL and memory level.</p>
                         </h1>
                     <section class="print-page" id="major-upgrade" heading-number="8.1"><h1 id="major-upgrade-upgrading-percona-distribution-for-postgresql-from-16-to-17">Upgrading Percona Distribution for PostgreSQL from 16 to 17<a class="headerlink" href="#major-upgrade-upgrading-percona-distribution-for-postgresql-from-16-to-17" title="Permanent link">&para;</a></h1>
 <p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code> tool.</p>
-<div class="admonition danger">
-<p class="admonition-title">pg_upgrade is not supported with encrypted tables (pg_tde)</p>
-<p><code>pg_upgrade</code> is not supported for clusters with encrypted tables (<code>pg_tde</code>).</p>
-<p><strong>You are affected if:</strong></p>
-<ul>
-<li>You are using <code>pg_tde</code>, or</li>
-<li>Your cluster contains encrypted tables</li>
-</ul>
-<p>It corrupts encryption metadata which results in:</p>
-<ul>
-<li>Missing or empty key files in the <code>pg_tde/</code> directory</li>
-<li>Missing or incomplete provider metadata</li>
-</ul>
-</div>
 <p>To ensure a smooth upgrade path, follow these steps:</p>
 <ul>
 <li>Upgrade to the latest minor version within your current major version (e.g., from 16.6 to 16.9).</li>
 <li>Then, perform the major upgrade to your desired version (e.g., from 16.9 to 17.5).</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When doing a major version upgrade from Percona Distribution for PostgreSQL 17, if your cluster uses <code>pg_tde</code>, you <strong>must</strong> use <a href="https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html"><code>pg_tde_upgrade</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> instead of <code>pg_upgrade</code>. Using <code>pg_upgrade</code> on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When running a major upgrade on <strong>RHEL 8 and compatible derivatives</strong>, consider the following:</p>
