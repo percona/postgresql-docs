@@ -4,15 +4,6 @@ Minor releases of PostgreSQL include bug fixes and feature enhancements. We reco
 
 Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.
 
-Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:
-
-1. Stop the `postgresql` cluster
-
-2. Update `percona-release`
-3. Install new version packages
-
-4. Restart the `postgresql` cluster.
-
 !!! note
 
     These steps apply if you installed Percona Distribution for PostgreSQL from the Major Release repository. In this case, you are always upgraded to the latest available release.
@@ -42,7 +33,7 @@ Minor upgrade of Percona Distribution for PostgreSQL includes the following step
 Run **all** commands as root or via **sudo**:
 {.power-number}
 
-1. Stop the `postgresql` service.
+1. Stop the `postgresql` service:
 
     === ":material-debian: On Debian / Ubuntu"
 
@@ -60,7 +51,7 @@ Run **all** commands as root or via **sudo**:
 
 3. Install new version packages. See [Installing Percona Distribution for PostgreSQL](installing.md).
 
-4. Restart the `postgresql` service.
+4. Restart the `postgresql` service:
 
     === ":material-debian: On Debian / Ubuntu"
 
@@ -71,8 +62,16 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start postgresql-16
+         $ sudo systemctl start postgresql-17
          ```
+
+5. If you use `pg_tde`, update the extension. After restarting the cluster, connect to each database where `pg_tde` is installed and run:
+
+    ```sql
+    ALTER EXTENSION pg_tde UPDATE;
+    ```
+
+    This updates the extension to the latest installed version and needs to be run in each database where the extension is installed.
 
 !!! note "For minor upgrades (RHEL only)"
 
