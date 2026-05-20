@@ -2,24 +2,13 @@
 
 This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade` tool.
 
-!!! danger "pg_upgrade is not supported with encrypted tables (pg_tde)"
-
-    `pg_upgrade` is not supported for clusters with encrypted tables (`pg_tde`).
-
-    **You are affected if:**
-
-    - You are using `pg_tde`, or
-    - Your cluster contains encrypted tables
-
-    It corrupts encryption metadata which results in:
-    
-    - Missing or empty key files in the `pg_tde/` directory
-    - Missing or incomplete provider metadata
-
 To ensure a smooth upgrade path, follow these steps:
 
 * Upgrade to the latest minor version within your current major version (e.g., from 16.6 to 16.9).
 * Then, perform the major upgrade to your desired version (e.g., from 16.9 to 17.5).
+
+!!! warning
+    When doing a major version upgrade from Percona Distribution for PostgreSQL 17, if your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
 
 !!! note
     When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
