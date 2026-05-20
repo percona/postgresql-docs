@@ -10,7 +10,10 @@ To ensure a smooth upgrade path, follow these steps:
 !!! note
     When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
 
-    Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues. 
+    Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.
+
+!!! warning
+    If your cluster uses `pg_tde`, you **must** use `pg_tde_upgrade` instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
 
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
