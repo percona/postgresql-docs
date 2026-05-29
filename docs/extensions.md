@@ -8,7 +8,7 @@ Percona Distribution for PostgreSQL includes the extensions that have been teste
 * [Extensions authored by Percona](percona-ext.md)
 * [Third-party components](third-party.md)
 
-Additionally, see the list of [PostgreSQL software](https://www.percona.com/services/support/support-tiers-postgresql) covered by Percona Support.
+Additionally, see the list of [PostgreSQL software](https://www.percona.com/postgresql/support/) covered by Percona Support.
 
 ## Install an extension
 
