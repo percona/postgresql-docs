@@ -10,7 +10,7 @@ For more information about using Docker, see the [Docker Docs :octicons-link-ext
 
     By default, Docker pulls the image from Docker Hub if it is not available locally.
 
-## 1. Start the container {.power-number}
+## 1. Start the container { #start-container .power-number }
 
 Start a Percona Distribution for PostgreSQL container as follows:
 
@@ -21,7 +21,7 @@ docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-
 Where:
 
 * `container-name` is the name you assign to your container
-* `POSTGRES_PASSWORD` is the superuser password 
+* `POSTGRES_PASSWORD` is the superuser password
 * `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (amd64 or arm64) and pulls the respective image. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/).
 
 !!! tip
@@ -95,14 +95,15 @@ The Docker image of Percona Distribution for PostgreSQL includes the following c
     | `percona-postgresql{{pgversion}}-server` | The PostgreSQL server package. |
 | `percona-postgresql-common` | PostgreSQL database-cluster manager. It provides a structure under which multiple versions of PostgreSQL may be installed and/or multiple clusters maintained at one time.|
 | `percona-postgresql-client-common`| The manager for multiple PostgreSQL client versions.|
-| `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions | 
+| `percona-postgresql{{pgversion}}-contrib` | A collection of additional PostgreSQLcontrib extensions |
 | `percona-postgresql{{pgversion}}-libs`| Libraries for use with PostgreSQL.|
-| `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. | 
-| `percona-pgaudit{{pgversion}}` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. | 
+| `percona-pg-stat-monitor{{pgversion}}` | A Query Performance Monitoring tool for PostgreSQL. |
+| `percona-pgaudit{{pgversion}}` | Provides detailed session or object audit logging via the standard PostgreSQL logging facility. |
 | `percona-pgaudit{{pgversion}}_set_user`| An additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.|
-| `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.| 
+| `percona-pg_repack{{pgversion}}`| rebuilds PostgreSQL database objects.|
 | `percona-wal2json{{pgversion}}` | a PostgreSQL logical decoding JSON output plugin.|
 | `percona-pgvector`              |  A vector similarity search for PostgreSQL|
+| `percona-pg_tde`              |  An extension to provides data-at-rest encryption for PostgreSQL|
 
 ## Connect to Percona Distribution for PostgreSQL from an application in another Docker container
 
@@ -132,3 +133,68 @@ where:
 * `container-name` is the name of your container that you will use to connect to the database container using the `psql` command line client
 * `{{dockertag}}` is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.
 * `address` is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.
+
+## Run the PostgreSQL with PostGIS image
+
+The `postgres-gis` image includes everything in the standard Percona Distribution for PostgreSQL image plus the [PostGIS :octicons-link-external-16:](https://postgis.net/) extension for storing and manipulating spatial data.
+
+!!! note
+    PostGIS is licensed under [GNU GPLv2 :octicons-link-external-16:](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html). Review the license terms before using this image in your environment.
+
+???+ admonition "Additional image contents"
+
+    | Component name | Description |
+    |---|---|
+    | `percona-postgis` | Spatial and geographic objects for PostgreSQL |
+
+Start a `postgres-gis` container as follows: to be tested - placeholders
+
+```{.bash data-prompt="$"}
+docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:<!-- to be added: confirm postgres-gis image tag, e.g. ppg17.x-postgres-gis-x.x.x -->
+```
+
+Where:
+
+* `container-name` is the name you assign to your container
+* `POSTGRES_PASSWORD` is the superuser password
+* The image tag identifies the PostGIS-enabled variant. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/) and filter for `gis`.
+
+For more information on deploying and using PostGIS, see [Spatial data handling](../solutions/postgis.md).
+
+## Run the PgBouncer image
+
+[PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) is a lightweight connection pooler for PostgreSQL. The Percona PgBouncer image is available separately from the PostgreSQL image and is intended for use alongside it.
+
+Start a PgBouncer container as follows: to be tested - placeholders
+
+```{.bash data-prompt="$"}
+docker run --name pgbouncer \
+  -v /path/to/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini \
+  -d percona/percona-pgbouncer:<!-- TBD: confirm pgbouncer image tag, e.g. 1.25.0-1 -->
+```
+
+Where:
+
+* `pgbouncer.ini` is your PgBouncer configuration file, mounted into the container. It defines the connection settings to your PostgreSQL instance.
+* The image tag specifies the PgBouncer version. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-pgbouncer/tags/).
+
+For more information on configuring PgBouncer, see the [PgBouncer documentation :octicons-link-external-16:](https://www.pgbouncer.org/config.html).
+
+## Run the pgBackRest image
+
+[pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a backup and restore solution for PostgreSQL, supporting full, differential, and incremental backups as well as point-in-time recovery. The Percona pgBackRest image is available separately from the PostgreSQL image.
+
+Start a pgBackRest container as follows: to be tested - placeholders
+
+```{.bash data-prompt="$"}
+docker run --name pgbackrest \
+  -v /path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf \
+  -d percona/percona-pgbackrest:<!-- TBD: confirm pgbackrest image tag, e.g. 2.57.0-1 -->
+```
+
+Where:
+
+* `pgbackrest.conf` is your pgBackRest configuration file, mounted into the container. It defines the connection to your PostgreSQL instance and your backup repository settings.
+* The image tag specifies the pgBackRest version. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-pgbackrest/tags/).
+
+For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see [Backup and disaster recovery](../solutions/backup-recovery.md).

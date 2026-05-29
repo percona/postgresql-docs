@@ -6,7 +6,7 @@ For more information, see the [pg_tde documentation :octicons-link-external-16:]
 
 ## Enable pg_tde {.power-number}
 
-1. Start the container as shown in [Run in Docker](docker.md#1-start-the-container-power-number), adding the following option to the `docker run` command:
+1. Start the container as shown in [Run in Docker](docker.md#start-container), adding the following option to the `docker run` command:
 
     ```{.bash data-prompt="$"}
     -c shared_preload_libraries=pg_tde
