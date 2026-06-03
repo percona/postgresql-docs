@@ -358,10 +358,6 @@ For Red Hat Enterprise Linux 8 and derivatives, replace the operating system ver
 
 Run all the commands in the following sections as root or using the `sudo` command:
 
-### Install dependencies
-
-Install `curl` for [Telemetry](telemetry.md). We use it to better understand the use of our products and improve them.
-
 ```{.bash data-prompt="$"}
 $ sudo yum -y install curl
 ```
