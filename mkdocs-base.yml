@@ -9,16 +9,6 @@ repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
 edit_uri: edit/13/docs/
 
-features: 
-  - content.tabs.link
-  - search.highlight
-  - navigation.top
-  - navigation.tracking
-  - content.tabs.link  
-#  - content.action.edit
-  - content.action.view
-  - content.code.copy 
-
 use_directory_urls: false
 
 
@@ -29,13 +19,11 @@ theme:
   favicon: _images/postgresql-fav.svg
   custom_dir: _resource/overrides/
   font:
-    text: Roboto  
+    text: Roboto
     code: Roboto Mono
   icon:
     edit: material/file-edit-outline
     view: material/file-eye-outline
-
-#Color schemes
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -55,17 +43,14 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Color theme set to Dark Mode. Click to change
-
-# Theme features
-
   features:
+    - announce.dismiss
     - search.highlight
     - navigation.top
-    - navigation.tracking 
+    - navigation.tracking
     - content.tabs.link
-#    - content.action.edit
     - content.action.view
-    - content.code.copy  
+    - content.code.copy
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -92,7 +77,7 @@ markdown_extensions:
     title: On this page
   admonition: {}
   footnotes: {}
-  def_list: {} # https://michelf.ca/projects/php-markdown/extra/#def-list
+  def_list: {}
   meta: {}
   md_in_html: {}
   smarty:
@@ -100,10 +85,10 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: 
+  pymdownx.tabbed:
       alternate_style: true
   pymdownx.tilde: {}
-  pymdownx.superfences: 
+  pymdownx.superfences:
     custom_fences:
       - name: mermaid
         class: mermaid
@@ -113,8 +98,6 @@ markdown_extensions:
   pymdownx.inlinehilite: {}
   pymdownx.snippets:
       base_path: ["snippets"]
-      #      auto_append:
-      #        - services-banner.md
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -125,10 +108,10 @@ markdown_extensions:
 
 plugins:
   section-index: {}
-  search: 
+  search:
     separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   open-in-new-tab: {}
-  git-revision-date-localized: 
+  git-revision-date-localized:
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
   git-committers:
@@ -143,7 +126,7 @@ plugins:
     max_length: 160
   macros:
       include_yaml:
-        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+        - 'variables.yml'
   mike:
       version_selector: true
       css_dir: css
@@ -153,11 +136,9 @@ plugins:
     add_to_navigation: false
     print_page_title: 'Percona Distribution for PostgreSQL documentation'
     add_print_site_banner: false
-    # Table of contents
     add_table_of_contents: true
     toc_title: 'Table of Contents'
     toc_depth: 2
-    # Content-related
     add_full_urls: false
     enumerate_headings: false
     enumerate_headings_depth: 1
@@ -171,16 +152,14 @@ plugins:
 extra:
   version:
     provider: mike
-  #homepage:
-  #  https://docs.percona.com
   postgresrecommended: 13
 
 nav:
   - 'Home': 'index.md'
   - get-help.md
-  - Get started: 
+  - Get started:
       - Quickstart guide: installing.md
-      - 1. Install: 
+      - 1. Install:
           - Via apt: apt.md
           - Via yum: yum.md
           - From tarballs: tarball.md
@@ -189,8 +168,8 @@ nav:
           - repo-overview.md
           - sboms.md
       - 2. Connect to PostgreSQL: connect.md
-      - 3. Manipulate data in PostgreSQL: crud.md  
-      - 4. What's next: whats-next.md 
+      - 3. Manipulate data in PostgreSQL: crud.md
+      - 4. What's next: whats-next.md
   - Extensions:
       - 'Extensions': extensions.md
       - contrib.md
@@ -271,7 +250,7 @@ nav:
         - "13.2 Update 4": release-notes/release-notes-v13.2.upd4.md
         - "13.2 Update 3": release-notes/release-notes-v13.2.upd3.md
         - "13.2 Update 2": release-notes/release-notes-v13.2.upd2.md
-      - 2020 (versions 13.0 - 13.2 Update): 
+      - 2020 (versions 13.0 - 13.2 Update):
         - "13.2 Update": release-notes/release-notes-v13.2.upd.md
         - "13.2": release-notes/release-notes-v13.2.md
         - "13.1": release-notes/release-notes-v13.1.md
@@ -280,4 +259,3 @@ nav:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
       - Trademark policy: trademark-policy.md
-
