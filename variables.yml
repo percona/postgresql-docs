@@ -7,6 +7,8 @@ pgsubversion: '18.4'
 pgversion: '18'
 pspgversion: '18.4.1' 
 pgsmversion: '2.3.2'
+pgbouncerversion: '1.25.2'
+pgbackrestversion: '2.58.0'
 
 
 date:

@@ -147,17 +147,16 @@ The `postgres-gis` image includes everything in the standard Percona Distributio
     |---|---|
     | `percona-postgis` | Spatial and geographic objects for PostgreSQL |
 
-Start a `postgres-gis` container as follows: to be tested - placeholders
+Start a `postgres-gis` container as follows:
 
 ```{.bash data-prompt="$"}
-docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:<!-- to be added: confirm postgres-gis image tag, e.g. ppg17.x-postgres-gis-x.x.x -->
+docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql-with-postgis:{{pgsubversion}}
 ```
 
 Where:
 
 * `container-name` is the name you assign to your container
 * `POSTGRES_PASSWORD` is the superuser password
-* The image tag identifies the PostGIS-enabled variant. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/) and filter for `gis`.
 
 For more information on deploying and using PostGIS, see [Spatial data handling](../solutions/postgis.md).
 
@@ -165,12 +164,12 @@ For more information on deploying and using PostGIS, see [Spatial data handling]
 
 [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) is a lightweight connection pooler for PostgreSQL. The Percona PgBouncer image is available separately from the PostgreSQL image and is intended for use alongside it.
 
-Start a PgBouncer container as follows: to be tested - placeholders
+Start a PgBouncer container as follows:
 
 ```{.bash data-prompt="$"}
 docker run --name pgbouncer \
   -v /path/to/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini \
-  -d percona/percona-pgbouncer:<!-- TBD: confirm pgbouncer image tag, e.g. 1.25.0-1 -->
+  -d percona/percona-pgbouncer:{{pgbouncerversion}}
 ```
 
 Where:
@@ -184,12 +183,12 @@ For more information on configuring PgBouncer, see the [PgBouncer documentation 
 
 [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) is a backup and restore solution for PostgreSQL, supporting full, differential, and incremental backups as well as point-in-time recovery. The Percona pgBackRest image is available separately from the PostgreSQL image.
 
-Start a pgBackRest container as follows: to be tested - placeholders
+Start a pgBackRest container as follows:
 
 ```{.bash data-prompt="$"}
 docker run --name pgbackrest \
   -v /path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf \
-  -d percona/percona-pgbackrest:<!-- TBD: confirm pgbackrest image tag, e.g. 2.57.0-1 -->
+  -d percona/percona-pgbackrest:{{pgbackrestversion}}
 ```
 
 Where:
