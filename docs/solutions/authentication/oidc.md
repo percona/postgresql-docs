@@ -69,7 +69,7 @@ Follow these steps to set up OIDC authentication for your PostgreSQL database.
 3. Add an OAuth authentication rule to `pg_hba.conf`:
 
     ```ini
-    host all all 192.168.1.0/24 oauth scope="openid email",issuer=https://oidc.example.com
+    host all all 192.168.1.0/24 oauth scope="pgadmin-a",issuer=https://oidc.example.com
     ```
 
     Where:
