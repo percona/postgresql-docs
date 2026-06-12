@@ -24,7 +24,10 @@ nav:
           - Via apt: apt.md
           - Via yum: yum.md
           - From tarballs: tarball.md
-          - Run in Docker: docker.md
+          - Run in Docker: 
+            - Overview: docker/docker.md
+            - 'Enable pg_tde for securing data at rest': docker/docker-enable-pg-tde.md
+            - 'Enable stat-monitor for performance statistics': docker/docker-enable-pg-stat-monitor.md
           - enable-extensions.md
           - repo-overview.md
           - sboms.md
