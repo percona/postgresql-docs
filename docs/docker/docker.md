@@ -52,9 +52,9 @@ Some extensions require server startup configuration and must be loaded via `sha
 
 2. Connect to the container's interactive terminal:
 
-```{.bash data-prompt="$"}
-docker exec -it container-name psql -U postgres
-```
+    ```{.bash data-prompt="$"}
+    docker exec -it container-name psql -U postgres
+    ```
 
     The `container-name` is the name of the container that you started in the previous step.
 
