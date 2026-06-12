@@ -9,19 +9,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document covers the following scenarios to test the PostgreSQL cluster:">
+        <meta name="description" content="pg_stat_monitor is a query performance monitoring tool for PostgreSQL which aggregates collected performance statistics.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/solutions/ha-test.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/18/docker/docker-enable-pg-stat-monitor.html">
       
       
-        <link rel="prev" href="ha-haproxy.html">
+        <link rel="prev" href="docker-enable-pg-tde.html">
       
       
-        <link rel="next" href="backup-recovery.html">
+        <link rel="next" href="../enable-extensions.html">
       
       
         
@@ -32,7 +32,7 @@
     
     
       
-        <title>Testing the Patroni PostgreSQL Cluster - Percona Distribution for PostgreSQL</title>
+        <title>Enable stat-monitor for performance statistics - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -102,7 +102,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Testing the Patroni PostgreSQL Cluster" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Enable stat-monitor for performance statistics" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -129,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testing-the-patroni-postgresql-cluster" class="md-skip">
+        <a href="#enable-pg_stat_monitor-for-performance-statistics" class="md-skip">
           Skip to content
         </a>
       
@@ -258,7 +258,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing the Patroni PostgreSQL Cluster
+              Enable stat-monitor for performance statistics
             
           </span>
         </div>
@@ -529,18 +529,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -561,7 +563,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -576,18 +578,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -608,7 +612,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -735,18 +739,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1_5" id="__nav_5_1_5_label" tabindex="0">
@@ -767,7 +773,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -785,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         
   
   
@@ -813,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/docker-enable-pg-tde.html" class="md-nav__link">
+      <a href="docker-enable-pg-tde.html" class="md-nav__link">
         
   
   
@@ -838,10 +844,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../docker/docker-enable-pg-stat-monitor.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable stat-monitor for performance statistics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="docker-enable-pg-stat-monitor.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -857,6 +890,39 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enable-pg_stat_monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable pg_stat_monitor
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1223,20 +1289,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1257,7 +1321,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1300,20 +1364,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
         
           
           <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
@@ -1334,7 +1396,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1352,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="high-availability.html" class="md-nav__link">
+      <a href="../solutions/high-availability.html" class="md-nav__link">
         
   
   
@@ -1380,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-measure.html" class="md-nav__link">
+      <a href="../solutions/ha-measure.html" class="md-nav__link">
         
   
   
@@ -1408,7 +1470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-architecture.html" class="md-nav__link">
+      <a href="../solutions/ha-architecture.html" class="md-nav__link">
         
   
   
@@ -1483,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="etcd-info.html" class="md-nav__link">
+      <a href="../solutions/etcd-info.html" class="md-nav__link">
         
   
   
@@ -1511,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="patroni-info.html" class="md-nav__link">
+      <a href="../solutions/patroni-info.html" class="md-nav__link">
         
   
   
@@ -1539,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="haproxy-info.html" class="md-nav__link">
+      <a href="../solutions/haproxy-info.html" class="md-nav__link">
         
   
   
@@ -1567,7 +1629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pgbackrest-info.html" class="md-nav__link">
+      <a href="../solutions/pgbackrest-info.html" class="md-nav__link">
         
   
   
@@ -1603,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-components.html" class="md-nav__link">
+      <a href="../solutions/ha-components.html" class="md-nav__link">
         
   
   
@@ -1678,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-init-setup.html" class="md-nav__link">
+      <a href="../solutions/ha-init-setup.html" class="md-nav__link">
         
   
   
@@ -1706,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-etcd-config.html" class="md-nav__link">
+      <a href="../solutions/ha-etcd-config.html" class="md-nav__link">
         
   
   
@@ -1734,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-patroni.html" class="md-nav__link">
+      <a href="../solutions/ha-patroni.html" class="md-nav__link">
         
   
   
@@ -1762,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pgbackrest.html" class="md-nav__link">
+      <a href="../solutions/pgbackrest.html" class="md-nav__link">
         
   
   
@@ -1790,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-haproxy.html" class="md-nav__link">
+      <a href="../solutions/ha-haproxy.html" class="md-nav__link">
         
   
   
@@ -1823,37 +1885,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Testing the Patroni PostgreSQL Cluster
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="ha-test.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../solutions/ha-test.html" class="md-nav__link">
         
   
   
@@ -1869,89 +1904,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#testing-replication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing replication
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-failover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing failover
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing failover">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-2-abrupt-machine-shutdown-or-power-outage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario 2. Abrupt machine shutdown or power outage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-switchover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual switchover
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2019,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-recovery.html" class="md-nav__link">
+      <a href="../solutions/backup-recovery.html" class="md-nav__link">
         
   
   
@@ -2047,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="../solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         
   
   
@@ -2130,7 +2082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis.html" class="md-nav__link">
+      <a href="../solutions/postgis.html" class="md-nav__link">
         
   
   
@@ -2158,7 +2110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-deploy.html" class="md-nav__link">
+      <a href="../solutions/postgis-deploy.html" class="md-nav__link">
         
   
   
@@ -2186,7 +2138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-testing.html" class="md-nav__link">
+      <a href="../solutions/postgis-testing.html" class="md-nav__link">
         
   
   
@@ -2214,7 +2166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-upgrade.html" class="md-nav__link">
+      <a href="../solutions/postgis-upgrade.html" class="md-nav__link">
         
   
   
@@ -2297,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication/overview.html" class="md-nav__link">
+      <a href="../solutions/authentication/overview.html" class="md-nav__link">
         
   
   
@@ -2325,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication/oidc.html" class="md-nav__link">
+      <a href="../solutions/authentication/oidc.html" class="md-nav__link">
         
   
   
@@ -2353,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication/ldap.html" class="md-nav__link">
+      <a href="../solutions/authentication/ldap.html" class="md-nav__link">
         
   
   
@@ -3208,7 +3160,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
-    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/solutions/ha-test.md" title="Edit this page on GitHub" class="edit-page-link">
+    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/docker/docker-enable-pg-stat-monitor.md" title="Edit this page on GitHub" class="edit-page-link">
       <span class="edit-page-icon">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
@@ -3269,60 +3221,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#testing-replication" class="md-nav__link">
+  <a href="#enable-pg_stat_monitor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Testing replication
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing-failover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing failover
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing failover">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-2-abrupt-machine-shutdown-or-power-outage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario 2. Abrupt machine shutdown or power outage
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-switchover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual switchover
+        Enable pg_stat_monitor
       
     </span>
   </a>
@@ -3352,190 +3254,106 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/solutions/ha-test.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/docker/docker-enable-pg-stat-monitor.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="testing-the-patroni-postgresql-cluster">Testing the Patroni PostgreSQL Cluster<a class="headerlink" href="#testing-the-patroni-postgresql-cluster" title="Permanent link">&para;</a></h1>
-<p>This document covers the following scenarios to test the PostgreSQL cluster:</p>
-<ul>
-<li>replication, </li>
-<li>connectivity, </li>
-<li>failover, and </li>
-<li>manual switchover.</li>
-</ul>
-<h3 id="testing-replication">Testing replication<a class="headerlink" href="#testing-replication" title="Permanent link">&para;</a></h3>
+<h1 id="enable-pg_stat_monitor-for-performance-statistics">Enable <code>pg_stat_monitor</code> for performance statistics<a class="headerlink" href="#enable-pg_stat_monitor-for-performance-statistics" title="Permanent link">&para;</a></h1>
+<p><code>pg_stat_monitor</code> is a query performance monitoring tool for PostgreSQL which aggregates collected performance statistics.</p>
+<p>For more information on this extension, see <a href="https://docs.percona.com/pg-stat-monitor/">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<h2 class="power-number" id="enable-pg_stat_monitor">Enable pg_stat_monitor<a class="headerlink" href="#enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Connect to the cluster and establish the <code>psql</code> session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node&rsquo;s public IP address:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">134</span>.209.111.138<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>
+<p>Start the container as shown in <a href="docker.html#start-container">Run in Docker</a>, adding the following option to the <code>docker run</code> command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>-c<span class="w"> </span><span class="nv">shared_preload_libraries</span><span class="o">=</span>pg_stat_monitor
 </code></pre></div>
 </li>
 <li>
-<p>Run the following commands to create a table and insert a few rows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="n">age</span><span class="w"> </span><span class="nb">integer</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;dawson&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
+<p>Connect to the container and start the interactive <code>psql</code> session:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
-</li>
-<li>
-<p>To ensure that the replication is working, we can log in to each PostgreSQL node and run a simple SQL statement against the locally running instance:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
-</code></pre></div>
-<p>The results on each node should be the following:</p>
-<div class="highlight"><pre><span></span><code>  name  | age
---------+-----
- john   |  30
- dawson |  35
-(2 rows)
-</code></pre></div>
-</li>
-</ol>
-<h3 id="testing-failover">Testing failover<a class="headerlink" href="#testing-failover" title="Permanent link">&para;</a></h3>
-<p>In a proper setup, client applications won&rsquo;t have issues connecting to the cluster, even if one or even two of the nodes go down. We will test the cluster for failover in the following scenarios:</p>
-<h4 id="scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql">Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.<a class="headerlink" href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p>Run the following command on any node to check the current cluster status:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code>+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Leader  | running |  1 |           |
-| node2  | node2 | Replica | running |  1 |         0 |
-| node3  | node3 | Replica | running |  1 |         0 |
-+--------+-------+---------+---------+----+-----------+
-</code></pre></div>
-</li>
-<li>
-<p><code>node1</code> is the current leader. Stop Patroni in <code>node1</code> to see how it changes the cluster:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>patroni
-</code></pre></div>
-</li>
-<li>
-<p>Once the service stops in <code>node1</code>, check the logs in <code>node2</code> and <code>node3</code> using the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>patroni.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
-</code></pre></div>
-<details class="admonition">
-<summary>Output</summary>
-<div class="highlight"><pre><span></span><code>Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,011 INFO: Got response from node2 http://node2:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 12:50:29.460027+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67219152, &quot;replayed_location&quot;: 67219152, &quot;replayed_timestamp&quot;: &quot;2021-09-23 13:19:50.329387+00:00&quot;, &quot;paused&quot;: false}, &quot;timeline&quot;: 1, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,031 WARNING: Request failed to node1: GET http://node1:8008/patroni (HTTPConnectionPool(host=&#39;node1&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ProtocolError(&#39;Connection aborted.&#39;, ConnectionResetError(104, &#39;Connection reset by peer&#39;))))
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,038 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,043 INFO: promoted self to leader by acquiring session lock
-Sep 23 14:18:20 node03 patroni[13641]: server promoting
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,049 INFO: cleared rewind state after becoming the leader
-Sep 23 14:18:21 node03 patroni[10042]: 2021-09-23 14:18:21,101 INFO: no action. I am (node3) the leader with the lock
-Sep 23 14:18:21 node03 patroni[10042]: 2021-09-23 14:18:21,117 INFO: no action. I am (node3) the leader with the lock
-Sep 23 14:18:31 node03 patroni[10042]: 2021-09-23 14:18:31,114 INFO: no action. I am (node3) the leader with the lock
-...
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - Percona Server for PostgreSQL 18.4)
+Type &quot;help&quot; for help.
+
+postgres=#
 </code></pre></div>
 </details>
-<p>The logs in <code>node3</code> show that the requests to <code>node1</code> are failing, the watchdog is coming into action, and <code>node3</code> is promoting itself as the leader:</p>
 </li>
 <li>
-<p>Verify that you can still access the cluster through the HAProxy instance and read data:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">10</span>.104.0.3<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
-
-<span class="w">  </span>name<span class="w">  </span><span class="p">|</span><span class="w"> </span>age
---------+-----
-<span class="w"> </span>john<span class="w">   </span><span class="p">|</span><span class="w">  </span><span class="m">30</span>
-<span class="w"> </span>dawson<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">35</span>
-<span class="o">(</span><span class="m">2</span><span class="w"> </span>rows<span class="o">)</span>
+<p>Create the extension in the desired database:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
 </code></pre></div>
-</li>
-<li>
-<p>Restart the Patroni service in <code>node1</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>patroni
-</code></pre></div>
-</li>
-<li>
-<p>Check the current cluster status:  </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>list
-</code></pre></div>
-<p>Output:</p>
-<div class="highlight"><pre><span></span><code>+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Replica | running |  2 |         0 |
-| node2  | node2 | Replica | running |  2 |         0 |
-| node3  | node3 | Leader  | running |  2 |           |
-+--------+-------+---------+---------+----+-----------+
-</code></pre></div>
-</li>
-</ol>
-<p>As we see, <code>node3</code> remains the leader and the rest are replicas.</p>
-<h4 id="scenario-2-abrupt-machine-shutdown-or-power-outage">Scenario 2. Abrupt machine shutdown or power outage<a class="headerlink" href="#scenario-2-abrupt-machine-shutdown-or-power-outage" title="Permanent link">&para;</a></h4>
-<p>To emulate the power outage, let&rsquo;s kill the service in <code>node3</code> and see what happens in <code>node1</code> and <code>node2</code>. </p>
-<ol>
-<li>
-<p>Identify the process ID of Patroni and then kill it with a <code>-9</code> switch. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>patroni
-
-postgres<span class="w">   </span><span class="m">10042</span><span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">2</span>.1<span class="w"> </span><span class="m">647132</span><span class="w"> </span><span class="m">43948</span><span class="w"> </span>?<span class="w">        </span>Ssl<span class="w">  </span><span class="m">12</span>:50<span class="w">   </span><span class="m">0</span>:09<span class="w"> </span>/usr/bin/python3<span class="w"> </span>/usr/bin/patroni<span class="w"> </span>/etc/patroni/patroni.yml
-
-$<span class="w"> </span>sudo<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span><span class="m">10042</span>
-</code></pre></div>
-</li>
-<li>
-<p>Check the logs on <code>node2</code>: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>patroni.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>-f
-</code></pre></div>
-<details class="admonition">
-<summary>Output</summary>
-<div class="highlight"><pre><span></span><code>Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)
-…
-Sep 23 14:41:01 node02 patroni[10577]: 2021-09-23 14:41:01,373 INFO: Got response from node1 http://node1:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 14:25:30.076762+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67221352, &quot;replayed_location&quot;: 67221352, &quot;replayed_timestamp&quot;: null, &quot;paused&quot;: false}, &quot;timeline&quot;: 2, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,364 WARNING: Request failed to node3: GET http://node3:8008/patroni (HTTPConnectionPool(host=&#39;node3&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPConnection object at 0x7f57e06dffa0&gt;, &#39;Connection to node3 timed out. (connect timeout=2)&#39;)))
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,373 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,385 INFO: promoted self to leader by acquiring session lock
-Sep 23 14:41:03 node02 patroni[15478]: server promoting
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,397 INFO: cleared rewind state after becoming the leader
-Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,450 INFO: no action. I am (node2) the leader with the lock
-Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,475 INFO: no action. I am (node2) the leader with the lock
-…
-… 
+<details class="example">
+<summary>Sample output</summary>
+<div class="highlight"><pre><span></span><code>```{.text .no-copy}
+postgres=# CREATE EXTENSION pg_stat_monitor;
+CREATE EXTENSION
+```
 </code></pre></div>
 </details>
-<p><code>node2</code> realizes that the leader is dead, and promotes itself as the leader.</p>
 </li>
 <li>
-<p>Try accessing the cluster using the HAProxy endpoint at any point in time between these operations. The cluster is still accepting connections.</p>
+<p>Verify the setup:</p>
+<div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
+</code></pre></div>
 </li>
 </ol>
-<h3 id="manual-switchover">Manual switchover<a class="headerlink" href="#manual-switchover" title="Permanent link">&para;</a></h3>
-<p>Typically, a manual switchover is needed for planned downtime to perform maintenance activity on the leader node. Patroni provides the <code>switchover</code> command to manually switch over from the leader node. </p>
-<p>Run the following command on <code>node2</code> (the current leader node):</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>switchover
+<details class="example">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code>                         View &quot;public.pg_stat_monitor&quot;
+      Column        |           Type           | Collation | Nullable | Default
+---------------------+--------------------------+-----------+----------+---------
+bucket              | integer                  |           |          |
+bucket_start_time   | timestamp with time zone |           |          |
+userid              | oid                      |           |          |
+dbid                | oid                      |           |          |
+queryid             | text                     |           |          |
+query               | text                     |           |          |
+plan_calls          | bigint                   |           |          |
+plan_total_time     | numeric                  |           |          |
+plan_min_timei      | numeric                  |           |          |
+plan_max_time       | numeric                  |           |          |
+plan_mean_time      | numeric                  |           |          |
+plan_stddev_time    | numeric                  |           |          |
+plan_rows           | bigint                   |           |          |
+calls               | bigint                   |           |          |
+total_time          | numeric                  |           |          |
+min_time            | numeric                  |           |          |
+max_time            | numeric                  |           |          |
+mean_time           | numeric                  |           |          |
+stddev_time         | numeric                  |           |          |
+rows                | bigint                   |           |          |
+shared_blks_hit     | bigint                   |           |          |
+shared_blks_read    | bigint                   |           |          |
+shared_blks_dirtied | bigint                   |           |          |
+shared_blks_written | bigint                   |           |          |
+local_blks_hit      | bigint                   |           |          |
+local_blks_read     | bigint                   |           |          |
+local_blks_dirtied  | bigint                   |           |          |
+local_blks_written  | bigint                   |           |          |
+temp_blks_read      | bigint                   |           |          |
+temp_blks_written   | bigint                   |           |          |
+blk_read_time       | double precision         |           |          |
+blk_write_time      | double precision         |           |          |
+host                | bigint                   |           |          |
+client_ip           | inet                     |           |          |
+resp_calls          | text[]                   |           |          |
+cpu_user_time       | double precision         |           |          |
+cpu_sys_time        | double precision         |           |          |
+tables_names        | text[]                   |           |          |
+wait_event          | text                     |           |          |
+wait_event_type     | text                     |           |          |
 </code></pre></div>
-<p>Patroni asks the name of the current primary node and then the node that should take over as the switched-over primary. You can also specify the time at which the switchover should happen. To trigger the process immediately, specify the value <em>now</em>:</p>
-<div class="highlight"><pre><span></span><code>primary [node2]: node2
-Candidate [&#39;node1&#39;, &#39;node3&#39;] []: node1
-When should the switchover take place (e.g. 2021-09-23T15:56 )  [now]: now
-Current cluster topology
-+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Replica | running |  3 |         0 |
-| node2  | node2 | Leader  | running |  3 |           |
-| node3  | node3 | Replica | stopped |    |   unknown |
-+--------+-------+---------+---------+----+-----------+
-Are you sure you want to switchover cluster stampede1, demoting current primary node2? [y/N]: y
-2021-09-23 14:56:40.54009 Successfully switched over to &quot;node1&quot;
-+ Cluster: stampede1 (7011110722654005156) -----------+
-| Member | Host  | Role    | State   | TL | Lag in MB |
-+--------+-------+---------+---------+----+-----------+
-| node1  | node1 | Leader  | running |  3 |           |
-| node2  | node2 | Replica | stopped |    |   unknown |
-| node3  | node3 | Replica | stopped |    |   unknown |
-+--------+-------+---------+---------+----+-----------+
-</code></pre></div>
-<p>Restart the Patroni service in <code>node2</code> (after the &ldquo;planned maintenance&rdquo;). The node rejoins the cluster as a secondary.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>pg_stat_monitor</code> view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.</p>
+</div>
 
 
 
@@ -3558,7 +3376,7 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 19, 2023 06:12:12 UTC">September 19, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2026 14:25:30 UTC">June 12, 2026</span>
   </span>
 
     
@@ -3568,7 +3386,7 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2021 16:02:48 UTC">December 15, 2021</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2026 14:25:30 UTC">June 12, 2026</span>
   </span>
 
     
@@ -3586,9 +3404,9 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
     
     <nav>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">

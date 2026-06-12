@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/print_page.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/18/print_page.html">
       
       
       
@@ -745,9 +745,20 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="docker.html" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_5" id="__nav_5_1_5_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -761,7 +772,107 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Run in Docker
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker/docker.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker/docker-enable-pg-tde.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable pg_tde for securing data at rest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker/docker-enable-pg-stat-monitor.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable stat-monitor for performance statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -3162,13 +3273,52 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
+  <a href="#section-5-1-5" class="md-nav__link">
     <span class="md-ellipsis">
       
         Run in Docker
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Run in Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-docker-enable-pg-tde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable pg_tde for securing data at rest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-docker-enable-pg-stat-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable stat-monitor for performance statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4148,7 +4298,7 @@ psql
 <div class="tabbed-block">
 <p>Run Percona Distribution for PostgreSQL in a Docker container for quick evaluation or development.</p>
 <p>Check below to get access to a detailed step-by-step guide.</p>
-<p><a class="md-button" href="#docker">Run in Docker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+<p><a class="md-button" href="#docker-docker">Run in Docker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div class="tabbed-block">
 <p>Use the Percona Operator for Kubernetes to deploy and manage PostgreSQL clusters on Kubernetes.</p>
@@ -4855,7 +5005,11 @@ postgres=#
 <p>For example, to check HAProxy version, type:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>haproxy<span class="w"> </span>version
 </code></pre></div>
-<p>Some components require additional setup. Check the <a href="#enable-extensions">Enabling extensions</a> page for details.</p></section><section class="print-page" id="docker" heading-number="5.1.5"><h1 id="docker-run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#docker-run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
+<p>Some components require additional setup. Check the <a href="#enable-extensions">Enabling extensions</a> page for details.</p></section>
+                    <section class='print-page md-section' id='section-5-1-5' heading-number='5.1.5'>
+                        <h1>Run in Docker<a class='headerlink' href='#section-5-1-5' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="docker-docker" heading-number="5.1.5.1"><h1 id="docker-docker-run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#docker-docker-run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
 <p>Docker images of Percona Distribution for PostgreSQL are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <div class="admonition note">
@@ -4863,9 +5017,70 @@ postgres=#
 <p>Make sure that you are using <a href="https://docs.docker.com/get-docker/">the latest version of Docker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. The ones provided via <code>apt</code> and <code>yum</code> may be outdated and cause errors.</p>
 <p>By default, Docker pulls the image from Docker Hub if it is not available locally.</p>
 </div>
-<details class="admonition" open="open">
-<summary>Docker image contents</summary>
-<p>The Docker image of Percona Distribution for PostgreSQL includes the following components:    </p>
+<h2 class="power-number" id="docker-docker-start-container">1. Start the container<a class="headerlink" href="#docker-docker-start-container" title="Permanent link">&para;</a></h2>
+<p>Start a Percona Distribution for PostgreSQL container as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>container-name</code> is the name you assign to your container</li>
+<li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
+<li><code>18.4</code> is the tag specifying the version you need. Docker identifies the architecture (amd64 or arm64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can secure the password by exporting it to the environment file and using that to start the container.</p>
+<ol>
+<li>
+<p>Export the password to the environment file:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;POSTGRES_PASSWORD=secret&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
+</code></pre></div>
+</li>
+<li>
+<p>Start the container:       </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
+</code></pre></div>
+</li>
+</ol>
+</div>
+<h2 id="docker-docker-2-enable-extensions">2. Enable extensions<a class="headerlink" href="#docker-docker-2-enable-extensions" title="Permanent link">&para;</a></h2>
+<p>Some extensions require server startup configuration and must be loaded via <code>shared_preload_libraries</code> before PostgreSQL starts. You need to explicitly load the extensions when starting the container using the <code>shared_preload_libraries</code> parameter, then enabled per database:</p>
+<ol>
+<li>
+<p>Start the container with the extensions you want to load:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>-c<span class="w"> </span><span class="nv">shared_preload_libraries</span><span class="o">=</span>example_extension
+</code></pre></div>
+</li>
+<li>
+<p>Connect to the container&rsquo;s interactive terminal:</p>
+</li>
+</ol>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>The `container-name` is the name of the container that you started in the previous step.
+</code></pre></div>
+<ol>
+<li>
+<p>Create the extension in the desired database:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">example_extension</span><span class="p">;</span>
+</code></pre></div>
+</li>
+</ol>
+<p>You can specify multiple extensions as a comma-separated list in <code>shared_preload_libraries</code>.</p>
+<p>For extension-specific setup, see:</p>
+<ul>
+<li><a href="#docker-docker-enable-pg-stat-monitor">Enable pg_stat_monitor</a></li>
+<li><a href="#docker-docker-enable-pg-tde">Enable pg_tde</a></li>
+</ul>
+<h2 id="docker-docker-3-update-the-image">3. Update the image<a class="headerlink" href="#docker-docker-3-update-the-image" title="Permanent link">&para;</a></h2>
+<p>Pull the new tag explicitly:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18.4
+</code></pre></div>
+<p>Or pull the latest image for a major version:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18
+</code></pre></div>
+<h2 id="docker-docker-4-docker-image-contents">4. Docker image contents<a class="headerlink" href="#docker-docker-4-docker-image-contents" title="Permanent link">&para;</a></h2>
+<p>The Docker image of Percona Distribution for PostgreSQL includes the following components:</p>
 <table>
 <thead>
 <tr>
@@ -4922,46 +5137,13 @@ postgres=#
 <td><code>percona-pgvector</code></td>
 <td>A vector similarity search for PostgreSQL</td>
 </tr>
+<tr>
+<td><code>percona-pg_tde</code></td>
+<td>An extension to provides data-at-rest encryption for PostgreSQL</td>
+</tr>
 </tbody>
 </table>
-</details>
-<h2 class="power-number" id="docker-start-the-container">Start the container<a class="headerlink" href="#docker-start-the-container" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>Start a Percona Distribution for PostgreSQL container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
-</code></pre></div>
-<p>Where:</p>
-<ul>
-<li><code>container-name</code> is the name you assign to your container</li>
-<li><code>POSTGRES_PASSWORD</code> is the superuser password </li>
-<li><code>18.4</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can secure the password by exporting it to the environment file and using that to start the container.    </p>
-<ol>
-<li>
-<p>Export the password to the environment file:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;POSTGRES_PASSWORD=secret&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
-</code></pre></div>
-</li>
-<li>
-<p>Start the container:       </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
-</code></pre></div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Connect to the container&rsquo;s interactive terminal:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>bash
-</code></pre></div>
-<p>The <code>container-name</code> is the name of the container that you started in the previous step.</p>
-</li>
-</ol>
-<h2 id="docker-connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#docker-connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
+<h2 id="docker-docker-connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#docker-docker-connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
 <p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>app-container-name<span class="w"> </span>--network<span class="w"> </span>container:container-name<span class="w"> </span>-d<span class="w"> </span>app-that-uses-postgresql<span class="w"> </span>
 </code></pre></div>
@@ -4971,39 +5153,94 @@ postgres=#
 <li><code>container name</code> is the name of your Percona Distribution for PostgreSQL container, and</li>
 <li><code>app-that-uses-postgresql</code> is the name of your PostgreSQL client.</li>
 </ul>
-<h2 id="docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
+<h2 id="docker-docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#docker-docker-connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
-<p>Where:</p>
+<p>where:</p>
 <ul>
 <li><code>db-container-name</code> is the name of your database container</li>
 <li><code>container-name</code> is the name of your container that you will use to connect to the database container using the <code>psql</code> command line client</li>
 <li><code>18.4</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
-<h2 id="docker-enable-encryption">Enable encryption<a class="headerlink" href="#docker-enable-encryption" title="Permanent link">&para;</a></h2>
-<p>Percona Distribution for PostgreSQL Docker image includes the <code>pg_tde</code> extension to provide data encryption. You must explicitly enable it when you start the container. For more information, see the <a href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
-<p class="power-number">Follow these steps to enable <code>pg_tde</code>:</p>
-<ol>
-<li>
-<p>Start the container with <code>pg_tde</code> added to <code>shared_preload_libraries</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>sUpers3cRet<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;shared_preload_libraries=pg_tde&#39;</span>
-</code></pre></div>
-<p>where:</p>
-<ul>
-<li><code>container-name</code> is the name you assign to your container</li>
-<li><code>shared_preload_libraries=pg_tde</code> enables the <code>pg_tde</code> extension and its custom storage manager</li>
-<li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
-</ul>
+<h2 id="docker-docker-run-the-postgresql-with-postgis-image">Run the PostgreSQL with PostGIS image<a class="headerlink" href="#docker-docker-run-the-postgresql-with-postgis-image" title="Permanent link">&para;</a></h2>
+<p>The <code>postgres-gis</code> image includes everything in the standard Percona Distribution for PostgreSQL image plus the <a href="https://postgis.net/">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension for storing and manipulating spatial data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Available starting with version 18.3. For earlier versions, use <code>-e ENABLE_PG_TDE=1</code> instead.</p>
+<p>PostGIS is licensed under <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html">GNU GPLv2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. Review the license terms before using this image in your environment.</p>
 </div>
+<details class="admonition" open="open">
+<summary>Additional image contents</summary>
+<table>
+<thead>
+<tr>
+<th>Component name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>percona-postgis</code></td>
+<td>Spatial and geographic objects for PostgreSQL</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Start a <code>postgres-gis</code> container as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql-with-postgis:18.4
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>container-name</code> is the name you assign to your container</li>
+<li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
+</ul>
+<p>For more information on deploying and using PostGIS, see <a href="#solutions-postgis">Spatial data handling</a>.</p>
+<h2 id="docker-docker-run-the-pgbouncer-image">Run the PgBouncer image<a class="headerlink" href="#docker-docker-run-the-pgbouncer-image" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.pgbouncer.org/">PgBouncer <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a lightweight connection pooler for PostgreSQL. The Percona PgBouncer image is available separately from the PostgreSQL image and is intended for use alongside it.</p>
+<p>Start a PgBouncer container as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pgbouncer<span class="w"> </span>-v<span class="w"> </span>/path/to/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini<span class="w"> </span>-d<span class="w"> </span>percona/percona-pgbouncer:1.25.2
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>pgbouncer.ini</code> is your PgBouncer configuration file, mounted into the container. It defines the connection settings to your PostgreSQL instance.</li>
+<li>The image tag specifies the PgBouncer version. See the <a href="https://hub.docker.com/r/percona/percona-pgbouncer/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+</ul>
+<p>For more information on configuring PgBouncer, see the <a href="https://www.pgbouncer.org/config.html">PgBouncer documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<h2 id="docker-docker-run-the-pgbackrest-image">Run the pgBackRest image<a class="headerlink" href="#docker-docker-run-the-pgbackrest-image" title="Permanent link">&para;</a></h2>
+<p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a backup and restore solution for PostgreSQL, supporting full, differential, and incremental backups as well as point-in-time recovery. The Percona pgBackRest image is available separately from the PostgreSQL image.</p>
+<p>Start a pgBackRest container as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pgbackrest<span class="w"> </span>-v<span class="w"> </span>/path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf<span class="w"> </span>-d<span class="w"> </span>percona/percona-pgbackrest:2.58.0
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>pgbackrest.conf</code> is your pgBackRest configuration file, mounted into the container. It defines the connection to your PostgreSQL instance and your backup repository settings.</li>
+<li>The image tag specifies the pgBackRest version. See the <a href="https://hub.docker.com/r/percona/percona-pgbackrest/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+</ul>
+<p>For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see <a href="#solutions-backup-recovery">Backup and disaster recovery</a>.</p>
+<h2 id="docker-docker-run-the-ubi8-based-image">Run the UBI8-based image<a class="headerlink" href="#docker-docker-run-the-ubi8-based-image" title="Permanent link">&para;</a></h2>
+<p>The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
+<p>UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the <code>-ubi8</code> suffix in their tags.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4-ubi8
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>container-name</code> is the name you assign to your container</li>
+<li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
+</ul>
+<p>See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and filter for <code>ubi8</code>.</p></section><section class="print-page" id="docker-docker-enable-pg-tde" heading-number="5.1.5.2"><h1 id="docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest">Enable <code>pg_tde</code> for securing data at rest<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL Docker image includes the <code>pg_tde</code> extension to provide data encryption.</p>
+<p>For more information, see the <a href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<h2 class="power-number" id="docker-docker-enable-pg-tde-enable-pg_tde">Enable pg_tde<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Start the container as shown in <a href="#docker-docker-start-container">Run in Docker</a>, adding the following option to the <code>docker run</code> command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>-c<span class="w"> </span><span class="nv">shared_preload_libraries</span><span class="o">=</span>pg_tde
+</code></pre></div>
 </li>
 <li>
 <p>Connect to the container and start the interactive <code>psql</code> session:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>psql
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -5018,6 +5255,14 @@ postgres=#
 <p>Create the extension in the database where you want to encrypt data. This requires superuser privileges.</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pg_tde</span><span class="p">;</span>
 </code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="highlight"><pre><span></span><code>```{.text .no-copy}
+postgres=# CREATE EXTENSION pg_tde;
+CREATE EXTENSION
+```
+</code></pre></div>
+</details>
 </li>
 <li>
 <p>Add the key provider by using a keyring file. This setup is intended for development and stores the keys unencrypted in the specified data file. The below sample configuration is intended for testing and development purposes only.</p>
@@ -5025,7 +5270,10 @@ postgres=#
 <p class="admonition-title">Note</p>
 <p>For production use, we <strong>strongly recommend</strong> setting up an external key management store and configure an external key provider. Refer to the <a href="https://docs.percona.com/pg-tde/setup.html#key-provider-configuration">Setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> topic in the <code>pg_tde</code> documentation.</p>
 </div>
-<p><i warning><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg></span> Warning:</i> This example is for testing purposes only:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This example is for testing purposes only.</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_add_database_key_provider_file</span><span class="p">(</span><span class="s1">&#39;file-vault&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/tmp/pg_tde_test_001_basic.per&#39;</span><span class="p">);</span>
 </code></pre></div>
 </li>
@@ -5054,20 +5302,48 @@ postgres=#
 </code></pre></div>
 </details>
 </li>
-</ol>
-<h2 id="docker-enable-pg_stat_monitor">Enable <code>pg_stat_monitor</code><a class="headerlink" href="#docker-enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
-<p>To enable the <code>pg_stat_monitor</code> extension after launching the container, do the following:</p>
-<ul>
-<li>connect to the server,</li>
-<li>select the desired database and enable the <code>pg_stat_monitor</code> view for that database:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="n">extension</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
+</ol></section><section class="print-page" id="docker-docker-enable-pg-stat-monitor" heading-number="5.1.5.3"><h1 id="docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor-for-performance-statistics">Enable <code>pg_stat_monitor</code> for performance statistics<a class="headerlink" href="#docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor-for-performance-statistics" title="Permanent link">&para;</a></h1>
+<p><code>pg_stat_monitor</code> is a query performance monitoring tool for PostgreSQL which aggregates collected performance statistics.</p>
+<p>For more information on this extension, see <a href="https://docs.percona.com/pg-stat-monitor/">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<h2 class="power-number" id="docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor">Enable pg_stat_monitor<a class="headerlink" href="#docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Start the container as shown in <a href="#docker-docker-start-container">Run in Docker</a>, adding the following option to the <code>docker run</code> command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>-c<span class="w"> </span><span class="nv">shared_preload_libraries</span><span class="o">=</span>pg_stat_monitor
 </code></pre></div>
-<ul>
-<li>to ensure that everything is set up correctly, run:</li>
-</ul>
+</li>
+<li>
+<p>Connect to the container and start the interactive <code>psql</code> session:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - Percona Server for PostgreSQL 18.4)
+Type &quot;help&quot; for help.
+
+postgres=#
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Create the extension in the desired database:</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="highlight"><pre><span></span><code>```{.text .no-copy}
+postgres=# CREATE EXTENSION pg_stat_monitor;
+CREATE EXTENSION
+```
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Verify the setup:</p>
 <div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">pg_stat_monitor</span><span class="p">;</span>
 </code></pre></div>
+</li>
+</ol>
 <details class="example">
 <summary>Output</summary>
 <div class="highlight"><pre><span></span><code>                         View &quot;public.pg_stat_monitor&quot;
@@ -5118,7 +5394,7 @@ wait_event_type     | text                     |           |          |
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>pg_stat_monitor</code> view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.</p>
-</div></section><section class="print-page" id="enable-extensions" heading-number="5.1.6"><h1 id="enable-extensions-enable-percona-distribution-for-postgresql-components">Enable Percona Distribution for PostgreSQL components<a class="headerlink" href="#enable-extensions-enable-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h1>
+</div></section></section><section class="print-page" id="enable-extensions" heading-number="5.1.6"><h1 id="enable-extensions-enable-percona-distribution-for-postgresql-components">Enable Percona Distribution for PostgreSQL components<a class="headerlink" href="#enable-extensions-enable-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h1>
 <p>Some components require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per component.</p>
 <h2 id="enable-extensions-patroni">Patroni<a class="headerlink" href="#enable-extensions-patroni" title="Permanent link">&para;</a></h2>
 <p>Patroni is the high availability solution for PostgreSQL. The <a href="#solutions-high-availability">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
@@ -10102,7 +10378,12 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 .print-site-enumerate-headings #tarball > h1:before { content: '5.1.4 ' }
 
-.print-site-enumerate-headings #docker > h1:before { content: '5.1.5 ' }
+.print-site-enumerate-headings #section-5-1-5 > h1:before { content: '5.1.5 ' }
+.print-site-enumerate-headings #docker-docker > h1:before { content: '5.1.5.1 ' }
+
+.print-site-enumerate-headings #docker-docker-enable-pg-tde > h1:before { content: '5.1.5.2 ' }
+
+.print-site-enumerate-headings #docker-docker-enable-pg-stat-monitor > h1:before { content: '5.1.5.3 ' }
 
 .print-site-enumerate-headings #enable-extensions > h1:before { content: '5.1.6 ' }
 

@@ -21,10 +21,6 @@
          <lastmod>2026-06-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.percona.com/postgresql/18/docker.html</loc>
-         <lastmod>2026-06-12</lastmod>
-    </url>
-    <url>
          <loc>https://docs.percona.com/postgresql/18/enable-extensions.html</loc>
          <lastmod>2026-06-12</lastmod>
     </url>
@@ -114,6 +110,18 @@
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/18/yum.html</loc>
+         <lastmod>2026-06-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/18/docker/docker-enable-pg-stat-monitor.html</loc>
+         <lastmod>2026-06-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/18/docker/docker-enable-pg-tde.html</loc>
+         <lastmod>2026-06-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/18/docker/docker.html</loc>
          <lastmod>2026-06-12</lastmod>
     </url>
     <url>
