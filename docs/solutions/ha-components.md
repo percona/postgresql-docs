@@ -12,7 +12,7 @@ Each PostgreSQL instance in the cluster maintains consistency with other members
 
 Each Patroni instance manages its own PostgreSQL instance. This means that Patroni starts and stops PostgreSQL and manages its configuration, being a sophisticated service manager for a PostgreSQL cluster.
 
-Patroni also can make an initial cluster initialization, monitor the cluster state and take other automatic actions if needed. To do so, Patroni relies on and uses the Distributed Configuration Store (DCS), represented by `etcd` in our architecture. 
+Patroni also can make an initial cluster initialization, monitor the cluster state and take other automatic actions if needed. To do so, Patroni relies on and uses the Distributed Configuration Store (DCS), represented by `etcd` in our architecture.
 
 Though Patroni supports various Distributed Configuration Stores like ZooKeeper, etcd, Consul or Kubernetes, we recommend and support `etcd` as the most popular DCS due to its simplicity, consistency and reliability.   
 

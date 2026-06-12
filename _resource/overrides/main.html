@@ -6,9 +6,22 @@ by adding marketing-requested elements
 {# Import the theme's layout. #}
 {% extends "base.html" %}
 
-{# Add EOL lable #}
+{% block announce %}
+<div>
+This documentation is for the end of life version...
+</div>
+{% endblock %}
+
+{% block content %}
+<div style="background:red;color:white;padding:20px">
+EOL TEST
+</div>
+
+{{ super() }}
+{% endblock %}
+
 {% block outdated %}
-<div>This documentation is for the end of life version of Percona Distribution for PostgreSQL 13. See the <strong><a href= {{ '../' ~ base_url }}>current documentation</a></strong>. </div>
+<div>This documentation is for the end of life version of Percona Distribution for PostgreSQL 12...
 {% endblock %}
 
 {% block scripts %}
@@ -28,10 +41,6 @@ by adding marketing-requested elements
                  <meta property="og:title" content="{{ title }}" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
-               </head>
-                <body>
-                </body>
-              </html>
   {% endblock %}
 
 
