@@ -167,9 +167,7 @@ For more information on deploying and using PostGIS, see [Spatial data handling]
 Start a PgBouncer container as follows:
 
 ```{.bash data-prompt="$"}
-docker run --name pgbouncer \
-  -v /path/to/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini \
-  -d percona/percona-pgbouncer:{{pgbouncerversion}}
+docker run --name pgbouncer -v /path/to/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini -d percona/percona-pgbouncer:{{pgbouncerversion}}
 ```
 
 Where:
@@ -186,9 +184,7 @@ For more information on configuring PgBouncer, see the [PgBouncer documentation 
 Start a pgBackRest container as follows:
 
 ```{.bash data-prompt="$"}
-docker run --name pgbackrest \
-  -v /path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf \
-  -d percona/percona-pgbackrest:{{pgbackrestversion}}
+docker run --name pgbackrest -v /path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf -d percona/percona-pgbackrest:{{pgbackrestversion}}
 ```
 
 Where:
@@ -197,3 +193,20 @@ Where:
 * The image tag specifies the pgBackRest version. See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-pgbackrest/tags/).
 
 For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see [Backup and disaster recovery](../solutions/backup-recovery.md).
+
+## Run the UBI8-based image
+
+The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.
+
+UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the `-ubi8` suffix in their tags.
+
+```{.bash data-prompt="$"}
+docker run --name container-name -e POSTGRES_PASSWORD=secret -d percona/percona-distribution-postgresql:{{pgsubversion}}-ubi8
+```
+
+Where:
+
+* `container-name` is the name you assign to your container
+* `POSTGRES_PASSWORD` is the superuser password
+
+See the [full list of tags :octicons-link-external-16:](https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/) and filter for `ubi8`.
