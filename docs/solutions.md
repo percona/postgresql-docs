@@ -30,11 +30,11 @@ Dealing with spatial data? Learn how you can store and manipulate it.
 
 </div><div data-banner markdown>
 
-### :material-account-lock: LDAP authentication
+### :material-account-lock: Authentication
 
-Need a central authentication solution? Learn how you can manage users and access control using LDAP directories.
+Need centralized authentication? Learn how to integrate PostgreSQL with identity providers such as LDAP directories or OpenID Connect.
 
-[LDAP authentication :material-arrow-right:](ldap.md){.md-button}
+[Authentication :material-arrow-right:](solutions/authentication/overview.md){.md-button}
 
 </div>
 </div>

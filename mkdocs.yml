@@ -63,8 +63,10 @@ nav:
         - Deployment: solutions/postgis-deploy.md
         - Query spatial data: solutions/postgis-testing.md
         - Upgrade spatial database: solutions/postgis-upgrade.md
-      - LDAP authentication:
-          - ldap.md
+      - Authentication:
+        - Overview: solutions/authentication/overview.md
+        - OIDC authentication: solutions/authentication/oidc.md
+        - LDAP authentication: solutions/authentication/ldap.md
   - Upgrade:
       - "Major upgrade": major-upgrade.md
       - minor-upgrade.md

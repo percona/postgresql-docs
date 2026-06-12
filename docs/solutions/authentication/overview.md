@@ -1,0 +1,19 @@
+# Authentication
+
+Centralized authentication allows you to manage database access using external identity systems instead of local PostgreSQL users.
+
+Percona Distribution for PostgreSQL supports multiple authentication mechanisms that integrate with enterprise identity infrastructure.
+
+## Available authentication methods
+
+### OIDC authentication
+
+Authenticate users using OpenID Connect identity providers.
+
+[OIDC authentication :material-arrow-right:](oidc.md){.md-button}
+
+### LDAP authentication
+
+Use LDAP directories such as OpenLDAP or Active Directory to centrally manage database users.
+
+[LDAP authentication :material-arrow-right:](ldap.md){.md-button}
