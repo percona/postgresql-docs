@@ -9,37 +9,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The need for high availability is determined by the business requirements, potential risks, and operational limitations. For example, the more components you add to your infrastructure, the more complex and time-consuming it is to maintain. Moreover, it may introduce extra failure points. The recommendation is to follow the principle “The simpler the better”.">
+        <meta name="description" content="OpenID Connect  (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/solutions/ha-measure.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/18/solutions/authentication/oidc.html">
       
       
-        <link rel="prev" href="high-availability.html">
+        <link rel="prev" href="overview.html">
       
       
-        <link rel="next" href="ha-architecture.html">
+        <link rel="next" href="ldap.html">
       
       
         
       
       
-      <link rel="icon" href="../_images/postgresql-fav.svg">
+      <link rel="icon" href="../../_images/postgresql-fav.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
     
     
       
-        <title>Measuring high availability - Percona Distribution for PostgreSQL</title>
+        <title>OIDC authentication - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -58,29 +58,29 @@
       
     
     
-      <link rel="stylesheet" href="../css/print-site.css">
+      <link rel="stylesheet" href="../../css/print-site.css">
     
-      <link rel="stylesheet" href="../css/print-site-material.css">
+      <link rel="stylesheet" href="../../css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="../../css/percona.css">
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
-      <link rel="stylesheet" href="../css/design.css">
+      <link rel="stylesheet" href="../../css/design.css">
     
-      <link rel="stylesheet" href="../css/osano.css">
+      <link rel="stylesheet" href="../../css/osano.css">
     
-      <link rel="stylesheet" href="../css/landing.css">
+      <link rel="stylesheet" href="../../css/landing.css">
     
-      <link rel="stylesheet" href="../css/postgresql.css">
+      <link rel="stylesheet" href="../../css/postgresql.css">
     
-      <link rel="stylesheet" href="../css/rating.css">
+      <link rel="stylesheet" href="../../css/rating.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -102,7 +102,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Measuring high availability" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - OIDC authentication" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -129,7 +129,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measuring-high-availability" class="md-skip">
+        <a href="#oidc-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -230,14 +230,14 @@
 
     <!-- Link to home -->
     <a
-      href="../index.html"
+      href="../../index.html"
       title="Percona Distribution for PostgreSQL"
       class="md-header__button md-logo"
       aria-label="Percona Distribution for PostgreSQL"
       data-md-component="logo"
     >
       
-  <img src="../_images/postgresql-mark.svg" alt="logo">
+  <img src="../../_images/postgresql-mark.svg" alt="logo">
 
     </a>
 
@@ -250,7 +250,7 @@
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="../index.html" class="md-header__topic">
+        <a href="../../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Distribution for PostgreSQL
           </span>
@@ -258,7 +258,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Measuring high availability
+              OIDC authentication
             
           </span>
         </div>
@@ -395,9 +395,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+    <a href="../../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="../_images/postgresql-mark.svg" alt="logo">
+  <img src="../../_images/postgresql-mark.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -424,7 +424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="../../index.html" class="md-nav__link">
         
   
   
@@ -451,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../postgresql-server.html" class="md-nav__link">
+      <a href="../../postgresql-server.html" class="md-nav__link">
         
   
   
@@ -478,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-help.html" class="md-nav__link">
+      <a href="../../get-help.html" class="md-nav__link">
         
   
   
@@ -505,7 +505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start.html" class="md-nav__link">
+      <a href="../../quick-start.html" class="md-nav__link">
         
   
   
@@ -626,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installing.html" class="md-nav__link">
+      <a href="../../installing.html" class="md-nav__link">
         
   
   
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apt.html" class="md-nav__link">
+      <a href="../../apt.html" class="md-nav__link">
         
   
   
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../yum.html" class="md-nav__link">
+      <a href="../../yum.html" class="md-nav__link">
         
   
   
@@ -710,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tarball.html" class="md-nav__link">
+      <a href="../../tarball.html" class="md-nav__link">
         
   
   
@@ -738,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker.html" class="md-nav__link">
+      <a href="../../docker.html" class="md-nav__link">
         
   
   
@@ -766,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-extensions.html" class="md-nav__link">
+      <a href="../../enable-extensions.html" class="md-nav__link">
         
   
   
@@ -794,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../repo-overview.html" class="md-nav__link">
+      <a href="../../repo-overview.html" class="md-nav__link">
         
   
   
@@ -822,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sboms.html" class="md-nav__link">
+      <a href="../../sboms.html" class="md-nav__link">
         
   
   
@@ -858,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../connect.html" class="md-nav__link">
+      <a href="../../connect.html" class="md-nav__link">
         
   
   
@@ -886,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crud.html" class="md-nav__link">
+      <a href="../../crud.html" class="md-nav__link">
         
   
   
@@ -914,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../whats-next.html" class="md-nav__link">
+      <a href="../../whats-next.html" class="md-nav__link">
         
   
   
@@ -996,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensions.html" class="md-nav__link">
+      <a href="../../extensions.html" class="md-nav__link">
         
   
   
@@ -1024,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contrib.html" class="md-nav__link">
+      <a href="../../contrib.html" class="md-nav__link">
         
   
   
@@ -1052,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../percona-ext.html" class="md-nav__link">
+      <a href="../../percona-ext.html" class="md-nav__link">
         
   
   
@@ -1080,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../third-party.html" class="md-nav__link">
+      <a href="../../third-party.html" class="md-nav__link">
         
   
   
@@ -1164,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../solutions.html" class="md-nav__link">
+      <a href="../../solutions.html" class="md-nav__link">
         
   
   
@@ -1189,20 +1189,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
         
           
           <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
@@ -1223,7 +1221,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1241,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="high-availability.html" class="md-nav__link">
+      <a href="../high-availability.html" class="md-nav__link">
         
   
   
@@ -1266,37 +1264,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Measuring high availability
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="ha-measure.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ha-measure.html" class="md-nav__link">
         
   
   
@@ -1312,61 +1283,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#expected-level-of-availability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Expected level of availability
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#actual-level-of-availability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Actual level of availability
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1379,7 +1295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-architecture.html" class="md-nav__link">
+      <a href="../ha-architecture.html" class="md-nav__link">
         
   
   
@@ -1454,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="etcd-info.html" class="md-nav__link">
+      <a href="../etcd-info.html" class="md-nav__link">
         
   
   
@@ -1482,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="patroni-info.html" class="md-nav__link">
+      <a href="../patroni-info.html" class="md-nav__link">
         
   
   
@@ -1510,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="haproxy-info.html" class="md-nav__link">
+      <a href="../haproxy-info.html" class="md-nav__link">
         
   
   
@@ -1538,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pgbackrest-info.html" class="md-nav__link">
+      <a href="../pgbackrest-info.html" class="md-nav__link">
         
   
   
@@ -1574,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-components.html" class="md-nav__link">
+      <a href="../ha-components.html" class="md-nav__link">
         
   
   
@@ -1649,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-init-setup.html" class="md-nav__link">
+      <a href="../ha-init-setup.html" class="md-nav__link">
         
   
   
@@ -1677,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-etcd-config.html" class="md-nav__link">
+      <a href="../ha-etcd-config.html" class="md-nav__link">
         
   
   
@@ -1705,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-patroni.html" class="md-nav__link">
+      <a href="../ha-patroni.html" class="md-nav__link">
         
   
   
@@ -1733,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pgbackrest.html" class="md-nav__link">
+      <a href="../pgbackrest.html" class="md-nav__link">
         
   
   
@@ -1761,7 +1677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-haproxy.html" class="md-nav__link">
+      <a href="../ha-haproxy.html" class="md-nav__link">
         
   
   
@@ -1797,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ha-test.html" class="md-nav__link">
+      <a href="../ha-test.html" class="md-nav__link">
         
   
   
@@ -1880,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-recovery.html" class="md-nav__link">
+      <a href="../backup-recovery.html" class="md-nav__link">
         
   
   
@@ -1908,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="../dr-pgbackrest-setup.html" class="md-nav__link">
         
   
   
@@ -1991,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis.html" class="md-nav__link">
+      <a href="../postgis.html" class="md-nav__link">
         
   
   
@@ -2019,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-deploy.html" class="md-nav__link">
+      <a href="../postgis-deploy.html" class="md-nav__link">
         
   
   
@@ -2047,7 +1963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-testing.html" class="md-nav__link">
+      <a href="../postgis-testing.html" class="md-nav__link">
         
   
   
@@ -2075,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgis-upgrade.html" class="md-nav__link">
+      <a href="../postgis-upgrade.html" class="md-nav__link">
         
   
   
@@ -2108,18 +2024,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" checked>
         
           
           <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
@@ -2140,7 +2058,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2158,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication/overview.html" class="md-nav__link">
+      <a href="overview.html" class="md-nav__link">
         
   
   
@@ -2183,10 +2101,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="authentication/oidc.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OIDC authentication
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="oidc.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2202,6 +2147,61 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-oidc-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use OIDC authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oidc-authentication-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OIDC authentication architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-up-oidc-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up OIDC authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2214,7 +2214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication/ldap.html" class="md-nav__link">
+      <a href="ldap.html" class="md-nav__link">
         
   
   
@@ -2304,7 +2304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../major-upgrade.html" class="md-nav__link">
+      <a href="../../major-upgrade.html" class="md-nav__link">
         
   
   
@@ -2332,7 +2332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../minor-upgrade.html" class="md-nav__link">
+      <a href="../../minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2360,7 +2360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration.html" class="md-nav__link">
+      <a href="../../migration.html" class="md-nav__link">
         
   
   
@@ -2395,7 +2395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq.html" class="md-nav__link">
+      <a href="../../faq.html" class="md-nav__link">
         
   
   
@@ -2422,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../troubleshooting.html" class="md-nav__link">
+      <a href="../../troubleshooting.html" class="md-nav__link">
         
   
   
@@ -2449,7 +2449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uninstalling.html" class="md-nav__link">
+      <a href="../../uninstalling.html" class="md-nav__link">
         
   
   
@@ -2523,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/release-notes.html" class="md-nav__link">
+      <a href="../../release-notes/release-notes.html" class="md-nav__link">
         
   
   
@@ -2551,7 +2551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/release-notes-v18.4.1.html" class="md-nav__link">
+      <a href="../../release-notes/release-notes-v18.4.1.html" class="md-nav__link">
         
   
   
@@ -2579,7 +2579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/release-notes-v18.3.1.html" class="md-nav__link">
+      <a href="../../release-notes/release-notes-v18.3.1.html" class="md-nav__link">
         
   
   
@@ -2654,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/release-notes-v18.1.1.html" class="md-nav__link">
+      <a href="../../release-notes/release-notes-v18.1.1.html" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../licensing.html" class="md-nav__link">
+      <a href="../../licensing.html" class="md-nav__link">
         
   
   
@@ -2772,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning.html" class="md-nav__link">
+      <a href="../../versioning.html" class="md-nav__link">
         
   
   
@@ -2800,7 +2800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="../../trademark-policy.html" class="md-nav__link">
         
   
   
@@ -3069,7 +3069,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
-    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/solutions/ha-measure.md" title="Edit this page on GitHub" class="edit-page-link">
+    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/solutions/authentication/oidc.md" title="Edit this page on GitHub" class="edit-page-link">
       <span class="edit-page-icon">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
@@ -3130,10 +3130,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#expected-level-of-availability" class="md-nav__link">
+  <a href="#when-to-use-oidc-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expected level of availability
+        When to use OIDC authentication
       
     </span>
   </a>
@@ -3141,10 +3141,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#actual-level-of-availability" class="md-nav__link">
+  <a href="#oidc-authentication-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Actual level of availability
+        OIDC authentication architecture
       
     </span>
   </a>
@@ -3152,10 +3152,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#set-up-oidc-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next steps
+        Set up OIDC authentication
       
     </span>
   </a>
@@ -3185,97 +3185,96 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/solutions/ha-measure.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/solutions/authentication/oidc.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="measuring-high-availability">Measuring high availability<a class="headerlink" href="#measuring-high-availability" title="Permanent link">&para;</a></h1>
-<p>The need for high availability is determined by the business requirements, potential risks, and operational limitations. For example, the more components you add to your infrastructure, the more complex and time-consuming it is to maintain. Moreover, it may introduce extra failure points. The recommendation is to follow the principle &ldquo;The simpler the better&rdquo;.</p>
-<p>The level of high availability depends on the following:</p>
+<h1 id="oidc-authentication">OIDC authentication<a class="headerlink" href="#oidc-authentication" title="Permanent link">&para;</a></h1>
+<p><a href="https://openid.net/developers/how-connect-works/">OpenID Connect <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> (or OIDC) authentication allows you to authenticate using tokens issued by an external identity provider. Instead of managing database passwords, you can delegate authentication to centralized identity services.</p>
+<p>Percona Distribution for PostgreSQL integrates OIDC authentication using the <code>pg_oidc_validator</code> library, which validates OIDC tokens during client authentication.</p>
+<p>The library is compatible with any identity provider that implements the OIDC standard.</p>
+<p>For configuration details and source code, see the <a href="https://github.com/Percona-Lab/pg_oidc_validator">pg_oidc_validator project <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>OIDC authentication relies on <a href="https://www.postgresql.org/docs/current/auth-oauth.html">PostgreSQL OAuth authentication <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>, introduced in PostgreSQL 18.</p>
+</div>
+<h2 id="when-to-use-oidc-authentication">When to use OIDC authentication<a class="headerlink" href="#when-to-use-oidc-authentication" title="Permanent link">&para;</a></h2>
+<p>OIDC authentication is useful when you want to:</p>
 <ul>
-<li>how frequently you may encounter an outage or a downtime.</li>
-<li>how much downtime you can bear without negatively impacting your users for every outage, and</li>
-<li>how much data loss you can tolerate during the outage.</li>
+<li>integrate PostgreSQL with an existing single sign-on (SSO) platform</li>
+<li>reduce the need to manage database passwords</li>
+<li>centralize identity management across applications and databases</li>
 </ul>
-<p>When you evaluate high-availability, consider these two aspects:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>OIDC authentication simplifies access management for PostgreSQL when using an identity provider that supports OpenID Connect.</p>
+</div>
+<h2 id="oidc-authentication-architecture">OIDC authentication architecture<a class="headerlink" href="#oidc-authentication-architecture" title="Permanent link">&para;</a></h2>
+<p>OIDC authentication works as follows:</p>
+<ol>
+<li>The client obtains an access token from an external identity provider</li>
+<li>The client connects to PostgreSQL using OAuth authentication</li>
+<li>PostgreSQL forwards the token to the <code>pg_oidc_validator</code> module</li>
+<li>The validator verifies the token signature and claims</li>
+<li>If validation succeeds, PostgreSQL allows the connection</li>
+</ol>
+<p>The following diagram shows how OIDC authentication works between the client, the identity provider, and PostgreSQL:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant IdP as Identity Provider (OIDC)
+    participant PostgreSQL
+    participant Validator as pg_oidc_validator
+
+    Client-&gt;&gt;IdP: Request authentication
+    IdP--&gt;&gt;Client: Return OIDC access token
+
+    Client-&gt;&gt;PostgreSQL: Connect using OAuth token
+    PostgreSQL-&gt;&gt;Validator: Validate token
+    Validator--&gt;&gt;PostgreSQL: Token valid / invalid
+
+    PostgreSQL--&gt;&gt;Client: Connection allowed or rejected</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before configuring OIDC authentication, ensure that your PostgreSQL deployment can access the identity provider that issues OIDC tokens.</p>
+</div>
+<h2 id="set-up-oidc-authentication">Set up OIDC authentication<a class="headerlink" href="#set-up-oidc-authentication" title="Permanent link">&para;</a></h2>
+<p class="power-number">Follow these steps to set up OIDC authentication for your PostgreSQL database.</p>
+<ol>
+<li>
+<p>Install the <code>pg_oidc_validator</code> package.</p>
+<p>For more information, see the <a href="../../installing.html">Quickstart guide</a>.</p>
+<p>Alternatively, you can build the extension from source:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">USE_PGXS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>install<span class="w"> </span>-j
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A C++23 compiler and standard library is required to build <code>pg_oidc_validator</code>.</p>
+</div>
+</li>
+<li>
+<p>Edit <code>postgresql.conf</code> and add the validator library:</p>
+<div class="highlight"><pre><span></span><code><span class="na">oauth_validator_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;pg_oidc_validator&#39;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting tells PostgreSQL to load the OIDC validator during startup.</p>
+</div>
+</li>
+<li>
+<p>Add an OAuth authentication rule to <code>pg_hba.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">host all all 192.168.1.0/24 oauth scope</span><span class="o">=</span><span class="s">&quot;pgadmin-a&quot;</span><span class="na">,issuer</span><span class="o">=</span><span class="s">https://oidc.example.com</span>
+</code></pre></div>
+<p>Where:</p>
 <ul>
-<li>Expected level of availability. </li>
-<li>Actual availability level of your infrastructure.</li>
+<li><code>oauth</code> enables OAuth authentication</li>
+<li><code>scope</code> is the required OIDC scope</li>
+<li><code>issuer</code> is the URL of the OIDC identity provider</li>
 </ul>
-<h3 id="expected-level-of-availability">Expected level of availability<a class="headerlink" href="#expected-level-of-availability" title="Permanent link">&para;</a></h3>
-<p>It is measured by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At Percona, we don&rsquo;t consider a solution to be highly available if it is not at least 99% or two nines available.</p>
-<p>The following table shows the amount of downtime for each level of availability from two to five nines.</p>
-<table>
-<thead>
-<tr>
-<th>Availability %</th>
-<th>Downtime per year</th>
-<th>Downtime per month</th>
-<th>Downtime per week</th>
-<th>Downtime per day</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>99% (“two nines”)</td>
-<td>3.65 days</td>
-<td>7.31 hours</td>
-<td>1.68 hours</td>
-<td>14.40 minutes</td>
-</tr>
-<tr>
-<td>99.5% (“two nines five”)</td>
-<td>1.83 days</td>
-<td>3.65 hours</td>
-<td>50.40 minutes</td>
-<td>7.20 minutes</td>
-</tr>
-<tr>
-<td>99.9% (“three nines”)</td>
-<td>8.77 hours</td>
-<td>43.83 minutes</td>
-<td>10.08 minutes</td>
-<td>1.44 minutes</td>
-</tr>
-<tr>
-<td>99.95% (“three nines five”)</td>
-<td>4.38 hours</td>
-<td>21.92 minutes</td>
-<td>5.04 minutes</td>
-<td>43.20 seconds</td>
-</tr>
-<tr>
-<td>99.99% (“four nines”)</td>
-<td>52.60 minutes</td>
-<td>4.38 minutes</td>
-<td>1.01 minutes</td>
-<td>8.64 seconds</td>
-</tr>
-<tr>
-<td>99.995% (“four nines five”)</td>
-<td>26.30 minutes</td>
-<td>2.19 minutes</td>
-<td>30.24 seconds</td>
-<td>4.32 seconds</td>
-</tr>
-<tr>
-<td>99.999% (“five nines”)</td>
-<td>5.26 minutes</td>
-<td>26.30 seconds</td>
-<td>6.05 seconds</td>
-<td>864.00 milliseconds</td>
-</tr>
-</tbody>
-</table>
-<h3 id="actual-level-of-availability">Actual level of availability<a class="headerlink" href="#actual-level-of-availability" title="Permanent link">&para;</a></h3>
-<p>Measuring the real level of high availability (HA) in your system is key to making sure your investment in HA infrastructure pays off. Instead of relying on assumptions or expectations, you should base your availability insights on incident management data. This is the information collected during service disruptions, failures, or outages that affect the normal functioning of the setup. With this data, you can track metrics like uptime, Mean Time to Recovery (MTTR), and Mean Time Between Failures (MTBF).</p>
-<p>MTBF gives you a picture of how reliable your infrastructure really is. In well-designed high-availability environment, the incidents should be rare, typically occurring no more than once every 2 to 4 years. This assumes a robust infrastructure, as not all systems equally suit for handling database load.</p>
-<p>Recovery speed matters too. For example, a typical Patroni-based cluster can fail over to a new primary node within 30 to 50 seconds. However, note that database availability metrics typically don&rsquo;t consider the application&rsquo;s ability to detect the failover and reconnect. Some applications recover seamlessly, while others may require a restart. </p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p><a class="md-button" href="ha-architecture.html">Architecture <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+</li>
+</ol>
 
 
 
@@ -3298,7 +3297,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 10, 2025 13:53:56 UTC">July 10, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2026 08:20:40 UTC">June 12, 2026</span>
   </span>
 
     
@@ -3308,7 +3307,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 10, 2025 13:53:56 UTC">July 10, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2026 08:20:40 UTC">June 12, 2026</span>
   </span>
 
     
@@ -3326,9 +3325,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
     <nav>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
@@ -3423,22 +3422,22 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../js/print-site.js"></script>
+        <script src="../../js/print-site.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="../../js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="../../js/promptremover.js"></script>
       
-        <script src="../js/consent.js"></script>
+        <script src="../../js/consent.js"></script>
       
-        <script src="../js/rating.js"></script>
+        <script src="../../js/rating.js"></script>
       
     
 
