@@ -82,7 +82,7 @@
 
         script.setAttribute(
             "data-project-logo",
-            "https://docs.percona.com/postgresql/18/_static/percona-logomark-one-color-dark.png"
+            "https://docs.percona.com/postgresql/18/docs/_static/percona-logomark-one-color-dark.png"
         );
 
         document.head.appendChild(script);
