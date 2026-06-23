@@ -77,7 +77,7 @@
 
         script.setAttribute(
             "data-modal-example-questions",
-            "How do I get started quickly with Percona PostgreSQL?, How do I configure backups in Percona PostgreSQL?, How do I enable encryption in Percona PostgreSQL?, How do I monitor the health of my PostgreSQL deployment?"
+            "How do I get started with Percona PostgreSQL?, How do I configure backups in Percona PostgreSQL?, How do I enable data encryption in Percona PostgreSQL?, How do I monitor the health of a PostgreSQL deployment?"
         );
 
         script.setAttribute(
