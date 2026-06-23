@@ -2,7 +2,7 @@
 
 Whether you are a small startup or a big enterprise, downtime of your services may cause severe consequences, such as loss of customers, impact on your reputation, and penalties for not meeting the Service Level Agreements (SLAs). That’s why ensuring a highly-available deployment is crucial.
 
-But what does it mean, high availability (HA)? And how to achieve it? This document answers these questions. 
+This topic explains what high availability (HA) is and how you can achieve it using Patroni.
 
 After reading this document, you will learn the following:
 
@@ -23,21 +23,21 @@ Overall, High availability is about:
 3. Automatic detection of failures.
 4. Automatic action to reduce the impact.
 
-### How to achieve it? 
+### How to achieve it?
 
-A short answer is: add redundancy to your deployment, eliminate a single point of failure (SPOF) and have the mechanism to transfer the services from a failed member to the healthy one. 
+A short answer is: add redundancy to your deployment, eliminate a single point of failure (SPOF) and have the mechanism to transfer the services from a failed member to the healthy one.
 
-For a long answer, let's break it down into steps. 
+For a long answer, let's break it down into steps.
 
 #### Step 1. Replication
 
-First, you should have more than one copy of your data. This means, you need to have several instances of your database where one is the primary instance that accepts reads and writes. Other instances are replicas – they must have an up-to-date copy of the data from the primary and remain in sync with it. They may also accept reads to offload your primary. 
+First, you should have more than one copy of your data. This means, you need to have several instances of your database where one is the primary instance that accepts reads and writes. Other instances are replicas – they must have an up-to-date copy of the data from the primary and remain in sync with it. They may also accept reads to offload your primary.
 
 You must deploy these instances on separate hardware (servers or nodes) and use separate storage for storing the data. This way you eliminate a single point of failure for your database.
 
-The minimum number of database nodes is two: one primary and one replica. 
+The minimum number of database nodes is two: one primary and one replica.
 
-The recommended deployment is a three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism. 
+The recommended deployment is a three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism.
 
 ![Primary-replica setup](../_images/diagrams/ha-overview-replication.svg)
 
@@ -107,13 +107,13 @@ Historically, many organizations have used floating Virtual IP (VIP) addresses t
 
 The use of an external load balancer is optional. If your application implements the logic of connection routing and load-balancing, it is a highly-recommended approach.
 
-#### Step 4. Backups 
+#### Step 4. Backups
 
 Even with replication and failover mechanisms in place, it’s crucial to have regular backups of your data. Backups provide a safety net for catastrophic failures that affect both the primary and replica nodes. While replication ensures data is synchronized across multiple nodes, it does not protect against data corruption, accidental deletions, or malicious attacks that can affect all nodes.
 
 ![Backup tool](../_images/diagrams/ha-overview-backup.svg)
 
-Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss. 
+Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss.
 
 The backup tool is optional but highly-recommended for data corruption recovery. Additionally, backups protect against human error, when a user can accidentally drop a table or make another mistake.
 
@@ -128,11 +128,12 @@ Optionally, you can add a monitoring tool to observe the health of your deployme
 
 ### What tools to use?
 
-The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. 
+The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability.
 
 In our [reference architecture](ha-architecture.md) section we recommend a combination of open-source components and frameworks, focusing on a minimalistic PostgreSQL cluster.
 
-Note that all the components are recommended but not mandatory. You can use your own solutions and alternatives if they better meet your business needs. However, deviating from proven methods and architecture may increase the risk.
+!!! note
+    All of the components are recommended but **not** mandatory. You can use your own solutions and alternatives if they better meet your business needs. However, deviating from proven methods and architecture may increase risk.
 
 ### Additional reading
 
@@ -141,5 +142,3 @@ Note that all the components are recommended but not mandatory. You can use your
 ## Next steps
 
 [Architecture :material-arrow-right:](ha-architecture.md){.md-button}
-
-
