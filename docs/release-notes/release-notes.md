@@ -4,6 +4,7 @@ This page lists all release notes for Percona Server for PostgreSQL 17, organize
 
 ## 2026
 
+* [17.10.2](release-notes-v17.10.2.md) ({{date.17_10_2}})
 * [17.10.1](release-notes-v17.10.1.md) ({{date.17_10_1}})
 * [17.9.1](release-notes-v17.9.1.md) ({{date.17_9_1}})
 
