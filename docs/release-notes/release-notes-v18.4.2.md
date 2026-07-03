@@ -44,4 +44,4 @@ The following bundled components have been updated in this release:
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
-Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/18/libpq.html) library. It contains "a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries."
+Percona Distribution for PostgreSQL is also shipped with the [libpq](https://www.postgresql.org/docs/18/libpq.html) library. It contains a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.
