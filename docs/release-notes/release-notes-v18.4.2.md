@@ -6,10 +6,12 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 ## Release Highlights
 
-Percona Distribution for PostgreSQL 18.4.2 is an out-of-cycle maintenance release that updates bundled components, including `pg_tde` 2.2.1, and refreshes Docker images with fixes for high-severity CVEs where available.
+Percona Distribution for PostgreSQL 18.4.2 is an out-of-cycle maintenance release that addresses an issue where TimescaleDB and Citus were not compilable with earlier Percona Server for PostgreSQL versions, and fixes high-severity CVEs for which fixes were available.
 
-!!! note
-    `pg_tde` 2.2.1 is not compatible with Percona Distribution for PostgreSQL versions earlier than 18.4.
+This release also updates bundled components, including `pg_tde` 2.2.1, and refreshes Docker images with fixes for high-severity CVEs where available.
+
+!!! warning
+    Percona Server for PostgreSQL 18.4.2 and `pg_tde` 2.2.1 are only supported together. Combining either with an earlier version of the other is not supported.
 
 To upgrade from an earlier version of Percona Distribution for PostgreSQL, follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
 
