@@ -40,7 +40,7 @@ The following bundled components have been updated in this release:
 | pg_tde | 2.2.1 |
 | PostGIS | 3.5.7 |
 | pgVector | 0.8.3 |
-| pgpool-II | 4.7.2 |
+| pgpool | 4.7.2 |
 
 For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the supplemental `python3-etcd` 0.4.5 packages, which are used for setting up Patroni clusters.
 
