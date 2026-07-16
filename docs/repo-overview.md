@@ -57,3 +57,23 @@ The `percona-ppg-server-ha` meta-package installs high-availability components t
 | `percona-haproxy`| A high-availability and load-balancing solution |
 | `etcd`           | A consistent, distributed key-value store | 
 | `python3-python-etcd` | A Python client for etcd |
+
+## Tech Preview: PSP 16 testing repository
+
+!!! warning "Tech Preview"
+
+    This is a **Tech Preview** feature. Percona doesn't recommend Tech Preview features for production environments. We provide them to give users early access to new functionality and the opportunity to provide feedback while the feature is still under development. There is no commitment to support them long-term, and the feature may change or be removed without notice.
+
+Percona Server for PostgreSQL (PSP) 16.14, built with the [`pg_tde` :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) extension included natively, is available for evaluation through a dedicated testing repository. This is not a GA release of Percona Distribution for PostgreSQL 16 - it's a separate, experimental build for users who want to try `pg_tde` and the other bundled components ahead of a full release.
+
+Enable the testing repository with the `percona-release` utility:
+
+```{.bash data-prompt="$"}
+$ sudo percona-release enable-only psp-16
+```
+
+Once the repository is enabled, follow the same package installation steps as [Install via apt](apt.md) or [Install via yum](yum.md), skipping the `percona-release setup ppg-16` step since the testing repository is already enabled.
+
+To enable and use `pg_tde`, follow the steps in the [pg_tde documentation :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) to configure it.
+
+For the full list of bundled extensions and their versions, see [Percona-authored extensions](percona-ext.md). Docker images for this Tech Preview are also available - see [Run in Docker](docker.md).
