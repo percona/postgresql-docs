@@ -163,4 +163,24 @@ To enable the `pg_stat_monitor` extension after launching the container, do the 
 
 Note that the `pg_stat_monitor` view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.
 
+## Tech Preview: Percona Server for PostgreSQL 16 with pg_tde
+
+!!! warning "Tech Preview"
+
+    This is a **Tech Preview** feature. Percona doesn't recommend Tech Preview features for production environments. We provide them to give users early access to new functionality and the opportunity to provide feedback while the feature is still under development. There is no commitment to support them long-term, and the feature may change or be removed without notice.
+
+Docker images of Percona Server for PostgreSQL (PSP) 16.14, built with the `pg_tde` extension included natively, are available on [perconalab :octicons-link-external-16:](https://hub.docker.com/u/perconalab) for evaluation purposes. These are separate images from the GA Percona Distribution for PostgreSQL image used above, and are not intended for production use.
+
+| Image | Tag |
+| ----- | --- |
+| `perconalab/percona-distribution-postgresql` | `16-psp`, `16-psp-ubi8` |
+| `perconalab/percona-distribution-postgresql-with-postgis` | `16-psp`, `16-psp-ubi8` |
+
+Start a container from one of these images the same way as described in [Start the container](#start-the-container), substituting the image and tag:
+
+```{.bash data-prompt="$"}
+$ docker run --name container-name -e POSTGRES_PASSWORD=secret -d perconalab/percona-distribution-postgresql:16-psp
+```
+
+To enable and use `pg_tde` inside the container, follow the steps in the [pg_tde documentation :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) to configure it. For the full list of bundled component versions, see [Percona-authored extensions](percona-ext.md).
 
