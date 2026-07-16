@@ -5132,13 +5132,10 @@ postgres=#
 </li>
 <li>
 <p>Connect to the container&rsquo;s interactive terminal:</p>
-</li>
-</ol>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>container-name<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>The `container-name` is the name of the container that you started in the previous step.
-</code></pre></div>
-<ol>
+<p>The <code>container-name</code> is the name of the container that you started in the previous step.</p>
+</li>
 <li>
 <p>Create the extension in the desired database:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">example_extension</span><span class="p">;</span>
