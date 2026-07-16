@@ -1470,6 +1470,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 3. Connection routing and load balancing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-routing-primary-vs-standby-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Routing: Primary vs. Standby Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-shift-away-from-floating-virtual-ips-vips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Shift Away From Floating Virtual IPs (VIPs)
+      
+    </span>
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3430,6 +3458,34 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Step 3. Connection routing and load balancing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-routing-primary-vs-standby-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Routing: Primary vs. Standby Node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-shift-away-from-floating-virtual-ips-vips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Shift Away From Floating Virtual IPs (VIPs)
+      
+    </span>
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3518,63 +3574,96 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
 <h1 id="high-availability-in-postgresql-with-patroni">High Availability in PostgreSQL with Patroni<a class="headerlink" href="#high-availability-in-postgresql-with-patroni" title="Permanent link">&para;</a></h1>
 <p>Whether you are a small startup or a big enterprise, downtime of your services may cause severe consequences, such as loss of customers, impact on your reputation, and penalties for not meeting the Service Level Agreements (SLAs). That’s why ensuring a highly-available deployment is crucial.</p>
-<p>But what does it mean, high availability (HA)? And how to achieve it? This document answers these questions. </p>
+<p>This topic explains what high availability (HA) is and how you can achieve it using Patroni.</p>
 <p>After reading this document, you will learn the following:</p>
 <ul>
-<li><a href="#what-is-high-availability">what is high availability</a></li>
-<li>the recommended <a href="ha-architecture.html">reference architecture</a> to achieve it</li>
-<li>how to deploy it using our step-by-step deployment guides for each component. The deployment instructions focus on the minimalistic approach to high availability that we recommend. It also gives instructions how to deploy additional components that you can add when your infrastructure grows.</li>
-<li>how to verify that your high availability deployment works as expected, providing replication and failover with the <a href="ha-test.html">testing guidelines</a></li>
-<li>additional components that you can add to address existing limitations on to your infrastructure. An example of such limitations can be the ones on application driver/connectors, or the lack of the connection pooler at the application framework.</li>
+<li><a href="#what-is-high-availability">What is high availability</a>.</li>
+<li>The recommended <a href="ha-architecture.html">reference architecture</a> to achieve it.</li>
+<li>How to deploy it using our step-by-step deployment guides for each component. The deployment instructions focus on the minimalistic approach to high availability that we recommend. It also gives instructions how to deploy additional components that you can add when your infrastructure grows.</li>
+<li>How to verify that your high availability deployment works as expected, providing replication and failover with the <a href="ha-test.html">testing guidelines</a></li>
+<li>Additional components that you can add to address existing limitations on your infrastructure. An example of such limitations can be the ones on application driver/connectors, or the lack of the connection pooler at the application framework.</li>
 </ul>
 <h2 id="what-is-high-availability">What is high availability<a class="headerlink" href="#what-is-high-availability" title="Permanent link">&para;</a></h2>
-<p>High availability (HA) is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the failed component to the healthy ones so that they can take over its responsibility. The system must have sufficient automation to perform this transfer without the need of human intervention,  minimizing disruption and avoiding the need for human intervention.</p>
+<p>High availability (HA) is the ability of the system to operate continuously without the interruption of services. During the outage, the system must be able to transfer the services from the failed component to the healthy ones so that they can take over its responsibility. The system must have sufficient automation to perform this transfer without the need for human intervention, minimizing disruption.</p>
 <p>Overall, High availability is about:</p>
 <ol>
-<li>Reducing the chance of failures</li>
-<li>Elimination of single-point-of-failure (SPOF)</li>
-<li>Automatic detection of failures </li>
-<li>Automatic action to reduce the impact</li>
+<li>Reducing the chance of failures.</li>
+<li>Elimination of single-point-of-failure (SPOF).</li>
+<li>Automatic detection of failures.</li>
+<li>Automatic action to reduce the impact.</li>
 </ol>
 <h3 id="how-to-achieve-it">How to achieve it?<a class="headerlink" href="#how-to-achieve-it" title="Permanent link">&para;</a></h3>
-<p>A short answer is: add redundancy to your deployment, eliminate a single point of failure (SPOF) and have the mechanism to transfer the services from a failed member to the healthy one. </p>
-<p>For a long answer, let&rsquo;s break it down into steps. </p>
+<p>A short answer is: add redundancy to your deployment, eliminate a single point of failure (SPOF) and have the mechanism to transfer the services from a failed member to the healthy one.</p>
+<p>For a long answer, let&rsquo;s break it down into steps.</p>
 <h4 id="step-1-replication">Step 1. Replication<a class="headerlink" href="#step-1-replication" title="Permanent link">&para;</a></h4>
-<p>First, you should have more than one copy of your data. This means, you need to have several instances of your database where one is the primary instance that accepts reads and writes. Other instances are replicas – they must have an up-to-date copy of the data from the primary and remain in sync with it. They may also accept reads to offload your primary. </p>
-<p>You must deploy these instances on separate hardware (servers or nodes) and use a separate storage for storing the data. This way you eliminate a single point of failure for your database.</p>
-<p>The minimum number of database nodes is two: one primary and one replica. </p>
-<p>The recommended deployment is a three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism. </p>
+<p>First, you should have more than one copy of your data. This means, you need to have several instances of your database where one is the primary instance that accepts reads and writes. Other instances are replicas – they must have an up-to-date copy of the data from the primary and remain in sync with it. They may also accept reads to offload your primary.</p>
+<p>You must deploy these instances on separate hardware (servers or nodes) and use separate storage for storing the data. This way you eliminate a single point of failure for your database.</p>
+<p>The minimum number of database nodes is two: one primary and one replica.</p>
+<p>The recommended deployment is a three-instance cluster consisting of one primary and two replica nodes. The replicas receive the data via the replication mechanism.</p>
 <p><img alt="Primary-replica setup" src="../_images/diagrams/ha-overview-replication.svg" /></p>
-<p>PostgreSQL natively supports logical and streaming replication. To achieve high availability, use streaming replication to ensure an exact copy of data is maintained and is ready to take over, while reducing the delay between primary and replica nodes to prevent data loss.</p>
+<p>PostgreSQL natively supports logical and streaming replication. To achieve high availability, use streaming replication instead of logical replication. This ensures an exact copy of the entire PostgreSQL instance is maintained and ready to take over, while reducing the delay between primary and replica nodes to the lowest possible level to minimize the risk of data loss.</p>
 <h4 id="step-2-switchover-and-failover">Step 2. Switchover and Failover<a class="headerlink" href="#step-2-switchover-and-failover" title="Permanent link">&para;</a></h4>
 <p>You may want to transfer the primary role from one machine to another. This action is called a <strong>manual switchover</strong>. A reason for that could be the following:</p>
 <ul>
-<li>a planned maintenance on the OS level, like applying quarterly security updates or replacing some of the end-of-life components from the server</li>
-<li>troubleshooting some of the problems, like high network latency.</li>
+<li>A planned maintenance on the OS level, like applying quarterly security updates or replacing some of the end-of-life components from the server</li>
+<li>Troubleshooting some of the problems, like high network latency.</li>
 </ul>
 <p>Switchover is a manual action performed when you decide to transfer the primary role to another node. The high-availability framework makes this process easier and helps minimize downtime during maintenance, thereby improving overall availability.</p>
 <p>There could be an unexpected situation where a primary node is down or not responding. Reasons for that can be different, from hardware or network issues to software failures, power outages and the like. In such situations, the high-availability solution should automatically detect the problem, find out a suitable candidate from the remaining nodes and transfer the primary role to the best candidate (promote a new node to become a primary). Such automatic remediation is called <strong>Failover</strong>.</p>
 <p><img alt="Failover" src="../_images/diagrams/ha-overview-failover.svg" /></p>
 <p>You can do a manual failover when automatic remediation fails, for example, due to:</p>
 <ul>
-<li>a complete network partitioning </li>
-<li>high-availability framework not being able to find a good candidate </li>
-<li>the insufficient number of nodes remaining for a new primary election.</li>
+<li>A complete network partitioning.</li>
+<li>High-availability framework not being able to find a good candidate.</li>
+<li>The insufficient number of nodes remaining for a new primary election.</li>
 </ul>
-<p>The high-availability framework allows a human operator / administrator to take control and do a manual failover.</p>
+<p>The good high-availability framework allows a human operator / administrator to easily take the full control and do a manual failover when needed.</p>
 <h4 id="step-3-connection-routing-and-load-balancing">Step 3. Connection routing and load balancing<a class="headerlink" href="#step-3-connection-routing-and-load-balancing" title="Permanent link">&para;</a></h4>
-<p>Instead of a single node you now have a cluster. How to enable users to connect to the cluster and ensure they always connect to the correct node, especially when the primary node changes? </p>
-<p>One option is to configure a DNS resolution that resolves the IPs of all cluster nodes. A drawback here is that only the primary node accepts all requests. When your system grows, so does the load and it may lead to overloading the primary node and result in performance degradation. </p>
-<p>You can write your application to send read/write requests to the primary and read-only requests to the secondary nodes. This requires significant programming experience.</p>
-<p><img alt="Load-balancer" src="../_images/diagrams/ha-overview-load-balancer.svg" /></p>
-<p>Another option is to use a load-balancing proxy. Instead of connecting directly to the IP address of the primary node, which can change during a failover, you use a proxy that acts as a single point of entry for the entire cluster. This proxy provides the IP address visible for user applications. It also knows which node is currently the primary and directs all incoming write requests to it. At the same time, it can distribute read requests among the replicas to evenly spread the load and improve performance.</p>
-<p>To eliminate a single point of failure for a load balancer, we recommend to deploy multiple connection routers/proxies for redundancy. Each application server can have its own connection router whose task is to identify the cluster topology and route the traffic to the current primary node. </p>
-<p>Alternatively you can deploy a redundant load balancer for the whole cluster. The load balancer instances share the public IP address so that it can &ldquo;float&rdquo; from one instance to another in the case of a failure. To control the load balancer&rsquo;s state and transfer the IP address to the active instance, you also need the failover solution for load balancers.</p>
-<p>The use of a load balancer is optional. If your application implements the logic of connection routing and load-balancing, it is a highly-recommended approach.</p>
+<p>After a switchover or failover, routing the connection to new nodes is a major challenge. A traditional approach is to use DNS resolution. However, there are a few drawbacks to DNS-based routing. All connections are typically routed to the primary node, which is acceptable if standby nodes are not required to serve read-only queries. In addition, delays in DNS record propagation can affect new connections established immediately after a switchover.</p>
+<p>A better option is to use the features of application connectors / drivers to request the desired role of the node. Drivers like the JDBC driver for PostgreSQL are well known for supporting this feature for quite some time. Almost all application drivers these days have this feature, including those based on libpq. This is considered the best option for modern architectures.</p>
+<p>An option widely used with PostgreSQL is the use of connection proxies like HAProxy to facilitate separate connection endpoints for both read-only and read-write connections.
+<img alt="Load-balancer" src="../_images/diagrams/ha-overview-load-balancer.svg" />
+The proxy becomes a single point of entry for all incoming connections. To mitigate the risk of a single proxy failure, multiple proxy instances should be deployed — preferably a separate proxy for each application server.
+However, this approach adds an additional network hop, which can adversely affect performance. The proxy may also mask client IP addresses and affect traceability.
+On the other hand, proxies can distribute read requests across replicas to evenly spread the load.</p>
+<p>Before proceeding to redirect read-only connections to standby nodes, it is important to understand the trade-offs</p>
+<h5 id="connection-routing-primary-vs-standby-node">Connection Routing: Primary vs. Standby Node<a class="headerlink" href="#connection-routing-primary-vs-standby-node" title="Permanent link">&para;</a></h5>
+<p>The optimal approach is to design the application to intelligently route connections to either the Primary or Standby node based on specific business logic and workload requirements.</p>
+<ul>
+<li>
+<p><strong>Primary Connections (Higher Cost):</strong> Connections to the primary node are highly critical and in high demand, as the primary handles all write operations.</p>
+</li>
+<li>
+<p><strong>Standby Connections (Lower Cost):</strong> Read-only connections to a standby node are computationally &ldquo;cheaper&rdquo; because their resource consumption does not directly impact the transaction throughput or performance of the primary node.</p>
+</li>
+</ul>
+<p>While offloading read traffic to a standby node frees up primary resources, the application must be architected to handle the following technical limitations:</p>
+<ol>
+<li>
+<p><strong>Strict Isolation &amp; ACID Limitations:</strong> Standby nodes cannot fully participate in the primary&rsquo;s active concurrency control mechanisms. Consequently, strict, real-time ACID compliance for transactions cannot be guaranteed on the standby side.</p>
+</li>
+<li>
+<p><strong>Eventual Consistency:</strong> Due to replication lag, data on the standby node is eventually consistent rather than immediately consistent. Queries routed here may occasionally read stale or obsolete data.</p>
+</li>
+<li>
+<p><strong>Locking Restrictions:</strong> Standby sessions do not participate in exclusive locks held on the primary node. Even basic shared locks (like AccessShareLock) cannot block DDL or data modifications occurring on the primary.</p>
+</li>
+<li>
+<p><strong>Query Conflicts and Cancellations:</strong> Because the standby node lacks active concurrency control, conflicts between long-running read queries on the standby and WAL (Write-Ahead Log) replay from the primary are common. This can lead to automatic statement cancellations on the standby, which the application logic must be resilient enough to catch and retry.</p>
+</li>
+<li>
+<p><strong>Transaction Block Constraints:</strong> Read-only queries intended for the standby node should generally not be wrapped inside complex, multi-statement transaction blocks that expect write-forwarding or immediate visibility.</p>
+</li>
+</ol>
+<p>Only specific application workloads that can tolerate eventual consistency, query cancellations, and replication lag should opt-in for read-only connections routed to the standby node.</p>
+<h4 id="the-shift-away-from-floating-virtual-ips-vips">The Shift Away From Floating Virtual IPs (VIPs)<a class="headerlink" href="#the-shift-away-from-floating-virtual-ips-vips" title="Permanent link">&para;</a></h4>
+<p>Historically, many organizations have used floating Virtual IP (VIP) addresses to mitigate the risk of a single point of failure when applications connect to a proxy layer. In this architecture, multiple load balancer instances share a single public or private IP address that dynamically &ldquo;floats&rdquo; from a failed instance to a healthy, active one. To orchestrate this transition and monitor instance health, a dedicated failover clustering solution (such as Keepalived or Corosync) must be deployed alongside the load balancers.</p>
+<p><strong>Important Operational Guidance:</strong> While a floating VIP sounds seamless in theory, real-world production data shows that VIP deployments frequently introduce complex failure modes, split-brain scenarios, and an overall increase in high-severity incidents. Based on feedback from enterprise environments, the use of floating VIPs is highly discouraged. As already stated, reducing the chance of failure is an important objective of investment in High Availability infrastructure. Therefore, this frequent point of failure is discouraged.</p>
+<p>The use of an external load balancer is optional. If your application implements the logic of connection routing and load-balancing, it is a highly-recommended approach.</p>
 <h4 id="step-4-backups">Step 4. Backups<a class="headerlink" href="#step-4-backups" title="Permanent link">&para;</a></h4>
 <p>Even with replication and failover mechanisms in place, it’s crucial to have regular backups of your data. Backups provide a safety net for catastrophic failures that affect both the primary and replica nodes. While replication ensures data is synchronized across multiple nodes, it does not protect against data corruption, accidental deletions, or malicious attacks that can affect all nodes.</p>
 <p><img alt="Backup tool" src="../_images/diagrams/ha-overview-backup.svg" /></p>
-<p>Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss. </p>
+<p>Having regular backups ensures that you can restore your data to a previous state, preserving data integrity and availability even in the worst-case scenarios. Store your backups in separate, secure locations and regularly test them to ensure that you can quickly and accurately restore them when needed. This additional layer of protection is essential to maintaining continuous operation and minimizing data loss.</p>
 <p>The backup tool is optional but highly-recommended for data corruption recovery. Additionally, backups protect against human error, when a user can accidentally drop a table or make another mistake.</p>
 <p>As a result, you end up with the following components for a minimalistic highly-available deployment:</p>
 <ul>
@@ -3585,9 +3674,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>Optionally, you can add a monitoring tool to observe the health of your deployment, receive alerts about performance issues and timely react to them.</p>
 <h3 id="what-tools-to-use">What tools to use?<a class="headerlink" href="#what-tools-to-use" title="Permanent link">&para;</a></h3>
-<p>The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability. </p>
-<p>In our <a href="ha-architecture.html">reference architecture</a> section we recommend a combination of open-source tools, focusing on a minimalistic three-node PostgreSQL cluster.</p>
-<p>Note that the tools are recommended but not mandatory. You can use your own solutions and alternatives if they better meet your business needs. However, in this case, we cannot guarantee their compatibility and smooth operation.</p>
+<p>The PostgreSQL ecosystem offers many tools for high availability, but choosing the right ones can be challenging. At Percona, we have carefully selected and tested open-source tools to ensure they work well together and help you achieve high availability.</p>
+<p>In our <a href="ha-architecture.html">reference architecture</a> section we recommend a combination of open-source components and frameworks, focusing on a minimalistic PostgreSQL cluster.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of the components are recommended but <strong>not</strong> mandatory. You can use your own solutions and alternatives if they better meet your business needs. However, deviating from proven methods and architecture may increase risk.</p>
+</div>
 <h3 id="additional-reading">Additional reading<a class="headerlink" href="#additional-reading" title="Permanent link">&para;</a></h3>
 <p><a class="md-button" href="ha-measure.html">Measuring high availability</a></p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
@@ -3614,7 +3706,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 10, 2025 13:53:56 UTC">July 10, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 16, 2026 13:58:47 UTC">July 16, 2026</span>
   </span>
 
     
@@ -3629,34 +3721,6 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
