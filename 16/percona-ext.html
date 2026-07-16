@@ -1110,6 +1110,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tech-preview-pg_tde-built-into-percona-server-for-postgresql-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tech Preview: pg_tde built into Percona Server for PostgreSQL 16
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3529,6 +3540,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tech-preview-pg_tde-built-into-percona-server-for-postgresql-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tech Preview: pg_tde built into Percona Server for PostgreSQL 16
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3572,6 +3594,95 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><a class="md-button" href="https://percona.github.io/pg_tde/main/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
 </div>
+<h2 id="tech-preview-pg_tde-built-into-percona-server-for-postgresql-16">Tech Preview: pg_tde built into Percona Server for PostgreSQL 16<a class="headerlink" href="#tech-preview-pg_tde-built-into-percona-server-for-postgresql-16" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Tech Preview</p>
+<p>This is a <strong>Tech Preview</strong> feature. Percona doesn&rsquo;t recommend Tech Preview features for production environments. We provide them to give users early access to new functionality and the opportunity to provide feedback while the feature is still under development. There is no commitment to support them long-term, and the feature may change or be removed without notice.</p>
+</div>
+<p><a href="https://docs.percona.com/pg-tde/index.html"><code>pg_tde</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is included natively in Percona Server for PostgreSQL (PSP) 16.14, available as a Tech Preview through a dedicated testing repository and <code>perconalab</code> Docker images. See <a href="repo-overview.html#tech-preview-psp-16-testing-repository">Tech Preview: PSP 16 testing repository</a> for packages, or <a href="docker.html#tech-preview-percona-server-for-postgresql-16-with-pg_tde">Tech Preview: Percona Server for PostgreSQL 16 with pg_tde</a> for Docker images.</p>
+<p>The following component versions are bundled with this Tech Preview:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pg_tde</code></td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><code>pg_stat_monitor</code></td>
+<td>2.3.2</td>
+</tr>
+<tr>
+<td><code>pgaudit</code></td>
+<td>16.1</td>
+</tr>
+<tr>
+<td><code>pg_repack</code></td>
+<td>1.5.3</td>
+</tr>
+<tr>
+<td><code>pgBackRest</code></td>
+<td>2.58.0</td>
+</tr>
+<tr>
+<td><code>Patroni</code></td>
+<td>4.1.3</td>
+</tr>
+<tr>
+<td><code>pgBadger</code></td>
+<td>13.2</td>
+</tr>
+<tr>
+<td><code>PgBouncer</code></td>
+<td>1.25.2</td>
+</tr>
+<tr>
+<td><code>Pgpool-II</code></td>
+<td>4.7.2</td>
+</tr>
+<tr>
+<td><code>wal2json</code></td>
+<td>2.6</td>
+</tr>
+<tr>
+<td><code>set_user</code></td>
+<td>4.2.0</td>
+</tr>
+<tr>
+<td><code>HAProxy</code></td>
+<td>2.8.23</td>
+</tr>
+<tr>
+<td><code>etcd</code></td>
+<td>3.5.30</td>
+</tr>
+<tr>
+<td><code>pgvector</code></td>
+<td>0.8.3</td>
+</tr>
+<tr>
+<td><code>PostGIS</code></td>
+<td>3.5.7</td>
+</tr>
+<tr>
+<td><code>pg_cron</code></td>
+<td>1.6.7</td>
+</tr>
+<tr>
+<td><code>pg_gather</code></td>
+<td>33</td>
+</tr>
+<tr>
+<td><code>percona-pg-telemetry</code></td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3594,7 +3705,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2024 14:28:52 UTC">October 29, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 16, 2026 12:57:39 UTC">July 16, 2026</span>
   </span>
 
     
@@ -3621,6 +3732,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
     
     <nav>
+      
+        <a href="https://github.com/ImTheKai" class="md-author" title="@ImTheKai">
+          
+          <img src="https://avatars.githubusercontent.com/u/19579259?v=4&size=72" alt="ImTheKai">
+        </a>
       
         <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
           
