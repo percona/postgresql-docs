@@ -65,6 +65,7 @@ extra_css:
   - css/landing.css
   - css/postgresql.css
   - css/rating.css
+  - css/kapa.css
 
 
 extra_javascript:
@@ -72,6 +73,7 @@ extra_javascript:
   - js/promptremover.js
   - js/consent.js
   - js/rating.js
+  - js/kapa.js
 
 markdown_extensions:
   attr_list: {}
@@ -253,4 +255,5 @@ nav:
       - Telemetry: telemetry.md
       - Licensing: licensing.md
       - Trademark policy: trademark-policy.md
+      - legal-notice.md
 
