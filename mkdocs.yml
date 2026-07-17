@@ -26,6 +26,7 @@ nav:
           - From tarballs: tarball.md
           - Run in Docker: 
             - Overview: docker/docker.md
+            - Upgrade in Docker: docker/docker-upgrade.md
             - 'Enable pg_tde for securing data at rest': docker/docker-enable-pg-tde.md
             - 'Enable stat-monitor for performance statistics': docker/docker-enable-pg-stat-monitor.md
           - enable-extensions.md
