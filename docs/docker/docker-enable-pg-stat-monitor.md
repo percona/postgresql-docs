@@ -96,3 +96,7 @@ For more information on this extension, see [pg_stat_monitor :octicons-link-exte
 
 !!! note
      The `pg_stat_monitor` view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.
+
+## Next steps
+
+[Enable Percona Distribution for PostgreSQL components :material-arrow-right:](../enable-extensions.md){.md-button}

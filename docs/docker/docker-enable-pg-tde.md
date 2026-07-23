@@ -2,7 +2,8 @@
 
 Percona Distribution for PostgreSQL Docker image includes the `pg_tde` extension to provide data encryption.
 
-For more information, see the [pg_tde documentation :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html).
+!!! note
+    For more information about how `pg_tde` works, see the [pg_tde documentation :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html).
 
 ## Enable pg_tde {.power-number}
 
@@ -80,3 +81,7 @@ For more information, see the [pg_tde documentation :octicons-link-external-16:]
             signup_date DATE
         ) USING tde_heap;
         ```
+
+## Next steps
+
+[Enable `pg_stat_monitor` for performance statistics :material-arrow-right:](docker-enable-pg-stat-monitor.md){.md-button}

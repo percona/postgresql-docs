@@ -85,6 +85,9 @@ Or pull the latest image for a major version:
 docker pull percona/percona-distribution-postgresql:{{pgversion}}
 ```
 
+!!! note
+    To upgrade a containerized Percona Distribution for PostgreSQL instance to a new major version, use the dedicated upgrade image. See [Upgrade Percona Distribution for PostgreSQL using the upgrade image](docker-upgrade.md).
+
 ## 4. Docker image contents
 
 The Docker image of Percona Distribution for PostgreSQL includes the following components:

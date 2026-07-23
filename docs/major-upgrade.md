@@ -15,6 +15,9 @@ To ensure a smooth upgrade path, follow these steps:
 !!! warning
     When doing a major version upgrade, if your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
 
+!!! note
+    If you run Percona Distribution for PostgreSQL in Docker, use the dedicated upgrade image instead of the package-manager steps below. See [Upgrade Percona Distribution for PostgreSQL using the upgrade image](docker/docker-upgrade.md).
+
 The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.
 
 !!! admonition "See also"
