@@ -9,35 +9,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="You are interacting with an AI-powered chatbot that provides automated responses for general information about our IT services and software. Responses may be inaccurate or incomplete and do not constitute professional or contractual advice. Do not submit personal data, confidential information, credentials, or other sensitive information through this chat. Conversations may be logged and processed to improve our services in accordance with our Privacy Policy and applicable laws, including the GDPR. If you require assistance, please contact a human representative.">
+        <meta name="description" content="To upgrade Percona Distribution for PostgreSQL in Docker to a new major version, use the dedicated percona/percona-distribution-postgresql-upgrade image. It bundles the server binaries for several consecutive major versions, so pg_upgrade can run against your old and new data directories.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/18/legal-notice.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/18/docker/docker-upgrade.html">
       
       
-        <link rel="prev" href="trademark-policy.html">
+        <link rel="prev" href="docker.html">
       
+      
+        <link rel="next" href="docker-enable-pg-tde.html">
       
       
         
       
       
-      <link rel="icon" href="_images/postgresql-fav.svg">
+      <link rel="icon" href="../_images/postgresql-fav.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
-        <title>Legal Notice - Percona Distribution for PostgreSQL</title>
+        <title>Upgrade in Docker - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -56,31 +58,31 @@
       
     
     
-      <link rel="stylesheet" href="css/print-site.css">
+      <link rel="stylesheet" href="../css/print-site.css">
     
-      <link rel="stylesheet" href="css/print-site-material.css">
+      <link rel="stylesheet" href="../css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-      <link rel="stylesheet" href="css/design.css">
+      <link rel="stylesheet" href="../css/design.css">
     
-      <link rel="stylesheet" href="css/osano.css">
+      <link rel="stylesheet" href="../css/osano.css">
     
-      <link rel="stylesheet" href="css/landing.css">
+      <link rel="stylesheet" href="../css/landing.css">
     
-      <link rel="stylesheet" href="css/postgresql.css">
+      <link rel="stylesheet" href="../css/postgresql.css">
     
-      <link rel="stylesheet" href="css/rating.css">
+      <link rel="stylesheet" href="../css/rating.css">
     
-      <link rel="stylesheet" href="css/kapa.css">
+      <link rel="stylesheet" href="../css/kapa.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -102,7 +104,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Legal Notice" />
+                 <meta property="og:title" content="Percona Distribution for PostgreSQL - Upgrade in Docker" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
@@ -129,7 +131,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#legal-notice" class="md-skip">
+        <a href="#upgrade-percona-distribution-for-postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -230,14 +232,14 @@
 
     <!-- Link to home -->
     <a
-      href="index.html"
+      href="../index.html"
       title="Percona Distribution for PostgreSQL"
       class="md-header__button md-logo"
       aria-label="Percona Distribution for PostgreSQL"
       data-md-component="logo"
     >
       
-  <img src="_images/postgresql-mark.svg" alt="logo">
+  <img src="../_images/postgresql-mark.svg" alt="logo">
 
     </a>
 
@@ -250,7 +252,7 @@
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="index.html" class="md-header__topic">
+        <a href="../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Distribution for PostgreSQL
           </span>
@@ -258,7 +260,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Legal Notice
+              Upgrade in Docker
             
           </span>
         </div>
@@ -395,9 +397,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+    <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/postgresql-mark.svg" alt="logo">
+  <img src="../_images/postgresql-mark.svg" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -424,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -451,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="postgresql-server.html" class="md-nav__link">
+      <a href="../postgresql-server.html" class="md-nav__link">
         
   
   
@@ -478,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="get-help.html" class="md-nav__link">
+      <a href="../get-help.html" class="md-nav__link">
         
   
   
@@ -505,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="quick-start.html" class="md-nav__link">
+      <a href="../quick-start.html" class="md-nav__link">
         
   
   
@@ -529,18 +531,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -561,7 +565,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -576,18 +580,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
@@ -608,7 +614,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -626,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="installing.html" class="md-nav__link">
+      <a href="../installing.html" class="md-nav__link">
         
   
   
@@ -654,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apt.html" class="md-nav__link">
+      <a href="../apt.html" class="md-nav__link">
         
   
   
@@ -682,7 +688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+      <a href="../yum.html" class="md-nav__link">
         
   
   
@@ -710,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tarball.html" class="md-nav__link">
+      <a href="../tarball.html" class="md-nav__link">
         
   
   
@@ -735,18 +741,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5_1_5" id="__nav_5_1_5_label" tabindex="0">
@@ -767,7 +775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_1_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -785,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         
   
   
@@ -810,10 +818,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="docker/docker-upgrade.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade in Docker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="docker-upgrade.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -829,6 +864,171 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-directories-for-the-old-and-new-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create directories for the old and new clusters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-start-the-postgresql-17-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Start the PostgreSQL 17 container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-wait-until-postgresql-finishes-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Wait until PostgreSQL finishes initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-connect-to-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Connect to PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-a-test-database-and-add-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create a test database and add data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-stop-the-postgresql-17-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Stop the PostgreSQL 17 container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pull-the-upgrade-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pull the upgrade image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-the-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Run the upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-start-postgresql-18-using-the-upgraded-data-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Start PostgreSQL 18 using the upgraded data directory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-verify-postgresql-18-starts-successfully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify PostgreSQL 18 starts successfully
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-connect-to-the-upgraded-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Connect to the upgraded cluster
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-verify-the-upgraded-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Verify the upgraded data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -841,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/docker-enable-pg-tde.html" class="md-nav__link">
+      <a href="docker-enable-pg-tde.html" class="md-nav__link">
         
   
   
@@ -869,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/docker-enable-pg-stat-monitor.html" class="md-nav__link">
+      <a href="docker-enable-pg-stat-monitor.html" class="md-nav__link">
         
   
   
@@ -905,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="enable-extensions.html" class="md-nav__link">
+      <a href="../enable-extensions.html" class="md-nav__link">
         
   
   
@@ -933,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="repo-overview.html" class="md-nav__link">
+      <a href="../repo-overview.html" class="md-nav__link">
         
   
   
@@ -961,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sboms.html" class="md-nav__link">
+      <a href="../sboms.html" class="md-nav__link">
         
   
   
@@ -997,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+      <a href="../connect.html" class="md-nav__link">
         
   
   
@@ -1025,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+      <a href="../crud.html" class="md-nav__link">
         
   
   
@@ -1053,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="whats-next.html" class="md-nav__link">
+      <a href="../whats-next.html" class="md-nav__link">
         
   
   
@@ -1135,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="extensions.html" class="md-nav__link">
+      <a href="../extensions.html" class="md-nav__link">
         
   
   
@@ -1163,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="contrib.html" class="md-nav__link">
+      <a href="../contrib.html" class="md-nav__link">
         
   
   
@@ -1191,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="percona-ext.html" class="md-nav__link">
+      <a href="../percona-ext.html" class="md-nav__link">
         
   
   
@@ -1219,7 +1419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="third-party.html" class="md-nav__link">
+      <a href="../third-party.html" class="md-nav__link">
         
   
   
@@ -1301,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions.html" class="md-nav__link">
+      <a href="../solutions.html" class="md-nav__link">
         
   
   
@@ -1376,7 +1576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/high-availability.html" class="md-nav__link">
+      <a href="../solutions/high-availability.html" class="md-nav__link">
         
   
   
@@ -1404,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-measure.html" class="md-nav__link">
+      <a href="../solutions/ha-measure.html" class="md-nav__link">
         
   
   
@@ -1432,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-architecture.html" class="md-nav__link">
+      <a href="../solutions/ha-architecture.html" class="md-nav__link">
         
   
   
@@ -1507,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/etcd-info.html" class="md-nav__link">
+      <a href="../solutions/etcd-info.html" class="md-nav__link">
         
   
   
@@ -1535,7 +1735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/patroni-info.html" class="md-nav__link">
+      <a href="../solutions/patroni-info.html" class="md-nav__link">
         
   
   
@@ -1563,7 +1763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/haproxy-info.html" class="md-nav__link">
+      <a href="../solutions/haproxy-info.html" class="md-nav__link">
         
   
   
@@ -1591,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/pgbackrest-info.html" class="md-nav__link">
+      <a href="../solutions/pgbackrest-info.html" class="md-nav__link">
         
   
   
@@ -1627,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-components.html" class="md-nav__link">
+      <a href="../solutions/ha-components.html" class="md-nav__link">
         
   
   
@@ -1702,7 +1902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-init-setup.html" class="md-nav__link">
+      <a href="../solutions/ha-init-setup.html" class="md-nav__link">
         
   
   
@@ -1730,7 +1930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-etcd-config.html" class="md-nav__link">
+      <a href="../solutions/ha-etcd-config.html" class="md-nav__link">
         
   
   
@@ -1758,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-patroni.html" class="md-nav__link">
+      <a href="../solutions/ha-patroni.html" class="md-nav__link">
         
   
   
@@ -1786,7 +1986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/pgbackrest.html" class="md-nav__link">
+      <a href="../solutions/pgbackrest.html" class="md-nav__link">
         
   
   
@@ -1814,7 +2014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-haproxy.html" class="md-nav__link">
+      <a href="../solutions/ha-haproxy.html" class="md-nav__link">
         
   
   
@@ -1850,7 +2050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-test.html" class="md-nav__link">
+      <a href="../solutions/ha-test.html" class="md-nav__link">
         
   
   
@@ -1933,7 +2133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/backup-recovery.html" class="md-nav__link">
+      <a href="../solutions/backup-recovery.html" class="md-nav__link">
         
   
   
@@ -1961,7 +2161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="../solutions/dr-pgbackrest-setup.html" class="md-nav__link">
         
   
   
@@ -2044,7 +2244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis.html" class="md-nav__link">
+      <a href="../solutions/postgis.html" class="md-nav__link">
         
   
   
@@ -2072,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis-deploy.html" class="md-nav__link">
+      <a href="../solutions/postgis-deploy.html" class="md-nav__link">
         
   
   
@@ -2100,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis-testing.html" class="md-nav__link">
+      <a href="../solutions/postgis-testing.html" class="md-nav__link">
         
   
   
@@ -2128,7 +2328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/postgis-upgrade.html" class="md-nav__link">
+      <a href="../solutions/postgis-upgrade.html" class="md-nav__link">
         
   
   
@@ -2211,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/authentication/overview.html" class="md-nav__link">
+      <a href="../solutions/authentication/overview.html" class="md-nav__link">
         
   
   
@@ -2239,7 +2439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/authentication/oidc.html" class="md-nav__link">
+      <a href="../solutions/authentication/oidc.html" class="md-nav__link">
         
   
   
@@ -2267,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/authentication/ldap.html" class="md-nav__link">
+      <a href="../solutions/authentication/ldap.html" class="md-nav__link">
         
   
   
@@ -2357,7 +2557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="major-upgrade.html" class="md-nav__link">
+      <a href="../major-upgrade.html" class="md-nav__link">
         
   
   
@@ -2385,7 +2585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="../minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2413,7 +2613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration.html" class="md-nav__link">
+      <a href="../migration.html" class="md-nav__link">
         
   
   
@@ -2448,7 +2648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq.html" class="md-nav__link">
+      <a href="../faq.html" class="md-nav__link">
         
   
   
@@ -2475,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="troubleshooting.html" class="md-nav__link">
+      <a href="../troubleshooting.html" class="md-nav__link">
         
   
   
@@ -2502,7 +2702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="uninstalling.html" class="md-nav__link">
+      <a href="../uninstalling.html" class="md-nav__link">
         
   
   
@@ -2576,7 +2776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes/release-notes.html" class="md-nav__link">
+      <a href="../release-notes/release-notes.html" class="md-nav__link">
         
   
   
@@ -2604,7 +2804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes/release-notes-v18.4.2.html" class="md-nav__link">
+      <a href="../release-notes/release-notes-v18.4.2.html" class="md-nav__link">
         
   
   
@@ -2632,7 +2832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes/release-notes-v18.4.1.html" class="md-nav__link">
+      <a href="../release-notes/release-notes-v18.4.1.html" class="md-nav__link">
         
   
   
@@ -2660,7 +2860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes/release-notes-v18.3.1.html" class="md-nav__link">
+      <a href="../release-notes/release-notes-v18.3.1.html" class="md-nav__link">
         
   
   
@@ -2735,7 +2935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes/release-notes-v18.1.1.html" class="md-nav__link">
+      <a href="../release-notes/release-notes-v18.1.1.html" class="md-nav__link">
         
   
   
@@ -2825,7 +3025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="licensing.html" class="md-nav__link">
+      <a href="../licensing.html" class="md-nav__link">
         
   
   
@@ -2853,7 +3053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="versioning.html" class="md-nav__link">
+      <a href="../versioning.html" class="md-nav__link">
         
   
   
@@ -2881,7 +3081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   
@@ -2913,19 +3113,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="legal-notice.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../legal-notice.html" class="md-nav__link">
         
   
   
@@ -2941,7 +3132,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -3187,7 +3377,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     <div data-banner="data-banner" class="edit-contrib-banner">
   <div class="banner-content">
     <!-- Edit link centered -->
-    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/legal-notice.md" title="Edit this page on GitHub" class="edit-page-link">
+    <a href="https://github.com/percona/postgresql-docs/edit/18/docs/docker/docker-upgrade.md" title="Edit this page on GitHub" class="edit-page-link">
       <span class="edit-page-icon">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
@@ -3241,6 +3431,157 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-directories-for-the-old-and-new-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create directories for the old and new clusters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-start-the-postgresql-17-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Start the PostgreSQL 17 container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-wait-until-postgresql-finishes-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Wait until PostgreSQL finishes initialization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-connect-to-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Connect to PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-create-a-test-database-and-add-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Create a test database and add data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-stop-the-postgresql-17-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Stop the PostgreSQL 17 container
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pull-the-upgrade-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pull the upgrade image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-the-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Run the upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-start-postgresql-18-using-the-upgraded-data-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Start PostgreSQL 18 using the upgraded data directory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-verify-postgresql-18-starts-successfully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Verify PostgreSQL 18 starts successfully
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-connect-to-the-upgraded-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Connect to the upgraded cluster
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-verify-the-upgraded-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Verify the upgraded data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3262,15 +3603,94 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/legal-notice.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/postgresql-docs/raw/18/docs/docker/docker-upgrade.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="legal-notice">Legal Notice<a class="headerlink" href="#legal-notice" title="Permanent link">&para;</a></h1>
-<p>You are interacting with an AI-powered chatbot that provides automated responses for general information about our IT services and software. Responses may be inaccurate or incomplete and do not constitute professional or contractual advice. Do not submit personal data, confidential information, credentials, or other sensitive information through this chat. Conversations may be logged and processed to improve our services in accordance with our <a href="https://www.percona.com/privacy-policy#h.c033wws8ytgb">Privacy Policy</a> and applicable laws, including the GDPR. If you require assistance, please contact a <a href="https://www.percona.com/about/contact">human representative</a>.</p>
+<h1 id="upgrade-percona-distribution-for-postgresql">Upgrade Percona Distribution for PostgreSQL<a class="headerlink" href="#upgrade-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>To upgrade Percona Distribution for PostgreSQL in Docker to a new major version, use the dedicated <code>percona/percona-distribution-postgresql-upgrade</code> image. It bundles the server binaries for several consecutive major versions, so <code>pg_upgrade</code> can run against your old and new data directories.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Back up your data before you start. The backup tool is out of scope for this document. Use the backup tool of your choice.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If your cluster uses <code>pg_tde</code>, do not follow these steps. Using <code>pg_upgrade</code> on an encrypted cluster is not supported and will result in data corruption. See <a href="../major-upgrade.html">Upgrading Percona Distribution for PostgreSQL</a> for details.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you&rsquo;re upgrading an existing instance rather than following along with the step 1-5 example, skip those steps and start from step 6 with your own running container and data.</p>
+</div>
+<h2 class="power-number" id="1-create-directories-for-the-old-and-new-clusters">1. Create directories for the old and new clusters<a class="headerlink" href="#1-create-directories-for-the-old-and-new-clusters" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg17olddata/postgres
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg18newdata/postgres
+</code></pre></div>
+<h2 id="2-start-the-postgresql-17-container">2. Start the PostgreSQL 17 container<a class="headerlink" href="#2-start-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d
+<span class="w">  </span>--name<span class="w"> </span>pg17
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg17olddata/postgres:/data/db
+<span class="w">  </span>percona/percona-distribution-postgresql:17
+</code></pre></div>
+<h2 id="3-wait-until-postgresql-finishes-initialization">3. Wait until PostgreSQL finishes initialization<a class="headerlink" href="#3-wait-until-postgresql-finishes-initialization" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>pg17
+</code></pre></div>
+<h2 id="4-connect-to-postgresql">4. Connect to PostgreSQL<a class="headerlink" href="#4-connect-to-postgresql" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pg17<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
+</code></pre></div>
+<h2 id="5-create-a-test-database-and-add-data">5. Create a test database and add data<a class="headerlink" href="#5-create-a-test-database-and-add-data" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
+<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">testdb</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="6-stop-the-postgresql-17-container">6. Stop the PostgreSQL 17 container<a class="headerlink" href="#6-stop-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>pg17
+</code></pre></div>
+<h2 id="7-pull-the-upgrade-image">7. Pull the upgrade image<a class="headerlink" href="#7-pull-the-upgrade-image" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql-upgrade:18.4-17.10-16.14-15.18-14.23-1
+</code></pre></div>
+<p>The tag encodes all bundled versions; here it covers PostgreSQL 14 through 18.</p>
+<h2 id="8-run-the-upgrade">8. Run the upgrade<a class="headerlink" href="#8-run-the-upgrade" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm
+<span class="w">  </span>--name<span class="w"> </span>ppg_upgrade_17_18
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">OLD_VERSION</span><span class="o">=</span><span class="m">17</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">NEW_VERSION</span><span class="o">=</span><span class="m">18</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">OLD_DATABASE_NAME</span><span class="o">=</span>postgres
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">NEW_DATABASE_NAME</span><span class="o">=</span>postgres
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg17olddata:/pgolddata
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg18newdata:/pgnewdata
+<span class="w">  </span>percona/percona-distribution-postgresql-upgrade:18.4-17.10-16.14-15.18-14.23-1
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>OLD_VERSION</code> / <code>NEW_VERSION</code> are the major versions you&rsquo;re upgrading from and to</li>
+<li><code>OLD_DATABASE_NAME</code> / <code>NEW_DATABASE_NAME</code> are the database directory names under your old and new data mounts</li>
+<li>the volumes mount the parent directories (<code>pg17olddata</code>, <code>pg18newdata</code>), <strong>not</strong> the <code>postgres</code> subdirectory directly</li>
+</ul>
+<h2 id="9-start-postgresql-18-using-the-upgraded-data-directory">9. Start PostgreSQL 18 using the upgraded data directory<a class="headerlink" href="#9-start-postgresql-18-using-the-upgraded-data-directory" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d
+<span class="w">  </span>--name<span class="w"> </span>pg18
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg18newdata/postgres:/data/db
+<span class="w">  </span>percona/percona-distribution-postgresql:18
+</code></pre></div>
+<h2 id="10-verify-postgresql-18-starts-successfully">10. Verify PostgreSQL 18 starts successfully<a class="headerlink" href="#10-verify-postgresql-18-starts-successfully" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>pg18
+</code></pre></div>
+<h2 id="11-connect-to-the-upgraded-cluster">11. Connect to the upgraded cluster<a class="headerlink" href="#11-connect-to-the-upgraded-cluster" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pg18<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>testdb
+</code></pre></div>
+<h2 id="12-verify-the-upgraded-data">12. Verify the upgraded data<a class="headerlink" href="#12-verify-the-upgraded-data" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">version</span><span class="p">();</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+</code></pre></div>
+<p>Once you&rsquo;ve confirmed the upgraded container is healthy, you can remove <code>pg17olddata</code>.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="docker-enable-pg-tde.html">Enable <code>pg_tde</code> for securing data at rest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 
 
@@ -3293,7 +3713,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 2, 2026 14:54:58 UTC">July 2, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 23, 2026 13:37:31 UTC">July 23, 2026</span>
   </span>
 
     
@@ -3303,7 +3723,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 2, 2026 14:54:58 UTC">July 2, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 23, 2026 13:37:31 UTC">July 23, 2026</span>
   </span>
 
     
@@ -3390,23 +3810,23 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="js/print-site.js"></script>
+        <script src="../js/print-site.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
-        <script src="js/consent.js"></script>
+        <script src="../js/consent.js"></script>
       
-        <script src="js/rating.js"></script>
+        <script src="../js/rating.js"></script>
       
-        <script src="js/kapa.js"></script>
+        <script src="../js/kapa.js"></script>
       
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>

@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -32,7 +32,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -803,6 +803,34 @@
     
   
     Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker/docker-upgrade.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade in Docker
   
 
     
@@ -3353,6 +3381,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
+  <a href="#docker-docker-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade in Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#docker-docker-enable-pg-tde" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5155,6 +5194,10 @@ postgres=#
 <p>Or pull the latest image for a major version:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To upgrade a containerized Percona Distribution for PostgreSQL instance to a new major version, use the dedicated upgrade image. See <a href="#docker-docker-upgrade">Upgrade Percona Distribution for PostgreSQL using the upgrade image</a>.</p>
+</div>
 <h2 id="docker-docker-4-docker-image-contents">4. Docker image contents<a class="headerlink" href="#docker-docker-4-docker-image-contents" title="Permanent link">&para;</a></h2>
 <p>The Docker image of Percona Distribution for PostgreSQL includes the following components:</p>
 <table>
@@ -5304,9 +5347,92 @@ postgres=#
 <li><code>container-name</code> is the name you assign to your container</li>
 <li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
 </ul>
-<p>See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and filter for <code>ubi8</code>.</p></section><section class="print-page" id="docker-docker-enable-pg-tde" heading-number="5.1.5.2"><h1 id="docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest">Enable <code>pg_tde</code> for securing data at rest<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest" title="Permanent link">&para;</a></h1>
+<p>See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and filter for <code>ubi8</code>.</p></section><section class="print-page" id="docker-docker-upgrade" heading-number="5.1.5.2"><h1 id="docker-docker-upgrade-upgrade-percona-distribution-for-postgresql">Upgrade Percona Distribution for PostgreSQL<a class="headerlink" href="#docker-docker-upgrade-upgrade-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<p>To upgrade Percona Distribution for PostgreSQL in Docker to a new major version, use the dedicated <code>percona/percona-distribution-postgresql-upgrade</code> image. It bundles the server binaries for several consecutive major versions, so <code>pg_upgrade</code> can run against your old and new data directories.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Back up your data before you start. The backup tool is out of scope for this document. Use the backup tool of your choice.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If your cluster uses <code>pg_tde</code>, do not follow these steps. Using <code>pg_upgrade</code> on an encrypted cluster is not supported and will result in data corruption. See <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a> for details.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you&rsquo;re upgrading an existing instance rather than following along with the step 1-5 example, skip those steps and start from step 6 with your own running container and data.</p>
+</div>
+<h2 class="power-number" id="docker-docker-upgrade-1-create-directories-for-the-old-and-new-clusters">1. Create directories for the old and new clusters<a class="headerlink" href="#docker-docker-upgrade-1-create-directories-for-the-old-and-new-clusters" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg17olddata/postgres
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg18newdata/postgres
+</code></pre></div>
+<h2 id="docker-docker-upgrade-2-start-the-postgresql-17-container">2. Start the PostgreSQL 17 container<a class="headerlink" href="#docker-docker-upgrade-2-start-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d
+<span class="w">  </span>--name<span class="w"> </span>pg17
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg17olddata/postgres:/data/db
+<span class="w">  </span>percona/percona-distribution-postgresql:17
+</code></pre></div>
+<h2 id="docker-docker-upgrade-3-wait-until-postgresql-finishes-initialization">3. Wait until PostgreSQL finishes initialization<a class="headerlink" href="#docker-docker-upgrade-3-wait-until-postgresql-finishes-initialization" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>pg17
+</code></pre></div>
+<h2 id="docker-docker-upgrade-4-connect-to-postgresql">4. Connect to PostgreSQL<a class="headerlink" href="#docker-docker-upgrade-4-connect-to-postgresql" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pg17<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
+</code></pre></div>
+<h2 id="docker-docker-upgrade-5-create-a-test-database-and-add-data">5. Create a test database and add data<a class="headerlink" href="#docker-docker-upgrade-5-create-a-test-database-and-add-data" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
+<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">testdb</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="docker-docker-upgrade-6-stop-the-postgresql-17-container">6. Stop the PostgreSQL 17 container<a class="headerlink" href="#docker-docker-upgrade-6-stop-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>pg17
+</code></pre></div>
+<h2 id="docker-docker-upgrade-7-pull-the-upgrade-image">7. Pull the upgrade image<a class="headerlink" href="#docker-docker-upgrade-7-pull-the-upgrade-image" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql-upgrade:18.4-17.10-16.14-15.18-14.23-1
+</code></pre></div>
+<p>The tag encodes all bundled versions; here it covers PostgreSQL 14 through 18.</p>
+<h2 id="docker-docker-upgrade-8-run-the-upgrade">8. Run the upgrade<a class="headerlink" href="#docker-docker-upgrade-8-run-the-upgrade" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm
+<span class="w">  </span>--name<span class="w"> </span>ppg_upgrade_17_18
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">OLD_VERSION</span><span class="o">=</span><span class="m">17</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">NEW_VERSION</span><span class="o">=</span><span class="m">18</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">OLD_DATABASE_NAME</span><span class="o">=</span>postgres
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">NEW_DATABASE_NAME</span><span class="o">=</span>postgres
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg17olddata:/pgolddata
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg18newdata:/pgnewdata
+<span class="w">  </span>percona/percona-distribution-postgresql-upgrade:18.4-17.10-16.14-15.18-14.23-1
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li><code>OLD_VERSION</code> / <code>NEW_VERSION</code> are the major versions you&rsquo;re upgrading from and to</li>
+<li><code>OLD_DATABASE_NAME</code> / <code>NEW_DATABASE_NAME</code> are the database directory names under your old and new data mounts</li>
+<li>the volumes mount the parent directories (<code>pg17olddata</code>, <code>pg18newdata</code>), <strong>not</strong> the <code>postgres</code> subdirectory directly</li>
+</ul>
+<h2 id="docker-docker-upgrade-9-start-postgresql-18-using-the-upgraded-data-directory">9. Start PostgreSQL 18 using the upgraded data directory<a class="headerlink" href="#docker-docker-upgrade-9-start-postgresql-18-using-the-upgraded-data-directory" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d
+<span class="w">  </span>--name<span class="w"> </span>pg18
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password
+<span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg18newdata/postgres:/data/db
+<span class="w">  </span>percona/percona-distribution-postgresql:18
+</code></pre></div>
+<h2 id="docker-docker-upgrade-10-verify-postgresql-18-starts-successfully">10. Verify PostgreSQL 18 starts successfully<a class="headerlink" href="#docker-docker-upgrade-10-verify-postgresql-18-starts-successfully" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>pg18
+</code></pre></div>
+<h2 id="docker-docker-upgrade-11-connect-to-the-upgraded-cluster">11. Connect to the upgraded cluster<a class="headerlink" href="#docker-docker-upgrade-11-connect-to-the-upgraded-cluster" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pg18<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>testdb
+</code></pre></div>
+<h2 id="docker-docker-upgrade-12-verify-the-upgraded-data">12. Verify the upgraded data<a class="headerlink" href="#docker-docker-upgrade-12-verify-the-upgraded-data" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">version</span><span class="p">();</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
+</code></pre></div>
+<p>Once you&rsquo;ve confirmed the upgraded container is healthy, you can remove <code>pg17olddata</code>.</p>
+<h2 id="docker-docker-upgrade-next-steps">Next steps<a class="headerlink" href="#docker-docker-upgrade-next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="#docker-docker-enable-pg-tde">Enable <code>pg_tde</code> for securing data at rest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="docker-docker-enable-pg-tde" heading-number="5.1.5.3"><h1 id="docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest">Enable <code>pg_tde</code> for securing data at rest<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde-for-securing-data-at-rest" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL Docker image includes the <code>pg_tde</code> extension to provide data encryption.</p>
-<p>For more information, see the <a href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about how <code>pg_tde</code> works, see the <a href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
+</div>
 <h2 class="power-number" id="docker-docker-enable-pg-tde-enable-pg_tde">Enable pg_tde<a class="headerlink" href="#docker-docker-enable-pg-tde-enable-pg_tde" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -5378,7 +5504,9 @@ CREATE EXTENSION
 </code></pre></div>
 </details>
 </li>
-</ol></section><section class="print-page" id="docker-docker-enable-pg-stat-monitor" heading-number="5.1.5.3"><h1 id="docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor-for-performance-statistics">Enable <code>pg_stat_monitor</code> for performance statistics<a class="headerlink" href="#docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor-for-performance-statistics" title="Permanent link">&para;</a></h1>
+</ol>
+<h2 id="docker-docker-enable-pg-tde-next-steps">Next steps<a class="headerlink" href="#docker-docker-enable-pg-tde-next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="#docker-docker-enable-pg-stat-monitor">Enable <code>pg_stat_monitor</code> for performance statistics <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="docker-docker-enable-pg-stat-monitor" heading-number="5.1.5.4"><h1 id="docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor-for-performance-statistics">Enable <code>pg_stat_monitor</code> for performance statistics<a class="headerlink" href="#docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor-for-performance-statistics" title="Permanent link">&para;</a></h1>
 <p><code>pg_stat_monitor</code> is a query performance monitoring tool for PostgreSQL which aggregates collected performance statistics.</p>
 <p>For more information on this extension, see <a href="https://docs.percona.com/pg-stat-monitor/">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <h2 class="power-number" id="docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor">Enable pg_stat_monitor<a class="headerlink" href="#docker-docker-enable-pg-stat-monitor-enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
@@ -5470,7 +5598,9 @@ wait_event_type     | text                     |           |          |
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>pg_stat_monitor</code> view is available only for the databases where you enabled it. If you create a new database, make sure to create the view for it to see its statistics data.</p>
-</div></section></section><section class="print-page" id="enable-extensions" heading-number="5.1.6"><h1 id="enable-extensions-enable-percona-distribution-for-postgresql-components">Enable Percona Distribution for PostgreSQL components<a class="headerlink" href="#enable-extensions-enable-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h1>
+</div>
+<h2 id="docker-docker-enable-pg-stat-monitor-next-steps">Next steps<a class="headerlink" href="#docker-docker-enable-pg-stat-monitor-next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="#enable-extensions">Enable Percona Distribution for PostgreSQL components <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section></section><section class="print-page" id="enable-extensions" heading-number="5.1.6"><h1 id="enable-extensions-enable-percona-distribution-for-postgresql-components">Enable Percona Distribution for PostgreSQL components<a class="headerlink" href="#enable-extensions-enable-percona-distribution-for-postgresql-components" title="Permanent link">&para;</a></h1>
 <p>Some components require additional configuration before using them with Percona Distribution for PostgreSQL. This sections provides configuration instructions per component.</p>
 <h2 id="enable-extensions-patroni">Patroni<a class="headerlink" href="#enable-extensions-patroni" title="Permanent link">&para;</a></h2>
 <p>Patroni is the high availability solution for PostgreSQL. The <a href="#solutions-high-availability">High Availability in PostgreSQL with Patroni</a> chapter provides details about the solution overview and architecture deployment. </p>
@@ -9206,6 +9336,10 @@ pg1-path=/var/lib/postgresql/14/main
 <p class="admonition-title">Warning</p>
 <p>When doing a major version upgrade, if your cluster uses <code>pg_tde</code>, you <strong>must</strong> use <a href="https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html"><code>pg_tde_upgrade</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> instead of <code>pg_upgrade</code>. Using <code>pg_upgrade</code> on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you run Percona Distribution for PostgreSQL in Docker, use the dedicated upgrade image instead of the package-manager steps below. See <a href="#docker-docker-upgrade">Upgrade Percona Distribution for PostgreSQL using the upgrade image</a>.</p>
+</div>
 <p>The in-place upgrade means installing a new version without removing the old version and keeping the data files on the server.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -10546,9 +10680,11 @@ we will do our very best to be helpful.</p></section></section><section class="p
 .print-site-enumerate-headings #section-5-1-5 > h1:before { content: '5.1.5 ' }
 .print-site-enumerate-headings #docker-docker > h1:before { content: '5.1.5.1 ' }
 
-.print-site-enumerate-headings #docker-docker-enable-pg-tde > h1:before { content: '5.1.5.2 ' }
+.print-site-enumerate-headings #docker-docker-upgrade > h1:before { content: '5.1.5.2 ' }
 
-.print-site-enumerate-headings #docker-docker-enable-pg-stat-monitor > h1:before { content: '5.1.5.3 ' }
+.print-site-enumerate-headings #docker-docker-enable-pg-tde > h1:before { content: '5.1.5.3 ' }
+
+.print-site-enumerate-headings #docker-docker-enable-pg-stat-monitor > h1:before { content: '5.1.5.4 ' }
 
 .print-site-enumerate-headings #enable-extensions > h1:before { content: '5.1.6 ' }
 
@@ -10763,7 +10899,7 @@ we will do our very best to be helpful.</p></section></section><section class="p
     
     
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
