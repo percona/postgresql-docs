@@ -18,14 +18,6 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 
 2. Starting with version 17.2.1, `pg_tde` is part of the Percona Server for PostgreSQL package. If you installed `pg_tde` from its dedicated package, do the following to avoid conflicts during the upgrade:
 
-    * Drop the extension using the `DROP EXTENSION` with `CASCADE` command.
-
-       <i warning>:material-alert: Warning:</i> The use of the `CASCADE` parameter deletes all tables that were created in the database with `pg_tde` enabled and also all dependencies upon the encrypted table (e.g. foreign keys in a non-encrypted table used in the encrypted one).
-
-       ```sql
-       DROP EXTENSION pg_tde CASCADE
-       ```
-
     * Uninstall the `percona-postgresql-17-pg-tde` package for Debian/Ubuntu or the `percona-pg_tde_17` package for RHEL and derivatives.
 
 ## Procedure
