@@ -9695,12 +9695,6 @@ file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgr
 <li>
 <p>Starting with version 17.2.1, <code>pg_tde</code> is part of the Percona Server for PostgreSQL package. If you installed <code>pg_tde</code> from its dedicated package, do the following to avoid conflicts during the upgrade:</p>
 <ul>
-<li>Drop the extension using the <code>DROP EXTENSION</code> with <code>CASCADE</code> command.</li>
-</ul>
-<p><i warning><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg></span> Warning:</i> The use of the <code>CASCADE</code> parameter deletes all tables that were created in the database with <code>pg_tde</code> enabled and also all dependencies upon the encrypted table (e.g. foreign keys in a non-encrypted table used in the encrypted one).</p>
-<div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">pg_tde</span><span class="w"> </span><span class="k">CASCADE</span>
-</code></pre></div>
-<ul>
 <li>Uninstall the <code>percona-postgresql-17-pg-tde</code> package for Debian/Ubuntu or the <code>percona-pg_tde_17</code> package for RHEL and derivatives.</li>
 </ul>
 </li>
