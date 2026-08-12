@@ -487,30 +487,18 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 10. Change the configuration as follows:
 
+!!! warning
+    The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. **Do not replace your existing Patroni configuration with this example.** Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.
+
     ```yaml title="/etc/patroni/patroni.yml"
     postgresql:
       parameters:
         archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/{{pgversion}}/main/pg_wal/%f
-        archive_mode: true
+        archive_mode: on
         archive_timeout: 600s
-        hot_standby: true
-        logging_collector: 'on'
-        max_replication_slots: 10
-        max_wal_senders: 5
-        max_wal_size: 10GB
-        wal_keep_size: 10
-        wal_level: logical
-        wal_log_hints: true
       recovery_conf:
-        recovery_target_timeline: latest
         restore_command: pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f "%p"
-      use_pg_rewind: true
-      use_slots: true
-    retry_timeout: 10
-    slots:
-      percona_cluster_1:
-        type: physical
-    ttl: 30
+        recovery_target_timeline: latest
     ```
 
 11. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
