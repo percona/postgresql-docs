@@ -8,7 +8,7 @@ pgversion: '18'
 pspgversion: '18.6.1'
 pgsmversion: '2.3.2'
 pgbouncerversion: '1.25.2'
-pgbackrestversion: '2.58.0'
+pgbackrestversion: '2.59.0'
 
 date:
   18_6_1: TBD

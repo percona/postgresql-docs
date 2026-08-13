@@ -98,7 +98,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.0 | OAuth validator library for PostgreSQL 18 |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | Rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
-| [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde) | v2.2.0 | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest |
+| [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde) | v2.2.2 | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest |
 | [pg_vector](https://github.com/pgvector/pgvector) | v0.8.6 | A vector similarity search extension for PostgreSQL |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.7.2 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis) | 3.5.7 | A spatial extension for PostgreSQL |
