@@ -43,8 +43,4 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 17 -b publish -p
-          mike retitle 17 "17.10" -b publish -p
-
-      
-
-          
+          mike retitle 17 "17.11" -b publish -p
