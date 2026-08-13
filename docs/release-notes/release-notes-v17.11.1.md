@@ -92,7 +92,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/) | 0.4.5 | A Python client library for interacting with etcd |
 | [HAProxy :octicons-link-external-16:](https://www.haproxy.org/) | 2.8.27 | A high-availability and load-balancing solution |
 | [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) | 4.1.4 | A HA (High Availability) solution for PostgreSQL |
-| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/) | 18 | A detailed session or object audit logging via the standard logging facility provided by PostgreSQL |
+| [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/) | 17.1 | A detailed session or object audit logging via the standard logging facility provided by PostgreSQL |
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user) | 4.2.0 | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance |
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.59.0 | A backup and restore solution for PostgreSQL |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger) | 13.2 | A fast PostgreSQL log analyzer |
@@ -101,7 +101,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v33 | An SQL script for running diagnostics on the health of a PostgreSQL cluster |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | Rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
-| [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde) | v2.2.0 | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest |
+| [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde) | v2.2.2 | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest |
 | [pg_vector](https://github.com/pgvector/pgvector) | v0.8.6 | A vector similarity search extension for PostgreSQL |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.7.2 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis) | 3.5.7 | A spatial extension for PostgreSQL |
