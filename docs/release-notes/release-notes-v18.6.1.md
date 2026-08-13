@@ -22,8 +22,9 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 
 - etcd: 3.5.33
 - haproxy: 2.8.27
-- patroni: 4.1.4
+- patroni: 4.1.5
 - pg_tde: 2.2.2
+- pg_oidc_validator: 1.1
 - pgBackRest: 2.59.0
 - pgpool2: 4.7.2
 - pgvector: 0.8.6
@@ -87,7 +88,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [etcd :octicons-link-external-16:](https://etcd.io/) | 3.5.33 | A distributed, reliable key-value store for setting up highly available Patroni clusters |
 | [python-etcd :octicons-link-external-16:](https://python-etcd.readthedocs.io/en/latest/) | 0.4.5 | A Python client library for interacting with etcd |
 | [HAProxy :octicons-link-external-16:](https://www.haproxy.org/) | 2.8.27 | A high-availability and load-balancing solution |
-| [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) | 4.1.4 | A HA (High Availability) solution for PostgreSQL |
+| [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) | 4.1.5 | A HA (High Availability) solution for PostgreSQL |
 | [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/) | 18 | A detailed session or object audit logging via the standard logging facility provided by PostgreSQL |
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user) | 4.2.0 | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance |
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.59.0 | A backup and restore solution for PostgreSQL |
@@ -95,7 +96,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.25.2 | A lightweight connection pooler for PostgreSQL |
 | [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.7 | A simple cron-based job scheduler for PostgreSQL |
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v33 | An SQL script for running diagnostics on the health of a PostgreSQL cluster |
-| [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.0 | OAuth validator library for PostgreSQL 18 |
+| [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.1 | OAuth validator library for PostgreSQL 18 |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | Rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
 | [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde) | v2.2.2 | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest |
