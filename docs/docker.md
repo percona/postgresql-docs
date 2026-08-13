@@ -169,7 +169,7 @@ Note that the `pg_stat_monitor` view is available only for the databases where y
 
     This is a **Tech Preview** feature. Percona doesn't recommend Tech Preview features for production environments. We provide them to give users early access to new functionality and the opportunity to provide feedback while the feature is still under development. There is no commitment to support them long-term, and the feature may change or be removed without notice.
 
-Docker images of Percona Server for PostgreSQL (PSP) 16.14, built with the `pg_tde` extension included natively, are available on [perconalab :octicons-link-external-16:](https://hub.docker.com/u/perconalab) for evaluation purposes. These are separate images from the GA Percona Distribution for PostgreSQL image used above, and are not intended for production use.
+Docker images of Percona Server for PostgreSQL (PSP) 16.15, built with the `pg_tde` extension included natively, are available on [perconalab :octicons-link-external-16:](https://hub.docker.com/u/perconalab) for evaluation purposes. These are separate images from the GA Percona Distribution for PostgreSQL image used above, and are not intended for production use.
 
 | Image | Tag |
 | ----- | --- |

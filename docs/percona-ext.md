@@ -27,7 +27,7 @@ An open-source extension designed to enhance PostgreSQL’s security by encrypti
 
     This is a **Tech Preview** feature. Percona doesn't recommend Tech Preview features for production environments. We provide them to give users early access to new functionality and the opportunity to provide feedback while the feature is still under development. There is no commitment to support them long-term, and the feature may change or be removed without notice.
 
-[`pg_tde` :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) is included natively in Percona Server for PostgreSQL (PSP) 16.14, available as a Tech Preview through a dedicated testing repository and `perconalab` Docker images. See [Tech Preview: PSP 16 testing repository](repo-overview.md#tech-preview-psp-16-testing-repository) for packages, or [Tech Preview: Percona Server for PostgreSQL 16 with pg_tde](docker.md#tech-preview-percona-server-for-postgresql-16-with-pg_tde) for Docker images.
+[`pg_tde` :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) is included natively in Percona Server for PostgreSQL (PSP) 16.15, available as a Tech Preview through a dedicated testing repository and `perconalab` Docker images. See [Tech Preview: PSP 16 testing repository](repo-overview.md#tech-preview-psp-16-testing-repository) for packages, or [Tech Preview: Percona Server for PostgreSQL 16 with pg_tde](docker.md#tech-preview-percona-server-for-postgresql-16-with-pg_tde) for Docker images.
 
 The following component versions are bundled with this Tech Preview:
 

@@ -64,7 +64,7 @@ The `percona-ppg-server-ha` meta-package installs high-availability components t
 
     This is a **Tech Preview** feature. Percona doesn't recommend Tech Preview features for production environments. We provide them to give users early access to new functionality and the opportunity to provide feedback while the feature is still under development. There is no commitment to support them long-term, and the feature may change or be removed without notice.
 
-Percona Server for PostgreSQL (PSP) 16.14, built with the [`pg_tde` :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) extension included natively, is available for evaluation through a dedicated testing repository. This is not a GA release of Percona Distribution for PostgreSQL 16 - it's a separate, experimental build for users who want to try `pg_tde` and the other bundled components ahead of a full release.
+Percona Server for PostgreSQL (PSP) 16.15, built with the [`pg_tde` :octicons-link-external-16:](https://docs.percona.com/pg-tde/index.html) extension included natively, is available for evaluation through a dedicated testing repository. This is not a GA release of Percona Distribution for PostgreSQL 16 - it's a separate, experimental build for users who want to try `pg_tde` and the other bundled components ahead of a full release.
 
 Enable the testing repository with the `percona-release` utility:
 
