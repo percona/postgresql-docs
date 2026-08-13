@@ -20,6 +20,8 @@ To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 16.x)
 
 The hard depencency on `percona-pg-telemetry`, which has been a stub since 1.2.0, has been replaced by a weak one and additionally the `percona-pg-telemetry`package no longer installs the telemertry agent (`percona-telemetry-agent`).
 
+See [Telemetry Agent dependencies and removal considerations](../telemetry.md#telemetry-agent-dependencies-and-removal-considerations) for details.
+
 ### Tarball updates
 
 The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:
