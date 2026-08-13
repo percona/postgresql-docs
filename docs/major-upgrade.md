@@ -354,6 +354,10 @@ Run **all** commands as root or via **sudo**:
     $ rm -rf /var/lib/pgsql/14/data
     ```
 
+!!! note "Telemetry Agent after upgrading to 15.19 or later"
+
+    Starting with version 15.19, `percona-pg-telemetry` no longer depends on `percona-telemetry-agent`. If your 14.x installation already has the Telemetry Agent installed, the major upgrade does **not** remove it automatically — it keeps running until you remove it. See [Telemetry Agent dependencies and removal considerations](telemetry.md#telemetry-agent-dependencies-and-removal-considerations).
+
 ## For major upgrades (RHEL only)
 
 During a major upgrade on RHEL, you may encounter the following error:

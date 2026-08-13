@@ -5,6 +5,12 @@ Percona collects usage data to improve its software. The telemetry feature helps
 
 Currently, telemetry is added only to the Percona packages and to Docker images. It is enabled by default so you must be running the latest version of `percona-release` to install Percona Distribution for PostgreSQL packages or update it to the latest version.
 
+!!! note "Packaging change since version 15.19"
+
+    Starting with Percona Distribution for PostgreSQL 15.19, `percona-pg-telemetry` is a *recommended* package of the PostgreSQL server package instead of a *required* one, and it no longer depends on `percona-telemetry-agent`. You can opt out of installing the telemetry package, or remove it afterwards, without affecting the PostgreSQL server. See [Opt out of installing the telemetry package](#opt-out-of-installing-the-telemetry-package) and [Telemetry Agent dependencies and removal considerations](#telemetry-agent-dependencies-and-removal-considerations).
+
+    Versions earlier than 15.19 keep the hard-dependency packaging described on this page.
+
 ## What information is collected
 
 Telemetry collects the following information:
@@ -259,6 +265,40 @@ Telemetry is enabled by default when you install the software. It is also includ
 
 If you don't want to send the telemetry data, here's how: 
 
+### Opt out of installing the telemetry package
+
+!!! note "Since version 15.19"
+
+    From version 15.19 onward, `percona-pg-telemetry` installs as a recommended package alongside the PostgreSQL server package. You can skip it at install time instead of removing it afterwards:
+
+=== ":material-debian: On Debian and Ubuntu"
+
+    ```{.bash data-prompt="$"}
+    $ sudo apt install --no-install-recommends percona-postgresql-15
+    ```
+
+=== ":material-redhat: On Red Hat Enterprise Linux and derivatives"
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum install --setopt=install_weak_deps=False percona-postgresql15-server
+    ```
+
+If `percona-pg-telemetry` is already installed, remove it like any other package:
+
+=== ":material-debian: On Debian and Ubuntu"
+
+    ```{.bash data-prompt="$"}
+    $ sudo apt remove percona-pg-telemetry
+    ```
+
+=== ":material-redhat: On Red Hat Enterprise Linux and derivatives"
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum remove percona-pg-telemetry
+    ```
+
+Removing `percona-pg-telemetry` does not affect the PostgreSQL server or `percona-telemetry-agent`, and vice versa.
+
 ### Disable the telemetry collected during the installation
 
 If you decide not to send usage data to Percona when you install the software, you can set the `PERCONA_TELEMETRY_DISABLE=1` environment variable for either the root user or in the operating system prior to the installation process.
@@ -329,7 +369,25 @@ Even after stopping the Telemetry Agent service, a different part of the softwar
 
 ### Telemetry Agent dependencies and removal considerations
 
-If you decide to remove the Telemetry Agent, this also removes the database. That's because the Telemetry Agent is a mandatory dependency for Percona Distribution for PostgreSQL. 
+!!! note "Since version 15.19"
+
+    Starting with Percona Distribution for PostgreSQL 15.19, `percona-telemetry-agent` is no longer a dependency of `percona-pg-telemetry` and is not installed automatically. Neither package is tied to the PostgreSQL server package anymore, so removing one has no effect on the others.
+
+    If you upgraded from a version earlier than 15.19 where the Telemetry Agent was already installed, the upgrade does **not** remove it automatically — it keeps running until you remove it.
+
+=== ":material-debian: On Debian and Ubuntu"
+
+    ```{.bash data-prompt="$"}
+    $ sudo apt remove percona-telemetry-agent
+    ```
+
+=== ":material-redhat: On Red Hat Enterprise Linux and derivatives"
+
+    ```{.bash data-prompt="$"}
+    $ sudo yum remove percona-telemetry-agent
+    ```
+
+On versions earlier than 15.19, if you decide to remove the Telemetry Agent, this also removes the database. That's because the Telemetry Agent is a mandatory dependency for Percona Distribution for PostgreSQL. 
 
 On YUM-based systems, the system removes the Telemetry Agent package when you remove the last dependency package.
 
