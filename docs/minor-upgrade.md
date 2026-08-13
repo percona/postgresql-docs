@@ -55,6 +55,10 @@ Run **all** commands as root or via **sudo**:
          $ sudo systemctl start postgresql-16
          ```
 
+!!! note "Telemetry Agent after upgrading to 16.15 or later"
+
+    Starting with version 16.15, `percona-pg-telemetry` no longer depends on `percona-telemetry-agent`. If your current installation already has the Telemetry Agent (from a version earlier than 16.15), upgrading does **not** remove it automatically — it keeps running until you remove it. See [Telemetry Agent dependencies and removal considerations](telemetry.md#telemetry-agent-dependencies-and-removal-considerations).
+
 !!! note "For minor upgrades (RHEL only)"
 
      During a minor upgrade on RHEL, you may encounter the following error:
