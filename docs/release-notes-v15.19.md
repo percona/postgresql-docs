@@ -11,7 +11,7 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.1
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.
 
 !!! note
-    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 14.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](../major-upgrade.md).
+    To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 14.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](major-upgrade.md).
 
 ### Removed dependency on percona-telemetry-agent
 
@@ -32,7 +32,7 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - postgis: 3.5.7
 - postgres-common: 293
 
-See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarball.md) for the download links.
+See [Install Percona Distribution for PostgreSQL from binary tarballs](tarball.md) for the download links.
 
 ### Addressed CVEs
 
