@@ -3933,7 +3933,7 @@ listen standbys
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script "killall -0 haproxy"    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 3                      # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 3                          # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
@@ -3961,7 +3961,7 @@ listen standbys
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script "killall -0 haproxy"    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 2                      # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 2                          # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
@@ -3989,7 +3989,7 @@ listen standbys
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script "killall -0 haproxy"    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 2                      # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 3                          # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
@@ -4049,18 +4049,18 @@ listen standbys
 
 <span class="c1"># Check if HAProxy process is running</span>
 <span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>haproxy<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HAProxy process is not running&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"HAProxy process is not running"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Check if HAProxy socket is accessible</span>
 <span class="k">if</span><span class="w"> </span>!<span class="w"> </span>socat<span class="w"> </span>-<span class="w"> </span>UNIX-CONNECT:/var/run/haproxy/admin.sock<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HAProxy socket is not accessible&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"HAProxy socket is not accessible"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Check if HAProxy is binding to port 5432</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;:5432 &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">":5432 "</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
@@ -4072,7 +4072,7 @@ listen standbys
 </code></pre></div>
 <p>Then define this script in Keepalived configuration on each node:</p>
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;/usr/local/bin/check_haproxy.sh&quot;</span>
+<span class="w">    </span><span class="na">script "/usr/local/bin/check_haproxy.sh"</span>
 <span class="w">    </span><span class="na">interval 2</span>
 <span class="w">    </span><span class="na">fall 3</span>
 <span class="w">    </span><span class="na">rise 2</span>
