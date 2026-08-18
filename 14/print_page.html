@@ -5273,7 +5273,7 @@ sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
 <span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">test</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">'John'</span><span class="p">,</span><span class="s1">'Doe'</span><span class="p">,</span><span class="s1">'john.doe@example.com'</span><span class="p">);</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
 <span class="err">\</span><span class="n">q</span>
 </code></pre></div>
@@ -5311,7 +5311,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </li>
 <li>
 <p>Insert data in the customers table and query the data insertion:</p>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">'John'</span><span class="p">,</span><span class="s1">'Doe'</span><span class="p">,</span><span class="s1">'john.doe@example.com'</span><span class="p">);</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
 <span class="err">\</span><span class="n">q</span>
 </code></pre></div>
@@ -6079,7 +6079,7 @@ server started
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>psql (14.24)
-Type &quot;help&quot; for help.
+Type "help" for help.
 
 postgres=#
 </code></pre></div>
@@ -6174,7 +6174,7 @@ postgres=#
 <ol>
 <li>
 <p>Export the password to the environment file:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;POSTGRES_PASSWORD=secret&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"POSTGRES_PASSWORD=secret"</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
 </code></pre></div>
 </li>
 <li>
@@ -6228,7 +6228,7 @@ postgres=#
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
-<div class="highlight"><pre><span></span><code>                         View &quot;public.pg_stat_monitor&quot;
+<div class="highlight"><pre><span></span><code>                         View "public.pg_stat_monitor"
       Column        |           Type           | Collation | Nullable | Default
 ---------------------+--------------------------+-----------+----------+---------
 bucket              | integer                  |           |          |
@@ -6310,7 +6310,7 @@ wait_event_type     | text                     |           |          |
 <h2 id="enable-extensions-pgbadger">pgBadger<a class="headerlink" href="#enable-extensions-pgbadger" title="Permanent link">&para;</a></h2>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
-log_line_prefix = &#39;%t [%p]: &#39;
+log_line_prefix = '%t [%p]: '
 log_checkpoints = on
 log_connections = on
 log_disconnections = on
@@ -6322,7 +6322,7 @@ log_error_verbosity = default
 <p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <h2 id="enable-extensions-pgaudit">pgaudit<a class="headerlink" href="#enable-extensions-pgaudit" title="Permanent link">&para;</a></h2>
 <p>Add the <code>pgaudit</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/16/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pgaudit&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'pgaudit'</span><span class="p">;</span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
 <p>To configure <code>pgaudit</code>, you must have the privileges of a superuser. You can specify the settings in one of these ways:</p>
@@ -6337,7 +6337,7 @@ log_error_verbosity = default
 </code></pre></div>
 <h2 id="enable-extensions-pgaudit-set-user">pgaudit set-user<a class="headerlink" href="#enable-extensions-pgaudit-set-user" title="Permanent link">&para;</a></h2>
 <p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/14/sql-altersystem.html">ALTER SYSTEM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command. <a href="#connect">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set-user&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'set-user'</span><span class="p">;</span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
 <p>Install the extension into your database:</p>
@@ -6609,10 +6609,10 @@ log_error_verbosity = default
 <h2 id="crud-create-a-table">Create a table<a class="headerlink" href="#crud-create-a-table" title="Permanent link">&para;</a></h2>
 <p>Let&rsquo;s create a sample table <code>Customers</code> in the <code>test</code> database using the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">  </span><span class="c1">-- &#39;id&#39; is an auto-incrementing integer</span>
-<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="c1">-- &#39;first_name&#39; is a string with a maximum length of 50 characters</span>
-<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w">  </span><span class="c1">-- &#39;last_name&#39; is a string with a maximum length of 50 characters</span>
-<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">      </span><span class="c1">-- &#39;email&#39; is a string with a maximum length of 100 characters</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">  </span><span class="c1">-- 'id' is an auto-incrementing integer</span>
+<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="c1">-- 'first_name' is a string with a maximum length of 50 characters</span>
+<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w">  </span><span class="c1">-- 'last_name' is a string with a maximum length of 50 characters</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w">      </span><span class="c1">-- 'email' is a string with a maximum length of 100 characters</span>
 <span class="p">);</span>
 </code></pre></div>
 <p><i info><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg></span> Hint:</i>Having issues with table creation? Check our <a href="#troubleshooting">Troubleshooting guide</a></p>
@@ -6620,9 +6620,9 @@ log_error_verbosity = default
 <p>Populate the table with the sample data as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="p">)</span>
 <span class="k">VALUES</span><span class="w"> </span>
-<span class="w">    </span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;john.doe@example.com&#39;</span><span class="p">),</span><span class="w">  </span><span class="c1">-- Insert a new row</span>
-<span class="w">    </span><span class="p">(</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;jane.doe@example.com&#39;</span><span class="p">),</span><span class="w">  </span><span class="c1">-- Insert another new row</span>
-<span class="w">    </span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;alice.smith@example.com&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'John'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Doe'</span><span class="p">,</span><span class="w"> </span><span class="s1">'john.doe@example.com'</span><span class="p">),</span><span class="w">  </span><span class="c1">-- Insert a new row</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Jane'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Doe'</span><span class="p">,</span><span class="w"> </span><span class="s1">'jane.doe@example.com'</span><span class="p">),</span><span class="w">  </span><span class="c1">-- Insert another new row</span>
+<span class="w">    </span><span class="p">(</span><span class="s1">'Alice'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Smith'</span><span class="p">,</span><span class="w"> </span><span class="s1">'alice.smith@example.com'</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="crud-query-data">Query data<a class="headerlink" href="#crud-query-data" title="Permanent link">&para;</a></h2>
 <p>Let&rsquo;s verify the data insertion by querying it:</p>
@@ -6644,13 +6644,13 @@ log_error_verbosity = default
 <li>
 <p>Use the UPDATE command for that:</p>
 <div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span>
-<span class="k">SET</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;john.doe@myemail.com&#39;</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'john.doe@myemail.com'</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'John'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Doe'</span><span class="p">;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Query the table to verify the updated data:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Doe&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'John'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Doe'</span><span class="p">;</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected output</summary>
@@ -6666,7 +6666,7 @@ log_error_verbosity = default
 </ol>
 <h2 id="crud-delete-data">Delete data<a class="headerlink" href="#crud-delete-data" title="Permanent link">&para;</a></h2>
 <p>Use the DELETE command to delete rows. For example, delete the record of Alice Smith:</p>
-<div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Alice&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Smith&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Customers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Alice'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Smith'</span><span class="p">;</span>
 </code></pre></div>
 <p>If you wish to delete the whole table, use the <code>DROP TABLE</code> command instead as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span>
@@ -7742,7 +7742,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="solutions-ha-etcd-config-__tabbed_2_1" name="solutions-ha-etcd-config-__tabbed_2" type="radio" /><input id="solutions-ha-etcd-config-__tabbed_2_2" name="solutions-ha-etcd-config-__tabbed_2" type="radio" /><input id="solutions-ha-etcd-config-__tabbed_2_3" name="solutions-ha-etcd-config-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-etcd-config-__tabbed_2_1">node1</label><label for="solutions-ha-etcd-config-__tabbed_2_2">node2</label><label for="solutions-ha-etcd-config-__tabbed_2_3">node3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node1&#39;</span>
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">'node1'</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
 <span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380</span>
@@ -7754,7 +7754,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node2&#39;</span>
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">'node2'</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
 <span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
@@ -7766,7 +7766,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node3&#39;</span>
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">'node3'</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
 <span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
@@ -8009,7 +8009,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </li>
 <li>
 <p>Node IP:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="sb">`</span>getent<span class="w"> </span>hosts<span class="w"> </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $1 }&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>grep<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;127.0.1.1&#39;</span><span class="sb">`</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_IP</span><span class="o">=</span><span class="sb">`</span>getent<span class="w"> </span>hosts<span class="w"> </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{ print $1 }'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>grep<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'127.0.1.1'</span><span class="sb">`</span>
 </code></pre></div>
 <ul>
 <li>Check that the correct IP address is defined:</li>
@@ -8030,13 +8030,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="solutions-ha-patroni-__tabbed_2_1" name="solutions-ha-patroni-__tabbed_2" type="radio" /><input id="solutions-ha-patroni-__tabbed_2_2" name="solutions-ha-patroni-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="solutions-ha-patroni-__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> Debian and Ubuntu</label><label for="solutions-ha-patroni-__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/postgresql/14/main&quot;</span>
-<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/lib/postgresql/14/bin&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">"/var/lib/postgresql/14/main"</span>
+<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">"/usr/lib/postgresql/14/bin"</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;/var/lib/pgsql/data/&quot;</span>
-<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">&quot;/usr/pgsql-14/bin&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">DATA_DIR</span><span class="o">=</span><span class="s2">"/var/lib/pgsql/data/"</span>
+<span class="nv">PG_BIN_DIR</span><span class="o">=</span><span class="s2">"/usr/pgsql-14/bin"</span>
 </code></pre></div>
 </div>
 </div>
@@ -8044,8 +8044,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </li>
 <li>
 <p>Patroni information:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">&quot;percona_lab&quot;</span>
-<span class="nv">SCOPE</span><span class="o">=</span><span class="s2">&quot;cluster_1&quot;</span><span class="w">       </span>
+<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="s2">"percona_lab"</span>
+<span class="nv">SCOPE</span><span class="o">=</span><span class="s2">"cluster_1"</span><span class="w">       </span>
 </code></pre></div>
 </li>
 </ol>
@@ -8056,7 +8056,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </code></pre></div>
 <h3 id="solutions-ha-patroni-patroni-configuration-file">Patroni configuration file<a class="headerlink" href="#solutions-ha-patroni-patroni-configuration-file" title="Permanent link">&para;</a></h3>
 <p>Use the following command to create the <code>/etc/patroni/patroni.yml</code> configuration file and add the following configuration for every node:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span>
 <span class="s2">namespace: </span><span class="si">${</span><span class="nv">NAMESPACE</span><span class="si">}</span>
 <span class="s2">scope: </span><span class="si">${</span><span class="nv">SCOPE</span><span class="si">}</span>
 <span class="s2">name: </span><span class="si">${</span><span class="nv">NODE_NAME</span><span class="si">}</span>
@@ -8081,18 +8081,18 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="s2">          use_slots: true</span>
 <span class="s2">          parameters:</span>
 <span class="s2">              wal_level: replica</span>
-<span class="s2">              hot_standby: &quot;</span>on<span class="s2">&quot;</span>
+<span class="s2">              hot_standby: "</span>on<span class="s2">"</span>
 <span class="s2">              wal_keep_segments: 10</span>
 <span class="s2">              max_wal_senders: 5</span>
 <span class="s2">              max_replication_slots: 10</span>
-<span class="s2">              wal_log_hints: &quot;</span>on<span class="s2">&quot;</span>
-<span class="s2">              logging_collector: &#39;on&#39;</span>
-<span class="s2">              max_wal_size: &#39;10GB&#39;</span>
-<span class="s2">              archive_mode: &quot;</span>on<span class="s2">&quot;</span>
+<span class="s2">              wal_log_hints: "</span>on<span class="s2">"</span>
+<span class="s2">              logging_collector: 'on'</span>
+<span class="s2">              max_wal_size: '10GB'</span>
+<span class="s2">              archive_mode: "</span>on<span class="s2">"</span>
 <span class="s2">              archive_timeout: 600s</span>
-<span class="s2">              archive_command: &quot;</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">&quot;</span>
+<span class="s2">              archive_command: "</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">"</span>
 
-<span class="s2">      pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
+<span class="s2">      pg_hba: # Add following lines to pg_hba.conf after running 'initdb'</span>
 <span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
 <span class="s2">      - host replication replicator 0.0.0.0/0 md5</span>
 <span class="s2">      - host all all 0.0.0.0/0 md5</span>
@@ -8100,7 +8100,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="s2">      recovery_conf:</span>
 <span class="s2">            restore_command: cp /home/postgres/archived/%f %p</span>
 
-<span class="s2">  # some desired options for &#39;initdb&#39;</span>
+<span class="s2">  # some desired options for 'initdb'</span>
 <span class="s2">  initdb: # Note: It needs to be a list (some options need values, others are switches)</span>
 <span class="s2">      - encoding: UTF8</span>
 <span class="s2">      - data-checksums</span>
@@ -8121,11 +8121,11 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="s2">            username: postgres</span>
 <span class="s2">            password: qaz123</span>
 <span class="s2">    parameters:</span>
-<span class="s2">        unix_socket_directories: &quot;</span>/var/run/postgresql/<span class="s2">&quot;</span>
+<span class="s2">        unix_socket_directories: "</span>/var/run/postgresql/<span class="s2">"</span>
 <span class="s2">    create_replica_methods:</span>
 <span class="s2">        - basebackup</span>
 <span class="s2">    basebackup:</span>
-<span class="s2">        checkpoint: &#39;fast&#39;</span>
+<span class="s2">        checkpoint: 'fast'</span>
 
 <span class="s2">    watchdog:</span>
 <span class="s2">      mode: required # Allowed values: off, automatic, required</span>
@@ -8137,7 +8137,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="s2">    noloadbalance: false</span>
 <span class="s2">    clonefrom: false</span>
 <span class="s2">    nosync: false</span>
-<span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/patroni/patroni.yml
+<span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/patroni/patroni.yml
 </code></pre></div>
 <details class="admonition">
 <summary>Patroni configuration file</summary>
@@ -8206,7 +8206,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 
 psql<span class="w"> </span><span class="o">(</span><span class="m">14</span>.24<span class="o">)</span>
-Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
+Type<span class="w"> </span><span class="s2">"help"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.
 
 <span class="nv">postgres</span><span class="o">=</span><span class="c1">#</span>
 </code></pre></div>
@@ -8240,7 +8240,7 @@ Type<span class="w"> </span><span class="s2">&quot;help&quot;</span><span class=
 <h3 id="solutions-ha-patroni-troubleshooting-patroni-startup">Troubleshooting Patroni startup<a class="headerlink" href="#solutions-ha-patroni-troubleshooting-patroni-startup" title="Permanent link">&para;</a></h3>
 <p>A common error is Patroni complaining about the lack of proper entries in the <code>pg_hba.conf</code> file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.</p>
 <p>An example of such an error is <code>No pg_hba.conf entry for replication connection from host to &lt;IP&gt;, user replicator, no encryption</code>. This means that Patroni cannot connect to the node you&rsquo;re adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the <code>pg_hba:</code> section of the Patroni configuration file.</p>
-<div class="highlight"><pre><span></span><code>pg_hba: # Add following lines to pg_hba.conf after running &#39;initdb&#39;
+<div class="highlight"><pre><span></span><code>pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
 - host replication replicator 127.0.0.1/32 trust
 - host replication replicator 0.0.0.0/0 md5
 - host replication replicator 10.0.100.2/32 trust
@@ -8278,11 +8278,11 @@ recovery_conf:
 <ol>
 <li>
 <p>Create environment variables to simplify the config file creation:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;backup&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NODE1_NAME</span><span class="o">=</span><span class="s2">&quot;node1&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NODE2_NAME</span><span class="o">=</span><span class="s2">&quot;node2&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NODE3_NAME</span><span class="o">=</span><span class="s2">&quot;node3&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/etc/ssl/certs/pg_ha&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">"backup"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE1_NAME</span><span class="o">=</span><span class="s2">"node1"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE2_NAME</span><span class="o">=</span><span class="s2">"node2"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NODE3_NAME</span><span class="o">=</span><span class="s2">"node3"</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">"/etc/ssl/certs/pg_ha"</span>
 </code></pre></div>
 </li>
 <li>
@@ -8305,7 +8305,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="solutions-pgbackrest-__tabbed_2_1" name="solutions-pgbackrest-__tabbed_2" type="radio" /><input id="solutions-pgbackrest-__tabbed_2_2" name="solutions-pgbackrest-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="solutions-pgbackrest-__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="solutions-pgbackrest-__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>echo &quot;
+<div class="highlight"><pre><span></span><code>echo "
 [global] 
 
 # Server repo details
@@ -8381,11 +8381,11 @@ pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
 pg3-host-ca-file=${CA_PATH}/ca.crt
 pg3-socket-path=/var/run/postgresql
 
-&quot; | sudo tee /etc/pgbackrest.conf
+" | sudo tee /etc/pgbackrest.conf
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>echo &quot;
+<div class="highlight"><pre><span></span><code>echo "
 [global] 
 
 # Server repo details
@@ -8461,7 +8461,7 @@ pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
 pg3-host-ca-file=${CA_PATH}/ca.crt
 pg3-socket-path=/var/run/postgresql
 
-&quot; | sudo tee /etc/pgbackrest.conf
+" | sudo tee /etc/pgbackrest.conf
 </code></pre></div>
 </div>
 </div>
@@ -8491,24 +8491,24 @@ pg3-socket-path=/var/run/postgresql
 </li>
 <li>
 <p>Create the environment variable to simplify further configuration</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/etc/ssl/certs/pg_ha&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">"/etc/ssl/certs/pg_ha"</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create the CA certificates and keys</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=root-ca&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.crt<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/ca.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/CN=root-ca"</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create the certificate and keys for the backup server</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/CN=</span><span class="si">${</span><span class="nv">SRV_NAME</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create the certificates and keys for each PostgreSQL node</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/CN=</span><span class="si">${</span><span class="nv">NODE1_NAME</span><span class="si">}</span><span class="s2">"</span>
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/CN=</span><span class="si">${</span><span class="nv">NODE2_NAME</span><span class="si">}</span><span class="s2">"</span>
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.csr<span class="w"> </span>-keyout<span class="w"> </span><span class="si">${</span><span class="nv">CA_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span>.key<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/CN=</span><span class="si">${</span><span class="nv">NODE3_NAME</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div>
 </li>
 <li>
@@ -8542,7 +8542,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <span class="na">RestartSec</span><span class="o">=</span><span class="s">1</span>
 <span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/pgbackrest server</span>
 <span class="c1">#ExecStartPost=/bin/sleep 3</span>
-<span class="c1">#ExecStartPost=/bin/bash -c &quot;[ ! -z $MAINPID ]&quot;</span>
+<span class="c1">#ExecStartPost=/bin/bash -c "[ ! -z $MAINPID ]"</span>
 <span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
 
 <span class="k">[Install]</span>
@@ -8581,8 +8581,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <li>
 <p>Export environment variables to simplify the config file creation:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">NODE_NAME</span><span class="o">=</span><span class="sb">`</span>hostname<span class="w"> </span>-f<span class="sb">`</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">&quot;backup&quot;</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">&quot;/etc/ssl/certs/pg_ha&quot;</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">SRV_NAME</span><span class="o">=</span><span class="s2">"backup"</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">CA_PATH</span><span class="o">=</span><span class="s2">"/etc/ssl/certs/pg_ha"</span>
 </code></pre></div>
 </li>
 <li>
@@ -8607,7 +8607,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="solutions-pgbackrest-__tabbed_4_1" name="solutions-pgbackrest-__tabbed_4" type="radio" /><input id="solutions-pgbackrest-__tabbed_4_2" name="solutions-pgbackrest-__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="solutions-pgbackrest-__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> On Debian/Ubuntu</label><label for="solutions-pgbackrest-__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> On RHEL/derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">echo &quot;</span>
+<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">echo "</span>
 <span class="k">[global]</span>
 <span class="na">repo1-host</span><span class="o">=</span><span class="s">${SRV_NAME}</span>
 <span class="na">repo1-host-user</span><span class="o">=</span><span class="s">postgres</span>
@@ -8630,11 +8630,11 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 
 <span class="k">[cluster_1]</span>
 <span class="na">pg1-path</span><span class="o">=</span><span class="s">/var/lib/postgresql/14/main</span>
-<span class="na">&quot; | sudo tee /etc/pgbackrest.conf</span>
+<span class="na">" | sudo tee /etc/pgbackrest.conf</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">echo &quot;</span>
+<div class="highlight"><span class="filename">pgbackrest.conf</span><pre><span></span><code><span class="na">echo "</span>
 <span class="k">[global]</span>
 <span class="na">repo1-host</span><span class="o">=</span><span class="s">${SRV_NAME}</span>
 <span class="na">repo1-host-user</span><span class="o">=</span><span class="s">postgres</span>
@@ -8657,7 +8657,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 
 <span class="k">[cluster_1]</span>
 <span class="na">pg1-path</span><span class="o">=</span><span class="s">/var/lib/pgsql/14/data</span>
-<span class="na">&quot; | sudo tee /etc/pgbackrest.conf</span>
+<span class="na">" | sudo tee /etc/pgbackrest.conf</span>
 </code></pre></div>
 </div>
 </div>
@@ -8676,7 +8676,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 <span class="na">RestartSec</span><span class="o">=</span><span class="s">1</span>
 <span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/bin/pgbackrest server</span>
 <span class="c1">#ExecStartPost=/bin/sleep 3</span>
-<span class="c1">#ExecStartPost=/bin/bash -c &quot;[ ! -z $MAINPID ]&quot;</span>
+<span class="c1">#ExecStartPost=/bin/bash -c "[ ! -z $MAINPID ]"</span>
 <span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
 
 <span class="k">[Install]</span>
@@ -8689,7 +8689,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </spa
 $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>pgbackrest
 </code></pre></div>
 <p>The pgBackRest daemon listens on port <code>8432</code> by default:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>netstat<span class="w"> </span>-taunp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;8432&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>netstat<span class="w"> </span>-taunp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'8432'</span>
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -8714,7 +8714,7 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 <span class="w">    </span><span class="nt">archive_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">archive_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600s</span>
 <span class="w">    </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span>
+<span class="w">    </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">'on'</span>
 <span class="w">    </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
 <span class="w">    </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">    </span><span class="nt">max_wal_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10GB</span>
@@ -8723,7 +8723,7 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 <span class="w">    </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">recovery_conf</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">recovery_target_timeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
-<span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f &quot;%p&quot;</span>
+<span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f "%p"</span>
 <span class="w">  </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
@@ -8862,7 +8862,7 @@ listen standbys
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script "killall -0 haproxy"    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 3                      # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 3                          # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
@@ -8890,7 +8890,7 @@ listen standbys
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script "killall -0 haproxy"    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 2                      # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 2                          # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
@@ -8918,7 +8918,7 @@ listen standbys
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;killall -0 haproxy&quot;    # Basic check if HAProxy process is running</span>
+<span class="w">    </span><span class="na">script "killall -0 haproxy"    # Basic check if HAProxy process is running</span>
 <span class="w">    </span><span class="na">interval 2                      # Check every 2 seconds</span>
 <span class="w">    </span><span class="na">fall 3                          # The number of failures to mark the node as down</span>
 <span class="w">    </span><span class="na">rise 2                          # The number of successes to mark the node as up</span>
@@ -8978,18 +8978,18 @@ listen standbys
 
 <span class="c1"># Check if HAProxy process is running</span>
 <span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>haproxy<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HAProxy process is not running&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"HAProxy process is not running"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Check if HAProxy socket is accessible</span>
 <span class="k">if</span><span class="w"> </span>!<span class="w"> </span>socat<span class="w"> </span>-<span class="w"> </span>UNIX-CONNECT:/var/run/haproxy/admin.sock<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;HAProxy socket is not accessible&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"HAProxy socket is not accessible"</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="c1"># Check if HAProxy is binding to port 5432</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;:5432 &quot;</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>netstat<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span><span class="s2">":5432 "</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="k">fi</span>
 
@@ -9001,7 +9001,7 @@ listen standbys
 </code></pre></div>
 <p>Then define this script in Keepalived configuration on each node:</p>
 <div class="highlight"><pre><span></span><code><span class="na">vrrp_script chk_haproxy {</span>
-<span class="w">    </span><span class="na">script &quot;/usr/local/bin/check_haproxy.sh&quot;</span>
+<span class="w">    </span><span class="na">script "/usr/local/bin/check_haproxy.sh"</span>
 <span class="w">    </span><span class="na">interval 2</span>
 <span class="w">    </span><span class="na">fall 3</span>
 <span class="w">    </span><span class="na">rise 2</span>
@@ -9028,13 +9028,13 @@ listen standbys
 <li>
 <p>Run the following commands to create a table and insert a few rows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="n">age</span><span class="w"> </span><span class="nb">integer</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;dawson&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">'john'</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">'dawson'</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
 <p>To ensure that the replication is working, we can log in to each PostgreSQL node and run a simple SQL statement against the locally running instance:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">"SELECT * FROM CUSTOMER;"</span>
 </code></pre></div>
 <p>The results on each node should be the following:</p>
 <div class="highlight"><pre><span></span><code>  name  | age
@@ -9075,8 +9075,8 @@ listen standbys
 <details class="admonition">
 <summary>Output</summary>
 <div class="highlight"><pre><span></span><code>Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,011 INFO: Got response from node2 http://node2:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 12:50:29.460027+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67219152, &quot;replayed_location&quot;: 67219152, &quot;replayed_timestamp&quot;: &quot;2021-09-23 13:19:50.329387+00:00&quot;, &quot;paused&quot;: false}, &quot;timeline&quot;: 1, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,031 WARNING: Request failed to node1: GET http://node1:8008/patroni (HTTPConnectionPool(host=&#39;node1&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ProtocolError(&#39;Connection aborted.&#39;, ConnectionResetError(104, &#39;Connection reset by peer&#39;))))
+Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,011 INFO: Got response from node2 http://node2:8008/patroni: {"state": "running", "postprimary_start_time": "2021-09-23 12:50:29.460027+00:00", "role": "replica", "server_version": 130003, "cluster_unlocked": true, "xlog": {"received_location": 67219152, "replayed_location": 67219152, "replayed_timestamp": "2021-09-23 13:19:50.329387+00:00", "paused": false}, "timeline": 1, "database_system_identifier": "7011110722654005156", "patroni": {"version": "2.1.0", "scope": "stampede1"}}
+Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,031 WARNING: Request failed to node1: GET http://node1:8008/patroni (HTTPConnectionPool(host='node1', port=8008): Max retries exceeded with url: /patroni (Caused by ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))))
 Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,038 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
 Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,043 INFO: promoted self to leader by acquiring session lock
 Sep 23 14:18:20 node03 patroni[13641]: server promoting
@@ -9091,7 +9091,7 @@ Sep 23 14:18:31 node03 patroni[10042]: 2021-09-23 14:18:31,114 INFO: no action. 
 </li>
 <li>
 <p>Verify that you can still access the cluster through the HAProxy instance and read data:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">10</span>.104.0.6<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">10</span>.104.0.6<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">"SELECT * FROM CUSTOMER;"</span>
 
 <span class="w">  </span>name<span class="w">  </span><span class="p">|</span><span class="w"> </span>age
 --------+-----
@@ -9140,8 +9140,8 @@ $<span class="w"> </span>sudo<span class="w"> </span><span class="nb">kill</span
 <summary>Output</summary>
 <div class="highlight"><pre><span></span><code>Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)
 …
-Sep 23 14:41:01 node02 patroni[10577]: 2021-09-23 14:41:01,373 INFO: Got response from node1 http://node1:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 14:25:30.076762+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67221352, &quot;replayed_location&quot;: 67221352, &quot;replayed_timestamp&quot;: null, &quot;paused&quot;: false}, &quot;timeline&quot;: 2, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,364 WARNING: Request failed to node3: GET http://node3:8008/patroni (HTTPConnectionPool(host=&#39;node3&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPConnection object at 0x7f57e06dffa0&gt;, &#39;Connection to node3 timed out. (connect timeout=2)&#39;)))
+Sep 23 14:41:01 node02 patroni[10577]: 2021-09-23 14:41:01,373 INFO: Got response from node1 http://node1:8008/patroni: {"state": "running", "postprimary_start_time": "2021-09-23 14:25:30.076762+00:00", "role": "replica", "server_version": 130003, "cluster_unlocked": true, "xlog": {"received_location": 67221352, "replayed_location": 67221352, "replayed_timestamp": null, "paused": false}, "timeline": 2, "database_system_identifier": "7011110722654005156", "patroni": {"version": "2.1.0", "scope": "stampede1"}}
+Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,364 WARNING: Request failed to node3: GET http://node3:8008/patroni (HTTPConnectionPool(host='node3', port=8008): Max retries exceeded with url: /patroni (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPConnection object at 0x7f57e06dffa0&gt;, 'Connection to node3 timed out. (connect timeout=2)')))
 Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,373 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
 Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,385 INFO: promoted self to leader by acquiring session lock
 Sep 23 14:41:03 node02 patroni[15478]: server promoting
@@ -9165,7 +9165,7 @@ Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,475 INFO: no action. 
 </code></pre></div>
 <p>Patroni asks the name of the current primary node and then the node that should take over as the switched-over primary. You can also specify the time at which the switchover should happen. To trigger the process immediately, specify the value <em>now</em>:</p>
 <div class="highlight"><pre><span></span><code>primary [node2]: node2
-Candidate [&#39;node1&#39;, &#39;node3&#39;] []: node1
+Candidate ['node1', 'node3'] []: node1
 When should the switchover take place (e.g. 2021-09-23T15:56 )  [now]: now
 Current cluster topology
 + Cluster: stampede1 (7011110722654005156) -----------+
@@ -9176,7 +9176,7 @@ Current cluster topology
 | node3  | node3 | Replica | stopped |    |   unknown |
 +--------+-------+---------+---------+----+-----------+
 Are you sure you want to switchover cluster stampede1, demoting current primary node2? [y/N]: y
-2021-09-23 14:56:40.54009 Successfully switched over to &quot;node1&quot;
+2021-09-23 14:56:40.54009 Successfully switched over to "node1"
 + Cluster: stampede1 (7011110722654005156) -----------+
 | Member | Host  | Role    | State   | TL | Lag in MB |
 +--------+-------+---------+---------+----+-----------+
@@ -9413,15 +9413,15 @@ The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"
 <li>
 <p>Copy the public key to the <code>pg-repo</code> node:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>postgres@pg-repo
-/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>Source<span class="w"> </span>of<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed:<span class="w"> </span><span class="s2">&quot;/root/.ssh/id_rsa.pub&quot;</span>
+/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>Source<span class="w"> </span>of<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed:<span class="w"> </span><span class="s2">"/root/.ssh/id_rsa.pub"</span>
 /usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>attempting<span class="w"> </span>to<span class="w"> </span>log<span class="w"> </span><span class="k">in</span><span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span>to<span class="w"> </span>filter<span class="w"> </span>out<span class="w"> </span>any<span class="w"> </span>that<span class="w"> </span>are<span class="w"> </span>already<span class="w"> </span>installed
 /usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span><span class="m">1</span><span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>remain<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>--<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>prompted<span class="w"> </span>now<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>keys
-postgres@pg-repo<span class="s1">&#39;s password: </span>
+postgres@pg-repo<span class="s1">'s password: </span>
 
 <span class="s1">Number of key(s) added: 1</span>
 
 
-<span class="s1">Now try logging into the machine, with:   &quot;ssh &#39;</span>postgres@pg-repo<span class="err">&#39;</span><span class="s2">&quot;</span>
+<span class="s1">Now try logging into the machine, with:   "ssh '</span>postgres@pg-repo<span class="err">'</span><span class="s2">"</span>
 <span class="s2">and check to make sure that only the key(s) you wanted were added.</span>
 </code></pre></div>
 </li>
@@ -9473,10 +9473,10 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <ol>
 <li>
 <p>Edit the <code>postgresql.conf</code> configuration file to include the following changes:</p>
-<div class="highlight"><pre><span></span><code>archive_command = &#39;pgbackrest --stanza=prod_backup archive-push %p&#39;
+<div class="highlight"><pre><span></span><code>archive_command = 'pgbackrest --stanza=prod_backup archive-push %p'
 archive_mode = on
-listen_addresses = &#39;*&#39;
-log_line_prefix = &#39;&#39;
+listen_addresses = '*'
+log_line_prefix = ''
 max_wal_senders = 3
 wal_level = replica
 </code></pre></div>
@@ -9556,7 +9556,7 @@ pg1-port = 5432
 <p>After the configuration files are set up, it’s now time to initialize the <code>pgBackRest</code> stanza. Run the following command in the remote backup repository node (<code>pg-repo</code>).</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>stanza-create
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:18.157<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">155883</span>-2277a3e7<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>off<span class="w"> </span>--pg1-host<span class="o">=</span>pg-primary<span class="w"> </span>--pg1-host-user<span class="o">=</span>postgres<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/14/main<span class="w"> </span>--pg1-port<span class="o">=</span><span class="m">5432</span><span class="w"> </span>--repo1-path<span class="o">=</span>/home/pgbackrest/pg_backup<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
-<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.453<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="k">for</span><span class="w"> </span>stanza<span class="w"> </span><span class="s1">&#39;prod_backup&#39;</span><span class="w"> </span>on<span class="w"> </span>repo1
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.453<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="k">for</span><span class="w"> </span>stanza<span class="w"> </span><span class="s1">'prod_backup'</span><span class="w"> </span>on<span class="w"> </span>repo1
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.566<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>end:<span class="w"> </span>completed<span class="w"> </span>successfully<span class="w"> </span><span class="o">(</span>1412ms<span class="o">)</span>
 </code></pre></div>
 <p>Once the stanza is created successfully, you can try out the different use cases for disaster recovery.</p>
@@ -9567,9 +9567,9 @@ pg1-port = 5432
 <li>
 <p>To start our testing, let’s create a table in the <code>postgres</code> database in the <code>pg-primary</code> node and add some data.</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;john&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;martha&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;mary&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'john'</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">'martha'</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">'mary'</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
@@ -9643,7 +9643,7 @@ pg1-port = 5432
 <li>Restore the backup</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>--delta<span class="w"> </span><span class="se">\</span>
---type<span class="o">=</span><span class="nb">time</span><span class="w"> </span><span class="s2">&quot;--target= 2021-11-07 11:55:47.952405+00&quot;</span><span class="w"> </span><span class="se">\</span>
+--type<span class="o">=</span><span class="nb">time</span><span class="w"> </span><span class="s2">"--target= 2021-11-07 11:55:47.952405+00"</span><span class="w"> </span><span class="se">\</span>
 --target-action<span class="o">=</span>promote<span class="w"> </span>restore
 </code></pre></div>
 <ul>
@@ -9686,7 +9686,7 @@ pg1-path=/var/lib/postgresql/14/main
 
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:08.897<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--delta<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">109728</span>-d81c7b0b<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>debug<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/14/main<span class="w"> </span>--process-max<span class="o">=</span><span class="m">2</span><span class="w"> </span>--repo1-host<span class="o">=</span>pg-repo<span class="w"> </span>--repo1-host-user<span class="o">=</span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.784<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>repo1:<span class="w"> </span>restore<span class="w"> </span>backup<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">20211107</span>-111534F_20211107-131807I,<span class="w"> </span>recovery<span class="w"> </span>will<span class="w"> </span>start<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:18:07
-<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.786<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>remove<span class="w"> </span>invalid<span class="w"> </span>files/links/paths<span class="w"> </span>from<span class="w"> </span><span class="s1">&#39;/var/lib/postgresql/14/main&#39;</span>
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.786<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>remove<span class="w"> </span>invalid<span class="w"> </span>files/links/paths<span class="w"> </span>from<span class="w"> </span><span class="s1">'/var/lib/postgresql/14/main'</span>
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.803<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>write<span class="w"> </span>updated<span class="w"> </span>/var/lib/postgresql/14/main/postgresql.auto.conf
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.819<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span>global/pg_control<span class="w"> </span><span class="o">(</span>performed<span class="w"> </span>last<span class="w"> </span>to<span class="w"> </span>ensure<span class="w"> </span>aborted<span class="w"> </span>restores<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>started<span class="o">)</span>
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.819<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">23</span>.2MB,<span class="w"> </span>file<span class="w"> </span><span class="nv">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">937</span>
@@ -9761,7 +9761,7 @@ pg1-path=/var/lib/postgresql/14/main
 <li>
 <p>The command in the previous step installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="n">address</span><span class="o">%</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'postgis%'</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="n">address</span><span class="o">%</span><span class="err">'</span><span class="p">;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -9789,7 +9789,7 @@ pg1-path=/var/lib/postgresql/14/main
 </ol>
 <p>This installs the set of PostGIS extensions. To check what extensions are available, run the following query from the <code>psql</code> terminal:    </p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">default_version</span><span class="p">,</span><span class="n">installed_version</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;postgis%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;address%&#39;</span><span class="p">;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'postgis%'</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'address%'</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -9818,7 +9818,7 @@ pg1-path=/var/lib/postgresql/14/main
 <p>The output should resemble the following:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="n">postgis_full_version</span>
 <span class="c1">-----------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="w"> </span><span class="n">POSTGIS</span><span class="o">=</span><span class="ss">&quot;3.3.4&quot;</span><span class="w"> </span><span class="p">[</span><span class="n">EXTENSION</span><span class="p">]</span><span class="w"> </span><span class="n">PGSQL</span><span class="o">=</span><span class="ss">&quot;140&quot;</span><span class="w"> </span><span class="n">GEOS</span><span class="o">=</span><span class="ss">&quot;3.10.2-CAPI-1.16.0&quot;</span><span class="w"> </span><span class="n">PROJ</span><span class="o">=</span><span class="ss">&quot;8.2.1&quot;</span><span class="w"> </span><span class="n">LIBXML</span><span class="o">=</span><span class="ss">&quot;2.9.13&quot;</span><span class="w"> </span><span class="n">LIBJSON</span><span class="o">=</span><span class="ss">&quot;0.15&quot;</span><span class="w"> </span><span class="n">LIBPROTOBUF</span><span class="o">=</span><span class="ss">&quot;1.3.3&quot;</span><span class="w"> </span><span class="n">WAGYU</span><span class="o">=</span><span class="ss">&quot;0.5.0 (Internal)&quot;</span>
+<span class="w"> </span><span class="n">POSTGIS</span><span class="o">=</span><span class="ss">"3.3.4"</span><span class="w"> </span><span class="p">[</span><span class="n">EXTENSION</span><span class="p">]</span><span class="w"> </span><span class="n">PGSQL</span><span class="o">=</span><span class="ss">"140"</span><span class="w"> </span><span class="n">GEOS</span><span class="o">=</span><span class="ss">"3.10.2-CAPI-1.16.0"</span><span class="w"> </span><span class="n">PROJ</span><span class="o">=</span><span class="ss">"8.2.1"</span><span class="w"> </span><span class="n">LIBXML</span><span class="o">=</span><span class="ss">"2.9.13"</span><span class="w"> </span><span class="n">LIBJSON</span><span class="o">=</span><span class="ss">"0.15"</span><span class="w"> </span><span class="n">LIBPROTOBUF</span><span class="o">=</span><span class="ss">"1.3.3"</span><span class="w"> </span><span class="n">WAGYU</span><span class="o">=</span><span class="ss">"0.5.0 (Internal)"</span>
 </code></pre></div>
 </li>
 </ol>
@@ -9855,18 +9855,18 @@ pg1-path=/var/lib/postgresql/14/main
 </li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="err">\</span><span class="n">d</span><span class="w"> </span><span class="n">nyc_streets</span><span class="p">;</span>
-<span class="w">                                         </span><span class="k">Table</span><span class="w"> </span><span class="ss">&quot;public.nyc_streets&quot;</span>
+<span class="w">                                         </span><span class="k">Table</span><span class="w"> </span><span class="ss">"public.nyc_streets"</span>
 <span class="w"> </span><span class="k">Column</span><span class="w"> </span><span class="o">|</span><span class="w">              </span><span class="k">Type</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">Collation</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Nullable</span><span class="w"> </span><span class="o">|</span><span class="w">                 </span><span class="k">Default</span>
 <span class="c1">--------+---------------------------------+-----------+----------+------------------------------------------</span>
-<span class="w"> </span><span class="n">gid</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">                         </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">nextval</span><span class="p">(</span><span class="s1">&#39;nyc_streets_gid_seq&#39;</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
+<span class="w"> </span><span class="n">gid</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nb">integer</span><span class="w">                         </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">nextval</span><span class="p">(</span><span class="s1">'nyc_streets_gid_seq'</span><span class="p">::</span><span class="n">regclass</span><span class="p">)</span>
 <span class="w"> </span><span class="n">id</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="k">precision</span><span class="w">                </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
 <span class="w"> </span><span class="n">name</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w">          </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
 <span class="w"> </span><span class="n">oneway</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w">           </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
 <span class="w"> </span><span class="k">type</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w">           </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
 <span class="w"> </span><span class="n">geom</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">geometry</span><span class="p">(</span><span class="n">MultiLineString</span><span class="p">,</span><span class="mi">26918</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w">           </span><span class="o">|</span><span class="w">          </span><span class="o">|</span>
 <span class="n">Indexes</span><span class="p">:</span>
-<span class="w">    </span><span class="ss">&quot;nyc_streets_pkey&quot;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">gid</span><span class="p">)</span>
-<span class="w">    </span><span class="ss">&quot;nyc_streets_geom_idx&quot;</span><span class="w"> </span><span class="n">gist</span><span class="w"> </span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+<span class="w">    </span><span class="ss">"nyc_streets_pkey"</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(</span><span class="n">gid</span><span class="p">)</span>
+<span class="w">    </span><span class="ss">"nyc_streets_geom_idx"</span><span class="w"> </span><span class="n">gist</span><span class="w"> </span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 </code></pre></div>
 <ol>
 <li>Repeat the command to upload other shapefiles in the data set: <code>nyc_census_blocks</code>, <code>nyc_neighborhoods</code>, <code>nyc_subway_stations</code></li>
@@ -9886,7 +9886,7 @@ pg1-path=/var/lib/postgresql/14/main
 <p>To get the answer we will use the <code>ST_Area</code> function that returns the areas of polygons.</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Area</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000000</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_neighborhoods</span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Central Park&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Central Park'</span><span class="p">;</span>
 </code></pre></div>
 <p>Output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">      </span><span class="n">st_area</span>
@@ -9898,7 +9898,7 @@ pg1-path=/var/lib/postgresql/14/main
 <h2 id="solutions-postgis-testing-how-long-is-columbus-circle"><em>How long is Columbus Circle?</em><a class="headerlink" href="#solutions-postgis-testing-how-long-is-columbus-circle" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">ST_Length</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nyc_streets</span>
-<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Columbus Cir&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Columbus Cir'</span><span class="p">;</span>
 </code></pre></div>
 <p>Output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">     </span><span class="n">st_length</span>
@@ -9950,7 +9950,7 @@ pg1-path=/var/lib/postgresql/14/main
 <ol>
 <li>
 <p>Add in the <code>pg_hba.conf</code> file (usually located in <code>/data/db/...</code>) the <code>ldap</code> authentication method. For example:</p>
-<div class="highlight"><pre><span></span><code><span class="na">host all all 192.168.1.0/24 ldap ldapserver=ldap.example.com ldapport=389 ldapbinddn</span><span class="o">=</span><span class="s">&quot;cn=admin,dc=example,dc=com&quot;</span><span class="w"> </span><span class="na">ldapbindpasswd</span><span class="o">=</span><span class="s">&quot;password&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="na">host all all 192.168.1.0/24 ldap ldapserver=ldap.example.com ldapport=389 ldapbinddn</span><span class="o">=</span><span class="s">"cn=admin,dc=example,dc=com"</span><span class="w"> </span><span class="na">ldapbindpasswd</span><span class="o">=</span><span class="s">"password"</span>
 </code></pre></div>
 </li>
 <li>
@@ -10097,11 +10097,11 @@ Restarting<span class="w"> </span>old<span class="w"> </span>cluster<span class=
 Notice:<span class="w"> </span>extra<span class="w"> </span>pg_ctl/postgres<span class="w"> </span>options<span class="w"> </span>given,<span class="w"> </span>bypassing<span class="w"> </span>systemctl<span class="w"> </span><span class="k">for</span><span class="w"> </span>start<span class="w"> </span>operation
 Creating<span class="w"> </span>new<span class="w"> </span>PostgreSQL<span class="w"> </span>cluster<span class="w"> </span><span class="m">14</span>/main<span class="w"> </span>...
 /usr/lib/postgresql/14/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/postgresql/14/main<span class="w"> </span>--auth-local<span class="w"> </span>peer<span class="w"> </span>--auth-host<span class="w"> </span>scram-sha-256<span class="w"> </span>--no-instructions<span class="w"> </span>--encoding<span class="w"> </span>UTF8<span class="w"> </span>--lc-collate<span class="w"> </span>C.UTF-8<span class="w"> </span>--lc-ctype<span class="w"> </span>C.UTF-8<span class="w"> </span>--locale-provider<span class="w"> </span>libc
-The<span class="w"> </span>files<span class="w"> </span>belonging<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>owned<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>.
+The<span class="w"> </span>files<span class="w"> </span>belonging<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>owned<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span><span class="s2">"postgres"</span>.
 This<span class="w"> </span>user<span class="w"> </span>must<span class="w"> </span>also<span class="w"> </span>own<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>process.
 
-The<span class="w"> </span>database<span class="w"> </span>cluster<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span>locale<span class="w"> </span><span class="s2">&quot;C.UTF-8&quot;</span>.
-The<span class="w"> </span>default<span class="w"> </span>text<span class="w"> </span>search<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;english&quot;</span>.
+The<span class="w"> </span>database<span class="w"> </span>cluster<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span>locale<span class="w"> </span><span class="s2">"C.UTF-8"</span>.
+The<span class="w"> </span>default<span class="w"> </span>text<span class="w"> </span>search<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s2">"english"</span>.
 
 Data<span class="w"> </span>page<span class="w"> </span>checksums<span class="w"> </span>are<span class="w"> </span>disabled.
 
@@ -10143,12 +10143,12 @@ Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
 Disabling<span class="w"> </span>automatic<span class="w"> </span>startup<span class="w"> </span>of<span class="w"> </span>old<span class="w"> </span>cluster...
 Starting<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>on<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span>...
 Running<span class="w"> </span>finish<span class="w"> </span>phase<span class="w"> </span>upgrade<span class="w"> </span>hook<span class="w"> </span>scripts<span class="w"> </span>...
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"postgres"</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"template1"</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"postgres"</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"template1"</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"postgres"</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"template1"</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
 
 Success.<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>works.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>does,
 you<span class="w"> </span>can<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with
@@ -10176,7 +10176,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <ul>
 <li>Check the database version</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">"SELECT version();"</span>
 </code></pre></div>
 </li>
 <li>
@@ -10220,8 +10220,8 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 </li>
 <li>
 <p>Set up locale settings</p>
-<div class="highlight"><pre><span></span><code>export LC_ALL=&quot;en_US.UTF-8&quot;
-export LC_CTYPE=&quot;en_US.UTF-8&quot;
+<div class="highlight"><pre><span></span><code>export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 </code></pre></div>
 </li>
 <li>
@@ -10262,7 +10262,7 @@ Checking for prepared transactions                          ok
 Checking for reg* data types in user tables                 ok
 Checking for contrib/isn with bigint-passing mismatch       ok
 Checking for tables WITH OIDS                               ok
-Checking for invalid &quot;sql_identifier&quot; user columns          ok
+Checking for invalid "sql_identifier" user columns          ok
 Checking for presence of required libraries                 ok
 Checking database user is the install user                  ok
 Checking for prepared transactions                          ok
@@ -10661,7 +10661,7 @@ server stopped
 <p>This page lists all release notes for Percona Distribution for PostgreSQL 14, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.</p>
 <h2 id="release-notes-release-notes-2026">2026<a class="headerlink" href="#release-notes-release-notes-2026" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="#release-notes-release-notes-v14.24">14.24</a> (TBD)</li>
+<li><a href="#release-notes-release-notes-v14.24">14.24</a> (2026-08-18)</li>
 <li><a href="#release-notes-release-notes-v14.23">14.23</a> (2026-05-14)</li>
 <li><a href="#release-notes-release-notes-v14.22">14.22</a> (2026-02-26)</li>
 </ul>
@@ -10754,7 +10754,7 @@ server stopped
 <li>
 <p><a href="#release-notes-release-notes-v14.1">14.1</a> (2021-11-22)</p>
 </li>
-</ul></section><section class="print-page" id="release-notes-release-notes-v14.24" heading-number="11.2"><h1 id="release-notes-release-notes-v14.24-percona-distribution-for-postgresql-1424-tbd">Percona Distribution for PostgreSQL 14.24 (TBD)<a class="headerlink" href="#release-notes-release-notes-v14.24-percona-distribution-for-postgresql-1424-tbd" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release-notes-release-notes-v14.24" heading-number="11.2"><h1 id="release-notes-release-notes-v14.24-percona-distribution-for-postgresql-1424-2026-08-18">Percona Distribution for PostgreSQL 14.24 (2026-08-18)<a class="headerlink" href="#release-notes-release-notes-v14.24-percona-distribution-for-postgresql-1424-2026-08-18" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#installing">Installation</a></p>
 <p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/14/release-14-24.html">PostgreSQL 14.24</a>.</p>
@@ -10772,7 +10772,7 @@ server stopped
 <ul>
 <li>etcd: 3.5.33</li>
 <li>haproxy: 2.8.27</li>
-<li>patroni: 4.1.4</li>
+<li>patroni: 4.1.5</li>
 <li>pgBackRest: 2.59.0</li>
 <li>pgpool2: 4.7.2</li>
 <li>pgvector: 0.8.6</li>
@@ -10841,7 +10841,7 @@ server stopped
 </tr>
 <tr>
 <td><a href="https://patroni.readthedocs.io/en/latest/">Patroni <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>4.1.4</td>
+<td>4.1.5</td>
 <td>A HA (High Availability) solution for PostgreSQL</td>
 </tr>
 <tr>
@@ -13678,64 +13678,64 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 <p>The Metrics File uses the JavaScript Object Notation (JSON) format. Percona reserves the right to extend the current set of JSON structure attributes in the future.</p>
 <p>The following is an example of the collected data generated by the <code>percona_pg_telemetry</code> extension:    </p>
 <div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
-<span class="nt">&quot;db_instance_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7310358902660071382&quot;</span><span class="p">,</span>
-<span class="nt">&quot;pillar_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14.24&quot;</span><span class="p">,</span>
-<span class="nt">&quot;uptime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;36&quot;</span><span class="p">,</span>
-<span class="nt">&quot;databases_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
-<span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="nt">"db_instance_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7310358902660071382"</span><span class="p">,</span>
+<span class="nt">"pillar_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14.24"</span><span class="p">,</span>
+<span class="nt">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span>
+<span class="nt">"databases_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span>
+<span class="nt">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;setting&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"setting"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;allow_in_place_tablespaces&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"allow_in_place_tablespaces"</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unit&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NULL&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unit"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL"</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;setting&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"setting"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reset_val&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reset_val"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boot_val&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boot_val"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"off"</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="err">...</span>
 <span class="p">],</span>
-<span class="nt">&quot;databases&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="nt">"databases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;database&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"database"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;database_oid&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"database_oid"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;database_size&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7820895&quot;</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"database_size"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7820895"</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active_extensions&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active_extensions"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;extension_name&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;plpgsql&quot;</span>
+<span class="w">            </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension_name"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plpgsql"</span>
 <span class="w">          </span><span class="p">},</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;extension_name&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pg_tde&quot;</span>
+<span class="w">            </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension_name"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pg_tde"</span>
 <span class="w">          </span><span class="p">},</span>
 <span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;extension_name&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;percona_pg_telemetry&quot;</span>
+<span class="w">            </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extension_name"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percona_pg_telemetry"</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
@@ -13749,20 +13749,20 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 <p>The agent does not send anything if there are no Percona-specific files in the target directory.</p>
 <p>The following is an example of a Telemetry Agent payload:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;reports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;B5BDC47B-B717-4EF5-AEDF-41A17C9C18BB&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;createTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-09-01T10:56:49Z&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;instanceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;B5BDC47B-B717-4EF5-AEDF-41A17C9C18BA&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;productFamily&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY_POSTGRESQL&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B5BDC47B-B717-4EF5-AEDF-41A17C9C18BB"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"createTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-01T10:56:49Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"instanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B5BDC47B-B717-4EF5-AEDF-41A17C9C18BA"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"productFamily"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRODUCT_FAMILY_POSTGRESQL"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"metrics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ubuntu&quot;</span>
+<span class="w">          </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OS"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14.24&quot;</span>
+<span class="w">          </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pillar_version"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14.24"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
@@ -13996,7 +13996,7 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 </li>
 <li>
 <p>Remove <code>percona_pg_telemetry</code> from the <code>shared_preload_libraries</code> configuration parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span><span class="p">;</span>
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
