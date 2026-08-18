@@ -3721,11 +3721,11 @@ Restarting<span class="w"> </span>old<span class="w"> </span>cluster<span class=
 Notice:<span class="w"> </span>extra<span class="w"> </span>pg_ctl/postgres<span class="w"> </span>options<span class="w"> </span>given,<span class="w"> </span>bypassing<span class="w"> </span>systemctl<span class="w"> </span><span class="k">for</span><span class="w"> </span>start<span class="w"> </span>operation
 Creating<span class="w"> </span>new<span class="w"> </span>PostgreSQL<span class="w"> </span>cluster<span class="w"> </span><span class="m">16</span>/main<span class="w"> </span>...
 /usr/lib/postgresql/16/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/var/lib/postgresql/16/main<span class="w"> </span>--auth-local<span class="w"> </span>peer<span class="w"> </span>--auth-host<span class="w"> </span>scram-sha-256<span class="w"> </span>--no-instructions<span class="w"> </span>--encoding<span class="w"> </span>UTF8<span class="w"> </span>--lc-collate<span class="w"> </span>C.UTF-8<span class="w"> </span>--lc-ctype<span class="w"> </span>C.UTF-8<span class="w"> </span>--locale-provider<span class="w"> </span>libc
-The<span class="w"> </span>files<span class="w"> </span>belonging<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>owned<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>.
+The<span class="w"> </span>files<span class="w"> </span>belonging<span class="w"> </span>to<span class="w"> </span>this<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>owned<span class="w"> </span>by<span class="w"> </span>user<span class="w"> </span><span class="s2">"postgres"</span>.
 This<span class="w"> </span>user<span class="w"> </span>must<span class="w"> </span>also<span class="w"> </span>own<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>process.
 
-The<span class="w"> </span>database<span class="w"> </span>cluster<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span>locale<span class="w"> </span><span class="s2">&quot;C.UTF-8&quot;</span>.
-The<span class="w"> </span>default<span class="w"> </span>text<span class="w"> </span>search<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;english&quot;</span>.
+The<span class="w"> </span>database<span class="w"> </span>cluster<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>initialized<span class="w"> </span>with<span class="w"> </span>locale<span class="w"> </span><span class="s2">"C.UTF-8"</span>.
+The<span class="w"> </span>default<span class="w"> </span>text<span class="w"> </span>search<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span><span class="s2">"english"</span>.
 
 Data<span class="w"> </span>page<span class="w"> </span>checksums<span class="w"> </span>are<span class="w"> </span>disabled.
 
@@ -3767,12 +3767,12 @@ Stopping<span class="w"> </span>old<span class="w"> </span>cluster...
 Disabling<span class="w"> </span>automatic<span class="w"> </span>startup<span class="w"> </span>of<span class="w"> </span>old<span class="w"> </span>cluster...
 Starting<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>on<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span>...
 Running<span class="w"> </span>finish<span class="w"> </span>phase<span class="w"> </span>upgrade<span class="w"> </span>hook<span class="w"> </span>scripts<span class="w"> </span>...
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;postgres&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
-vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">&quot;template1&quot;</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"postgres"</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"template1"</span>:<span class="w"> </span>Generating<span class="w"> </span>minimal<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>target<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"postgres"</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"template1"</span>:<span class="w"> </span>Generating<span class="w"> </span>medium<span class="w"> </span>optimizer<span class="w"> </span>statistics<span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>targets<span class="o">)</span>
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"postgres"</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
+vacuumdb:<span class="w"> </span>processing<span class="w"> </span>database<span class="w"> </span><span class="s2">"template1"</span>:<span class="w"> </span>Generating<span class="w"> </span>default<span class="w"> </span><span class="o">(</span>full<span class="o">)</span><span class="w"> </span>optimizer<span class="w"> </span>statistics
 
 Success.<span class="w"> </span>Please<span class="w"> </span>check<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>upgraded<span class="w"> </span>cluster<span class="w"> </span>works.<span class="w"> </span>If<span class="w"> </span>it<span class="w"> </span>does,
 you<span class="w"> </span>can<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>old<span class="w"> </span>cluster<span class="w"> </span>with
@@ -3800,7 +3800,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 <ul>
 <li>Check the database version</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">"SELECT version();"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3844,8 +3844,8 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 </li>
 <li>
 <p>Set up locale settings</p>
-<div class="highlight"><pre><span></span><code>export LC_ALL=&quot;en_US.UTF-8&quot;
-export LC_CTYPE=&quot;en_US.UTF-8&quot;
+<div class="highlight"><pre><span></span><code>export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 </code></pre></div>
 </li>
 <li>
@@ -3886,7 +3886,7 @@ Checking for prepared transactions                          ok
 Checking for reg* data types in user tables                 ok
 Checking for contrib/isn with bigint-passing mismatch       ok
 Checking for tables WITH OIDS                               ok
-Checking for invalid &quot;sql_identifier&quot; user columns          ok
+Checking for invalid "sql_identifier" user columns          ok
 Checking for presence of required libraries                 ok
 Checking database user is the install user                  ok
 Checking for prepared transactions                          ok
