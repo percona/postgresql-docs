@@ -183,14 +183,14 @@ bootstrap:
               archive_mode: "on"
               archive_timeout: 600s
               archive_command: "cp -f %p /home/postgres/archived/%f"
-    
-      pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
-      - host replication replicator 127.0.0.1/32 trust
-      - host replication replicator 0.0.0.0/0 md5
-      - host all all 0.0.0.0/0 md5
-      - host all all ::0/0 md5
-      recovery_conf:
-            restore_command: cp /home/postgres/archived/%f %p
+          pg_hba:
+          - local all all          peer
+          - host replication replicator 127.0.0.1/32 trust
+          - host replication replicator 10.0.0.0/8 scram-sha-256
+          - host all all 0.0.0.0/0 scram-sha-256
+          - host all all ::0/0 scram-sha-256
+          recovery_conf:
+              restore_command: cp /home/postgres/archived/%f %p
 
   # some desired options for 'initdb'
   initdb: # Note: It needs to be a list (some options need values, others are switches)
@@ -238,7 +238,9 @@ tags:
 
     The first section provides the details of the node and its connection ports. After that, we have the `etcd` service and its port details.
 
-    Following these, there is a `bootstrap` section that contains the PostgreSQL configurations and the steps to run once 
+    The `bootstrap.dcs` section stores cluster-wide settings in etcd. The `pg_hba` and `recovery_conf` entries live under `bootstrap.dcs.postgresql` so Patroni can manage `pg_hba.conf` and recovery settings consistently across all nodes. Authentication uses `scram-sha-256` instead of `md5`. The sample `restore_command` pairs with `archive_mode` and `archive_command` for WAL archiving. Additional database users can be created at any time with standard SQL commands; they are not defined in this file.
+
+    The `postgresql.watchdog` section enables the Linux watchdog for STONITH/fencing when a node hangs, which helps prevent split-brain scenarios.
 
 ### Systemd configuration
 
@@ -346,25 +348,33 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 
 ### Troubleshooting Patroni startup
 
- A common error is Patroni complaining about the lack of proper entries in the `pg_hba.conf` file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.
+A common error is Patroni complaining about the lack of proper entries in the `pg_hba.conf` file.
 
-An example of such an error is `No pg_hba.conf entry for replication connection from host to <IP>, user replicator, no encryption`. This means that Patroni cannot connect to the node you're adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the `pg_hba:` section of the Patroni configuration file. 
+An example of such an error is `No pg_hba.conf entry for replication connection from host to <IP>, user replicator, no encryption`. This means that Patroni cannot connect to the node you're adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the `pg_hba` section under `bootstrap.dcs.postgresql` in the Patroni configuration file. Adjust the network CIDR to match your deployment; the sample below uses `10.0.0.0/8` for the lab network:
 
 ```
-pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
-- host replication replicator 127.0.0.1/32 trust
-- host replication replicator 0.0.0.0/0 md5
-- host replication replicator 10.0.100.2/32 trust
-- host replication replicator 10.0.100.3/32 trust
-- host all all 0.0.0.0/0 md5
-- host all all ::0/0 md5
-recovery_conf:
+postgresql:
+  pg_hba:
+  - local all all          peer
+  - host replication replicator 127.0.0.1/32 trust
+  - host replication replicator 10.0.0.0/8 scram-sha-256
+  - host replication replicator 10.0.100.2/32 scram-sha-256
+  - host replication replicator 10.0.100.3/32 scram-sha-256
+  - host all all 0.0.0.0/0 scram-sha-256
+  - host all all ::0/0 scram-sha-256
+  recovery_conf:
       restore_command: cp /home/postgres/archived/%f %p
 ```
 
-For production use, we recommend adding nodes individually as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to as the trusted one to bypass passwords use during authentication. Then all nodes from this network can connect to Patroni cluster. 
+For production use, we recommend adding nodes individually with specific `/32` entries as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to (for example, `10.0.0.0/8`) so all nodes from this network can connect to the Patroni cluster.
 
-Changing the `patroni.yml` file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted. 
+If the cluster is **already running**, changing `patroni.yml` alone does not update `pg_hba.conf`. Update the DCS configuration instead:
+
+```{.bash data-prompt="$"}
+$ sudo patronictl -c /etc/patroni/patroni.yml edit-config
+```
+
+Add or fix the `pg_hba` entries in the editor, save, and Patroni applies the changes across the cluster. For a **new cluster** that has not been bootstrapped yet, fix `patroni.yml` before starting Patroni on the first node.
 
 ## Next steps
 
