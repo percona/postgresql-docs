@@ -40,7 +40,7 @@ Choose the installation method that best fits your environment:
 
 === ":octicons-download-16: Tar download (not recommended)"
 
-    If installing the package (the **recommended** method for a safe, secure, and reliable setup) is not an option, refer to the link below for step-by-step instructions on installing from tarballs using the provided download links.
+    Installing the package is the **recommended** method for a safe, secure, and reliable setup. If using this method is not an option, refer to the link below for step-by-step instructions on installing from tarballs using the provided download links.
 
     In this scenario, you must ensure that all dependencies are met. Failure to do so may result in errors or crashes.
     
