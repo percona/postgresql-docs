@@ -2614,6 +2614,34 @@
   
   
     <li class="md-nav__item">
+      <a href="release-notes/release-notes-v18.6.1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18.6.1 (2026-08-19)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release-notes/release-notes-v18.4.2.html" class="md-nav__link">
         
   
@@ -2706,10 +2734,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_6" >
         
           
-          <label class="md-nav__link" for="__nav_12_5" id="__nav_12_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_12_6" id="__nav_12_6_label" tabindex="0">
             
   
   
@@ -2727,8 +2755,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4045,6 +4073,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
+  <a href="#release-notes-release-notes-v18.6.1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18.6.1 (2026-08-19)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#release-notes-release-notes-v18.4.2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4078,7 +4117,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-12-5" class="md-nav__link">
+  <a href="#section-12-6" class="md-nav__link">
     <span class="md-ellipsis">
       
         2025
@@ -10001,7 +10040,198 @@ server stopped
 <h2 id="release-notes-release-notes-2025">2025<a class="headerlink" href="#release-notes-release-notes-2025" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#release-notes-release-notes-v18.1.1">18.1.1</a> (2025-11-28)</li>
-</ul></section><section class="print-page" id="release-notes-release-notes-v18.4.2" heading-number="12.2"><h1 id="release-notes-release-notes-v18.4.2-percona-distribution-for-postgresql-1842-2026-07-06">Percona Distribution for PostgreSQL 18.4.2 (2026-07-06)<a class="headerlink" href="#release-notes-release-notes-v18.4.2-percona-distribution-for-postgresql-1842-2026-07-06" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release-notes-release-notes-v18.6.1" heading-number="12.2"><h1 id="release-notes-release-notes-v18.6.1-percona-distribution-for-postgresql-1861-2026-08-19">Percona Distribution for PostgreSQL 18.6.1 (2026-08-19)<a class="headerlink" href="#release-notes-release-notes-v18.6.1-percona-distribution-for-postgresql-1861-2026-08-19" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
+<p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.6.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-6.html">PostgreSQL Community 18.6</a>.</p>
+<h2 id="release-notes-release-notes-v18.6.1-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v18.6.1-release-highlights" title="Permanent link">&para;</a></h2>
+<p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, <code>pg_tde</code> 2.2.2 for Transparent Data Encryption and more. See the full component list below for details.</p>
+<ul>
+<li>Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. (<a href="https://perconadev.atlassian.net/browse/PKG-1437">PKG-1437</a>)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>pg_tde</code> 2.2.2 requires Percona Distribution for PostgreSQL 18.4.2 at minimum. Earlier versions of PPG are not supported with this release of <code>pg_tde</code>.</p>
+</div>
+<p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 17.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with this release, <code>shared_preload_libraries</code> is empty by default. Extensions such as <code>pg_tde</code> must be added manually.</p>
+</div>
+<h3 id="release-notes-release-notes-v18.6.1-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v18.6.1-tarball-updates" title="Permanent link">&para;</a></h3>
+<p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
+<ul>
+<li>etcd: 3.5.33</li>
+<li>haproxy: 2.8.27</li>
+<li>patroni: 4.1.5</li>
+<li>pg_tde: 2.2.2</li>
+<li>pg_oidc_validator: 1.1</li>
+<li>pgBackRest: 2.59.0</li>
+<li>pgpool2: 4.7.2</li>
+<li>pgvector: 0.8.6</li>
+<li>postgis: 3.5.7</li>
+<li>postgres-common: 293</li>
+</ul>
+<p>See <a href="#tarball">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
+<h3 id="release-notes-release-notes-v18.6.1-addressed-cves">Addressed CVEs<a class="headerlink" href="#release-notes-release-notes-v18.6.1-addressed-cves" title="Permanent link">&para;</a></h3>
+<p>This release includes important security measures that address the following CVEs:</p>
+<ul>
+<li>CVE-2026-6464</li>
+<li>CVE-2026-6469</li>
+<li>CVE-2026-6470</li>
+<li>CVE-2026-6471</li>
+<li>CVE-2026-14662</li>
+<li>CVE-2026-14663</li>
+<li>CVE-2026-14664</li>
+<li>CVE-2026-14666</li>
+<li>CVE-2026-14668</li>
+<li>CVE-2026-14669</li>
+<li>CVE-2026-14670</li>
+<li>CVE-2026-14671</li>
+<li>CVE-2026-14672</li>
+<li>CVE-2026-14673</li>
+<li>CVE-2026-14676</li>
+<li>CVE-2026-14677</li>
+<li>CVE-2026-14678</li>
+<li>CVE-2026-14679</li>
+<li>CVE-2026-14680</li>
+<li>CVE-2026-14681</li>
+<li>CVE-2026-15741</li>
+<li>CVE-2026-15742</li>
+<li>CVE-2026-16238</li>
+<li>CVE-2026-16239</li>
+<li>CVE-2026-16241</li>
+<li>CVE-2026-18024</li>
+<li>CVE-2026-18408</li>
+<li>CVE-2026-19385</li>
+</ul>
+<p>For more details, see the <a href="https://www.postgresql.org/docs/18/release-18-6.html">PostgreSQL 18.6 release notes</a>.</p>
+<h2 id="release-notes-release-notes-v18.6.1-known-issues">Known Issues<a class="headerlink" href="#release-notes-release-notes-v18.6.1-known-issues" title="Permanent link">&para;</a></h2>
+<h3 id="release-notes-release-notes-v18.6.1-for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#release-notes-release-notes-v18.6.1-for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
+<p>During an upgrade on RHEL, you may encounter the following error:</p>
+<div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
+<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/server/postgresql.mk<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
+<span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
+</code></pre></div>
+<p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
+<h2 id="release-notes-release-notes-v18.6.1-md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#release-notes-release-notes-v18.6.1-md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
+<p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
+<h2 id="release-notes-release-notes-v18.6.1-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v18.6.1-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://etcd.io/">etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>3.5.33</td>
+<td>A distributed, reliable key-value store for setting up highly available Patroni clusters</td>
+</tr>
+<tr>
+<td><a href="https://python-etcd.readthedocs.io/en/latest/">python-etcd <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>0.4.5</td>
+<td>A Python client library for interacting with etcd</td>
+</tr>
+<tr>
+<td><a href="https://www.haproxy.org/">HAProxy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>2.8.27</td>
+<td>A high-availability and load-balancing solution</td>
+</tr>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>4.1.5</td>
+<td>A HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">PgAudit <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>18</td>
+<td>A detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>4.2.0</td>
+<td>Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>2.59.0</td>
+<td>A backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>13.2</td>
+<td>A fast PostgreSQL log analyzer</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>1.25.2</td>
+<td>A lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/citusdata/pg_cron">pg_cron <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>1.6.7</td>
+<td>A simple cron-based job scheduler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jobinau/pg_gather">pg_gather <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>v33</td>
+<td>An SQL script for running diagnostics on the health of a PostgreSQL cluster</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Percona-Lab/pg_oidc_validator">pg_oidc_validator</a></td>
+<td>1.1</td>
+<td>OAuth validator library for PostgreSQL 18</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>1.5.3</td>
+<td>Rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>2.3.2</td>
+<td>Collects and aggregates statistics for PostgreSQL and provides histogram information</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_tde">pg_tde <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>v2.2.2</td>
+<td>A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgvector/pgvector">pg_vector</a></td>
+<td>v0.8.6</td>
+<td>A vector similarity search extension for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary">pgpool2 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>4.7.2</td>
+<td>A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/postgis/postgis">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>3.5.7</td>
+<td>A spatial extension for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://salsa.debian.org/postgresql/postgresql-common">PostgreSQL Commons <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>293</td>
+<td>PostgreSQL database-cluster manager. Supports multiple PostgreSQL versions and clusters simultaneously</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
+<td>2.6</td>
+<td>A PostgreSQL logical decoding JSON output plugin</td>
+</tr>
+</tbody>
+</table>
+<p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section><section class="print-page" id="release-notes-release-notes-v18.4.2" heading-number="12.3"><h1 id="release-notes-release-notes-v18.4.2-percona-distribution-for-postgresql-1842-2026-07-06">Percona Distribution for PostgreSQL 18.4.2 (2026-07-06)<a class="headerlink" href="#release-notes-release-notes-v18.4.2-percona-distribution-for-postgresql-1842-2026-07-06" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.4.2 - a binary-compatible, open source drop-in replacement of <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL Community 18.4</a>.</p>
@@ -10052,7 +10282,7 @@ server stopped
 </tbody>
 </table>
 <p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.</p></section><section class="print-page" id="release-notes-release-notes-v18.4.1" heading-number="12.3"><h1 id="release-notes-release-notes-v18.4.1-percona-distribution-for-postgresql-1841-2026-05-20">Percona Distribution for PostgreSQL 18.4.1 (2026-05-20)<a class="headerlink" href="#release-notes-release-notes-v18.4.1-percona-distribution-for-postgresql-1841-2026-05-20" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.</p></section><section class="print-page" id="release-notes-release-notes-v18.4.1" heading-number="12.4"><h1 id="release-notes-release-notes-v18.4.1-percona-distribution-for-postgresql-1841-2026-05-20">Percona Distribution for PostgreSQL 18.4.1 (2026-05-20)<a class="headerlink" href="#release-notes-release-notes-v18.4.1-percona-distribution-for-postgresql-1841-2026-05-20" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.4.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-4.html">PostgreSQL Community 18.4</a>.</p>
@@ -10214,7 +10444,7 @@ server stopped
 </tbody>
 </table>
 <p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section><section class="print-page" id="release-notes-release-notes-v18.3.1" heading-number="12.4"><h1 id="release-notes-release-notes-v18.3.1-percona-distribution-for-postgresql-1831-2026-03-02">Percona Distribution for PostgreSQL 18.3.1 (2026-03-02)<a class="headerlink" href="#release-notes-release-notes-v18.3.1-percona-distribution-for-postgresql-1831-2026-03-02" title="Permanent link">&para;</a></h1>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section><section class="print-page" id="release-notes-release-notes-v18.3.1" heading-number="12.5"><h1 id="release-notes-release-notes-v18.3.1-percona-distribution-for-postgresql-1831-2026-03-02">Percona Distribution for PostgreSQL 18.3.1 (2026-03-02)<a class="headerlink" href="#release-notes-release-notes-v18.3.1-percona-distribution-for-postgresql-1831-2026-03-02" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.3.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-3.html">PostgreSQL Community 18.3</a>.</p>
@@ -10366,10 +10596,10 @@ server stopped
 </table>
 <p>For Red Hat Enterprise Linux 8 and compatible derivatives, Percona Distribution for PostgreSQL also includes the  supplemental <code>python3-etcd</code> 0.4.5 packages, which are used for setting up Patroni clusters.</p>
 <p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/18/libpq.html">libpq</a> library. It contains &ldquo;a set of library functions that allow client programs to pass queries to the PostgreSQL backend server and to receive the results of these queries.&rdquo;</p></section>
-                    <section class='print-page md-section' id='section-12-5' heading-number='12.5'>
-                        <h1>2025<a class='headerlink' href='#section-12-5' title='Permanent link'></a>
+                    <section class='print-page md-section' id='section-12-6' heading-number='12.6'>
+                        <h1>2025<a class='headerlink' href='#section-12-6' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="release-notes-release-notes-v18.1.1" heading-number="12.5.1"><h1 id="release-notes-release-notes-v18.1.1-percona-distribution-for-postgresql-1811-2025-11-28">Percona Distribution for PostgreSQL 18.1.1 (2025-11-28)<a class="headerlink" href="#release-notes-release-notes-v18.1.1-percona-distribution-for-postgresql-1811-2025-11-28" title="Permanent link">&para;</a></h1>
+                    <section class="print-page" id="release-notes-release-notes-v18.1.1" heading-number="12.6.1"><h1 id="release-notes-release-notes-v18.1.1-percona-distribution-for-postgresql-1811-2025-11-28">Percona Distribution for PostgreSQL 18.1.1 (2025-11-28)<a class="headerlink" href="#release-notes-release-notes-v18.1.1-percona-distribution-for-postgresql-1811-2025-11-28" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 18.1.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/18/release-18-1.html">PostgreSQL Community 18.1</a>.</p>
@@ -10782,14 +11012,16 @@ we will do our very best to be helpful.</p></section></section><section class="p
 .print-site-enumerate-headings #section-12 > h1:before { content: '12 ' }
 .print-site-enumerate-headings #release-notes-release-notes > h1:before { content: '12.1 ' }
 
-.print-site-enumerate-headings #release-notes-release-notes-v18.4.2 > h1:before { content: '12.2 ' }
+.print-site-enumerate-headings #release-notes-release-notes-v18.6.1 > h1:before { content: '12.2 ' }
 
-.print-site-enumerate-headings #release-notes-release-notes-v18.4.1 > h1:before { content: '12.3 ' }
+.print-site-enumerate-headings #release-notes-release-notes-v18.4.2 > h1:before { content: '12.3 ' }
 
-.print-site-enumerate-headings #release-notes-release-notes-v18.3.1 > h1:before { content: '12.4 ' }
+.print-site-enumerate-headings #release-notes-release-notes-v18.4.1 > h1:before { content: '12.4 ' }
 
-.print-site-enumerate-headings #section-12-5 > h1:before { content: '12.5 ' }
-.print-site-enumerate-headings #release-notes-release-notes-v18.1.1 > h1:before { content: '12.5.1 ' }
+.print-site-enumerate-headings #release-notes-release-notes-v18.3.1 > h1:before { content: '12.5 ' }
+
+.print-site-enumerate-headings #section-12-6 > h1:before { content: '12.6 ' }
+.print-site-enumerate-headings #release-notes-release-notes-v18.1.1 > h1:before { content: '12.6.1 ' }
 
 .print-site-enumerate-headings #section-13 > h1:before { content: '13 ' }
 .print-site-enumerate-headings #licensing > h1:before { content: '13.1 ' }
