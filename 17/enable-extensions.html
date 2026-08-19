@@ -3765,7 +3765,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h2 id="pgbadger">pgBadger<a class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h2>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
-log_line_prefix = &#39;%t [%p]: &#39;
+log_line_prefix = '%t [%p]: '
 log_checkpoints = on
 log_connections = on
 log_disconnections = on
@@ -3777,7 +3777,7 @@ log_error_verbosity = default
 <p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <h2 id="pgaudit">pgaudit<a class="headerlink" href="#pgaudit" title="Permanent link">&para;</a></h2>
 <p>Add the <code>pgaudit</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/17/sql-altersystem.html">ALTER SYSTEM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command. <a href="connect.html">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pgaudit&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'pgaudit'</span><span class="p">;</span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
 <p>To configure <code>pgaudit</code>, you must have the privileges of a superuser. You can specify the settings in one of these ways:</p>
@@ -3792,7 +3792,7 @@ log_error_verbosity = default
 </code></pre></div>
 <h2 id="pgaudit-set-user">pgaudit set-user<a class="headerlink" href="#pgaudit-set-user" title="Permanent link">&para;</a></h2>
 <p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/17/sql-altersystem.html">ALTER SYSTEM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command. <a href="connect.html">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;set-user&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'set-user'</span><span class="p">;</span>
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
 <p>Install the extension into your database:</p>

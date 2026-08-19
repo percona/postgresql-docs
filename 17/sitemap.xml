@@ -2,266 +2,270 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.percona.com/postgresql/17/index.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/apt.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/connect.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/contrib.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/crud.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/docker.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/enable-extensions.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/extensions.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/faq.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/get-help.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/installing.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/ldap.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/legal-notice.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/licensing.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/major-upgrade.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/migration.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/minor-upgrade.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/percona-ext.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/postgresql-server.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/quick-start.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/remove-repo-ver.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/repo-overview.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/sboms.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/tarball.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/telemetry.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/third-party.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/trademark-policy.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/troubleshooting.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/uninstalling.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/versioning.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/whats-next.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/yum.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.0.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.10.1.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.10.2.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.11.1.html</loc>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.2.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.4.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.5.1.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.5.3.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.5.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.6.1.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.7.1.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.9.1.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/release-notes/release-notes.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/backup-recovery.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/dr-pgbackrest-setup.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/etcd-info.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-architecture.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-components.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-etcd-config.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-haproxy.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-init-setup.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-measure.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-patroni.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/ha-test.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/haproxy-info.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/high-availability.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/patroni-info.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/pgbackrest-info.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/pgbackrest.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/postgis-deploy.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/postgis-testing.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/postgis-upgrade.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/postgis.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
     <url>
          <loc>https://docs.percona.com/postgresql/17/solutions/tde-tools-compatibility.html</loc>
-         <lastmod>2026-08-13</lastmod>
+         <lastmod>2026-08-19</lastmod>
     </url>
 </urlset>

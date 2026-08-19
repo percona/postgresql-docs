@@ -3668,7 +3668,7 @@ $<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">node1</label><label for="__tabbed_2_2">node2</label><label for="__tabbed_2_3">node3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node1&#39;</span>
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">'node1'</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
 <span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,node3=http://10.104.0.3:2380</span>
@@ -3680,7 +3680,7 @@ $<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node2&#39;</span>
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">'node2'</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
 <span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
@@ -3692,7 +3692,7 @@ $<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node3&#39;</span>
+<div class="highlight"><span class="filename">/etc/etcd/etcd.conf.yaml</span><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">'node3'</span>
 <span class="nt">initial-cluster-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL_HA_Cluster_1</span>
 <span class="nt">initial-cluster-state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">new</span>
 <span class="nt">initial-cluster</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1=http://10.104.0.1:2380,node2=http://10.104.0.2:2380,     node3=http://10.104.0.3:2380</span>
@@ -3888,39 +3888,6 @@ ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
-          
-          <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
-        </a>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
