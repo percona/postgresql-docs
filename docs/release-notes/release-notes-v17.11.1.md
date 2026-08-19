@@ -52,15 +52,24 @@ This release includes important security measures that address the following CVE
 - CVE-2026-14666
 - CVE-2026-14668
 - CVE-2026-14669
+- CVE-2026-14670
+- CVE-2026-14671
 - CVE-2026-14672
+- CVE-2026-14673
+- CVE-2026-14676
+- CVE-2026-14677
+- CVE-2026-14678
 - CVE-2026-14679
 - CVE-2026-14680
 - CVE-2026-14681
 - CVE-2026-15741
+- CVE-2026-15742
 - CVE-2026-16238
 - CVE-2026-16239
 - CVE-2026-16241
 - CVE-2026-18024
+- CVE-2026-18408
+- CVE-2026-19385
 
 For more details, see the [PostgreSQL 17.11 release notes](https://www.postgresql.org/docs/17/release-17-11.html).
 
