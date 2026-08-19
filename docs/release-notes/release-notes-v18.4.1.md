@@ -44,7 +44,7 @@ See [Install Percona Distribution for PostgreSQL from binary tarballs](../tarbal
 
 ### Addressed CVEs
 
-This release includes important security measures that address the following CVEs: TBD. For more details, see the [PostgreSQL 18.4 release notes](https://www.postgresql.org/docs/18/release-18-4.html).
+This release includes important security measures that address the following CVEs: doc/src/sgml/release-18.sgml: CVE-2026-6472, CVE-2026-6473, CVE-2026-6473, CVE-2026-6473, CVE-2026-6473, CVE-2026-6474, CVE-2026-6475, CVE-2026-6476, CVE-2026-6477, CVE-2026-6478, CVE-2026-6479, CVE-2026-6575, CVE-2026-6637 and CVE-2026-6638. For more details, see the [PostgreSQL 18.4 release notes](https://www.postgresql.org/docs/18/release-18-4.html).
 
 ## Known Issues
 
