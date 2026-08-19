@@ -355,13 +355,13 @@ An example of such an error is `No pg_hba.conf entry for replication connection 
 ```
 postgresql:
   pg_hba:
-  - local all all          peer
-  - host replication replicator 127.0.0.1/32 trust
-  - host replication replicator 10.0.0.0/8 scram-sha-256
-  - host replication replicator 10.0.100.2/32 scram-sha-256
-  - host replication replicator 10.0.100.3/32 scram-sha-256
-  - host all all 0.0.0.0/0 scram-sha-256
-  - host all all ::0/0 scram-sha-256
+    - local all all          peer
+    - host replication replicator 127.0.0.1/32 trust
+    - host replication replicator 10.0.0.0/8 scram-sha-256
+    - host replication replicator 10.0.100.2/32 scram-sha-256
+    - host replication replicator 10.0.100.3/32 scram-sha-256
+    - host all all 0.0.0.0/0 scram-sha-256
+    - host all all ::0/0 scram-sha-256
   recovery_conf:
       restore_command: cp /home/postgres/archived/%f %p
 ```
