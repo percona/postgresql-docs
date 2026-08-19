@@ -350,7 +350,7 @@ Now it's time to start Patroni. You need the following commands on all nodes but
 
 A common error is Patroni complaining about the lack of proper entries in the `pg_hba.conf` file.
 
-An example of such an error is `No pg_hba.conf entry for replication connection from host to <IP>, user replicator, no encryption`. This means that Patroni cannot connect to the node you're adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the `pg_hba` section under `bootstrap.dcs.postgresql` in the Patroni configuration file. Adjust the network CIDR to match your deployment; the sample below uses `10.0.0.0/8` for the lab network:
+An example of such an error is `No pg_hba.conf entry for replication connection from host to <IP>, user replicator, no encryption`. This means that Patroni cannot connect to the node you're adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the cluster-wide `pg_hba` list under `postgresql` (stored in the DCS). For a **new cluster** that has not been bootstrapped yet, define the same `pg_hba` list under `bootstrap.dcs.postgresql` in `patroni.yml` before starting Patroni on the first node. Adjust the network CIDR to match your deployment; the sample below uses `10.0.0.0/8` for the lab network:
 
 ```
 postgresql:
