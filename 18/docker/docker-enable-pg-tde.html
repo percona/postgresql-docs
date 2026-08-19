@@ -3387,8 +3387,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>psql (18.4 - Percona Server for PostgreSQL 18.4)
-Type &quot;help&quot; for help.
+<div class="no-copy highlight"><pre><span></span><code>psql (18.6 - Percona Server for PostgreSQL 18.6)
+Type "help" for help.
 
 postgres=#
 </code></pre></div>
@@ -3417,17 +3417,17 @@ CREATE EXTENSION
 <p class="admonition-title">Warning</p>
 <p>This example is for testing purposes only.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_add_database_key_provider_file</span><span class="p">(</span><span class="s1">&#39;file-vault&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/tmp/pg_tde_test_001_basic.per&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_add_database_key_provider_file</span><span class="p">(</span><span class="s1">'file-vault'</span><span class="p">,</span><span class="w"> </span><span class="s1">'/tmp/pg_tde_test_001_basic.per'</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create the key:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_create_key_using_database_key_provider</span><span class="p">(</span><span class="s1">&#39;test-db-key&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;file-vault&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_create_key_using_database_key_provider</span><span class="p">(</span><span class="s1">'test-db-key'</span><span class="p">,</span><span class="w"> </span><span class="s1">'file-vault'</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
 <p>Set the principal key:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_set_key_using_database_key_provider</span><span class="p">(</span><span class="s1">&#39;test-db-key&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;file-vault&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">pg_tde_set_key_using_database_key_provider</span><span class="p">(</span><span class="s1">'test-db-key'</span><span class="p">,</span><span class="w"> </span><span class="s1">'file-vault'</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>

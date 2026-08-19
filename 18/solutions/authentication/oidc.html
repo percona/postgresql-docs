@@ -3452,7 +3452,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Edit <code>postgresql.conf</code> and add the validator library:</p>
-<div class="highlight"><pre><span></span><code><span class="na">oauth_validator_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;pg_oidc_validator&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="na">oauth_validator_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pg_oidc_validator'</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3461,7 +3461,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Add an OAuth authentication rule to <code>pg_hba.conf</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="na">host all all 192.168.1.0/24 oauth scope</span><span class="o">=</span><span class="s">&quot;pgadmin-a&quot;</span><span class="na">,issuer</span><span class="o">=</span><span class="s">https://oidc.example.com</span>
+<div class="highlight"><pre><span></span><code><span class="na">host all all 192.168.1.0/24 oauth scope</span><span class="o">=</span><span class="s">"pgadmin-a"</span><span class="na">,issuer</span><span class="o">=</span><span class="s">https://oidc.example.com</span>
 </code></pre></div>
 <p>Where:</p>
 <ul>

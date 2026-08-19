@@ -3554,13 +3554,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 <h2 class="power-number" id="start-container">1. Start the container<a class="headerlink" href="#start-container" title="Permanent link">&para;</a></h2>
 <p>Start a Percona Distribution for PostgreSQL container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.6
 </code></pre></div>
 <p>Where:</p>
 <ul>
 <li><code>container-name</code> is the name you assign to your container</li>
 <li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
-<li><code>18.4</code> is the tag specifying the version you need. Docker identifies the architecture (amd64 or arm64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
+<li><code>18.6</code> is the tag specifying the version you need. Docker identifies the architecture (amd64 or arm64) and pulls the respective image. See the <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3568,12 +3568,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Export the password to the environment file:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;POSTGRES_PASSWORD=secret&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"POSTGRES_PASSWORD=secret"</span><span class="w"> </span>&gt;<span class="w"> </span>.my-pg.env
 </code></pre></div>
 </li>
 <li>
 <p>Start the container:       </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>--env-file<span class="w"> </span>./.my-pg.env<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.6
 </code></pre></div>
 </li>
 </ol>
@@ -3583,7 +3583,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Start the container with the extensions you want to load:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>-c<span class="w"> </span><span class="nv">shared_preload_libraries</span><span class="o">=</span>example_extension
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.6<span class="w"> </span>-c<span class="w"> </span><span class="nv">shared_preload_libraries</span><span class="o">=</span>example_extension
 </code></pre></div>
 </li>
 <li>
@@ -3606,7 +3606,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <h2 id="3-update-the-image">3. Update the image<a class="headerlink" href="#3-update-the-image" title="Permanent link">&para;</a></h2>
 <p>Pull the new tag explicitly:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18.4
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18.6
 </code></pre></div>
 <p>Or pull the latest image for a major version:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18
@@ -3691,13 +3691,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:18.4<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:18.6<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
 <p>where:</p>
 <ul>
 <li><code>db-container-name</code> is the name of your database container</li>
 <li><code>container-name</code> is the name of your container that you will use to connect to the database container using the <code>psql</code> command line client</li>
-<li><code>18.4</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
+<li><code>18.6</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
 <h2 id="run-the-postgresql-with-postgis-image">Run the PostgreSQL with PostGIS image<a class="headerlink" href="#run-the-postgresql-with-postgis-image" title="Permanent link">&para;</a></h2>
@@ -3724,7 +3724,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </table>
 </details>
 <p>Start a <code>postgres-gis</code> container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql-with-postgis:18.4
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql-with-postgis:18.6
 </code></pre></div>
 <p>Where:</p>
 <ul>
@@ -3746,7 +3746,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h2 id="run-the-pgbackrest-image">Run the pgBackRest image<a class="headerlink" href="#run-the-pgbackrest-image" title="Permanent link">&para;</a></h2>
 <p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a backup and restore solution for PostgreSQL, supporting full, differential, and incremental backups as well as point-in-time recovery. The Percona pgBackRest image is available separately from the PostgreSQL image.</p>
 <p>Start a pgBackRest container as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pgbackrest<span class="w"> </span>-v<span class="w"> </span>/path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf<span class="w"> </span>-d<span class="w"> </span>percona/percona-pgbackrest:2.58.0
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pgbackrest<span class="w"> </span>-v<span class="w"> </span>/path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf<span class="w"> </span>-d<span class="w"> </span>percona/percona-pgbackrest:2.59.0
 </code></pre></div>
 <p>Where:</p>
 <ul>
@@ -3757,7 +3757,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h2 id="run-the-ubi8-based-image">Run the UBI8-based image<a class="headerlink" href="#run-the-ubi8-based-image" title="Permanent link">&para;</a></h2>
 <p>The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
 <p>UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the <code>-ubi8</code> suffix in their tags.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.4-ubi8
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.6-ubi8
 </code></pre></div>
 <p>Where:</p>
 <ul>
