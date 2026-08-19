@@ -10760,6 +10760,9 @@ server stopped
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/14/release-14-24.html">PostgreSQL 14.24</a>.</p>
 <h2 id="release-notes-release-notes-v14.24-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v14.24-release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.</p>
+<ul>
+<li>Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. (<a href="https://perconadev.atlassian.net/browse/PKG-1437">PKG-1437</a>)</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 13.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
