@@ -184,11 +184,11 @@ bootstrap:
               archive_timeout: 600s
               archive_command: "cp -f %p /home/postgres/archived/%f"
           pg_hba:
-          - local all all          peer
-          - host replication replicator 127.0.0.1/32 trust
-          - host replication replicator 10.0.0.0/8 scram-sha-256
-          - host all all 0.0.0.0/0 scram-sha-256
-          - host all all ::0/0 scram-sha-256
+              - local all all          peer
+              - host replication replicator 127.0.0.1/32 trust
+              - host replication replicator 10.0.0.0/8 scram-sha-256
+              - host all all 0.0.0.0/0 scram-sha-256
+              - host all all ::0/0 scram-sha-256
           recovery_conf:
               restore_command: cp /home/postgres/archived/%f %p
 
