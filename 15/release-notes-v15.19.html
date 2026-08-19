@@ -3921,6 +3921,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/15/release-15-19.html">PostgreSQL 15.19</a>.</p>
 <h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.</p>
+<ul>
+<li>Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. (<a href="https://perconadev.atlassian.net/browse/PKG-1437">PKG-1437</a>)</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 14.x), follow the steps in <a href="major-upgrade.html">Upgrading Percona Distribution for PostgreSQL</a>.</p>
@@ -3954,15 +3957,24 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>CVE-2026-14666</li>
 <li>CVE-2026-14668</li>
 <li>CVE-2026-14669</li>
+<li>CVE-2026-14670</li>
+<li>CVE-2026-14671</li>
 <li>CVE-2026-14672</li>
+<li>CVE-2026-14673</li>
+<li>CVE-2026-14676</li>
+<li>CVE-2026-14677</li>
+<li>CVE-2026-14678</li>
 <li>CVE-2026-14679</li>
 <li>CVE-2026-14680</li>
 <li>CVE-2026-14681</li>
 <li>CVE-2026-15741</li>
+<li>CVE-2026-15742</li>
 <li>CVE-2026-16238</li>
 <li>CVE-2026-16239</li>
 <li>CVE-2026-16241</li>
 <li>CVE-2026-18024</li>
+<li>CVE-2026-18408</li>
+<li>CVE-2026-19385</li>
 </ul>
 <p>For more details, see the <a href="https://www.postgresql.org/docs/15/release-15-19.html">PostgreSQL 15.19 release notes</a>.</p>
 <h2 id="known-issue">Known Issue<a class="headerlink" href="#known-issue" title="Permanent link">&para;</a></h2>
@@ -4101,7 +4113,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 13, 2026 14:11:26 UTC">August 13, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 19, 2026 14:10:00 UTC">August 19, 2026</span>
   </span>
 
     
@@ -4129,9 +4141,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
     <nav>
       
-        <a href="https://github.com/surbhat1595" class="md-author" title="@surbhat1595">
+        <a href="https://github.com/ImTheKai" class="md-author" title="@ImTheKai">
           
-          <img src="https://avatars.githubusercontent.com/u/35444149?v=4&size=72" alt="surbhat1595">
+          <img src="https://avatars.githubusercontent.com/u/19579259?v=4&size=72" alt="ImTheKai">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
         </a>
       
         <a href="https://github.com/jeltz" class="md-author" title="@jeltz">
@@ -4139,9 +4156,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
           <img src="https://avatars.githubusercontent.com/u/78469?v=4&size=72" alt="jeltz">
         </a>
       
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+        <a href="https://github.com/surbhat1595" class="md-author" title="@surbhat1595">
           
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+          <img src="https://avatars.githubusercontent.com/u/35444149?v=4&size=72" alt="surbhat1595">
         </a>
       
       
