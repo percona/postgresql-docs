@@ -8,6 +8,8 @@ This release of Percona Distribution for PostgreSQL is based on Percona Server f
 
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, `pg_tde` 2.2.2 for Transparent Data Encryption and more. See the full component list below for details.
 
+- Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. ([PKG-1437](https://perconadev.atlassian.net/browse/PKG-1437))
+
 !!! note
     `pg_tde` 2.2.2 requires Percona Distribution for PostgreSQL 17.10.2 at minimum. Earlier versions of PPG are not supported with this release of `pg_tde`.
 
