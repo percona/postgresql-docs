@@ -10,6 +10,8 @@ This release of Percona Distribution for PostgreSQL is based on [PostgreSQL 15.1
 
 This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.
 
+- Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. ([PKG-1437](https://perconadev.atlassian.net/browse/PKG-1437))
+
 !!! note
     To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 14.x), follow the steps in [Upgrading Percona Distribution for PostgreSQL](major-upgrade.md).
 
