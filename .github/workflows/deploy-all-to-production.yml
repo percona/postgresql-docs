@@ -1,0 +1,81 @@
+name: Deploy all PostgreSQL docs versions to production
+
+# Manual only. Loops through every supported version (14-18), builds
+# each one from its own branch, and pushes the result into this
+# `publish` branch, which the production Render site serves.
+#
+# Versions are deployed one at a time (max-parallel: 1) so their
+# pushes to `publish` never race each other. Use this for a single
+# click release across every branch, instead of triggering each
+# version's own deploy-<version>-to-production workflow separately.
+#
+# Each version's title (e.g. "17.11") is read from that branch's own
+# variables.yml (the "dockertag" field) at deploy time, so this file
+# never needs editing when a new patch is released. Branch 18 is the
+# exception: it always shows the static "18 (LATEST)" label instead
+# of its patch number, matching its own deploy-18-to-production.yml.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: publish-branch-deploy
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Deploy ${{ matrix.version }} docs
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - version: "14"
+          - version: "15"
+          - version: "16"
+          - version: "17"
+          - version: "18"
+            title: "18 (LATEST)"
+            set_default: true
+
+    steps:
+      - name: Checkout ${{ matrix.version }}
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ matrix.version }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+        with:
+          python-version: '3.x'
+
+      - name: Configure git
+        env:
+          ROBOT_TOKEN: ${{ secrets.ROBOT_TOKEN }}
+        run: |
+          git config --global url."https://percona-platform-robot:${ROBOT_TOKEN}@github.com".insteadOf "https://github.com"
+          git config user.name "GitHub Action"
+          git config user.email "github-action@users.noreply.github.com"
+          git config user.password "${ROBOT_TOKEN}"
+          echo "GIT_USER=percona-platform-robot:${ROBOT_TOKEN}" >> $GITHUB_ENV
+
+      - name: Install MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Deploy docs
+        run: |
+          if [ -n "${{ matrix.title }}" ]; then
+            TITLE="${{ matrix.title }}"
+          else
+            TITLE=$(python3 -c "import yaml; print(yaml.safe_load(open('variables.yml'))['dockertag'])")
+          fi
+          mike deploy ${{ matrix.version }} -b publish -p
+          mike retitle ${{ matrix.version }} "$TITLE" -b publish -p
+
+      - name: Set as default version
+        if: matrix.set_default
+        run: mike set-default ${{ matrix.version }} -b publish -p
