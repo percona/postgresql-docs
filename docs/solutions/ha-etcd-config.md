@@ -14,7 +14,7 @@ Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
         $ sudo apt install etcd etcd-server etcd-client 
         ```
 
-    3. Stop and disable etcd:
+    2. Stop and disable etcd:
     
         ```{.bash data-prompt="$"}
         $ sudo systemctl stop etcd
@@ -30,7 +30,7 @@ Install etcd on all PostgreSQL nodes: `node1`, `node2` and `node3`.
         $ sudo yum install etcd python3-python-etcd
         ```
 
-    3. Stop and disable etcd:
+    2. Stop and disable etcd:
     
         ```{.bash data-prompt="$"}
         $ sudo systemctl stop etcd
