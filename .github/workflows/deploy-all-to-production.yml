@@ -9,9 +9,11 @@ name: Deploy all PostgreSQL docs versions to production
 # click release across every branch, instead of triggering each
 # version's own deploy-<version>-to-production workflow separately.
 #
-# Heads up: the version title strings below (e.g. "17.11") need to be
-# kept in sync with the same strings in each branch's own
-# deploy-<version>-to-production.yml whenever a new patch is released.
+# Each version's title (e.g. "17.11") is read from that branch's own
+# variables.yml (the "dockertag" field) at deploy time, so this file
+# never needs editing when a new patch is released. Branch 18 is the
+# exception: it always shows the static "18 (LATEST)" label instead
+# of its patch number, matching its own deploy-18-to-production.yml.
 on:
   workflow_dispatch:
 
@@ -29,13 +31,9 @@ jobs:
       matrix:
         include:
           - version: "14"
-            title: "14.24"
           - version: "15"
-            title: "15.19"
           - version: "16"
-            title: "16.15"
           - version: "17"
-            title: "17.11"
           - version: "18"
             title: "18 (LATEST)"
             set_default: true
@@ -70,8 +68,13 @@ jobs:
 
       - name: Deploy docs
         run: |
+          if [ -n "${{ matrix.title }}" ]; then
+            TITLE="${{ matrix.title }}"
+          else
+            TITLE=$(python3 -c "import yaml; print(yaml.safe_load(open('variables.yml'))['dockertag'])")
+          fi
           mike deploy ${{ matrix.version }} -b publish -p
-          mike retitle ${{ matrix.version }} "${{ matrix.title }}" -b publish -p
+          mike retitle ${{ matrix.version }} "$TITLE" -b publish -p
 
       - name: Set as default version
         if: matrix.set_default
