@@ -48,5 +48,6 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
+          TITLE=$(python3 -c "import yaml; print(yaml.safe_load(open('variables.yml'))['dockertag'])")
           mike deploy 14 -b publish -p
-          mike retitle 14 "14.24" -b publish -p
+          mike retitle 14 "$TITLE" -b publish -p
