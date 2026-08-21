@@ -4770,7 +4770,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p><a class="md-button" href="https://docs.percona.com/percona-operator-for-postgresql/2.0/quickstart.html">Get started with Percona Operator <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
 <div class="tabbed-block">
-<p>If installing the package (the <strong>recommended</strong> method for a safe, secure, and reliable setup) is not an option, refer to the link below for step-by-step instructions on installing from tarballs using the provided download links.</p>
+<p>Installing the package is the <strong>recommended</strong> method for a safe, secure, and reliable setup. If using this method is not an option, refer to the link below for step-by-step instructions on installing from tarballs using the provided download links.</p>
 <p>In this scenario, you must ensure that all dependencies are met. Failure to do so may result in errors or crashes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -7582,14 +7582,14 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <span class="s2">              archive_mode: "</span>on<span class="s2">"</span>
 <span class="s2">              archive_timeout: 600s</span>
 <span class="s2">              archive_command: "</span>cp<span class="w"> </span>-f<span class="w"> </span>%p<span class="w"> </span>/home/postgres/archived/%f<span class="s2">"</span>
-
-<span class="s2">      pg_hba: # Add following lines to pg_hba.conf after running 'initdb'</span>
-<span class="s2">      - host replication replicator 127.0.0.1/32 trust</span>
-<span class="s2">      - host replication replicator 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all 0.0.0.0/0 md5</span>
-<span class="s2">      - host all all ::0/0 md5</span>
-<span class="s2">      recovery_conf:</span>
-<span class="s2">            restore_command: cp /home/postgres/archived/%f %p</span>
+<span class="s2">          pg_hba:</span>
+<span class="s2">              - local all all          peer</span>
+<span class="s2">              - host replication replicator 127.0.0.1/32 trust</span>
+<span class="s2">              - host replication replicator 10.0.0.0/8 scram-sha-256</span>
+<span class="s2">              - host all all 0.0.0.0/0 scram-sha-256</span>
+<span class="s2">              - host all all ::0/0 scram-sha-256</span>
+<span class="s2">          recovery_conf:</span>
+<span class="s2">              restore_command: cp /home/postgres/archived/%f %p</span>
 
 <span class="s2">  # some desired options for 'initdb'</span>
 <span class="s2">  initdb: # Note: It needs to be a list (some options need values, others are switches)</span>
@@ -7634,7 +7634,8 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <summary>Patroni configuration file</summary>
 <p>Let’s take a moment to understand the contents of the <code>patroni.yml</code> file. </p>
 <p>The first section provides the details of the node and its connection ports. After that, we have the <code>etcd</code> service and its port details.</p>
-<p>Following these, there is a <code>bootstrap</code> section that contains the PostgreSQL configurations and the steps to run once </p>
+<p>The <code>bootstrap.dcs</code> section stores cluster-wide settings in etcd. The <code>pg_hba</code> and <code>recovery_conf</code> entries live under <code>bootstrap.dcs.postgresql</code> so Patroni can manage <code>pg_hba.conf</code> and recovery settings consistently across all nodes. Authentication uses <code>scram-sha-256</code> instead of <code>md5</code>. The sample <code>restore_command</code> pairs with <code>archive_mode</code> and <code>archive_command</code> for WAL archiving. Additional database users can be created at any time with standard SQL commands; they are not defined in this file.</p>
+<p>The <code>postgresql.watchdog</code> section enables the Linux watchdog for STONITH/fencing when a node hangs, which helps prevent split-brain scenarios.</p>
 </details>
 <h3 id="solutions-ha-patroni-systemd-configuration">Systemd configuration<a class="headerlink" href="#solutions-ha-patroni-systemd-configuration" title="Permanent link">&para;</a></h3>
 <ol>
@@ -7729,20 +7730,25 @@ Type<span class="w"> </span><span class="s2">"help"</span><span class="w"> </spa
 </li>
 </ol>
 <h3 id="solutions-ha-patroni-troubleshooting-patroni-startup">Troubleshooting Patroni startup<a class="headerlink" href="#solutions-ha-patroni-troubleshooting-patroni-startup" title="Permanent link">&para;</a></h3>
-<p>A common error is Patroni complaining about the lack of proper entries in the <code>pg_hba.conf</code> file. If you see such errors, you must manually add or fix the entries in that file and then restart the service.</p>
-<p>An example of such an error is <code>No pg_hba.conf entry for replication connection from host to &lt;IP&gt;, user replicator, no encryption</code>. This means that Patroni cannot connect to the node you&rsquo;re adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the <code>pg_hba:</code> section of the Patroni configuration file.</p>
-<div class="highlight"><pre><span></span><code>pg_hba: # Add following lines to pg_hba.conf after running 'initdb'
-- host replication replicator 127.0.0.1/32 trust
-- host replication replicator 0.0.0.0/0 md5
-- host replication replicator 10.0.100.2/32 trust
-- host replication replicator 10.0.100.3/32 trust
-- host all all 0.0.0.0/0 md5
-- host all all ::0/0 md5
-recovery_conf:
+<p>A common error is Patroni complaining about the lack of proper entries in the <code>pg_hba.conf</code> file.</p>
+<p>An example of such an error is <code>No pg_hba.conf entry for replication connection from host to &lt;IP&gt;, user replicator, no encryption</code>. This means that Patroni cannot connect to the node you&rsquo;re adding to the cluster. To resolve this issue, add the IP addresses of the nodes to the cluster-wide <code>pg_hba</code> list under <code>postgresql</code> (stored in the DCS). For a <strong>new cluster</strong> that has not been bootstrapped yet, define the same <code>pg_hba</code> list under <code>bootstrap.dcs.postgresql</code> in <code>patroni.yml</code> before starting Patroni on the first node. Adjust the network CIDR to match your deployment; the sample below uses <code>10.0.0.0/8</code> for the lab network:</p>
+<div class="highlight"><pre><span></span><code>postgresql:
+  pg_hba:
+    - local all all          peer
+    - host replication replicator 127.0.0.1/32 trust
+    - host replication replicator 10.0.0.0/8 scram-sha-256
+    - host replication replicator 10.0.100.2/32 scram-sha-256
+    - host replication replicator 10.0.100.3/32 scram-sha-256
+    - host all all 0.0.0.0/0 scram-sha-256
+    - host all all ::0/0 scram-sha-256
+  recovery_conf:
       restore_command: cp /home/postgres/archived/%f %p
 </code></pre></div>
-<p>For production use, we recommend adding nodes individually as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to as the trusted one to bypass passwords use during authentication. Then all nodes from this network can connect to Patroni cluster.</p>
-<p>Changing the <code>patroni.yml</code> file and restarting the service will not have any effect here because the bootstrap section specifies the configuration to apply when PostgreSQL is first started in the node. It will not repeat the process even if the Patroni configuration file is modified and the service is restarted.</p>
+<p>For production use, we recommend adding nodes individually with specific <code>/32</code> entries as the more secure way. However, if your network is secure and you trust it, you can add the whole network these nodes belong to (for example, <code>10.0.0.0/8</code>) so all nodes from this network can connect to the Patroni cluster.</p>
+<p>If the cluster is <strong>already running</strong>, changing <code>patroni.yml</code> alone does not update <code>pg_hba.conf</code>. Update the DCS configuration instead:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>edit-config
+</code></pre></div>
+<p>Add or fix the <code>pg_hba</code> entries in the editor, save, and Patroni applies the changes across the cluster. For a <strong>new cluster</strong> that has not been bootstrapped yet, fix <code>patroni.yml</code> before starting Patroni on the first node.</p>
 <h2 id="solutions-ha-patroni-next-steps">Next steps<a class="headerlink" href="#solutions-ha-patroni-next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="#solutions-pgbackrest">pgBackRest setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="solutions-pgbackrest" heading-number="6.2.6.4"><h1 id="solutions-pgbackrest-pgbackrest-setup">pgBackRest setup<a class="headerlink" href="#solutions-pgbackrest-pgbackrest-setup" title="Permanent link">&para;</a></h1>
 <p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a tool used to perform PostgreSQL database backups, archiving, restoration, and point-in-time recovery.</p>
@@ -10194,6 +10200,9 @@ server stopped
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/16/release-16-15.html">PostgreSQL 16.15</a>.</p>
 <h2 id="release-notes-release-notes-v16.15-release-highlights">Release Highlights<a class="headerlink" href="#release-notes-release-notes-v16.15-release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.</p>
+<ul>
+<li>Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. (<a href="https://perconadev.atlassian.net/browse/PKG-1437">PKG-1437</a>)</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 15.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
@@ -10227,15 +10236,24 @@ server stopped
 <li>CVE-2026-14666</li>
 <li>CVE-2026-14668</li>
 <li>CVE-2026-14669</li>
+<li>CVE-2026-14670</li>
+<li>CVE-2026-14671</li>
 <li>CVE-2026-14672</li>
+<li>CVE-2026-14673</li>
+<li>CVE-2026-14676</li>
+<li>CVE-2026-14677</li>
+<li>CVE-2026-14678</li>
 <li>CVE-2026-14679</li>
 <li>CVE-2026-14680</li>
 <li>CVE-2026-14681</li>
 <li>CVE-2026-15741</li>
+<li>CVE-2026-15742</li>
 <li>CVE-2026-16238</li>
 <li>CVE-2026-16239</li>
 <li>CVE-2026-16241</li>
 <li>CVE-2026-18024</li>
+<li>CVE-2026-18408</li>
+<li>CVE-2026-19385</li>
 </ul>
 <p>For more details, see the <a href="https://www.postgresql.org/docs/16/release-16-15.html">PostgreSQL 16.15 release notes</a>.</p>
 <h2 id="release-notes-release-notes-v16.15-known-issue">Known Issue<a class="headerlink" href="#release-notes-release-notes-v16.15-known-issue" title="Permanent link">&para;</a></h2>
