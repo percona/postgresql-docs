@@ -6,7 +6,7 @@ dockertag: '17.11'
 pgsubversion: '17.11'
 pgversion: '17'
 pspgversion: '17.11.1'
-pgsmversion: '2.3.2'
+pgsmversion: '2.4.0'
 
 date:
   17_12_1: TBD
