@@ -4,7 +4,7 @@
 release: 'release-notes-v16.15'
 dockertag: '16.15'
 pgversion: '16'
-pgsmversion: '2.3.2'
+pgsmversion: '2.4.0'
 
 date:
   16_16: TBD
