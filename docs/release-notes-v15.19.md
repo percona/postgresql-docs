@@ -28,7 +28,7 @@ The binary tarballs for x86_64 and ARM64 architectures have been updated in this
 - etcd: 3.5.33
 - haproxy: 2.8.27
 - patroni: 4.1.5
-- pgBackRest: 2.59.0
+- pgBackRest: 2.59.1
 - pgpool2: 4.7.2
 - pgvector: 0.8.6
 - postgis: 3.5.7
@@ -91,6 +91,13 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
+!!! note "Component updates (2026-09-16)"
+    The following extension versions were updated after this release's initial publication:
+
+    - `pg_stat_monitor`: 2.3.2 → 2.4.0 (2026-09-08)
+    - `pgBackRest`: 2.59.0 → 2.59.1 (2026-09-16)
+    - `pg_cron`: 1.6.7 → 1.6.8 (2026-09-16)
+
 | Extension | Version | Description |
 | --- | --- | --- |
 | [etcd :octicons-link-external-16:](https://etcd.io/) | 3.5.33 | A distributed, reliable key-value store for setting up highly available Patroni clusters |
@@ -99,13 +106,13 @@ The following is the list of extensions available in Percona Distribution for Po
 | [Patroni :octicons-link-external-16:](https://patroni.readthedocs.io/en/latest/) | 4.1.5 | A HA (High Availability) solution for PostgreSQL |
 | [PgAudit :octicons-link-external-16:](https://www.pgaudit.org/) | 1.7.1 | A detailed session or object audit logging via the standard logging facility provided by PostgreSQL |
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user) | 4.2.0 | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance |
-| [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.59.0 | A backup and restore solution for PostgreSQL |
+| [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.59.1 | A backup and restore solution for PostgreSQL |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger) | 13.2 | A fast PostgreSQL log analyzer |
 | [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.25.2 | A lightweight connection pooler for PostgreSQL |
-| [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.7 | A simple cron-based job scheduler for PostgreSQL |
+| [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.8 | A simple cron-based job scheduler for PostgreSQL |
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v33 | An SQL script for running diagnostics on the health of a PostgreSQL cluster |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | Rebuilds PostgreSQL database objects |
-| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.3.2 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
+| [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.4.0 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
 | [pg_vector](https://github.com/pgvector/pgvector) | v0.8.6 | A vector similarity search extension for PostgreSQL |
 | [pgpool2 :octicons-link-external-16:](https://git.postgresql.org/gitweb/?p=pgpool2.git;a=summary) | 4.7.2 | A middleware between PostgreSQL server and client for high availability, connection pooling, and load balancing |
 | [PostGIS :octicons-link-external-16:](https://github.com/postgis/postgis) | 3.5.7 | A spatial extension for PostgreSQL |
