@@ -10335,7 +10335,7 @@ server stopped
 <li>etcd: 3.5.33</li>
 <li>haproxy: 2.8.27</li>
 <li>patroni: 4.1.5</li>
-<li>pgBackRest: 2.59.0</li>
+<li>pgBackRest: 2.59.1</li>
 <li>pgpool2: 4.7.2</li>
 <li>pgvector: 0.8.6</li>
 <li>postgis: 3.5.7</li>
@@ -10386,6 +10386,15 @@ server stopped
 <h2 id="release-notes-v15.19-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-v15.19-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<div class="admonition note">
+<p class="admonition-title">Component updates (2026-09-16)</p>
+<p>The following extension versions were updated after this release&rsquo;s initial publication:</p>
+<ul>
+<li><code>pg_stat_monitor</code>: 2.3.2 → 2.4.0 (2026-09-08)</li>
+<li><code>pgBackRest</code>: 2.59.0 → 2.59.1 (2026-09-16)</li>
+<li><code>pg_cron</code>: 1.6.7 → 1.6.8 (2026-09-16)</li>
+</ul>
+</div>
 <table>
 <thead>
 <tr>
@@ -10427,7 +10436,7 @@ server stopped
 </tr>
 <tr>
 <td><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.59.0</td>
+<td>2.59.1</td>
 <td>A backup and restore solution for PostgreSQL</td>
 </tr>
 <tr>
@@ -10442,7 +10451,7 @@ server stopped
 </tr>
 <tr>
 <td><a href="https://github.com/citusdata/pg_cron">pg_cron <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>1.6.7</td>
+<td>1.6.8</td>
 <td>A simple cron-based job scheduler for PostgreSQL</td>
 </tr>
 <tr>
@@ -10457,7 +10466,7 @@ server stopped
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>2.3.2</td>
+<td>2.4.0</td>
 <td>Collects and aggregates statistics for PostgreSQL and provides histogram information</td>
 </tr>
 <tr>
@@ -11244,7 +11253,7 @@ backend server and to receive the results of these queries.&rdquo;</p></section>
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.3.2</td>
+<td>2.4.0</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
 <tr>
@@ -11361,7 +11370,7 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></td>
-<td>2.3.2</td>
+<td>2.4.0</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
 <tr>
@@ -11485,7 +11494,7 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>2.3.2</td>
+<td>2.4.0</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
 <tr>
@@ -11593,7 +11602,7 @@ backend server and to receive the results of these queries.&rdquo; </p></section
 </tr>
 <tr>
 <td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
-<td>2.3.2</td>
+<td>2.4.0</td>
 <td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
 </tr>
 <tr>
