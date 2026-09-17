@@ -6,9 +6,9 @@ dockertag: '18.6'
 pgsubversion: '18.6'
 pgversion: '18'
 pspgversion: '18.6.1'
-pgsmversion: '2.3.2'
+pgsmversion: '2.4.0'
 pgbouncerversion: '1.25.2'
-pgbackrestversion: '2.59.0'
+pgbackrestversion: '2.59.1'
 
 date:
   18_7_1: TBD
