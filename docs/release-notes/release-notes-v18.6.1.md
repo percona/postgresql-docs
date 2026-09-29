@@ -94,12 +94,13 @@ Review each extension’s release notes for What’s new, improvements, or bug f
 
 The following is the list of extensions available in Percona Distribution for PostgreSQL.
 
-!!! note "Component updates (2026-09-16)"
+!!! note "Component updates (2026-09-29)"
     The following extension versions were updated after this release's initial publication:
 
     - `pg_stat_monitor`: 2.3.2 → 2.4.0 (2026-09-08)
     - `pgBackRest`: 2.59.0 → 2.59.1 (2026-09-16)
     - `pg_cron`: 1.6.7 → 1.6.8 (2026-09-16)
+    - `pgBouncer`: 1.25.2 → 1.26.0 (2026-09-29)
 
 | Extension | Version | Description |
 | --- | --- | --- |
@@ -111,7 +112,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [pgAudit set_user :octicons-link-external-16:](https://github.com/pgaudit/set_user) | 4.2.0 | Provides an additional layer of logging and control when unprivileged users must escalate roles for maintenance |
 | [pgBackRest :octicons-link-external-16:](https://pgbackrest.org/) | 2.59.1 | A backup and restore solution for PostgreSQL |
 | [pgBadger :octicons-link-external-16:](https://github.com/darold/pgbadger) | 13.2 | A fast PostgreSQL log analyzer |
-| [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.25.2 | A lightweight connection pooler for PostgreSQL |
+| [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.26.0 | A lightweight connection pooler for PostgreSQL |
 | [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.8 | A simple cron-based job scheduler for PostgreSQL |
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | v33 | An SQL script for running diagnostics on the health of a PostgreSQL cluster |
 | [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.1 | OAuth validator library for PostgreSQL 18 |
