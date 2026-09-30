@@ -78,6 +78,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
+      - "17.11.1 ({{date.17_11_1}})": release-notes/release-notes-v17.11.1.md
       - "17.10.2 ({{date.17_10_2}})": release-notes/release-notes-v17.10.2.md
       - "17.10.1 ({{date.17_10_1}})": release-notes/release-notes-v17.10.1.md
       - "17.9.1 ({{date.17_9_1}})": release-notes/release-notes-v17.9.1.md

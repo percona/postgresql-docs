@@ -65,6 +65,10 @@ Run **all** commands as root or via **sudo**:
 
     This updates the extension to the latest installed version and needs to be run in each database where the extension is installed.
 
+!!! note "Telemetry Agent after upgrading to 17.11 or later"
+
+    Starting with version 17.11, `percona-pg-telemetry` no longer depends on `percona-telemetry-agent`. If your current installation already has the Telemetry Agent (from a version earlier than 17.11), upgrading does **not** remove it automatically — it keeps running until you remove it. See [Telemetry Agent dependencies and removal considerations](telemetry.md#telemetry-agent-dependencies-and-removal-considerations).
+
 !!! note "For minor upgrades (RHEL only)"
 
     During a minor upgrade on RHEL, you may encounter the following error:

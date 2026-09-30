@@ -1,0 +1,32 @@
+name: Check release notes wiring
+
+# Read-only validation - never edits or commits anything. Catches release
+# notes pages that were added but not wired into the mkdocs nav, the
+# release notes index, or variables.yml, and warns (without failing) when
+# a release date still looks like a TBD placeholder.
+on:
+  pull_request:
+    paths:
+      - "docs/release-notes*.md"
+      - "docs/release-notes/**"
+      - "mkdocs.yml"
+      - "mkdocs-base.yml"
+      - "variables.yml"
+
+jobs:
+  check:
+    name: Check release notes wiring
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+        with:
+          python-version: '3.x'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Check release notes wiring
+        run: python3 scripts/check_release_notes.py
