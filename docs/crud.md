@@ -48,7 +48,7 @@ SELECT * FROM customers;
 ??? example "Expected output"
 
     ```{.sql .no-copy}
-    id | first_name | last_name |          email
+     id | first_name | last_name |          email
     ----+------------+-----------+-------------------------
       1 | John       | Doe       | john.doe@example.com
       2 | Jane       | Doe       | jane.doe@example.com
@@ -77,12 +77,10 @@ Let's update John Doe's record with a new email address.
     ??? example "Expected output"
 
         ```{.sql .no-copy}
-         id | first_name | last_name |          email
-        ----+------------+-----------+-------------------------
-          2 | Jane       | Doe       | jane.doe@example.com
-          3 | Alice      | Smith     | alice.smith@example.com
+         id | first_name | last_name |        email
+        ----+------------+-----------+----------------------
           1 | John       | Doe       | john.doe@myemail.com
-        (3 rows)
+        (1 row)
         ```
 
 ## Delete data
