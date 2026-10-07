@@ -7,11 +7,6 @@ To ensure a smooth upgrade path, follow these steps:
 * Upgrade to the latest minor version within your current major version (e.g., from 17.4 to 17.5).
 * Then, perform the major upgrade to your desired version (e.g., from 17.5 to 18.1).
 
-!!! note
-    When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
-
-    Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.
-
 !!! warning
     When doing a major version upgrade, if your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
 
@@ -320,7 +315,7 @@ Run **all** commands as root or via **sudo**:
        --new-bindir /usr/pgsql-{{pgversion}}/bin  \
        --old-datadir /var/lib/pgsql/17/data \
        --new-datadir /var/lib/pgsql/{{pgversion}}/data \
-       --link 
+       --link
        ```
 
        The  `--link` flag creates hard links to the files on the old version cluster so you don’t need to copy data.
