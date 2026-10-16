@@ -13,6 +13,7 @@ Percona Distribution for PostgreSQL is supplied with the set of third-party open
 | [pgBackRest](https://pgbackrest.org/) | Required | A backup and restore solution for PostgreSQL |
 | [pgBadger](https://github.com/darold/pgbadger) | Required | A fast PostgreSQL Log Analyzer |
 | [PgBouncer](https://www.pgbouncer.org/) | Required | A lightweight connection pooler for PostgreSQL |
+| [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | Required | A simple cron-based job scheduler for PostgreSQL |
 | [pg_gather](https://github.com/jobinau/pg_gather) | Required | An SQL script to assess the health of PostgreSQL cluster by gathering performance and configuration data from PostgreSQL databases |
 | [pgpool2](https://www.pgpool.net/mediawiki/index.php/Main_Page) | Required | A middleware between PostgreSQL server and client for high availability, connection pooling and load balancing |
 | [pg_repack](https://github.com/reorg/pg_repack) | Required | Rebuilds PostgreSQL database objects |
