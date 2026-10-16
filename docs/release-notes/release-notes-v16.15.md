@@ -17,7 +17,7 @@ This release continues to deliver Percona’s open source value-add components f
 
 ### Removed dependency on percona-telemetry-agent
 
-The hard depencency on `percona-pg-telemetry`, which has been a stub since 1.2.0, has been replaced by a weak one and additionally the `percona-pg-telemetry`package no longer installs the telemertry agent (`percona-telemetry-agent`).
+The hard dependency on `percona-pg-telemetry`, which has been a stub since 1.2.0, has been replaced by a weak one and additionally the `percona-pg-telemetry` package no longer installs the telemetry agent (`percona-telemetry-agent`).
 
 See [Telemetry Agent dependencies and removal considerations](../telemetry.md#telemetry-agent-dependencies-and-removal-considerations) for details.
 
