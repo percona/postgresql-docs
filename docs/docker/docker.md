@@ -122,6 +122,16 @@ where:
 * `container name` is the name of your Percona Distribution for PostgreSQL container, and
 * `app-that-uses-postgresql` is the name of your PostgreSQL client.
 
+!!! tip
+
+    To connect from an application running on the host machine itself, start the database container with the `-p` option (`-p host-port:container-port`):
+
+    ```{.bash data-prompt="$"}
+    docker run --name container-name -e POSTGRES_PASSWORD=secret -p 5432:5432 -d percona/percona-distribution-postgresql:{{dockertag}}
+    ```
+
+    Then, from your application, connect to `localhost` on the host port, for example `localhost:5432`.
+
 ## Connect to Percona Distribution for PostgreSQL from the `psql` command line client
 
 The following command starts another container instance and runs the `psql` command line client against your original container, allowing you to execute SQL statements against your database:
