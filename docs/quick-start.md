@@ -10,6 +10,7 @@ This guide shows how to install and start Percona Distribution for PostgreSQL on
 ## Fast path (2-minute install)
 
 ```{.bash data-prompt="$"}
+sudo apt update && sudo apt install -y wget gnupg2 curl lsb-release
 wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
 sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 sudo percona-release setup ppg-18  
@@ -32,14 +33,21 @@ For a step-by-step explanation, continue below.
 
 ## Install on Debian / Ubuntu (APT) {.power-number}
 
-1. Fetch the `percona-release` package:
+1. Install the tools needed to fetch and set up the Percona repository. Minimal and container images of Debian and Ubuntu often don't include them:
+
+     ```{.bash data-prompt="$"}
+     sudo apt update
+     sudo apt install -y wget gnupg2 curl lsb-release
+     ```
+
+2. Fetch the `percona-release` package:
 
      ```{.bash data-prompt="$"}
      wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
      sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
      ```
 
-2. Enable the repository and install the package:
+3. Enable the repository and install the package:
 
      ```{.bash data-prompt="$"}
      sudo percona-release setup ppg-18
@@ -51,14 +59,14 @@ For a step-by-step explanation, continue below.
     !!! note
           On Debian and Ubuntu systems, the `postgresql` service may show as `active (exited)`. This is expected.
 
-3. Switch to the `postgres` user and open the psql interactive terminal:
+4. Switch to the `postgres` user and open the psql interactive terminal:
 
      ```{.bash data-prompt="$"}
      sudo -i -u postgres
      psql
      ```
 
-4. Create a database and make a table in the database:
+5. Create a database and make a table in the database:
 
      ```sql
      CREATE DATABASE test;
@@ -66,7 +74,7 @@ For a step-by-step explanation, continue below.
      CREATE TABLE customers (first_name VARCHAR(50), last_name VARCHAR(50), email VARCHAR(100));
      ```
 
-5. Insert data in the customers table and query the data insertion:
+6. Insert data in the customers table and query the data insertion:
 
      ```sql
      INSERT INTO customers (first_name, last_name, email) VALUES ('John', 'Doe', 'john.doe@example.com');
