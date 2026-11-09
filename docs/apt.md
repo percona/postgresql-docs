@@ -10,6 +10,13 @@ The components of Percona Distribution for PostgreSQL {{pgversion}} can only be 
 
 If you wish to use Percona Distribution for PostgreSQL, uninstall the `postgresql-{{pgversion}}` package provided by your distribution and then install the chosen components from Percona Distribution for PostgreSQL.
 
+The commands below use `wget`, `gnupg2`, `curl`, and `lsb-release`. Minimal and container images often don't include them. Install them first:
+
+```{.bash data-prompt="$"}
+$ sudo apt update
+$ sudo apt install -y wget gnupg2 curl lsb-release
+```
+
 ## Procedure
 
 Run all the commands in the following sections as root or using the `sudo` command:
