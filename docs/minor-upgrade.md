@@ -77,4 +77,16 @@ Run **all** commands as root or via **sudo**:
 
     To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
+    On RHEL 10, some earlier releases (for example, 18.4) may have installed the distribution's PostgreSQL packages, causing the following error:
+
+    ```
+    file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+    ```
+
+    To resolve this, remove the distribution's PostgreSQL packages before upgrading. Percona packages and your data are not affected:
+
+    ```bash
+    sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
+    ```
+
 If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 17 to 18](major-upgrade.md).
