@@ -4,6 +4,7 @@ This page lists all release notes for Percona Server for PostgreSQL 18, organize
 
 ## 2026
 
+* [18.7.1](release-notes-v18.7.1.md) ({{date.18_7_1}})
 * [18.6.1](release-notes-v18.6.1.md) ({{date.18_6_1}})
 * [18.4.2](release-notes-v18.4.2.md) ({{date.18_4_2}})
 * [18.4.1](release-notes-v18.4.1.md) ({{date.18_4_1}})
