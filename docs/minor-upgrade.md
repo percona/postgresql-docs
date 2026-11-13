@@ -77,14 +77,14 @@ To resolve this, remove the `percona-postgresql-common-dev` package and reinstal
 
 On RHEL 10, some earlier releases may have installed the distribution's PostgreSQL 18 packages, causing the following error:
 
-    ```
-    file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
-    ```
+```
+file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+```
 
-    To resolve this, remove the distribution's PostgreSQL packages before upgrading:
+To resolve this, remove the distribution's PostgreSQL packages before upgrading:
 
-    ```bash
-    sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
-    ```
+```bash
+sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
+```
 
 If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 13 to 14](major-upgrade.md).
