@@ -10353,19 +10353,15 @@ server stopped
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
 <p>On RHEL 10, some earlier releases may have installed the distribution&rsquo;s PostgreSQL 18 packages, causing the following error:</p>
-<div class="highlight"><pre><span></span><code>```
-file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
-```
-
-!!! warning
-    Before you remove anything, make sure your database runs on Percona Distribution for PostgreSQL and not on the 
-    distribution's PostgreSQL 18.
-
-To resolve this, remove the distribution's PostgreSQL packages before upgrading:
-
-```bash
-sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
-```
+<div class="highlight"><pre><span></span><code>file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before you remove anything, make sure your database runs on Percona Distribution for PostgreSQL and not on the
+distribution&rsquo;s PostgreSQL 18.</p>
+</div>
+<p>To resolve this, remove the distribution&rsquo;s PostgreSQL packages before upgrading:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>remove<span class="w"> </span>postgresql18-server<span class="w"> </span>postgresql18<span class="w"> </span>postgresql18-private-libs
 </code></pre></div>
 <h2 id="release-notes-release-notes-v17.12.1-md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#release-notes-release-notes-v17.12.1-md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
 <p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
