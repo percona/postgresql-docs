@@ -112,19 +112,19 @@ To resolve this, remove the `percona-postgresql-common-dev` package and reinstal
 
 On RHEL 10, some earlier releases may have installed the distribution's PostgreSQL 18 packages, causing the following error:
 
-    ```
-    file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
-    ```
+```
+file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+```
 
-    !!! warning
-        Before you remove anything, make sure your database runs on Percona Distribution for PostgreSQL and not on the 
-        distribution's PostgreSQL 18.
+!!! warning
+    Before you remove anything, make sure your database runs on Percona Distribution for PostgreSQL and not on the
+    distribution's PostgreSQL 18.
 
-    To resolve this, remove the distribution's PostgreSQL packages before upgrading:
+To resolve this, remove the distribution's PostgreSQL packages before upgrading:
 
-    ```bash
-    sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
-    ```
+```bash
+sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
+```
 
 ## MD5 Authentication Deprecated
 
