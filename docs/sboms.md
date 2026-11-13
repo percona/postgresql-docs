@@ -6,8 +6,6 @@ Percona provides Software Bill of Materials (SBOMs), these files can help with c
 SBOMs are available for:
 
 === "Debian"
-    - [Debian 11 (Bullseye, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-17/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bullseye-x86_64.json)
-    - [Debian 11 (Bullseye, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-17/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bullseye-aarch64.json)
     - [Debian 12 (Bookworm, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-17/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bookworm-x86_64.json)
     - [Debian 12 (Bookworm, aarch64)](https://downloads.percona.com/downloads/postgresql-distribution-17/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-bookworm-aarch64.json)
     - [Debian 13 (Trixie, x86_64)](https://downloads.percona.com/downloads/postgresql-distribution-17/{{pgsubversion}}/binary/tarball/sbom-percona-postgresql-{{pgsubversion}}-trixie-x86_64.json)
