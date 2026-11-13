@@ -10438,15 +10438,10 @@ Checking for prepared transactions                          ok
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
 <p>On RHEL 10, some earlier releases may have installed the distribution&rsquo;s PostgreSQL 18 packages, causing the following error:</p>
-<div class="highlight"><pre><span></span><code>```
-file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
-```
-
-To resolve this, remove the distribution's PostgreSQL packages before upgrading:
-
-```bash
-sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
-```
+<div class="highlight"><pre><span></span><code>file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+</code></pre></div>
+<p>To resolve this, remove the distribution&rsquo;s PostgreSQL packages before upgrading:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>remove<span class="w"> </span>postgresql18-server<span class="w"> </span>postgresql18<span class="w"> </span>postgresql18-private-libs
 </code></pre></div>
 <p>If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL from 13 to 14</a>.</p></section><section class="print-page" id="migration" heading-number="7.3"><h1 id="migration-migrate-from-postgresql-to-percona-distribution-for-postgresql">Migrate from PostgreSQL to Percona Distribution for PostgreSQL<a class="headerlink" href="#migration-migrate-from-postgresql-to-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. Percona Distribution for PostgreSQL is available as a software collection that is easy to deploy.</p>
@@ -10884,19 +10879,15 @@ server stopped
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
 <p>On RHEL 10, some earlier releases may have installed the distribution&rsquo;s PostgreSQL 18 packages, causing the following error:</p>
-<div class="highlight"><pre><span></span><code>```
-file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
-```
-
-!!! warning
-    Before you remove anything, make sure your database runs on Percona Distribution for PostgreSQL and not on the 
-    distribution's PostgreSQL 18.
-
-To resolve this, remove the distribution's PostgreSQL packages before upgrading:
-
-```bash
-sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
-```
+<div class="highlight"><pre><span></span><code>file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before you remove anything, make sure your database runs on Percona Distribution for PostgreSQL and not on the
+distribution&rsquo;s PostgreSQL 18.</p>
+</div>
+<p>To resolve this, remove the distribution&rsquo;s PostgreSQL packages before upgrading:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>remove<span class="w"> </span>postgresql18-server<span class="w"> </span>postgresql18<span class="w"> </span>postgresql18-private-libs
 </code></pre></div>
 <h2 id="release-notes-release-notes-v14.25-supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#release-notes-release-notes-v14.25-supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
