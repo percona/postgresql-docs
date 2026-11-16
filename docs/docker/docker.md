@@ -40,6 +40,16 @@ Where:
         docker run --name container-name --env-file ./.my-pg.env -d percona/percona-distribution-postgresql:{{dockertag}}
         ```
 
+!!! tip
+
+    To persist the data even after you remove the container, mount a named volume using the `-v` option:
+
+    ```{.bash data-prompt="$"}
+    docker run --name container-name -e POSTGRES_PASSWORD=secret -v pg-data:/data/db -d percona/percona-distribution-postgresql:{{dockertag}}
+    ```
+
+    `pg-data` is a volume name of your choice. `/data/db` is the data directory, as provided by this Docker image. To reuse the data, start the new container with the same `-v` option: `-v pg-data:/data/db`.
+
 ## 2. Enable extensions
 
 Some extensions require server startup configuration and must be loaded via `shared_preload_libraries` before PostgreSQL starts. You need to explicitly load the extensions when starting the container using the `shared_preload_libraries` parameter, then enabled per database:
