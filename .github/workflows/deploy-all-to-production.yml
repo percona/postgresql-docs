@@ -30,12 +30,12 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - version: "14"
           - version: "15"
           - version: "16"
           - version: "17"
           - version: "18"
-            title: "18 (LATEST)"
+          - version: "19"
+            title: "19 (LATEST)"
             set_default: true
 
     steps:

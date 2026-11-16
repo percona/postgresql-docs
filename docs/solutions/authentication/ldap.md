@@ -24,6 +24,6 @@ Follow these steps to set up LDAP authentication for your PostgreSQL database.
 
 4. Connect to your database as a superuser and create the roles that correspond to groups or users in your LDAP directory.
 
-5. Grant appropriate permissions to these roles using [standard SQL GRANT statements :octicons-link-external-16:](https://www.postgresql.org/docs/18/sql-grant.html).
+5. Grant appropriate permissions to these roles using [standard SQL GRANT statements :octicons-link-external-16:](https://www.postgresql.org/docs/19/sql-grant.html).
 
 By following these steps, you have successfully integrated LDAP authentication into your environment.

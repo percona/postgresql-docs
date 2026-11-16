@@ -16,10 +16,6 @@ Though minor upgrades do not change the behavior, we recommend you to back up yo
 
 1. [Update the `percona-release` :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/updating.html) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL.
 
-2. Starting with version 17.2.1, `pg_tde` is part of the Percona Server for PostgreSQL package. If you installed `pg_tde` from its dedicated package, do the following to avoid conflicts during the upgrade:
-
-    * Uninstall the `percona-postgresql-17-pg-tde` package for Debian/Ubuntu or the `percona-pg_tde_17` package for RHEL and derivatives.
-
 ## Procedure
 
 Run **all** commands as root or via **sudo**:
@@ -36,7 +32,7 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl stop postgresql-17
+         $ sudo systemctl stop postgresql-19
          ```
 
 2. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
@@ -54,7 +50,7 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start postgresql-18
+         $ sudo systemctl start postgresql-19
          ```
 
 5. If you use `pg_tde`, update the extension. After restarting the cluster, connect to each database where `pg_tde` is installed and run:
@@ -77,16 +73,4 @@ Run **all** commands as root or via **sudo**:
 
     To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
-    On RHEL 10, some earlier releases may have installed the distribution's PostgreSQL 18 packages, causing the following error:
-
-    ```
-    file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
-    ```
-
-    To resolve this, remove the distribution's PostgreSQL packages before upgrading:
-
-    ```bash
-    sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
-    ```
-
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 17 to 18](major-upgrade.md).
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 18 to 19](major-upgrade.md).
