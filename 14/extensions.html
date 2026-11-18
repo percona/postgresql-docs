@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/14/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -4055,7 +4055,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<h1 id="extensions">Extensions<a data-markdown-ignore class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL includes a set of extensions that have been tested to work together. These extensions enable you to efficiently solve essential practical tasks to operate and manage PostgreSQL.</p>
 <p>The set of extensions includes the following:</p>
 <ul>
@@ -4068,7 +4068,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 <p>Additionally, see the list of <a href="https://www.percona.com/postgresql/support/">PostgreSQL software</a> covered by Percona Support.</p>
-<h2 id="install-an-extension">Install an extension<a class="headerlink" href="#install-an-extension" title="Permanent link">&para;</a></h2>
+<h2 id="install-an-extension">Install an extension<a data-markdown-ignore class="headerlink" href="#install-an-extension" title="Permanent link">&para;</a></h2>
 <p>To use an extension, install it. Run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command on the PostgreSQL node where you want the extension to be available. </p>
 <p>The user should be a superuser or have the <code>CREATE</code> privilege on the current database to be able to run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> command. Some extensions may require additional privileges depending on their functionality. To learn more, check the documentation for the desired extension.</p>
 

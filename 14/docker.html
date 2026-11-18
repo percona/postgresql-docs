@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/14/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -4123,7 +4123,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
+<h1 id="run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a data-markdown-ignore class="headerlink" href="#run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
 <p>Docker images of Percona Distribution for PostgreSQL are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs  <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <div class="admonition note">
@@ -4188,7 +4188,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tbody>
 </table>
 </details>
-<h2 class="power-number" id="start-the-container">Start the container<a class="headerlink" href="#start-the-container" title="Permanent link">&para;</a></h2>
+<h2 class="power-number" id="start-the-container">Start the container<a data-markdown-ignore class="headerlink" href="#start-the-container" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Start a Percona Distribution for PostgreSQL container as follows:</p>
@@ -4224,7 +4224,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>The <code>container-name</code> is the name of the container that you started in the previous step.</p>
 </li>
 </ol>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
+<h2 id="connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a data-markdown-ignore class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
 <p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>app-container-name<span class="w"> </span>--network<span class="w"> </span>container:container-name<span class="w"> </span>-d<span class="w"> </span>app-that-uses-postgresql<span class="w"> </span>
 </code></pre></div>
@@ -4234,7 +4234,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>container name</code> is the name of your Percona Distribution for PostgreSQL container, and </li>
 <li><code>app-that-uses-postgresql</code> is the name of your PostgreSQL client.</li>
 </ul>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
+<h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a data-markdown-ignore class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:14.25<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
@@ -4245,7 +4245,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>14.25</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image. </li>
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.   </li>
 </ul>
-<h2 id="enable-pg_stat_monitor">Enable <code>pg_stat_monitor</code><a class="headerlink" href="#enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
+<h2 id="enable-pg_stat_monitor">Enable <code>pg_stat_monitor</code><a data-markdown-ignore class="headerlink" href="#enable-pg_stat_monitor" title="Permanent link">&para;</a></h2>
 <p>To enable the <code>pg_stat_monitor</code> extension after launching the container, do the following:</p>
 <ul>
 <li>connect to the server, </li>

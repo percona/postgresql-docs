@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/14/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -4213,12 +4213,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-1419-2025-09-16">Percona Distribution for PostgreSQL 14.19 (2025-09-16)<a class="headerlink" href="#percona-distribution-for-postgresql-1419-2025-09-16" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-1419-2025-09-16">Percona Distribution for PostgreSQL 14.19 (2025-09-16)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-1419-2025-09-16" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="../installing.html">Installation</a></p>
 <p>Percona Distribution for PostgreSQL is a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/14/release-14-19.html">PostgreSQL 14.19</a>.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<h3 id="tarball-updates">Tarball updates<a class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h3 id="tarball-updates">Tarball updates<a data-markdown-ignore class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The <a href="../tarball.html">installation preconditions for tarballs</a> now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the <code>acl</code> package.</p>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
 <ul>
@@ -4232,20 +4232,20 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>See <a href="../tarball.html">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
 <p>The <a href="../tarball.html">installation preconditions for tarballs</a> now include an extra step for RHEL, Rocky Linux, or Oracle Linux 10: installing the <code>acl</code> package.</p>
-<h3 id="sboms-available-for-download">SBOMs available for download<a class="headerlink" href="#sboms-available-for-download" title="Permanent link">&para;</a></h3>
+<h3 id="sboms-available-for-download">SBOMs available for download<a data-markdown-ignore class="headerlink" href="#sboms-available-for-download" title="Permanent link">&para;</a></h3>
 <p>Percona now provides Software Bill of Materials (SBOMs) to support compliance and security audits. SBOM files are available for tarball builds.</p>
 <p>See <a href="../sboms.html">Software Bill of Materials (SBOMs)</a> for the full list.</p>
-<h3 id="addressed-cves">Addressed CVEs<a class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
+<h3 id="addressed-cves">Addressed CVEs<a data-markdown-ignore class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs: CVE-2025-8713, CVE-2025-8714, and CVE-2025-8715. For more details, see the <a href="https://www.postgresql.org/docs/release/14.19/">PostgreSQL 14.19 release notes</a>.</p>
-<h2 id="known-issue">Known Issue<a class="headerlink" href="#known-issue" title="Permanent link">&para;</a></h2>
-<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
+<h2 id="known-issue">Known Issue<a data-markdown-ignore class="headerlink" href="#known-issue" title="Permanent link">&para;</a></h2>
+<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a data-markdown-ignore class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
 <p>During an upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown Error occurred: Transaction test error:
   file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
   file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a data-markdown-ignore class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension&rsquo;s release notes for What&rsquo;s new, improvements, or bug fixes.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>

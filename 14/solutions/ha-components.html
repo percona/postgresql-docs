@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/14/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -4123,9 +4123,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="how-components-work-together">How components work together<a class="headerlink" href="#how-components-work-together" title="Permanent link">&para;</a></h1>
+<h1 id="how-components-work-together">How components work together<a data-markdown-ignore class="headerlink" href="#how-components-work-together" title="Permanent link">&para;</a></h1>
 <p>This document explains how components of the proposed <a href="ha-architecture.html">high-availability architecture</a> work together.</p>
-<h2 id="database-and-dsc-layers">Database and DSC layers<a class="headerlink" href="#database-and-dsc-layers" title="Permanent link">&para;</a></h2>
+<h2 id="database-and-dsc-layers">Database and DSC layers<a data-markdown-ignore class="headerlink" href="#database-and-dsc-layers" title="Permanent link">&para;</a></h2>
 <p>Let&rsquo;s start with the database and DCS layers as they are interconnected and work closely together. </p>
 <p>Every database node hosts PostgreSQL and Patroni instances.</p>
 <p>Each PostgreSQL instance in the cluster maintains consistency with other members through streaming replication. Streaming replication is asynchronous by default, meaning that the primary does not wait for the secondaries to acknowledge the receipt of the data to consider the transaction complete.</p>
@@ -4138,17 +4138,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>If the current primary node crashes, its lease on the lock in <code>etcd</code> expires. The lock is automatically released after its expiration time. <code>etcd</code> the starts a new election and a standby node attempts to acquire the lock to become the new primary.</p>
 <p>Patroni uses not only <code>etcd</code> locking mechanism. It also uses <code>etcd</code> to store the current state of the cluster, ensuring that all nodes are aware of the latest topology and status. </p>
 <p>Another important component is the watchdog. It runs on each database node. The purpose of watchdog is to prevent split-brain scenarios, where multiple nodes might mistakenly think they are the primary node. The watchdog monitors the node&rsquo;s health by receiving periodic &ldquo;keepalive&rdquo; signals from Patroni. If these signals stop due to a crash, high system load or any other reason, the watchdog resets the node to ensure it does not cause inconsistencies.</p>
-<h2 id="load-balancing-layer">Load balancing layer<a class="headerlink" href="#load-balancing-layer" title="Permanent link">&para;</a></h2>
+<h2 id="load-balancing-layer">Load balancing layer<a data-markdown-ignore class="headerlink" href="#load-balancing-layer" title="Permanent link">&para;</a></h2>
 <p>This layer consists of HAProxy as the connection router and load balancer.</p>
 <p>HAProxy acts as a single point of entry to your cluster for client applications. It accepts all requests from client applications and distributes the load evenly across the cluster nodes. It can route read/write requests to the primary and read-only requests to the secondary nodes. This behavior is defined within HAProxy configuration. To determine the current primary node, HAProxy queries the Patroni REST API.</p>
 <p>HAProxy must be also redundant. Each application server or Pod can have its own HAProxy. If it cannot have own HAProxy, you can deploy HAProxy outside the application layer. This may introduce additional network hops and a failure point. </p>
 <p>If you are deploying HAProxy outside the application layer, you need a minimum of 2 HAProxy nodes (one is active and another one standby) to avoid a single point of failure. These instances share a floating virtual IP address using Keepalived.</p>
 <p>Keepalived acts as the failover tool for HAProxy. It provides the virtual IP address (VIP) for HAProxy and monitors its state. When the current active HAProxy node is down, it transfers the VIP to the remaining node and fails over the services there.</p>
-<h2 id="services-layer">Services layer<a class="headerlink" href="#services-layer" title="Permanent link">&para;</a></h2>
+<h2 id="services-layer">Services layer<a data-markdown-ignore class="headerlink" href="#services-layer" title="Permanent link">&para;</a></h2>
 <p>Finally, the services layer is represented by <code>pgBackRest</code> and PMM. </p>
 <p><code>pgBackRest</code> can manage a dedicated backup server or make backups to the cloud. <code>pgBackRest</code> agent are deployed on every database node. <code>pgBackRest</code> can utilize standby nodes to offload the backup load from the primary. However, WAL archiving is happening only from the primary node. By communicating with its agents,<code>pgBackRest</code> determines the current cluster topology and uses the nodes to make backups most effectively without any manual reconfiguration at the event of a switchover or failover.</p>
 <p>The monitoring solution is optional but nice to have. It enables you to monitor the health of your high-availability architecture, receive timely alerts should performance issues occur and proactively react to them.</p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="ha-init-setup.html">Deployment - initial setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 

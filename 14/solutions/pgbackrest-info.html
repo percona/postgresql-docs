@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/14/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -4103,10 +4103,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="pgbackrest">pgBackRest<a class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h1>
+<h1 id="pgbackrest">pgBackRest<a data-markdown-ignore class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h1>
 <p><code>pgBackRest</code> is an advanced backup and restore tool designed specifically for PostgreSQL databases. <code>pgBackRest</code> emphasizes simplicity, speed, and scalability. Its architecture is focused on minimizing the time and resources required for both backup and restoration processes.</p>
 <p><code>pgBackRest</code> uses a custom protocol, which allows for more flexibility compared to traditional tools like <code>tar</code> and <code>rsync</code> and limits the types of connections that are required to perform a backup, thereby increasing security. <code>pgBackRest</code> is a simple, but feature-rich, reliable backup and restore system that can seamlessly scale up to the largest databases and workloads.</p>
-<h2 id="key-features-of-pgbackrest">Key features of <code>pgBackRest</code><a class="headerlink" href="#key-features-of-pgbackrest" title="Permanent link">&para;</a></h2>
+<h2 id="key-features-of-pgbackrest">Key features of <code>pgBackRest</code><a data-markdown-ignore class="headerlink" href="#key-features-of-pgbackrest" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Full, differential, and incremental backups (at file or block level)</strong>: <code>pgBackRest</code> supports various types of backups, including full, differential, and incremental, providing efficient storage and recovery options. Block-level backups save space by only copying the parts of files that have changed.</p>
@@ -4136,13 +4136,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><strong>Compression and encryption</strong>: <code>pgBackRest</code> offers options for compressing and encrypting backup data, enhancing security and reducing storage requirements.</p>
 </li>
 </ol>
-<h2 id="how-pgbackrest-works">How <code>pgBackRest</code> works<a class="headerlink" href="#how-pgbackrest-works" title="Permanent link">&para;</a></h2>
+<h2 id="how-pgbackrest-works">How <code>pgBackRest</code> works<a data-markdown-ignore class="headerlink" href="#how-pgbackrest-works" title="Permanent link">&para;</a></h2>
 <p><code>pgBackRest</code> supports a backup server (or a dedicated repository host in <code>pgBackRest</code> terminology). This repository host acts as the centralized backup storage. Multiple PostgreSQL clusters can use the same repository host.</p>
 <p>In addition to a repository host with <code>pgBackRest</code> installed, you also need <code>pgBackRest</code> agents running on the database nodes. The backup server has the information about a PostgreSQL cluster, where it is located, how to back it up and where to store backup files. This information is defined within a configuration section called a <em>stanza</em>. </p>
 <p>The storage location where <code>pgBackRest</code> stores backup data and WAL archives is called the repository. It can be a local directory, a remote server, or a cloud storage service like AWS S3, S3-compatible storages or Azure blob storage. <code>pgBackRest</code> supports up to 4 repositories, allowing for redundancy and flexibility in backup storage. </p>
 <p>When you create a stanza, it initializes the repository and prepares it for storing backups. During the backup process, <code>pgBackRest</code> reads the data from the PostgreSQL cluster and writes it to the repository. It also performs integrity checks and compresses the data if configured.</p>
 <p>Similarly, during the restore process, <code>pgBackRest</code> reads the backup data from the repository and writes it to the PostgreSQL data directory. It also verifies the integrity of the restored data.</p>
-<h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
+<h2 id="next-step">Next step<a data-markdown-ignore class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="ha-components.html">How components work together <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 

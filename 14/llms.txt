@@ -1,0 +1,111 @@
+# Percona Distribution for PostgreSQL
+
+> Documentation
+
+Each page below is also available as markdown. For the documentation of all Percona products, see https://docs.percona.com/llms.txt.
+
+## Overview
+
+- [Home](https://docs.percona.com/postgresql/14/index.md)
+- [Get help from Percona](https://docs.percona.com/postgresql/14/get-help.md)
+- [Quickstart guide](https://docs.percona.com/postgresql/14/quick-start.md)
+- [FAQ](https://docs.percona.com/postgresql/14/faq.md)
+- [Uninstall](https://docs.percona.com/postgresql/14/uninstalling.md)
+
+## Get started
+
+- [Overview](https://docs.percona.com/postgresql/14/installing.md)
+- [Via apt](https://docs.percona.com/postgresql/14/apt.md)
+- [Via yum](https://docs.percona.com/postgresql/14/yum.md)
+- [From tarballs](https://docs.percona.com/postgresql/14/tarball.md)
+- [Run in Docker](https://docs.percona.com/postgresql/14/docker.md)
+- [Enable Percona Distribution for PostgreSQL components](https://docs.percona.com/postgresql/14/enable-extensions.md)
+- [Repositories overview](https://docs.percona.com/postgresql/14/repo-overview.md)
+- [Software Bill of Materials (SBOMs)](https://docs.percona.com/postgresql/14/sboms.md)
+- [2. Connect to PostgreSQL](https://docs.percona.com/postgresql/14/connect.md)
+- [3. Manipulate data in PostgreSQL](https://docs.percona.com/postgresql/14/crud.md)
+- [4. What's next](https://docs.percona.com/postgresql/14/whats-next.md)
+
+## Extensions
+
+- [Extensions](https://docs.percona.com/postgresql/14/extensions.md)
+- [PostgreSQL contrib modules and utilities](https://docs.percona.com/postgresql/14/contrib.md)
+- [Percona-authored extensions](https://docs.percona.com/postgresql/14/percona-ext.md)
+- [Third-party components](https://docs.percona.com/postgresql/14/third-party.md)
+
+## Solutions
+
+- [Overview](https://docs.percona.com/postgresql/14/solutions.md)
+- [Overview](https://docs.percona.com/postgresql/14/solutions/high-availability.md)
+- [Measuring high availability](https://docs.percona.com/postgresql/14/solutions/ha-measure.md)
+- [Architecture](https://docs.percona.com/postgresql/14/solutions/ha-architecture.md)
+- [ETCD](https://docs.percona.com/postgresql/14/solutions/etcd-info.md)
+- [Patroni](https://docs.percona.com/postgresql/14/solutions/patroni-info.md)
+- [HAProxy](https://docs.percona.com/postgresql/14/solutions/haproxy-info.md)
+- [pgBackRest](https://docs.percona.com/postgresql/14/solutions/pgbackrest-info.md)
+- [How components work together](https://docs.percona.com/postgresql/14/solutions/ha-components.md)
+- [Initial setup](https://docs.percona.com/postgresql/14/solutions/ha-init-setup.md)
+- [etcd setup](https://docs.percona.com/postgresql/14/solutions/ha-etcd-config.md)
+- [Patroni setup](https://docs.percona.com/postgresql/14/solutions/ha-patroni.md)
+- [pgBackRest setup](https://docs.percona.com/postgresql/14/solutions/pgbackrest.md)
+- [HAProxy setup](https://docs.percona.com/postgresql/14/solutions/ha-haproxy.md)
+- [Testing](https://docs.percona.com/postgresql/14/solutions/ha-test.md)
+- [Backup and disaster recovery](https://docs.percona.com/postgresql/14/solutions/backup-recovery.md)
+- [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/14/solutions/dr-pgbackrest-setup.md)
+- [Overview](https://docs.percona.com/postgresql/14/solutions/postgis.md)
+- [Deployment](https://docs.percona.com/postgresql/14/solutions/postgis-deploy.md)
+- [Query spatial data](https://docs.percona.com/postgresql/14/solutions/postgis-testing.md)
+- [Upgrade spatial database](https://docs.percona.com/postgresql/14/solutions/postgis-upgrade.md)
+- [LDAP authentication](https://docs.percona.com/postgresql/14/ldap.md)
+
+## Upgrade
+
+- [Major upgrade](https://docs.percona.com/postgresql/14/major-upgrade.md)
+- [Minor Upgrade of Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/14/minor-upgrade.md)
+- [Migrate from PostgreSQL to Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/14/migration.md)
+
+## Troubleshooting guide
+
+- [Overview](https://docs.percona.com/postgresql/14/troubleshooting.md)
+- [Repository 404 errors and removed versions](https://docs.percona.com/postgresql/14/remove-repo-ver.md)
+
+## Release notes
+
+- [Release notes index](https://docs.percona.com/postgresql/14/release-notes/release-notes.md)
+- [14.25](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.25.md)
+- [14.24](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.24.md)
+- [14.23](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.23.md)
+- [14.22](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.22.md)
+- [14.20](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.20.md)
+- [14.19](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.19.md)
+- [14.18 Update](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.18.upd.md)
+- [14.18](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.18.md)
+- [14.17](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.17.md)
+- [14.15](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.15.md)
+- [14.13](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.13.md)
+- [14.12](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.12.md)
+- [14.11](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.11.md)
+- [14.10 Update](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.10.upd.md)
+- [14.10](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.10.md)
+- [14.9](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.9.md)
+- [14.8](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.8.md)
+- [14.7 Update](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.7.upd.md)
+- [14.7](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.7.md)
+- [14.6](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.6.md)
+- [14.5](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.5.md)
+- [14.4](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.4.md)
+- [14.3](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.3.md)
+- [14.2 Update 2](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.2.upd2.md)
+- [14.2 Update](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.2.upd.md)
+- [14.2](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.2.md)
+- [14.1 Update 2](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.1.upd2.md)
+- [14.1 Update](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.1.upd.md)
+- [14.1](https://docs.percona.com/postgresql/14/release-notes/release-notes-v14.1.md)
+
+## Reference
+
+- [Telemetry](https://docs.percona.com/postgresql/14/telemetry.md)
+- [Licensing](https://docs.percona.com/postgresql/14/licensing.md)
+- [Trademark policy](https://docs.percona.com/postgresql/14/trademark-policy.md)
+- [Legal Notice](https://docs.percona.com/postgresql/14/legal-notice.md)
+

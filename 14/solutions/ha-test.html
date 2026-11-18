@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/14/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/14/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -4157,7 +4157,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="testing-the-patroni-postgresql-cluster">Testing the Patroni PostgreSQL Cluster<a class="headerlink" href="#testing-the-patroni-postgresql-cluster" title="Permanent link">&para;</a></h1>
+<h1 id="testing-the-patroni-postgresql-cluster">Testing the Patroni PostgreSQL Cluster<a data-markdown-ignore class="headerlink" href="#testing-the-patroni-postgresql-cluster" title="Permanent link">&para;</a></h1>
 <p>This document covers the following scenarios to test the PostgreSQL cluster:</p>
 <ul>
 <li>replication, </li>
@@ -4165,7 +4165,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>failover, and </li>
 <li>manual switchover.</li>
 </ul>
-<h3 id="testing-replication">Testing replication<a class="headerlink" href="#testing-replication" title="Permanent link">&para;</a></h3>
+<h3 id="testing-replication">Testing replication<a data-markdown-ignore class="headerlink" href="#testing-replication" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Connect to the cluster and establish the <code>psql</code> session from a client machine that can connect to the HAProxy node. Use the HAProxy-demo node&rsquo;s public IP address:</p>
@@ -4192,9 +4192,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </li>
 </ol>
-<h3 id="testing-failover">Testing failover<a class="headerlink" href="#testing-failover" title="Permanent link">&para;</a></h3>
+<h3 id="testing-failover">Testing failover<a data-markdown-ignore class="headerlink" href="#testing-failover" title="Permanent link">&para;</a></h3>
 <p>In a proper setup, client applications won&rsquo;t have issues connecting to the cluster, even if one or even two of the nodes go down. We will test the cluster for failover in the following scenarios:</p>
-<h4 id="scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql">Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.<a class="headerlink" href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql">Scenario 1. Intentionally stop the PostgreSQL on the primary node and verify access to PostgreSQL.<a data-markdown-ignore class="headerlink" href="#scenario-1-intentionally-stop-the-postgresql-on-the-primary-node-and-verify-access-to-postgresql" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>Run the following command on any node to check the current cluster status:</p>
@@ -4267,7 +4267,7 @@ Sep 23 14:18:31 node03 patroni[10042]: 2021-09-23 14:18:31,114 INFO: no action. 
 </li>
 </ol>
 <p>As we see, <code>node3</code> remains the leader and the rest are replicas.</p>
-<h4 id="scenario-2-abrupt-machine-shutdown-or-power-outage">Scenario 2. Abrupt machine shutdown or power outage<a class="headerlink" href="#scenario-2-abrupt-machine-shutdown-or-power-outage" title="Permanent link">&para;</a></h4>
+<h4 id="scenario-2-abrupt-machine-shutdown-or-power-outage">Scenario 2. Abrupt machine shutdown or power outage<a data-markdown-ignore class="headerlink" href="#scenario-2-abrupt-machine-shutdown-or-power-outage" title="Permanent link">&para;</a></h4>
 <p>To emulate the power outage, let&rsquo;s kill the service in <code>node3</code> and see what happens in <code>node1</code> and <code>node2</code>. </p>
 <ol>
 <li>
@@ -4305,7 +4305,7 @@ Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,475 INFO: no action. 
 <p>Try accessing the cluster using the HAProxy endpoint at any point in time between these operations. The cluster is still accepting connections.</p>
 </li>
 </ol>
-<h3 id="manual-switchover">Manual switchover<a class="headerlink" href="#manual-switchover" title="Permanent link">&para;</a></h3>
+<h3 id="manual-switchover">Manual switchover<a data-markdown-ignore class="headerlink" href="#manual-switchover" title="Permanent link">&para;</a></h3>
 <p>Typically, a manual switchover is needed for planned downtime to perform maintenance activity on the leader node. Patroni provides the <code>switchover</code> command to manually switch over from the leader node. </p>
 <p>Run the following command on <code>node2</code> (the current leader node):</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>switchover
