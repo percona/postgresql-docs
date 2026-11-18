@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3498,9 +3498,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h1>
+<h1 id="patroni">Patroni<a data-markdown-ignore class="headerlink" href="#patroni" title="Permanent link">&para;</a></h1>
 <p>Patroni is an open-source tool designed to manage and automate the high availability (HA) of PostgreSQL clusters. It ensures that your PostgreSQL database remains available even in the event of hardware failures, network issues or other disruptions. Patroni achieves this by using distributed consensus stores like ETCD, Consul, or ZooKeeper to manage cluster state and automate failover processes. We&rsquo;ll use <a href="etcd-info.html"><code>etcd</code></a> in our architecture.</p>
-<h2 id="key-benefits-of-patroni-for-high-availability">Key benefits of Patroni for high availability<a class="headerlink" href="#key-benefits-of-patroni-for-high-availability" title="Permanent link">&para;</a></h2>
+<h2 id="key-benefits-of-patroni-for-high-availability">Key benefits of Patroni for high availability<a data-markdown-ignore class="headerlink" href="#key-benefits-of-patroni-for-high-availability" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Automated failover and promotion of a new primary in case of a failure;</li>
 <li>Prevention and protection from split-brain scenarios (where two nodes believe they are the primary and both accept transactions). Split-brain can lead to serious logical corruptions such as wrong, duplicate data or data loss, and to associated business loss and risk of litigation;</li>
@@ -3508,7 +3508,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Self-healing via automatic restarts of failed PostgreSQL instances or reinitialization of broken replicas.</li>
 <li>Integration with tools like <code>pgBackRest</code>, <code>HAProxy</code>, and monitoring systems for a complete HA solution.</li>
 </ul>
-<h2 id="how-patroni-works">How Patroni works<a class="headerlink" href="#how-patroni-works" title="Permanent link">&para;</a></h2>
+<h2 id="how-patroni-works">How Patroni works<a data-markdown-ignore class="headerlink" href="#how-patroni-works" title="Permanent link">&para;</a></h2>
 <p>Patroni uses the <code>etcd</code> distributed consensus store to coordinate the state of a PostgreSQL cluster for the following operations:</p>
 <ol>
 <li>
@@ -3546,7 +3546,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 </li>
 </ol>
-<h2 id="split-brain-prevention">Split-brain prevention<a class="headerlink" href="#split-brain-prevention" title="Permanent link">&para;</a></h2>
+<h2 id="split-brain-prevention">Split-brain prevention<a data-markdown-ignore class="headerlink" href="#split-brain-prevention" title="Permanent link">&para;</a></h2>
 <p>Split-brain is an issue, which occurs when two or more nodes believe they are the primary, leading to data inconsistencies. </p>
 <p>Patroni prevents split-brain by using a three-layer protection and prevention mechanism where the <code>etcd</code> distributed locking mechanism plays a key role:</p>
 <ul>
@@ -3555,7 +3555,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>At the OS and hardware layers, Patroni uses Linux Watchdog to perform <a href="https://en.wikipedia.org/wiki/Fencing_(computing)#STONITH">STONITH</a> / fencing and terminate a PostgreSQL instance to prevent a split-brain scenario.</li>
 </ul>
 <p>One important aspect of how Patroni works is that it requires a quorum (the majority) of nodes to agree on the cluster state, preventing isolated nodes from becoming a primary. The quorum strengthens Patroni&rsquo;s capabilities of preventing split-brain. </p>
-<h2 id="watchdog">Watchdog<a class="headerlink" href="#watchdog" title="Permanent link">&para;</a></h2>
+<h2 id="watchdog">Watchdog<a data-markdown-ignore class="headerlink" href="#watchdog" title="Permanent link">&para;</a></h2>
 <p>Patroni can use a watchdog mechanism to improve resilience. But what is watchdog?</p>
 <p>A watchdog is a mechanism that ensures a system can recover from critical failures. In the context of Patroni, a watchdog is used to forcibly restart the node and terminate a failed primary node to prevent split-brain scenarios.</p>
 <p>While Patroni itself is designed for high availability, a watchdog provides an extra layer of protection against system-level failures that Patroni might not be able to detect, such as kernel panics or hardware lockups.  If the entire operating system becomes unresponsive, Patroni might not be able to function correctly. The watchdog operates independently so it can detect that the server is unresponsive and reset it, bringing it back to a known good state.</p>
@@ -3566,7 +3566,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Software watchdog (also called a softdog): A software-based watchdog timer tha emulates the functionality of a hardware watchdog but is implemented entirely in software. It is part of the Linux kernel&rsquo;s watchdog infrastructure and is useful in systems that lack dedicated hardware watchdog timers. The softdog monitors the system and takes corrective actions such as killing processes or rebooting the node.</li>
 </ul>
 <p>Most of the servers in the cloud nowadays use a softdog.</p>
-<h2 id="integration-with-other-tools">Integration with other tools<a class="headerlink" href="#integration-with-other-tools" title="Permanent link">&para;</a></h2>
+<h2 id="integration-with-other-tools">Integration with other tools<a data-markdown-ignore class="headerlink" href="#integration-with-other-tools" title="Permanent link">&para;</a></h2>
 <p>Patroni integrates well with other tools to create a comprehensive high-availability solution. In our architecture, such tools are:</p>
 <ul>
 <li>HAProxy to check the current topology and route the traffic to both the primary and replica nodes, balancing the load among them,</li>
@@ -3574,7 +3574,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>PMM for monitoring.</li>
 </ul>
 <p>Patroni provides hooks that allow you to customize its behavior. You can use hooks to execute custom scripts or commands at various stages of Patroni lifecycle, such as before and after failover, or when a new instance joins the cluster. Thereby you can integrate Patroni with other systems and automate various tasks. For example, use a hook to update the monitoring system when a failover occurs.</p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="haproxy-info.html">HAProxy</a></p>
 
 

@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3586,7 +3586,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a class="headerlink" href="#run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
+<h1 id="run-percona-distribution-for-postgresql-in-a-docker-container">Run Percona Distribution for PostgreSQL in a Docker container<a data-markdown-ignore class="headerlink" href="#run-percona-distribution-for-postgresql-in-a-docker-container" title="Permanent link">&para;</a></h1>
 <p>Docker images of Percona Distribution for PostgreSQL are hosted publicly on <a href="https://hub.docker.com/r/percona/percona-distribution-postgresql/">Docker Hub <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <div class="admonition note">
@@ -3594,7 +3594,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Make sure that you are using <a href="https://docs.docker.com/get-docker/">the latest version of Docker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. The ones provided via <code>apt</code> and <code>yum</code> may be outdated and cause errors.</p>
 <p>By default, Docker pulls the image from Docker Hub if it is not available locally.</p>
 </div>
-<h2 class="power-number" id="start-container">1. Start the container<a class="headerlink" href="#start-container" title="Permanent link">&para;</a></h2>
+<h2 class="power-number" id="start-container">1. Start the container<a data-markdown-ignore class="headerlink" href="#start-container" title="Permanent link">&para;</a></h2>
 <p>Start a Percona Distribution for PostgreSQL container as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.7
 </code></pre></div>
@@ -3620,7 +3620,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ol>
 </div>
-<h2 id="2-enable-extensions">2. Enable extensions<a class="headerlink" href="#2-enable-extensions" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To persist the data even after you remove the container, mount a named volume using the <code>-v</code> option:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-v<span class="w"> </span>pg-data:/data/db<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.7
+</code></pre></div>
+<p><code>pg-data</code> is a volume name of your choice. <code>/data/db</code> is the data directory, as provided by this Docker image. To reuse the data, start the new container with the same <code>-v</code> option: <code>-v pg-data:/data/db</code>.</p>
+</div>
+<h2 id="2-enable-extensions">2. Enable extensions<a data-markdown-ignore class="headerlink" href="#2-enable-extensions" title="Permanent link">&para;</a></h2>
 <p>Some extensions require server startup configuration and must be loaded via <code>shared_preload_libraries</code> before PostgreSQL starts. You need to explicitly load the extensions when starting the container using the <code>shared_preload_libraries</code> parameter, then enabled per database:</p>
 <ol>
 <li>
@@ -3646,7 +3653,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="docker-enable-pg-stat-monitor.html">Enable pg_stat_monitor</a></li>
 <li><a href="docker-enable-pg-tde.html">Enable pg_tde</a></li>
 </ul>
-<h2 id="3-update-the-image">3. Update the image<a class="headerlink" href="#3-update-the-image" title="Permanent link">&para;</a></h2>
+<h2 id="3-update-the-image">3. Update the image<a data-markdown-ignore class="headerlink" href="#3-update-the-image" title="Permanent link">&para;</a></h2>
 <p>Pull the new tag explicitly:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql:18.7
 </code></pre></div>
@@ -3657,7 +3664,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">Note</p>
 <p>To upgrade a containerized Percona Distribution for PostgreSQL instance to a new major version, use the dedicated upgrade image. See <a href="docker-upgrade.html">Upgrade Percona Distribution for PostgreSQL using the upgrade image</a>.</p>
 </div>
-<h2 id="4-docker-image-contents">4. Docker image contents<a class="headerlink" href="#4-docker-image-contents" title="Permanent link">&para;</a></h2>
+<h2 id="4-docker-image-contents">4. Docker image contents<a data-markdown-ignore class="headerlink" href="#4-docker-image-contents" title="Permanent link">&para;</a></h2>
 <p>The Docker image of Percona Distribution for PostgreSQL includes the following components:</p>
 <table>
 <thead>
@@ -3721,7 +3728,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
+<h2 id="connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container">Connect to Percona Distribution for PostgreSQL from an application in another Docker container<a data-markdown-ignore class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-an-application-in-another-docker-container" title="Permanent link">&para;</a></h2>
 <p>This image exposes the standard PostgreSQL port (<code>5432</code>), so container linking makes the instance available to other containers. Start other containers like this in order to link it to the Percona Distribution for PostgreSQL container:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>app-container-name<span class="w"> </span>--network<span class="w"> </span>container:container-name<span class="w"> </span>-d<span class="w"> </span>app-that-uses-postgresql<span class="w"> </span>
 </code></pre></div>
@@ -3731,7 +3738,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>container name</code> is the name of your Percona Distribution for PostgreSQL container, and</li>
 <li><code>app-that-uses-postgresql</code> is the name of your PostgreSQL client.</li>
 </ul>
-<h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
+<h2 id="connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client">Connect to Percona Distribution for PostgreSQL from the <code>psql</code> command line client<a data-markdown-ignore class="headerlink" href="#connect-to-percona-distribution-for-postgresql-from-the-psql-command-line-client" title="Permanent link">&para;</a></h2>
 <p>The following command starts another container instance and runs the <code>psql</code> command line client against your original container, allowing you to execute SQL statements against your database:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>container:db-container-name<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>percona/percona-distribution-postgresql:18.7<span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span>address<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
@@ -3742,7 +3749,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>18.7</code> is the tag specifying the version you need. Docker identifies the architecture (x86_64 or ARM64) and pulls the respective image.</li>
 <li><code>address</code> is the network address where your database container is running. Use 127.0.0.1, if the database container is running on the local machine/host.</li>
 </ul>
-<h2 id="run-the-postgresql-with-postgis-image">Run the PostgreSQL with PostGIS image<a class="headerlink" href="#run-the-postgresql-with-postgis-image" title="Permanent link">&para;</a></h2>
+<h2 id="run-the-postgresql-with-postgis-image">Run the PostgreSQL with PostGIS image<a data-markdown-ignore class="headerlink" href="#run-the-postgresql-with-postgis-image" title="Permanent link">&para;</a></h2>
 <p>The <code>postgres-gis</code> image includes everything in the standard Percona Distribution for PostgreSQL image plus the <a href="https://postgis.net/">PostGIS <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension for storing and manipulating spatial data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3774,7 +3781,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>POSTGRES_PASSWORD</code> is the superuser password</li>
 </ul>
 <p>For more information on deploying and using PostGIS, see <a href="../solutions/postgis.html">Spatial data handling</a>.</p>
-<h2 id="run-the-pgbouncer-image">Run the PgBouncer image<a class="headerlink" href="#run-the-pgbouncer-image" title="Permanent link">&para;</a></h2>
+<h2 id="run-the-pgbouncer-image">Run the PgBouncer image<a data-markdown-ignore class="headerlink" href="#run-the-pgbouncer-image" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.pgbouncer.org/">PgBouncer <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a lightweight connection pooler for PostgreSQL. The Percona PgBouncer image is available separately from the PostgreSQL image and is intended for use alongside it.</p>
 <p>Start a PgBouncer container as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pgbouncer<span class="w"> </span>-v<span class="w"> </span>/path/to/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini<span class="w"> </span>-d<span class="w"> </span>percona/percona-pgbouncer:1.26.1
@@ -3785,7 +3792,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>The image tag specifies the PgBouncer version. See the <a href="https://hub.docker.com/r/percona/percona-pgbouncer/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
 <p>For more information on configuring PgBouncer, see the <a href="https://www.pgbouncer.org/config.html">PgBouncer documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
-<h2 id="run-the-pgbackrest-image">Run the pgBackRest image<a class="headerlink" href="#run-the-pgbackrest-image" title="Permanent link">&para;</a></h2>
+<h2 id="run-the-pgbackrest-image">Run the pgBackRest image<a data-markdown-ignore class="headerlink" href="#run-the-pgbackrest-image" title="Permanent link">&para;</a></h2>
 <p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is a backup and restore solution for PostgreSQL, supporting full, differential, and incremental backups as well as point-in-time recovery. The Percona pgBackRest image is available separately from the PostgreSQL image.</p>
 <p>Start a pgBackRest container as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pgbackrest<span class="w"> </span>-v<span class="w"> </span>/path/to/pgbackrest.conf:/etc/pgbackrest/pgbackrest.conf<span class="w"> </span>-d<span class="w"> </span>percona/percona-pgbackrest:2.60.0
@@ -3796,7 +3803,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>The image tag specifies the pgBackRest version. See the <a href="https://hub.docker.com/r/percona/percona-pgbackrest/tags/">full list of tags <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
 </ul>
 <p>For more information on configuring pgBackRest with Percona Distribution for PostgreSQL, see <a href="../solutions/backup-recovery.html">Backup and disaster recovery</a>.</p>
-<h2 id="run-the-ubi8-based-image">Run the UBI8-based image<a class="headerlink" href="#run-the-ubi8-based-image" title="Permanent link">&para;</a></h2>
+<h2 id="run-the-ubi8-based-image">Run the UBI8-based image<a data-markdown-ignore class="headerlink" href="#run-the-ubi8-based-image" title="Permanent link">&para;</a></h2>
 <p>The UBI8 image is a variant of the standard Percona Distribution for PostgreSQL image built on Red Hat Universal Base Image 8. It is intended for environments that require UBI8-based containers.</p>
 <p>UBI8 images use the same PostgreSQL version and components as the standard image and can be identified by the <code>-ubi8</code> suffix in their tags.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>container-name<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-d<span class="w"> </span>percona/percona-distribution-postgresql:18.7-ubi8
@@ -3829,7 +3836,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 23, 2026 13:37:31 UTC">July 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 16, 2026 13:42:57 UTC">November 16, 2026</span>
   </span>
 
     
@@ -3857,14 +3864,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
     <nav>
       
-        <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
+        <a href="https://github.com/pcimring" class="md-author" title="@pcimring">
           
-          <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
+          <img src="https://avatars.githubusercontent.com/u/6210449?v=4&size=72" alt="pcimring">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
           
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
+        <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
+          
+          <img src="https://avatars.githubusercontent.com/u/9531841?v=4&size=72" alt="Andriciuc">
         </a>
       
       

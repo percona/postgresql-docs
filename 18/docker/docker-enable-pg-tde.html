@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3410,13 +3410,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="enable-pg_tde-for-securing-data-at-rest">Enable <code>pg_tde</code> for securing data at rest<a class="headerlink" href="#enable-pg_tde-for-securing-data-at-rest" title="Permanent link">&para;</a></h1>
+<h1 id="enable-pg_tde-for-securing-data-at-rest">Enable <code>pg_tde</code> for securing data at rest<a data-markdown-ignore class="headerlink" href="#enable-pg_tde-for-securing-data-at-rest" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL Docker image includes the <code>pg_tde</code> extension to provide data encryption.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For more information about how <code>pg_tde</code> works, see the <a href="https://docs.percona.com/pg-tde/index.html">pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 </div>
-<h2 class="power-number" id="enable-pg_tde">Enable pg_tde<a class="headerlink" href="#enable-pg_tde" title="Permanent link">&para;</a></h2>
+<h2 class="power-number" id="enable-pg_tde">Enable pg_tde<a data-markdown-ignore class="headerlink" href="#enable-pg_tde" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Start the container as shown in <a href="docker.html#start-container">Run in Docker</a>, adding the following option to the <code>docker run</code> command:</p>
@@ -3488,7 +3488,7 @@ CREATE EXTENSION
 </details>
 </li>
 </ol>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="docker-enable-pg-stat-monitor.html">Enable <code>pg_stat_monitor</code> for performance statistics <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 

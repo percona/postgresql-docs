@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3428,22 +3428,22 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-authored-extensions">Percona-authored extensions<a class="headerlink" href="#percona-authored-extensions" title="Permanent link">&para;</a></h1>
+<h1 id="percona-authored-extensions">Percona-authored extensions<a data-markdown-ignore class="headerlink" href="#percona-authored-extensions" title="Permanent link">&para;</a></h1>
 <p>Percona-authored extensions provide additional capabilities that go beyond upstream PostgreSQL, enabling advanced observability and data-at-rest encryption. These extensions are developed and maintained by Percona and are designed to integrate seamlessly with Percona Server for PostgreSQL and Percona Distribution for PostgreSQL.</p>
 <p>This page provides a high-level overview of the available Percona-authored extensions and the problems they are intended to solve. For detailed configuration and usage instructions, follow the documentation links provided for each extension below.</p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
-<h2 id="pg_stat_monitor"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0m14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042"/></svg></span> pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
+<h2 id="pg_stat_monitor"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0m14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042"/></svg></span> pg_stat_monitor<a data-markdown-ignore class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
 <p>An open-source query performance monitoring tool for PostgreSQL that brings more insight and details around query performance, planning statistics and metadata. It improves observability, enabling users to debug and tune query performance with precision.</p>
 <p><a class="md-button" href="https://docs.percona.com/pg-stat-monitor/index.html">See the pg_stat_monitor documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h2 id="pg_tde"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_tde<a class="headerlink" href="#pg_tde" title="Permanent link">&para;</a></h2>
+<h2 id="pg_tde"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_tde<a data-markdown-ignore class="headerlink" href="#pg_tde" title="Permanent link">&para;</a></h2>
 <p>An open-source extension designed to enhance PostgreSQL security by encrypting data files on disk. <code>pg_tde</code> protects data at rest by ensuring that database files cannot be read without the appropriate encryption keys. Encryption is transparent to applications and users at the SQL level, while key management is configured separately.</p>
 <p><a class="md-button" href="https://docs.percona.com/pg-tde/index.html">See the pg_tde documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h2 id="pg_oidc_validator"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_oidc_validator<a class="headerlink" href="#pg_oidc_validator" title="Permanent link">&para;</a></h2>
+<h2 id="pg_oidc_validator"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm4 18H6V4h7v5h5m-5.17 6a3 3 0 1 0 0 2H14v2h2v-2h1v-2m-7 2a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg></span> pg_oidc_validator<a data-markdown-ignore class="headerlink" href="#pg_oidc_validator" title="Permanent link">&para;</a></h2>
 <p>An OAuth validator library for PostgreSQL 18 that validates OpenID Connect (OIDC) JWT access tokens. It integrates with PostgreSQL’s OAuth framework to verify tokens issued by compliant OIDC providers.</p>
 <p><a class="md-button" href="https://github.com/Percona-Lab/pg_oidc_validator">Check the pg_oidc_validator GitHub repository <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 </div>

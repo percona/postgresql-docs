@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3526,7 +3526,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="quickstart-guide">Quickstart guide<a class="headerlink" href="#quickstart-guide" title="Permanent link">&para;</a></h1>
+<h1 id="quickstart-guide">Quickstart guide<a data-markdown-ignore class="headerlink" href="#quickstart-guide" title="Permanent link">&para;</a></h1>
 <p>This guide shows how to install and start Percona Distribution for PostgreSQL on Debian- and RHEL-based Linux systems. After completing this guide, you will have:</p>
 <ul>
 <li>PostgreSQL running locally</li>
@@ -3534,8 +3534,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>A table named <code>customers</code></li>
 <li>One inserted row you can query</li>
 </ul>
-<h2 id="fast-path-2-minute-install">Fast path (2-minute install)<a class="headerlink" href="#fast-path-2-minute-install" title="Permanent link">&para;</a></h2>
-<div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<h2 id="fast-path-2-minute-install">Fast path (2-minute install)<a data-markdown-ignore class="headerlink" href="#fast-path-2-minute-install" title="Permanent link">&para;</a></h2>
+<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>gnupg2<span class="w"> </span>curl<span class="w"> </span>lsb-release
+wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 sudo<span class="w"> </span>percona-release<span class="w"> </span>setup<span class="w"> </span>ppg-18<span class="w">  </span>
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-18
@@ -3550,8 +3551,14 @@ sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>
 <span class="err">\</span><span class="n">q</span>
 </code></pre></div>
 <p>For a step-by-step explanation, continue below.</p>
-<h2 class="power-number" id="install-on-debian-ubuntu-apt">Install on Debian / Ubuntu (APT)<a class="headerlink" href="#install-on-debian-ubuntu-apt" title="Permanent link">&para;</a></h2>
+<h2 class="power-number" id="install-on-debian-ubuntu-apt">Install on Debian / Ubuntu (APT)<a data-markdown-ignore class="headerlink" href="#install-on-debian-ubuntu-apt" title="Permanent link">&para;</a></h2>
 <ol>
+<li>
+<p>Install the tools needed to fetch and set up the Percona repository. Minimal and container images of Debian and Ubuntu often don&rsquo;t include them:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wget<span class="w"> </span>gnupg2<span class="w"> </span>curl<span class="w"> </span>lsb-release
+</code></pre></div>
+</li>
 <li>
 <p>Fetch the <code>percona-release</code> package:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
@@ -3593,26 +3600,26 @@ psql
 <p>Congratulations! Percona Distribution for PostgreSQL is now running and you have created your first database.</p>
 <p>For detailed installation steps and further instructions on Debian and Ubuntu, see the <a href="apt.html">Install Percona Distribution for PostgreSQL on Debian and Ubuntu</a>.</p>
 <p>For detailed installation steps and further instructions on Red Hat Enterprise Linux and derivatives, see the <a href="yum.html">Install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux and derivatives</a>.</p>
-<h2 id="whats-next">What&rsquo;s next<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
+<h2 id="whats-next">What&rsquo;s next<a data-markdown-ignore class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
 <p>Now that your PostgreSQL server is running, you can explore additional capabilities of Percona Distribution for PostgreSQL.</p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
-<h3 class="title" id="learn-postgresql-basics">Learn PostgreSQL basics<a class="headerlink" href="#learn-postgresql-basics" title="Permanent link">&para;</a></h3>
+<h3 class="title" id="learn-postgresql-basics">Learn PostgreSQL basics<a data-markdown-ignore class="headerlink" href="#learn-postgresql-basics" title="Permanent link">&para;</a></h3>
 <p>Connect with <code>psql</code> and run SQL commands, manage users, roles, and configure authentication.</p>
 <p><a class="md-button" href="crud.html">Manipulate data in PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h3 class="title" id="enable-extensions">Enable extensions<a class="headerlink" href="#enable-extensions" title="Permanent link">&para;</a></h3>
+<h3 class="title" id="enable-extensions">Enable extensions<a data-markdown-ignore class="headerlink" href="#enable-extensions" title="Permanent link">&para;</a></h3>
 <p>Percona Distribution for PostgreSQL includes tested open source extensions, such as <code>pg_stat_monitor</code> for query performance monitoring, <code>pg_tde</code> for protecting data at rest and more.</p>
 <p><a class="md-button" href="extensions.html">See Extensions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h3 class="title" id="configure-backups">Configure backups<a class="headerlink" href="#configure-backups" title="Permanent link">&para;</a></h3>
+<h3 class="title" id="configure-backups">Configure backups<a data-markdown-ignore class="headerlink" href="#configure-backups" title="Permanent link">&para;</a></h3>
 <p>For production deployments we recommend configuring backups.</p>
 <p><a class="md-button" href="solutions/backup-recovery.html">See Backup and disaster recovery in Percona <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
 <div data-banner="data-banner">
-<h3 class="title" id="configure-high-availability-with-patroni">Configure high availability with Patroni<a class="headerlink" href="#configure-high-availability-with-patroni" title="Permanent link">&para;</a></h3>
+<h3 class="title" id="configure-high-availability-with-patroni">Configure high availability with Patroni<a data-markdown-ignore class="headerlink" href="#configure-high-availability-with-patroni" title="Permanent link">&para;</a></h3>
 <p>Deploy a highly available PostgreSQL cluster using Patroni to prevent service interruptions.</p>
 <p><a class="md-button" href="solutions/high-availability.html">See High Availability in PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 </div>
@@ -3639,7 +3646,7 @@ psql
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 23, 2026 15:09:05 UTC">March 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 9, 2026 12:58:45 UTC">November 9, 2026</span>
   </span>
 
     
@@ -3666,6 +3673,16 @@ psql
 
     
     <nav>
+      
+        <a href="https://github.com/Busayo-ojo" class="md-author" title="@Busayo-ojo">
+          
+          <img src="https://avatars.githubusercontent.com/u/76451855?v=4&size=72" alt="Busayo-ojo">
+        </a>
+      
+        <a href="https://github.com/surbhat1595" class="md-author" title="@surbhat1595">
+          
+          <img src="https://avatars.githubusercontent.com/u/35444149?v=4&size=72" alt="surbhat1595">
+        </a>
       
         <a href="https://github.com/Andriciuc" class="md-author" title="@Andriciuc">
           

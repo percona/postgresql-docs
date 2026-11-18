@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3622,32 +3622,32 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="etcd">ETCD<a class="headerlink" href="#etcd" title="Permanent link">&para;</a></h1>
+<h1 id="etcd">ETCD<a data-markdown-ignore class="headerlink" href="#etcd" title="Permanent link">&para;</a></h1>
 <p><code>etcd</code> is one of the key components in high availability architecture, therefore, it&rsquo;s important to understand it.</p>
 <p><code>etcd</code> is a distributed key-value consensus store that helps applications store and manage cluster configuration data and perform distributed coordination of a PostgreSQL cluster.</p>
 <p><code>etcd</code> runs as a cluster of nodes that communicate with each other to maintain a consistent state. The primary node in the cluster is called the &ldquo;leader&rdquo;, and the remaining nodes are the &ldquo;followers&rdquo;.</p>
-<h2 id="how-etcd-works">How <code>etcd</code> works<a class="headerlink" href="#how-etcd-works" title="Permanent link">&para;</a></h2>
+<h2 id="how-etcd-works">How <code>etcd</code> works<a data-markdown-ignore class="headerlink" href="#how-etcd-works" title="Permanent link">&para;</a></h2>
 <p>Each node in the cluster stores data in a structured format and keeps a copy of the same data to ensure redundancy and fault tolerance. When you write data to <code>etcd</code>, the change is sent to the leader node, which then replicates it to the other nodes in the cluster. This ensures that all nodes remain synchronized and maintain data consistency.</p>
 <p>When a client wants to change data, it sends the request to the leader. The leader accepts the writes and proposes this change to the followers. The followers vote on the proposal. If a majority of followers agree (including the leader), the change is committed, ensuring consistency. The leader then confirms the change to the client.</p>
 <p>This flow corresponds to the Raft consensus algorithm, based on which <code>etcd</code> works. Read morea bout it the <a href="#etcd-raft-consensus"><code>ectd</code> Raft consensus</a> section.</p>
-<h2 id="leader-election">Leader election<a class="headerlink" href="#leader-election" title="Permanent link">&para;</a></h2>
+<h2 id="leader-election">Leader election<a data-markdown-ignore class="headerlink" href="#leader-election" title="Permanent link">&para;</a></h2>
 <p>An <code>etcd</code> cluster can have only one leader node at a time. The leader is responsible for receiving client requests, proposing changes, and ensuring they are replicated to the followers. When an <code>etcd</code> cluster starts, or if the current leader fails, the nodes hold an election to choose a new leader. Each node waits for a random amount of time before sending a vote request to other nodes, and the first node to get a majority of votes becomes the new leader. The cluster remains available as long as a majority of nodes (quorum) are still running.</p>
-<h3 id="how-many-members-to-have-in-a-cluster">How many members to have in a cluster<a class="headerlink" href="#how-many-members-to-have-in-a-cluster" title="Permanent link">&para;</a></h3>
+<h3 id="how-many-members-to-have-in-a-cluster">How many members to have in a cluster<a data-markdown-ignore class="headerlink" href="#how-many-members-to-have-in-a-cluster" title="Permanent link">&para;</a></h3>
 <p>The recommended approach is to deploy an odd-sized cluster (e.g., 3, 5, or 7 nodes). The odd number of nodes ensures that there is always a majority of nodes available to make decisions and keep the cluster running smoothly. This majority is crucial for maintaining consistency and availability, even if one node fails. For a cluster with <code>n</code> members, the majority is <code>(n/2)+1</code>.</p>
 <p>To better illustrate this concept, take an example of clusters with 3 nodes and 4 nodes. In a 3-node cluster, if one node fails, the remaining 2 nodes still form a majority (2 out of 3), and the cluster can continue to operate. In a 4-node cluster, if one node fails, there are only 3 nodes left, which is not enough to form a majority (3 out of 4). The cluster stops functioning.</p>
-<h2 id="etcd-raft-consensus"><code>etcd</code> Raft consensus<a class="headerlink" href="#etcd-raft-consensus" title="Permanent link">&para;</a></h2>
+<h2 id="etcd-raft-consensus"><code>etcd</code> Raft consensus<a data-markdown-ignore class="headerlink" href="#etcd-raft-consensus" title="Permanent link">&para;</a></h2>
 <p>The heart of <code>etcd</code>&rsquo;s reliability is the Raft consensus algorithm. Raft ensures that all nodes in the cluster agree on the same data. This ensures a consistent view of the data, even if some nodes are unavailable or experiencing network issues. </p>
 <p>An example of the Raft&rsquo;s role in <code>etcd</code> is the situation when there is no majority in the cluster. If a majority of nodes can&rsquo;t communicate (for example, due to network partitions), no new leader can be elected, and no new changes can be committed. This prevents the system from getting into an inconsistent state. The system waits for the network to heal and a majority to be re-established. This is crucial for data integrity.</p>
 <p>You can also check <a href="https://thesecretlivesofdata.com/raft/">this resource :octicons-link-external-17:</a> to learn more about Raft and understand it better.</p>
-<h2 id="etcd-logs-and-performance-considerations"><code>etcd</code> logs and performance considerations<a class="headerlink" href="#etcd-logs-and-performance-considerations" title="Permanent link">&para;</a></h2>
+<h2 id="etcd-logs-and-performance-considerations"><code>etcd</code> logs and performance considerations<a data-markdown-ignore class="headerlink" href="#etcd-logs-and-performance-considerations" title="Permanent link">&para;</a></h2>
 <p><code>etcd</code> keeps a detailed log of every change made to the data. These logs are essential for several reasons, including the ensurance of consistency, fault tolerance, leader elections, auditing, and others, maintaining a consistent state across nodes. For example, if a node fails, it can use the logs to catch up with the other nodes and restore its data. The logs also provide a history of all changes, which can be useful for debugging and security analysis if needed.</p>
-<h3 id="slow-disk-performance">Slow disk performance<a class="headerlink" href="#slow-disk-performance" title="Permanent link">&para;</a></h3>
+<h3 id="slow-disk-performance">Slow disk performance<a data-markdown-ignore class="headerlink" href="#slow-disk-performance" title="Permanent link">&para;</a></h3>
 <p><code>etcd</code> is very sensitive to disk I/O performance. Writing to the logs is a frequent operation and will be slow if the disk is slow. This can lead to timeouts, delaying consensus, instability, and even data loss. In extreme cases, slow disk performance can cause a leader to fail health checks, triggering unnecessary leader elections. Always use fast, reliable storage for <code>etcd</code>.</p>
-<h3 id="slow-or-high-latency-networks">Slow or high-latency networks<a class="headerlink" href="#slow-or-high-latency-networks" title="Permanent link">&para;</a></h3>
+<h3 id="slow-or-high-latency-networks">Slow or high-latency networks<a data-markdown-ignore class="headerlink" href="#slow-or-high-latency-networks" title="Permanent link">&para;</a></h3>
 <p>Communication between <code>etcd</code> nodes is critical. A slow or unreliable network can cause delays in replicating data, increasing the risk of stale reads. This can trigger premature timeouts leading to leader elections happening more frequently, and even delays in leader elections in some cases, impacting performance and stability. Also keep in mind that if nodes cannot reach each other in a timely manner, the cluster may lose quorum and become unavailable.</p>
-<h2 id="etcd-locks">etcd Locks<a class="headerlink" href="#etcd-locks" title="Permanent link">&para;</a></h2>
+<h2 id="etcd-locks">etcd Locks<a data-markdown-ignore class="headerlink" href="#etcd-locks" title="Permanent link">&para;</a></h2>
 <p><code>etcd</code> provides a distributed locking mechanism, which helps applications coordinate actions across multiple nodes and access to shared resources preventing conflicts. Locks ensure that only one process can hold a resource at a time, avoiding race conditions and inconsistencies. Patroni is an example of an application that uses <code>etcd</code> locks for primary election control in the PostgreSQL cluster. </p>
-<h3 id="deployment-considerations">Deployment considerations<a class="headerlink" href="#deployment-considerations" title="Permanent link">&para;</a></h3>
+<h3 id="deployment-considerations">Deployment considerations<a data-markdown-ignore class="headerlink" href="#deployment-considerations" title="Permanent link">&para;</a></h3>
 <p>Running <code>etcd</code> on separate hosts has the following benefits:</p>
 <ul>
 <li>
@@ -3662,7 +3662,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>Note that separate deployment increases the complexity of the infrastructure and requires additional effort on maintenance. Also, pay close attention to network configuration to eliminate the latency that might occur due to the communication between <code>etcd</code> and Patroni nodes over the network.</p>
 <p>If a separate dedicated host for 1 is not a viable option, you can use the same host machines used for Patroni and PostgreSQL.</p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="patroni-info.html">Patroni</a></p>
 
 

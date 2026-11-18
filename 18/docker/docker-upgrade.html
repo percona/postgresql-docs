@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/18/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/18/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3652,7 +3652,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="upgrade-percona-distribution-for-postgresql">Upgrade Percona Distribution for PostgreSQL<a class="headerlink" href="#upgrade-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<h1 id="upgrade-percona-distribution-for-postgresql">Upgrade Percona Distribution for PostgreSQL<a data-markdown-ignore class="headerlink" href="#upgrade-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
 <p>To upgrade Percona Distribution for PostgreSQL in Docker to a new major version, use the dedicated <code>percona/percona-distribution-postgresql-upgrade</code> image. It bundles the server binaries for several consecutive major versions, so <code>pg_upgrade</code> can run against your old and new data directories.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -3666,37 +3666,37 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">Note</p>
 <p>If you&rsquo;re upgrading an existing instance rather than following along with the step 1-5 example, skip those steps and start from step 6 with your own running container and data.</p>
 </div>
-<h2 class="power-number" id="1-create-directories-for-the-old-and-new-clusters">1. Create directories for the old and new clusters<a class="headerlink" href="#1-create-directories-for-the-old-and-new-clusters" title="Permanent link">&para;</a></h2>
+<h2 class="power-number" id="1-create-directories-for-the-old-and-new-clusters">1. Create directories for the old and new clusters<a data-markdown-ignore class="headerlink" href="#1-create-directories-for-the-old-and-new-clusters" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg17olddata/postgres
 mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg18newdata/postgres
 </code></pre></div>
-<h2 id="2-start-the-postgresql-17-container">2. Start the PostgreSQL 17 container<a class="headerlink" href="#2-start-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
+<h2 id="2-start-the-postgresql-17-container">2. Start the PostgreSQL 17 container<a data-markdown-ignore class="headerlink" href="#2-start-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d
 <span class="w">  </span>--name<span class="w"> </span>pg17
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password
 <span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg17olddata/postgres:/data/db
 <span class="w">  </span>percona/percona-distribution-postgresql:17
 </code></pre></div>
-<h2 id="3-wait-until-postgresql-finishes-initialization">3. Wait until PostgreSQL finishes initialization<a class="headerlink" href="#3-wait-until-postgresql-finishes-initialization" title="Permanent link">&para;</a></h2>
+<h2 id="3-wait-until-postgresql-finishes-initialization">3. Wait until PostgreSQL finishes initialization<a data-markdown-ignore class="headerlink" href="#3-wait-until-postgresql-finishes-initialization" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>pg17
 </code></pre></div>
-<h2 id="4-connect-to-postgresql">4. Connect to PostgreSQL<a class="headerlink" href="#4-connect-to-postgresql" title="Permanent link">&para;</a></h2>
+<h2 id="4-connect-to-postgresql">4. Connect to PostgreSQL<a data-markdown-ignore class="headerlink" href="#4-connect-to-postgresql" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pg17<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
 </code></pre></div>
-<h2 id="5-create-a-test-database-and-add-data">5. Create a test database and add data<a class="headerlink" href="#5-create-a-test-database-and-add-data" title="Permanent link">&para;</a></h2>
+<h2 id="5-create-a-test-database-and-add-data">5. Create a test database and add data<a data-markdown-ignore class="headerlink" href="#5-create-a-test-database-and-add-data" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">testdb</span><span class="p">;</span>
 <span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">testdb</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t1</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="6-stop-the-postgresql-17-container">6. Stop the PostgreSQL 17 container<a class="headerlink" href="#6-stop-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
+<h2 id="6-stop-the-postgresql-17-container">6. Stop the PostgreSQL 17 container<a data-markdown-ignore class="headerlink" href="#6-stop-the-postgresql-17-container" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>pg17
 </code></pre></div>
-<h2 id="7-pull-the-upgrade-image">7. Pull the upgrade image<a class="headerlink" href="#7-pull-the-upgrade-image" title="Permanent link">&para;</a></h2>
+<h2 id="7-pull-the-upgrade-image">7. Pull the upgrade image<a data-markdown-ignore class="headerlink" href="#7-pull-the-upgrade-image" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>percona/percona-distribution-postgresql-upgrade:18.4-17.10-16.14-15.18-14.23-1
 </code></pre></div>
 <p>The tag encodes all bundled versions; here it covers PostgreSQL 14 through 18.</p>
-<h2 id="8-run-the-upgrade">8. Run the upgrade<a class="headerlink" href="#8-run-the-upgrade" title="Permanent link">&para;</a></h2>
+<h2 id="8-run-the-upgrade">8. Run the upgrade<a data-markdown-ignore class="headerlink" href="#8-run-the-upgrade" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm
 <span class="w">  </span>--name<span class="w"> </span>ppg_upgrade_17_18
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">OLD_VERSION</span><span class="o">=</span><span class="m">17</span>
@@ -3713,25 +3713,25 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>~/pgupgrade/pg18newdata/p
 <li><code>OLD_DATABASE_NAME</code> / <code>NEW_DATABASE_NAME</code> are the database directory names under your old and new data mounts</li>
 <li>the volumes mount the parent directories (<code>pg17olddata</code>, <code>pg18newdata</code>), <strong>not</strong> the <code>postgres</code> subdirectory directly</li>
 </ul>
-<h2 id="9-start-postgresql-18-using-the-upgraded-data-directory">9. Start PostgreSQL 18 using the upgraded data directory<a class="headerlink" href="#9-start-postgresql-18-using-the-upgraded-data-directory" title="Permanent link">&para;</a></h2>
+<h2 id="9-start-postgresql-18-using-the-upgraded-data-directory">9. Start PostgreSQL 18 using the upgraded data directory<a data-markdown-ignore class="headerlink" href="#9-start-postgresql-18-using-the-upgraded-data-directory" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d
 <span class="w">  </span>--name<span class="w"> </span>pg18
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>password
 <span class="w">  </span>-v<span class="w"> </span>~/pgupgrade/pg18newdata/postgres:/data/db
 <span class="w">  </span>percona/percona-distribution-postgresql:18
 </code></pre></div>
-<h2 id="10-verify-postgresql-18-starts-successfully">10. Verify PostgreSQL 18 starts successfully<a class="headerlink" href="#10-verify-postgresql-18-starts-successfully" title="Permanent link">&para;</a></h2>
+<h2 id="10-verify-postgresql-18-starts-successfully">10. Verify PostgreSQL 18 starts successfully<a data-markdown-ignore class="headerlink" href="#10-verify-postgresql-18-starts-successfully" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>pg18
 </code></pre></div>
-<h2 id="11-connect-to-the-upgraded-cluster">11. Connect to the upgraded cluster<a class="headerlink" href="#11-connect-to-the-upgraded-cluster" title="Permanent link">&para;</a></h2>
+<h2 id="11-connect-to-the-upgraded-cluster">11. Connect to the upgraded cluster<a data-markdown-ignore class="headerlink" href="#11-connect-to-the-upgraded-cluster" title="Permanent link">&para;</a></h2>
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>pg18<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>testdb
 </code></pre></div>
-<h2 id="12-verify-the-upgraded-data">12. Verify the upgraded data<a class="headerlink" href="#12-verify-the-upgraded-data" title="Permanent link">&para;</a></h2>
+<h2 id="12-verify-the-upgraded-data">12. Verify the upgraded data<a data-markdown-ignore class="headerlink" href="#12-verify-the-upgraded-data" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">version</span><span class="p">();</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span>
 </code></pre></div>
 <p>Once you&rsquo;ve confirmed the upgraded container is healthy, you can remove <code>pg17olddata</code>.</p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="docker-enable-pg-tde.html">Enable <code>pg_tde</code> for securing data at rest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 
