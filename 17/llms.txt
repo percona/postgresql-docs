@@ -1,0 +1,98 @@
+# Percona Distribution for PostgreSQL
+
+> Documentation
+
+Each page below is also available as markdown. For the documentation of all Percona products, see https://docs.percona.com/llms.txt.
+
+## Overview
+
+- [Home](https://docs.percona.com/postgresql/17/index.md)
+- [Percona Server for PostgreSQL](https://docs.percona.com/postgresql/17/postgresql-server.md)
+- [Get help from Percona](https://docs.percona.com/postgresql/17/get-help.md)
+- [Quickstart guide](https://docs.percona.com/postgresql/17/quick-start.md)
+- [FAQ](https://docs.percona.com/postgresql/17/faq.md)
+- [Uninstall](https://docs.percona.com/postgresql/17/uninstalling.md)
+
+## Get started
+
+- [Overview](https://docs.percona.com/postgresql/17/installing.md)
+- [Via apt](https://docs.percona.com/postgresql/17/apt.md)
+- [Via yum](https://docs.percona.com/postgresql/17/yum.md)
+- [From tarballs](https://docs.percona.com/postgresql/17/tarball.md)
+- [Run in Docker](https://docs.percona.com/postgresql/17/docker.md)
+- [Enable Percona Distribution for PostgreSQL components](https://docs.percona.com/postgresql/17/enable-extensions.md)
+- [Repositories overview](https://docs.percona.com/postgresql/17/repo-overview.md)
+- [Software Bill of Materials (SBOMs)](https://docs.percona.com/postgresql/17/sboms.md)
+- [2. Connect to PostgreSQL](https://docs.percona.com/postgresql/17/connect.md)
+- [3. Manipulate data in PostgreSQL](https://docs.percona.com/postgresql/17/crud.md)
+- [4. What's next](https://docs.percona.com/postgresql/17/whats-next.md)
+
+## Extensions
+
+- [Extensions](https://docs.percona.com/postgresql/17/extensions.md)
+- [PostgreSQL contrib modules and utilities](https://docs.percona.com/postgresql/17/contrib.md)
+- [Percona-authored extensions](https://docs.percona.com/postgresql/17/percona-ext.md)
+- [Third-party components](https://docs.percona.com/postgresql/17/third-party.md)
+
+## Solutions
+
+- [Overview](https://docs.percona.com/postgresql/17/solutions.md)
+- [Overview](https://docs.percona.com/postgresql/17/solutions/high-availability.md)
+- [Measuring high availability](https://docs.percona.com/postgresql/17/solutions/ha-measure.md)
+- [Architecture](https://docs.percona.com/postgresql/17/solutions/ha-architecture.md)
+- [ETCD](https://docs.percona.com/postgresql/17/solutions/etcd-info.md)
+- [Patroni](https://docs.percona.com/postgresql/17/solutions/patroni-info.md)
+- [HAProxy](https://docs.percona.com/postgresql/17/solutions/haproxy-info.md)
+- [pgBackRest](https://docs.percona.com/postgresql/17/solutions/pgbackrest-info.md)
+- [How components work together](https://docs.percona.com/postgresql/17/solutions/ha-components.md)
+- [Initial setup](https://docs.percona.com/postgresql/17/solutions/ha-init-setup.md)
+- [etcd setup](https://docs.percona.com/postgresql/17/solutions/ha-etcd-config.md)
+- [Patroni setup](https://docs.percona.com/postgresql/17/solutions/ha-patroni.md)
+- [pgBackRest setup](https://docs.percona.com/postgresql/17/solutions/pgbackrest.md)
+- [HAProxy setup](https://docs.percona.com/postgresql/17/solutions/ha-haproxy.md)
+- [Testing the Patroni PostgreSQL Cluster](https://docs.percona.com/postgresql/17/solutions/ha-test.md)
+- [Overview](https://docs.percona.com/postgresql/17/solutions/backup-recovery.md)
+- [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/17/solutions/dr-pgbackrest-setup.md)
+- [TDE compatibility with tools and extensions](https://docs.percona.com/postgresql/17/solutions/tde-tools-compatibility.md)
+- [Overview](https://docs.percona.com/postgresql/17/solutions/postgis.md)
+- [Deployment](https://docs.percona.com/postgresql/17/solutions/postgis-deploy.md)
+- [Query spatial data](https://docs.percona.com/postgresql/17/solutions/postgis-testing.md)
+- [Upgrade spatial database](https://docs.percona.com/postgresql/17/solutions/postgis-upgrade.md)
+- [LDAP authentication](https://docs.percona.com/postgresql/17/ldap.md)
+
+## Upgrade
+
+- [Major upgrade](https://docs.percona.com/postgresql/17/major-upgrade.md)
+- [Minor Upgrade of Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/17/minor-upgrade.md)
+- [Migrate from PostgreSQL to Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/17/migration.md)
+
+## Troubleshooting guide
+
+- [Overview](https://docs.percona.com/postgresql/17/troubleshooting.md)
+- [Repository 404 errors and removed versions](https://docs.percona.com/postgresql/17/remove-repo-ver.md)
+
+## Release notes
+
+- [Release notes index](https://docs.percona.com/postgresql/17/release-notes/release-notes.md)
+- [17.12.1 (2026-11-13)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.12.1.md)
+- [17.11.1 (2026-09-29)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.11.1.md)
+- [17.10.2 (2026-07-06)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.10.2.md)
+- [17.10.1 (2026-05-20)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.10.1.md)
+- [17.9.1 (2026-03-02)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.9.1.md)
+- [17.7.1 (2025-12-02)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.7.1.md)
+- [17.6.1 (2025-09-10)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.6.1.md)
+- [17.5.3 (2025-09-01)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.5.3.md)
+- [17.5.2 ({{ no such element: dict object[1752] }})](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.5.md)
+- [17.5.1 (2025-06-30)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.5.1.md)
+- [17.4.1 (2025-03-27)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.4.md)
+- [17.2.1 (2024-12-26)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.2.md)
+- [17.0.1 (2024-10-03)](https://docs.percona.com/postgresql/17/release-notes/release-notes-v17.0.md)
+
+## Reference
+
+- [Telemetry](https://docs.percona.com/postgresql/17/telemetry.md)
+- [Licensing](https://docs.percona.com/postgresql/17/licensing.md)
+- [Versioning](https://docs.percona.com/postgresql/17/versioning.md)
+- [Trademark policy](https://docs.percona.com/postgresql/17/trademark-policy.md)
+- [Legal notice](https://docs.percona.com/postgresql/17/legal-notice.md)
+

@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3758,11 +3758,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-17111-2026-09-29">Percona Distribution for PostgreSQL 17.11.1 (2026-09-29)<a class="headerlink" href="#percona-distribution-for-postgresql-17111-2026-09-29" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-17111-2026-09-29">Percona Distribution for PostgreSQL 17.11.1 (2026-09-29)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-17111-2026-09-29" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.11.1 - a binary compatible, open source drop in replacement of <a href="https://www.postgresql.org/docs/17/release-17-11.html">PostgreSQL Community 17.11</a>.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, <code>pg_tde</code> 2.2.2 for Transparent Data Encryption and more. See the full component list below for details.</p>
 <ul>
 <li>Fixed an issue where Docker images used a mix of Docker and OCI manifest media types, which prevented pushing the images to OCI-compliant registries. (<a href="https://perconadev.atlassian.net/browse/PKG-1437">PKG-1437</a>)</li>
@@ -3776,10 +3776,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">Note</p>
 <p>Starting with this release, <code>shared_preload_libraries</code> is empty by default. Extensions such as <code>pg_tde</code> must be added manually.</p>
 </div>
-<h3 id="removed-dependency-on-percona-telemetry-agent">Removed dependency on percona-telemetry-agent<a class="headerlink" href="#removed-dependency-on-percona-telemetry-agent" title="Permanent link">&para;</a></h3>
+<h3 id="removed-dependency-on-percona-telemetry-agent">Removed dependency on percona-telemetry-agent<a data-markdown-ignore class="headerlink" href="#removed-dependency-on-percona-telemetry-agent" title="Permanent link">&para;</a></h3>
 <p>The hard depencency on <code>percona-pg-telemetry</code>, which has been a stub since 1.2.0, has been replaced by a weak one and additionally the <code>percona-pg-telemetry</code>package no longer installs the telemertry agent (<code>percona-telemetry-agent</code>).</p>
 <p>See <a href="../telemetry.html#telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations</a> for details.</p>
-<h3 id="tarball-updates">Tarball updates<a class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
+<h3 id="tarball-updates">Tarball updates<a data-markdown-ignore class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
 <ul>
 <li>etcd: 3.5.33</li>
@@ -3793,7 +3793,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>postgres-common: 293</li>
 </ul>
 <p>See <a href="../tarball.html">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
-<h3 id="addressed-cves">Addressed CVEs<a class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
+<h3 id="addressed-cves">Addressed CVEs<a data-markdown-ignore class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs:</p>
 <ul>
 <li>CVE-2026-6464</li>
@@ -3826,17 +3826,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>CVE-2026-19385</li>
 </ul>
 <p>For more details, see the <a href="https://www.postgresql.org/docs/17/release-17-11.html">PostgreSQL 17.11 release notes</a>.</p>
-<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
-<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
+<h2 id="known-issues">Known Issues<a data-markdown-ignore class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
+<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a data-markdown-ignore class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
 <p>During an upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
 <span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/server/postgresql.mk<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
 <span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-<h2 id="md5-authentication-deprecated">MD5 Authentication Deprecated<a class="headerlink" href="#md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
+<h2 id="md5-authentication-deprecated">MD5 Authentication Deprecated<a data-markdown-ignore class="headerlink" href="#md5-authentication-deprecated" title="Permanent link">&para;</a></h2>
 <p>The md5 password authentication is deprecated now and will be removed in a future release.</p>
-<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a data-markdown-ignore class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <div class="admonition note">

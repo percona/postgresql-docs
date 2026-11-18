@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3692,11 +3692,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-17102-2026-07-06">Percona Distribution for PostgreSQL 17.10.2 (2026-07-06)<a class="headerlink" href="#percona-distribution-for-postgresql-17102-2026-07-06" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-17102-2026-07-06">Percona Distribution for PostgreSQL 17.10.2 (2026-07-06)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-17102-2026-07-06" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on Percona Server for PostgreSQL 17.10.2 - a binary-compatible, open source drop-in replacement of <a href="https://www.postgresql.org/docs/17/release-17-10.html">PostgreSQL Community 17.10</a>.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <p>Percona Distribution for PostgreSQL 17.10.2 is an out-of-cycle maintenance release that addresses an issue where TimescaleDB and Citus were not compilable with earlier Percona Server for PostgreSQL versions, and fixes high-severity CVEs for which fixes were available.</p>
 <p>This release also updates bundled components, including <code>pg_tde</code> 2.2.1, and refreshes Docker images with fixes for high-severity CVEs where available.</p>
 <div class="admonition warning">
@@ -3704,17 +3704,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Percona Server for PostgreSQL 17.10.2 and <code>pg_tde</code> 2.2.1 are only supported together. Combining either with an earlier version of the other is not supported.</p>
 </div>
 <p>To upgrade from an earlier version of Percona Distribution for PostgreSQL, follow the steps in <a href="../major-upgrade.html">Upgrading Percona Distribution for PostgreSQL</a>.</p>
-<h3 id="docker-image-updates">Docker image updates<a class="headerlink" href="#docker-image-updates" title="Permanent link">&para;</a></h3>
+<h3 id="docker-image-updates">Docker image updates<a data-markdown-ignore class="headerlink" href="#docker-image-updates" title="Permanent link">&para;</a></h3>
 <p>Docker images have been rebuilt to address high-severity CVEs where fixes were available.</p>
-<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
-<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
+<h2 id="known-issues">Known Issues<a data-markdown-ignore class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
+<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a data-markdown-ignore class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
 <p>During an upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown<span class="w"> </span>Error<span class="w"> </span>occurred:<span class="w"> </span>Transaction<span class="w"> </span><span class="nb">test</span><span class="w"> </span>error:
 <span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/server/postgresql.mk<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
 <span class="w">  </span>file<span class="w"> </span>/usr/share/postgresql-common/t/040_upgrade.t<span class="w"> </span>from<span class="w"> </span>install<span class="w"> </span>of<span class="w"> </span>percona-postgresql-common<span class="w"> </span>conflicts<span class="w"> </span>with<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>package<span class="w"> </span>percona-postgresql-common-dev
 </code></pre></div>
 <p>To resolve this, remove the <code>percona-postgresql-common-dev</code> package and reinstall it with the new intended upgraded PPG/PSP server.</p>
-<h2 id="component-updates">Component updates<a class="headerlink" href="#component-updates" title="Permanent link">&para;</a></h2>
+<h2 id="component-updates">Component updates<a data-markdown-ignore class="headerlink" href="#component-updates" title="Permanent link">&para;</a></h2>
 <p>The following bundled components have been updated in this release:</p>
 <table>
 <thead>

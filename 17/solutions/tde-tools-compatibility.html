@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3934,10 +3934,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="tde-compatibility-with-tools-and-extensions">TDE compatibility with tools and extensions<a class="headerlink" href="#tde-compatibility-with-tools-and-extensions" title="Permanent link">&para;</a></h1>
+<h1 id="tde-compatibility-with-tools-and-extensions">TDE compatibility with tools and extensions<a data-markdown-ignore class="headerlink" href="#tde-compatibility-with-tools-and-extensions" title="Permanent link">&para;</a></h1>
 <p>Transparent Data Encryption (TDE) protects PostgreSQL data files and Write-Ahead Logs (WAL) by encrypting them at rest.</p>
 <p>This page describes how TDE interacts with each component included in the Percona Distribution for PostgreSQL.</p>
-<h2 id="compatibility-summary">Compatibility summary<a class="headerlink" href="#compatibility-summary" title="Permanent link">&para;</a></h2>
+<h2 id="compatibility-summary">Compatibility summary<a data-markdown-ignore class="headerlink" href="#compatibility-summary" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -4029,40 +4029,40 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="etcd">etcd<a class="headerlink" href="#etcd" title="Permanent link">&para;</a></h2>
+<h2 id="etcd">etcd<a data-markdown-ignore class="headerlink" href="#etcd" title="Permanent link">&para;</a></h2>
 <p><code>etcd</code> is a distributed key-value store used by Patroni to maintain cluster state.<br />
 It does not store PostgreSQL data or WAL files.</p>
 <ul>
 <li>TDE does not impact etcd functionality.</li>
 <li>No special configuration is required.</li>
 </ul>
-<h2 id="haproxy">HAProxy<a class="headerlink" href="#haproxy" title="Permanent link">&para;</a></h2>
+<h2 id="haproxy">HAProxy<a data-markdown-ignore class="headerlink" href="#haproxy" title="Permanent link">&para;</a></h2>
 <p><code>HAProxy</code> provides load balancing and connection routing.<br />
 Since it operates over TCP connections, not on data files:</p>
 <ul>
 <li>TDE does not affect its behavior.</li>
 <li>No configuration changes are needed.</li>
 </ul>
-<h2 id="patroni">Patroni<a class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
+<h2 id="patroni">Patroni<a data-markdown-ignore class="headerlink" href="#patroni" title="Permanent link">&para;</a></h2>
 <p><code>Patroni</code> manages PostgreSQL high availability and replication.<br />
 It is not directly impacted by TDE, but the following considerations apply:</p>
 <ul>
 <li>Each cluster node must share the same TDE key provider and key ID.  </li>
 <li>A key mismatch will prevent replicas from starting or replaying WAL.</li>
 </ul>
-<h2 id="pgaudit">pgAudit<a class="headerlink" href="#pgaudit" title="Permanent link">&para;</a></h2>
+<h2 id="pgaudit">pgAudit<a data-markdown-ignore class="headerlink" href="#pgaudit" title="Permanent link">&para;</a></h2>
 <p><code>pgAudit</code> logs SQL statements for auditing purposes.</p>
 <ul>
 <li>TDE does not affect audit logging because SQL is captured before disk encryption.</li>
 <li>Logs are written as plaintext files.</li>
 </ul>
-<h2 id="pgaudit-set_user">pgAudit set_user<a class="headerlink" href="#pgaudit-set_user" title="Permanent link">&para;</a></h2>
+<h2 id="pgaudit-set_user">pgAudit set_user<a data-markdown-ignore class="headerlink" href="#pgaudit-set_user" title="Permanent link">&para;</a></h2>
 <p><code>pgAudit set_user</code> provides controlled user switching.<br />
 It operates at the session level and is <strong>not affected</strong> by encryption of data files.</p>
 <ul>
 <li>No TDE-specific configuration is required.</li>
 </ul>
-<h2 id="pgbackrest">pgBackRest<a class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h2>
+<h2 id="pgbackrest">pgBackRest<a data-markdown-ignore class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h2>
 <p><code>pgBackRest</code> performs physical backups and restores of PostgreSQL clusters.<br />
 It fully supports encrypted databases.</p>
 <ul>
@@ -4077,55 +4077,55 @@ It fully supports encrypted databases.</p>
 <p class="admonition-title">Tip</p>
 <p>Use a <a href="https://docs.percona.com/pg-tde/global-key-provider-configuration/overview.html">global key provider <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 </div>
-<h2 id="pgbadger">pgBadger<a class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h2>
+<h2 id="pgbadger">pgBadger<a data-markdown-ignore class="headerlink" href="#pgbadger" title="Permanent link">&para;</a></h2>
 <p><code>pgBadger</code> analyzes PostgreSQL logs for activity and performance.</p>
 <ul>
 <li>Logs are not encrypted by TDE.</li>
 <li>No configuration or compatibility issues.</li>
 </ul>
-<h2 id="pgbouncer">pgBouncer<a class="headerlink" href="#pgbouncer" title="Permanent link">&para;</a></h2>
+<h2 id="pgbouncer">pgBouncer<a data-markdown-ignore class="headerlink" href="#pgbouncer" title="Permanent link">&para;</a></h2>
 <p><code>pgBouncer</code> handles connection pooling at the network layer.<br />
 It has no interaction with encrypted data or WAL files.</p>
 <ul>
 <li>TDE does not affect pgBouncer.</li>
 <li>No configuration changes are needed.</li>
 </ul>
-<h2 id="pg_gather">pg_gather<a class="headerlink" href="#pg_gather" title="Permanent link">&para;</a></h2>
+<h2 id="pg_gather">pg_gather<a data-markdown-ignore class="headerlink" href="#pg_gather" title="Permanent link">&para;</a></h2>
 <p><code>pg_gather</code> collects system and query statistics from running databases.</p>
 <ul>
 <li>TDE is transparent; no configuration required.</li>
 </ul>
-<h2 id="pgpool2">pgpool2<a class="headerlink" href="#pgpool2" title="Permanent link">&para;</a></h2>
+<h2 id="pgpool2">pgpool2<a data-markdown-ignore class="headerlink" href="#pgpool2" title="Permanent link">&para;</a></h2>
 <p><code>pgpool2</code> manages load balancing and connection routing for PostgreSQL.</p>
 <ul>
 <li>Works on SQL sessions, not files.</li>
 <li>TDE encryption at rest has no impact.</li>
 </ul>
-<h2 id="pg_repack">pg_repack<a class="headerlink" href="#pg_repack" title="Permanent link">&para;</a></h2>
+<h2 id="pg_repack">pg_repack<a data-markdown-ignore class="headerlink" href="#pg_repack" title="Permanent link">&para;</a></h2>
 <p><code>pg_repack</code> rebuilds database objects to reclaim space or optimize performance.</p>
 <ul>
 <li>Works with decrypted data in memory.</li>
 <li>Can safely be used with TDE-enabled clusters.</li>
 </ul>
-<h2 id="pg_stat_monitor">pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
+<h2 id="pg_stat_monitor">pg_stat_monitor<a data-markdown-ignore class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h2>
 <p><code>pg_stat_monitor</code> collects detailed query statistics.</p>
 <ul>
 <li>Operates entirely at the SQL and memory level.</li>
 <li>TDE does not affect functionality.</li>
 </ul>
-<h2 id="pgvector">pgvector<a class="headerlink" href="#pgvector" title="Permanent link">&para;</a></h2>
+<h2 id="pgvector">pgvector<a data-markdown-ignore class="headerlink" href="#pgvector" title="Permanent link">&para;</a></h2>
 <p><code>pgvector</code> stores and searches vector embeddings.</p>
 <ul>
 <li>Operates at the SQL layer, reading decrypted in-memory data.</li>
 <li>TDE does not change its functionality.</li>
 </ul>
-<h2 id="postgis">PostGIS<a class="headerlink" href="#postgis" title="Permanent link">&para;</a></h2>
+<h2 id="postgis">PostGIS<a data-markdown-ignore class="headerlink" href="#postgis" title="Permanent link">&para;</a></h2>
 <p><code>PostGIS</code> adds spatial data types and functions.</p>
 <ul>
 <li>Operates on decrypted data loaded into memory.</li>
 <li>TDE does not change its functionality.</li>
 </ul>
-<h2 id="wal2json">wal2json<a class="headerlink" href="#wal2json" title="Permanent link">&para;</a></h2>
+<h2 id="wal2json">wal2json<a data-markdown-ignore class="headerlink" href="#wal2json" title="Permanent link">&para;</a></h2>
 <p><code>wal2json</code> converts WAL records into JSON for logical replication.</p>
 <p>With TDE enabled:</p>
 <ul>
@@ -4136,7 +4136,7 @@ It has no interaction with encrypted data or WAL files.</p>
 <p class="admonition-title">Warning</p>
 <p><code>wal2json</code> is <strong>not compatible</strong> with encrypted WAL. Consider using logical replication with TDE disabled, or alternative decoding plugins.</p>
 </div>
-<h2 id="postgresql-commons-and-contrib-modules">PostgreSQL Commons and Contrib Modules<a class="headerlink" href="#postgresql-commons-and-contrib-modules" title="Permanent link">&para;</a></h2>
+<h2 id="postgresql-commons-and-contrib-modules">PostgreSQL Commons and Contrib Modules<a data-markdown-ignore class="headerlink" href="#postgresql-commons-and-contrib-modules" title="Permanent link">&para;</a></h2>
 <p>Common and contrib modules (such as <code>pg_stat_statements</code>, <code>pg_trgm</code>, and <code>hstore</code>)<br />
 operate at the SQL and memory level.</p>
 <ul>

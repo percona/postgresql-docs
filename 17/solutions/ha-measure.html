@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3626,7 +3626,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="measuring-high-availability">Measuring high availability<a class="headerlink" href="#measuring-high-availability" title="Permanent link">&para;</a></h1>
+<h1 id="measuring-high-availability">Measuring high availability<a data-markdown-ignore class="headerlink" href="#measuring-high-availability" title="Permanent link">&para;</a></h1>
 <p>The need for high availability is determined by the business requirements, potential risks, and operational limitations. For example, the more components you add to your infrastructure, the more complex and time-consuming it is to maintain. Moreover, it may introduce extra failure points. The recommendation is to follow the principle &ldquo;The simpler the better&rdquo;.</p>
 <p>The level of high availability depends on the following:</p>
 <ul>
@@ -3639,7 +3639,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Expected level of availability. </li>
 <li>Actual availability level of your infrastructure.</li>
 </ul>
-<h3 id="expected-level-of-availability">Expected level of availability<a class="headerlink" href="#expected-level-of-availability" title="Permanent link">&para;</a></h3>
+<h3 id="expected-level-of-availability">Expected level of availability<a data-markdown-ignore class="headerlink" href="#expected-level-of-availability" title="Permanent link">&para;</a></h3>
 <p>It is measured by establishing a measurement time frame and dividing it by the time that it was available. This ratio will rarely be one, which is equal to 100% availability. At Percona, we don&rsquo;t consider a solution to be highly available if it is not at least 99% or two nines available.</p>
 <p>The following table shows the amount of downtime for each level of availability from two to five nines.</p>
 <table>
@@ -3704,11 +3704,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h3 id="actual-level-of-availability">Actual level of availability<a class="headerlink" href="#actual-level-of-availability" title="Permanent link">&para;</a></h3>
+<h3 id="actual-level-of-availability">Actual level of availability<a data-markdown-ignore class="headerlink" href="#actual-level-of-availability" title="Permanent link">&para;</a></h3>
 <p>Measuring the real level of high availability (HA) in your system is key to making sure your investment in HA infrastructure pays off. Instead of relying on assumptions or expectations, you should base your availability insights on incident management data. This is the information collected during service disruptions, failures, or outages that affect the normal functioning of the setup. With this data, you can track metrics like uptime, Mean Time to Recovery (MTTR), and Mean Time Between Failures (MTBF).</p>
 <p>MTBF gives you a picture of how reliable your infrastructure really is. In well-designed high-availability environment, the incidents should be rare, typically occurring no more than once every 2 to 4 years. This assumes a robust infrastructure, as not all systems equally suit for handling database load.</p>
 <p>Recovery speed matters too. For example, a typical Patroni-based cluster can fail over to a new primary node within 30 to 50 seconds. However, note that database availability metrics typically don&rsquo;t consider the application&rsquo;s ability to detect the failover and reconnect. Some applications recover seamlessly, while others may require a restart. </p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="ha-architecture.html">Architecture <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 

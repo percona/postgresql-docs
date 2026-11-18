@@ -127,7 +127,7 @@ Upgrade">
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3827,7 +3827,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-1701-2024-10-03">Percona Distribution for PostgreSQL 17.0.1 (2024-10-03)<a class="headerlink" href="#percona-distribution-for-postgresql-1701-2024-10-03" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-1701-2024-10-03">Percona Distribution for PostgreSQL 17.0.1 (2024-10-03)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-1701-2024-10-03" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="../installing.html">Installation</a>
 <a class="md-button" href="../major-upgrade.html">Upgrade</a></p>
 <p>We are pleased to announce the launch of Percona Distribution for PostgreSQL 17.0.1 - a solution with the collection of tools from PostgreSQL community that are tested to work together and serve to assist you in deploying and managing PostgreSQL. The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability and others that enterprises are facing.</p>
@@ -3852,41 +3852,41 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="highlight"><pre><span></span><code><span class="n">psql</span><span class="w"> </span><span class="p">(</span><span class="n">PostgreSQL</span><span class="p">)</span><span class="w"> </span><span class="mi">17</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Percona</span><span class="w"> </span><span class="n">Server</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">PostgreSQL</span><span class="w"> </span><span class="mi">17</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span>
 </code></pre></div>
 </details>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<h3 id="percona-server-for-postgresql-improvements">Percona Server for PostgreSQL improvements<a class="headerlink" href="#percona-server-for-postgresql-improvements" title="Permanent link">&para;</a></h3>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h3 id="percona-server-for-postgresql-improvements">Percona Server for PostgreSQL improvements<a data-markdown-ignore class="headerlink" href="#percona-server-for-postgresql-improvements" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Exposed Storage Manager API to enable PostgreSQL extensions to hook in custom storage managers.</li>
 <li>Extended Write-Ahead Log (WAL) API to hook into WAL read and write functions.</li>
 </ul>
-<h3 id="postgresql-community-improvements">PostgreSQL Community improvements<a class="headerlink" href="#postgresql-community-improvements" title="Permanent link">&para;</a></h3>
+<h3 id="postgresql-community-improvements">PostgreSQL Community improvements<a data-markdown-ignore class="headerlink" href="#postgresql-community-improvements" title="Permanent link">&para;</a></h3>
 <p>PostgreSQL Community 17 features a lot of new functionalities and enhancements to performance, replication, monitoring, developer experience and more. Among them are the following:</p>
-<h4 id="incremental-base-backups">Incremental base backups<a class="headerlink" href="#incremental-base-backups" title="Permanent link">&para;</a></h4>
+<h4 id="incremental-base-backups">Incremental base backups<a data-markdown-ignore class="headerlink" href="#incremental-base-backups" title="Permanent link">&para;</a></h4>
 <p>Save time and storage space with the ability to back up only the changes since the last backup using <a href="https://www.postgresql.org/docs/17/continuous-archiving.html#BACKUP-INCREMENTAL-BACKUP"><code>pg_basebackup</code></a> with the <code>--incremental</code> option. The new <a href="https://www.postgresql.org/docs/17/app-pgcombinebackup.html"><code>pg_combinebackup</code></a> tool allows manipulation of base and incremental file system backups for recovery.</p>
 <p>Note that you still require a full backup to derive the increments from and to be used during recovery.</p>
 <p>This feature is especially beneficial for organizations with large data sets where a full backup is a time-consuming and resource-intensive operation.  </p>
-<h4 id="performance-improvements">Performance improvements<a class="headerlink" href="#performance-improvements" title="Permanent link">&para;</a></h4>
+<h4 id="performance-improvements">Performance improvements<a data-markdown-ignore class="headerlink" href="#performance-improvements" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Vacuum Process Enhancements: The VACUUM process, responsible for reclaiming storage, now has a new internal data structure, reducing memory usage by up to 20x and improving overall performance.</li>
 <li>The new stream I/O interface can enhance performance during sequential scans and when running the <code>ANALYZE</code> command.</li>
 <li>Added support for parallel index builds for <code>BRIN</code> indexes, which can significantly speed up index creation. Additionally, this release significantly improves execution time of queries that use the <code>IN</code> clause with a B-tree index.</li>
 </ul>
-<h4 id="developer-experience">Developer experience<a class="headerlink" href="#developer-experience" title="Permanent link">&para;</a></h4>
+<h4 id="developer-experience">Developer experience<a data-markdown-ignore class="headerlink" href="#developer-experience" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Developers can now transform JSON objects into a standard database table and convert JSON values to different data types directly within SQL statements. This adds flexibility when working with multiple data formats.</li>
 <li>Run bulk upload and export data from PostgreSQL up to 2x faster with improved <code>COPY</code> performance. In addition, use the <code>ON_ERROR</code> option to proceed with the copy  operation even if there is an error inserting a row.</li>
 <li>The RETURNING clause added to the MERGE command enables developers to retrieve and return the rows modified by the MERGE operation in a single step, reducing the need for additional queries and simplifying complex workflows.</li>
 </ul>
-<h4 id="replication-improvements">Replication improvements<a class="headerlink" href="#replication-improvements" title="Permanent link">&para;</a></h4>
+<h4 id="replication-improvements">Replication improvements<a data-markdown-ignore class="headerlink" href="#replication-improvements" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Gain more control for managing PostgreSQL databases in high availability environments with the ability to continue logical replication from a new primary node after the failover.</li>
 <li>Track inactive and invalid replication slots in the <code>pg_replication_slots</code> view. With the  <code>inactive_since</code> and <code>invalidation_reason</code> columns  added to this view, you can get insights when a slot became inactive as well as the reason for an invalid slot.</li>
 <li>Convert a physical replica into a logical one using the new <a href="https://www.postgresql.org/docs/17/app-pgcreatesubscriber.html"><code>pg_createsubscriber</code></a> command-line tool</li>
 </ul>
-<h4 id="security-improvements">Security improvements<a class="headerlink" href="#security-improvements" title="Permanent link">&para;</a></h4>
+<h4 id="security-improvements">Security improvements<a data-markdown-ignore class="headerlink" href="#security-improvements" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Enable users to perform maintenance operations such as ANALYZE, VACUUM, REINDEX, CLUSTER, REFRESH MATERIALIZED VIEW, and LOCK TABLE on all relations by assigning the new predefined <code>pg_maintain</code> role to them. In addition, the <code>search_path</code> is safe for maintenance operations like VACUUM, ANALYZE, CLUSTER, REFRESH MATERIALIZED VIEW and INDEX.</li>
 </ul>
-<h4 id="monitoring-improvements">Monitoring improvements<a class="headerlink" href="#monitoring-improvements" title="Permanent link">&para;</a></h4>
+<h4 id="monitoring-improvements">Monitoring improvements<a data-markdown-ignore class="headerlink" href="#monitoring-improvements" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>Get deeper insights about query plans and execution with the new options for the EXPLAIN command:</p>
@@ -3909,9 +3909,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Percona Blog: <a href="https://www.percona.com/blog/the-powerful-features-released-in-postgresql-17-beta-2/">The Powerful Features Released in PostgreSQL 17 Beta 2</a></li>
 </ul>
 </div>
-<h3 id="join-percona-squad">Join Percona Squad<a class="headerlink" href="#join-percona-squad" title="Permanent link">&para;</a></h3>
+<h3 id="join-percona-squad">Join Percona Squad<a data-markdown-ignore class="headerlink" href="#join-percona-squad" title="Permanent link">&para;</a></h3>
 <p>Participate in monthly SWAG raffles, get an early access to new product features and invite-only “ask me anything” sessions with database performance experts. Interested? <a href="https://squad.percona.com/pg">Fill in the form</a></p>
-<h2 id="known-limitations">Known Limitations<a class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
+<h2 id="known-limitations">Known Limitations<a data-markdown-ignore class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
 <p>Percona Monitoring and Management (PMM) 2.43.1 is not compatible with <code>pg_stat_monitor</code> 2.1.0 to monitor PostgreSQL 17. However, PMM is compatible with <code>pg_stat_monitor</code> 2.1.0 for monitoring of PostgreSQL 16 and previous versions.</p>
 <p>The support for PostgreSQL 17 will be available in the future PMM release.</p>
 <hr />

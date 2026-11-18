@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3614,11 +3614,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="troubleshooting-guide-overview">Troubleshooting guide overview<a class="headerlink" href="#troubleshooting-guide-overview" title="Permanent link">&para;</a></h1>
+<h1 id="troubleshooting-guide-overview">Troubleshooting guide overview<a data-markdown-ignore class="headerlink" href="#troubleshooting-guide-overview" title="Permanent link">&para;</a></h1>
 <p>This guide helps you identify and resolve common issues when installing, configuring, or running Percona Server for PostgreSQL 17.</p>
 <p>If you&rsquo;re looking for general information or usage tips, check the <a href="faq.html">FAQ</a>.</p>
-<h2 id="common-issues">Common issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h2>
-<h3 id="cannot-create-a-table-permission-denied-in-schema-public">Cannot create a table. Permission denied in schema <code>public</code><a class="headerlink" href="#cannot-create-a-table-permission-denied-in-schema-public" title="Permanent link">&para;</a></h3>
+<h2 id="common-issues">Common issues<a data-markdown-ignore class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h2>
+<h3 id="cannot-create-a-table-permission-denied-in-schema-public">Cannot create a table. Permission denied in schema <code>public</code><a data-markdown-ignore class="headerlink" href="#cannot-create-a-table-permission-denied-in-schema-public" title="Permanent link">&para;</a></h3>
 <p>Every database in PostgreSQL has a default schema called <code>public</code>. A schema stores database objects like tables, views, indexes and allows organizing them into logical groups.</p>
 <p>When you create a table without specifying a schema name, it ends up in the <code>public</code> schema by default.</p>
 <p>Starting with PostgreSQL 15, non-database owners cannot access the <code>public</code> schema. Therefore, you can either grant privileges to the database for your user using the <a href="https://www.postgresql.org/docs/17/sql-grant.html">GRANT</a> command or create your own schema to insert the data.</p>

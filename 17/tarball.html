@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3660,7 +3660,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="install-percona-distribution-for-postgresql-from-binary-tarballs">Install Percona Distribution for PostgreSQL from binary tarballs<a class="headerlink" href="#install-percona-distribution-for-postgresql-from-binary-tarballs" title="Permanent link">&para;</a></h1>
+<h1 id="install-percona-distribution-for-postgresql-from-binary-tarballs">Install Percona Distribution for PostgreSQL from binary tarballs<a data-markdown-ignore class="headerlink" href="#install-percona-distribution-for-postgresql-from-binary-tarballs" title="Permanent link">&para;</a></h1>
 <p>You can download the tarballs using the links below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3679,7 +3679,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>To check what OpenSSL version you have, run the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>version
 </code></pre></div>
-<h2 id="tarball-contents">Tarball contents<a class="headerlink" href="#tarball-contents" title="Permanent link">&para;</a></h2>
+<h2 id="tarball-contents">Tarball contents<a data-markdown-ignore class="headerlink" href="#tarball-contents" title="Permanent link">&para;</a></h2>
 <p>The tarballs include the following components:</p>
 <table>
 <thead>
@@ -3735,8 +3735,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
+<h2 id="preconditions">Preconditions<a data-markdown-ignore class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -3772,7 +3772,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<h2 id="procedure">Procedure<a data-markdown-ignore class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <p>The steps below install the tarballs for OpenSSL 3.x on x86_64 architecture. Use another tarball if your operating system has OpenSSL version 1.x and / or has the ARM64 architecture.</p>
 <ol>
 <li>
@@ -3853,7 +3853,7 @@ postgres=#
 </details>
 </li>
 </ol>
-<h3 id="start-the-components">Start the components<a class="headerlink" href="#start-the-components" title="Permanent link">&para;</a></h3>
+<h3 id="start-the-components">Start the components<a data-markdown-ignore class="headerlink" href="#start-the-components" title="Permanent link">&para;</a></h3>
 <p>After you unpacked the tarball and added the location of the components&rsquo; binaries to the <code>$PATH</code> variable, the components are available for use. You can invoke a component by running its command-line tool.</p>
 <p>For example, to check HAProxy version, type:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>haproxy<span class="w"> </span>version

@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/17/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/17/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3580,7 +3580,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<h1 id="extensions">Extensions<a data-markdown-ignore class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is not only <a href="postgresql-server.html">Percona Server for PostgreSQL</a>. It also includes extensions - the add-ons that enhance the functionality of PostgreSQL database. By installing these extensions, you can modify and extend your database server with new features, functions, and data types.</p>
 <p>Percona Distribution for PostgreSQL includes the extensions that have been tested to work together. These extensions encompass the following:</p>
 <ul>
@@ -3590,7 +3590,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>Percona also supports <a href="https://repo.percona.com/ppg-17-extras/">extra modules</a>, not included in Percona Distribution for PostgreSQL but tested to work with it.</p>
 <p>Additionally, see the list of <a href="https://www.percona.com/postgresql/support/">PostgreSQL software</a> covered by Percona Support.</p>
-<h2 id="install-an-extension">Install an extension<a class="headerlink" href="#install-an-extension" title="Permanent link">&para;</a></h2>
+<h2 id="install-an-extension">Install an extension<a data-markdown-ignore class="headerlink" href="#install-an-extension" title="Permanent link">&para;</a></h2>
 <p>To use an extension, install it. Run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code></a> command on the PostgreSQL node where you want the extension to be available. </p>
 <p>The user should be a superuser or have the <code>CREATE</code> privilege on the current database to be able to run the <a href="https://www.postgresql.org/docs/current/static/sql-createextension.html"><code>CREATE EXTENSION</code></a> command. Some extensions may require additional privileges depending on their functionality. To learn more, check the documentation for the desired extension.</p>
 
