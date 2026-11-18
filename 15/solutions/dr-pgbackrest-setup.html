@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4106,9 +4106,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="deploying-backup-and-disaster-recovery-solution-in-percona-distribution-for-postgresql">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL<a class="headerlink" href="#deploying-backup-and-disaster-recovery-solution-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<h1 id="deploying-backup-and-disaster-recovery-solution-in-percona-distribution-for-postgresql">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL<a data-markdown-ignore class="headerlink" href="#deploying-backup-and-disaster-recovery-solution-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
 <p>This document provides instructions of how to set up and test the backup and disaster recovery solution in Percona Distribution for PostgreSQL with <code>pgBackRest</code>. For technical overview and architecture description of this solution, refer to <a href="backup-recovery.html">Backup and disaster recovery in Percona Distribution for PostgreSQL</a>.</p>
-<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
+<h2 id="deployment">Deployment<a data-markdown-ignore class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
 <p>As the example configuration, we will use the nodes with the following IP addresses:</p>
 <table>
 <thead>
@@ -4132,7 +4132,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h3 id="set-up-hostnames">Set up hostnames<a class="headerlink" href="#set-up-hostnames" title="Permanent link">&para;</a></h3>
+<h3 id="set-up-hostnames">Set up hostnames<a data-markdown-ignore class="headerlink" href="#set-up-hostnames" title="Permanent link">&para;</a></h3>
 <p>In our architecture, the <code>pgBackRest</code> repository is located on a remote host. To allow communication among the nodes, passwordless SSH is required. To achieve this, properly setting up hostnames in the <code>/etc/hosts</code> files is very important.</p>
 <ol>
 <li>
@@ -4174,7 +4174,7 @@ pg-secondary
 10.104.0.5 pg-repo
 ```
 </code></pre></div>
-<h3 id="set-up-passwordless-ssh">Set up passwordless SSH<a class="headerlink" href="#set-up-passwordless-ssh" title="Permanent link">&para;</a></h3>
+<h3 id="set-up-passwordless-ssh">Set up passwordless SSH<a data-markdown-ignore class="headerlink" href="#set-up-passwordless-ssh" title="Permanent link">&para;</a></h3>
 <p>Before setting up passwordless SSH, ensure that the <em>postgres</em> user in all three instances has a password. </p>
 <ol>
 <li>
@@ -4243,7 +4243,7 @@ postgres@pg-repo<span class="s1">'s password: </span>
 </li>
 <li>Set up bidirectional passwordless SSH between <code>pg-repo</code> and <code>pg-secondary</code> using the same method. This will allow <code>pg-repo</code> to recover the backups to <code>pg-secondary</code>. </li>
 </ol>
-<h3 id="install-percona-distribution-for-postgresql">Install Percona Distribution for PostgreSQL<a class="headerlink" href="#install-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h3>
+<h3 id="install-percona-distribution-for-postgresql">Install Percona Distribution for PostgreSQL<a data-markdown-ignore class="headerlink" href="#install-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h3>
 <p>Install Percona Distribution for PostgreSQL in the primary and the secondary nodes from Percona repository. </p>
 <ol>
 <li><a href="https://www.percona.com/doc/percona-repo-config/installing.html">Install <code>percona-release</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</li>
@@ -4254,7 +4254,7 @@ postgres@pg-repo<span class="s1">'s password: </span>
 </li>
 <li>
 <p>Install Percona Distribution for PostgreSQL packages</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RedHat Enterprise Linux and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RedHat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-postgresql-14<span class="w"> </span>-y
@@ -4268,7 +4268,7 @@ postgres@pg-repo<span class="s1">'s password: </span>
 </div>
 </li>
 </ol>
-<h3 id="configure-postgresql-on-the-primary-node-for-continuous-backup">Configure PostgreSQL on the primary node for continuous backup<a class="headerlink" href="#configure-postgresql-on-the-primary-node-for-continuous-backup" title="Permanent link">&para;</a></h3>
+<h3 id="configure-postgresql-on-the-primary-node-for-continuous-backup">Configure PostgreSQL on the primary node for continuous backup<a data-markdown-ignore class="headerlink" href="#configure-postgresql-on-the-primary-node-for-continuous-backup" title="Permanent link">&para;</a></h3>
 <p>At this step, configure the PostgreSQL instance on the <code>pg-primary</code> node for continuous archiving of the WAL files. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4292,9 +4292,9 @@ wal_level = replica
 </code></pre></div>
 </li>
 </ol>
-<h3 id="install-pgbackrest">Install pgBackRest<a class="headerlink" href="#install-pgbackrest" title="Permanent link">&para;</a></h3>
+<h3 id="install-pgbackrest">Install pgBackRest<a data-markdown-ignore class="headerlink" href="#install-pgbackrest" title="Permanent link">&para;</a></h3>
 <p>Install <code>pgBackRest</code> in all three instances from Percona repository. Use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On RHEL / derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On RHEL / derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>percona-pgbackrest
@@ -4306,7 +4306,7 @@ wal_level = replica
 </div>
 </div>
 </div>
-<h3 id="create-the-pgbackrest-configuration-file">Create the <code>pgBackRest</code> configuration file<a class="headerlink" href="#create-the-pgbackrest-configuration-file" title="Permanent link">&para;</a></h3>
+<h3 id="create-the-pgbackrest-configuration-file">Create the <code>pgBackRest</code> configuration file<a data-markdown-ignore class="headerlink" href="#create-the-pgbackrest-configuration-file" title="Permanent link">&para;</a></h3>
 <p>Run the following commands on all three nodes to set up the required configuration file for <code>pgBackRest</code>.</p>
 <ol>
 <li>
@@ -4327,7 +4327,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 $<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/pgbackrest
 $<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span>postgres:postgres<span class="w"> </span>/home/pgbackrest
 </code></pre></div>
-<h3 id="update-pgbackrest-configuration-file-in-the-primary-node">Update <code>pgBackRest</code> configuration file in the primary node<a class="headerlink" href="#update-pgbackrest-configuration-file-in-the-primary-node" title="Permanent link">&para;</a></h3>
+<h3 id="update-pgbackrest-configuration-file-in-the-primary-node">Update <code>pgBackRest</code> configuration file in the primary node<a data-markdown-ignore class="headerlink" href="#update-pgbackrest-configuration-file-in-the-primary-node" title="Permanent link">&para;</a></h3>
 <p>Configure <code>pgBackRest</code> on the <code>pg-primary</code> node by setting up a stanza. A stanza is a set of configuration parameters that tells <code>pgBackRest</code> where to backup its files. Edit the <code>/etc/pgbackrest/pgbackrest.conf</code> file in the <code>pg-primary</code> node to include the following lines:</p>
 <div class="highlight"><pre><span></span><code>[global]
 repo1-host=pg-repo 
@@ -4340,7 +4340,7 @@ log-level-file=debug
 pg1-path=/var/lib/postgresql/15/main
 </code></pre></div>
 <p>You can see the <code>pg1-path</code> attribute for the <code>prod_backup</code> stanza has been set to the PostgreSQL data folder.</p>
-<h3 id="update-pgbackrest-configuration-file-in-the-remote-backup-repository-node">Update <code>pgBackRest</code> configuration file in the remote backup repository node<a class="headerlink" href="#update-pgbackrest-configuration-file-in-the-remote-backup-repository-node" title="Permanent link">&para;</a></h3>
+<h3 id="update-pgbackrest-configuration-file-in-the-remote-backup-repository-node">Update <code>pgBackRest</code> configuration file in the remote backup repository node<a data-markdown-ignore class="headerlink" href="#update-pgbackrest-configuration-file-in-the-remote-backup-repository-node" title="Permanent link">&para;</a></h3>
 <p>Add a stanza for the <code>pgBackRest</code> in the <code>pg-repo</code> node. Edit the <code>/etc/pgbackrest/pgbackrest.conf</code> configuration file to include the following lines:</p>
 <div class="highlight"><pre><span></span><code>[global]
 repo1-path=/home/pgbackrest/pg_backup
@@ -4357,7 +4357,7 @@ pg1-host=pg-primary
 pg1-host-user=postgres
 pg1-port = 5432
 </code></pre></div>
-<h3 id="initialize-pgbackrest-stanza-in-the-remote-backup-repository-node">Initialize <code>pgBackRest</code> stanza in the remote backup repository node<a class="headerlink" href="#initialize-pgbackrest-stanza-in-the-remote-backup-repository-node" title="Permanent link">&para;</a></h3>
+<h3 id="initialize-pgbackrest-stanza-in-the-remote-backup-repository-node">Initialize <code>pgBackRest</code> stanza in the remote backup repository node<a data-markdown-ignore class="headerlink" href="#initialize-pgbackrest-stanza-in-the-remote-backup-repository-node" title="Permanent link">&para;</a></h3>
 <p>After the configuration files are set up, it’s now time to initialize the <code>pgBackRest</code> stanza. Run the following command in the remote backup repository node (<code>pg-repo</code>).</p>
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>stanza-create
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:18.157<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">155883</span>-2277a3e7<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>off<span class="w"> </span>--pg1-host<span class="o">=</span>pg-primary<span class="w"> </span>--pg1-host-user<span class="o">=</span>postgres<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/14/main<span class="w"> </span>--pg1-port<span class="o">=</span><span class="m">5432</span><span class="w"> </span>--repo1-path<span class="o">=</span>/home/pgbackrest/pg_backup<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
@@ -4365,9 +4365,9 @@ pg1-port = 5432
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.566<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>end:<span class="w"> </span>completed<span class="w"> </span>successfully<span class="w"> </span><span class="o">(</span>1412ms<span class="o">)</span>
 </code></pre></div>
 <p>Once the stanza is created successfully, you can try out the different use cases for disaster recovery.</p>
-<h2 id="testing-backup-and-restore-with-pgbackrest">Testing Backup and Restore with <code>pgBackRest</code><a class="headerlink" href="#testing-backup-and-restore-with-pgbackrest" title="Permanent link">&para;</a></h2>
+<h2 id="testing-backup-and-restore-with-pgbackrest">Testing Backup and Restore with <code>pgBackRest</code><a data-markdown-ignore class="headerlink" href="#testing-backup-and-restore-with-pgbackrest" title="Permanent link">&para;</a></h2>
 <p>This section covers a few use cases where <code>pgBackRest</code> can back up and restore databases either in the same instance or a different node.</p>
-<h3 id="use-case-1-create-a-backup-with-pgbackrest">Use Case 1: Create a backup with <code>pgBackRest</code><a class="headerlink" href="#use-case-1-create-a-backup-with-pgbackrest" title="Permanent link">&para;</a></h3>
+<h3 id="use-case-1-create-a-backup-with-pgbackrest">Use Case 1: Create a backup with <code>pgBackRest</code><a data-markdown-ignore class="headerlink" href="#use-case-1-create-a-backup-with-pgbackrest" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>To start our testing, let’s create a table in the <code>postgres</code> database in the <code>pg-primary</code> node and add some data.</p>
@@ -4387,7 +4387,7 @@ pg1-port = 5432
 <p>If you need a differential backup,  use <em>diff</em> for the <code>type</code> field:</p>
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>backup<span class="w"> </span>--type<span class="o">=</span>diff
 </code></pre></div>
-<h3 id="use-case-2-restore-a-postgresql-instance-from-a-full-backup">Use Case 2: Restore a PostgreSQL Instance from a full backup<a class="headerlink" href="#use-case-2-restore-a-postgresql-instance-from-a-full-backup" title="Permanent link">&para;</a></h3>
+<h3 id="use-case-2-restore-a-postgresql-instance-from-a-full-backup">Use Case 2: Restore a PostgreSQL Instance from a full backup<a data-markdown-ignore class="headerlink" href="#use-case-2-restore-a-postgresql-instance-from-a-full-backup" title="Permanent link">&para;</a></h3>
 <p>For testing purposes, let&rsquo;s &ldquo;damage&rdquo; the PostgreSQL instance. </p>
 <ol>
 <li>
@@ -4417,7 +4417,7 @@ pg1-port = 5432
 <p>After the command executes successfully, you can access PostgreSQL from the <code>psql</code> command line tool and check if the table and data rows have been restored.</p>
 </li>
 </ol>
-<h3 id="use-case-3-point-in-time-recovery">Use Case 3: Point-In-Time Recovery<a class="headerlink" href="#use-case-3-point-in-time-recovery" title="Permanent link">&para;</a></h3>
+<h3 id="use-case-3-point-in-time-recovery">Use Case 3: Point-In-Time Recovery<a data-markdown-ignore class="headerlink" href="#use-case-3-point-in-time-recovery" title="Permanent link">&para;</a></h3>
 <p>If your target PostgreSQL instance has an already existing data directory, the full restore option will fail. You will get an error message stating there are existing data files.  In this case, you can use the <code>--delta</code> option to restore only the corrupted files. </p>
 <p>For example, let&rsquo;s say one of your developers mistakenly deleted a few rows from a table. You can use <code>pgBackRest</code> to revert your database to a previous point in time to recover the lost rows.</p>
 <p>To test this use case, do the following:</p>
@@ -4469,7 +4469,7 @@ pg1-port = 5432
 </code></pre></div>
 </li>
 </ol>
-<h3 id="use-case-4-restoring-to-a-separate-postgresql-instance">Use Case 4: Restoring to a Separate PostgreSQL Instance<a class="headerlink" href="#use-case-4-restoring-to-a-separate-postgresql-instance" title="Permanent link">&para;</a></h3>
+<h3 id="use-case-4-restoring-to-a-separate-postgresql-instance">Use Case 4: Restoring to a Separate PostgreSQL Instance<a data-markdown-ignore class="headerlink" href="#use-case-4-restoring-to-a-separate-postgresql-instance" title="Permanent link">&para;</a></h3>
 <p>Sometimes a PostgreSQL server may encounter hardware issues and become completely inaccessible. In such cases, we will need to recover the database to a separate instance where <code>pgBackRest</code> is not initially configured. To restore the instance to a separate host, you have to first install both PostgreSQL and <code>pgBackRest</code> in this host. </p>
 <p>In our test setup, we already have PostgreSQL and <code>pgBackRest</code> installed in the third node, <code>pg-secondary</code>. Change the <code>pgBackRest</code> configuration file in the <code>pg-secondary</code> node as shown below.</p>
 <div class="highlight"><pre><span></span><code>[global]

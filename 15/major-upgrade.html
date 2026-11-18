@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3816,7 +3816,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="upgrading-percona-distribution-for-postgresql-from-14-to-15">Upgrading Percona Distribution for PostgreSQL from 14 to 15<a class="headerlink" href="#upgrading-percona-distribution-for-postgresql-from-14-to-15" title="Permanent link">&para;</a></h1>
+<h1 id="upgrading-percona-distribution-for-postgresql-from-14-to-15">Upgrading Percona Distribution for PostgreSQL from 14 to 15<a data-markdown-ignore class="headerlink" href="#upgrading-percona-distribution-for-postgresql-from-14-to-15" title="Permanent link">&para;</a></h1>
 <p>This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the <code>pg_upgrade</code> tool.</p>
 <p>To ensure a smooth upgrade path, follow these steps:</p>
 <ul>
@@ -3864,7 +3864,7 @@ so the system is usable.</p>
 </li>
 </ol>
 <p>The exact steps may differ depending on the package manager of your operating system.</p>
-<h2 id="on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a class="headerlink" href="#on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h2>
+<h2 id="on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a data-markdown-ignore class="headerlink" href="#on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h2>
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
 <ol>
 <li>
@@ -4026,7 +4026,7 @@ Ver<span class="w"> </span>Cluster<span class="w"> </span>Port<span class="w"> <
 </code></pre></div>
 </li>
 </ol>
-<h2 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h2>
+<h2 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a data-markdown-ignore class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h2>
 <p class="power-number">Run <strong>all</strong> commands as root or via <strong>sudo</strong>:</p>
 <ol>
 <li>
@@ -4157,7 +4157,7 @@ Checking for prepared transactions                          ok
 <p class="admonition-title">Telemetry Agent after upgrading to 15.19 or later</p>
 <p>Starting with version 15.19, <code>percona-pg-telemetry</code> no longer depends on <code>percona-telemetry-agent</code>. If your 14.x installation already has the Telemetry Agent installed, the major upgrade does <strong>not</strong> remove it automatically — it keeps running until you remove it. See <a href="telemetry.html#telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations</a>.</p>
 </div>
-<h2 id="for-major-upgrades-rhel-only">For major upgrades (RHEL only)<a class="headerlink" href="#for-major-upgrades-rhel-only" title="Permanent link">&para;</a></h2>
+<h2 id="for-major-upgrades-rhel-only">For major upgrades (RHEL only)<a data-markdown-ignore class="headerlink" href="#for-major-upgrades-rhel-only" title="Permanent link">&para;</a></h2>
 <p>During a major upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown Error occurred: Transaction test error:
   file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev

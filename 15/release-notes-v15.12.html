@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3874,14 +3874,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-1512-2025-03-03">Percona Distribution for PostgreSQL 15.12 (2025-03-03)<a class="headerlink" href="#percona-distribution-for-postgresql-1512-2025-03-03" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-1512-2025-03-03">Percona Distribution for PostgreSQL 15.12 (2025-03-03)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-1512-2025-03-03" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="installing.html">Installation</a></p>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/current/release-15-11.html">PostgreSQL 15.11</a> and <a href="https://www.postgresql.org/docs/current/release-15-12.html">PostgreSQL 15.12</a>. </p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release fixes <a href="https://www.postgresql.org/support/security/CVE-2025-1094/">CVE-2025-1094</a>, which closed a vulnerability in the <code>libpq</code> PostgreSQL client library but introduced a regression related to string handling for non-null terminated strings. The error would be visible based on how a PostgreSQL client implemented this behavior. This regression affects versions 17.3, 16.7, 15.11, 14.16, and 13.19. For this reason, version 15.11 was skipped.</p>
-<h3 id="improved-security-and-user-experience-for-docker-images">Improved security and user experience for Docker images<a class="headerlink" href="#improved-security-and-user-experience-for-docker-images" title="Permanent link">&para;</a></h3>
+<h3 id="improved-security-and-user-experience-for-docker-images">Improved security and user experience for Docker images<a data-markdown-ignore class="headerlink" href="#improved-security-and-user-experience-for-docker-images" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Percona Distribution for PostgreSQL Docker image is now based on Universal Base Image (UBI) version 9, which includes the latest security fixes. This makes the image compliant with the Red Hat certification and ensures the seamless work of containers on Red Hat OpenShift Container Platform.</p>
@@ -3890,11 +3890,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>You no longer have to specify the <code>15.20-multi</code> tag when you run Percona Distribution for PostgreSQL in Docker. Instead, use the <code>percona/percona-distribution-postgresql:15.20</code>. Docker automatically identifies the architecture of your operating system and pulls the corresponding image. Refer to <a href="docker.html">Run in Docker</a> for how to get started.</p>
 </li>
 </ul>
-<h3 id="postgis-is-included-into-tarballs">PostGIS is included into tarballs<a class="headerlink" href="#postgis-is-included-into-tarballs" title="Permanent link">&para;</a></h3>
+<h3 id="postgis-is-included-into-tarballs">PostGIS is included into tarballs<a data-markdown-ignore class="headerlink" href="#postgis-is-included-into-tarballs" title="Permanent link">&para;</a></h3>
 <p>We have extended Percona Distribution for PostgreSQL tarballs with PostGIS - an open-source extension to handle spacial data. This way you can install and run PostgreSQL as a geospatial database on hosts without a direct access to the Internet. Learn more about <a href="tarball.html">installing from tarballs</a> and <a href="solutions/postgis.html">Spacial data manipulation</a> </p>
-<h2 id="deprecation-of-meta-packages">Deprecation of meta packages<a class="headerlink" href="#deprecation-of-meta-packages" title="Permanent link">&para;</a></h2>
+<h2 id="deprecation-of-meta-packages">Deprecation of meta packages<a data-markdown-ignore class="headerlink" href="#deprecation-of-meta-packages" title="Permanent link">&para;</a></h2>
 <p><a href="repo-overview.html#repository-contents">Meta-packages for Percona Distribution for PostgreSQL</a> are deprecated and will be removed in future releases.</p>
-<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a data-markdown-ignore class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>

@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3794,12 +3794,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="migrate-from-postgresql-to-percona-distribution-for-postgresql">Migrate from PostgreSQL to Percona Distribution for PostgreSQL<a class="headerlink" href="#migrate-from-postgresql-to-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<h1 id="migrate-from-postgresql-to-percona-distribution-for-postgresql">Migrate from PostgreSQL to Percona Distribution for PostgreSQL<a data-markdown-ignore class="headerlink" href="#migrate-from-postgresql-to-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL includes the PostgreSQL database and additional extensions that have been selected to cover the needs of the enterprise and are guaranteed to work together. Percona Distribution for PostgreSQL is available as a software collection that is easy to deploy.</p>
 <p>We encourage users to migrate from their PostgreSQL deployments based on community binaries to Percona Distribution for PostgreSQL. This document provides the migration instructions.</p>
 <p>Depending on your business requirements, you may migrate to Percona Distribution for PostgreSQL either <a href="#migrate-on-the-same-server">on the same server</a> or <a href="#migrate-on-a-different-server">onto a different server</a>.</p>
-<h2 id="migrate-on-the-same-server">Migrate on the same server<a class="headerlink" href="#migrate-on-the-same-server" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu Linux</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
+<h2 id="migrate-on-the-same-server">Migrate on the same server<a data-markdown-ignore class="headerlink" href="#migrate-on-the-same-server" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu Linux</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <blockquote>
@@ -3876,7 +3876,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h2 id="migrate-on-a-different-server">Migrate on a different server<a class="headerlink" href="#migrate-on-a-different-server" title="Permanent link">&para;</a></h2>
+<h2 id="migrate-on-a-different-server">Migrate on a different server<a data-markdown-ignore class="headerlink" href="#migrate-on-a-different-server" title="Permanent link">&para;</a></h2>
 <p>In this scenario, we will refer to the server with PostgreSQL Community as the &ldquo;source&rdquo; and to the server with Percona Distribution for PostgreSQL as the &ldquo;target&rdquo;.</p>
 <p>To migrate from PostgreSQL Community to Percona Distribution for PostgreSQL on a different server, do the following:</p>
 <p class="power-number"><strong>On the source server</strong>:</p>
@@ -3884,7 +3884,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Back up your data and all configuration files (such as <code>pg_hba.conf</code>, <code>postgresql.conf</code>, <code>postgresql.auto.conf</code>) using the tool of your choice.</li>
 <li>
 <p>Stop the <code>postgresql</code> service</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
@@ -3915,7 +3915,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Restore the data from the backup</li>
 <li>
 <p>Start <code>postgresql</code> service</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">On Debian and Ubuntu</label><label for="__tabbed_3_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service

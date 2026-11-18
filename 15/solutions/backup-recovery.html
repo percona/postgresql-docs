@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3920,7 +3920,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="backup-and-disaster-recovery-in-percona-distribution-for-postgresql">Backup and disaster recovery in Percona Distribution for PostgreSQL<a class="headerlink" href="#backup-and-disaster-recovery-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<h1 id="backup-and-disaster-recovery-in-percona-distribution-for-postgresql">Backup and disaster recovery in Percona Distribution for PostgreSQL<a data-markdown-ignore class="headerlink" href="#backup-and-disaster-recovery-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
 <div class="admonition summary">
 <p class="admonition-title">Summary</p>
 <ul>
@@ -3930,7 +3930,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="dr-pgbackrest-setup.html#testing-backup-and-restore-with-pgbackrest">Testing</a></li>
 </ul>
 </div>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h2 id="overview">Overview<a data-markdown-ignore class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>A Disaster Recovery (DR) solution ensures that a system can be quickly restored to a normal operational state if something unexpected happens. When operating a database, you would back up the data as frequently as possible and have a mechanism to restore that data when needed. Disaster Recovery is often mistaken for high availability (HA), but they are two different concepts altogether:</p>
 <ul>
 <li>High availability ensures guaranteed service levels at all times. This solution involves configuring one or more standby systems to an active database, and the ability to switch seamlessly to that standby when the primary database becomes unavailable, for example, during a power outage or a server crash. To learn more about high-availability solutions with Percona Distribution for PostgreSQL, refer to <a href="high-availability.html">High Availability in PostgreSQL with Patroni</a>.</li>
@@ -3999,7 +3999,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p><br></p>
 <p>To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with <a href="#pgbackrest">pgBackRest</a>: a reliable, open-source backup and recovery solution for PostgreSQL.</p>
 <p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
-<h3 id="pgbackrest">pgBackRest<a class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h3>
+<h3 id="pgbackrest">pgBackRest<a data-markdown-ignore class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h3>
 <p><a href="https://pgbackrest.org/">pgBackRest <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. <code>pgBackRest</code> supports the following backup types:</p>
 <ul>
 <li>full backup - a complete copy of your entire data set.</li>
@@ -4010,9 +4010,9 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p><code>pgBackRest</code> supports remote repository hosting and can even use cloud-based services like AWS S3, Google Cloud Services Cloud Storage, Azure Blob Storage for saving backup files. It supports parallel backup through multi-core processing and compression. By default, backup integrity is verified through checksums, and saved files can be encrypted for enhanced security.</p>
 <p><code>pgBackRest</code> can restore a database to a specific point in time in the past. This is the case where a database is not inaccessible but perhaps contains corrupted data. Using the point-in-time recovery, a database administrator can restore the database to the last known good state.  </p>
 <p>Finally, <code>pgBackRest</code> also supports restoring PostgreSQL databases to a different PostgreSQL instance or a separate data directory.</p>
-<h2 id="setup-overview">Setup overview<a class="headerlink" href="#setup-overview" title="Permanent link">&para;</a></h2>
+<h2 id="setup-overview">Setup overview<a data-markdown-ignore class="headerlink" href="#setup-overview" title="Permanent link">&para;</a></h2>
 <p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
-<h3 id="system-architecture">System architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h3>
+<h3 id="system-architecture">System architecture<a data-markdown-ignore class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h3>
 <p>As the configuration example, we will use a three server architecture where <code>pgBackRest</code> resides on a dedicated remote host. The servers communicate with each other via passwordless SSH.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -4020,7 +4020,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 </div>
 <p>The following diagram illustrates the architecture layout:</p>
 <p><img alt="pgBackRest implementation architecture" src="../_images/diagrams/DR-architecture.png" /></p>
-<h4 id="components">Components:<a class="headerlink" href="#components" title="Permanent link">&para;</a></h4>
+<h4 id="components">Components:<a data-markdown-ignore class="headerlink" href="#components" title="Permanent link">&para;</a></h4>
 <p>The architecture consists of three server instances:</p>
 <ul>
 <li><code>pg-primary</code> hosts the primary PostgreSQL server. Note that &ldquo;primary&rdquo; here means the main database instance and does not refer to the primary node of a PostgreSQL replication cluster or a HA setup.</li>
@@ -4031,7 +4031,7 @@ PostgreSQL offers multiple options for setting up database disaster recovery. </
 <p class="admonition-title">Note</p>
 <p>For simplicity, we use a single-node PostgreSQL instance as the primary database server. In a production scenario, you will use some form of high-availability solution to protect the primary instance. When you are using a high-availability setup, we recommend configuring <code>pgBackRest</code> to back up the hot standby server so the primary node is not unnecessarily loaded.</p>
 </div>
-<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
+<h3 id="deployment">Deployment<a data-markdown-ignore class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
 <p>Refer to the <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial.  </p>
 
 

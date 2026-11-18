@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3940,14 +3940,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
+<h1 id="architecture">Architecture<a data-markdown-ignore class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
 <p>In the <a href="high-availability.html">overview of high availability</a>, we discussed the required components to achieve high-availability. </p>
 <p>Our recommended minimalistic approach to a highly-available deployment is to have a three-node PostgreSQL cluster with the cluster management and failover mechanisms, load balancer and a backup / restore solution.</p>
 <p>The following diagram shows this architecture, including all additional components. If you are considering a simple and cost-effective setup, refer to the <a href="#bare-minimum-architecture">Bare-minimum architecture</a> section.</p>
 <p><img alt="Architecture of the three-node, single primary PostgreSQL cluster" src="../_images/diagrams/ha-recommended.svg" /></p>
-<h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
+<h2 id="components">Components<a data-markdown-ignore class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
 <p>The components in this architecture are:</p>
-<h3 id="database-layer">Database layer<a class="headerlink" href="#database-layer" title="Permanent link">&para;</a></h3>
+<h3 id="database-layer">Database layer<a data-markdown-ignore class="headerlink" href="#database-layer" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>PostgreSQL nodes bearing the user data. </p>
@@ -3959,11 +3959,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>watchdog - a mechanism that will reset the whole system when they do not get a keepalive heartbeat within a specified timeframe. This adds an additional layer of fail safe in case usual Patroni split-brain protection mechanisms fail.</p>
 </li>
 </ul>
-<h3 id="dcs-layer">DCS layer<a class="headerlink" href="#dcs-layer" title="Permanent link">&para;</a></h3>
+<h3 id="dcs-layer">DCS layer<a data-markdown-ignore class="headerlink" href="#dcs-layer" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="etcd-info.html">etcd</a> - a Distributed Configuration Store. It stores the state of the PostgreSQL cluster and handles the election of a new primary. The odd number of nodes (minimum three) is required to always have the majority to agree on updates to the cluster state.  </li>
 </ul>
-<h3 id="load-balancing-layer">Load balancing layer<a class="headerlink" href="#load-balancing-layer" title="Permanent link">&para;</a></h3>
+<h3 id="load-balancing-layer">Load balancing layer<a data-markdown-ignore class="headerlink" href="#load-balancing-layer" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><a href="haproxy-info.html">HAProxy</a> - the load balancer and the single point of entry to the cluster for client applications. Minimum two instances are required for redundancy.</p>
@@ -3975,7 +3975,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>(Optional) pgbouncer - a connection pooler for PostgreSQL. The aim of pgbouncer is to lower the performance impact of opening new connections to PostgreSQL.</p>
 </li>
 </ul>
-<h3 id="services-layer">Services layer<a class="headerlink" href="#services-layer" title="Permanent link">&para;</a></h3>
+<h3 id="services-layer">Services layer<a data-markdown-ignore class="headerlink" href="#services-layer" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><a href="pgbackrest-info.html">pgBackRest</a> - the backup and restore solution for PostgreSQL. It should also be redundant to eliminate a single point of failure.</p>
@@ -3984,7 +3984,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>(Optional) Percona Monitoring and Management (PMM) - the solution to monitor the health of your cluster </p>
 </li>
 </ul>
-<h2 id="bare-minimum-architecture">Bare-minimum architecture<a class="headerlink" href="#bare-minimum-architecture" title="Permanent link">&para;</a></h2>
+<h2 id="bare-minimum-architecture">Bare-minimum architecture<a data-markdown-ignore class="headerlink" href="#bare-minimum-architecture" title="Permanent link">&para;</a></h2>
 <p>There may be constraints to use the <a href="#architecture">reference architecture with all additional components</a>, like the number of available servers or the cost for additional hardware. You can still achieve high-availability with the minimum two database nodes and three <code>etcd</code> instances. The following diagram shows this architecture:</p>
 <p><img alt="Bare-minimum architecture of the PostgreSQL cluster" src="../_images/diagrams/HA-basic.svg" /></p>
 <p>Using such architecture has the following limitations:</p>
@@ -3994,9 +3994,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>The application must act as the load-balancer. It must be able to determine read/write and read-only requests and distribute them across the cluster. </li>
 <li>The <code>pbBackRest</code> component is optional as it doesn&rsquo;t server the purpose of high-availability. But it is highly-recommended for disaster recovery and is a must fo production environments. <a href="https://www.percona.com/about/contact">Contact us</a> to discuss backup configurations and retention policies.</li>
 </ul>
-<h2 id="additional-reading">Additional reading<a class="headerlink" href="#additional-reading" title="Permanent link">&para;</a></h2>
+<h2 id="additional-reading">Additional reading<a data-markdown-ignore class="headerlink" href="#additional-reading" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="ha-components.html">How components work together</a></p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="ha-init-setup.html">Deployment - initial setup <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 

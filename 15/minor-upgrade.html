@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3772,7 +3772,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="minor-upgrade-of-percona-distribution-for-postgresql">Minor Upgrade of Percona Distribution for PostgreSQL<a class="headerlink" href="#minor-upgrade-of-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<h1 id="minor-upgrade-of-percona-distribution-for-postgresql">Minor Upgrade of Percona Distribution for PostgreSQL<a data-markdown-ignore class="headerlink" href="#minor-upgrade-of-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
 <p>Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.</p>
 <p>Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.</p>
 <p>Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:</p>
@@ -3793,7 +3793,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Stop the <code>postgresql</code> service.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian / Ubuntu</label><label for="__tabbed_1_2">On Red Hat Enterprise Linux / derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">On Debian / Ubuntu</label><label for="__tabbed_1_2">On Red Hat Enterprise Linux / derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>postgresql.service
@@ -3814,7 +3814,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Restart the <code>postgresql</code> service.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux / derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">On Debian / Ubuntu</label><label for="__tabbed_2_2">On Red Hat Enterprise Linux / derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql.service
@@ -3832,7 +3832,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">Telemetry Agent after upgrading to 15.19 or later</p>
 <p>Starting with version 15.19, <code>percona-pg-telemetry</code> no longer depends on <code>percona-telemetry-agent</code>. If your current installation already has the Telemetry Agent (from a version earlier than 15.19), upgrading does <strong>not</strong> remove it automatically — it keeps running until you remove it. See <a href="telemetry.html#telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations</a>.</p>
 </div>
-<h2 id="for-minor-upgrades-rhel-only">For minor upgrades (RHEL only)<a class="headerlink" href="#for-minor-upgrades-rhel-only" title="Permanent link">&para;</a></h2>
+<h2 id="for-minor-upgrades-rhel-only">For minor upgrades (RHEL only)<a data-markdown-ignore class="headerlink" href="#for-minor-upgrades-rhel-only" title="Permanent link">&para;</a></h2>
 <p>During a minor upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown Error occurred: Transaction test error:
   file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev

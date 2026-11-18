@@ -136,7 +136,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/15/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -3818,7 +3818,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="spatial-data-manipulation">Spatial data manipulation<a class="headerlink" href="#spatial-data-manipulation" title="Permanent link">&para;</a></h1>
+<h1 id="spatial-data-manipulation">Spatial data manipulation<a data-markdown-ignore class="headerlink" href="#spatial-data-manipulation" title="Permanent link">&para;</a></h1>
 <div class="admonition admonition">
 <p class="admonition-title">Version added: 15.3</p>
 </div>
@@ -3829,7 +3829,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>To operate with spatial data inside SQL queries, PostGIS supports <a href="https://postgis.net/docs/reference.html#SRS_Functions">spatial functions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> like distance, area, union, intersection. It uses the spatial indexes like <a href="https://en.wikipedia.org/wiki/R-tree">R-Tree <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> and <a href="https://en.wikipedia.org/wiki/Quadtree">Quadtree <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for efficient processing of database operations. Read more about supported spatial functions and indexes in <a href="https://postgis.net/workshops/postgis-intro/introduction.html">PostGIS documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>. </p>
 <p>By deploying PostGIS with Percona Distribution for PostgreSQL, you receive the open-source spatial database that you can use in various areas without vendor lock-in. </p>
-<h2 id="when-to-use-postgis">When to use PostGIS<a class="headerlink" href="#when-to-use-postgis" title="Permanent link">&para;</a></h2>
+<h2 id="when-to-use-postgis">When to use PostGIS<a data-markdown-ignore class="headerlink" href="#when-to-use-postgis" title="Permanent link">&para;</a></h2>
 <p>You can use PostGIS in the following cases:</p>
 <ul>
 <li>To store and manage spatial data, create and store spatial shapes, calculate areas and distances</li>
@@ -3837,7 +3837,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>To work with raster data, such as satellite imagery or digital elevation models.</li>
 <li>To integrate spatial and non-spatial data such as demographic or economic data in a database</li>
 </ul>
-<h2 id="when-not-to-use-postgis">When not to use PostGIS<a class="headerlink" href="#when-not-to-use-postgis" title="Permanent link">&para;</a></h2>
+<h2 id="when-not-to-use-postgis">When not to use PostGIS<a data-markdown-ignore class="headerlink" href="#when-not-to-use-postgis" title="Permanent link">&para;</a></h2>
 <p>Despite its power and flexibility, PostGIS may not suit your needs if:</p>
 <ul>
 <li>You need to store only a couple of map locations. Consider using the <a href="https://www.postgresql.org/docs/current/functions-geometry.html">built-in geometric functions and operations of PostgreSQL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
@@ -3845,7 +3845,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>You need complex 3D analysis or visualization.</li>
 <li>You need to acquire spatial data. Use other tools for this purpose and import spatial data into PostGIS to manipulate it.</li>
 </ul>
-<h2 id="next-steps">Next steps:<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps:<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a href="postgis-deploy.html">Deployment</a></p>
 
 

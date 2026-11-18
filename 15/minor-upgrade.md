@@ -1,0 +1,88 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/postgresql/15/llms.txt).
+
+# Minor Upgrade of Percona Distribution for PostgreSQL
+
+Minor releases of PostgreSQL include bug fixes and feature enhancements. We recommend that you keep your Percona Distribution for PostgreSQL updated to the latest minor version.
+
+Though minor upgrades do not change the behavior, we recommend you to back up your data first, in order to be on the safe side.
+
+Minor upgrade of Percona Distribution for PostgreSQL includes the following steps:
+
+1. Stop the `postgresql` cluster;
+1. Update `percona-release`
+1. Install new version packages;
+1. Restart the `postgresql` cluster.
+
+Note
+
+These steps apply if you installed Percona Distribution for PostgreSQL from the Major Release repository. In this case, you are always upgraded to the latest available release.
+
+If you installed Percona Distribution for PostgreSQL from the Minor Release repository, you will need to enable a new version repository to upgrade.
+
+For more information about Percona repositories, refer to [Installing Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/15/installing.html).
+
+Before the upgrade, [update the `percona-release`](https://www.percona.com/doc/percona-repo-config/percona-release.html#updating-percona-release-to-the-latest-version) utility to the latest version. This is required to install the new version packages of Percona Distribution for PostgreSQL.
+
+Run **all** commands as root or via **sudo**:
+
+1. Stop the `postgresql` service.
+
+   **On Debian / Ubuntu**
+
+   ```
+   $ sudo systemctl stop postgresql.service
+   ```
+
+   **On Red Hat Enterprise Linux / derivatives**
+
+   ```
+   $ sudo systemctl stop postgresql-15
+   ```
+
+1. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
+
+1. Install new version packages. See [Installing Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/15/installing.html).
+
+1. Restart the `postgresql` service.
+
+   **On Debian / Ubuntu**
+
+   ```
+   $ sudo systemctl start postgresql.service
+   ```
+
+   **On Red Hat Enterprise Linux / derivatives**
+
+   ```
+   $ sudo systemctl start postgresql-15
+   ```
+
+Telemetry Agent after upgrading to 15.19 or later
+
+Starting with version 15.19, `percona-pg-telemetry` no longer depends on `percona-telemetry-agent`. If your current installation already has the Telemetry Agent (from a version earlier than 15.19), upgrading does **not** remove it automatically — it keeps running until you remove it. See [Telemetry Agent dependencies and removal considerations](https://docs.percona.com/postgresql/15/telemetry.html#telemetry-agent-dependencies-and-removal-considerations).
+
+## For minor upgrades (RHEL only)
+
+During a minor upgrade on RHEL, you may encounter the following error:
+
+```
+Unknown Error occurred: Transaction test error:
+  file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+  file /usr/share/postgresql-common/t/040_upgrade.t from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
+```
+
+To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
+
+On RHEL 10, some earlier releases may have installed the distribution’s PostgreSQL 18 packages, causing the following error:
+
+```
+file /lib/systemd/system/postgresql.service from install of percona-postgresql-common conflicts with file from package postgresql18-server
+```
+
+To resolve this, remove the distribution’s PostgreSQL packages before upgrading:
+
+```
+sudo dnf remove postgresql18-server postgresql18 postgresql18-private-libs
+```
+
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 14 to 15](https://docs.percona.com/postgresql/15/major-upgrade.html).
