@@ -6052,7 +6052,7 @@ log_error_verbosity = default
 </code></pre></div>
 <details class="example">
 <summary>Expected output</summary>
-<div class="no-copy highlight"><pre><span></span><code><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">|</span><span class="w">          </span><span class="n">email</span>
+<div class="no-copy highlight"><pre><span></span><code><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">|</span><span class="w">          </span><span class="n">email</span>
 <span class="c1">----+------------+-----------+-------------------------</span>
 <span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">John</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">Doe</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">john</span><span class="p">.</span><span class="n">doe</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
 <span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Jane</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">Doe</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">jane</span><span class="p">.</span><span class="n">doe</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
@@ -6076,12 +6076,10 @@ log_error_verbosity = default
 </code></pre></div>
 <details class="example">
 <summary>Expected output</summary>
-<div class="no-copy highlight"><pre><span></span><code><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">|</span><span class="w">          </span><span class="n">email</span>
-<span class="c1">----+------------+-----------+-------------------------</span>
-<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Jane</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">Doe</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">jane</span><span class="p">.</span><span class="n">doe</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
-<span class="w">  </span><span class="mi">3</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Alice</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">Smith</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">alice</span><span class="p">.</span><span class="n">smith</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>
+<div class="no-copy highlight"><pre><span></span><code><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">first_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">|</span><span class="w">        </span><span class="n">email</span>
+<span class="c1">----+------------+-----------+----------------------</span>
 <span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">John</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">Doe</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="n">john</span><span class="p">.</span><span class="n">doe</span><span class="o">@</span><span class="n">myemail</span><span class="p">.</span><span class="n">com</span>
-<span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">rows</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="p">)</span>
 </code></pre></div>
 </details>
 </li>
@@ -6122,7 +6120,6 @@ log_error_verbosity = default
                         </h1>
                     <section class="print-page" id="extensions" heading-number="5.1"><h1 id="extensions-extensions">Extensions<a class="headerlink" href="#extensions-extensions" title="Permanent link">&para;</a></h1>
 <p>Percona Distribution for PostgreSQL is not only the PostgreSQL server. It also includes extensions - the add-ons that enhance the functionality of PostgreSQL database. By installing these extensions, you can modify and extend your database server with new features, functions, and data types.</p>
-<p>Percona Distribution for PostgreSQL includes the extensions that have been tested to work together. These extensions encompass the following:</p>
 <p>Percona Distribution for PostgreSQL includes the extensions that have been tested to work together. These extensions encompass the following:</p>
 <ul>
 <li><a href="#contrib">PostgreSQL contrib modules and utilities</a></li>
@@ -8233,31 +8230,22 @@ tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      
 </li>
 <li>
 <p>Change the configuration as follows:</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. <strong>Do not replace your existing Patroni configuration with this example.</strong> Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.</p>
 <div class="highlight"><span class="filename">/etc/patroni/patroni.yml</span><pre><span></span><code><span class="nt">postgresql</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">archive_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/16/main/pg_wal/%f</span>
-<span class="w">    </span><span class="nt">archive_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">archive_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">on</span>
 <span class="w">    </span><span class="nt">archive_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600s</span>
-<span class="w">    </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">'on'</span>
-<span class="w">    </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="w">    </span><span class="nt">max_wal_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10GB</span>
-<span class="w">    </span><span class="nt">wal_keep_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logical</span>
-<span class="w">    </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">recovery_conf</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">recovery_target_timeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
 <span class="w">    </span><span class="nt">restore_command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f "%p"</span>
-<span class="w">  </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="nt">slots</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">percona_cluster_1</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">physical</span>
-<span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">    </span><span class="nt">recovery_target_timeline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
 </code></pre></div>
-</li>
+</div>
+<ol>
 <li>
 <p>Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the <code>cluster_1</code> cluster name:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>patronictl<span class="w"> </span>-c<span class="w"> </span>/etc/patroni/patroni.yml<span class="w"> </span>restart<span class="w"> </span>cluster_1
@@ -10449,7 +10437,7 @@ distribution&rsquo;s PostgreSQL 18.</p>
 <p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 15.x), follow the steps in <a href="#major-upgrade">Upgrading Percona Distribution for PostgreSQL</a>.</p>
 </div>
 <h3 id="release-notes-release-notes-v16.15-removed-dependency-on-percona-telemetry-agent">Removed dependency on percona-telemetry-agent<a class="headerlink" href="#release-notes-release-notes-v16.15-removed-dependency-on-percona-telemetry-agent" title="Permanent link">&para;</a></h3>
-<p>The hard depencency on <code>percona-pg-telemetry</code>, which has been a stub since 1.2.0, has been replaced by a weak one and additionally the <code>percona-pg-telemetry</code>package no longer installs the telemertry agent (<code>percona-telemetry-agent</code>).</p>
+<p>The hard dependency on <code>percona-pg-telemetry</code>, which has been a stub since 1.2.0, has been replaced by a weak one and additionally the <code>percona-pg-telemetry</code> package no longer installs the telemetry agent (<code>percona-telemetry-agent</code>).</p>
 <p>See <a href="#telemetry-telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations</a> for details.</p>
 <h3 id="release-notes-release-notes-v16.15-tarball-updates">Tarball updates<a class="headerlink" href="#release-notes-release-notes-v16.15-tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>

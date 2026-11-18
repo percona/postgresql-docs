@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/16/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/16/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3765,20 +3765,20 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-1616-2026-11-13">Percona Distribution for PostgreSQL 16.16 (2026-11-13)<a class="headerlink" href="#percona-distribution-for-postgresql-1616-2026-11-13" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-1616-2026-11-13">Percona Distribution for PostgreSQL 16.16 (2026-11-13)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-1616-2026-11-13" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="../installing.html">Installation</a></p>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/16/release-16-16.html">PostgreSQL 16.16</a>.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <p>This release continues to deliver Percona’s open source value-add components for enterprise use cases, see the full component list below for details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To upgrade from earlier versions (e.g. Percona Distribution for PostgreSQL 15.x), follow the steps in <a href="../major-upgrade.html">Upgrading Percona Distribution for PostgreSQL</a>.</p>
 </div>
-<h3 id="added-credcheck-extension">Added <code>credcheck</code> extension<a class="headerlink" href="#added-credcheck-extension" title="Permanent link">&para;</a></h3>
+<h3 id="added-credcheck-extension">Added <code>credcheck</code> extension<a data-markdown-ignore class="headerlink" href="#added-credcheck-extension" title="Permanent link">&para;</a></h3>
 <p>Percona Distribution for PostgreSQL now includes the <a href="https://github.com/HexaCluster/credcheck"><code>credcheck</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> extension. <code>credcheck</code> enforces credential policies when users are created, renamed, or change their passwords. For example, it can set minimum password length, require certain character types, block passwords that contain the username, and prevent password reuse.</p>
-<h3 id="tarball-updates">Tarball updates<a class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
+<h3 id="tarball-updates">Tarball updates<a data-markdown-ignore class="headerlink" href="#tarball-updates" title="Permanent link">&para;</a></h3>
 <p>The binary tarballs for x86_64 and ARM64 architectures have been updated in this release. The following libraries and components have new versions:</p>
 <ul>
 <li>credcheck: 6.0</li>
@@ -3794,7 +3794,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>wal2json: 2.7</li>
 </ul>
 <p>See <a href="../tarball.html">Install Percona Distribution for PostgreSQL from binary tarballs</a> for the download links.</p>
-<h3 id="addressed-cves">Addressed CVEs<a class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
+<h3 id="addressed-cves">Addressed CVEs<a data-markdown-ignore class="headerlink" href="#addressed-cves" title="Permanent link">&para;</a></h3>
 <p>This release includes important security measures that address the following CVEs:</p>
 <ul>
 <li><a href="https://www.cve.org/CVERecord?id=CVE-2026-6460">CVE-2026-6460</a></li>
@@ -3842,8 +3842,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="https://www.cve.org/CVERecord?id=CVE-2026-120154">CVE-2026-120154</a></li>
 </ul>
 <p>For more details, see the <a href="https://www.postgresql.org/docs/16/release-16-16.html">PostgreSQL 16.16 release notes</a>.</p>
-<h2 id="known-issue">Known Issue<a class="headerlink" href="#known-issue" title="Permanent link">&para;</a></h2>
-<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
+<h2 id="known-issue">Known Issue<a data-markdown-ignore class="headerlink" href="#known-issue" title="Permanent link">&para;</a></h2>
+<h3 id="for-minor-major-upgrades-rhel-only">For minor &amp; major upgrades (RHEL only)<a data-markdown-ignore class="headerlink" href="#for-minor-major-upgrades-rhel-only" title="Permanent link">&para;</a></h3>
 <p>During an upgrade on RHEL, you may encounter the following error:</p>
 <div class="highlight"><pre><span></span><code>Unknown Error occurred: Transaction test error:
   file /usr/share/postgresql-common/server/postgresql.mk from install of percona-postgresql-common conflicts with file from package percona-postgresql-common-dev
@@ -3861,7 +3861,7 @@ distribution&rsquo;s PostgreSQL 18.</p>
 <p>To resolve this, remove the distribution&rsquo;s PostgreSQL packages before upgrading:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>remove<span class="w"> </span>postgresql18-server<span class="w"> </span>postgresql18<span class="w"> </span>postgresql18-private-libs
 </code></pre></div>
-<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a data-markdown-ignore class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>

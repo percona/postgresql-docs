@@ -128,7 +128,7 @@ distributing network traffic across multiple servers. It is widely used to enhan
                  <meta property="og:image" content="https://docs.percona.com/postgresql/16/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/16/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3703,7 +3703,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="haproxy">HAProxy<a class="headerlink" href="#haproxy" title="Permanent link">&para;</a></h1>
+<h1 id="haproxy">HAProxy<a data-markdown-ignore class="headerlink" href="#haproxy" title="Permanent link">&para;</a></h1>
 <p>HAProxy (High Availability Proxy) is a powerful, open-source load balancer and
 proxy server used to improve the performance and reliability of web services by
 distributing network traffic across multiple servers. It is widely used to enhance the scalability, availability, and reliability of web applications by balancing client requests among backend servers.</p>
@@ -3711,7 +3711,7 @@ distributing network traffic across multiple servers. It is widely used to enhan
 optimized to move data as fast as possible with the least possible operations.
 It focuses on optimizing the CPU cache&rsquo;s efficiency by sticking connections to
 the same CPU as long as possible.</p>
-<h2 id="how-haproxy-works">How HAProxy works<a class="headerlink" href="#how-haproxy-works" title="Permanent link">&para;</a></h2>
+<h2 id="how-haproxy-works">How HAProxy works<a data-markdown-ignore class="headerlink" href="#how-haproxy-works" title="Permanent link">&para;</a></h2>
 <p>HAProxy operates as a reverse proxy, which means it accepts client requests and distributes them to one or more backend servers using the configured load-balancing algorithm. This ensures efficient use of server resources and prevents any single server from becoming overloaded.</p>
 <ul>
 <li>
@@ -3733,11 +3733,11 @@ the same CPU as long as possible.</p>
 <li><strong>Traffic management</strong>: HAProxy supports rate limiting, request queuing, and connection pooling for optimal resource utilization.</li>
 <li><strong>Security</strong>: HAProxy supports SSL/TLS, IP filtering, and integration with Web Application Firewalls (WAF).</li>
 </ul>
-<h2 id="role-in-a-ha-patroni-cluster">Role in a HA Patroni cluster<a class="headerlink" href="#role-in-a-ha-patroni-cluster" title="Permanent link">&para;</a></h2>
+<h2 id="role-in-a-ha-patroni-cluster">Role in a HA Patroni cluster<a data-markdown-ignore class="headerlink" href="#role-in-a-ha-patroni-cluster" title="Permanent link">&para;</a></h2>
 <p>HAProxy plays a crucial role in managing PostgreSQL high availability in a Patroni cluster. Patroni is an open-source tool that automates PostgreSQL cluster management, including failover and replication. HAProxy acts as a load balancer and proxy, distributing client connections across the cluster nodes. </p>
 <p>Client applications connect to HAProxy, which transparently forwards their requests to the appropriate PostgreSQL node. This ensures that clients always connect to the active primary node without needing to know the cluster&rsquo;s internal state and topology.</p>
 <p>HAProxy monitors the health of PostgreSQL nodes using Patroni&rsquo;s API and routes traffic to the primary node. If the primary node fails, Patroni promotes a secondary node to a new primary, and HAProxy updates its routing to reflect the change. You can configure HAProxy to route write requests to the primary node and read requests - to the secondary nodes.</p>
-<h2 id="redundancy-for-haproxy">Redundancy for HAProxy<a class="headerlink" href="#redundancy-for-haproxy" title="Permanent link">&para;</a></h2>
+<h2 id="redundancy-for-haproxy">Redundancy for HAProxy<a data-markdown-ignore class="headerlink" href="#redundancy-for-haproxy" title="Permanent link">&para;</a></h2>
 <p>A single HAProxy node creates a single point of failure. If HAProxy goes down, clients lose connection to the cluster. To prevent this, set up multiple HAProxy instances with a failover mechanism. This way, if one instance fails, another takes over automatically.</p>
 <p>To implement HAProxy redundancy:</p>
 <ol>
@@ -3756,7 +3756,7 @@ the same CPU as long as possible.</p>
 <p>In this reference architecture we focus on the on-premises deployment and use Keepalived as the failover mechanism. </p>
 <p>If you use a cloud infrastructure, it may be easier to use the load balancer provided by the cloud provider to achieve high-availability for HAProxy. </p>
 </div>
-<h2 id="how-keepalived-works">How Keepalived works<a class="headerlink" href="#how-keepalived-works" title="Permanent link">&para;</a></h2>
+<h2 id="how-keepalived-works">How Keepalived works<a data-markdown-ignore class="headerlink" href="#how-keepalived-works" title="Permanent link">&para;</a></h2>
 <p>Keepalived manages failover by moving the virtual IP to a backup HAProxy node when the primary fails.</p>
 <p>No matter how many HAProxy nodes you have, only one of them can be a primary and have the MASTER state. All other nodes are BACKUP nodes. They monitor the MASTER state and take over when it is down. </p>
 <p>To determine the MASTER, Keepalived uses the <code>priority</code> setting. Every node must have a different priority.</p>
@@ -3765,7 +3765,7 @@ the same CPU as long as possible.</p>
 <p>You must carefully define the <code>priority</code> and <code>weight</code> values in the configuration. When a primary node is down, its priority must be adjusted to be lower than the active node with the lowest priority by at least 1. </p>
 <p>For example, your nodes have priority 110 and 100. The node with priority 110 is MASTER. When it is down, its priority must be lower than the priority of the remaining node (100). </p>
 <p>When a failed node restores, its priority adjusts again. If it is the highest one among the nodes, this node restores its MASTER state, holds the virtual IP address and handles the client connections.</p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="pgbackrest-info.html">pgBackRest</a></p>
 
 

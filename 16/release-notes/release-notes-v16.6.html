@@ -126,7 +126,7 @@
                  <meta property="og:image" content="https://docs.percona.com/postgresql/16/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
                 </head>
-                <body>
+                <body><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/postgresql/16/llms.txt" tabindex="-1">llms.txt</a>.</div>
                 </body>
               </html>
   
@@ -3633,12 +3633,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-distribution-for-postgresql-166-2024-12-03">Percona Distribution for PostgreSQL 16.6 (2024-12-03)<a class="headerlink" href="#percona-distribution-for-postgresql-166-2024-12-03" title="Permanent link">&para;</a></h1>
+<h1 id="percona-distribution-for-postgresql-166-2024-12-03">Percona Distribution for PostgreSQL 16.6 (2024-12-03)<a data-markdown-ignore class="headerlink" href="#percona-distribution-for-postgresql-166-2024-12-03" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="../installing.html">Installation</a></p>
 <p>Percona Distribution for PostgreSQL is a solution that includes PostgreSQL server and the collection of tools from PostgreSQL community. These tools are tested to work together and serve to assist you in deploying and managing PostgreSQL. </p>
 <p>The aim of Percona Distribution for PostgreSQL is to address the operational issues like High-Availability, Disaster Recovery, Security, Observability, Spatial data handling, Performance and Scalability, and others that enterprises are facing.</p>
 <p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/16/release-16-6.html">PostgreSQL 16.6</a>.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>This release includes fixes for <a href="https://www.postgresql.org/support/security/CVE-2024-10978/">CVE-2024-10978</a> and for certain PostgreSQL extensions that break because they depend on the modified Application Binary Interface (ABI). These regressions were introduced in PostgreSQL 17.1, 16.5, 15.9, 14.14, 13.17, and 12.21. For this reason, the release of Percona Distribution for PostgreSQL 16.5 has been skipped.</p>
@@ -3650,7 +3650,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Percona Distribution for PostgreSQL now statically links <code>llvmjit.so</code> library for Red Hat Enterprise Linux 8 and 9 and compatible derivatives. This resolves the conflict between the LLVM version required by Percona Distribution for PostgreSQL and the one supplied with the operating system. This also enables you to use the LLVM modules supplied with the operating system for other software you require.</p>
 </li>
 </ul>
-<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
+<h2 id="supplied-third-party-extensions">Supplied third-party extensions<a data-markdown-ignore class="headerlink" href="#supplied-third-party-extensions" title="Permanent link">&para;</a></h2>
 <p>Review each extension’s release notes for What’s new, improvements, or bug fixes. The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
 <table>
