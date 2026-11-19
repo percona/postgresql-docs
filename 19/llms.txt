@@ -1,0 +1,85 @@
+# Percona Distribution for PostgreSQL
+
+> Documentation
+
+Each page below is also available as markdown. For the documentation of all Percona products, see https://docs.percona.com/llms.txt.
+
+## Overview
+
+- [Home](https://docs.percona.com/postgresql/19/index.md)
+- [Percona Server for PostgreSQL](https://docs.percona.com/postgresql/19/postgresql-server.md)
+- [Get help from Percona](https://docs.percona.com/postgresql/19/get-help.md)
+- [Quickstart guide](https://docs.percona.com/postgresql/19/quick-start.md)
+- [FAQ](https://docs.percona.com/postgresql/19/faq.md)
+- [Troubleshooting guide](https://docs.percona.com/postgresql/19/troubleshooting.md)
+- [Uninstall](https://docs.percona.com/postgresql/19/uninstalling.md)
+- [Legal Notice](https://docs.percona.com/postgresql/19/legal-notice.md)
+
+## Get started
+
+- [Overview](https://docs.percona.com/postgresql/19/installing.md)
+- [Via apt](https://docs.percona.com/postgresql/19/apt.md)
+- [Via yum](https://docs.percona.com/postgresql/19/yum.md)
+- [From tarballs](https://docs.percona.com/postgresql/19/tarball.md)
+- [Overview](https://docs.percona.com/postgresql/19/docker/docker.md)
+- [Upgrade in Docker](https://docs.percona.com/postgresql/19/docker/docker-upgrade.md)
+- [Enable pg_tde for securing data at rest](https://docs.percona.com/postgresql/19/docker/docker-enable-pg-tde.md)
+- [Enable stat-monitor for performance statistics](https://docs.percona.com/postgresql/19/docker/docker-enable-pg-stat-monitor.md)
+- [Enable Percona Distribution for PostgreSQL components](https://docs.percona.com/postgresql/19/enable-extensions.md)
+- [Repositories overview](https://docs.percona.com/postgresql/19/repo-overview.md)
+- [Software Bill of Materials (SBOMs)](https://docs.percona.com/postgresql/19/sboms.md)
+- [2. Connect to PostgreSQL](https://docs.percona.com/postgresql/19/connect.md)
+- [3. Manipulate data in PostgreSQL](https://docs.percona.com/postgresql/19/crud.md)
+- [4. What's next](https://docs.percona.com/postgresql/19/whats-next.md)
+
+## Extensions
+
+- [Extensions](https://docs.percona.com/postgresql/19/extensions.md)
+- [PostgreSQL contrib modules and utilities](https://docs.percona.com/postgresql/19/contrib.md)
+- [Percona-authored extensions](https://docs.percona.com/postgresql/19/percona-ext.md)
+- [Third-party components](https://docs.percona.com/postgresql/19/third-party.md)
+
+## Solutions
+
+- [Overview](https://docs.percona.com/postgresql/19/solutions.md)
+- [Overview](https://docs.percona.com/postgresql/19/solutions/high-availability.md)
+- [Measuring high availability](https://docs.percona.com/postgresql/19/solutions/ha-measure.md)
+- [Architecture](https://docs.percona.com/postgresql/19/solutions/ha-architecture.md)
+- [ETCD](https://docs.percona.com/postgresql/19/solutions/etcd-info.md)
+- [Patroni](https://docs.percona.com/postgresql/19/solutions/patroni-info.md)
+- [HAProxy](https://docs.percona.com/postgresql/19/solutions/haproxy-info.md)
+- [pgBackRest](https://docs.percona.com/postgresql/19/solutions/pgbackrest-info.md)
+- [How components work together](https://docs.percona.com/postgresql/19/solutions/ha-components.md)
+- [Initial setup](https://docs.percona.com/postgresql/19/solutions/ha-init-setup.md)
+- [etcd setup](https://docs.percona.com/postgresql/19/solutions/ha-etcd-config.md)
+- [Patroni setup](https://docs.percona.com/postgresql/19/solutions/ha-patroni.md)
+- [pgBackRest setup](https://docs.percona.com/postgresql/19/solutions/pgbackrest.md)
+- [HAProxy setup](https://docs.percona.com/postgresql/19/solutions/ha-haproxy.md)
+- [Testing the Patroni PostgreSQL Cluster](https://docs.percona.com/postgresql/19/solutions/ha-test.md)
+- [Overview](https://docs.percona.com/postgresql/19/solutions/backup-recovery.md)
+- [Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/19/solutions/dr-pgbackrest-setup.md)
+- [Overview](https://docs.percona.com/postgresql/19/solutions/postgis.md)
+- [Deployment](https://docs.percona.com/postgresql/19/solutions/postgis-deploy.md)
+- [Query spatial data](https://docs.percona.com/postgresql/19/solutions/postgis-testing.md)
+- [Upgrade spatial database](https://docs.percona.com/postgresql/19/solutions/postgis-upgrade.md)
+- [Overview](https://docs.percona.com/postgresql/19/solutions/authentication/overview.md)
+- [OIDC authentication](https://docs.percona.com/postgresql/19/solutions/authentication/oidc.md)
+- [LDAP authentication](https://docs.percona.com/postgresql/19/solutions/authentication/ldap.md)
+
+## Upgrade
+
+- [Major upgrade](https://docs.percona.com/postgresql/19/major-upgrade.md)
+- [Minor Upgrade of Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/19/minor-upgrade.md)
+- [Migrate from PostgreSQL to Percona Distribution for PostgreSQL](https://docs.percona.com/postgresql/19/migration.md)
+
+## Release notes
+
+- [Release notes index](https://docs.percona.com/postgresql/19/release-notes/release-notes.md)
+- [19.0.1 (2026-11-19)](https://docs.percona.com/postgresql/19/release-notes/release-notes-v19.0.1.md)
+
+## Reference
+
+- [Licensing](https://docs.percona.com/postgresql/19/licensing.md)
+- [Versioning](https://docs.percona.com/postgresql/19/versioning.md)
+- [Trademark policy](https://docs.percona.com/postgresql/19/trademark-policy.md)
+
