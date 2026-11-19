@@ -1,15 +1,7 @@
 # Percona Server for PostgreSQL release notes
 
-This page lists all release notes for Percona Server for PostgreSQL 18, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.
+This page lists all release notes for Percona Server for PostgreSQL 19, organized by year and version. Use it to track new features, fixes, and updates across major and minor versions.
 
 ## 2026
 
-* [18.7.1](release-notes-v18.7.1.md) ({{date.18_7_1}})
-* [18.6.1](release-notes-v18.6.1.md) ({{date.18_6_1}})
-* [18.4.2](release-notes-v18.4.2.md) ({{date.18_4_2}})
-* [18.4.1](release-notes-v18.4.1.md) ({{date.18_4_1}})
-* [18.3.1](release-notes-v18.3.1.md) ({{date.18_3_1}})
-
-## 2025
-
-* [18.1.1](release-notes-v18.1.1.md) ({{date.18_1_1}})
+* [19.0.1](release-notes-v19.0.1.md) ({{date.19_0_1}})

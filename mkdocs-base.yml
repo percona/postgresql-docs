@@ -7,7 +7,7 @@ copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its a
 
 repo_name: percona/postgresql-docs
 repo_url: https://github.com/percona/postgresql-docs
-edit_uri: edit/18/docs/
+edit_uri: edit/19/docs/
 
 use_directory_urls: false
 
@@ -123,7 +123,7 @@ plugins:
   git-committers:
     enabled: !ENV [CI, false]
     repository: percona/postgresql-docs
-    branch: "18"
+    branch: "19"
   meta-descriptions:
     export_csv: false
     quiet: false
@@ -155,7 +155,7 @@ plugins:
 
   print-site:
     add_to_navigation: false
-    print_page_title: 'Percona Distribution for PostgreSQL 18 documentation'
+    print_page_title: 'Percona Distribution for PostgreSQL 19 documentation'
     add_print_site_banner: false
     # Table of contents
     add_table_of_contents: true
@@ -239,8 +239,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - "18.2.1": release-notes/release-notes-v18.2.1.md
-      - "18.1.1": release-notes/release-notes-v18.1.1.md
+      - "19.0.1": release-notes/release-notes-v19.0.1.md
   - Reference:
       - Licensing: licensing.md
       - Versioning: versioning.md

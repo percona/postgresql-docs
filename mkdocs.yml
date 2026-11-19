@@ -80,13 +80,7 @@ nav:
   - Uninstall: uninstalling.md
   - Release notes:
       - "Release notes index": release-notes/release-notes.md
-      - "18.7.1 ({{date.18_7_1}})": release-notes/release-notes-v18.7.1.md
-      - "18.6.1 ({{date.18_6_1}})": release-notes/release-notes-v18.6.1.md
-      - "18.4.2 ({{date.18_4_2}})": release-notes/release-notes-v18.4.2.md
-      - "18.4.1 ({{date.18_4_1}})": release-notes/release-notes-v18.4.1.md
-      - "18.3.1 ({{date.18_3_1}})": release-notes/release-notes-v18.3.1.md
-      - "2025":
-        - "18.1.1 ({{date.18_1_1}})": release-notes/release-notes-v18.1.1.md
+      - "19.0.1 ({{date.19_0_1}})": release-notes/release-notes-v19.0.1.md
   - Reference:
       - Licensing: licensing.md
       - Versioning: versioning.md

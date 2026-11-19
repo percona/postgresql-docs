@@ -1,16 +1,11 @@
-# Upgrading Percona Distribution for PostgreSQL from 17 to 18
+# Upgrading Percona Distribution for PostgreSQL from 18 to 19
 
 This document describes the in-place upgrade of Percona Distribution for PostgreSQL using the `pg_upgrade` tool.
 
 To ensure a smooth upgrade path, follow these steps:
 
-* Upgrade to the latest minor version within your current major version (e.g., from 17.4 to 17.5).
-* Then, perform the major upgrade to your desired version (e.g., from 17.5 to 18.1).
-
-!!! note
-    When running a major upgrade on **RHEL 8 and compatible derivatives**, consider the following:
-
-    Percona Distribution for PostgreSQL 16.3, 15.7, 14.12, 13.15 and 12.18 include `llvm` packages 16.0.6, while its previous versions 16.2, 15.6, 14.11, 13.14, and 12.17 include `llvm` 12.0.1. Since `llvm` libraries differ and are not compatible, the direct major version upgrade from 15.6 to 16.3 may cause issues.
+* Upgrade to the latest minor version within your current major version (e.g., from 18.6 to 18.7).
+* Then, perform the major upgrade to your desired version (e.g., from 18.7 to 19.0).
 
 !!! warning
     When doing a major version upgrade, if your cluster uses `pg_tde`, you **must** use [`pg_tde_upgrade` :octicons-link-external-16:](https://docs.percona.com/pg-tde/command-line-tools/pg-tde-upgrade.html) instead of `pg_upgrade`. Using `pg_upgrade` on an encrypted cluster is not supported and will result in data corruption. The server may start successfully but queries against encrypted tables will fail.
@@ -49,33 +44,28 @@ so the system is usable.
 
 The exact steps may differ depending on the package manager of your operating system.
 
-!!! note
-    `pg_tde` is **not** a dependency in PostgreSQL 18. If your PostgreSQL 17 cluster uses `pg_tde`, you must install the `pg_tde` package **before** starting the upgraded server.
-
-    If the package is missing, PostgreSQL 18 will fail to start because the required `pg_tde` shared library is not available.
-
 ## On Debian and Ubuntu using `apt`
 
 Run **all** commands as root or via **sudo**:
 {.power-number}
 
-1. Install Percona Distribution for PostgreSQL 18 packages.
+1. Install Percona Distribution for PostgreSQL 19 packages.
 
     !!! note
-        When installing version 18, if prompted via a pop-up to upgrade to the latest available version, select **No**.
+        When installing version 19, if prompted via a pop-up to upgrade to the latest available version, select **No**.
 
     * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html). If you have installed it before, [update it to the latest version](https://docs.percona.com/percona-software-repositories/updating.html)
 
     * Enable Percona repository
 
       ```{.bash data-prompt="$"}
-      $ sudo percona-release setup ppg-18
+      $ sudo percona-release setup ppg-19
       ```
 
-    * Install Percona Distribution for PostgreSQL 18 package
+    * Install Percona Distribution for PostgreSQL 19 package
 
       ```{.bash data-prompt="$"}
-      $ sudo apt install percona-postgresql-18
+      $ sudo apt install percona-postgresql-19
       ```
 
 2. Stop the `postgresql` service.
@@ -84,7 +74,7 @@ Run **all** commands as root or via **sudo**:
     $ sudo systemctl stop postgresql.service
     ```
 
-    This stops both Percona Distribution for PostgreSQL 17 and 18.
+    This stops both Percona Distribution for PostgreSQL 18 and 19.
 
 3. Run the database upgrade.
 
@@ -94,10 +84,10 @@ Run **all** commands as root or via **sudo**:
     $ sudo su postgres
     ```
 
-    * Check if you can upgrade Percona Distribution for PostgreSQL from 17 to 18
+    * Check if you can upgrade Percona Distribution for PostgreSQL from 18 to 19
 
     ```{.bash data-prompt="$"}
-    $ pg_upgradecluster 17 main --check
+    $ pg_upgradecluster 18 main --check
     # Sample output: pg_upgradecluster pre-upgrade checks ok
     ```
 
@@ -106,30 +96,30 @@ Run **all** commands as root or via **sudo**:
     * Upgrade the Percona Distribution for PostgreSQL
 
     ```{.bash data-prompt="$"}
-    $ pg_upgradecluster 17 main
+    $ pg_upgradecluster 18 main
     ```
 
       <details>
         <summary>Sample output (click to expand)</summary>
         ```bash
-        Upgrading cluster 17/main to 18/main ...
+        Upgrading cluster 18/main to 19/main ...
         Stopping old cluster...
         Restarting old cluster with restricted connections...
         ...
         Success. Please check that the upgraded cluster works. If it does,
         you can remove the old cluster with:
-            pg_dropcluster 17 main
+            pg_dropcluster 18 main
 
         Ver Cluster Port Status Owner    Data directory              Log file
-        18  main    5432 online postgres /var/lib/postgresql/18/main /var/log/postgresql/postgresql-18-main.log
+        19  main    5432 online postgres /var/lib/postgresql/19/main /var/log/postgresql/postgresql-19-main.log
 
         Sample output:
-        Upgrading cluster 17/main to 18/main ...
+        Upgrading cluster 18/main to 19/main ...
         Stopping old cluster...
         Restarting old cluster with restricted connections...
         Notice: extra pg_ctl/postgres options given, bypassing systemctl for start operation
-        Creating new PostgreSQL cluster 18/main ...
-        /usr/lib/postgresql/18/bin/initdb -D /var/lib/postgresql/18/main --auth-local peer --auth-host scram-sha-256 --no-instructions --encoding UTF8 --lc-collate C.UTF-8 --lc-ctype C.UTF-8 --locale-provider libc
+        Creating new PostgreSQL cluster 19/main ...
+        /usr/lib/postgresql/19/bin/initdb -D /var/lib/postgresql/19/main --auth-local peer --auth-host scram-sha-256 --no-instructions --encoding UTF8 --lc-collate C.UTF-8 --lc-ctype C.UTF-8 --locale-provider libc
         The files belonging to this database system will be owned by user "postgres".
         This user must also own the server process.
 
@@ -138,7 +128,7 @@ Run **all** commands as root or via **sudo**:
 
         Data page checksums are disabled.
 
-        fixing permissions on existing directory /var/lib/postgresql/18/main ... ok
+        fixing permissions on existing directory /var/lib/postgresql/19/main ... ok
         creating subdirectories ... ok
         selecting dynamic shared memory implementation ... posix
         selecting default max_connections ... 100
@@ -185,12 +175,12 @@ Run **all** commands as root or via **sudo**:
 
         Success. Please check that the upgraded cluster works. If it does,
         you can remove the old cluster with
-            pg_dropcluster 17 main
+            pg_dropcluster 18 main
 
         Ver Cluster Port Status Owner    Data directory              Log file
-        17  main    5433 down   postgres /var/lib/postgresql/17/main /var/log/postgresql/postgresql-17-main.log
+        18  main    5433 down   postgres /var/lib/postgresql/18/main /var/log/postgresql/postgresql-18-main.log
         Ver Cluster Port Status Owner    Data directory              Log file
-        18  main    5432 online postgres /var/lib/postgresql/18/main /var/log/postgresql/postgresql-18-main.log
+        19  main    5432 online postgres /var/lib/postgresql/19/main /var/log/postgresql/postgresql-19-main.log
         ```
       </details>
 
@@ -220,7 +210,7 @@ Run **all** commands as root or via **sudo**:
         Before deleting the old cluster, verify that the newly upgraded cluster is fully operational. Keeping the old cluster does not negatively affect the functionality or performance of your upgraded cluster.
 
     ```{.bash data-prompt="$"}
-    $ pg_dropcluster 17 main
+    $ pg_dropcluster 18 main
     ```
 
 ## On Red Hat Enterprise Linux and CentOS using `yum`
@@ -228,7 +218,7 @@ Run **all** commands as root or via **sudo**:
 Run **all** commands as root or via **sudo**:
 {.power-number}
 
-1. Install Percona Distribution for PostgreSQL 18 packages
+1. Install Percona Distribution for PostgreSQL 19 packages
 
     * [Install percona-release :octicons-link-external-16:](https://docs.percona.com/percona-software-repositories/installing.html)
 
@@ -265,10 +255,10 @@ Run **all** commands as root or via **sudo**:
       $ /usr/pgsql-{{pgversion}}/bin/initdb -D /var/lib/pgsql/{{pgversion}}/data
       ```
 
-3. Stop the `postgresql` 17 service
+3. Stop the `postgresql` 18 service
 
     ```{.bash data-prompt="$"}
-    $ systemctl stop postgresql-17
+    $ systemctl stop postgresql-18
     ```
 
 4. Run the database upgrade.
@@ -279,13 +269,13 @@ Run **all** commands as root or via **sudo**:
        $ sudo su postgres
        ```
 
-    * Check the ability to upgrade Percona Distribution for PostgreSQL from 17 to 18:
+    * Check the ability to upgrade Percona Distribution for PostgreSQL from 18 to 19:
 
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-{{pgversion}}/bin/pg_upgrade \
-       --old-bindir /usr/pgsql-17/bin \
+       --old-bindir /usr/pgsql-18/bin \
        --new-bindir /usr/pgsql-{{pgversion}}/bin  \
-       --old-datadir /var/lib/pgsql/17/data \
+       --old-datadir /var/lib/pgsql/18/data \
        --new-datadir /var/lib/pgsql/{{pgversion}}/data \
        --check
        ```
@@ -316,9 +306,9 @@ Run **all** commands as root or via **sudo**:
 
        ```{.bash data-prompt="$"}
        $ /usr/pgsql-{{pgversion}}/bin/pg_upgrade \
-       --old-bindir /usr/pgsql-17/bin \
+       --old-bindir /usr/pgsql-18/bin \
        --new-bindir /usr/pgsql-{{pgversion}}/bin  \
-       --old-datadir /var/lib/pgsql/17/data \
+       --old-datadir /var/lib/pgsql/18/data \
        --new-datadir /var/lib/pgsql/{{pgversion}}/data \
        --link 
        ```
@@ -352,7 +342,7 @@ Run **all** commands as root or via **sudo**:
        $ /usr/pgsql-{{pgversion}}/bin/vacuumdb --all --analyze-in-stages
        ```
 
-8. Delete Percona Distribution for PostgreSQL 17 configuration files
+8. Delete Percona Distribution for PostgreSQL 18 configuration files
 
     ```{.bash data-prompt="$"}
     $ ./delete_old_cluster.sh
@@ -361,7 +351,7 @@ Run **all** commands as root or via **sudo**:
 9. Delete Percona Distribution old data files
 
        ```{.bash data-prompt="$"}
-       $ rm -rf /var/lib/pgsql/17/data
+       $ rm -rf /var/lib/pgsql/18/data
        ```
 
 !!! note "For major upgrades (RHEL only)"

@@ -4,7 +4,7 @@ This guide explains how to contribute to the Percona Distribution for PostgreSQL
 
 We welcome contributors from all users and the community. By contributing, you agree to the [Percona Community code of conduct](https://github.com/percona/community/blob/main/content/contribute/coc.md).
 
-If you want to contribute code, see the [Code contribution guide](https://github.com/percona/postgres/blob/PSP_REL_18_STABLE/.github/CONTRIBUTING.md).
+If you want to contribute code, see the [Code contribution guide](https://github.com/percona/postgres/blob/PSP_REL_19_STABLE/.github/CONTRIBUTING.md).
 
 You can contribute to documentation in the following ways:
 
@@ -29,7 +29,7 @@ To contribute to the documentation, basic familiarity with the following tools i
 
 There are several active versions of the documentation. Each version derives from the major version of PostgreSQL, included in the distribution.
 
-Each documentation branch is named after the PostgreSQL major version (for example: `11`(EOL), `12`(EOL), `13`(EOL), `14`, `15`, `16`, `17`, `18`).
+Each documentation branch is named after the PostgreSQL major version (for example: `11`(EOL), `12`(EOL), `13`(EOL), `14`, `15`, `16`, `17`, `18`, `19`).
 
 The source .md files are in the ``postgresql-docs/docs`` directory.
 
@@ -77,7 +77,7 @@ git fetch upstream
 git merge upstream/<branch>
 ```
 
-Make sure you merge changes from the same documentation branch you are working on. For example, if you are on branch ``18``, merge from ``upstream/18``.
+Make sure you merge changes from the same documentation branch you are working on. For example, if you are on branch ``19``, merge from ``upstream/19``.
 
 5. Create a separate branch for your changes. If you work on a Jira issue, please follow this pattern for a branch name: `<PG-123>-short-description`:
 
