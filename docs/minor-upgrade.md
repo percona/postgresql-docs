@@ -32,7 +32,7 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl stop postgresql-19
+         $ sudo systemctl stop postgresql-{{pgversion}}
          ```
 
 2. [Update `percona-release` to the latest version](https://docs.percona.com/percona-software-repositories/updating.html).
@@ -50,7 +50,7 @@ Run **all** commands as root or via **sudo**:
     === ":material-redhat: On Red Hat Enterprise Linux / derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start postgresql-19
+         $ sudo systemctl start postgresql-{{pgversion}}
          ```
 
 5. If you use `pg_tde`, update the extension. After restarting the cluster, connect to each database where `pg_tde` is installed and run:
@@ -73,4 +73,4 @@ Run **all** commands as root or via **sudo**:
 
     To resolve this, remove the `percona-postgresql-common-dev` package and reinstall it with the new intended upgraded PPG/PSP server.
 
-If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from 18 to 19](major-upgrade.md).
+If you wish to upgrade Percona Distribution for PostgreSQL to the major version, refer to [Upgrading Percona Distribution for PostgreSQL from {{pgversionprev}} to {{pgversion}}](major-upgrade.md).
