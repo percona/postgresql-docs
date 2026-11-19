@@ -103,7 +103,7 @@ The following is the list of extensions available in Percona Distribution for Po
 | [PgBouncer :octicons-link-external-16:](https://www.pgbouncer.org/) | 1.26.1 | A lightweight connection pooler for PostgreSQL |
 | [pg_cron :octicons-link-external-16:](https://github.com/citusdata/pg_cron) | 1.6.8 | A simple cron-based job scheduler for PostgreSQL |
 | [pg_gather :octicons-link-external-16:](https://github.com/jobinau/pg_gather) | 33 | An SQL script for running diagnostics on the health of a PostgreSQL cluster |
-| [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.1.0 | OAuth validator library for PostgreSQL 19 |
+| [pg_oidc_validator](https://github.com/Percona-Lab/pg_oidc_validator) | 1.1.0 | OAuth validator library for PostgreSQL 18+ |
 | [pg_repack :octicons-link-external-16:](https://github.com/reorg/pg_repack) | 1.5.3 | Rebuilds PostgreSQL database objects |
 | [pg_stat_monitor](https://github.com/percona/pg_stat_monitor) | 2.4.1 | Collects and aggregates statistics for PostgreSQL and provides histogram information |
 | [pg_tde :octicons-link-external-16:](https://github.com/percona/pg_tde) | 2.3.0 | A PostgreSQL extension that provides Transparent Data Encryption (TDE) to protect data at rest |
