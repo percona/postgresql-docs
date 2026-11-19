@@ -1,6 +1,6 @@
 name: Deploy all PostgreSQL docs versions to production
 
-# Manual only. Loops through every supported version (14-18), builds
+# Manual only. Loops through every supported version (15-19), builds
 # each one from its own branch, and pushes the result into this
 # `publish` branch, which the production Render site serves.
 #
@@ -11,9 +11,9 @@ name: Deploy all PostgreSQL docs versions to production
 #
 # Each version's title (e.g. "17.11") is read from that branch's own
 # variables.yml (the "dockertag" field) at deploy time, so this file
-# never needs editing when a new patch is released. Branch 18 is the
-# exception: it always shows the static "18 (LATEST)" label instead
-# of its patch number, matching its own deploy-18-to-production.yml.
+# never needs editing when a new patch is released. Branch 19 is the
+# exception: it always shows the static "19 (LATEST)" label instead
+# of its patch number, matching its own deploy-19-to-production.yml.
 on:
   workflow_dispatch:
 
