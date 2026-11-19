@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
     
     
       
@@ -32,10 +32,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -103,10 +103,6 @@
                  <meta property="og:title" content="Percona Distribution for PostgreSQL - pg_stat_monitor" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
-               </head>
-                <body>
-                </body>
-              </html>
   
   </head>
   
@@ -137,6 +133,15 @@
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+<div>This documentation is for the end of life version of Percona Distribution for PostgreSQL 13. See the <strong><a href="../.">current documentation</a></strong>.</div>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
         
       </div>
     
@@ -4161,7 +4166,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <p>For security reasons, only superusers and members of the <code>pg_read_all_stats</code> role are allowed to see the SQL text, <code>client_ip</code> and <code>queryid</code> of queries executed by other users. Other users can see the statistics, however, if the view has been installed in their database.</p>
 <h4 id="pg_stat_monitor_settings-view-dropped">pg_stat_monitor_settings view (dropped)<a class="headerlink" href="#pg_stat_monitor_settings-view-dropped" title="Permanent link">&para;</a></h4>
 <p>Starting with version 2.0.0, the <code>pg_stat_monitor_settings</code> view is deprecated and removed. All <code>pg_stat_monitor</code> configuration parameters are now available though the <code>pg_settings</code> view using the following query: </p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">vartype</span><span class="p">,</span><span class="w"> </span><span class="k">source</span><span class="p">,</span><span class="w"> </span><span class="n">min_val</span><span class="p">,</span><span class="w"> </span><span class="n">max_val</span><span class="p">,</span><span class="w"> </span><span class="n">enumvals</span><span class="p">,</span><span class="w"> </span><span class="n">boot_val</span><span class="p">,</span><span class="w"> </span><span class="n">reset_val</span><span class="p">,</span><span class="w"> </span><span class="n">pending_restart</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%pg_stat_monitor%&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">vartype</span><span class="p">,</span><span class="w"> </span><span class="k">source</span><span class="p">,</span><span class="w"> </span><span class="n">min_val</span><span class="p">,</span><span class="w"> </span><span class="n">max_val</span><span class="p">,</span><span class="w"> </span><span class="n">enumvals</span><span class="p">,</span><span class="w"> </span><span class="n">boot_val</span><span class="p">,</span><span class="w"> </span><span class="n">reset_val</span><span class="p">,</span><span class="w"> </span><span class="n">pending_restart</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%pg_stat_monitor%'</span><span class="p">;</span>
 </code></pre></div>
 <p>For backward compatibility, you can create the <code>pg_stat_monitor_settings</code> view using the following SQL statement:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">pg_stat_monitor_settings</span>
@@ -4172,7 +4177,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 
 <span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span>
 
-<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.%&#39;</span><span class="p">;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">'pg_stat_monitor.%'</span><span class="p">;</span>
 </code></pre></div>
 <p>In <code>pg_stat_monitor</code> version 1.1.1 and earlier, the <code>pg_stat_monitor_settings</code> view shows one row per <code>pg_stat_monitor</code> configuration parameter. It displays configuration parameter name, value, default value, description, minimum and maximum values, and whether a restart is required for a change in value to be effective.</p>
 <p>To learn more, see <a href="#changing-the-configuration">Changing the configuration</a>.</p>
@@ -4224,14 +4229,14 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <li>
 <p>Add <code>pg_stat_monitor</code> in the <code>shared_preload_libraries</code> configuration parameter.</p>
 <p>The recommended way to modify PostgreSQL configuration file is using the <a href="https://www.postgresql.org/docs/13/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="connect.html">Connect to psql</a> and use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'pg_stat_monitor'</span><span class="p">;</span>
 </code></pre></div>
 <p>The parameter value is written to the <code>postgresql.auto.conf</code> file which is read in addition with <code>postgresql.conf</code> file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To use <code>pg_stat_monitor</code> together with <code>pg_stat_statements</code>, specify both modules separated by commas for the <code>ALTER SYSTEM SET</code> command. </p>
 <p>The order of modules is important: <code>pg_stat_monitor</code> must be specified <strong>after</strong> <code>pg_stat_statements</code>: </p>
-<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_statements, pg_stat_monitor&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_preload_libraries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'pg_stat_statements, pg_stat_monitor'</span>
 </code></pre></div>
 </div>
 </li>
@@ -4278,7 +4283,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <p>Find more usage examples in the <a href="https://docs.percona.com/pg-stat-monitor/user_guide.html"><code>pg_stat_monitor</code> user guide <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a>.</p>
 <h2 id="changing-the-configuration">Changing the configuration<a class="headerlink" href="#changing-the-configuration" title="Permanent link">&para;</a></h2>
 <p>Run the following query to list available configuration parameters.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">short_desc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%pg_stat_monitor%&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">short_desc</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%pg_stat_monitor%'</span><span class="p">;</span>
 </code></pre></div>
 <p><strong>Output</strong></p>
 <div class="highlight"><pre><span></span><code>                   name                    |                                                           short_desc
@@ -4291,7 +4296,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
  pg_stat_monitor.pgsm_histogram_buckets    | Sets the maximum number of histogram buckets.
  pg_stat_monitor.pgsm_histogram_max        | Sets the time in millisecond.
  pg_stat_monitor.pgsm_histogram_min        | Sets the time in millisecond.
- pg_stat_monitor.pgsm_max                  | Sets the maximum size of shared memory in (MB) used for statement&#39;s metadata tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_max                  | Sets the maximum size of shared memory in (MB) used for statement's metadata tracked by pg_stat_monitor.
  pg_stat_monitor.pgsm_max_buckets          | Sets the maximum number of buckets.
  pg_stat_monitor.pgsm_normalized_query     | Selects whether save query in normalized format.
  pg_stat_monitor.pgsm_overflow_target      | Sets the overflow target for pg_stat_monitor. (Deprecated, use pgsm_enable_overflow)
@@ -4321,7 +4326,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <p>Verify the updated parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">pg_settings</span><span class="w"> </span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;pg_stat_monitor.pgsm_bucket_time&#39;</span><span class="p">;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'pg_stat_monitor.pgsm_bucket_time'</span><span class="p">;</span>
 
 <span class="w">                 </span><span class="n">name</span><span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="n">setting</span>
 <span class="w">  </span><span class="c1">----------------------------------+---------</span>
@@ -4465,7 +4470,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2025 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
+ <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
     Made with
@@ -4488,12 +4493,12 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

@@ -28,7 +28,7 @@
       
       
       <link rel="icon" href="../_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
     
     
       
@@ -36,10 +36,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -107,10 +107,6 @@
                  <meta property="og:title" content="Percona Distribution for PostgreSQL - Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
-               </head>
-                <body>
-                </body>
-              </html>
   
   </head>
   
@@ -141,6 +137,15 @@
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+<div>This documentation is for the end of life version of Percona Distribution for PostgreSQL 13. See the <strong><a href="../..">current documentation</a></strong>.</div>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL(".."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
         
       </div>
     
@@ -4547,15 +4552,15 @@ The<span class="w"> </span>key<span class="w"> </span>fingerprint<span class="w"
 <li>
 <p>Copy the public key to the <code>pg-repo</code> node:</p>
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>postgres@pg-repo
-/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>Source<span class="w"> </span>of<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed:<span class="w"> </span><span class="s2">&quot;/root/.ssh/id_rsa.pub&quot;</span>
+/usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>Source<span class="w"> </span>of<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed:<span class="w"> </span><span class="s2">"/root/.ssh/id_rsa.pub"</span>
 /usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span>attempting<span class="w"> </span>to<span class="w"> </span>log<span class="w"> </span><span class="k">in</span><span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span>,<span class="w"> </span>to<span class="w"> </span>filter<span class="w"> </span>out<span class="w"> </span>any<span class="w"> </span>that<span class="w"> </span>are<span class="w"> </span>already<span class="w"> </span>installed
 /usr/bin/ssh-copy-id:<span class="w"> </span>INFO:<span class="w"> </span><span class="m">1</span><span class="w"> </span>key<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>remain<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>--<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>prompted<span class="w"> </span>now<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>keys
-postgres@pg-repo<span class="s1">&#39;s password: </span>
+postgres@pg-repo<span class="s1">'s password: </span>
 
 <span class="s1">Number of key(s) added: 1</span>
 
 
-<span class="s1">Now try logging into the machine, with:   &quot;ssh &#39;</span>postgres@pg-repo<span class="err">&#39;</span><span class="s2">&quot;</span>
+<span class="s1">Now try logging into the machine, with:   "ssh '</span>postgres@pg-repo<span class="err">'</span><span class="s2">"</span>
 <span class="s2">and check to make sure that only the key(s) you wanted were added.</span>
 </code></pre></div>
 </li>
@@ -4607,10 +4612,10 @@ postgres@pg-repo<span class="s1">&#39;s password: </span>
 <ol>
 <li>
 <p>Edit the <code>postgresql.conf</code> configuration file to include the following changes:</p>
-<div class="highlight"><pre><span></span><code>archive_command = &#39;pgbackrest --stanza=prod_backup archive-push %p&#39;
+<div class="highlight"><pre><span></span><code>archive_command = 'pgbackrest --stanza=prod_backup archive-push %p'
 archive_mode = on
-listen_addresses = &#39;*&#39;
-log_line_prefix = &#39;&#39;
+listen_addresses = '*'
+log_line_prefix = ''
 max_wal_senders = 3
 wal_level = replica
 </code></pre></div>
@@ -4694,7 +4699,7 @@ pg1-port = 5432
 <p>After the configuration files are set up, it’s now time to initialize the <code>pgBackRest</code> stanza. Run the following command in the remote backup repository node (<code>pg-repo</code>).</p>
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>pgbackrest<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>stanza-create
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:18.157<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">155883</span>-2277a3e7<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>off<span class="w"> </span>--pg1-host<span class="o">=</span>pg-primary<span class="w"> </span>--pg1-host-user<span class="o">=</span>postgres<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/13/main<span class="w"> </span>--pg1-port<span class="o">=</span><span class="m">5432</span><span class="w"> </span>--repo1-path<span class="o">=</span>/home/pgbackrest/pg_backup<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
-<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.453<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="k">for</span><span class="w"> </span>stanza<span class="w"> </span><span class="s1">&#39;prod_backup&#39;</span><span class="w"> </span>on<span class="w"> </span>repo1
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.453<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="k">for</span><span class="w"> </span>stanza<span class="w"> </span><span class="s1">'prod_backup'</span><span class="w"> </span>on<span class="w"> </span>repo1
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">11</span>:08:19.566<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>stanza-create<span class="w"> </span><span class="nb">command</span><span class="w"> </span>end:<span class="w"> </span>completed<span class="w"> </span>successfully<span class="w"> </span><span class="o">(</span>1412ms<span class="o">)</span>
 </code></pre></div>
 <p>Once the stanza is created successfully, you can try out the different use cases for disaster recovery.</p>
@@ -4705,9 +4710,9 @@ pg1-port = 5432
 <li>
 <p>To start our testing, let’s create a table in the <code>postgres</code> database in the <code>pg-primary</code> node and add some data.</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;john&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;martha&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;mary&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'john'</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">'martha'</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">'mary'</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
@@ -4781,7 +4786,7 @@ pg1-port = 5432
 <li>Restore the backup</li>
 </ul>
 <div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>pgbackrest<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup<span class="w"> </span>--delta<span class="w"> </span><span class="se">\</span>
---type<span class="o">=</span><span class="nb">time</span><span class="w"> </span><span class="s2">&quot;--target= 2021-11-07 11:55:47.952405+00&quot;</span><span class="w"> </span><span class="se">\</span>
+--type<span class="o">=</span><span class="nb">time</span><span class="w"> </span><span class="s2">"--target= 2021-11-07 11:55:47.952405+00"</span><span class="w"> </span><span class="se">\</span>
 --target-action<span class="o">=</span>promote<span class="w"> </span>restore
 </code></pre></div>
 <ul>
@@ -4824,7 +4829,7 @@ pg1-path=/var/lib/postgresql/13/main
 
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:08.897<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nb">command</span><span class="w"> </span>begin<span class="w"> </span><span class="m">2</span>.36:<span class="w"> </span>--delta<span class="w"> </span>--exec-id<span class="o">=</span><span class="m">109728</span>-d81c7b0b<span class="w"> </span>--log-level-console<span class="o">=</span>info<span class="w"> </span>--log-level-file<span class="o">=</span>debug<span class="w"> </span>--pg1-path<span class="o">=</span>/var/lib/postgresql/13/main<span class="w"> </span>--process-max<span class="o">=</span><span class="m">2</span><span class="w"> </span>--repo1-host<span class="o">=</span>pg-repo<span class="w"> </span>--repo1-host-user<span class="o">=</span>postgres<span class="w"> </span>--stanza<span class="o">=</span>prod_backup
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.784<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>repo1:<span class="w"> </span>restore<span class="w"> </span>backup<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="m">20211107</span>-111534F_20211107-131807I,<span class="w"> </span>recovery<span class="w"> </span>will<span class="w"> </span>start<span class="w"> </span>at<span class="w"> </span><span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:18:07
-<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.786<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>remove<span class="w"> </span>invalid<span class="w"> </span>files/links/paths<span class="w"> </span>from<span class="w"> </span><span class="s1">&#39;/var/lib/postgresql/13/main&#39;</span>
+<span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:09.786<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>remove<span class="w"> </span>invalid<span class="w"> </span>files/links/paths<span class="w"> </span>from<span class="w"> </span><span class="s1">'/var/lib/postgresql/13/main'</span>
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.803<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>write<span class="w"> </span>updated<span class="w"> </span>/var/lib/postgresql/13/main/postgresql.auto.conf
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.819<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span>global/pg_control<span class="w"> </span><span class="o">(</span>performed<span class="w"> </span>last<span class="w"> </span>to<span class="w"> </span>ensure<span class="w"> </span>aborted<span class="w"> </span>restores<span class="w"> </span>cannot<span class="w"> </span>be<span class="w"> </span>started<span class="o">)</span>
 <span class="m">2021</span>-11-07<span class="w"> </span><span class="m">13</span>:34:11.819<span class="w"> </span>P00<span class="w">   </span>INFO:<span class="w"> </span>restore<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">23</span>.2MB,<span class="w"> </span>file<span class="w"> </span><span class="nv">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">937</span>
@@ -4938,7 +4943,7 @@ pg1-path=/var/lib/postgresql/13/main
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2025 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
+ <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
     Made with
@@ -4961,12 +4966,12 @@ pg1-path=/var/lib/postgresql/13/main
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       

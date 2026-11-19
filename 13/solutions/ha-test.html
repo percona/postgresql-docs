@@ -28,7 +28,7 @@
       
       
       <link rel="icon" href="../_images/postgresql-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
     
     
       
@@ -36,10 +36,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -107,10 +107,6 @@
                  <meta property="og:title" content="Percona Distribution for PostgreSQL - Testing" />
                  <meta property="og:image" content="https://docs.percona.com/postgresql/13/_images/postgresql.png">
                  <meta property="og:url" content="https://docs.percona.com/postgresql/">
-               </head>
-                <body>
-                </body>
-              </html>
   
   </head>
   
@@ -141,6 +137,15 @@
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+<div>This documentation is for the end of life version of Percona Distribution for PostgreSQL 13. See the <strong><a href="../..">current documentation</a></strong>.</div>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL(".."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
         
       </div>
     
@@ -4221,13 +4226,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>
 <p>Run the following commands to create a table and insert a few rows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customer</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="n">age</span><span class="w"> </span><span class="nb">integer</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;dawson&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">'john'</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMER</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">'dawson'</span><span class="p">,</span><span class="mi">35</span><span class="p">);</span>
 </code></pre></div>
 </li>
 <li>
 <p>To ensure that the replication is working, we can log in to each PostgreSQL node and run a simple SQL statement against the locally running instance:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">"SELECT * FROM CUSTOMER;"</span>
 </code></pre></div>
 <p>The results on each node should be the following:</p>
 <div class="highlight"><pre><span></span><code>  name  | age
@@ -4267,8 +4272,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <details class="admonition">
 <summary>Output</summary>
 <div class="highlight"><pre><span></span><code>Sep 23 14:18:13 node03 patroni[10042]: 2021-09-23 14:18:13,905 INFO: no action. I am a secondary (node3) and following a leader (node1)
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,011 INFO: Got response from node2 http://node2:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 12:50:29.460027+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67219152, &quot;replayed_location&quot;: 67219152, &quot;replayed_timestamp&quot;: &quot;2021-09-23 13:19:50.329387+00:00&quot;, &quot;paused&quot;: false}, &quot;timeline&quot;: 1, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,031 WARNING: Request failed to node1: GET http://node1:8008/patroni (HTTPConnectionPool(host=&#39;node1&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ProtocolError(&#39;Connection aborted.&#39;, ConnectionResetError(104, &#39;Connection reset by peer&#39;))))
+Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,011 INFO: Got response from node2 http://node2:8008/patroni: {"state": "running", "postprimary_start_time": "2021-09-23 12:50:29.460027+00:00", "role": "replica", "server_version": 130003, "cluster_unlocked": true, "xlog": {"received_location": 67219152, "replayed_location": 67219152, "replayed_timestamp": "2021-09-23 13:19:50.329387+00:00", "paused": false}, "timeline": 1, "database_system_identifier": "7011110722654005156", "patroni": {"version": "2.1.0", "scope": "stampede1"}}
+Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,031 WARNING: Request failed to node1: GET http://node1:8008/patroni (HTTPConnectionPool(host='node1', port=8008): Max retries exceeded with url: /patroni (Caused by ProtocolError('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))))
 Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,038 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
 Sep 23 14:18:20 node03 patroni[10042]: 2021-09-23 14:18:20,043 INFO: promoted self to leader by acquiring session lock
 Sep 23 14:18:20 node03 patroni[13641]: server promoting
@@ -4283,7 +4288,7 @@ Sep 23 14:18:31 node03 patroni[10042]: 2021-09-23 14:18:31,114 INFO: no action. 
 </li>
 <li>
 <p>Verify that you can still access the cluster through the HAProxy instance and read data:</p>
-<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">10</span>.104.0.6<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM CUSTOMER;&quot;</span>
+<div class="highlight" data-promp="$"><pre><span></span><code>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span><span class="m">10</span>.104.0.6<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">"SELECT * FROM CUSTOMER;"</span>
 
 <span class="w">  </span>name<span class="w">  </span><span class="p">|</span><span class="w"> </span>age
 --------+-----
@@ -4332,8 +4337,8 @@ $<span class="w"> </span>sudo<span class="w"> </span><span class="nb">kill</span
 <summary>Output</summary>
 <div class="highlight"><pre><span></span><code>Sep 23 14:40:41 node02 patroni[10577]: 2021-09-23 14:40:41,656 INFO: no action. I am a secondary (node2) and following a leader (node3)
 …
-Sep 23 14:41:01 node02 patroni[10577]: 2021-09-23 14:41:01,373 INFO: Got response from node1 http://node1:8008/patroni: {&quot;state&quot;: &quot;running&quot;, &quot;postprimary_start_time&quot;: &quot;2021-09-23 14:25:30.076762+00:00&quot;, &quot;role&quot;: &quot;replica&quot;, &quot;server_version&quot;: 130003, &quot;cluster_unlocked&quot;: true, &quot;xlog&quot;: {&quot;received_location&quot;: 67221352, &quot;replayed_location&quot;: 67221352, &quot;replayed_timestamp&quot;: null, &quot;paused&quot;: false}, &quot;timeline&quot;: 2, &quot;database_system_identifier&quot;: &quot;7011110722654005156&quot;, &quot;patroni&quot;: {&quot;version&quot;: &quot;2.1.0&quot;, &quot;scope&quot;: &quot;stampede1&quot;}}
-Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,364 WARNING: Request failed to node3: GET http://node3:8008/patroni (HTTPConnectionPool(host=&#39;node3&#39;, port=8008): Max retries exceeded with url: /patroni (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPConnection object at 0x7f57e06dffa0&gt;, &#39;Connection to node3 timed out. (connect timeout=2)&#39;)))
+Sep 23 14:41:01 node02 patroni[10577]: 2021-09-23 14:41:01,373 INFO: Got response from node1 http://node1:8008/patroni: {"state": "running", "postprimary_start_time": "2021-09-23 14:25:30.076762+00:00", "role": "replica", "server_version": 130003, "cluster_unlocked": true, "xlog": {"received_location": 67221352, "replayed_location": 67221352, "replayed_timestamp": null, "paused": false}, "timeline": 2, "database_system_identifier": "7011110722654005156", "patroni": {"version": "2.1.0", "scope": "stampede1"}}
+Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,364 WARNING: Request failed to node3: GET http://node3:8008/patroni (HTTPConnectionPool(host='node3', port=8008): Max retries exceeded with url: /patroni (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPConnection object at 0x7f57e06dffa0&gt;, 'Connection to node3 timed out. (connect timeout=2)')))
 Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,373 INFO: Software Watchdog activated with 25 second timeout, timing slack 15 seconds
 Sep 23 14:41:03 node02 patroni[10577]: 2021-09-23 14:41:03,385 INFO: promoted self to leader by acquiring session lock
 Sep 23 14:41:03 node02 patroni[15478]: server promoting
@@ -4357,7 +4362,7 @@ Sep 23 14:41:04 node02 patroni[10577]: 2021-09-23 14:41:04,475 INFO: no action. 
 </code></pre></div>
 <p>Patroni asks the name of the current primary node and then the node that should take over as the switched-over primary. You can also specify the time at which the switchover should happen. To trigger the process immediately, specify the value <em>now</em>:</p>
 <div class="highlight"><pre><span></span><code>primary [node2]: node2
-Candidate [&#39;node1&#39;, &#39;node3&#39;] []: node1
+Candidate ['node1', 'node3'] []: node1
 When should the switchover take place (e.g. 2021-09-23T15:56 )  [now]: now
 Current cluster topology
 + Cluster: stampede1 (7011110722654005156) -----------+
@@ -4368,7 +4373,7 @@ Current cluster topology
 | node3  | node3 | Replica | stopped |    |   unknown |
 +--------+-------+---------+---------+----+-----------+
 Are you sure you want to switchover cluster stampede1, demoting current primary node2? [y/N]: y
-2021-09-23 14:56:40.54009 Successfully switched over to &quot;node1&quot;
+2021-09-23 14:56:40.54009 Successfully switched over to "node1"
 + Cluster: stampede1 (7011110722654005156) -----------+
 | Member | Host  | Role    | State   | TL | Lag in MB |
 +--------+-------+---------+---------+----+-----------+
@@ -4474,7 +4479,7 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2025 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
+ <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2026 — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
     Made with
@@ -4497,12 +4502,12 @@ Are you sure you want to switchover cluster stampede1, demoting current primary 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
