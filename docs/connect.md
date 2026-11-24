@@ -17,11 +17,11 @@ By default, the `postgres` user and the `postgres` database are created in Postg
     $ psql
     ```
 
-    <i info>:material-information: Hint:</i> You can connect to `psql` as the `postgres` user in one go: 
-    
-    ```{.bash data-prompt="$"}
-    $ sudo su - postgres -c psql
-    ```
+<i info>:material-information: Hint:</i> You can connect to `psql` as the `postgres` user in one go:
+
+```{.bash data-prompt="$"}
+$ sudo su - postgres -c psql
+```
 
 
 ## Basic `psql` commands
