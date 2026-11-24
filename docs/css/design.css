@@ -283,7 +283,6 @@
     border-radius: 0.15em;
     white-space: pre-wrap;   /* Ensure long lines wrap */
 }
-.md-typeset .highlight code span,
 .md-typeset code,
 .md-typeset kbd,
 .md-typeset pre {
