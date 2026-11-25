@@ -1,7 +1,7 @@
 # MkDocs configuration
 
 site_name: Percona Distribution for PostgreSQL
-site_description: Documentation
+site_description: "Percona Distribution for PostgreSQL 14, a tested suite of PostgreSQL with open source extensions for high availability, backups, security and monitoring, with installation, upgrade and operations guides"
 site_author: Percona LLC
 copyright: Percona LLC, &#169; 2026
 
