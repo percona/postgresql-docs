@@ -127,10 +127,16 @@ where:
     To connect from an application running on the host machine itself, start the database container with the `-p` option (`-p host-port:container-port`):
 
     ```{.bash data-prompt="$"}
-    docker run --name container-name -e POSTGRES_PASSWORD=secret -p 5432:5432 -d percona/percona-distribution-postgresql:{{dockertag}}
+    docker run --name container-name -e POSTGRES_PASSWORD=secret -p 127.0.0.1:5432:5432 -d percona/percona-distribution-postgresql:{{dockertag}}
     ```
 
     Then, from your application, connect to `localhost` on the host port, for example `localhost:5432`.
+
+    If port 5432 is already in use on the host machine, specify a different host port, for example `-p 127.0.0.1:5433:5432`, and connect to `localhost:5433`.
+
+!!! note
+
+    Binding the port to `127.0.0.1` keeps the database unreachable from other machines on the network.
 
 ## Connect to Percona Distribution for PostgreSQL from the `psql` command line client
 
