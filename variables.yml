@@ -3,8 +3,12 @@
 
 release: 'release-notes-v19.0.1'
 dockertag: '19.0'
+dockerupgradetag: '19.0-18.7-17.12-16.16-15.20-14.25-1'
 pgsubversion: '19.0'
 pgversion: '19'
+pgversionprev: '18'
+pgversionprevupgrade1: '18.6'
+pgversionprevupgrade1: '18.7'
 pspgversion: '19.0.1'
 pgsmversion: '2.4.1'
 pgbouncerversion: '1.26.1'
