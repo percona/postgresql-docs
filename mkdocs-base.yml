@@ -1,7 +1,7 @@
 # MkDocs configuration for  builds with Material theme
 
 site_name: Percona Distribution for PostgreSQL
-site_description: Documentation
+site_description: "Percona Distribution for PostgreSQL 16, a tested suite of PostgreSQL with open source extensions for high availability, backups, security and monitoring, with installation, upgrade and operations guides"
 site_author: Percona LLC
 copyright:  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2026 — <a href="#__consent">Cookie Consent</a>
 
