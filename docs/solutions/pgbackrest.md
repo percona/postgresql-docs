@@ -67,36 +67,23 @@ Do the following steps on the `backup` node.
         ```
         echo "
         [global] 
-    
         # Server repo details
-        repo1-path=/var/lib/pgbackrest 
+        repo1-path=/var/lib/pgbackrest
+        # Bundle small files together and store only the changed parts of files in differential and incremental backups.
+        repo1-bundle=y
+        repo1-block=y
     
-        ### Retention ###
-        #  - repo1-retention-archive-type
-        #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
-        repo1-retention-archive-type=full 
-    
-        # repo1-retention-archive
-        #  - Number of backups worth of continuous WAL to retain
-        #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
-        #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
-        # repo1-retention-archive=2 
-    
-        # repo1-retention-full
-        #  - Full backup retention count/time.
-        #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
-        #  - When the option is not defined a warning will be issued. 
-        #  - If indefinite retention is desired then set the option to the max value. 
-        repo1-retention-full=4 
+        # Retention: number of full backups to keep.
+        # pgBackRest removes the WAL archives that are no longer needed when it expires the backups.
+        repo1-retention-full=4
     
         # Server general options
-        # process-max depends on the number of CPU resources your server has.
-        # The recommended value should equal or be less than the number of CPUs.
-        # While more processes can speed up backups, they will also consume additional system resources.
+        # Number of parallel processes for backup. Set it to the number of CPUs of the server, or less.
         process-max=4
+        # Use Zstandard compression, which is much faster than the default gzip with a similar compression ratio.
+        compress-type=zst
         log-level-console=info
-        #log-level-file=debug
-        log-level-file=info
+        log-level-file=detail
         start-fast=y
         delta=y
         backup-standby=y 
@@ -152,36 +139,23 @@ Do the following steps on the `backup` node.
         ```
         echo "
         [global] 
-    
         # Server repo details
-        repo1-path=/var/lib/pgbackrest 
+        repo1-path=/var/lib/pgbackrest
+        # Bundle small files together and store only the changed parts of files in differential and incremental backups.
+        repo1-bundle=y
+        repo1-block=y
     
-        ### Retention ###
-        #  - repo1-retention-archive-type
-        #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
-        repo1-retention-archive-type=full 
-    
-        # repo1-retention-archive
-        #  - Number of backups worth of continuous WAL to retain
-        #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
-        #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
-        # repo1-retention-archive=2 
-    
-        # repo1-retention-full
-        #  - Full backup retention count/time.
-        #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
-        #  - When the option is not defined a warning will be issued. 
-        #  - If indefinite retention is desired then set the option to the max value. 
-        repo1-retention-full=4 
+        # Retention: number of full backups to keep.
+        # pgBackRest removes the WAL archives that are no longer needed when it expires the backups.
+        repo1-retention-full=4
     
         # Server general options
-        # process-max depends on the number of CPU resources your server has.
-        # The recommended value should equal or be less than the number of CPUs.
-        # While more processes can speed up backups, they will also consume additional system resources.
+        # Number of parallel processes for backup. Set it to the number of CPUs of the server, or less.
         process-max=4
+        # Use Zstandard compression, which is much faster than the default gzip with a similar compression ratio.
+        compress-type=zst
         log-level-console=info
-        #log-level-file=debug
-        log-level-file=info
+        log-level-file=detail
         start-fast=y
         delta=y
         backup-standby=y 
@@ -234,6 +208,7 @@ Do the following steps on the `backup` node.
 
     Where:
 
+    * `repo1-retention-full` specifies how many full backups to keep. When a full backup expires, the differential and incremental backups that depend on it are removed too, together with the WAL archives older than the oldest remaining full backup. A new full backup must complete before the oldest one expires, so plan the disk space for one more full backup than this value. See the [Retention :octicons-link-external-16:](https://pgbackrest.org/user-guide.html#retention) section of the pgBackRest user guide for details.
     * `pgX-host` specifies the hostname of the PostgreSQL node
     * `pgX-host-port` specifies the port used by the pgBackRest server daemon on that node. The default pgBackRest server port is `8432`
     * `pgX-port` specifies the PostgreSQL server port (default `5432`)
@@ -395,9 +370,15 @@ Run the following commands on `node1`, `node2`, and `node3`.
         repo1-host-ca-file=${CA_PATH}/ca.crt
     
         # general options
-        process-max=6
+        # Number of parallel processes for restore and archive-get. Set it to the number of CPUs of the server, or less.
+        process-max=4
+        # Compress the archived WAL files with Zstandard, as on the backup server.
+        compress-type=zst
         log-level-console=info
-        log-level-file=debug
+        log-level-file=detail
+        # Archive and restore WAL files asynchronously, to improve throughput.
+        archive-async=y
+        spool-path=/var/spool/pgbackrest
     
         # tls server options
         tls-server-address=*
@@ -406,6 +387,12 @@ Run the following commands on `node1`, `node2`, and `node3`.
         tls-server-ca-file=${CA_PATH}/ca.crt
         tls-server-auth=${SRV_NAME}=cluster_1
     
+        # Only log warnings and errors from archive-push to the console, to keep the PostgreSQL logs readable.
+        [global:archive-push]
+        log-level-console=warn
+        # Number of parallel processes for archive-push. Start with 2, so that archiving doesn't affect the database.
+        process-max=2
+
         [cluster_1]
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         " | sudo tee /etc/pgbackrest.conf
@@ -424,9 +411,15 @@ Run the following commands on `node1`, `node2`, and `node3`.
         repo1-host-ca-file=${CA_PATH}/ca.crt
     
         # general options
-        process-max=6
+        # Number of parallel processes for restore and archive-get. Set it to the number of CPUs of the server, or less.
+        process-max=4
+        # Compress the archived WAL files with Zstandard, as on the backup server.
+        compress-type=zst
         log-level-console=info
-        log-level-file=debug
+        log-level-file=detail
+        # Archive and restore WAL files asynchronously, to improve throughput.
+        archive-async=y
+        spool-path=/var/spool/pgbackrest
     
         # tls server options
         tls-server-address=*
@@ -435,10 +428,25 @@ Run the following commands on `node1`, `node2`, and `node3`.
         tls-server-ca-file=${CA_PATH}/ca.crt
         tls-server-auth=${SRV_NAME}=cluster_1
     
+        # Only log warnings and errors from archive-push to the console, to keep the PostgreSQL logs readable.
+        [global:archive-push]
+        log-level-console=warn
+        # Number of parallel processes for archive-push. Start with 2, so that archiving doesn't affect the database.
+        process-max=2
+
         [cluster_1]
         pg1-path=/var/lib/pgsql/{{pgversion}}/data
         " | sudo tee /etc/pgbackrest.conf
         ```
+
+    The `archive-async` option enables asynchronous operation for the `archive-push` and `archive-get` commands. `pgBackRest` stores transient data for these commands in the `spool-path` directory. This directory is usually created during pgBackRest's installation process. If it's not there already, create it as follows:
+
+    ```{.bash data-prompt="$"}
+    $ sudo mkdir -p -m 750 /var/spool/pgbackrest
+    $ sudo chown postgres:postgres /var/spool/pgbackrest
+    ```
+
+    The asynchronous processes log their activity to the `/var/log/pgbackrest/cluster_1-archive-push-async.log` and `/var/log/pgbackrest/cluster_1-archive-get-async.log` files.
 
 7. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
 
