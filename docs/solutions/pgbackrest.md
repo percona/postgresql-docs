@@ -52,51 +52,33 @@ Do the following steps on the `backup` node.
     $ sudo chown postgres:postgres /var/lib/pgbackrest
     ```
 
-3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but some systems continue to use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. If the former is not present in your system, create the latter.
+    !!! note
+        The `pgBackRest` documentation recommends a dedicated system user to own the repository. This guide uses the `postgres` user, because the Percona packages create the `pgBackRest` directories and the `pgbackrest` service for this user.
 
-    Go to the file's parent directory (either `cd /etc/` or `cd /etc/pgbackrest/`), and make a backup copy of it:
-
-    ```{.bash data-prompt="$"}
-    $ sudo cp pgbackrest.conf pgbackrest.conf.orig
-    ```
-
-4. Then use the following command to create a basic configuration file using the environment variables we created in a previous step. This example command adds the configuration file at the path `/etc/pgbackrest.conf`.  Make sure to specify the correct path for the configuration file on your system:
+3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but the packages still use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. Use the following command to replace its content, using the environment variables we created in a previous step:
 
     === ":material-debian: On Debian/Ubuntu"
 
         ```
         echo "
         [global] 
-    
         # Server repo details
-        repo1-path=/var/lib/pgbackrest 
+        repo1-path=/var/lib/pgbackrest
+        # Bundle small files together and store only the changed parts of files in differential and incremental backups.
+        repo1-bundle=y
+        repo1-block=y
     
-        ### Retention ###
-        #  - repo1-retention-archive-type
-        #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
-        repo1-retention-archive-type=full 
-    
-        # repo1-retention-archive
-        #  - Number of backups worth of continuous WAL to retain
-        #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
-        #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
-        # repo1-retention-archive=2 
-    
-        # repo1-retention-full
-        #  - Full backup retention count/time.
-        #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
-        #  - When the option is not defined a warning will be issued. 
-        #  - If indefinite retention is desired then set the option to the max value. 
-        repo1-retention-full=4 
+        # Retention: number of full backups to keep.
+        # pgBackRest removes the WAL archives that are no longer needed when it expires the backups.
+        repo1-retention-full=4
     
         # Server general options
-        # process-max depends on the number of CPU resources your server has.
-        # The recommended value should equal or be less than the number of CPUs.
-        # While more processes can speed up backups, they will also consume additional system resources.
+        # Number of parallel processes for backup. Set it to the number of CPUs of the server, or less.
         process-max=4
+        # Use Zstandard compression, which is much faster than the default gzip with a similar compression ratio.
+        compress-type=zst
         log-level-console=info
-        #log-level-file=debug
-        log-level-file=info
+        log-level-file=detail
         start-fast=y
         delta=y
         backup-standby=y 
@@ -152,36 +134,23 @@ Do the following steps on the `backup` node.
         ```
         echo "
         [global] 
-    
         # Server repo details
-        repo1-path=/var/lib/pgbackrest 
+        repo1-path=/var/lib/pgbackrest
+        # Bundle small files together and store only the changed parts of files in differential and incremental backups.
+        repo1-bundle=y
+        repo1-block=y
     
-        ### Retention ###
-        #  - repo1-retention-archive-type
-        #  - If set to full pgBackRest will keep archive logs for the number of full backups defined by repo-retention-archive
-        repo1-retention-archive-type=full 
-    
-        # repo1-retention-archive
-        #  - Number of backups worth of continuous WAL to retain
-        #  - NOTE: WAL segments required to make a backup consistent are always retained until the backup is expired regardless of how this option is configured
-        #  - If this value is not set and repo-retention-full-type is count (default), then the archive to expire will default to the repo-retention-full
-        # repo1-retention-archive=2 
-    
-        # repo1-retention-full
-        #  - Full backup retention count/time.
-        #  - When a full backup expires, all differential and incremental backups associated with the full backup will also expire. 
-        #  - When the option is not defined a warning will be issued. 
-        #  - If indefinite retention is desired then set the option to the max value. 
-        repo1-retention-full=4 
+        # Retention: number of full backups to keep.
+        # pgBackRest removes the WAL archives that are no longer needed when it expires the backups.
+        repo1-retention-full=4
     
         # Server general options
-        # process-max depends on the number of CPU resources your server has.
-        # The recommended value should equal or be less than the number of CPUs.
-        # While more processes can speed up backups, they will also consume additional system resources.
+        # Number of parallel processes for backup. Set it to the number of CPUs of the server, or less.
         process-max=4
+        # Use Zstandard compression, which is much faster than the default gzip with a similar compression ratio.
+        compress-type=zst
         log-level-console=info
-        #log-level-file=debug
-        log-level-file=info
+        log-level-file=detail
         start-fast=y
         delta=y
         backup-standby=y 
@@ -202,7 +171,7 @@ Do the following steps on the `backup` node.
         pg1-host=${NODE1_NAME}
         pg1-host-port=8432
         pg1-port=5432
-        pg1-path=/var/lib/postgresql/{{pgversion}}/main
+        pg1-path=/var/lib/pgsql/{{pgversion}}/data
         pg1-host-type=tls
         pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
         pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -212,7 +181,7 @@ Do the following steps on the `backup` node.
         pg2-host=${NODE2_NAME}
         pg2-host-port=8432
         pg2-port=5432
-        pg2-path=/var/lib/postgresql/{{pgversion}}/main
+        pg2-path=/var/lib/pgsql/{{pgversion}}/data
         pg2-host-type=tls
         pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
         pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -222,7 +191,7 @@ Do the following steps on the `backup` node.
         pg3-host=${NODE3_NAME}
         pg3-host-port=8432
         pg3-port=5432
-        pg3-path=/var/lib/postgresql/{{pgversion}}/main
+        pg3-path=/var/lib/pgsql/{{pgversion}}/data
         pg3-host-type=tls
         pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
         pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -234,6 +203,7 @@ Do the following steps on the `backup` node.
 
     Where:
 
+    * `repo1-retention-full` specifies how many full backups to keep. When a full backup expires, the differential and incremental backups that depend on it are removed too, together with the WAL archives older than the oldest remaining full backup. A new full backup must complete before the oldest one expires, so plan the disk space for one more full backup than this value. See the [Retention :octicons-link-external-16:](https://pgbackrest.org/user-guide.html#retention) section of the pgBackRest user guide for details.
     * `pgX-host` specifies the hostname of the PostgreSQL node
     * `pgX-host-port` specifies the port used by the pgBackRest server daemon on that node. The default pgBackRest server port is `8432`
     * `pgX-port` specifies the PostgreSQL server port (default `5432`)
@@ -291,6 +261,9 @@ Run the following commands as a root user or with `sudo` privileges
     $ sudo openssl x509 -req -in ${CA_PATH}/${NODE3_NAME}.csr -days 365 -CA ${CA_PATH}/ca.crt -CAkey ${CA_PATH}/ca.key -CAcreateserial -out ${CA_PATH}/${NODE3_NAME}.crt
     ```
 
+    !!! warning
+        The CA and the certificates created here are valid for 365 days. When they expire, `pgBackRest` can no longer connect between the hosts, so WAL archiving and backups stop. Adjust the `-days` value to match your security policy and renew the certificates before they expire.
+
 7. Remove temporary files, set ownership of the remaining files to the `postgres` user, and restrict their access:
 
     ```{.bash data-prompt="$"}
@@ -299,60 +272,45 @@ Run the following commands as a root user or with `sudo` privileges
     $ sudo chmod 0600 ${CA_PATH}/*
     ```
 
-### Create the `pgbackrest` daemon service
+### Start the `pgBackRest` service
 
-1. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+The Percona packages provide a `systemd` service that runs the `pgBackRest` TLS server.
 
-    ```ini title="/etc/systemd/system/pgbackrest.service"
-    [Unit]
-    Description=pgBackRest Server
-    After=network.target
-
-    [Service]
-    Type=simple
-    User=postgres
-    Restart=always
-    RestartSec=1
-    ExecStart=/usr/bin/pgbackrest server
-    #ExecStartPost=/bin/sleep 3
-    #ExecStartPost=/bin/bash -c "[ ! -z $MAINPID ]"
-    ExecReload=/bin/kill -HUP $MAINPID
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-
-2. Make `systemd` aware of the new service:
+1. Check that the service is available:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl daemon-reload
+    $ systemctl list-unit-files '*pgbackrest*'
     ```
 
-3. Enable `pgBackRest`:
+    The service is named `percona-pgbackrest` on Debian and Ubuntu, and `pgbackrest` on RHEL and derivatives. If it is not available on your system, create it as described in the [Setup TLS Server :octicons-link-external-16:](https://pgbackrest.org/user-guide.html#repo-host/setup-tls) section of the `pgBackRest` user guide.
+
+2. Enable and start the service:
+
+    === ":material-debian: On Debian/Ubuntu"
+
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now percona-pgbackrest
+        ```
+
+    === ":material-redhat: On RHEL/derivatives"
+
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now pgbackrest
+        ```
+
+3. Check that the `pgBackRest` server is running. It listens on port `8432` by default:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now pgbackrest.service
+    $ sudo -iu postgres pgbackrest server-ping
     ```
 
 ## Configure database servers
 
 Run the following commands on `node1`, `node2`, and `node3`.
 
-1. Install `pgBackRest` package
+Make sure that `pgBackRest` is installed on these nodes. If it isn't, [install it](#install-pgbackrest) first.
 
-    === ":material-debian: On Debian/Ubuntu"
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install percona-pgbackrest
-        ```
-
-    === ":material-redhat: On RHEL/derivatives"
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
-        ```
-
-2. Export environment variables to simplify the config file creation:
+1. Export environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
     $ export NODE_NAME=`hostname -f`
@@ -360,27 +318,31 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
 
-3. Create the certificates folder:
+2. Create the certificates folder:
 
     ```{.bash data-prompt="$"}
     $ sudo mkdir -p ${CA_PATH}
     ```
 
-4. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
+3. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
 
     ```{.bash data-prompt="$"}
     $ sudo scp ${SRV_NAME}:${CA_PATH}/{$NODE_NAME.crt,$NODE_NAME.key,ca.crt} ${CA_PATH}/
     $ sudo chown postgres:postgres -R ${CA_PATH}
-    $ sudo chmod 0600 ${CA_PATH}/* 
+    $ sudo chmod 0600 ${CA_PATH}/*
     ```
 
-5. Make a copy of the configuration file. The path to it can be either `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf`:
+    The `scp` command requires SSH access from the node to the backup server. You can use any other secure method to transfer the files.
+
+    Once the files are copied to all the nodes, the backup server no longer needs the keys of the nodes. Remove them by running the following command on the `backup` node:
 
     ```{.bash data-prompt="$"}
-    $ sudo cp pgbackrest.conf pgbackrest.conf.orig
+    $ sudo rm -f ${CA_PATH}/${NODE1_NAME}.key ${CA_PATH}/${NODE2_NAME}.key ${CA_PATH}/${NODE3_NAME}.key
     ```
 
-6. Create the configuration file. This example command adds the configuration file at the path `/etc/pgbackrest.conf`. Make sure to specify the correct path for the configuration file on your system:
+    The CA key (`ca.key`) is only needed to sign new certificates. Move it from the backup server to a safe location.
+
+4. Replace the content of the `/etc/pgbackrest.conf` configuration file:
 
     === ":material-debian: On Debian/Ubuntu"
 
@@ -388,16 +350,21 @@ Run the following commands on `node1`, `node2`, and `node3`.
         echo "
         [global]
         repo1-host=${SRV_NAME}
-        repo1-host-user=postgres
         repo1-host-type=tls
         repo1-host-cert-file=${CA_PATH}/${NODE_NAME}.crt
         repo1-host-key-file=${CA_PATH}/${NODE_NAME}.key
         repo1-host-ca-file=${CA_PATH}/ca.crt
     
         # general options
-        process-max=6
+        # Number of parallel processes for restore and archive-get. Set it to the number of CPUs of the server, or less.
+        process-max=4
+        # Compress the archived WAL files with Zstandard, as on the backup server.
+        compress-type=zst
         log-level-console=info
-        log-level-file=debug
+        log-level-file=detail
+        # Archive and restore WAL files asynchronously, to improve throughput.
+        archive-async=y
+        spool-path=/var/spool/pgbackrest
     
         # tls server options
         tls-server-address=*
@@ -406,6 +373,12 @@ Run the following commands on `node1`, `node2`, and `node3`.
         tls-server-ca-file=${CA_PATH}/ca.crt
         tls-server-auth=${SRV_NAME}=cluster_1
     
+        # Only log warnings and errors from archive-push to the console, to keep the PostgreSQL logs readable.
+        [global:archive-push]
+        log-level-console=warn
+        # Number of parallel processes for archive-push. Start with 2, so that archiving doesn't affect the database.
+        process-max=2
+
         [cluster_1]
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         " | sudo tee /etc/pgbackrest.conf
@@ -417,16 +390,21 @@ Run the following commands on `node1`, `node2`, and `node3`.
         echo "
         [global]
         repo1-host=${SRV_NAME}
-        repo1-host-user=postgres
         repo1-host-type=tls
         repo1-host-cert-file=${CA_PATH}/${NODE_NAME}.crt
         repo1-host-key-file=${CA_PATH}/${NODE_NAME}.key
         repo1-host-ca-file=${CA_PATH}/ca.crt
     
         # general options
-        process-max=6
+        # Number of parallel processes for restore and archive-get. Set it to the number of CPUs of the server, or less.
+        process-max=4
+        # Compress the archived WAL files with Zstandard, as on the backup server.
+        compress-type=zst
         log-level-console=info
-        log-level-file=debug
+        log-level-file=detail
+        # Archive and restore WAL files asynchronously, to improve throughput.
+        archive-async=y
+        spool-path=/var/spool/pgbackrest
     
         # tls server options
         tls-server-address=*
@@ -435,55 +413,47 @@ Run the following commands on `node1`, `node2`, and `node3`.
         tls-server-ca-file=${CA_PATH}/ca.crt
         tls-server-auth=${SRV_NAME}=cluster_1
     
+        # Only log warnings and errors from archive-push to the console, to keep the PostgreSQL logs readable.
+        [global:archive-push]
+        log-level-console=warn
+        # Number of parallel processes for archive-push. Start with 2, so that archiving doesn't affect the database.
+        process-max=2
+
         [cluster_1]
         pg1-path=/var/lib/pgsql/{{pgversion}}/data
         " | sudo tee /etc/pgbackrest.conf
         ```
 
-7. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
-
-    ```ini title="/etc/systemd/system/pgbackrest.service"
-    [Unit]
-    Description=pgBackRest Server
-    After=network.target
-
-    [Service]
-    Type=simple
-    User=postgres
-    Restart=always
-    RestartSec=1
-    ExecStart=/usr/bin/pgbackrest server
-    #ExecStartPost=/bin/sleep 3
-    #ExecStartPost=/bin/bash -c "[ ! -z $MAINPID ]"
-    ExecReload=/bin/kill -HUP $MAINPID
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-
-8. Reload `systemd` and start the service:
+    The `archive-async` option enables asynchronous operation for the `archive-push` and `archive-get` commands. `pgBackRest` stores transient data for these commands in the `spool-path` directory. This directory is usually created during pgBackRest's installation process. If it's not there already, create it as follows:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl daemon-reload
-    $ sudo systemctl enable --now pgbackrest
+    $ sudo mkdir -p -m 750 /var/spool/pgbackrest
+    $ sudo chown postgres:postgres /var/spool/pgbackrest
     ```
 
-    The pgBackRest daemon listens on port `8432` by default:
+    The asynchronous processes log their activity to the `/var/log/pgbackrest/cluster_1-archive-push-async.log` and `/var/log/pgbackrest/cluster_1-archive-get-async.log` files.
 
-    ```{.bash data-prompt="$"}
-    $ netstat -taunp | grep '8432'
-    ```
+5. Check that the `pgBackRest` service is available, as described for the [backup server](#start-the-pgbackrest-service). Then enable and start it:
 
-    ??? example "Sample output"
+    === ":material-debian: On Debian/Ubuntu"
 
-        ```{text .no-copy}
-        Active Internet connections (servers and established)
-        Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-        tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
-        tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now percona-pgbackrest
         ```
 
-9. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`:
+    === ":material-redhat: On RHEL/derivatives"
+
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now pgbackrest
+        ```
+
+6. Check that the `pgBackRest` server is running:
+
+    ```{.bash data-prompt="$"}
+    $ sudo -iu postgres pgbackrest server-ping
+    ```
+
+7. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`:
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml edit-config
@@ -491,29 +461,32 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
     This opens the editor for you.
 
-10. Change the configuration as follows:
+8. Change the configuration as follows:
 
-!!! warning
-    The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. **Do not replace your existing Patroni configuration with this example.** Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.
+    !!! warning
+        The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. **Do not replace your existing Patroni configuration with this example.** Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.
 
-    ```yaml title="/etc/patroni/patroni.yml"
+    ```yaml
     postgresql:
       parameters:
-        archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/{{pgversion}}/main/pg_wal/%f
+        archive_command: pgbackrest --stanza=cluster_1 archive-push "%p"
         archive_mode: on
         archive_timeout: 600s
       recovery_conf:
-        restore_command: pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f "%p"
-        recovery_target_timeline: latest
+        restore_command: pgbackrest --stanza=cluster_1 archive-get %f "%p"
     ```
 
-11. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
+9. Save the changes and confirm them. Patroni applies the new configuration to all nodes and reloads PostgreSQL automatically. Check the state of the cluster:
 
     ```{.bash data-prompt="$"}
-    $ patronictl -c /etc/patroni/patroni.yml restart cluster_1
+    $ patronictl -c /etc/patroni/patroni.yml list
     ```
 
-    It may take a while to reload the new configuration.
+    If a node shows a `Pending restart` flag, for example because `archive_mode` was not enabled before, restart the flagged nodes. In our example we use the `cluster_1` cluster name:
+
+    ```{.bash data-prompt="$"}
+    $ patronictl -c /etc/patroni/patroni.yml restart cluster_1 --pending
+    ```
 
     !!! note
          When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
@@ -528,22 +501,26 @@ Run the following commands on the **backup server**:
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 stanza-create
     ```
 
-2. Create a full backup
+2. Check that the configuration is correct and that WAL archiving works:
+
+    ```{.bash data-prompt="$"}
+    $ sudo -iu postgres pgbackrest --stanza=cluster_1 check
+    ```
+
+    Run the same command on the PostgreSQL nodes to verify that they can reach the repository.
+
+3. Create a full backup
 
     ```{.bash data-prompt="$"}
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 --type=full backup
     ```
 
-3. Check backup info
+    After every successful backup, `pgBackRest` automatically runs the `expire` command to remove the backups and WAL archives that are no longer needed, according to the retention settings defined in the configuration file. You don't need to remove old backups manually.
+
+4. Check backup info
 
     ```{.bash data-prompt="$"}
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 info
-    ```
-
-4. Expire (remove) a backup:
-
-    ```{.bash data-prompt="$"}
-    $ sudo -iu postgres pgbackrest --stanza=cluster_1 expire --set=<BACKUP_ID>
     ```
 
 ## Next steps

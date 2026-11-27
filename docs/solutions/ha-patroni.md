@@ -123,7 +123,7 @@ Environment variables simplify the config file creation:
     === ":material-redhat: RHEL and derivatives"
 
         ```bash
-        DATA_DIR="/var/lib/pgsql/data/"
+        DATA_DIR="/var/lib/pgsql/{{pgversion}}/data"
         PG_BIN_DIR="/usr/pgsql-{{pgversion}}/bin"
         ```
     
