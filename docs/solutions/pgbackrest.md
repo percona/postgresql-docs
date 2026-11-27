@@ -52,15 +52,10 @@ Do the following steps on the `backup` node.
     $ sudo chown postgres:postgres /var/lib/pgbackrest
     ```
 
-3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but some systems continue to use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. If the former is not present in your system, create the latter.
+    !!! note
+        The `pgBackRest` documentation recommends a dedicated system user to own the repository. This guide uses the `postgres` user, because the Percona packages create the `pgBackRest` directories and the `pgbackrest` service for this user.
 
-    Go to the file's parent directory (either `cd /etc/` or `cd /etc/pgbackrest/`), and make a backup copy of it:
-
-    ```{.bash data-prompt="$"}
-    $ sudo cp pgbackrest.conf pgbackrest.conf.orig
-    ```
-
-4. Then use the following command to create a basic configuration file using the environment variables we created in a previous step. This example command adds the configuration file at the path `/etc/pgbackrest.conf`.  Make sure to specify the correct path for the configuration file on your system:
+3. The default `pgBackRest` configuration file location is `/etc/pgbackrest/pgbackrest.conf`, but the packages still use the old path, `/etc/pgbackrest.conf`, which remains a valid alternative. Use the following command to replace its content, using the environment variables we created in a previous step:
 
     === ":material-debian: On Debian/Ubuntu"
 
@@ -266,6 +261,9 @@ Run the following commands as a root user or with `sudo` privileges
     $ sudo openssl x509 -req -in ${CA_PATH}/${NODE3_NAME}.csr -days 365 -CA ${CA_PATH}/ca.crt -CAkey ${CA_PATH}/ca.key -CAcreateserial -out ${CA_PATH}/${NODE3_NAME}.crt
     ```
 
+    !!! warning
+        The CA and the certificates created here are valid for 365 days. When they expire, `pgBackRest` can no longer connect between the hosts, so WAL archiving and backups stop. Adjust the `-days` value to match your security policy and renew the certificates before they expire.
+
 7. Remove temporary files, set ownership of the remaining files to the `postgres` user, and restrict their access:
 
     ```{.bash data-prompt="$"}
@@ -274,60 +272,45 @@ Run the following commands as a root user or with `sudo` privileges
     $ sudo chmod 0600 ${CA_PATH}/*
     ```
 
-### Create the `pgbackrest` daemon service
+### Start the `pgBackRest` service
 
-1. Create the `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+The Percona packages provide a `systemd` service that runs the `pgBackRest` TLS server.
 
-    ```ini title="/etc/systemd/system/pgbackrest.service"
-    [Unit]
-    Description=pgBackRest Server
-    After=network.target
-
-    [Service]
-    Type=simple
-    User=postgres
-    Restart=always
-    RestartSec=1
-    ExecStart=/usr/bin/pgbackrest server
-    #ExecStartPost=/bin/sleep 3
-    #ExecStartPost=/bin/bash -c "[ ! -z $MAINPID ]"
-    ExecReload=/bin/kill -HUP $MAINPID
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-
-2. Make `systemd` aware of the new service:
+1. Check that the service is available:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl daemon-reload
+    $ systemctl list-unit-files '*pgbackrest*'
     ```
 
-3. Enable `pgBackRest`:
+    The service is named `percona-pgbackrest` on Debian and Ubuntu, and `pgbackrest` on RHEL and derivatives. If it is not available on your system, create it as described in the [Setup TLS Server :octicons-link-external-16:](https://pgbackrest.org/user-guide.html#repo-host/setup-tls) section of the `pgBackRest` user guide.
+
+2. Enable and start the service:
+
+    === ":material-debian: On Debian/Ubuntu"
+
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now percona-pgbackrest
+        ```
+
+    === ":material-redhat: On RHEL/derivatives"
+
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now pgbackrest
+        ```
+
+3. Check that the `pgBackRest` server is running. It listens on port `8432` by default:
 
     ```{.bash data-prompt="$"}
-    $ sudo systemctl enable --now pgbackrest.service
+    $ sudo -iu postgres pgbackrest server-ping
     ```
 
 ## Configure database servers
 
 Run the following commands on `node1`, `node2`, and `node3`.
 
-1. Install `pgBackRest` package
+Make sure that `pgBackRest` is installed on these nodes. If it isn't, [install it](#install-pgbackrest) first.
 
-    === ":material-debian: On Debian/Ubuntu"
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt install percona-pgbackrest
-        ```
-
-    === ":material-redhat: On RHEL/derivatives"
-
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-pgbackrest
-        ```
-
-2. Export environment variables to simplify the config file creation:
+1. Export environment variables to simplify the config file creation:
 
     ```{.bash data-prompt="$"}
     $ export NODE_NAME=`hostname -f`
@@ -335,27 +318,31 @@ Run the following commands on `node1`, `node2`, and `node3`.
     $ export CA_PATH="/etc/ssl/certs/pg_ha"
     ```
 
-3. Create the certificates folder:
+2. Create the certificates folder:
 
     ```{.bash data-prompt="$"}
     $ sudo mkdir -p ${CA_PATH}
     ```
 
-4. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
+3. Copy the `.crt`, `.key` certificate files and the `ca.crt` file from the backup server where they were created to every respective node. Then change the ownership to the `postgres` user and restrict their access. Use the following commands to achieve this:
 
     ```{.bash data-prompt="$"}
     $ sudo scp ${SRV_NAME}:${CA_PATH}/{$NODE_NAME.crt,$NODE_NAME.key,ca.crt} ${CA_PATH}/
     $ sudo chown postgres:postgres -R ${CA_PATH}
-    $ sudo chmod 0600 ${CA_PATH}/* 
+    $ sudo chmod 0600 ${CA_PATH}/*
     ```
 
-5. Make a copy of the configuration file. The path to it can be either `/etc/pgbackrest/pgbackrest.conf` or `/etc/pgbackrest.conf`:
+    The `scp` command requires SSH access from the node to the backup server. You can use any other secure method to transfer the files.
+
+    Once the files are copied to all the nodes, the backup server no longer needs the keys of the nodes. Remove them by running the following command on the `backup` node:
 
     ```{.bash data-prompt="$"}
-    $ sudo cp pgbackrest.conf pgbackrest.conf.orig
+    $ sudo rm -f ${CA_PATH}/${NODE1_NAME}.key ${CA_PATH}/${NODE2_NAME}.key ${CA_PATH}/${NODE3_NAME}.key
     ```
 
-6. Create the configuration file. This example command adds the configuration file at the path `/etc/pgbackrest.conf`. Make sure to specify the correct path for the configuration file on your system:
+    The CA key (`ca.key`) is only needed to sign new certificates. Move it from the backup server to a safe location.
+
+4. Replace the content of the `/etc/pgbackrest.conf` configuration file:
 
     === ":material-debian: On Debian/Ubuntu"
 
@@ -363,7 +350,6 @@ Run the following commands on `node1`, `node2`, and `node3`.
         echo "
         [global]
         repo1-host=${SRV_NAME}
-        repo1-host-user=postgres
         repo1-host-type=tls
         repo1-host-cert-file=${CA_PATH}/${NODE_NAME}.crt
         repo1-host-key-file=${CA_PATH}/${NODE_NAME}.key
@@ -404,7 +390,6 @@ Run the following commands on `node1`, `node2`, and `node3`.
         echo "
         [global]
         repo1-host=${SRV_NAME}
-        repo1-host-user=postgres
         repo1-host-type=tls
         repo1-host-cert-file=${CA_PATH}/${NODE_NAME}.crt
         repo1-host-key-file=${CA_PATH}/${NODE_NAME}.key
@@ -448,50 +433,27 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
     The asynchronous processes log their activity to the `/var/log/pgbackrest/cluster_1-archive-push-async.log` and `/var/log/pgbackrest/cluster_1-archive-get-async.log` files.
 
-7. Create the pgbackrest `systemd` unit file at the path `/etc/systemd/system/pgbackrest.service`
+5. Check that the `pgBackRest` service is available, as described for the [backup server](#start-the-pgbackrest-service). Then enable and start it:
 
-    ```ini title="/etc/systemd/system/pgbackrest.service"
-    [Unit]
-    Description=pgBackRest Server
-    After=network.target
+    === ":material-debian: On Debian/Ubuntu"
 
-    [Service]
-    Type=simple
-    User=postgres
-    Restart=always
-    RestartSec=1
-    ExecStart=/usr/bin/pgbackrest server
-    #ExecStartPost=/bin/sleep 3
-    #ExecStartPost=/bin/bash -c "[ ! -z $MAINPID ]"
-    ExecReload=/bin/kill -HUP $MAINPID
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-
-8. Reload `systemd` and start the service:
-
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl daemon-reload
-    $ sudo systemctl enable --now pgbackrest
-    ```
-
-    The pgBackRest daemon listens on port `8432` by default:
-
-    ```{.bash data-prompt="$"}
-    $ netstat -taunp | grep '8432'
-    ```
-
-    ??? example "Sample output"
-
-        ```{text .no-copy}
-        Active Internet connections (servers and established)
-        Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-        tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
-        tcp        0      0 0.0.0.0:8432            0.0.0.0:*               LISTEN      40224/pgbackrest
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now percona-pgbackrest
         ```
 
-9. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`:
+    === ":material-redhat: On RHEL/derivatives"
+
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl enable --now pgbackrest
+        ```
+
+6. Check that the `pgBackRest` server is running:
+
+    ```{.bash data-prompt="$"}
+    $ sudo -iu postgres pgbackrest server-ping
+    ```
+
+7. If you are using Patroni, change its configuration to use `pgBackRest` for archiving and restoring WAL files. Run this command only on one node, for example, on `node1`:
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml edit-config
@@ -499,7 +461,7 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
     This opens the editor for you.
 
-10. Change the configuration as follows:
+8. Change the configuration as follows:
 
     !!! warning
         The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. **Do not replace your existing Patroni configuration with this example.** Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.
@@ -512,10 +474,9 @@ Run the following commands on `node1`, `node2`, and `node3`.
         archive_timeout: 600s
       recovery_conf:
         restore_command: pgbackrest --stanza=cluster_1 archive-get %f "%p"
-        recovery_target_timeline: latest
     ```
 
-11. Save the changes and confirm them. Patroni applies the new configuration to all nodes and reloads PostgreSQL automatically. Check the state of the cluster:
+9. Save the changes and confirm them. Patroni applies the new configuration to all nodes and reloads PostgreSQL automatically. Check the state of the cluster:
 
     ```{.bash data-prompt="$"}
     $ patronictl -c /etc/patroni/patroni.yml list
