@@ -90,7 +90,10 @@ Do the following steps on the `backup` node.
         repo1-retention-full=4 
     
         # Server general options
-        process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
+        # process-max depends on the number of CPU resources your server has.
+        # The recommended value should equal or be less than the number of CPUs.
+        # While more processes can speed up backups, they will also consume additional system resources.
+        process-max=4
         log-level-console=info
         #log-level-file=debug
         log-level-file=info
@@ -116,8 +119,8 @@ Do the following steps on the `backup` node.
         pg1-port=5432
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         pg1-host-type=tls
-        pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
-        pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
+        pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
+        pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
         pg1-host-ca-file=${CA_PATH}/ca.crt
         pg1-socket-path=/var/run/postgresql 
      
@@ -126,8 +129,8 @@ Do the following steps on the `backup` node.
         pg2-port=5432
         pg2-path=/var/lib/postgresql/{{pgversion}}/main
         pg2-host-type=tls
-        pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
-        pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
+        pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
+        pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
         pg2-host-ca-file=${CA_PATH}/ca.crt
         pg2-socket-path=/var/run/postgresql 
     
@@ -136,8 +139,8 @@ Do the following steps on the `backup` node.
         pg3-port=5432
         pg3-path=/var/lib/postgresql/{{pgversion}}/main
         pg3-host-type=tls
-        pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
-        pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
+        pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
+        pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
         pg3-host-ca-file=${CA_PATH}/ca.crt
         pg3-socket-path=/var/run/postgresql
         
@@ -172,7 +175,10 @@ Do the following steps on the `backup` node.
         repo1-retention-full=4 
     
         # Server general options
-        process-max=4  # This depends on the number of CPU resources your server has. The recommended value should equal or be less than the number of CPUs. While more processes can speed up backups, they will also consume additional system resources.
+        # process-max depends on the number of CPU resources your server has.
+        # The recommended value should equal or be less than the number of CPUs.
+        # While more processes can speed up backups, they will also consume additional system resources.
+        process-max=4
         log-level-console=info
         #log-level-file=debug
         log-level-file=info
@@ -198,8 +204,8 @@ Do the following steps on the `backup` node.
         pg1-port=5432
         pg1-path=/var/lib/postgresql/{{pgversion}}/main
         pg1-host-type=tls
-        pg1-host-cert-file=${CA_PATH}/${NODE1_NAME}.crt
-        pg1-host-key-file=${CA_PATH}/${NODE1_NAME}.key
+        pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
+        pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
         pg1-host-ca-file=${CA_PATH}/ca.crt
         pg1-socket-path=/var/run/postgresql 
      
@@ -208,8 +214,8 @@ Do the following steps on the `backup` node.
         pg2-port=5432
         pg2-path=/var/lib/postgresql/{{pgversion}}/main
         pg2-host-type=tls
-        pg2-host-cert-file=${CA_PATH}/${NODE2_NAME}.crt
-        pg2-host-key-file=${CA_PATH}/${NODE2_NAME}.key
+        pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
+        pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
         pg2-host-ca-file=${CA_PATH}/ca.crt
         pg2-socket-path=/var/run/postgresql 
     
@@ -218,8 +224,8 @@ Do the following steps on the `backup` node.
         pg3-port=5432
         pg3-path=/var/lib/postgresql/{{pgversion}}/main
         pg3-host-type=tls
-        pg3-host-cert-file=${CA_PATH}/${NODE3_NAME}.crt
-        pg3-host-key-file=${CA_PATH}/${NODE3_NAME}.key
+        pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
+        pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
         pg3-host-ca-file=${CA_PATH}/ca.crt
         pg3-socket-path=/var/run/postgresql
         
