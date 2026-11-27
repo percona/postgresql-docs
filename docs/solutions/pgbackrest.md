@@ -202,7 +202,7 @@ Do the following steps on the `backup` node.
         pg1-host=${NODE1_NAME}
         pg1-host-port=8432
         pg1-port=5432
-        pg1-path=/var/lib/postgresql/{{pgversion}}/main
+        pg1-path=/var/lib/pgsql/{{pgversion}}/data
         pg1-host-type=tls
         pg1-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
         pg1-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -212,7 +212,7 @@ Do the following steps on the `backup` node.
         pg2-host=${NODE2_NAME}
         pg2-host-port=8432
         pg2-port=5432
-        pg2-path=/var/lib/postgresql/{{pgversion}}/main
+        pg2-path=/var/lib/pgsql/{{pgversion}}/data
         pg2-host-type=tls
         pg2-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
         pg2-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -222,7 +222,7 @@ Do the following steps on the `backup` node.
         pg3-host=${NODE3_NAME}
         pg3-host-port=8432
         pg3-port=5432
-        pg3-path=/var/lib/postgresql/{{pgversion}}/main
+        pg3-path=/var/lib/pgsql/{{pgversion}}/data
         pg3-host-type=tls
         pg3-host-cert-file=${CA_PATH}/${SRV_NAME}.crt
         pg3-host-key-file=${CA_PATH}/${SRV_NAME}.key
@@ -493,27 +493,31 @@ Run the following commands on `node1`, `node2`, and `node3`.
 
 10. Change the configuration as follows:
 
-!!! warning
-    The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. **Do not replace your existing Patroni configuration with this example.** Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.
+    !!! warning
+        The following configuration is an example of PostgreSQL parameters used for pgBackRest integration. **Do not replace your existing Patroni configuration with this example.** Merge the relevant parameters into your current configuration and preserve any existing settings required for your environment.
 
-    ```yaml title="/etc/patroni/patroni.yml"
+    ```yaml
     postgresql:
       parameters:
-        archive_command: pgbackrest --stanza=cluster_1 archive-push /var/lib/postgresql/{{pgversion}}/main/pg_wal/%f
+        archive_command: pgbackrest --stanza=cluster_1 archive-push "%p"
         archive_mode: on
         archive_timeout: 600s
       recovery_conf:
-        restore_command: pgbackrest --config=/etc/pgbackrest.conf --stanza=cluster_1 archive-get %f "%p"
+        restore_command: pgbackrest --stanza=cluster_1 archive-get %f "%p"
         recovery_target_timeline: latest
     ```
 
-11. Reload the changed configurations. Provide the cluster name or the node name for the following command. In our example we use the `cluster_1` cluster name:
+11. Save the changes and confirm them. Patroni applies the new configuration to all nodes and reloads PostgreSQL automatically. Check the state of the cluster:
 
     ```{.bash data-prompt="$"}
-    $ patronictl -c /etc/patroni/patroni.yml restart cluster_1
+    $ patronictl -c /etc/patroni/patroni.yml list
     ```
 
-    It may take a while to reload the new configuration.
+    If a node shows a `Pending restart` flag, for example because `archive_mode` was not enabled before, restart the flagged nodes. In our example we use the `cluster_1` cluster name:
+
+    ```{.bash data-prompt="$"}
+    $ patronictl -c /etc/patroni/patroni.yml restart cluster_1 --pending
+    ```
 
     !!! note
          When configuring a PostgreSQL server that is not managed by Patroni to archive/restore WALs from the `pgBackRest` server, edit the server's main configuration file directly and adjust the `archive_command` and `restore_command` variables as shown above.
@@ -528,22 +532,26 @@ Run the following commands on the **backup server**:
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 stanza-create
     ```
 
-2. Create a full backup
+2. Check that the configuration is correct and that WAL archiving works:
+
+    ```{.bash data-prompt="$"}
+    $ sudo -iu postgres pgbackrest --stanza=cluster_1 check
+    ```
+
+    Run the same command on the PostgreSQL nodes to verify that they can reach the repository.
+
+3. Create a full backup
 
     ```{.bash data-prompt="$"}
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 --type=full backup
     ```
 
-3. Check backup info
+    After every successful backup, `pgBackRest` automatically runs the `expire` command to remove the backups and WAL archives that are no longer needed, according to the retention settings defined in the configuration file. You don't need to remove old backups manually.
+
+4. Check backup info
 
     ```{.bash data-prompt="$"}
     $ sudo -iu postgres pgbackrest --stanza=cluster_1 info
-    ```
-
-4. Expire (remove) a backup:
-
-    ```{.bash data-prompt="$"}
-    $ sudo -iu postgres pgbackrest --stanza=cluster_1 expire --set=<BACKUP_ID>
     ```
 
 ## Next steps
